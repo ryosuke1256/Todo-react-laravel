@@ -17,3 +17,5 @@
 ## バックエンド
 
 -   Laravel
+## DB  
+- MySQL
