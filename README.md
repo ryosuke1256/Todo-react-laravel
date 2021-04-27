@@ -11,7 +11,8 @@
 
 ## フロントエンド
 
--   React
+-   React  
+-   TypeScript  
 
 ## バックエンド
 
