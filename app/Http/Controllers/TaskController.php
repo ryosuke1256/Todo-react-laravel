@@ -8,6 +8,7 @@ use Illuminate\Http\Request;
 class TaskController extends Controller
 {
     /**
+     * api/tasks
      * 
      */
     public function index()
@@ -19,13 +20,19 @@ class TaskController extends Controller
 
     /**
      * Store a newly created resource in storage.
+     * api/tasks
+     * postメソッド
      *
      * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Http\JsonResponse
      */
     public function store(Request $request)
     {
-        //
+        //Modelクラス::create fillable書く必要がある！
+        $task = Task::create($request->all());
+        return $task 
+        ? response()->json($task,201)
+        : response()->json(['エラーです'],500);
     }
 
     /**
