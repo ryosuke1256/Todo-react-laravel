@@ -19,5 +19,12 @@ class ReportTest extends TestCase
         $response = $this->get('api/tasks');
         $response->assertStatus(200);
     }
-
+    public function testPOST()
+    {
+        $data = [
+            'title' => 'テストデータ'
+        ];
+        $response = $this->post('api/tasks',$data);
+        $response->assertStatus(201);
+    }
 }
