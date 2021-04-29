@@ -22,7 +22,7 @@ class TaskFactory extends Factory
     public function definition()
     {
         return [
-            //8〜30文字
+            //10〜30文字
             'title' => $this->faker->realText(rand(10,30)),
             //40％でtrue
             'is_done' => $this->faker->boolean(40),
