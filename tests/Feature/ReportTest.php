@@ -42,4 +42,17 @@ class ReportTest extends TestCase
         $response = $this->patchJson("api/tasks/{$task->id}",$task->toArray());
         $response->assertStatus(200);
     }
+    public function testDELETE()
+    {
+        // App\Models\Taskインスタンスを一つ作成
+        $task = Task::factory()->create();
+        
+        //変更したいidを指定してください
+        $task->id=8;
+
+        //↓残ってるとデータが変更されなかった、テストを実行するときはコメントアウト
+        dd($task);
+        $response = $this->deleteJson("api/tasks/{$task->id}");
+        $response->assertStatus(200);
+    }
 }
