@@ -5,6 +5,7 @@ namespace Tests\Feature;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Foundation\Testing\WithFaker;
 use Tests\TestCase;
+use App\Models\Task;
 
 class ReportTest extends TestCase
 {
@@ -26,5 +27,19 @@ class ReportTest extends TestCase
         ];
         $response = $this->post('api/tasks',$data);
         $response->assertStatus(201);
+    }
+    public function testPUT()
+    {
+        // App\Models\Taskインスタンスを一つ作成
+        $task = Task::factory()->create();
+        $task->title='テストデータ変更しました';
+        
+        //変更したいidを指定してください
+        $task->id=7;
+
+        //↓残ってるとデータが変更されなかった、テストを実行するときはコメントアウト
+        // dd($task);
+        $response = $this->patchJson("api/tasks/{$task->id}",$task->toArray());
+        $response->assertStatus(200);
     }
 }
