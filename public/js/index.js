@@ -2786,6 +2786,8 @@ var axios_1 = __importDefault(__webpack_require__(/*! axios */ "./node_modules/a
 
 var Title_1 = __importDefault(__webpack_require__(/*! ./components/lv2/Title */ "./resources/ts/components/lv2/Title.tsx"));
 
+var Task_1 = __importDefault(__webpack_require__(/*! ./components/lv1/Task */ "./resources/ts/components/lv1/Task.tsx"));
+
 var App = function App() {
   var _a = react_1.useState([]),
       tasks = _a[0],
@@ -2822,14 +2824,50 @@ var App = function App() {
   react_1.useEffect(function () {
     getData();
   }, []);
-  return react_1["default"].createElement(react_1["default"].Fragment, null, react_1["default"].createElement(Title_1["default"], null), react_1["default"].createElement("ul", null, tasks.map(function (task, key) {
-    return react_1["default"].createElement("li", {
+  return react_1["default"].createElement(react_1["default"].Fragment, null, react_1["default"].createElement(Title_1["default"], null), tasks.map(function (task, key) {
+    return react_1["default"].createElement(Task_1["default"], {
+      title: task.title,
       key: key
-    }, task.title);
-  })));
+    });
+  }));
 };
 
 exports.default = App;
+
+/***/ }),
+
+/***/ "./resources/ts/components/lv1/Task.tsx":
+/*!**********************************************!*\
+  !*** ./resources/ts/components/lv1/Task.tsx ***!
+  \**********************************************/
+/***/ (function(__unused_webpack_module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var __importDefault = this && this.__importDefault || function (mod) {
+  return mod && mod.__esModule ? mod : {
+    "default": mod
+  };
+};
+
+Object.defineProperty(exports, "__esModule", ({
+  value: true
+}));
+
+var react_1 = __importDefault(__webpack_require__(/*! react */ "./node_modules/react/index.js"));
+
+var Task = function Task(_a) {
+  var title = _a.title;
+  return react_1["default"].createElement("div", {
+    style: {
+      border: "1px solid",
+      marginBottom: "2px"
+    }
+  }, title);
+};
+
+exports.default = Task;
 
 /***/ }),
 
