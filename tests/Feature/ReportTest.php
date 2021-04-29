@@ -9,14 +9,15 @@ use Tests\TestCase;
 class ReportTest extends TestCase
 {
     /**
-     * A basic feature test example.
+     * api/tasks
+     * GETメソッド
      *
      * @return void
      */
-    public function test_example()
+    public function testGET()
     {
-        $response = $this->get('/');
-
+        $response = $this->get('api/tasks');
         $response->assertStatus(200);
     }
+
 }
