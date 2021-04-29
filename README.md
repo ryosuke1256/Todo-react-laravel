@@ -11,11 +11,13 @@
 
 ## フロントエンド
 
--   React  
--   TypeScript  
+-   TypeScript
+-   React
 
 ## バックエンド
 
 -   Laravel
-## DB  
-- MySQL
+
+## DB
+
+-   MySQL
