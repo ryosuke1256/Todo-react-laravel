@@ -51,7 +51,7 @@ class ReportTest extends TestCase
         $task->id=8;
 
         //↓残ってるとデータが変更されなかった、テストを実行するときはコメントアウト
-        dd($task);
+        // dd($task);
         $response = $this->deleteJson("api/tasks/{$task->id}");
         $response->assertStatus(200);
     }
