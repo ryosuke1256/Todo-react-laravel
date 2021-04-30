@@ -2828,7 +2828,11 @@ var App = function App() {
   react_1.useEffect(function () {
     getData();
   }, []);
-  return react_1["default"].createElement(react_1["default"].Fragment, null, react_1["default"].createElement(Header_1["default"], null), react_1["default"].createElement(TextForm_1["default"], null), react_1["default"].createElement(TaskCards_1.TaskCards, null, tasks.map(function (task, key) {
+  return react_1["default"].createElement("div", {
+    style: {
+      margin: 0
+    }
+  }, react_1["default"].createElement(Header_1["default"], null), react_1["default"].createElement(TextForm_1["default"], null), react_1["default"].createElement(TaskCards_1.TaskCards, null, tasks.map(function (task, key) {
     return react_1["default"].createElement(TaskCard_1["default"], {
       title: task.title,
       is_done: task.is_done,
@@ -2957,7 +2961,7 @@ var EditButton = function EditButton() {
 };
 
 exports.default = EditButton;
-var Style = styled_components_1["default"].button(templateObject_1 || (templateObject_1 = __makeTemplateObject(["\n    /* flex-grow: 3; */\n"], ["\n    /* flex-grow: 3; */\n"])));
+var Style = styled_components_1["default"].button(templateObject_1 || (templateObject_1 = __makeTemplateObject(["\n    margin-right: 12px;\n"], ["\n    margin-right: 12px;\n"])));
 var templateObject_1;
 
 /***/ }),
@@ -3076,7 +3080,7 @@ var TaskTitle = function TaskTitle(_a) {
 };
 
 exports.default = TaskTitle;
-var Style = styled_components_1["default"].div(templateObject_1 || (templateObject_1 = __makeTemplateObject(["\n    text-decoration: ", ";\n"], ["\n    text-decoration: ", ";\n"])), function (props) {
+var Style = styled_components_1["default"].div(templateObject_1 || (templateObject_1 = __makeTemplateObject(["\n    flex-grow: 1;\n    padding-left: 13px;\n    text-decoration: ", ";\n"], ["\n    flex-grow: 1;\n    padding-left: 13px;\n    text-decoration: ", ";\n"])), function (props) {
   return props.is_done === 1 ? "line-through" : "none";
 });
 var templateObject_1;
@@ -3164,7 +3168,7 @@ var Header = function Header() {
 };
 
 exports.default = Header;
-var Style = styled_components_1["default"].div(templateObject_1 || (templateObject_1 = __makeTemplateObject(["\n    text-align: center;\n    margin-bottom: 15px;\n    /* \u30D1\u30BF\u30FC\u30F3\uFF11 */\n    border-bottom: 1px solid #c4cfd6;\n    /* \u30D1\u30BF\u30FC\u30F3\uFF12 */\n    /* background-color: #52bfff; */\n    /* color: white; */\n    /* \u30D1\u30BF\u30FC\u30F33 */\n    background-color: rgba(121, 184, 255, 0.4);\n"], ["\n    text-align: center;\n    margin-bottom: 15px;\n    /* \u30D1\u30BF\u30FC\u30F3\uFF11 */\n    border-bottom: 1px solid #c4cfd6;\n    /* \u30D1\u30BF\u30FC\u30F3\uFF12 */\n    /* background-color: #52bfff; */\n    /* color: white; */\n    /* \u30D1\u30BF\u30FC\u30F33 */\n    background-color: rgba(121, 184, 255, 0.4);\n"])));
+var Style = styled_components_1["default"].div(templateObject_1 || (templateObject_1 = __makeTemplateObject(["\n    text-align: center;\n    margin-bottom: 15px;\n    /* \u30D1\u30BF\u30FC\u30F3\uFF11 */\n    /* border-bottom: 1px solid #c4cfd6; */\n    /* \u30D1\u30BF\u30FC\u30F3\uFF12 */\n    /* background-color: #52bfff; */\n    /* color: white; */\n    /* \u30D1\u30BF\u30FC\u30F33 */\n    background-color: rgba(121, 184, 255, 0.4);\n"], ["\n    text-align: center;\n    margin-bottom: 15px;\n    /* \u30D1\u30BF\u30FC\u30F3\uFF11 */\n    /* border-bottom: 1px solid #c4cfd6; */\n    /* \u30D1\u30BF\u30FC\u30F3\uFF12 */\n    /* background-color: #52bfff; */\n    /* color: white; */\n    /* \u30D1\u30BF\u30FC\u30F33 */\n    background-color: rgba(121, 184, 255, 0.4);\n"])));
 var templateObject_1;
 
 /***/ }),
@@ -3222,7 +3226,7 @@ var TaskCard = function TaskCard(_a) {
 };
 
 exports.default = TaskCard;
-var Style = styled_components_1["default"].div(templateObject_1 || (templateObject_1 = __makeTemplateObject(["\n    display: flex;\n    border: 1px solid #c4cfd6;\n    padding: 10px;\n    border-bottom: 0px;\n    border-radius: 6px;\n"], ["\n    display: flex;\n    border: 1px solid #c4cfd6;\n    padding: 10px;\n    border-bottom: 0px;\n    border-radius: 6px;\n"])));
+var Style = styled_components_1["default"].div(templateObject_1 || (templateObject_1 = __makeTemplateObject(["\n    display: flex;\n    border: 1px solid #c4cfd6;\n    width: 90%;\n    margin: 0 auto;\n    padding: 13px;\n    border-bottom: 0px;\n    border-radius: 6px;\n"], ["\n    display: flex;\n    border: 1px solid #c4cfd6;\n    width: 90%;\n    margin: 0 auto;\n    padding: 13px;\n    border-bottom: 0px;\n    border-radius: 6px;\n"])));
 var templateObject_1;
 
 /***/ }),
@@ -3236,6 +3240,18 @@ var templateObject_1;
 "use strict";
 
 
+var __makeTemplateObject = this && this.__makeTemplateObject || function (cooked, raw) {
+  if (Object.defineProperty) {
+    Object.defineProperty(cooked, "raw", {
+      value: raw
+    });
+  } else {
+    cooked.raw = raw;
+  }
+
+  return cooked;
+};
+
 var __importDefault = this && this.__importDefault || function (mod) {
   return mod && mod.__esModule ? mod : {
     "default": mod
@@ -3248,15 +3264,19 @@ Object.defineProperty(exports, "__esModule", ({
 
 var react_1 = __importDefault(__webpack_require__(/*! react */ "./node_modules/react/index.js"));
 
+var styled_components_1 = __importDefault(__webpack_require__(/*! styled-components */ "./node_modules/styled-components/dist/styled-components.browser.esm.js"));
+
 var InputText_1 = __importDefault(__webpack_require__(/*! ../lv1/InputText */ "./resources/ts/components/lv1/InputText.tsx"));
 
 var SubmitButton_1 = __importDefault(__webpack_require__(/*! ../lv1/SubmitButton */ "./resources/ts/components/lv1/SubmitButton.tsx"));
 
 var TextForm = function TextForm() {
-  return react_1["default"].createElement(react_1["default"].Fragment, null, react_1["default"].createElement(InputText_1["default"], null), react_1["default"].createElement(SubmitButton_1["default"], null));
+  return react_1["default"].createElement(Style, null, react_1["default"].createElement(InputText_1["default"], null), react_1["default"].createElement(SubmitButton_1["default"], null));
 };
 
 exports.default = TextForm;
+var Style = styled_components_1["default"].div(templateObject_1 || (templateObject_1 = __makeTemplateObject(["\n    width: 92%;\n    margin: 0 auto;\n"], ["\n    width: 92%;\n    margin: 0 auto;\n"])));
+var templateObject_1;
 
 /***/ }),
 

@@ -27,7 +27,9 @@ export default TaskCard;
 const Style = styled.div`
     display: flex;
     border: 1px solid #c4cfd6;
-    padding: 10px;
+    width: 90%;
+    margin: 0 auto;
+    padding: 13px;
     border-bottom: 0px;
     border-radius: 6px;
 `;

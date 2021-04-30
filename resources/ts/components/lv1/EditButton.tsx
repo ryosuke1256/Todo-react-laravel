@@ -8,5 +8,5 @@ const EditButton: React.VFC = () => {
 export default EditButton;
 
 const Style = styled.button`
-    /* flex-grow: 3; */
+    margin-right: 12px;
 `;

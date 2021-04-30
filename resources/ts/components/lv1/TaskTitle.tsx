@@ -21,6 +21,8 @@ const TaskTitle: React.VFC<Props> = ({ title, is_done }: Props) => {
 export default TaskTitle;
 
 const Style = styled.div<{ is_done: number }>`
+    flex-grow: 1;
+    padding-left: 13px;
     text-decoration: ${(props) =>
         props.is_done === 1 ? "line-through" : "none"};
 `;
