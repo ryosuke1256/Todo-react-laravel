@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-import Title from "./components/lv2/Header";
+import Header from "./components/lv2/Header";
 import TaskCard from "./components/lv2/TaskCard";
 import TextForm from "./components/lv2/TextForm";
 import { TaskCards } from "./components/lv3/TaskCards";
@@ -18,8 +18,8 @@ const App: React.VFC = () => {
         getData();
     }, []);
     return (
-        <>
-            <Title />
+        <div style={{ margin: 0 }}>
+            <Header />
             <TextForm />
             <TaskCards>
                 {tasks.map((task: any, key) => (
@@ -30,7 +30,7 @@ const App: React.VFC = () => {
                     />
                 ))}
             </TaskCards>
-        </>
+        </div>
     );
 };
 

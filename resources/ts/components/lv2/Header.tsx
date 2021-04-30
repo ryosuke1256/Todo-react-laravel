@@ -16,7 +16,7 @@ const Style = styled.div`
     text-align: center;
     margin-bottom: 15px;
     /* パターン１ */
-    border-bottom: 1px solid #c4cfd6;
+    /* border-bottom: 1px solid #c4cfd6; */
     /* パターン２ */
     /* background-color: #52bfff; */
     /* color: white; */
