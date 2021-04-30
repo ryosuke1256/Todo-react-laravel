@@ -3,17 +3,19 @@ import styled from "styled-components";
 import EditButton from "../lv1/EditButton";
 import DeleteButton from "../lv1/DeleteButton";
 import CheckBox from "../lv1/CheckBox";
+import TaskTitle from "../lv1/TaskTitle";
 
 type Props = {
     title: string;
+    is_done: number;
     key: number;
 };
 
-const TaskCard: React.VFC<Props> = ({ title }) => {
+const TaskCard: React.VFC<Props> = ({ title, is_done }: Props) => {
     return (
         <Style>
             <CheckBox />
-            {title}
+            <TaskTitle title={title} is_done={is_done} />
             <EditButton />
             <DeleteButton />
         </Style>

@@ -2788,6 +2788,10 @@ var Header_1 = __importDefault(__webpack_require__(/*! ./components/lv2/Header *
 
 var TaskCard_1 = __importDefault(__webpack_require__(/*! ./components/lv2/TaskCard */ "./resources/ts/components/lv2/TaskCard.tsx"));
 
+var TextForm_1 = __importDefault(__webpack_require__(/*! ./components/lv2/TextForm */ "./resources/ts/components/lv2/TextForm.tsx"));
+
+var TaskCards_1 = __webpack_require__(/*! ./components/lv3/TaskCards */ "./resources/ts/components/lv3/TaskCards.tsx");
+
 var App = function App() {
   var _a = react_1.useState([]),
       tasks = _a[0],
@@ -2824,12 +2828,13 @@ var App = function App() {
   react_1.useEffect(function () {
     getData();
   }, []);
-  return react_1["default"].createElement(react_1["default"].Fragment, null, react_1["default"].createElement(Header_1["default"], null), tasks.map(function (task, key) {
+  return react_1["default"].createElement(react_1["default"].Fragment, null, react_1["default"].createElement(Header_1["default"], null), react_1["default"].createElement(TextForm_1["default"], null), react_1["default"].createElement(TaskCards_1.TaskCards, null, tasks.map(function (task, key) {
     return react_1["default"].createElement(TaskCard_1["default"], {
       title: task.title,
+      is_done: task.is_done,
       key: key
     });
-  }));
+  })));
 };
 
 exports.default = App;
@@ -2907,7 +2912,7 @@ var DeleteButton = function DeleteButton() {
 };
 
 exports.default = DeleteButton;
-var Style = styled_components_1["default"].div(templateObject_1 || (templateObject_1 = __makeTemplateObject(["\n    /* flex-grow: 3; */\n"], ["\n    /* flex-grow: 3; */\n"])));
+var Style = styled_components_1["default"].button(templateObject_1 || (templateObject_1 = __makeTemplateObject(["\n    /* flex-grow: 3; */\n"], ["\n    /* flex-grow: 3; */\n"])));
 var templateObject_1;
 
 /***/ }),
@@ -2952,7 +2957,128 @@ var EditButton = function EditButton() {
 };
 
 exports.default = EditButton;
-var Style = styled_components_1["default"].div(templateObject_1 || (templateObject_1 = __makeTemplateObject(["\n    /* flex-grow: 3; */\n"], ["\n    /* flex-grow: 3; */\n"])));
+var Style = styled_components_1["default"].button(templateObject_1 || (templateObject_1 = __makeTemplateObject(["\n    /* flex-grow: 3; */\n"], ["\n    /* flex-grow: 3; */\n"])));
+var templateObject_1;
+
+/***/ }),
+
+/***/ "./resources/ts/components/lv1/InputText.tsx":
+/*!***************************************************!*\
+  !*** ./resources/ts/components/lv1/InputText.tsx ***!
+  \***************************************************/
+/***/ (function(__unused_webpack_module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var __importDefault = this && this.__importDefault || function (mod) {
+  return mod && mod.__esModule ? mod : {
+    "default": mod
+  };
+};
+
+Object.defineProperty(exports, "__esModule", ({
+  value: true
+}));
+
+var react_1 = __importDefault(__webpack_require__(/*! react */ "./node_modules/react/index.js"));
+
+var InputText = function InputText() {
+  return react_1["default"].createElement("input", {
+    type: "text"
+  });
+};
+
+exports.default = InputText;
+
+/***/ }),
+
+/***/ "./resources/ts/components/lv1/SubmitButton.tsx":
+/*!******************************************************!*\
+  !*** ./resources/ts/components/lv1/SubmitButton.tsx ***!
+  \******************************************************/
+/***/ (function(__unused_webpack_module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var __importDefault = this && this.__importDefault || function (mod) {
+  return mod && mod.__esModule ? mod : {
+    "default": mod
+  };
+};
+
+Object.defineProperty(exports, "__esModule", ({
+  value: true
+}));
+
+var react_1 = __importDefault(__webpack_require__(/*! react */ "./node_modules/react/index.js"));
+
+var SubmitButton = function SubmitButton() {
+  return react_1["default"].createElement("button", null, "\u9001\u4FE1");
+};
+
+exports.default = SubmitButton;
+
+/***/ }),
+
+/***/ "./resources/ts/components/lv1/TaskTitle.tsx":
+/*!***************************************************!*\
+  !*** ./resources/ts/components/lv1/TaskTitle.tsx ***!
+  \***************************************************/
+/***/ (function(__unused_webpack_module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var __makeTemplateObject = this && this.__makeTemplateObject || function (cooked, raw) {
+  if (Object.defineProperty) {
+    Object.defineProperty(cooked, "raw", {
+      value: raw
+    });
+  } else {
+    cooked.raw = raw;
+  }
+
+  return cooked;
+};
+
+var __importDefault = this && this.__importDefault || function (mod) {
+  return mod && mod.__esModule ? mod : {
+    "default": mod
+  };
+};
+
+Object.defineProperty(exports, "__esModule", ({
+  value: true
+}));
+
+var react_1 = __importDefault(__webpack_require__(/*! react */ "./node_modules/react/index.js"));
+
+var styled_components_1 = __importDefault(__webpack_require__(/*! styled-components */ "./node_modules/styled-components/dist/styled-components.browser.esm.js"));
+
+var TaskTitle = function TaskTitle(_a) {
+  var title = _a.title,
+      is_done = _a.is_done;
+  console.log(is_done);
+
+  if (is_done === 0) {
+    return react_1["default"].createElement(Style, {
+      is_done: is_done
+    }, title);
+  } else if (is_done === 1) {
+    return react_1["default"].createElement(Style, {
+      is_done: is_done
+    }, title);
+  } else {
+    return null;
+  }
+};
+
+exports.default = TaskTitle;
+var Style = styled_components_1["default"].div(templateObject_1 || (templateObject_1 = __makeTemplateObject(["\n    text-decoration: ", ";\n"], ["\n    text-decoration: ", ";\n"])), function (props) {
+  return props.is_done === 1 ? "line-through" : "none";
+});
 var templateObject_1;
 
 /***/ }),
@@ -3038,7 +3164,7 @@ var Header = function Header() {
 };
 
 exports.default = Header;
-var Style = styled_components_1["default"].div(templateObject_1 || (templateObject_1 = __makeTemplateObject(["\n    text-align: center;\n    margin-bottom: 15px;\n    /* \u30D1\u30BF\u30FC\u30F3\uFF11 */\n    border-bottom: 1px solid #c4cfd6;\n    /* \u30D1\u30BF\u30FC\u30F3\uFF12 */\n    /* background-color: #52bfff; */\n    /* color: white; */\n"], ["\n    text-align: center;\n    margin-bottom: 15px;\n    /* \u30D1\u30BF\u30FC\u30F3\uFF11 */\n    border-bottom: 1px solid #c4cfd6;\n    /* \u30D1\u30BF\u30FC\u30F3\uFF12 */\n    /* background-color: #52bfff; */\n    /* color: white; */\n"])));
+var Style = styled_components_1["default"].div(templateObject_1 || (templateObject_1 = __makeTemplateObject(["\n    text-align: center;\n    margin-bottom: 15px;\n    /* \u30D1\u30BF\u30FC\u30F3\uFF11 */\n    border-bottom: 1px solid #c4cfd6;\n    /* \u30D1\u30BF\u30FC\u30F3\uFF12 */\n    /* background-color: #52bfff; */\n    /* color: white; */\n    /* \u30D1\u30BF\u30FC\u30F33 */\n    background-color: rgba(121, 184, 255, 0.4);\n"], ["\n    text-align: center;\n    margin-bottom: 15px;\n    /* \u30D1\u30BF\u30FC\u30F3\uFF11 */\n    border-bottom: 1px solid #c4cfd6;\n    /* \u30D1\u30BF\u30FC\u30F3\uFF12 */\n    /* background-color: #52bfff; */\n    /* color: white; */\n    /* \u30D1\u30BF\u30FC\u30F33 */\n    background-color: rgba(121, 184, 255, 0.4);\n"])));
 var templateObject_1;
 
 /***/ }),
@@ -3084,13 +3210,91 @@ var DeleteButton_1 = __importDefault(__webpack_require__(/*! ../lv1/DeleteButton
 
 var CheckBox_1 = __importDefault(__webpack_require__(/*! ../lv1/CheckBox */ "./resources/ts/components/lv1/CheckBox.tsx"));
 
+var TaskTitle_1 = __importDefault(__webpack_require__(/*! ../lv1/TaskTitle */ "./resources/ts/components/lv1/TaskTitle.tsx"));
+
 var TaskCard = function TaskCard(_a) {
-  var title = _a.title;
-  return react_1["default"].createElement(Style, null, react_1["default"].createElement(CheckBox_1["default"], null), title, react_1["default"].createElement(EditButton_1["default"], null), react_1["default"].createElement(DeleteButton_1["default"], null));
+  var title = _a.title,
+      is_done = _a.is_done;
+  return react_1["default"].createElement(Style, null, react_1["default"].createElement(CheckBox_1["default"], null), react_1["default"].createElement(TaskTitle_1["default"], {
+    title: title,
+    is_done: is_done
+  }), react_1["default"].createElement(EditButton_1["default"], null), react_1["default"].createElement(DeleteButton_1["default"], null));
 };
 
 exports.default = TaskCard;
 var Style = styled_components_1["default"].div(templateObject_1 || (templateObject_1 = __makeTemplateObject(["\n    display: flex;\n    border: 1px solid #c4cfd6;\n    padding: 10px;\n    border-bottom: 0px;\n    border-radius: 6px;\n"], ["\n    display: flex;\n    border: 1px solid #c4cfd6;\n    padding: 10px;\n    border-bottom: 0px;\n    border-radius: 6px;\n"])));
+var templateObject_1;
+
+/***/ }),
+
+/***/ "./resources/ts/components/lv2/TextForm.tsx":
+/*!**************************************************!*\
+  !*** ./resources/ts/components/lv2/TextForm.tsx ***!
+  \**************************************************/
+/***/ (function(__unused_webpack_module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var __importDefault = this && this.__importDefault || function (mod) {
+  return mod && mod.__esModule ? mod : {
+    "default": mod
+  };
+};
+
+Object.defineProperty(exports, "__esModule", ({
+  value: true
+}));
+
+var react_1 = __importDefault(__webpack_require__(/*! react */ "./node_modules/react/index.js"));
+
+var InputText_1 = __importDefault(__webpack_require__(/*! ../lv1/InputText */ "./resources/ts/components/lv1/InputText.tsx"));
+
+var SubmitButton_1 = __importDefault(__webpack_require__(/*! ../lv1/SubmitButton */ "./resources/ts/components/lv1/SubmitButton.tsx"));
+
+var TextForm = function TextForm() {
+  return react_1["default"].createElement(react_1["default"].Fragment, null, react_1["default"].createElement(InputText_1["default"], null), react_1["default"].createElement(SubmitButton_1["default"], null));
+};
+
+exports.default = TextForm;
+
+/***/ }),
+
+/***/ "./resources/ts/components/lv3/TaskCards.tsx":
+/*!***************************************************!*\
+  !*** ./resources/ts/components/lv3/TaskCards.tsx ***!
+  \***************************************************/
+/***/ (function(__unused_webpack_module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var __makeTemplateObject = this && this.__makeTemplateObject || function (cooked, raw) {
+  if (Object.defineProperty) {
+    Object.defineProperty(cooked, "raw", {
+      value: raw
+    });
+  } else {
+    cooked.raw = raw;
+  }
+
+  return cooked;
+};
+
+var __importDefault = this && this.__importDefault || function (mod) {
+  return mod && mod.__esModule ? mod : {
+    "default": mod
+  };
+};
+
+Object.defineProperty(exports, "__esModule", ({
+  value: true
+}));
+exports.TaskCards = void 0;
+
+var styled_components_1 = __importDefault(__webpack_require__(/*! styled-components */ "./node_modules/styled-components/dist/styled-components.browser.esm.js"));
+
+exports.TaskCards = styled_components_1["default"].div(templateObject_1 || (templateObject_1 = __makeTemplateObject(["\n    padding-top: 10px;\n"], ["\n    padding-top: 10px;\n"])));
 var templateObject_1;
 
 /***/ }),
