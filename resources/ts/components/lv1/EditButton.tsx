@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 
-const EditButton = () => {
+const EditButton: React.VFC = () => {
     return <Style>編集</Style>;
 };
 

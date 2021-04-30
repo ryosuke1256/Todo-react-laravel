@@ -1,6 +1,6 @@
 import React from "react";
 
-const InputText = () => {
+const InputText: React.VFC = () => {
     return <input type="text"></input>;
 };
 

@@ -1,6 +1,6 @@
 import React from "react";
 
-const SubmitButton = () => {
+const SubmitButton: React.VFC = () => {
     return <button>送信</button>;
 };
 

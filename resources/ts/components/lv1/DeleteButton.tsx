@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 
-const DeleteButton = () => {
+const DeleteButton: React.VFC = () => {
     return <Style>削除</Style>;
 };
 
