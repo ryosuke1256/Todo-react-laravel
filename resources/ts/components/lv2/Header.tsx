@@ -20,4 +20,6 @@ const Style = styled.div`
     /* パターン２ */
     /* background-color: #52bfff; */
     /* color: white; */
+    /* パターン3 */
+    background-color: rgba(121, 184, 255, 0.4);
 `;

@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import Title from "./components/lv2/Header";
-import Task from "./components/lv2/TaskCard";
+import TaskCard from "./components/lv2/TaskCard";
 
 const App: React.VFC = () => {
     const [tasks, setTasks] = useState([]);
@@ -19,7 +19,7 @@ const App: React.VFC = () => {
         <>
             <Title />
             {tasks.map((task, key) => (
-                <Task title={task.title} key={key} />
+                <TaskCard title={task.title} is_done={task.is_done} key={key} />
             ))}
         </>
     );

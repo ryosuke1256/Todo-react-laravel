@@ -2827,6 +2827,7 @@ var App = function App() {
   return react_1["default"].createElement(react_1["default"].Fragment, null, react_1["default"].createElement(Header_1["default"], null), tasks.map(function (task, key) {
     return react_1["default"].createElement(TaskCard_1["default"], {
       title: task.title,
+      is_done: task.is_done,
       key: key
     });
   }));
@@ -2957,6 +2958,65 @@ var templateObject_1;
 
 /***/ }),
 
+/***/ "./resources/ts/components/lv1/TaskTitle.tsx":
+/*!***************************************************!*\
+  !*** ./resources/ts/components/lv1/TaskTitle.tsx ***!
+  \***************************************************/
+/***/ (function(__unused_webpack_module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var __makeTemplateObject = this && this.__makeTemplateObject || function (cooked, raw) {
+  if (Object.defineProperty) {
+    Object.defineProperty(cooked, "raw", {
+      value: raw
+    });
+  } else {
+    cooked.raw = raw;
+  }
+
+  return cooked;
+};
+
+var __importDefault = this && this.__importDefault || function (mod) {
+  return mod && mod.__esModule ? mod : {
+    "default": mod
+  };
+};
+
+Object.defineProperty(exports, "__esModule", ({
+  value: true
+}));
+
+var react_1 = __importDefault(__webpack_require__(/*! react */ "./node_modules/react/index.js"));
+
+var styled_components_1 = __importDefault(__webpack_require__(/*! styled-components */ "./node_modules/styled-components/dist/styled-components.browser.esm.js"));
+
+var TaskTitle = function TaskTitle(_a) {
+  var title = _a.title,
+      is_done = _a.is_done;
+  console.log(is_done);
+
+  if (is_done === 0) {
+    return react_1["default"].createElement(Style, {
+      is_done: is_done
+    }, title);
+  } else if (is_done === 1) {
+    return react_1["default"].createElement(Style, {
+      is_done: is_done
+    }, title);
+  }
+};
+
+exports.default = TaskTitle;
+var Style = styled_components_1["default"].div(templateObject_1 || (templateObject_1 = __makeTemplateObject(["\n    /* text-decoration: line-through; */\n    text-decoration: ", ";\n"], ["\n    /* text-decoration: line-through; */\n    text-decoration: ", ";\n"])), function (props) {
+  return props.is_done === 1 ? "line-through" : "none";
+});
+var templateObject_1;
+
+/***/ }),
+
 /***/ "./resources/ts/components/lv1/TitleName.tsx":
 /*!***************************************************!*\
   !*** ./resources/ts/components/lv1/TitleName.tsx ***!
@@ -3038,7 +3098,7 @@ var Header = function Header() {
 };
 
 exports.default = Header;
-var Style = styled_components_1["default"].div(templateObject_1 || (templateObject_1 = __makeTemplateObject(["\n    text-align: center;\n    margin-bottom: 15px;\n    /* \u30D1\u30BF\u30FC\u30F3\uFF11 */\n    border-bottom: 1px solid #c4cfd6;\n    /* \u30D1\u30BF\u30FC\u30F3\uFF12 */\n    /* background-color: #52bfff; */\n    /* color: white; */\n"], ["\n    text-align: center;\n    margin-bottom: 15px;\n    /* \u30D1\u30BF\u30FC\u30F3\uFF11 */\n    border-bottom: 1px solid #c4cfd6;\n    /* \u30D1\u30BF\u30FC\u30F3\uFF12 */\n    /* background-color: #52bfff; */\n    /* color: white; */\n"])));
+var Style = styled_components_1["default"].div(templateObject_1 || (templateObject_1 = __makeTemplateObject(["\n    text-align: center;\n    margin-bottom: 15px;\n    /* \u30D1\u30BF\u30FC\u30F3\uFF11 */\n    border-bottom: 1px solid #c4cfd6;\n    /* \u30D1\u30BF\u30FC\u30F3\uFF12 */\n    /* background-color: #52bfff; */\n    /* color: white; */\n    /* \u30D1\u30BF\u30FC\u30F33 */\n    background-color: rgba(121, 184, 255, 0.4);\n"], ["\n    text-align: center;\n    margin-bottom: 15px;\n    /* \u30D1\u30BF\u30FC\u30F3\uFF11 */\n    border-bottom: 1px solid #c4cfd6;\n    /* \u30D1\u30BF\u30FC\u30F3\uFF12 */\n    /* background-color: #52bfff; */\n    /* color: white; */\n    /* \u30D1\u30BF\u30FC\u30F33 */\n    background-color: rgba(121, 184, 255, 0.4);\n"])));
 var templateObject_1;
 
 /***/ }),
@@ -3084,9 +3144,15 @@ var DeleteButton_1 = __importDefault(__webpack_require__(/*! ../lv1/DeleteButton
 
 var CheckBox_1 = __importDefault(__webpack_require__(/*! ../lv1/CheckBox */ "./resources/ts/components/lv1/CheckBox.tsx"));
 
+var TaskTitle_1 = __importDefault(__webpack_require__(/*! ../lv1/TaskTitle */ "./resources/ts/components/lv1/TaskTitle.tsx"));
+
 var TaskCard = function TaskCard(_a) {
-  var title = _a.title;
-  return react_1["default"].createElement(Style, null, react_1["default"].createElement(CheckBox_1["default"], null), title, react_1["default"].createElement(EditButton_1["default"], null), react_1["default"].createElement(DeleteButton_1["default"], null));
+  var title = _a.title,
+      is_done = _a.is_done;
+  return react_1["default"].createElement(Style, null, react_1["default"].createElement(CheckBox_1["default"], null), react_1["default"].createElement(TaskTitle_1["default"], {
+    title: title,
+    is_done: is_done
+  }), react_1["default"].createElement(EditButton_1["default"], null), react_1["default"].createElement(DeleteButton_1["default"], null));
 };
 
 exports.default = TaskCard;
