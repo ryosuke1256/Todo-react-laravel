@@ -2784,7 +2784,7 @@ var react_1 = __importStar(__webpack_require__(/*! react */ "./node_modules/reac
 
 var axios_1 = __importDefault(__webpack_require__(/*! axios */ "./node_modules/axios/index.js"));
 
-var Title_1 = __importDefault(__webpack_require__(/*! ./components/lv2/Title */ "./resources/ts/components/lv2/Title.tsx"));
+var Header_1 = __importDefault(__webpack_require__(/*! ./components/lv2/Header */ "./resources/ts/components/lv2/Header.tsx"));
 
 var Task_1 = __importDefault(__webpack_require__(/*! ./components/lv1/Task */ "./resources/ts/components/lv1/Task.tsx"));
 
@@ -2824,7 +2824,7 @@ var App = function App() {
   react_1.useEffect(function () {
     getData();
   }, []);
-  return react_1["default"].createElement(react_1["default"].Fragment, null, react_1["default"].createElement(Title_1["default"], null), tasks.map(function (task, key) {
+  return react_1["default"].createElement(react_1["default"].Fragment, null, react_1["default"].createElement(Header_1["default"], null), tasks.map(function (task, key) {
     return react_1["default"].createElement(Task_1["default"], {
       title: task.title,
       key: key
@@ -2845,6 +2845,18 @@ exports.default = App;
 "use strict";
 
 
+var __makeTemplateObject = this && this.__makeTemplateObject || function (cooked, raw) {
+  if (Object.defineProperty) {
+    Object.defineProperty(cooked, "raw", {
+      value: raw
+    });
+  } else {
+    cooked.raw = raw;
+  }
+
+  return cooked;
+};
+
 var __importDefault = this && this.__importDefault || function (mod) {
   return mod && mod.__esModule ? mod : {
     "default": mod
@@ -2857,17 +2869,16 @@ Object.defineProperty(exports, "__esModule", ({
 
 var react_1 = __importDefault(__webpack_require__(/*! react */ "./node_modules/react/index.js"));
 
+var styled_components_1 = __importDefault(__webpack_require__(/*! styled-components */ "./node_modules/styled-components/dist/styled-components.browser.esm.js"));
+
 var Task = function Task(_a) {
   var title = _a.title;
-  return react_1["default"].createElement("div", {
-    style: {
-      border: "1px solid",
-      marginBottom: "2px"
-    }
-  }, title);
+  return react_1["default"].createElement(Style, null, title);
 };
 
 exports.default = Task;
+var Style = styled_components_1["default"].div(templateObject_1 || (templateObject_1 = __makeTemplateObject(["\n    border: 1px solid #c4cfd6;\n    padding: 10px;\n    border-bottom: 0px;\n    border-radius: 6px;\n"], ["\n    border: 1px solid #c4cfd6;\n    padding: 10px;\n    border-bottom: 0px;\n    border-radius: 6px;\n"])));
+var templateObject_1;
 
 /***/ }),
 
@@ -2910,14 +2921,26 @@ var templateObject_1;
 
 /***/ }),
 
-/***/ "./resources/ts/components/lv2/Title.tsx":
-/*!***********************************************!*\
-  !*** ./resources/ts/components/lv2/Title.tsx ***!
-  \***********************************************/
+/***/ "./resources/ts/components/lv2/Header.tsx":
+/*!************************************************!*\
+  !*** ./resources/ts/components/lv2/Header.tsx ***!
+  \************************************************/
 /***/ (function(__unused_webpack_module, exports, __webpack_require__) {
 
 "use strict";
 
+
+var __makeTemplateObject = this && this.__makeTemplateObject || function (cooked, raw) {
+  if (Object.defineProperty) {
+    Object.defineProperty(cooked, "raw", {
+      value: raw
+    });
+  } else {
+    cooked.raw = raw;
+  }
+
+  return cooked;
+};
 
 var __importDefault = this && this.__importDefault || function (mod) {
   return mod && mod.__esModule ? mod : {
@@ -2931,13 +2954,17 @@ Object.defineProperty(exports, "__esModule", ({
 
 var react_1 = __importDefault(__webpack_require__(/*! react */ "./node_modules/react/index.js"));
 
+var styled_components_1 = __importDefault(__webpack_require__(/*! styled-components */ "./node_modules/styled-components/dist/styled-components.browser.esm.js"));
+
 var TitleName_1 = __webpack_require__(/*! ../lv1/TitleName */ "./resources/ts/components/lv1/TitleName.tsx");
 
-var Title = function Title() {
-  return react_1["default"].createElement(TitleName_1.TitleName, null, "Todo\u30A2\u30D7\u30EA");
+var Header = function Header() {
+  return react_1["default"].createElement(Style, null, react_1["default"].createElement(TitleName_1.TitleName, null, "Todo\u30A2\u30D7\u30EA"));
 };
 
-exports.default = Title;
+exports.default = Header;
+var Style = styled_components_1["default"].div(templateObject_1 || (templateObject_1 = __makeTemplateObject(["\n    text-align: center;\n    margin-bottom: 15px;\n    /* \u30D1\u30BF\u30FC\u30F3\uFF11 */\n    border-bottom: 1px solid #c4cfd6;\n    /* \u30D1\u30BF\u30FC\u30F3\uFF12 */\n    /* background-color: #52bfff; */\n    /* color: white; */\n"], ["\n    text-align: center;\n    margin-bottom: 15px;\n    /* \u30D1\u30BF\u30FC\u30F3\uFF11 */\n    border-bottom: 1px solid #c4cfd6;\n    /* \u30D1\u30BF\u30FC\u30F3\uFF12 */\n    /* background-color: #52bfff; */\n    /* color: white; */\n"])));
+var templateObject_1;
 
 /***/ }),
 
