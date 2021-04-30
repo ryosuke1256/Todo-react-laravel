@@ -2,6 +2,6 @@ import React, { useState, useEffect } from "react";
 
 type Props = {};
 
-const Tasks = () => {};
+const TaskCards = () => {};
 
-export default Tasks;
+export default TaskCards;

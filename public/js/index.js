@@ -2786,7 +2786,7 @@ var axios_1 = __importDefault(__webpack_require__(/*! axios */ "./node_modules/a
 
 var Header_1 = __importDefault(__webpack_require__(/*! ./components/lv2/Header */ "./resources/ts/components/lv2/Header.tsx"));
 
-var Task_1 = __importDefault(__webpack_require__(/*! ./components/lv1/Task */ "./resources/ts/components/lv1/Task.tsx"));
+var TaskCard_1 = __importDefault(__webpack_require__(/*! ./components/lv2/TaskCard */ "./resources/ts/components/lv2/TaskCard.tsx"));
 
 var App = function App() {
   var _a = react_1.useState([]),
@@ -2825,7 +2825,7 @@ var App = function App() {
     getData();
   }, []);
   return react_1["default"].createElement(react_1["default"].Fragment, null, react_1["default"].createElement(Header_1["default"], null), tasks.map(function (task, key) {
-    return react_1["default"].createElement(Task_1["default"], {
+    return react_1["default"].createElement(TaskCard_1["default"], {
       title: task.title,
       key: key
     });
@@ -2836,10 +2836,41 @@ exports.default = App;
 
 /***/ }),
 
-/***/ "./resources/ts/components/lv1/Task.tsx":
-/*!**********************************************!*\
-  !*** ./resources/ts/components/lv1/Task.tsx ***!
-  \**********************************************/
+/***/ "./resources/ts/components/lv1/CheckBox.tsx":
+/*!**************************************************!*\
+  !*** ./resources/ts/components/lv1/CheckBox.tsx ***!
+  \**************************************************/
+/***/ (function(__unused_webpack_module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var __importDefault = this && this.__importDefault || function (mod) {
+  return mod && mod.__esModule ? mod : {
+    "default": mod
+  };
+};
+
+Object.defineProperty(exports, "__esModule", ({
+  value: true
+}));
+
+var react_1 = __importDefault(__webpack_require__(/*! react */ "./node_modules/react/index.js"));
+
+var CheckBox = function CheckBox() {
+  return react_1["default"].createElement("div", null, react_1["default"].createElement("input", {
+    type: "checkbox"
+  }));
+};
+
+exports.default = CheckBox;
+
+/***/ }),
+
+/***/ "./resources/ts/components/lv1/DeleteButton.tsx":
+/*!******************************************************!*\
+  !*** ./resources/ts/components/lv1/DeleteButton.tsx ***!
+  \******************************************************/
 /***/ (function(__unused_webpack_module, exports, __webpack_require__) {
 
 "use strict";
@@ -2871,13 +2902,57 @@ var react_1 = __importDefault(__webpack_require__(/*! react */ "./node_modules/r
 
 var styled_components_1 = __importDefault(__webpack_require__(/*! styled-components */ "./node_modules/styled-components/dist/styled-components.browser.esm.js"));
 
-var Task = function Task(_a) {
-  var title = _a.title;
-  return react_1["default"].createElement(Style, null, title);
+var DeleteButton = function DeleteButton() {
+  return react_1["default"].createElement(Style, null, "\u524A\u9664");
 };
 
-exports.default = Task;
-var Style = styled_components_1["default"].div(templateObject_1 || (templateObject_1 = __makeTemplateObject(["\n    border: 1px solid #c4cfd6;\n    padding: 10px;\n    border-bottom: 0px;\n    border-radius: 6px;\n"], ["\n    border: 1px solid #c4cfd6;\n    padding: 10px;\n    border-bottom: 0px;\n    border-radius: 6px;\n"])));
+exports.default = DeleteButton;
+var Style = styled_components_1["default"].div(templateObject_1 || (templateObject_1 = __makeTemplateObject(["\n    /* flex-grow: 3; */\n"], ["\n    /* flex-grow: 3; */\n"])));
+var templateObject_1;
+
+/***/ }),
+
+/***/ "./resources/ts/components/lv1/EditButton.tsx":
+/*!****************************************************!*\
+  !*** ./resources/ts/components/lv1/EditButton.tsx ***!
+  \****************************************************/
+/***/ (function(__unused_webpack_module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var __makeTemplateObject = this && this.__makeTemplateObject || function (cooked, raw) {
+  if (Object.defineProperty) {
+    Object.defineProperty(cooked, "raw", {
+      value: raw
+    });
+  } else {
+    cooked.raw = raw;
+  }
+
+  return cooked;
+};
+
+var __importDefault = this && this.__importDefault || function (mod) {
+  return mod && mod.__esModule ? mod : {
+    "default": mod
+  };
+};
+
+Object.defineProperty(exports, "__esModule", ({
+  value: true
+}));
+
+var react_1 = __importDefault(__webpack_require__(/*! react */ "./node_modules/react/index.js"));
+
+var styled_components_1 = __importDefault(__webpack_require__(/*! styled-components */ "./node_modules/styled-components/dist/styled-components.browser.esm.js"));
+
+var EditButton = function EditButton() {
+  return react_1["default"].createElement(Style, null, "\u7DE8\u96C6");
+};
+
+exports.default = EditButton;
+var Style = styled_components_1["default"].div(templateObject_1 || (templateObject_1 = __makeTemplateObject(["\n    /* flex-grow: 3; */\n"], ["\n    /* flex-grow: 3; */\n"])));
 var templateObject_1;
 
 /***/ }),
@@ -2964,6 +3039,58 @@ var Header = function Header() {
 
 exports.default = Header;
 var Style = styled_components_1["default"].div(templateObject_1 || (templateObject_1 = __makeTemplateObject(["\n    text-align: center;\n    margin-bottom: 15px;\n    /* \u30D1\u30BF\u30FC\u30F3\uFF11 */\n    border-bottom: 1px solid #c4cfd6;\n    /* \u30D1\u30BF\u30FC\u30F3\uFF12 */\n    /* background-color: #52bfff; */\n    /* color: white; */\n"], ["\n    text-align: center;\n    margin-bottom: 15px;\n    /* \u30D1\u30BF\u30FC\u30F3\uFF11 */\n    border-bottom: 1px solid #c4cfd6;\n    /* \u30D1\u30BF\u30FC\u30F3\uFF12 */\n    /* background-color: #52bfff; */\n    /* color: white; */\n"])));
+var templateObject_1;
+
+/***/ }),
+
+/***/ "./resources/ts/components/lv2/TaskCard.tsx":
+/*!**************************************************!*\
+  !*** ./resources/ts/components/lv2/TaskCard.tsx ***!
+  \**************************************************/
+/***/ (function(__unused_webpack_module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var __makeTemplateObject = this && this.__makeTemplateObject || function (cooked, raw) {
+  if (Object.defineProperty) {
+    Object.defineProperty(cooked, "raw", {
+      value: raw
+    });
+  } else {
+    cooked.raw = raw;
+  }
+
+  return cooked;
+};
+
+var __importDefault = this && this.__importDefault || function (mod) {
+  return mod && mod.__esModule ? mod : {
+    "default": mod
+  };
+};
+
+Object.defineProperty(exports, "__esModule", ({
+  value: true
+}));
+
+var react_1 = __importDefault(__webpack_require__(/*! react */ "./node_modules/react/index.js"));
+
+var styled_components_1 = __importDefault(__webpack_require__(/*! styled-components */ "./node_modules/styled-components/dist/styled-components.browser.esm.js"));
+
+var EditButton_1 = __importDefault(__webpack_require__(/*! ../lv1/EditButton */ "./resources/ts/components/lv1/EditButton.tsx"));
+
+var DeleteButton_1 = __importDefault(__webpack_require__(/*! ../lv1/DeleteButton */ "./resources/ts/components/lv1/DeleteButton.tsx"));
+
+var CheckBox_1 = __importDefault(__webpack_require__(/*! ../lv1/CheckBox */ "./resources/ts/components/lv1/CheckBox.tsx"));
+
+var TaskCard = function TaskCard(_a) {
+  var title = _a.title;
+  return react_1["default"].createElement(Style, null, react_1["default"].createElement(CheckBox_1["default"], null), title, react_1["default"].createElement(EditButton_1["default"], null), react_1["default"].createElement(DeleteButton_1["default"], null));
+};
+
+exports.default = TaskCard;
+var Style = styled_components_1["default"].div(templateObject_1 || (templateObject_1 = __makeTemplateObject(["\n    display: flex;\n    border: 1px solid #c4cfd6;\n    padding: 10px;\n    border-bottom: 0px;\n    border-radius: 6px;\n"], ["\n    display: flex;\n    border: 1px solid #c4cfd6;\n    padding: 10px;\n    border-bottom: 0px;\n    border-radius: 6px;\n"])));
 var templateObject_1;
 
 /***/ }),

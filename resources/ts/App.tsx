@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import Title from "./components/lv2/Header";
-import Task from "./components/lv1/Task";
+import Task from "./components/lv2/TaskCard";
 
 const App: React.VFC = () => {
     const [tasks, setTasks] = useState([]);
