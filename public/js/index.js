@@ -2790,6 +2790,8 @@ var TaskCard_1 = __importDefault(__webpack_require__(/*! ./components/lv2/TaskCa
 
 var TextForm_1 = __importDefault(__webpack_require__(/*! ./components/lv2/TextForm */ "./resources/ts/components/lv2/TextForm.tsx"));
 
+var TaskCards_1 = __webpack_require__(/*! ./components/lv3/TaskCards */ "./resources/ts/components/lv3/TaskCards.tsx");
+
 var App = function App() {
   var _a = react_1.useState([]),
       tasks = _a[0],
@@ -2826,13 +2828,13 @@ var App = function App() {
   react_1.useEffect(function () {
     getData();
   }, []);
-  return react_1["default"].createElement(react_1["default"].Fragment, null, react_1["default"].createElement(Header_1["default"], null), react_1["default"].createElement(TextForm_1["default"], null), tasks.map(function (task, key) {
+  return react_1["default"].createElement(react_1["default"].Fragment, null, react_1["default"].createElement(Header_1["default"], null), react_1["default"].createElement(TextForm_1["default"], null), react_1["default"].createElement(TaskCards_1.TaskCards, null, tasks.map(function (task, key) {
     return react_1["default"].createElement(TaskCard_1["default"], {
       title: task.title,
       is_done: task.is_done,
       key: key
     });
-  }));
+  })));
 };
 
 exports.default = App;
@@ -3255,6 +3257,45 @@ var TextForm = function TextForm() {
 };
 
 exports.default = TextForm;
+
+/***/ }),
+
+/***/ "./resources/ts/components/lv3/TaskCards.tsx":
+/*!***************************************************!*\
+  !*** ./resources/ts/components/lv3/TaskCards.tsx ***!
+  \***************************************************/
+/***/ (function(__unused_webpack_module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var __makeTemplateObject = this && this.__makeTemplateObject || function (cooked, raw) {
+  if (Object.defineProperty) {
+    Object.defineProperty(cooked, "raw", {
+      value: raw
+    });
+  } else {
+    cooked.raw = raw;
+  }
+
+  return cooked;
+};
+
+var __importDefault = this && this.__importDefault || function (mod) {
+  return mod && mod.__esModule ? mod : {
+    "default": mod
+  };
+};
+
+Object.defineProperty(exports, "__esModule", ({
+  value: true
+}));
+exports.TaskCards = void 0;
+
+var styled_components_1 = __importDefault(__webpack_require__(/*! styled-components */ "./node_modules/styled-components/dist/styled-components.browser.esm.js"));
+
+exports.TaskCards = styled_components_1["default"].div(templateObject_1 || (templateObject_1 = __makeTemplateObject(["\n    padding-top: 10px;\n"], ["\n    padding-top: 10px;\n"])));
+var templateObject_1;
 
 /***/ }),
 

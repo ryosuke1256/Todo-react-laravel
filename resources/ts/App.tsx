@@ -3,6 +3,7 @@ import axios from "axios";
 import Title from "./components/lv2/Header";
 import TaskCard from "./components/lv2/TaskCard";
 import TextForm from "./components/lv2/TextForm";
+import { TaskCards } from "./components/lv3/TaskCards";
 
 const App: React.VFC = () => {
     const [tasks, setTasks] = useState([]);
@@ -20,9 +21,15 @@ const App: React.VFC = () => {
         <>
             <Title />
             <TextForm />
-            {tasks.map((task: any, key) => (
-                <TaskCard title={task.title} is_done={task.is_done} key={key} />
-            ))}
+            <TaskCards>
+                {tasks.map((task: any, key) => (
+                    <TaskCard
+                        title={task.title}
+                        is_done={task.is_done}
+                        key={key}
+                    />
+                ))}
+            </TaskCards>
         </>
     );
 };

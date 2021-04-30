@@ -1,7 +1,5 @@
-import React, { useState, useEffect } from "react";
+import styled from "styled-components";
 
-type Props = {};
-
-const TaskCards = () => {};
-
-export default TaskCards;
+export const TaskCards = styled.div`
+    padding-top: 10px;
+`;
