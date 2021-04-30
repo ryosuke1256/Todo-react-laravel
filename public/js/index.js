@@ -2788,6 +2788,8 @@ var Header_1 = __importDefault(__webpack_require__(/*! ./components/lv2/Header *
 
 var TaskCard_1 = __importDefault(__webpack_require__(/*! ./components/lv2/TaskCard */ "./resources/ts/components/lv2/TaskCard.tsx"));
 
+var TextForm_1 = __importDefault(__webpack_require__(/*! ./components/lv2/TextForm */ "./resources/ts/components/lv2/TextForm.tsx"));
+
 var App = function App() {
   var _a = react_1.useState([]),
       tasks = _a[0],
@@ -2824,7 +2826,7 @@ var App = function App() {
   react_1.useEffect(function () {
     getData();
   }, []);
-  return react_1["default"].createElement(react_1["default"].Fragment, null, react_1["default"].createElement(Header_1["default"], null), tasks.map(function (task, key) {
+  return react_1["default"].createElement(react_1["default"].Fragment, null, react_1["default"].createElement(Header_1["default"], null), react_1["default"].createElement(TextForm_1["default"], null), tasks.map(function (task, key) {
     return react_1["default"].createElement(TaskCard_1["default"], {
       title: task.title,
       is_done: task.is_done,
@@ -2955,6 +2957,66 @@ var EditButton = function EditButton() {
 exports.default = EditButton;
 var Style = styled_components_1["default"].button(templateObject_1 || (templateObject_1 = __makeTemplateObject(["\n    /* flex-grow: 3; */\n"], ["\n    /* flex-grow: 3; */\n"])));
 var templateObject_1;
+
+/***/ }),
+
+/***/ "./resources/ts/components/lv1/InputText.tsx":
+/*!***************************************************!*\
+  !*** ./resources/ts/components/lv1/InputText.tsx ***!
+  \***************************************************/
+/***/ (function(__unused_webpack_module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var __importDefault = this && this.__importDefault || function (mod) {
+  return mod && mod.__esModule ? mod : {
+    "default": mod
+  };
+};
+
+Object.defineProperty(exports, "__esModule", ({
+  value: true
+}));
+
+var react_1 = __importDefault(__webpack_require__(/*! react */ "./node_modules/react/index.js"));
+
+var InputText = function InputText() {
+  return react_1["default"].createElement("input", {
+    type: "text"
+  });
+};
+
+exports.default = InputText;
+
+/***/ }),
+
+/***/ "./resources/ts/components/lv1/SubmitButton.tsx":
+/*!******************************************************!*\
+  !*** ./resources/ts/components/lv1/SubmitButton.tsx ***!
+  \******************************************************/
+/***/ (function(__unused_webpack_module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var __importDefault = this && this.__importDefault || function (mod) {
+  return mod && mod.__esModule ? mod : {
+    "default": mod
+  };
+};
+
+Object.defineProperty(exports, "__esModule", ({
+  value: true
+}));
+
+var react_1 = __importDefault(__webpack_require__(/*! react */ "./node_modules/react/index.js"));
+
+var SubmitButton = function SubmitButton() {
+  return react_1["default"].createElement("button", null, "\u9001\u4FE1");
+};
+
+exports.default = SubmitButton;
 
 /***/ }),
 
@@ -3160,6 +3222,39 @@ var TaskCard = function TaskCard(_a) {
 exports.default = TaskCard;
 var Style = styled_components_1["default"].div(templateObject_1 || (templateObject_1 = __makeTemplateObject(["\n    display: flex;\n    border: 1px solid #c4cfd6;\n    padding: 10px;\n    border-bottom: 0px;\n    border-radius: 6px;\n"], ["\n    display: flex;\n    border: 1px solid #c4cfd6;\n    padding: 10px;\n    border-bottom: 0px;\n    border-radius: 6px;\n"])));
 var templateObject_1;
+
+/***/ }),
+
+/***/ "./resources/ts/components/lv2/TextForm.tsx":
+/*!**************************************************!*\
+  !*** ./resources/ts/components/lv2/TextForm.tsx ***!
+  \**************************************************/
+/***/ (function(__unused_webpack_module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var __importDefault = this && this.__importDefault || function (mod) {
+  return mod && mod.__esModule ? mod : {
+    "default": mod
+  };
+};
+
+Object.defineProperty(exports, "__esModule", ({
+  value: true
+}));
+
+var react_1 = __importDefault(__webpack_require__(/*! react */ "./node_modules/react/index.js"));
+
+var InputText_1 = __importDefault(__webpack_require__(/*! ../lv1/InputText */ "./resources/ts/components/lv1/InputText.tsx"));
+
+var SubmitButton_1 = __importDefault(__webpack_require__(/*! ../lv1/SubmitButton */ "./resources/ts/components/lv1/SubmitButton.tsx"));
+
+var TextForm = function TextForm() {
+  return react_1["default"].createElement(react_1["default"].Fragment, null, react_1["default"].createElement(InputText_1["default"], null), react_1["default"].createElement(SubmitButton_1["default"], null));
+};
+
+exports.default = TextForm;
 
 /***/ }),
 
