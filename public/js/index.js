@@ -2908,7 +2908,7 @@ var DeleteButton = function DeleteButton() {
 };
 
 exports.default = DeleteButton;
-var Style = styled_components_1["default"].div(templateObject_1 || (templateObject_1 = __makeTemplateObject(["\n    /* flex-grow: 3; */\n"], ["\n    /* flex-grow: 3; */\n"])));
+var Style = styled_components_1["default"].button(templateObject_1 || (templateObject_1 = __makeTemplateObject(["\n    /* flex-grow: 3; */\n"], ["\n    /* flex-grow: 3; */\n"])));
 var templateObject_1;
 
 /***/ }),
@@ -2953,7 +2953,7 @@ var EditButton = function EditButton() {
 };
 
 exports.default = EditButton;
-var Style = styled_components_1["default"].div(templateObject_1 || (templateObject_1 = __makeTemplateObject(["\n    /* flex-grow: 3; */\n"], ["\n    /* flex-grow: 3; */\n"])));
+var Style = styled_components_1["default"].button(templateObject_1 || (templateObject_1 = __makeTemplateObject(["\n    /* flex-grow: 3; */\n"], ["\n    /* flex-grow: 3; */\n"])));
 var templateObject_1;
 
 /***/ }),
@@ -3006,11 +3006,13 @@ var TaskTitle = function TaskTitle(_a) {
     return react_1["default"].createElement(Style, {
       is_done: is_done
     }, title);
+  } else {
+    return null;
   }
 };
 
 exports.default = TaskTitle;
-var Style = styled_components_1["default"].div(templateObject_1 || (templateObject_1 = __makeTemplateObject(["\n    /* text-decoration: line-through; */\n    text-decoration: ", ";\n"], ["\n    /* text-decoration: line-through; */\n    text-decoration: ", ";\n"])), function (props) {
+var Style = styled_components_1["default"].div(templateObject_1 || (templateObject_1 = __makeTemplateObject(["\n    text-decoration: ", ";\n"], ["\n    text-decoration: ", ";\n"])), function (props) {
   return props.is_done === 1 ? "line-through" : "none";
 });
 var templateObject_1;

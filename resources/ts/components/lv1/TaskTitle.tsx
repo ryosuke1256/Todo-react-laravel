@@ -13,13 +13,14 @@ const TaskTitle: React.VFC<Props> = ({ title, is_done }: Props) => {
         return <Style is_done={is_done}>{title}</Style>;
     } else if (is_done === 1) {
         return <Style is_done={is_done}>{title}</Style>;
+    } else {
+        return null;
     }
 };
 
 export default TaskTitle;
 
 const Style = styled.div<{ is_done: number }>`
-    /* text-decoration: line-through; */
     text-decoration: ${(props) =>
         props.is_done === 1 ? "line-through" : "none"};
 `;

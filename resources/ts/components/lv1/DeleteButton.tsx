@@ -7,6 +7,6 @@ const DeleteButton = () => {
 
 export default DeleteButton;
 
-const Style = styled.div`
+const Style = styled.button`
     /* flex-grow: 3; */
 `;
