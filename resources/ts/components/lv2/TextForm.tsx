@@ -17,7 +17,7 @@ const TextForm: React.VFC<Props> = ({ postData }: Props) => {
     return (
         <Style>
             <InputText text={text} handleChange={handleChange} />
-            <SubmitButton text={text} postData={postData} />
+            <SubmitButton text={text} postData={postData} setText={setText} />
         </Style>
     );
 };
