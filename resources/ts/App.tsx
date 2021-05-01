@@ -9,16 +9,20 @@ const App: React.VFC = () => {
     const [tasks, setTasks] = useState([]);
     const getData = async () => {
         const jsonData = await axios.get("api/tasks");
-        console.log(jsonData.data);
-        console.log(jsonData.data[0].title);
-        console.log(jsonData.data.map((data: {}) => data));
-        setTasks(jsonData.data.map((data: {}) => data));
+        try {
+            console.log(jsonData.data);
+            console.log(jsonData.data[0].title);
+            console.log(jsonData.data.map((data: {}) => data));
+            setTasks(jsonData.data.map((data: {}) => data));
+        } catch (error) {
+            console.log(error);
+        }
     };
     useEffect(() => {
         getData();
     }, []);
     return (
-        <div style={{ margin: 0 }}>
+        <>
             <Header />
             <TextForm />
             <TaskCards>
@@ -30,7 +34,7 @@ const App: React.VFC = () => {
                     />
                 ))}
             </TaskCards>
-        </div>
+        </>
     );
 };
 

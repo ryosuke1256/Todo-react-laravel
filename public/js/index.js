@@ -2809,14 +2809,20 @@ var App = function App() {
 
           case 1:
             jsonData = _a.sent();
-            console.log(jsonData.data);
-            console.log(jsonData.data[0].title);
-            console.log(jsonData.data.map(function (data) {
-              return data;
-            }));
-            setTasks(jsonData.data.map(function (data) {
-              return data;
-            }));
+
+            try {
+              console.log(jsonData.data);
+              console.log(jsonData.data[0].title);
+              console.log(jsonData.data.map(function (data) {
+                return data;
+              }));
+              setTasks(jsonData.data.map(function (data) {
+                return data;
+              }));
+            } catch (error) {
+              console.log(error);
+            }
+
             return [2
             /*return*/
             ];
@@ -2828,11 +2834,7 @@ var App = function App() {
   react_1.useEffect(function () {
     getData();
   }, []);
-  return react_1["default"].createElement("div", {
-    style: {
-      margin: 0
-    }
-  }, react_1["default"].createElement(Header_1["default"], null), react_1["default"].createElement(TextForm_1["default"], null), react_1["default"].createElement(TaskCards_1.TaskCards, null, tasks.map(function (task, key) {
+  return react_1["default"].createElement(react_1["default"].Fragment, null, react_1["default"].createElement(Header_1["default"], null), react_1["default"].createElement(TextForm_1["default"], null), react_1["default"].createElement(TaskCards_1.TaskCards, null, tasks.map(function (task, key) {
     return react_1["default"].createElement(TaskCard_1["default"], {
       title: task.title,
       is_done: task.is_done,
@@ -2866,10 +2868,19 @@ Object.defineProperty(exports, "__esModule", ({
 
 var react_1 = __importDefault(__webpack_require__(/*! react */ "./node_modules/react/index.js"));
 
-var CheckBox = function CheckBox() {
-  return react_1["default"].createElement("div", null, react_1["default"].createElement("input", {
-    type: "checkbox"
-  }));
+var CheckBox = function CheckBox(_a) {
+  var is_done = _a.is_done;
+
+  if (is_done === 1) {
+    return react_1["default"].createElement("input", {
+      type: "checkbox",
+      checked: true
+    });
+  } else {
+    return react_1["default"].createElement("input", {
+      type: "checkbox"
+    });
+  }
 };
 
 exports.default = CheckBox;
@@ -3064,19 +3075,9 @@ var styled_components_1 = __importDefault(__webpack_require__(/*! styled-compone
 var TaskTitle = function TaskTitle(_a) {
   var title = _a.title,
       is_done = _a.is_done;
-  console.log(is_done);
-
-  if (is_done === 0) {
-    return react_1["default"].createElement(Style, {
-      is_done: is_done
-    }, title);
-  } else if (is_done === 1) {
-    return react_1["default"].createElement(Style, {
-      is_done: is_done
-    }, title);
-  } else {
-    return null;
-  }
+  return react_1["default"].createElement(Style, {
+    is_done: is_done
+  }, title);
 };
 
 exports.default = TaskTitle;
@@ -3219,7 +3220,9 @@ var TaskTitle_1 = __importDefault(__webpack_require__(/*! ../lv1/TaskTitle */ ".
 var TaskCard = function TaskCard(_a) {
   var title = _a.title,
       is_done = _a.is_done;
-  return react_1["default"].createElement(Style, null, react_1["default"].createElement(CheckBox_1["default"], null), react_1["default"].createElement(TaskTitle_1["default"], {
+  return react_1["default"].createElement(Style, null, react_1["default"].createElement(CheckBox_1["default"], {
+    is_done: is_done
+  }), react_1["default"].createElement(TaskTitle_1["default"], {
     title: title,
     is_done: is_done
   }), react_1["default"].createElement(EditButton_1["default"], null), react_1["default"].createElement(DeleteButton_1["default"], null));
