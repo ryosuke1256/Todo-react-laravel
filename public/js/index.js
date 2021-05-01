@@ -2840,21 +2840,7 @@ var App = function App() {
         }
       });
     });
-  }; // type param = {
-  //     text: string;
-  //     // is_done: 0 | 1;
-  // };
-  // const postData = async (data: param) => {
-  //     console.log(data);
-  //     const response = await axios.post("api/tasks", data);
-  //     try {
-  //         setTasks(response.data);
-  //     } catch (error) {
-  //         console.log(error);
-  //     }
-  // };
-  //sample
-
+  };
 
   var postData = function postData(data) {
     return __awaiter(void 0, void 0, void 0, function () {
@@ -3097,14 +3083,16 @@ var react_1 = __importDefault(__webpack_require__(/*! react */ "./node_modules/r
 
 var SubmitButton = function SubmitButton(_a) {
   var text = _a.text,
-      postData = _a.postData;
+      postData = _a.postData,
+      setText = _a.setText;
   var data = {
     title: text,
     is_done: 0
   };
   return react_1["default"].createElement("button", {
     onClick: function onClick() {
-      return postData(data);
+      postData(data);
+      setText("");
     }
   }, "\u9001\u4FE1");
 };
@@ -3412,7 +3400,8 @@ var TextForm = function TextForm(_a) {
     handleChange: handleChange
   }), react_1["default"].createElement(SubmitButton_1["default"], {
     text: text,
-    postData: postData
+    postData: postData,
+    setText: setText
   }));
 };
 

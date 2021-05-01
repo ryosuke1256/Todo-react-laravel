@@ -29,22 +29,6 @@ const App: React.VFC = () => {
         }
     };
 
-    // type param = {
-    //     text: string;
-    //     // is_done: 0 | 1;
-    // };
-
-    // const postData = async (data: param) => {
-    //     console.log(data);
-    //     const response = await axios.post("api/tasks", data);
-    //     try {
-    //         setTasks(response.data);
-    //     } catch (error) {
-    //         console.log(error);
-    //     }
-    // };
-
-    //sample
     const postData = async (data) => {
         console.log("postした！");
         // const data = {
