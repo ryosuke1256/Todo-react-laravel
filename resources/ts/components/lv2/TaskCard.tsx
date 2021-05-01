@@ -7,14 +7,14 @@ import TaskTitle from "../lv1/TaskTitle";
 
 type Props = {
     title: string;
-    is_done: number;
+    is_done: 0 | 1;
     key: number;
 };
 
 const TaskCard: React.VFC<Props> = ({ title, is_done }: Props) => {
     return (
         <Style>
-            <CheckBox />
+            <CheckBox is_done={is_done} />
             <TaskTitle title={title} is_done={is_done} />
             <EditButton />
             <DeleteButton />

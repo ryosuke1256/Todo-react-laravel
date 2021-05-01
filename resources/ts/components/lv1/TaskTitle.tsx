@@ -3,24 +3,16 @@ import styled from "styled-components";
 
 type Props = {
     title: string;
-    is_done: number;
+    is_done: 0 | 1;
 };
 
 const TaskTitle: React.VFC<Props> = ({ title, is_done }: Props) => {
-    console.log(is_done);
-
-    if (is_done === 0) {
-        return <Style is_done={is_done}>{title}</Style>;
-    } else if (is_done === 1) {
-        return <Style is_done={is_done}>{title}</Style>;
-    } else {
-        return null;
-    }
+    return <Style is_done={is_done}>{title}</Style>;
 };
 
 export default TaskTitle;
 
-const Style = styled.div<{ is_done: number }>`
+const Style = styled.div<{ is_done: 0 | 1 }>`
     flex-grow: 1;
     padding-left: 13px;
     text-decoration: ${(props) =>
