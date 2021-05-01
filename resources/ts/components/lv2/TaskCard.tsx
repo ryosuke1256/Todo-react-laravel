@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import styled from "styled-components";
 import EditButton from "../lv1/EditButton";
 import DeleteButton from "../lv1/DeleteButton";
@@ -11,7 +11,20 @@ type Props = {
     key: number;
 };
 
+// type Type = {
+//     id: number | null;
+//     title: string;
+//     is_done: 0 | 1;
+// };
+
+// const initTask: Type = {
+//     id: null,
+//     title: "",
+//     is_done: 0,
+// };
+
 const TaskCard: React.VFC<Props> = ({ title, is_done }: Props) => {
+    // const [task, setTask] = useState(initTask);
     return (
         <Style>
             <CheckBox is_done={is_done} />

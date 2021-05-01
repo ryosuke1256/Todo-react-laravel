@@ -1,7 +1,12 @@
 import React from "react";
 
-const InputText: React.VFC = () => {
-    return <input type="text"></input>;
+type Props = {
+    text: string;
+    handleChange: (e: any) => void;
+};
+
+const InputText: React.VFC<Props> = ({ text, handleChange }: Props) => {
+    return <input name="task" value={text} onChange={(e) => handleChange(e)} />;
 };
 
 export default InputText;

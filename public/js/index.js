@@ -2790,12 +2790,23 @@ var TaskCard_1 = __importDefault(__webpack_require__(/*! ./components/lv2/TaskCa
 
 var TextForm_1 = __importDefault(__webpack_require__(/*! ./components/lv2/TextForm */ "./resources/ts/components/lv2/TextForm.tsx"));
 
-var TaskCards_1 = __webpack_require__(/*! ./components/lv3/TaskCards */ "./resources/ts/components/lv3/TaskCards.tsx");
+var TaskCards_1 = __webpack_require__(/*! ./components/lv3/TaskCards */ "./resources/ts/components/lv3/TaskCards.tsx"); // type API = {
+//     id: number;
+//     title: string;
+//     is_done: number;
+//     created_at?: string;
+//     updated_at?: string;
+// };
+
 
 var App = function App() {
   var _a = react_1.useState([]),
       tasks = _a[0],
       setTasks = _a[1];
+
+  var _b = react_1.useState(0),
+      change = _b[0],
+      setChange = _b[1];
 
   var getData = function getData() {
     return __awaiter(void 0, void 0, void 0, function () {
@@ -2829,12 +2840,61 @@ var App = function App() {
         }
       });
     });
+  }; // type param = {
+  //     text: string;
+  //     // is_done: 0 | 1;
+  // };
+  // const postData = async (data: param) => {
+  //     console.log(data);
+  //     const response = await axios.post("api/tasks", data);
+  //     try {
+  //         setTasks(response.data);
+  //     } catch (error) {
+  //         console.log(error);
+  //     }
+  // };
+  //sample
+
+
+  var postData = function postData(data) {
+    return __awaiter(void 0, void 0, void 0, function () {
+      var response;
+      return __generator(this, function (_a) {
+        switch (_a.label) {
+          case 0:
+            console.log("postした！");
+            return [4
+            /*yield*/
+            , axios_1["default"].post("api/tasks", data)];
+
+          case 1:
+            response = _a.sent();
+
+            try {
+              console.log("成功！");
+              tasks.push(response.data);
+              setTasks(tasks);
+              setChange(change + 1);
+            } catch (error) {
+              console.log(error);
+            }
+
+            return [2
+            /*return*/
+            ];
+        }
+      });
+    });
   };
 
   react_1.useEffect(function () {
     getData();
   }, []);
-  return react_1["default"].createElement(react_1["default"].Fragment, null, react_1["default"].createElement(Header_1["default"], null), react_1["default"].createElement(TextForm_1["default"], null), react_1["default"].createElement(TaskCards_1.TaskCards, null, tasks.map(function (task, key) {
+  console.log("render");
+  console.log(tasks);
+  return react_1["default"].createElement(react_1["default"].Fragment, null, react_1["default"].createElement(Header_1["default"], null), react_1["default"].createElement(TextForm_1["default"], {
+    postData: postData
+  }), react_1["default"].createElement(TaskCards_1.TaskCards, null, tasks.map(function (task, key) {
     return react_1["default"].createElement(TaskCard_1["default"], {
       title: task.title,
       is_done: task.is_done,
@@ -2998,9 +3058,15 @@ Object.defineProperty(exports, "__esModule", ({
 
 var react_1 = __importDefault(__webpack_require__(/*! react */ "./node_modules/react/index.js"));
 
-var InputText = function InputText() {
+var InputText = function InputText(_a) {
+  var text = _a.text,
+      handleChange = _a.handleChange;
   return react_1["default"].createElement("input", {
-    type: "text"
+    name: "task",
+    value: text,
+    onChange: function onChange(e) {
+      return handleChange(e);
+    }
   });
 };
 
@@ -3029,8 +3095,18 @@ Object.defineProperty(exports, "__esModule", ({
 
 var react_1 = __importDefault(__webpack_require__(/*! react */ "./node_modules/react/index.js"));
 
-var SubmitButton = function SubmitButton() {
-  return react_1["default"].createElement("button", null, "\u9001\u4FE1");
+var SubmitButton = function SubmitButton(_a) {
+  var text = _a.text,
+      postData = _a.postData;
+  var data = {
+    title: text,
+    is_done: 0
+  };
+  return react_1["default"].createElement("button", {
+    onClick: function onClick() {
+      return postData(data);
+    }
+  }, "\u9001\u4FE1");
 };
 
 exports.default = SubmitButton;
@@ -3215,11 +3291,22 @@ var DeleteButton_1 = __importDefault(__webpack_require__(/*! ../lv1/DeleteButton
 
 var CheckBox_1 = __importDefault(__webpack_require__(/*! ../lv1/CheckBox */ "./resources/ts/components/lv1/CheckBox.tsx"));
 
-var TaskTitle_1 = __importDefault(__webpack_require__(/*! ../lv1/TaskTitle */ "./resources/ts/components/lv1/TaskTitle.tsx"));
+var TaskTitle_1 = __importDefault(__webpack_require__(/*! ../lv1/TaskTitle */ "./resources/ts/components/lv1/TaskTitle.tsx")); // type Type = {
+//     id: number | null;
+//     title: string;
+//     is_done: 0 | 1;
+// };
+// const initTask: Type = {
+//     id: null,
+//     title: "",
+//     is_done: 0,
+// };
+
 
 var TaskCard = function TaskCard(_a) {
   var title = _a.title,
-      is_done = _a.is_done;
+      is_done = _a.is_done; // const [task, setTask] = useState(initTask);
+
   return react_1["default"].createElement(Style, null, react_1["default"].createElement(CheckBox_1["default"], {
     is_done: is_done
   }), react_1["default"].createElement(TaskTitle_1["default"], {
@@ -3255,6 +3342,40 @@ var __makeTemplateObject = this && this.__makeTemplateObject || function (cooked
   return cooked;
 };
 
+var __createBinding = this && this.__createBinding || (Object.create ? function (o, m, k, k2) {
+  if (k2 === undefined) k2 = k;
+  Object.defineProperty(o, k2, {
+    enumerable: true,
+    get: function get() {
+      return m[k];
+    }
+  });
+} : function (o, m, k, k2) {
+  if (k2 === undefined) k2 = k;
+  o[k2] = m[k];
+});
+
+var __setModuleDefault = this && this.__setModuleDefault || (Object.create ? function (o, v) {
+  Object.defineProperty(o, "default", {
+    enumerable: true,
+    value: v
+  });
+} : function (o, v) {
+  o["default"] = v;
+});
+
+var __importStar = this && this.__importStar || function (mod) {
+  if (mod && mod.__esModule) return mod;
+  var result = {};
+  if (mod != null) for (var k in mod) {
+    if (k !== "default" && Object.prototype.hasOwnProperty.call(mod, k)) __createBinding(result, mod, k);
+  }
+
+  __setModuleDefault(result, mod);
+
+  return result;
+};
+
 var __importDefault = this && this.__importDefault || function (mod) {
   return mod && mod.__esModule ? mod : {
     "default": mod
@@ -3265,7 +3386,7 @@ Object.defineProperty(exports, "__esModule", ({
   value: true
 }));
 
-var react_1 = __importDefault(__webpack_require__(/*! react */ "./node_modules/react/index.js"));
+var react_1 = __importStar(__webpack_require__(/*! react */ "./node_modules/react/index.js"));
 
 var styled_components_1 = __importDefault(__webpack_require__(/*! styled-components */ "./node_modules/styled-components/dist/styled-components.browser.esm.js"));
 
@@ -3273,8 +3394,26 @@ var InputText_1 = __importDefault(__webpack_require__(/*! ../lv1/InputText */ ".
 
 var SubmitButton_1 = __importDefault(__webpack_require__(/*! ../lv1/SubmitButton */ "./resources/ts/components/lv1/SubmitButton.tsx"));
 
-var TextForm = function TextForm() {
-  return react_1["default"].createElement(Style, null, react_1["default"].createElement(InputText_1["default"], null), react_1["default"].createElement(SubmitButton_1["default"], null));
+var TextForm = function TextForm(_a) {
+  var postData = _a.postData;
+
+  var _b = react_1.useState(""),
+      text = _b[0],
+      setText = _b[1];
+
+  var handleChange = function handleChange(e) {
+    setText(function () {
+      return e.target.value;
+    });
+  };
+
+  return react_1["default"].createElement(Style, null, react_1["default"].createElement(InputText_1["default"], {
+    text: text,
+    handleChange: handleChange
+  }), react_1["default"].createElement(SubmitButton_1["default"], {
+    text: text,
+    postData: postData
+  }));
 };
 
 exports.default = TextForm;
