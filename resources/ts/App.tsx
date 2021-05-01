@@ -15,6 +15,7 @@ import { TaskCards } from "./components/lv3/TaskCards";
 
 const App: React.VFC = () => {
     const [tasks, setTasks] = useState<any>([]);
+    const [change, setChange] = useState(0);
 
     const getData = async () => {
         const jsonData = await axios.get("api/tasks");
@@ -44,18 +45,18 @@ const App: React.VFC = () => {
     // };
 
     //sample
-    const postData = async () => {
+    const postData = async (data) => {
         console.log("postした！");
-        const data = {
-            title: "おはようgozaimasu",
-            is_done: 0,
-        };
+        // const data = {
+        //     title: "さしすせそai",
+        //     is_done: 0,
+        // };
         const response = await axios.post("api/tasks", data);
         try {
             console.log("成功！");
             tasks.push(response.data);
-            //なぜかrenderが走らない
             setTasks(tasks);
+            setChange(change + 1);
         } catch (error) {
             console.log(error);
         }

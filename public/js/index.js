@@ -2804,6 +2804,10 @@ var App = function App() {
       tasks = _a[0],
       setTasks = _a[1];
 
+  var _b = react_1.useState(0),
+      change = _b[0],
+      setChange = _b[1];
+
   var getData = function getData() {
     return __awaiter(void 0, void 0, void 0, function () {
       var jsonData;
@@ -2852,17 +2856,13 @@ var App = function App() {
   //sample
 
 
-  var postData = function postData() {
+  var postData = function postData(data) {
     return __awaiter(void 0, void 0, void 0, function () {
-      var data, response;
+      var response;
       return __generator(this, function (_a) {
         switch (_a.label) {
           case 0:
             console.log("postした！");
-            data = {
-              title: "おはようgozaimasu",
-              is_done: 0
-            };
             return [4
             /*yield*/
             , axios_1["default"].post("api/tasks", data)];
@@ -2872,9 +2872,9 @@ var App = function App() {
 
             try {
               console.log("成功！");
-              tasks.push(response.data); //なぜかrenderが走らない
-
+              tasks.push(response.data);
               setTasks(tasks);
+              setChange(change + 1);
             } catch (error) {
               console.log(error);
             }
@@ -3098,11 +3098,13 @@ var react_1 = __importDefault(__webpack_require__(/*! react */ "./node_modules/r
 var SubmitButton = function SubmitButton(_a) {
   var text = _a.text,
       postData = _a.postData;
+  var data = {
+    title: text,
+    is_done: 0
+  };
   return react_1["default"].createElement("button", {
     onClick: function onClick() {
-      return postData({
-        text: text
-      });
+      return postData(data);
     }
   }, "\u9001\u4FE1");
 };

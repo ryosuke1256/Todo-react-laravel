@@ -2,11 +2,20 @@ import React from "react";
 
 type Props = {
     text: string;
-    postData: (data: { text: string }) => void;
+    postData: (data) => void;
+};
+
+type Data = {
+    title: string;
+    is_done: 0 | 1;
 };
 
 const SubmitButton: React.VFC<Props> = ({ text, postData }: Props) => {
-    return <button onClick={() => postData({ text })}>送信</button>;
+    const data: Data = {
+        title: text,
+        is_done: 0,
+    };
+    return <button onClick={() => postData(data)}>送信</button>;
 };
 
 export default SubmitButton;
