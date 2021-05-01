@@ -1,7 +1,12 @@
 import React from "react";
 
-const SubmitButton: React.VFC = () => {
-    return <button>送信</button>;
+type Props = {
+    text: string;
+    postData: (data: { text: string }) => void;
+};
+
+const SubmitButton: React.VFC<Props> = ({ text, postData }: Props) => {
+    return <button onClick={() => postData({ text })}>送信</button>;
 };
 
 export default SubmitButton;

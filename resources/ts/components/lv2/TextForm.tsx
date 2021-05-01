@@ -1,13 +1,23 @@
-import React from "react";
+import React, { useState } from "react";
 import styled from "styled-components";
 import InputText from "../lv1/InputText";
 import SubmitButton from "../lv1/SubmitButton";
 
-const TextForm: React.VFC = () => {
+type Props = {
+    postData: (data: { text: string }) => void;
+};
+
+const TextForm: React.VFC<Props> = ({ postData }: Props) => {
+    const [text, setText] = useState("");
+
+    const handleChange = (e: any) => {
+        setText(() => e.target.value);
+    };
+
     return (
         <Style>
-            <InputText />
-            <SubmitButton />
+            <InputText text={text} handleChange={handleChange} />
+            <SubmitButton text={text} postData={postData} />
         </Style>
     );
 };
