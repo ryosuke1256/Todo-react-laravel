@@ -20,27 +20,8 @@ const App: React.VFC = () => {
     const getData = async () => {
         const jsonData = await axios.get("api/tasks");
         try {
-            console.log(jsonData.data);
-            console.log(jsonData.data[0].title);
             console.log(jsonData.data.map((data: {}) => data));
             setTasks(jsonData.data.map((data: {}) => data));
-        } catch (error) {
-            console.log(error);
-        }
-    };
-
-    const postData = async (data) => {
-        console.log("postした！");
-        // const data = {
-        //     title: "さしすせそai",
-        //     is_done: 0,
-        // };
-        const response = await axios.post("api/tasks", data);
-        try {
-            console.log("成功！");
-            tasks.push(response.data);
-            setTasks(tasks);
-            setChange(change + 1);
         } catch (error) {
             console.log(error);
         }
@@ -50,8 +31,16 @@ const App: React.VFC = () => {
         getData();
     }, []);
 
-    console.log("render");
-    console.log(tasks);
+    const postData = async (postData) => {
+        const response = await axios.post("api/tasks", postData);
+        try {
+            tasks.push(response.data);
+            setTasks(tasks);
+            setChange(change + 1);
+        } catch (error) {
+            console.log(error);
+        }
+    };
 
     return (
         <>
@@ -62,6 +51,8 @@ const App: React.VFC = () => {
                     <TaskCard
                         title={task.title}
                         is_done={task.is_done}
+                        setTasks={setTasks}
+                        id={task.id}
                         key={key}
                     />
                 ))}

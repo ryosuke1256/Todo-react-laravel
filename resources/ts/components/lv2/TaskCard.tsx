@@ -4,10 +4,14 @@ import EditButton from "../lv1/EditButton";
 import DeleteButton from "../lv1/DeleteButton";
 import CheckBox from "../lv1/CheckBox";
 import TaskTitle from "../lv1/TaskTitle";
+import axios from "axios";
+import { TaskCards } from "../lv3/TaskCards";
 
 type Props = {
     title: string;
     is_done: 0 | 1;
+    setTasks: (param: {}) => void;
+    id: number;
     key: number;
 };
 
@@ -23,14 +27,39 @@ type Props = {
 //     is_done: 0,
 // };
 
-const TaskCard: React.VFC<Props> = ({ title, is_done }: Props) => {
+const TaskCard: React.VFC<Props> = ({
+    title,
+    is_done,
+    setTasks,
+    id,
+}: Props) => {
     // const [task, setTask] = useState(initTask);
+
+    //作成中
+    const match = () => {
+        return id;
+    };
+
+    const deleteData = async () => {
+        console.log(id);
+        const response = await axios.delete(`api/tasks/${id}`);
+        try {
+            console.log(response.data);
+            // tasks.filter((id)=>{
+            //     return
+            // })
+            setTasks(response.data);
+        } catch (error) {
+            console.log(error);
+        }
+    };
+
     return (
         <Style>
             <CheckBox is_done={is_done} />
             <TaskTitle title={title} is_done={is_done} />
             <EditButton />
-            <DeleteButton />
+            <DeleteButton deleteData={deleteData} />
         </Style>
     );
 };
