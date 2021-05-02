@@ -34,7 +34,8 @@ const App: React.VFC = () => {
     const postData = async (postData) => {
         const response = await axios.post("api/tasks", postData);
         try {
-            tasks.push(response.data);
+            console.log("成功！");
+            tasks.unshift(response.data);
             setTasks(tasks);
             setChange(change + 1);
         } catch (error) {
