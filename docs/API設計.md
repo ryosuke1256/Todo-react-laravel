@@ -1,4 +1,4 @@
-|     Method     |       URI        |     Name      |                   Action                    | Middleware |
+|     Method     |       Endpoint   |     Name      |                   Action                    | Middleware |
 | :------------: | :--------------: | :-----------: | :-----------------------------------------: | :--------: |
 |      GET       |    api/tasks     |  tasks.index  |  App\Http\Controllers\TaskController@index  |    api     |
 |      POST      |    api/tasks     |  tasks.store  |  App\Http\Controllers\TaskController@store  |    api     |
