@@ -2856,10 +2856,6 @@ var App = function App() {
             response = _a.sent();
 
             try {
-<<<<<<< HEAD
-              console.log("成功！");
-=======
->>>>>>> 66657c1ead027b910a1e1ada2194dc87e8e2d7c0
               tasks.unshift(response.data);
               setTasks(tasks);
               setChange(change + 1);
