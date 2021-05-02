@@ -23,4 +23,4 @@
 -   MySQL
 
 ## 設計
-[Todo-react-laravel/docs/](https://github.com/ryosuke1256/Todo-react-laravel/tree/develop/docs)
+[docs](https://github.com/ryosuke1256/Todo-react-laravel/tree/develop/docs)
