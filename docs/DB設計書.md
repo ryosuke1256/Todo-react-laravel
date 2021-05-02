@@ -1,3 +1,5 @@
+**1 対 1**
+
 ## users
 
 |  カラム名  |   データ型   | NULL | Default |
