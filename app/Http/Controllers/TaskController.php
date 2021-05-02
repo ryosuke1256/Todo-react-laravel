@@ -15,8 +15,7 @@ class TaskController extends Controller
     {
         
         // dd('aaaaaaaa');
-        // return Task::all();
-        return Task::orderByDesc('id')->get();
+        return Task::all();
     }
 
     /**
