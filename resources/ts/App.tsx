@@ -15,12 +15,12 @@ import { TaskCards } from "./components/lv3/TaskCards";
 
 const App: React.VFC = () => {
     const [tasks, setTasks] = useState<any>([]);
+    //render走らせる用
     const [change, setChange] = useState(0);
 
     const getData = async () => {
         const jsonData = await axios.get("api/tasks");
         try {
-            console.log(jsonData.data.map((data: {}) => data));
             setTasks(jsonData.data.map((data: {}) => data));
         } catch (error) {
             console.log(error);
@@ -34,7 +34,6 @@ const App: React.VFC = () => {
     const postData = async (postData) => {
         const response = await axios.post("api/tasks", postData);
         try {
-            console.log("成功！");
             tasks.unshift(response.data);
             setTasks(tasks);
             setChange(change + 1);
@@ -43,20 +42,29 @@ const App: React.VFC = () => {
         }
     };
 
+    let i: number = -1;
+
     return (
         <>
             <Header />
             <TextForm postData={postData} />
             <TaskCards>
-                {tasks.map((task: any, key: number) => (
-                    <TaskCard
-                        title={task.title}
-                        is_done={task.is_done}
-                        setTasks={setTasks}
-                        id={task.id}
-                        key={key}
-                    />
-                ))}
+                {tasks.map((task: any, key: number) => {
+                    i++;
+                    return (
+                        <TaskCard
+                            title={task.title}
+                            is_done={task.is_done}
+                            setTasks={setTasks}
+                            tasks={tasks}
+                            change={change}
+                            setChange={setChange}
+                            id={task.id}
+                            i={i}
+                            key={key}
+                        />
+                    );
+                })}
             </TaskCards>
         </>
     );

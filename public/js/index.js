@@ -2802,7 +2802,8 @@ var TaskCards_1 = __webpack_require__(/*! ./components/lv3/TaskCards */ "./resou
 var App = function App() {
   var _a = react_1.useState([]),
       tasks = _a[0],
-      setTasks = _a[1];
+      setTasks = _a[1]; //render走らせる用
+
 
   var _b = react_1.useState(0),
       change = _b[0],
@@ -2822,9 +2823,6 @@ var App = function App() {
             jsonData = _a.sent();
 
             try {
-              console.log(jsonData.data.map(function (data) {
-                return data;
-              }));
               setTasks(jsonData.data.map(function (data) {
                 return data;
               }));
@@ -2858,7 +2856,7 @@ var App = function App() {
             response = _a.sent();
 
             try {
-              tasks.push(response.data);
+              tasks.unshift(response.data);
               setTasks(tasks);
               setChange(change + 1);
             } catch (error) {
@@ -2873,14 +2871,20 @@ var App = function App() {
     });
   };
 
+  var i = -1;
   return react_1["default"].createElement(react_1["default"].Fragment, null, react_1["default"].createElement(Header_1["default"], null), react_1["default"].createElement(TextForm_1["default"], {
     postData: postData
   }), react_1["default"].createElement(TaskCards_1.TaskCards, null, tasks.map(function (task, key) {
+    i++;
     return react_1["default"].createElement(TaskCard_1["default"], {
       title: task.title,
       is_done: task.is_done,
       setTasks: setTasks,
+      tasks: tasks,
+      change: change,
+      setChange: setChange,
       id: task.id,
+      i: i,
       key: key
     });
   })));
@@ -3426,32 +3430,20 @@ var CheckBox_1 = __importDefault(__webpack_require__(/*! ../lv1/CheckBox */ "./r
 
 var TaskTitle_1 = __importDefault(__webpack_require__(/*! ../lv1/TaskTitle */ "./resources/ts/components/lv1/TaskTitle.tsx"));
 
-var axios_1 = __importDefault(__webpack_require__(/*! axios */ "./node_modules/axios/index.js")); // type Type = {
-//     id: number | null;
-//     title: string;
-//     is_done: 0 | 1;
-// };
-// const initTask: Type = {
-//     id: null,
-//     title: "",
-//     is_done: 0,
-// };
-
+var axios_1 = __importDefault(__webpack_require__(/*! axios */ "./node_modules/axios/index.js"));
 
 var TaskCard = function TaskCard(_a) {
-  // const [task, setTask] = useState(initTask);
   var title = _a.title,
       is_done = _a.is_done,
+      tasks = _a.tasks,
       setTasks = _a.setTasks,
-      id = _a.id; //作成中
-
-  var match = function match() {
-    return id;
-  };
+      change = _a.change,
+      setChange = _a.setChange,
+      id = _a.id,
+      i = _a.i;
 
   var deleteData = function deleteData() {
     return __awaiter(void 0, void 0, void 0, function () {
-      var response;
       return __generator(this, function (_a) {
         switch (_a.label) {
           case 0:
@@ -3461,14 +3453,12 @@ var TaskCard = function TaskCard(_a) {
             , axios_1["default"]["delete"]("api/tasks/" + id)];
 
           case 1:
-            response = _a.sent();
+            _a.sent();
 
             try {
-              console.log(response.data); // tasks.filter((id)=>{
-              //     return
-              // })
-
-              setTasks(response.data);
+              tasks.splice(i, 1);
+              setTasks(tasks);
+              setChange(change + 1);
             } catch (error) {
               console.log(error);
             }

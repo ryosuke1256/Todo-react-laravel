@@ -10,45 +10,31 @@ import { TaskCards } from "../lv3/TaskCards";
 type Props = {
     title: string;
     is_done: 0 | 1;
+    tasks: [];
     setTasks: (param: {}) => void;
+    change: number;
+    setChange: (param: number) => void;
     id: number;
-    key: number;
+    i: number;
 };
-
-// type Type = {
-//     id: number | null;
-//     title: string;
-//     is_done: 0 | 1;
-// };
-
-// const initTask: Type = {
-//     id: null,
-//     title: "",
-//     is_done: 0,
-// };
 
 const TaskCard: React.VFC<Props> = ({
     title,
     is_done,
+    tasks,
     setTasks,
+    change,
+    setChange,
     id,
+    i,
 }: Props) => {
-    // const [task, setTask] = useState(initTask);
-
-    //作成中
-    const match = () => {
-        return id;
-    };
-
     const deleteData = async () => {
         console.log(id);
-        const response = await axios.delete(`api/tasks/${id}`);
+        await axios.delete(`api/tasks/${id}`);
         try {
-            console.log(response.data);
-            // tasks.filter((id)=>{
-            //     return
-            // })
-            setTasks(response.data);
+            tasks.splice(i, 1);
+            setTasks(tasks);
+            setChange(change + 1);
         } catch (error) {
             console.log(error);
         }
