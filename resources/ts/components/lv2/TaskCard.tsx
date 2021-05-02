@@ -4,33 +4,48 @@ import EditButton from "../lv1/EditButton";
 import DeleteButton from "../lv1/DeleteButton";
 import CheckBox from "../lv1/CheckBox";
 import TaskTitle from "../lv1/TaskTitle";
+import axios from "axios";
+import { TaskCards } from "../lv3/TaskCards";
 
 type Props = {
     title: string;
     is_done: 0 | 1;
-    key: number;
+    tasks: [];
+    setTasks: (param: {}) => void;
+    change: number;
+    setChange: (param: number) => void;
+    id: number;
+    i: number;
 };
 
-// type Type = {
-//     id: number | null;
-//     title: string;
-//     is_done: 0 | 1;
-// };
+const TaskCard: React.VFC<Props> = ({
+    title,
+    is_done,
+    tasks,
+    setTasks,
+    change,
+    setChange,
+    id,
+    i,
+}: Props) => {
+    const deleteData = async () => {
+        console.log(id);
+        await axios.delete(`api/tasks/${id}`);
+        try {
+            tasks.splice(i, 1);
+            setTasks(tasks);
+            setChange(change + 1);
+        } catch (error) {
+            console.log(error);
+        }
+    };
 
-// const initTask: Type = {
-//     id: null,
-//     title: "",
-//     is_done: 0,
-// };
-
-const TaskCard: React.VFC<Props> = ({ title, is_done }: Props) => {
-    // const [task, setTask] = useState(initTask);
     return (
         <Style>
             <CheckBox is_done={is_done} />
             <TaskTitle title={title} is_done={is_done} />
             <EditButton />
-            <DeleteButton />
+            <DeleteButton deleteData={deleteData} />
         </Style>
     );
 };
