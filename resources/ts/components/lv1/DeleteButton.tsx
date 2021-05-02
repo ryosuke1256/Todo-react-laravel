@@ -1,8 +1,12 @@
 import React from "react";
 import styled from "styled-components";
 
-const DeleteButton: React.VFC = () => {
-    return <Style>削除</Style>;
+type Props = {
+    deleteData: () => Promise<void>;
+};
+
+const DeleteButton: React.VFC<Props> = ({ deleteData }: Props) => {
+    return <Style onClick={() => deleteData()}>削除</Style>;
 };
 
 export default DeleteButton;
