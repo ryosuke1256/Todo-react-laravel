@@ -54,7 +54,7 @@ const App: React.VFC = () => {
                     return (
                         <TaskCard
                             title={task.title}
-                            is_done={task.is_done}
+                            task={task}
                             setTasks={setTasks}
                             tasks={tasks}
                             change={change}
