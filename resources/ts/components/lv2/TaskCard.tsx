@@ -5,11 +5,10 @@ import DeleteButton from "../lv1/DeleteButton";
 import CheckBox from "../lv1/CheckBox";
 import TaskTitle from "../lv1/TaskTitle";
 import axios from "axios";
-import { TaskCards } from "../lv3/TaskCards";
 
 type Props = {
     title: string;
-    is_done: 0 | 1;
+    task: any;
     tasks: [];
     setTasks: (param: {}) => void;
     change: number;
@@ -20,7 +19,7 @@ type Props = {
 
 const TaskCard: React.VFC<Props> = ({
     title,
-    is_done,
+    task,
     tasks,
     setTasks,
     change,
@@ -28,6 +27,8 @@ const TaskCard: React.VFC<Props> = ({
     id,
     i,
 }: Props) => {
+    const [is_done, setIs_done] = useState(task.is_done);
+
     const deleteData = async () => {
         console.log(id);
         await axios.delete(`api/tasks/${id}`);
@@ -42,7 +43,7 @@ const TaskCard: React.VFC<Props> = ({
 
     return (
         <Style>
-            <CheckBox is_done={is_done} />
+            <CheckBox is_done={is_done} setIs_done={setIs_done} />
             <TaskTitle title={title} is_done={is_done} />
             <EditButton />
             <DeleteButton deleteData={deleteData} />

@@ -2878,7 +2878,7 @@ var App = function App() {
     i++;
     return react_1["default"].createElement(TaskCard_1["default"], {
       title: task.title,
-      is_done: task.is_done,
+      task: task,
       setTasks: setTasks,
       tasks: tasks,
       change: change,
@@ -2916,16 +2916,23 @@ Object.defineProperty(exports, "__esModule", ({
 var react_1 = __importDefault(__webpack_require__(/*! react */ "./node_modules/react/index.js"));
 
 var CheckBox = function CheckBox(_a) {
-  var is_done = _a.is_done;
+  var is_done = _a.is_done,
+      setIs_done = _a.setIs_done;
 
   if (is_done === 1) {
     return react_1["default"].createElement("input", {
       type: "checkbox",
-      checked: true
+      onClick: function onClick() {
+        return setIs_done(0);
+      },
+      defaultChecked: true
     });
   } else {
     return react_1["default"].createElement("input", {
-      type: "checkbox"
+      type: "checkbox",
+      onClick: function onClick() {
+        return setIs_done(1);
+      }
     });
   }
 };
@@ -3265,6 +3272,40 @@ var __makeTemplateObject = this && this.__makeTemplateObject || function (cooked
   return cooked;
 };
 
+var __createBinding = this && this.__createBinding || (Object.create ? function (o, m, k, k2) {
+  if (k2 === undefined) k2 = k;
+  Object.defineProperty(o, k2, {
+    enumerable: true,
+    get: function get() {
+      return m[k];
+    }
+  });
+} : function (o, m, k, k2) {
+  if (k2 === undefined) k2 = k;
+  o[k2] = m[k];
+});
+
+var __setModuleDefault = this && this.__setModuleDefault || (Object.create ? function (o, v) {
+  Object.defineProperty(o, "default", {
+    enumerable: true,
+    value: v
+  });
+} : function (o, v) {
+  o["default"] = v;
+});
+
+var __importStar = this && this.__importStar || function (mod) {
+  if (mod && mod.__esModule) return mod;
+  var result = {};
+  if (mod != null) for (var k in mod) {
+    if (k !== "default" && Object.prototype.hasOwnProperty.call(mod, k)) __createBinding(result, mod, k);
+  }
+
+  __setModuleDefault(result, mod);
+
+  return result;
+};
+
 var __awaiter = this && this.__awaiter || function (thisArg, _arguments, P, generator) {
   function adopt(value) {
     return value instanceof P ? value : new P(function (resolve) {
@@ -3418,7 +3459,7 @@ Object.defineProperty(exports, "__esModule", ({
   value: true
 }));
 
-var react_1 = __importDefault(__webpack_require__(/*! react */ "./node_modules/react/index.js"));
+var react_1 = __importStar(__webpack_require__(/*! react */ "./node_modules/react/index.js"));
 
 var styled_components_1 = __importDefault(__webpack_require__(/*! styled-components */ "./node_modules/styled-components/dist/styled-components.browser.esm.js"));
 
@@ -3434,13 +3475,17 @@ var axios_1 = __importDefault(__webpack_require__(/*! axios */ "./node_modules/a
 
 var TaskCard = function TaskCard(_a) {
   var title = _a.title,
-      is_done = _a.is_done,
+      task = _a.task,
       tasks = _a.tasks,
       setTasks = _a.setTasks,
       change = _a.change,
       setChange = _a.setChange,
       id = _a.id,
       i = _a.i;
+
+  var _b = react_1.useState(task.is_done),
+      is_done = _b[0],
+      setIs_done = _b[1];
 
   var deleteData = function deleteData() {
     return __awaiter(void 0, void 0, void 0, function () {
@@ -3472,7 +3517,8 @@ var TaskCard = function TaskCard(_a) {
   };
 
   return react_1["default"].createElement(Style, null, react_1["default"].createElement(CheckBox_1["default"], {
-    is_done: is_done
+    is_done: is_done,
+    setIs_done: setIs_done
   }), react_1["default"].createElement(TaskTitle_1["default"], {
     title: title,
     is_done: is_done
