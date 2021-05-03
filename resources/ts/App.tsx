@@ -5,14 +5,6 @@ import TaskCard from "./components/lv2/TaskCard";
 import TextForm from "./components/lv2/TextForm";
 import { TaskCards } from "./components/lv3/TaskCards";
 
-// type API = {
-//     id: number;
-//     title: string;
-//     is_done: number;
-//     created_at?: string;
-//     updated_at?: string;
-// };
-
 const App: React.VFC = () => {
     const [tasks, setTasks] = useState<any>([]);
     //render走らせる用
@@ -31,7 +23,12 @@ const App: React.VFC = () => {
         getData();
     }, []);
 
-    const postData = async (postData) => {
+    type Data = {
+        title: string;
+        is_done: 0 | 1;
+    };
+
+    const postData = async (postData: Data) => {
         const response = await axios.post("api/tasks", postData);
         try {
             tasks.unshift(response.data);

@@ -6,9 +6,17 @@ import CheckBox from "../lv1/CheckBox";
 import TaskTitle from "../lv1/TaskTitle";
 import axios from "axios";
 
+type API = {
+    id: number;
+    title: string;
+    is_done: 0 | 1;
+    created_at?: string;
+    updated_at?: string;
+};
+
 type Props = {
     title: string;
-    task: any;
+    task: API;
     tasks: [];
     setTasks: (param: {}) => void;
     change: number;
@@ -27,7 +35,7 @@ const TaskCard: React.VFC<Props> = ({
     id,
     i,
 }: Props) => {
-    const [is_done, setIs_done] = useState(task.is_done);
+    const [is_done, setIs_done] = useState<0 | 1>(task.is_done);
 
     const deleteData = async () => {
         console.log(id);
@@ -47,18 +55,14 @@ const TaskCard: React.VFC<Props> = ({
     };
 
     const patchData = async (checked: boolean) => {
-        console.log(checked);
         const data: Data = {
             title: task.title,
             is_done: checked ? 1 : 0,
         };
         console.log(data);
-
         await axios.put(`api/tasks/${id}`, data);
-        console.log("patch");
         try {
-            setTasks(tasks);
-            setChange(change + 1);
+            checked ? setIs_done(1) : setIs_done(0);
         } catch (error) {
             console.log(error);
         }

@@ -2,7 +2,7 @@ import React from "react";
 
 type Props = {
     text: string;
-    postData: (data: {}) => void;
+    postData: (postData: { title: string; is_done: 0 | 1 }) => void;
     setText: (param: string) => void;
 };
 

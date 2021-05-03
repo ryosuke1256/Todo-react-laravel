@@ -16,7 +16,6 @@ const CheckBox: React.VFC<Props> = ({
             <input
                 type="checkbox"
                 onClick={() => {
-                    setIs_done(0);
                     patchData(false);
                 }}
                 defaultChecked
@@ -27,7 +26,6 @@ const CheckBox: React.VFC<Props> = ({
             <input
                 type="checkbox"
                 onClick={() => {
-                    setIs_done(1);
                     patchData(true);
                 }}
             />
