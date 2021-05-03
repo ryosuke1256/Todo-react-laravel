@@ -2790,14 +2790,7 @@ var TaskCard_1 = __importDefault(__webpack_require__(/*! ./components/lv2/TaskCa
 
 var TextForm_1 = __importDefault(__webpack_require__(/*! ./components/lv2/TextForm */ "./resources/ts/components/lv2/TextForm.tsx"));
 
-var TaskCards_1 = __webpack_require__(/*! ./components/lv3/TaskCards */ "./resources/ts/components/lv3/TaskCards.tsx"); // type API = {
-//     id: number;
-//     title: string;
-//     is_done: number;
-//     created_at?: string;
-//     updated_at?: string;
-// };
-
+var TaskCards_1 = __webpack_require__(/*! ./components/lv3/TaskCards */ "./resources/ts/components/lv3/TaskCards.tsx");
 
 var App = function App() {
   var _a = react_1.useState([]),
@@ -2924,7 +2917,6 @@ var CheckBox = function CheckBox(_a) {
     return react_1["default"].createElement("input", {
       type: "checkbox",
       onClick: function onClick() {
-        setIs_done(0);
         patchData(false);
       },
       defaultChecked: true
@@ -2933,7 +2925,6 @@ var CheckBox = function CheckBox(_a) {
     return react_1["default"].createElement("input", {
       type: "checkbox",
       onClick: function onClick() {
-        setIs_done(1);
         patchData(true);
       }
     });
@@ -3525,7 +3516,6 @@ var TaskCard = function TaskCard(_a) {
       return __generator(this, function (_a) {
         switch (_a.label) {
           case 0:
-            console.log(checked);
             data = {
               title: task.title,
               is_done: checked ? 1 : 0
@@ -3538,11 +3528,8 @@ var TaskCard = function TaskCard(_a) {
           case 1:
             _a.sent();
 
-            console.log("patch");
-
             try {
-              setTasks(tasks);
-              setChange(change + 1);
+              checked ? setIs_done(1) : setIs_done(0);
             } catch (error) {
               console.log(error);
             }

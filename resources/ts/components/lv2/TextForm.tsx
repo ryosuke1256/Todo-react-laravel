@@ -4,7 +4,7 @@ import InputText from "../lv1/InputText";
 import SubmitButton from "../lv1/SubmitButton";
 
 type Props = {
-    postData: (data: { text: string }) => void;
+    postData: (postData: { title: string; is_done: 0 | 1 }) => void;
 };
 
 const TextForm: React.VFC<Props> = ({ postData }: Props) => {
