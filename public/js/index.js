@@ -2917,13 +2917,15 @@ var react_1 = __importDefault(__webpack_require__(/*! react */ "./node_modules/r
 
 var CheckBox = function CheckBox(_a) {
   var is_done = _a.is_done,
-      setIs_done = _a.setIs_done;
+      setIs_done = _a.setIs_done,
+      patchData = _a.patchData;
 
   if (is_done === 1) {
     return react_1["default"].createElement("input", {
       type: "checkbox",
       onClick: function onClick() {
-        return setIs_done(0);
+        setIs_done(0);
+        patchData();
       },
       defaultChecked: true
     });
@@ -2931,7 +2933,8 @@ var CheckBox = function CheckBox(_a) {
     return react_1["default"].createElement("input", {
       type: "checkbox",
       onClick: function onClick() {
-        return setIs_done(1);
+        setIs_done(1);
+        patchData();
       }
     });
   }
@@ -3516,9 +3519,14 @@ var TaskCard = function TaskCard(_a) {
     });
   };
 
+  var patchData = function patchData() {
+    console.log("patch");
+  };
+
   return react_1["default"].createElement(Style, null, react_1["default"].createElement(CheckBox_1["default"], {
     is_done: is_done,
-    setIs_done: setIs_done
+    setIs_done: setIs_done,
+    patchData: patchData
   }), react_1["default"].createElement(TaskTitle_1["default"], {
     title: title,
     is_done: is_done

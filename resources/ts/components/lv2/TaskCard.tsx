@@ -41,9 +41,17 @@ const TaskCard: React.VFC<Props> = ({
         }
     };
 
+    const patchData = () => {
+        console.log("patch");
+    };
+
     return (
         <Style>
-            <CheckBox is_done={is_done} setIs_done={setIs_done} />
+            <CheckBox
+                is_done={is_done}
+                setIs_done={setIs_done}
+                patchData={patchData}
+            />
             <TaskTitle title={title} is_done={is_done} />
             <EditButton />
             <DeleteButton deleteData={deleteData} />
