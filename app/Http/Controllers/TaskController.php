@@ -60,6 +60,7 @@ class TaskController extends Controller
     public function update(Request $request, Task $task)
     {
         $task->title = $request->title;
+        $task->is_done = $request->is_done;
         return $task->update() 
         ? response()->json($task)
         : response()->json(['エラーです'],500);

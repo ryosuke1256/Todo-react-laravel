@@ -41,8 +41,27 @@ const TaskCard: React.VFC<Props> = ({
         }
     };
 
-    const patchData = () => {
+    type Data = {
+        title: string;
+        is_done: 0 | 1;
+    };
+
+    const patchData = async (checked: boolean) => {
+        console.log(checked);
+        const data: Data = {
+            title: task.title,
+            is_done: checked ? 1 : 0,
+        };
+        console.log(data);
+
+        await axios.put(`api/tasks/${id}`, data);
         console.log("patch");
+        try {
+            setTasks(tasks);
+            setChange(change + 1);
+        } catch (error) {
+            console.log(error);
+        }
     };
 
     return (

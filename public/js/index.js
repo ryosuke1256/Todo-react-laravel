@@ -2925,7 +2925,7 @@ var CheckBox = function CheckBox(_a) {
       type: "checkbox",
       onClick: function onClick() {
         setIs_done(0);
-        patchData();
+        patchData(false);
       },
       defaultChecked: true
     });
@@ -2934,7 +2934,7 @@ var CheckBox = function CheckBox(_a) {
       type: "checkbox",
       onClick: function onClick() {
         setIs_done(1);
-        patchData();
+        patchData(true);
       }
     });
   }
@@ -3519,8 +3519,40 @@ var TaskCard = function TaskCard(_a) {
     });
   };
 
-  var patchData = function patchData() {
-    console.log("patch");
+  var patchData = function patchData(checked) {
+    return __awaiter(void 0, void 0, void 0, function () {
+      var data;
+      return __generator(this, function (_a) {
+        switch (_a.label) {
+          case 0:
+            console.log(checked);
+            data = {
+              title: task.title,
+              is_done: checked ? 1 : 0
+            };
+            console.log(data);
+            return [4
+            /*yield*/
+            , axios_1["default"].put("api/tasks/" + id, data)];
+
+          case 1:
+            _a.sent();
+
+            console.log("patch");
+
+            try {
+              setTasks(tasks);
+              setChange(change + 1);
+            } catch (error) {
+              console.log(error);
+            }
+
+            return [2
+            /*return*/
+            ];
+        }
+      });
+    });
   };
 
   return react_1["default"].createElement(Style, null, react_1["default"].createElement(CheckBox_1["default"], {
