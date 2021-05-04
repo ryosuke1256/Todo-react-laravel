@@ -24,7 +24,7 @@ const TaskTitle: React.VFC<Props> = ({ title, is_done, editActive }: Props) => {
             />
         );
     } else {
-        return <TextStyle is_done={is_done}>{title}</TextStyle>;
+        return <TextStyle is_done={is_done}>{text}</TextStyle>;
     }
 };
 

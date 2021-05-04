@@ -3241,7 +3241,7 @@ var TaskTitle = function TaskTitle(_a) {
   } else {
     return react_1["default"].createElement(TextStyle, {
       is_done: is_done
-    }, title);
+    }, text);
   }
 };
 
