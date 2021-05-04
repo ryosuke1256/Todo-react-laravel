@@ -6,7 +6,15 @@ type Props = {
 };
 
 const InputText: React.VFC<Props> = ({ text, handleChange }: Props) => {
-    return <input name="task" value={text} onChange={(e) => handleChange(e)} />;
+    return (
+        <input
+            name="task"
+            value={text}
+            placeholder="タスクを入力"
+            onChange={(e) => handleChange(e)}
+            style={{ padding: "2px" }}
+        />
+    );
 };
 
 export default InputText;

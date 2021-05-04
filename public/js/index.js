@@ -2802,6 +2802,10 @@ var App = function App() {
       change = _b[0],
       setChange = _b[1];
 
+  var _c = react_1.useState(false),
+      tasksEditActive = _c[0],
+      setTasksEditActive = _c[1];
+
   var getData = function getData() {
     return __awaiter(void 0, void 0, void 0, function () {
       var jsonData;
@@ -2876,6 +2880,8 @@ var App = function App() {
       tasks: tasks,
       change: change,
       setChange: setChange,
+      tasksEditActive: tasksEditActive,
+      setTasksEditActive: setTasksEditActive,
       id: task.id,
       i: i,
       key: key
@@ -2911,13 +2917,14 @@ var react_1 = __importDefault(__webpack_require__(/*! react */ "./node_modules/r
 var CheckBox = function CheckBox(_a) {
   var is_done = _a.is_done,
       setIs_done = _a.setIs_done,
-      patchData = _a.patchData;
+      patchData = _a.patchData,
+      text = _a.text;
 
   if (is_done === 1) {
     return react_1["default"].createElement("input", {
       type: "checkbox",
       onClick: function onClick() {
-        patchData(false);
+        patchData(text, false);
       },
       defaultChecked: true
     });
@@ -2925,7 +2932,7 @@ var CheckBox = function CheckBox(_a) {
     return react_1["default"].createElement("input", {
       type: "checkbox",
       onClick: function onClick() {
-        patchData(true);
+        patchData(text, true);
       }
     });
   }
@@ -3006,6 +3013,40 @@ var __makeTemplateObject = this && this.__makeTemplateObject || function (cooked
   return cooked;
 };
 
+var __createBinding = this && this.__createBinding || (Object.create ? function (o, m, k, k2) {
+  if (k2 === undefined) k2 = k;
+  Object.defineProperty(o, k2, {
+    enumerable: true,
+    get: function get() {
+      return m[k];
+    }
+  });
+} : function (o, m, k, k2) {
+  if (k2 === undefined) k2 = k;
+  o[k2] = m[k];
+});
+
+var __setModuleDefault = this && this.__setModuleDefault || (Object.create ? function (o, v) {
+  Object.defineProperty(o, "default", {
+    enumerable: true,
+    value: v
+  });
+} : function (o, v) {
+  o["default"] = v;
+});
+
+var __importStar = this && this.__importStar || function (mod) {
+  if (mod && mod.__esModule) return mod;
+  var result = {};
+  if (mod != null) for (var k in mod) {
+    if (k !== "default" && Object.prototype.hasOwnProperty.call(mod, k)) __createBinding(result, mod, k);
+  }
+
+  __setModuleDefault(result, mod);
+
+  return result;
+};
+
 var __importDefault = this && this.__importDefault || function (mod) {
   return mod && mod.__esModule ? mod : {
     "default": mod
@@ -3016,12 +3057,46 @@ Object.defineProperty(exports, "__esModule", ({
   value: true
 }));
 
-var react_1 = __importDefault(__webpack_require__(/*! react */ "./node_modules/react/index.js"));
+var react_1 = __importStar(__webpack_require__(/*! react */ "./node_modules/react/index.js"));
 
 var styled_components_1 = __importDefault(__webpack_require__(/*! styled-components */ "./node_modules/styled-components/dist/styled-components.browser.esm.js"));
 
-var EditButton = function EditButton() {
-  return react_1["default"].createElement(Style, null, "\u7DE8\u96C6");
+var EditButton = function EditButton(_a) {
+  var patchData = _a.patchData,
+      change = _a.change,
+      setChange = _a.setChange,
+      editActive = _a.editActive,
+      setEditActive = _a.setEditActive,
+      tasksEditActive = _a.tasksEditActive,
+      setTasksEditActive = _a.setTasksEditActive,
+      text = _a.text;
+
+  var _b = react_1.useState("編集"),
+      editButtonTitle = _b[0],
+      setEditButtonTitle = _b[1];
+
+  var changeTaskTitle = function changeTaskTitle() {
+    patchData(text);
+
+    if (!editActive && tasksEditActive) {
+      return null;
+    } else {
+      setEditButtonTitle("変更");
+      setEditActive(!editActive);
+      setTasksEditActive(true);
+
+      if (editActive) {
+        setEditButtonTitle("編集");
+        setTasksEditActive(false);
+      }
+    }
+  };
+
+  return react_1["default"].createElement(Style, {
+    onClick: function onClick() {
+      return changeTaskTitle();
+    }
+  }, editButtonTitle);
 };
 
 exports.default = EditButton;
@@ -3057,8 +3132,12 @@ var InputText = function InputText(_a) {
   return react_1["default"].createElement("input", {
     name: "task",
     value: text,
+    placeholder: "\u30BF\u30B9\u30AF\u3092\u5165\u529B",
     onChange: function onChange(e) {
       return handleChange(e);
+    },
+    style: {
+      padding: "2px"
     }
   });
 };
@@ -3101,7 +3180,7 @@ var SubmitButton = function SubmitButton(_a) {
       postData(data);
       setText("");
     }
-  }, "\u9001\u4FE1");
+  }, "\u8FFD\u52A0");
 };
 
 exports.default = SubmitButton;
@@ -3145,14 +3224,37 @@ var styled_components_1 = __importDefault(__webpack_require__(/*! styled-compone
 
 var TaskTitle = function TaskTitle(_a) {
   var title = _a.title,
-      is_done = _a.is_done;
-  return react_1["default"].createElement(Style, {
-    is_done: is_done
-  }, title);
+      is_done = _a.is_done,
+      editActive = _a.editActive,
+      text = _a.text,
+      setText = _a.setText;
+
+  var handleChange = function handleChange(e) {
+    setText(function () {
+      return e.target.value;
+    });
+  };
+
+  if (editActive) {
+    return react_1["default"].createElement("input", {
+      type: "text",
+      value: text,
+      onChange: function onChange(e) {
+        return handleChange(e);
+      },
+      style: {
+        flexGrow: 1
+      }
+    });
+  } else {
+    return react_1["default"].createElement(TextStyle, {
+      is_done: is_done
+    }, text);
+  }
 };
 
 exports.default = TaskTitle;
-var Style = styled_components_1["default"].div(templateObject_1 || (templateObject_1 = __makeTemplateObject(["\n    flex-grow: 1;\n    padding-left: 13px;\n    text-decoration: ", ";\n"], ["\n    flex-grow: 1;\n    padding-left: 13px;\n    text-decoration: ", ";\n"])), function (props) {
+var TextStyle = styled_components_1["default"].div(templateObject_1 || (templateObject_1 = __makeTemplateObject(["\n    flex-grow: 1;\n    padding-left: 13px;\n    text-decoration: ", ";\n"], ["\n    flex-grow: 1;\n    padding-left: 13px;\n    text-decoration: ", ";\n"])), function (props) {
   return props.is_done === 1 ? "line-through" : "none";
 });
 var templateObject_1;
@@ -3474,12 +3576,22 @@ var TaskCard = function TaskCard(_a) {
       setTasks = _a.setTasks,
       change = _a.change,
       setChange = _a.setChange,
+      tasksEditActive = _a.tasksEditActive,
+      setTasksEditActive = _a.setTasksEditActive,
       id = _a.id,
       i = _a.i;
 
   var _b = react_1.useState(task.is_done),
       is_done = _b[0],
       setIs_done = _b[1];
+
+  var _c = react_1.useState(false),
+      editActive = _c[0],
+      setEditActive = _c[1];
+
+  var _d = react_1.useState(title),
+      text = _d[0],
+      setText = _d[1];
 
   var deleteData = function deleteData() {
     return __awaiter(void 0, void 0, void 0, function () {
@@ -3510,14 +3622,14 @@ var TaskCard = function TaskCard(_a) {
     });
   };
 
-  var patchData = function patchData(checked) {
+  var patchData = function patchData(text, checked) {
     return __awaiter(void 0, void 0, void 0, function () {
       var data;
       return __generator(this, function (_a) {
         switch (_a.label) {
           case 0:
             data = {
-              title: task.title,
+              title: text,
               is_done: checked ? 1 : 0
             };
             console.log(data);
@@ -3545,11 +3657,24 @@ var TaskCard = function TaskCard(_a) {
   return react_1["default"].createElement(Style, null, react_1["default"].createElement(CheckBox_1["default"], {
     is_done: is_done,
     setIs_done: setIs_done,
-    patchData: patchData
+    patchData: patchData,
+    text: text
   }), react_1["default"].createElement(TaskTitle_1["default"], {
     title: title,
-    is_done: is_done
-  }), react_1["default"].createElement(EditButton_1["default"], null), react_1["default"].createElement(DeleteButton_1["default"], {
+    is_done: is_done,
+    editActive: editActive,
+    text: text,
+    setText: setText
+  }), react_1["default"].createElement(EditButton_1["default"], {
+    patchData: patchData,
+    change: change,
+    setChange: setChange,
+    editActive: editActive,
+    setEditActive: setEditActive,
+    tasksEditActive: tasksEditActive,
+    setTasksEditActive: setTasksEditActive,
+    text: text
+  }), react_1["default"].createElement(DeleteButton_1["default"], {
     deleteData: deleteData
   }));
 };
