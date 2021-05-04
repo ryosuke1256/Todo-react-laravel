@@ -9,6 +9,7 @@ const App: React.VFC = () => {
     const [tasks, setTasks] = useState<any>([]);
     //render走らせる用
     const [change, setChange] = useState(0);
+    const [tasksEditActive, setTasksEditActive] = useState(false);
 
     const getData = async () => {
         const jsonData = await axios.get("api/tasks");
@@ -56,6 +57,8 @@ const App: React.VFC = () => {
                             tasks={tasks}
                             change={change}
                             setChange={setChange}
+                            tasksEditActive={tasksEditActive}
+                            setTasksEditActive={setTasksEditActive}
                             id={task.id}
                             i={i}
                             key={key}

@@ -2802,6 +2802,10 @@ var App = function App() {
       change = _b[0],
       setChange = _b[1];
 
+  var _c = react_1.useState(false),
+      tasksEditActive = _c[0],
+      setTasksEditActive = _c[1];
+
   var getData = function getData() {
     return __awaiter(void 0, void 0, void 0, function () {
       var jsonData;
@@ -2876,6 +2880,8 @@ var App = function App() {
       tasks: tasks,
       change: change,
       setChange: setChange,
+      tasksEditActive: tasksEditActive,
+      setTasksEditActive: setTasksEditActive,
       id: task.id,
       i: i,
       key: key
@@ -3020,8 +3026,33 @@ var react_1 = __importDefault(__webpack_require__(/*! react */ "./node_modules/r
 
 var styled_components_1 = __importDefault(__webpack_require__(/*! styled-components */ "./node_modules/styled-components/dist/styled-components.browser.esm.js"));
 
-var EditButton = function EditButton() {
-  return react_1["default"].createElement(Style, null, "\u7DE8\u96C6");
+var EditButton = function EditButton(_a) {
+  var patchData = _a.patchData,
+      change = _a.change,
+      setChange = _a.setChange,
+      editActive = _a.editActive,
+      setEditActive = _a.setEditActive,
+      tasksEditActive = _a.tasksEditActive,
+      setTasksEditActive = _a.setTasksEditActive;
+
+  var changeTaskTitle = function changeTaskTitle() {
+    if (!editActive && tasksEditActive) {
+      return null;
+    } else {
+      setEditActive(!editActive);
+      setTasksEditActive(true);
+
+      if (editActive) {
+        setTasksEditActive(false);
+      }
+    }
+  };
+
+  return react_1["default"].createElement(Style, {
+    onClick: function onClick() {
+      return changeTaskTitle();
+    }
+  }, "\u7DE8\u96C6");
 };
 
 exports.default = EditButton;
@@ -3057,8 +3088,12 @@ var InputText = function InputText(_a) {
   return react_1["default"].createElement("input", {
     name: "task",
     value: text,
+    placeholder: "\u30BF\u30B9\u30AF\u3092\u5165\u529B",
     onChange: function onChange(e) {
       return handleChange(e);
+    },
+    style: {
+      padding: "2px"
     }
   });
 };
@@ -3101,7 +3136,7 @@ var SubmitButton = function SubmitButton(_a) {
       postData(data);
       setText("");
     }
-  }, "\u9001\u4FE1");
+  }, "\u8FFD\u52A0");
 };
 
 exports.default = SubmitButton;
@@ -3145,14 +3180,26 @@ var styled_components_1 = __importDefault(__webpack_require__(/*! styled-compone
 
 var TaskTitle = function TaskTitle(_a) {
   var title = _a.title,
-      is_done = _a.is_done;
-  return react_1["default"].createElement(Style, {
-    is_done: is_done
-  }, title);
+      is_done = _a.is_done,
+      editActive = _a.editActive;
+
+  if (editActive) {
+    return react_1["default"].createElement("input", {
+      type: "text",
+      value: title,
+      style: {
+        flexGrow: 1
+      }
+    });
+  } else {
+    return react_1["default"].createElement(TextStyle, {
+      is_done: is_done
+    }, title);
+  }
 };
 
 exports.default = TaskTitle;
-var Style = styled_components_1["default"].div(templateObject_1 || (templateObject_1 = __makeTemplateObject(["\n    flex-grow: 1;\n    padding-left: 13px;\n    text-decoration: ", ";\n"], ["\n    flex-grow: 1;\n    padding-left: 13px;\n    text-decoration: ", ";\n"])), function (props) {
+var TextStyle = styled_components_1["default"].div(templateObject_1 || (templateObject_1 = __makeTemplateObject(["\n    flex-grow: 1;\n    padding-left: 13px;\n    text-decoration: ", ";\n"], ["\n    flex-grow: 1;\n    padding-left: 13px;\n    text-decoration: ", ";\n"])), function (props) {
   return props.is_done === 1 ? "line-through" : "none";
 });
 var templateObject_1;
@@ -3474,12 +3521,18 @@ var TaskCard = function TaskCard(_a) {
       setTasks = _a.setTasks,
       change = _a.change,
       setChange = _a.setChange,
+      tasksEditActive = _a.tasksEditActive,
+      setTasksEditActive = _a.setTasksEditActive,
       id = _a.id,
       i = _a.i;
 
   var _b = react_1.useState(task.is_done),
       is_done = _b[0],
       setIs_done = _b[1];
+
+  var _c = react_1.useState(false),
+      editActive = _c[0],
+      setEditActive = _c[1];
 
   var deleteData = function deleteData() {
     return __awaiter(void 0, void 0, void 0, function () {
@@ -3548,8 +3601,17 @@ var TaskCard = function TaskCard(_a) {
     patchData: patchData
   }), react_1["default"].createElement(TaskTitle_1["default"], {
     title: title,
-    is_done: is_done
-  }), react_1["default"].createElement(EditButton_1["default"], null), react_1["default"].createElement(DeleteButton_1["default"], {
+    is_done: is_done,
+    editActive: editActive
+  }), react_1["default"].createElement(EditButton_1["default"], {
+    patchData: patchData,
+    change: change,
+    setChange: setChange,
+    editActive: editActive,
+    setEditActive: setEditActive,
+    tasksEditActive: tasksEditActive,
+    setTasksEditActive: setTasksEditActive
+  }), react_1["default"].createElement(DeleteButton_1["default"], {
     deleteData: deleteData
   }));
 };

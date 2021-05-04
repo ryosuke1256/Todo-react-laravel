@@ -4,15 +4,20 @@ import styled from "styled-components";
 type Props = {
     title: string;
     is_done: 0 | 1;
+    editActive: boolean;
 };
 
-const TaskTitle: React.VFC<Props> = ({ title, is_done }: Props) => {
-    return <Style is_done={is_done}>{title}</Style>;
+const TaskTitle: React.VFC<Props> = ({ title, is_done, editActive }: Props) => {
+    if (editActive) {
+        return <input type="text" value={title} style={{ flexGrow: 1 }} />;
+    } else {
+        return <TextStyle is_done={is_done}>{title}</TextStyle>;
+    }
 };
 
 export default TaskTitle;
 
-const Style = styled.div<{ is_done: 0 | 1 }>`
+const TextStyle = styled.div<{ is_done: 0 | 1 }>`
     flex-grow: 1;
     padding-left: 13px;
     text-decoration: ${(props) =>

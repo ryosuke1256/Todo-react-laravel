@@ -23,7 +23,7 @@ const SubmitButton: React.VFC<Props> = ({ text, postData, setText }: Props) => {
                 setText("");
             }}
         >
-            送信
+            追加
         </button>
     );
 };

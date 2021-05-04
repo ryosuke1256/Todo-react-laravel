@@ -21,6 +21,8 @@ type Props = {
     setTasks: (param: {}) => void;
     change: number;
     setChange: (param: number) => void;
+    tasksEditActive: boolean;
+    setTasksEditActive: (param: boolean) => void;
     id: number;
     i: number;
 };
@@ -32,10 +34,13 @@ const TaskCard: React.VFC<Props> = ({
     setTasks,
     change,
     setChange,
+    tasksEditActive,
+    setTasksEditActive,
     id,
     i,
 }: Props) => {
     const [is_done, setIs_done] = useState<0 | 1>(task.is_done);
+    const [editActive, setEditActive] = useState(false);
 
     const deleteData = async () => {
         console.log(id);
@@ -75,8 +80,20 @@ const TaskCard: React.VFC<Props> = ({
                 setIs_done={setIs_done}
                 patchData={patchData}
             />
-            <TaskTitle title={title} is_done={is_done} />
-            <EditButton />
+            <TaskTitle
+                title={title}
+                is_done={is_done}
+                editActive={editActive}
+            />
+            <EditButton
+                patchData={patchData}
+                change={change}
+                setChange={setChange}
+                editActive={editActive}
+                setEditActive={setEditActive}
+                tasksEditActive={tasksEditActive}
+                setTasksEditActive={setTasksEditActive}
+            />
             <DeleteButton deleteData={deleteData} />
         </Style>
     );
