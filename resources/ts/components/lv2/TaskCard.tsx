@@ -60,9 +60,9 @@ const TaskCard: React.VFC<Props> = ({
         is_done: 0 | 1;
     };
 
-    const patchData = async (checked: boolean) => {
+    const patchData = async (text: string, checked?: boolean) => {
         const data: Data = {
-            title: task.title,
+            title: text,
             is_done: checked ? 1 : 0,
         };
         console.log(data);
@@ -80,6 +80,7 @@ const TaskCard: React.VFC<Props> = ({
                 is_done={is_done}
                 setIs_done={setIs_done}
                 patchData={patchData}
+                text={text}
             />
             <TaskTitle
                 title={title}
@@ -96,6 +97,7 @@ const TaskCard: React.VFC<Props> = ({
                 setEditActive={setEditActive}
                 tasksEditActive={tasksEditActive}
                 setTasksEditActive={setTasksEditActive}
+                text={text}
             />
             <DeleteButton deleteData={deleteData} />
         </Style>

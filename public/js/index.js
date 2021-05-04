@@ -2917,13 +2917,14 @@ var react_1 = __importDefault(__webpack_require__(/*! react */ "./node_modules/r
 var CheckBox = function CheckBox(_a) {
   var is_done = _a.is_done,
       setIs_done = _a.setIs_done,
-      patchData = _a.patchData;
+      patchData = _a.patchData,
+      text = _a.text;
 
   if (is_done === 1) {
     return react_1["default"].createElement("input", {
       type: "checkbox",
       onClick: function onClick() {
-        patchData(false);
+        patchData(text, false);
       },
       defaultChecked: true
     });
@@ -2931,7 +2932,7 @@ var CheckBox = function CheckBox(_a) {
     return react_1["default"].createElement("input", {
       type: "checkbox",
       onClick: function onClick() {
-        patchData(true);
+        patchData(text, true);
       }
     });
   }
@@ -3033,9 +3034,12 @@ var EditButton = function EditButton(_a) {
       editActive = _a.editActive,
       setEditActive = _a.setEditActive,
       tasksEditActive = _a.tasksEditActive,
-      setTasksEditActive = _a.setTasksEditActive;
+      setTasksEditActive = _a.setTasksEditActive,
+      text = _a.text;
 
   var changeTaskTitle = function changeTaskTitle() {
+    patchData(text);
+
     if (!editActive && tasksEditActive) {
       return null;
     } else {
@@ -3578,14 +3582,14 @@ var TaskCard = function TaskCard(_a) {
     });
   };
 
-  var patchData = function patchData(checked) {
+  var patchData = function patchData(text, checked) {
     return __awaiter(void 0, void 0, void 0, function () {
       var data;
       return __generator(this, function (_a) {
         switch (_a.label) {
           case 0:
             data = {
-              title: task.title,
+              title: text,
               is_done: checked ? 1 : 0
             };
             console.log(data);
@@ -3613,7 +3617,8 @@ var TaskCard = function TaskCard(_a) {
   return react_1["default"].createElement(Style, null, react_1["default"].createElement(CheckBox_1["default"], {
     is_done: is_done,
     setIs_done: setIs_done,
-    patchData: patchData
+    patchData: patchData,
+    text: text
   }), react_1["default"].createElement(TaskTitle_1["default"], {
     title: title,
     is_done: is_done,
@@ -3627,7 +3632,8 @@ var TaskCard = function TaskCard(_a) {
     editActive: editActive,
     setEditActive: setEditActive,
     tasksEditActive: tasksEditActive,
-    setTasksEditActive: setTasksEditActive
+    setTasksEditActive: setTasksEditActive,
+    text: text
   }), react_1["default"].createElement(DeleteButton_1["default"], {
     deleteData: deleteData
   }));

@@ -2,13 +2,14 @@ import React, { useEffect } from "react";
 import styled from "styled-components";
 
 type Props = {
-    patchData: (checked: boolean) => Promise<void>;
+    patchData: (text: string, checked?: boolean) => Promise<void>;
     change: number;
     setChange: (param: number) => void;
     editActive: boolean;
     setEditActive: (param: boolean) => void;
     tasksEditActive: boolean;
     setTasksEditActive: (param: boolean) => void;
+    text: string;
 };
 
 const EditButton: React.VFC<Props> = ({
@@ -19,8 +20,10 @@ const EditButton: React.VFC<Props> = ({
     setEditActive,
     tasksEditActive,
     setTasksEditActive,
+    text,
 }: Props) => {
     const changeTaskTitle = () => {
+        patchData(text);
         if (!editActive && tasksEditActive) {
             return null;
         } else {
