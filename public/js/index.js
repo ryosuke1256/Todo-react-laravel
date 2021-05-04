@@ -2845,6 +2845,7 @@ var App = function App() {
       return __generator(this, function (_a) {
         switch (_a.label) {
           case 0:
+            console.log(_postData);
             return [4
             /*yield*/
             , axios_1["default"].post("api/tasks", _postData)];
@@ -2853,6 +2854,8 @@ var App = function App() {
             response = _a.sent();
 
             try {
+              console.log(response.data);
+              console.log(tasks);
               tasks.unshift(response.data);
               setTasks(tasks);
               setChange(change + 1);
@@ -2869,6 +2872,7 @@ var App = function App() {
   };
 
   var i = -1;
+  console.log(tasks);
   return react_1["default"].createElement(react_1["default"].Fragment, null, react_1["default"].createElement(Header_1["default"], null), react_1["default"].createElement(TextForm_1["default"], {
     postData: postData
   }), react_1["default"].createElement(TaskCards_1.TaskCards, null, tasks.map(function (task, key) {
@@ -3592,6 +3596,10 @@ var TaskCard = function TaskCard(_a) {
   var _d = react_1.useState(title),
       text = _d[0],
       setText = _d[1];
+
+  react_1.useEffect(function () {
+    setText(title);
+  }, [title]);
 
   var deleteData = function deleteData() {
     return __awaiter(void 0, void 0, void 0, function () {

@@ -30,8 +30,11 @@ const App: React.VFC = () => {
     };
 
     const postData = async (postData: Data) => {
+        console.log(postData);
         const response = await axios.post("api/tasks", postData);
         try {
+            console.log(response.data);
+            console.log(tasks);
             tasks.unshift(response.data);
             setTasks(tasks);
             setChange(change + 1);
@@ -41,6 +44,7 @@ const App: React.VFC = () => {
     };
 
     let i: number = -1;
+    console.log(tasks);
 
     return (
         <>
