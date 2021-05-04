@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import styled from "styled-components";
 
 type Props = {
@@ -8,8 +8,21 @@ type Props = {
 };
 
 const TaskTitle: React.VFC<Props> = ({ title, is_done, editActive }: Props) => {
+    const [text, setText] = useState(title);
+
+    const handleChange = (e: any) => {
+        setText(() => e.target.value);
+    };
+
     if (editActive) {
-        return <input type="text" value={title} style={{ flexGrow: 1 }} />;
+        return (
+            <input
+                type="text"
+                value={text}
+                onChange={(e) => handleChange(e)}
+                style={{ flexGrow: 1 }}
+            />
+        );
     } else {
         return <TextStyle is_done={is_done}>{title}</TextStyle>;
     }
