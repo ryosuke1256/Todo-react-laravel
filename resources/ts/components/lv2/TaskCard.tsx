@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import styled from "styled-components";
 import EditButton from "../lv1/EditButton";
 import DeleteButton from "../lv1/DeleteButton";
@@ -42,6 +42,10 @@ const TaskCard: React.VFC<Props> = ({
     const [is_done, setIs_done] = useState<0 | 1>(task.is_done);
     const [editActive, setEditActive] = useState(false);
     const [text, setText] = useState(title);
+
+    useEffect(() => {
+        setText(title);
+    }, [title]);
 
     const deleteData = async () => {
         console.log(id);
