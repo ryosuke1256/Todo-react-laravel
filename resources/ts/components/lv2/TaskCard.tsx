@@ -41,6 +41,7 @@ const TaskCard: React.VFC<Props> = ({
 }: Props) => {
     const [is_done, setIs_done] = useState<0 | 1>(task.is_done);
     const [editActive, setEditActive] = useState(false);
+    const [text, setText] = useState(title);
 
     const deleteData = async () => {
         console.log(id);
@@ -84,6 +85,8 @@ const TaskCard: React.VFC<Props> = ({
                 title={title}
                 is_done={is_done}
                 editActive={editActive}
+                text={text}
+                setText={setText}
             />
             <EditButton
                 patchData={patchData}

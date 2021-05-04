@@ -5,11 +5,17 @@ type Props = {
     title: string;
     is_done: 0 | 1;
     editActive: boolean;
+    text: string;
+    setText: (param: any) => void;
 };
 
-const TaskTitle: React.VFC<Props> = ({ title, is_done, editActive }: Props) => {
-    const [text, setText] = useState(title);
-
+const TaskTitle: React.VFC<Props> = ({
+    title,
+    is_done,
+    editActive,
+    text,
+    setText,
+}: Props) => {
     const handleChange = (e: any) => {
         setText(() => e.target.value);
     };

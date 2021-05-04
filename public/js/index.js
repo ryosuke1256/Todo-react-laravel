@@ -3164,40 +3164,6 @@ var __makeTemplateObject = this && this.__makeTemplateObject || function (cooked
   return cooked;
 };
 
-var __createBinding = this && this.__createBinding || (Object.create ? function (o, m, k, k2) {
-  if (k2 === undefined) k2 = k;
-  Object.defineProperty(o, k2, {
-    enumerable: true,
-    get: function get() {
-      return m[k];
-    }
-  });
-} : function (o, m, k, k2) {
-  if (k2 === undefined) k2 = k;
-  o[k2] = m[k];
-});
-
-var __setModuleDefault = this && this.__setModuleDefault || (Object.create ? function (o, v) {
-  Object.defineProperty(o, "default", {
-    enumerable: true,
-    value: v
-  });
-} : function (o, v) {
-  o["default"] = v;
-});
-
-var __importStar = this && this.__importStar || function (mod) {
-  if (mod && mod.__esModule) return mod;
-  var result = {};
-  if (mod != null) for (var k in mod) {
-    if (k !== "default" && Object.prototype.hasOwnProperty.call(mod, k)) __createBinding(result, mod, k);
-  }
-
-  __setModuleDefault(result, mod);
-
-  return result;
-};
-
 var __importDefault = this && this.__importDefault || function (mod) {
   return mod && mod.__esModule ? mod : {
     "default": mod
@@ -3208,18 +3174,16 @@ Object.defineProperty(exports, "__esModule", ({
   value: true
 }));
 
-var react_1 = __importStar(__webpack_require__(/*! react */ "./node_modules/react/index.js"));
+var react_1 = __importDefault(__webpack_require__(/*! react */ "./node_modules/react/index.js"));
 
 var styled_components_1 = __importDefault(__webpack_require__(/*! styled-components */ "./node_modules/styled-components/dist/styled-components.browser.esm.js"));
 
 var TaskTitle = function TaskTitle(_a) {
   var title = _a.title,
       is_done = _a.is_done,
-      editActive = _a.editActive;
-
-  var _b = react_1.useState(title),
-      text = _b[0],
-      setText = _b[1];
+      editActive = _a.editActive,
+      text = _a.text,
+      setText = _a.setText;
 
   var handleChange = function handleChange(e) {
     setText(function () {
@@ -3581,6 +3545,10 @@ var TaskCard = function TaskCard(_a) {
       editActive = _c[0],
       setEditActive = _c[1];
 
+  var _d = react_1.useState(title),
+      text = _d[0],
+      setText = _d[1];
+
   var deleteData = function deleteData() {
     return __awaiter(void 0, void 0, void 0, function () {
       return __generator(this, function (_a) {
@@ -3649,7 +3617,9 @@ var TaskCard = function TaskCard(_a) {
   }), react_1["default"].createElement(TaskTitle_1["default"], {
     title: title,
     is_done: is_done,
-    editActive: editActive
+    editActive: editActive,
+    text: text,
+    setText: setText
   }), react_1["default"].createElement(EditButton_1["default"], {
     patchData: patchData,
     change: change,
