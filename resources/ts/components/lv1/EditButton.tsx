@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useState } from "react";
 import styled from "styled-components";
 
 type Props = {
@@ -22,20 +22,23 @@ const EditButton: React.VFC<Props> = ({
     setTasksEditActive,
     text,
 }: Props) => {
+    const [editButtonTitle, setEditButtonTitle] = useState("編集");
     const changeTaskTitle = () => {
         patchData(text);
         if (!editActive && tasksEditActive) {
             return null;
         } else {
+            setEditButtonTitle("変更");
             setEditActive(!editActive);
             setTasksEditActive(true);
             if (editActive) {
+                setEditButtonTitle("編集");
                 setTasksEditActive(false);
             }
         }
     };
 
-    return <Style onClick={() => changeTaskTitle()}>編集</Style>;
+    return <Style onClick={() => changeTaskTitle()}>{editButtonTitle}</Style>;
 };
 
 export default EditButton;
