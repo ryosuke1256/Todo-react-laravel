@@ -3074,7 +3074,8 @@ var react_1 = __importStar(__webpack_require__(/*! react */ "./node_modules/reac
 var styled_components_1 = __importDefault(__webpack_require__(/*! styled-components */ "./node_modules/styled-components/dist/styled-components.browser.esm.js"));
 
 var EditButton = function EditButton(_a) {
-  var patchData = _a.patchData,
+  var is_done = _a.is_done,
+      patchData = _a.patchData,
       editActive = _a.editActive,
       setEditActive = _a.setEditActive,
       tasksEditActive = _a.tasksEditActive,
@@ -3086,7 +3087,13 @@ var EditButton = function EditButton(_a) {
       setEditButtonTitle = _b[1];
 
   var changeTaskTitle = function changeTaskTitle() {
-    patchData(text);
+    var checked = true;
+
+    if (is_done === 1) {
+      checked = false;
+    }
+
+    patchData(text, checked);
 
     if (!editActive && tasksEditActive) {
       return null;
@@ -3653,7 +3660,7 @@ var TaskCard = function TaskCard(_a) {
           case 0:
             data = {
               title: text,
-              is_done: checked ? 0 : 1
+              is_done: !checked ? 1 : 0
             };
             console.log(data);
             return [4
@@ -3664,7 +3671,7 @@ var TaskCard = function TaskCard(_a) {
             _a.sent();
 
             try {
-              checked ? setIs_done(0) : setIs_done(1);
+              !checked ? setIs_done(1) : setIs_done(0);
               setTasks(tasks);
               setChange(change + 1);
             } catch (error) {
@@ -3690,6 +3697,7 @@ var TaskCard = function TaskCard(_a) {
     text: text,
     setText: setText
   }), react_1["default"].createElement(EditButton_1["default"], {
+    is_done: is_done,
     patchData: patchData,
     editActive: editActive,
     setEditActive: setEditActive,

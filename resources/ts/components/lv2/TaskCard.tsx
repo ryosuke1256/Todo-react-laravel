@@ -73,12 +73,12 @@ const TaskCard: React.VFC<Props> = ({
     const patchData = async (text: string, checked?: boolean) => {
         const data: Data = {
             title: text,
-            is_done: checked ? 0 : 1,
+            is_done: !checked ? 1 : 0,
         };
         console.log(data);
         await axios.put(`api/tasks/${id}`, data);
         try {
-            checked ? setIs_done(0) : setIs_done(1);
+            !checked ? setIs_done(1) : setIs_done(0);
             setTasks(tasks);
             setChange(change + 1);
         } catch (error) {
@@ -101,6 +101,7 @@ const TaskCard: React.VFC<Props> = ({
                 setText={setText}
             />
             <EditButton
+                is_done={is_done}
                 patchData={patchData}
                 editActive={editActive}
                 setEditActive={setEditActive}
