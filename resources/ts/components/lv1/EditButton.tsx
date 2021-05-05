@@ -3,7 +3,11 @@ import styled from "styled-components";
 
 type Props = {
     is_done: 0 | 1;
-    patchData: (text: string, checked?: boolean) => Promise<void>;
+    patchData: (
+        text: string,
+        is_done: 0 | 1,
+        viaCheckBox: boolean
+    ) => Promise<void>;
     editActive: boolean;
     setEditActive: (param: boolean) => void;
     tasksEditActive: boolean;
@@ -22,11 +26,7 @@ const EditButton: React.VFC<Props> = ({
 }: Props) => {
     const [editButtonTitle, setEditButtonTitle] = useState("編集");
     const changeTaskTitle = () => {
-        let checked = true;
-        if (is_done === 1) {
-            checked = false;
-        }
-        patchData(text, checked);
+        patchData(text, is_done, false);
         if (!editActive && tasksEditActive) {
             return null;
         } else {

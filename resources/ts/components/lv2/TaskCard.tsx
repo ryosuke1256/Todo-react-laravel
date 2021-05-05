@@ -70,15 +70,38 @@ const TaskCard: React.VFC<Props> = ({
         is_done: 0 | 1;
     };
 
-    const patchData = async (text: string, checked?: boolean) => {
+    // const patchData = async (text: string, checked?: boolean) => {
+    //     const data: Data = {
+    //         title: text,
+    //         is_done: !checked ? 1 : 0,
+    //     };
+    //     console.log(data);
+    //     await axios.put(`api/tasks/${id}`, data);
+    //     try {
+    //         !checked ? setIs_done(1) : setIs_done(0);
+    //         setTasks(tasks);
+    //         setChange(change + 1);
+    //     } catch (error) {
+    //         console.log(error);
+    //     }
+    // };
+
+    const patchData = async (
+        text: string,
+        is_done: 0 | 1,
+        viaCheckBox: boolean
+    ) => {
+        if (viaCheckBox) {
+            is_done === 0 ? (is_done = 1) : (is_done = 0);
+        }
         const data: Data = {
             title: text,
-            is_done: !checked ? 1 : 0,
+            is_done: is_done,
         };
         console.log(data);
         await axios.put(`api/tasks/${id}`, data);
         try {
-            !checked ? setIs_done(1) : setIs_done(0);
+            setIs_done(is_done);
             setTasks(tasks);
             setChange(change + 1);
         } catch (error) {

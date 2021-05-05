@@ -2938,8 +2938,7 @@ var CheckBox = function CheckBox(_a) {
   return react_1["default"].createElement("input", {
     type: "checkbox",
     onClick: function onClick() {
-      console.log(checked);
-      patchData(text, checked);
+      patchData(text, is_done, true);
     },
     onChange: function onChange(e) {
       return handleChange(e);
@@ -3087,13 +3086,7 @@ var EditButton = function EditButton(_a) {
       setEditButtonTitle = _b[1];
 
   var changeTaskTitle = function changeTaskTitle() {
-    var checked = true;
-
-    if (is_done === 1) {
-      checked = false;
-    }
-
-    patchData(text, checked);
+    patchData(text, is_done, false);
 
     if (!editActive && tasksEditActive) {
       return null;
@@ -3650,17 +3643,36 @@ var TaskCard = function TaskCard(_a) {
         }
       });
     });
-  };
+  }; // const patchData = async (text: string, checked?: boolean) => {
+  //     const data: Data = {
+  //         title: text,
+  //         is_done: !checked ? 1 : 0,
+  //     };
+  //     console.log(data);
+  //     await axios.put(`api/tasks/${id}`, data);
+  //     try {
+  //         !checked ? setIs_done(1) : setIs_done(0);
+  //         setTasks(tasks);
+  //         setChange(change + 1);
+  //     } catch (error) {
+  //         console.log(error);
+  //     }
+  // };
 
-  var patchData = function patchData(text, checked) {
+
+  var patchData = function patchData(text, is_done, viaCheckBox) {
     return __awaiter(void 0, void 0, void 0, function () {
       var data;
       return __generator(this, function (_a) {
         switch (_a.label) {
           case 0:
+            if (viaCheckBox) {
+              is_done === 0 ? is_done = 1 : is_done = 0;
+            }
+
             data = {
               title: text,
-              is_done: !checked ? 1 : 0
+              is_done: is_done
             };
             console.log(data);
             return [4
@@ -3671,7 +3683,7 @@ var TaskCard = function TaskCard(_a) {
             _a.sent();
 
             try {
-              !checked ? setIs_done(1) : setIs_done(0);
+              setIs_done(is_done);
               setTasks(tasks);
               setChange(change + 1);
             } catch (error) {

@@ -2,7 +2,7 @@ import React from "react";
 
 type Props = {
     is_done: 0 | 1;
-    patchData: (text: string, checked: boolean) => void;
+    patchData: (text: string, is_done: 0 | 1, viaCheckBox: boolean) => void;
     text: string;
     setChecked: (param: boolean) => void;
 };
@@ -25,8 +25,7 @@ const CheckBox: React.VFC<Props> = ({
         <input
             type="checkbox"
             onClick={() => {
-                console.log(checked);
-                patchData(text, checked);
+                patchData(text, is_done, true);
             }}
             onChange={(e) => handleChange(e)}
             checked={checked}
