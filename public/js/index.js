@@ -3649,22 +3649,7 @@ var TaskCard = function TaskCard(_a) {
         }
       });
     });
-  }; // const patchData = async (text: string, checked?: boolean) => {
-  //     const data: Data = {
-  //         title: text,
-  //         is_done: !checked ? 1 : 0,
-  //     };
-  //     console.log(data);
-  //     await axios.put(`api/tasks/${id}`, data);
-  //     try {
-  //         !checked ? setIs_done(1) : setIs_done(0);
-  //         setTasks(tasks);
-  //         setChange(change + 1);
-  //     } catch (error) {
-  //         console.log(error);
-  //     }
-  // };
-
+  };
 
   var patchData = function patchData(text, is_done, viaCheckBox) {
     return __awaiter(void 0, void 0, void 0, function () {
@@ -3689,13 +3674,9 @@ var TaskCard = function TaskCard(_a) {
             _a.sent();
 
             try {
-              setIs_done(is_done);
-              console.log(task.is_done); //tasksの値を書き換えないといけない
+              setIs_done(is_done); //tasksの値を書き換えないといけない
 
               task.is_done = is_done;
-              console.log(tasks[i]);
-              console.log(task); // tasks[i] = task;
-
               setTasks(tasks); // setChange(change + 1);
             } catch (error) {
               console.log(error);
@@ -3709,7 +3690,6 @@ var TaskCard = function TaskCard(_a) {
     });
   };
 
-  console.log(tasks);
   return react_1["default"].createElement(Style, null, react_1["default"].createElement(CheckBox_1["default"], {
     is_done: is_done,
     patchData: patchData,

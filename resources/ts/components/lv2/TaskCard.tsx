@@ -55,10 +55,6 @@ const TaskCard: React.VFC<Props> = ({
         setChecked(task.is_done === 1);
     }, []);
 
-    // useEffect(() => {
-    //     setTasks(tasks);
-    // }, [is_done]);
-
     const deleteData = async () => {
         await axios.delete(`api/tasks/${id}`);
         try {
@@ -74,22 +70,6 @@ const TaskCard: React.VFC<Props> = ({
         title: string;
         is_done: 0 | 1;
     };
-
-    // const patchData = async (text: string, checked?: boolean) => {
-    //     const data: Data = {
-    //         title: text,
-    //         is_done: !checked ? 1 : 0,
-    //     };
-    //     console.log(data);
-    //     await axios.put(`api/tasks/${id}`, data);
-    //     try {
-    //         !checked ? setIs_done(1) : setIs_done(0);
-    //         setTasks(tasks);
-    //         setChange(change + 1);
-    //     } catch (error) {
-    //         console.log(error);
-    //     }
-    // };
 
     const patchData = async (
         text: string,
@@ -107,20 +87,14 @@ const TaskCard: React.VFC<Props> = ({
         await axios.put(`api/tasks/${id}`, data);
         try {
             setIs_done(is_done);
-            console.log(task.is_done);
             //tasksの値を書き換えないといけない
             task.is_done = is_done;
-            console.log(tasks[i]);
-            console.log(task);
-            // tasks[i] = task;
 
             setTasks(tasks);
-            // setChange(change + 1);
         } catch (error) {
             console.log(error);
         }
     };
-    console.log(tasks);
 
     return (
         <Style>

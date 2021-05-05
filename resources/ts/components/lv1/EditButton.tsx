@@ -32,11 +32,9 @@ const EditButton: React.VFC<Props> = ({
         } else {
             setEditButtonTitle("変更");
             setEditActive(!editActive);
-            //これで無駄なrender走ってる
             setTasksEditActive(true);
             if (editActive) {
                 setEditButtonTitle("編集");
-                //これで無駄なrender走ってる
                 setTasksEditActive(false);
             }
         }

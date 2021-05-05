@@ -17,10 +17,6 @@ const CheckBox: React.VFC<Props> = ({
         console.log(e.target.checked);
         setChecked(e.target.checked);
     };
-    let checked = false;
-    if (is_done === 1) {
-        checked = true;
-    }
     return (
         <input
             type="checkbox"
@@ -28,7 +24,7 @@ const CheckBox: React.VFC<Props> = ({
                 patchData(text, is_done, true);
             }}
             onChange={(e) => handleChange(e)}
-            checked={checked}
+            checked={is_done === 1 ? true : false}
         />
     );
 };
