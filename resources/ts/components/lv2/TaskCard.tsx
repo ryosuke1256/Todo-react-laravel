@@ -27,8 +27,13 @@ type Props = {
     i: number;
 };
 
+type Data = {
+    title: string;
+    is_done: 0 | 1;
+};
+
 const TaskCard: React.VFC<Props> = ({
-    title,
+    title, //task.title
     task,
     tasks,
     setTasks,
@@ -41,19 +46,16 @@ const TaskCard: React.VFC<Props> = ({
 }: Props) => {
     const [editActive, setEditActive] = useState(false);
     const [text, setText] = useState(title);
-    const [checked, setChecked] = useState(false);
-    //こっち使おう
     const [is_done, setIs_done] = useState<0 | 1>(task.is_done);
     const [taskObj, setTaskObj] = useState(task);
 
     useEffect(() => {
         setText(title);
-        setIs_done(task.is_done);
-    }, [title, task.is_done]);
+    }, [title]);
 
     useEffect(() => {
-        setChecked(task.is_done === 1);
-    }, []);
+        setIs_done(task.is_done);
+    }, [task.is_done]);
 
     const deleteData = async () => {
         await axios.delete(`api/tasks/${id}`);
@@ -64,11 +66,6 @@ const TaskCard: React.VFC<Props> = ({
         } catch (error) {
             console.log(error);
         }
-    };
-
-    type Data = {
-        title: string;
-        is_done: 0 | 1;
     };
 
     const patchData = async (
@@ -83,14 +80,12 @@ const TaskCard: React.VFC<Props> = ({
             title: text,
             is_done: is_done,
         };
-        console.log(data);
         await axios.put(`api/tasks/${id}`, data);
         try {
-            setIs_done(is_done);
             //tasksの値を書き換えないといけない
             task.is_done = is_done;
-
             setTasks(tasks);
+            setIs_done(is_done);
         } catch (error) {
             console.log(error);
         }
@@ -98,12 +93,7 @@ const TaskCard: React.VFC<Props> = ({
 
     return (
         <Style>
-            <CheckBox
-                is_done={is_done}
-                patchData={patchData}
-                text={text}
-                setChecked={setChecked}
-            />
+            <CheckBox is_done={is_done} patchData={patchData} text={text} />
             <TaskTitle
                 is_done={is_done}
                 editActive={editActive}

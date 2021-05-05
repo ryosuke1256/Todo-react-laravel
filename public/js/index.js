@@ -2795,12 +2795,12 @@ var TaskCards_1 = __webpack_require__(/*! ./components/lv3/TaskCards */ "./resou
 var App = function App() {
   var _a = react_1.useState([]),
       tasks = _a[0],
-      setTasks = _a[1]; //render走らせる用
-
+      setTasks = _a[1];
 
   var _b = react_1.useState(0),
       change = _b[0],
-      setChange = _b[1];
+      setChange = _b[1]; //render走らせる用
+
 
   var _c = react_1.useState(false),
       tasksEditActive = _c[0],
@@ -2921,19 +2921,9 @@ var react_1 = __importDefault(__webpack_require__(/*! react */ "./node_modules/r
 var CheckBox = function CheckBox(_a) {
   var is_done = _a.is_done,
       patchData = _a.patchData,
-      text = _a.text,
-      setChecked = _a.setChecked;
+      text = _a.text;
 
-  var handleChange = function handleChange(e) {
-    console.log(e.target.checked);
-    setChecked(e.target.checked);
-  };
-
-  var checked = false;
-
-  if (is_done === 1) {
-    checked = true;
-  }
+  var handleChange = function handleChange(e) {};
 
   return react_1["default"].createElement("input", {
     type: "checkbox",
@@ -2943,7 +2933,7 @@ var CheckBox = function CheckBox(_a) {
     onChange: function onChange(e) {
       return handleChange(e);
     },
-    checked: checked
+    checked: is_done === 1 ? true : false
   });
 };
 
@@ -3092,13 +3082,11 @@ var EditButton = function EditButton(_a) {
       return null;
     } else {
       setEditButtonTitle("変更");
-      setEditActive(!editActive); //これで無駄なrender走ってる
-
+      setEditActive(!editActive);
       setTasksEditActive(true);
 
       if (editActive) {
-        setEditButtonTitle("編集"); //これで無駄なrender走ってる
-
+        setEditButtonTitle("編集");
         setTasksEditActive(false);
       }
     }
@@ -3582,7 +3570,8 @@ var axios_1 = __importDefault(__webpack_require__(/*! axios */ "./node_modules/a
 
 var TaskCard = function TaskCard(_a) {
   var title = _a.title,
-      task = _a.task,
+      //task.title
+  task = _a.task,
       tasks = _a.tasks,
       setTasks = _a.setTasks,
       change = _a.change,
@@ -3600,28 +3589,20 @@ var TaskCard = function TaskCard(_a) {
       text = _c[0],
       setText = _c[1];
 
-  var _d = react_1.useState(false),
-      checked = _d[0],
-      setChecked = _d[1]; //こっち使おう
+  var _d = react_1.useState(task.is_done),
+      is_done = _d[0],
+      setIs_done = _d[1];
 
-
-  var _e = react_1.useState(task.is_done),
-      is_done = _e[0],
-      setIs_done = _e[1];
-
-  var _f = react_1.useState(task),
-      taskObj = _f[0],
-      setTaskObj = _f[1];
+  var _e = react_1.useState(task),
+      taskObj = _e[0],
+      setTaskObj = _e[1];
 
   react_1.useEffect(function () {
     setText(title);
-    setIs_done(task.is_done);
-  }, [title, task.is_done]);
+  }, [title]);
   react_1.useEffect(function () {
-    setChecked(task.is_done === 1);
-  }, []); // useEffect(() => {
-  //     setTasks(tasks);
-  // }, [is_done]);
+    setIs_done(task.is_done);
+  }, [task.is_done]);
 
   var deleteData = function deleteData() {
     return __awaiter(void 0, void 0, void 0, function () {
@@ -3665,7 +3646,6 @@ var TaskCard = function TaskCard(_a) {
               title: text,
               is_done: is_done
             };
-            console.log(data);
             return [4
             /*yield*/
             , axios_1["default"].put("api/tasks/" + id, data)];
@@ -3674,10 +3654,10 @@ var TaskCard = function TaskCard(_a) {
             _a.sent();
 
             try {
-              setIs_done(is_done); //tasksの値を書き換えないといけない
-
+              //tasksの値を書き換えないといけない
               task.is_done = is_done;
-              setTasks(tasks); // setChange(change + 1);
+              setTasks(tasks);
+              setIs_done(is_done);
             } catch (error) {
               console.log(error);
             }
@@ -3693,8 +3673,7 @@ var TaskCard = function TaskCard(_a) {
   return react_1["default"].createElement(Style, null, react_1["default"].createElement(CheckBox_1["default"], {
     is_done: is_done,
     patchData: patchData,
-    text: text,
-    setChecked: setChecked
+    text: text
   }), react_1["default"].createElement(TaskTitle_1["default"], {
     is_done: is_done,
     editActive: editActive,
