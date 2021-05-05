@@ -46,7 +46,7 @@ const TaskCard: React.VFC<Props> = ({
 }: Props) => {
     const [editActive, setEditActive] = useState(false);
     const [text, setText] = useState(title);
-    const [checked, setChecked] = useState(false);
+
     //こっち使おう
     const [is_done, setIs_done] = useState<0 | 1>(task.is_done);
     const [taskObj, setTaskObj] = useState(task);
@@ -55,10 +55,6 @@ const TaskCard: React.VFC<Props> = ({
         setText(title);
         setIs_done(task.is_done);
     }, [title, task.is_done]);
-
-    useEffect(() => {
-        setChecked(task.is_done === 1);
-    }, []);
 
     const deleteData = async () => {
         await axios.delete(`api/tasks/${id}`);
@@ -96,12 +92,7 @@ const TaskCard: React.VFC<Props> = ({
 
     return (
         <Style>
-            <CheckBox
-                is_done={is_done}
-                patchData={patchData}
-                text={text}
-                setChecked={setChecked}
-            />
+            <CheckBox is_done={is_done} patchData={patchData} text={text} />
             <TaskTitle
                 is_done={is_done}
                 editActive={editActive}

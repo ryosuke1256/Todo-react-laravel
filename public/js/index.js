@@ -2921,13 +2921,9 @@ var react_1 = __importDefault(__webpack_require__(/*! react */ "./node_modules/r
 var CheckBox = function CheckBox(_a) {
   var is_done = _a.is_done,
       patchData = _a.patchData,
-      text = _a.text,
-      setChecked = _a.setChecked;
+      text = _a.text;
 
-  var handleChange = function handleChange(e) {
-    console.log(e.target.checked);
-    setChecked(e.target.checked);
-  };
+  var handleChange = function handleChange(e) {};
 
   return react_1["default"].createElement("input", {
     type: "checkbox",
@@ -3590,28 +3586,21 @@ var TaskCard = function TaskCard(_a) {
 
   var _c = react_1.useState(title),
       text = _c[0],
-      setText = _c[1];
-
-  var _d = react_1.useState(false),
-      checked = _d[0],
-      setChecked = _d[1]; //こっち使おう
+      setText = _c[1]; //こっち使おう
 
 
-  var _e = react_1.useState(task.is_done),
-      is_done = _e[0],
-      setIs_done = _e[1];
+  var _d = react_1.useState(task.is_done),
+      is_done = _d[0],
+      setIs_done = _d[1];
 
-  var _f = react_1.useState(task),
-      taskObj = _f[0],
-      setTaskObj = _f[1];
+  var _e = react_1.useState(task),
+      taskObj = _e[0],
+      setTaskObj = _e[1];
 
   react_1.useEffect(function () {
     setText(title);
     setIs_done(task.is_done);
   }, [title, task.is_done]);
-  react_1.useEffect(function () {
-    setChecked(task.is_done === 1);
-  }, []);
 
   var deleteData = function deleteData() {
     return __awaiter(void 0, void 0, void 0, function () {
@@ -3682,8 +3671,7 @@ var TaskCard = function TaskCard(_a) {
   return react_1["default"].createElement(Style, null, react_1["default"].createElement(CheckBox_1["default"], {
     is_done: is_done,
     patchData: patchData,
-    text: text,
-    setChecked: setChecked
+    text: text
   }), react_1["default"].createElement(TaskTitle_1["default"], {
     is_done: is_done,
     editActive: editActive,

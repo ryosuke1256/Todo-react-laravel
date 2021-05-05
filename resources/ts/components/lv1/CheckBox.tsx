@@ -4,19 +4,10 @@ type Props = {
     is_done: 0 | 1;
     patchData: (text: string, is_done: 0 | 1, viaCheckBox: boolean) => void;
     text: string;
-    setChecked: (param: boolean) => void;
 };
 
-const CheckBox: React.VFC<Props> = ({
-    is_done,
-    patchData,
-    text,
-    setChecked,
-}: Props) => {
-    const handleChange = (e: any) => {
-        console.log(e.target.checked);
-        setChecked(e.target.checked);
-    };
+const CheckBox: React.VFC<Props> = ({ is_done, patchData, text }: Props) => {
+    const handleChange = (e: any) => {};
     return (
         <input
             type="checkbox"
