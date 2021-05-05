@@ -15,7 +15,7 @@ type API = {
 };
 
 type Props = {
-    title: string;
+    title: string; //task.title
     task: API;
     tasks: [];
     setTasks: (param: {}) => void;
@@ -42,13 +42,21 @@ const TaskCard: React.VFC<Props> = ({
     const [is_done, setIs_done] = useState<0 | 1>(task.is_done);
     const [editActive, setEditActive] = useState(false);
     const [text, setText] = useState(title);
+    const [checked, setChecked] = useState(false);
 
     useEffect(() => {
         setText(title);
-    }, [title]);
+        setIs_done(task.is_done);
+    }, [title, task.is_done]);
+
+    useEffect(() => {
+        setChecked(task.is_done === 1);
+    }, []);
+    // console.log(task);
 
     const deleteData = async () => {
         console.log(id);
+        console.log(i);
         await axios.delete(`api/tasks/${id}`);
         try {
             tasks.splice(i, 1);
@@ -67,12 +75,13 @@ const TaskCard: React.VFC<Props> = ({
     const patchData = async (text: string, checked?: boolean) => {
         const data: Data = {
             title: text,
-            is_done: checked ? 1 : 0,
+            is_done: checked ? 0 : 1,
         };
         console.log(data);
         await axios.put(`api/tasks/${id}`, data);
         try {
-            checked ? setIs_done(1) : setIs_done(0);
+            checked ? setIs_done(0) : setIs_done(1);
+            setTasks(tasks);
         } catch (error) {
             console.log(error);
         }
@@ -81,10 +90,13 @@ const TaskCard: React.VFC<Props> = ({
     return (
         <Style>
             <CheckBox
-                is_done={is_done}
+                task={task}
+                // is_done={is_done}
                 setIs_done={setIs_done}
                 patchData={patchData}
                 text={text}
+                checked={checked}
+                setChecked={setChecked}
             />
             <TaskTitle
                 title={title}
@@ -92,6 +104,7 @@ const TaskCard: React.VFC<Props> = ({
                 editActive={editActive}
                 text={text}
                 setText={setText}
+                checked={checked}
             />
             <EditButton
                 patchData={patchData}
@@ -103,7 +116,7 @@ const TaskCard: React.VFC<Props> = ({
                 setTasksEditActive={setTasksEditActive}
                 text={text}
             />
-            <DeleteButton deleteData={deleteData} />
+            <DeleteButton deleteData={deleteData} setIs_done={setIs_done} />
         </Style>
     );
 };

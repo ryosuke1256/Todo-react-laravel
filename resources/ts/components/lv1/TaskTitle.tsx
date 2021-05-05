@@ -7,6 +7,7 @@ type Props = {
     editActive: boolean;
     text: string;
     setText: (param: any) => void;
+    checked: boolean;
 };
 
 const TaskTitle: React.VFC<Props> = ({
@@ -15,6 +16,7 @@ const TaskTitle: React.VFC<Props> = ({
     editActive,
     text,
     setText,
+    checked,
 }: Props) => {
     const handleChange = (e: any) => {
         setText(() => e.target.value);
