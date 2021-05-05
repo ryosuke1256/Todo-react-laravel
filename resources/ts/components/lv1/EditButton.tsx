@@ -2,9 +2,12 @@ import React, { useState } from "react";
 import styled from "styled-components";
 
 type Props = {
-    patchData: (text: string, checked?: boolean) => Promise<void>;
-    change: number;
-    setChange: (param: number) => void;
+    is_done: 0 | 1;
+    patchData: (
+        text: string,
+        is_done: 0 | 1,
+        viaCheckBox: boolean
+    ) => Promise<void>;
     editActive: boolean;
     setEditActive: (param: boolean) => void;
     tasksEditActive: boolean;
@@ -13,9 +16,8 @@ type Props = {
 };
 
 const EditButton: React.VFC<Props> = ({
+    is_done,
     patchData,
-    change,
-    setChange,
     editActive,
     setEditActive,
     tasksEditActive,
@@ -24,7 +26,7 @@ const EditButton: React.VFC<Props> = ({
 }: Props) => {
     const [editButtonTitle, setEditButtonTitle] = useState("編集");
     const changeTaskTitle = () => {
-        patchData(text);
+        patchData(text, is_done, false);
         if (!editActive && tasksEditActive) {
             return null;
         } else {

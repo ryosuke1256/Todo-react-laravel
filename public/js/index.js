@@ -2920,26 +2920,31 @@ var react_1 = __importDefault(__webpack_require__(/*! react */ "./node_modules/r
 
 var CheckBox = function CheckBox(_a) {
   var is_done = _a.is_done,
-      setIs_done = _a.setIs_done,
       patchData = _a.patchData,
-      text = _a.text;
+      text = _a.text,
+      setChecked = _a.setChecked;
+
+  var handleChange = function handleChange(e) {
+    console.log(e.target.checked);
+    setChecked(e.target.checked);
+  };
+
+  var checked = false;
 
   if (is_done === 1) {
-    return react_1["default"].createElement("input", {
-      type: "checkbox",
-      onClick: function onClick() {
-        patchData(text, false);
-      },
-      defaultChecked: true
-    });
-  } else {
-    return react_1["default"].createElement("input", {
-      type: "checkbox",
-      onClick: function onClick() {
-        patchData(text, true);
-      }
-    });
+    checked = true;
   }
+
+  return react_1["default"].createElement("input", {
+    type: "checkbox",
+    onClick: function onClick() {
+      patchData(text, is_done, true);
+    },
+    onChange: function onChange(e) {
+      return handleChange(e);
+    },
+    checked: checked
+  });
 };
 
 exports.default = CheckBox;
@@ -2982,10 +2987,12 @@ var react_1 = __importDefault(__webpack_require__(/*! react */ "./node_modules/r
 var styled_components_1 = __importDefault(__webpack_require__(/*! styled-components */ "./node_modules/styled-components/dist/styled-components.browser.esm.js"));
 
 var DeleteButton = function DeleteButton(_a) {
-  var deleteData = _a.deleteData;
+  var deleteData = _a.deleteData,
+      setIs_done = _a.setIs_done;
   return react_1["default"].createElement(Style, {
     onClick: function onClick() {
-      return deleteData();
+      deleteData();
+      setIs_done(0);
     }
   }, "\u524A\u9664");
 };
@@ -3066,9 +3073,8 @@ var react_1 = __importStar(__webpack_require__(/*! react */ "./node_modules/reac
 var styled_components_1 = __importDefault(__webpack_require__(/*! styled-components */ "./node_modules/styled-components/dist/styled-components.browser.esm.js"));
 
 var EditButton = function EditButton(_a) {
-  var patchData = _a.patchData,
-      change = _a.change,
-      setChange = _a.setChange,
+  var is_done = _a.is_done,
+      patchData = _a.patchData,
       editActive = _a.editActive,
       setEditActive = _a.setEditActive,
       tasksEditActive = _a.tasksEditActive,
@@ -3080,17 +3086,19 @@ var EditButton = function EditButton(_a) {
       setEditButtonTitle = _b[1];
 
   var changeTaskTitle = function changeTaskTitle() {
-    patchData(text);
+    patchData(text, is_done, false);
 
     if (!editActive && tasksEditActive) {
       return null;
     } else {
       setEditButtonTitle("変更");
-      setEditActive(!editActive);
+      setEditActive(!editActive); //これで無駄なrender走ってる
+
       setTasksEditActive(true);
 
       if (editActive) {
-        setEditButtonTitle("編集");
+        setEditButtonTitle("編集"); //これで無駄なrender走ってる
+
         setTasksEditActive(false);
       }
     }
@@ -3227,8 +3235,7 @@ var react_1 = __importDefault(__webpack_require__(/*! react */ "./node_modules/r
 var styled_components_1 = __importDefault(__webpack_require__(/*! styled-components */ "./node_modules/styled-components/dist/styled-components.browser.esm.js"));
 
 var TaskTitle = function TaskTitle(_a) {
-  var title = _a.title,
-      is_done = _a.is_done,
+  var is_done = _a.is_done,
       editActive = _a.editActive,
       text = _a.text,
       setText = _a.setText;
@@ -3585,28 +3592,42 @@ var TaskCard = function TaskCard(_a) {
       id = _a.id,
       i = _a.i;
 
-  var _b = react_1.useState(task.is_done),
-      is_done = _b[0],
-      setIs_done = _b[1];
+  var _b = react_1.useState(false),
+      editActive = _b[0],
+      setEditActive = _b[1];
 
-  var _c = react_1.useState(false),
-      editActive = _c[0],
-      setEditActive = _c[1];
+  var _c = react_1.useState(title),
+      text = _c[0],
+      setText = _c[1];
 
-  var _d = react_1.useState(title),
-      text = _d[0],
-      setText = _d[1];
+  var _d = react_1.useState(false),
+      checked = _d[0],
+      setChecked = _d[1]; //こっち使おう
+
+
+  var _e = react_1.useState(task.is_done),
+      is_done = _e[0],
+      setIs_done = _e[1];
+
+  var _f = react_1.useState(task),
+      taskObj = _f[0],
+      setTaskObj = _f[1];
 
   react_1.useEffect(function () {
     setText(title);
-  }, [title]);
+    setIs_done(task.is_done);
+  }, [title, task.is_done]);
+  react_1.useEffect(function () {
+    setChecked(task.is_done === 1);
+  }, []); // useEffect(() => {
+  //     setTasks(tasks);
+  // }, [is_done]);
 
   var deleteData = function deleteData() {
     return __awaiter(void 0, void 0, void 0, function () {
       return __generator(this, function (_a) {
         switch (_a.label) {
           case 0:
-            console.log(id);
             return [4
             /*yield*/
             , axios_1["default"]["delete"]("api/tasks/" + id)];
@@ -3630,15 +3651,19 @@ var TaskCard = function TaskCard(_a) {
     });
   };
 
-  var patchData = function patchData(text, checked) {
+  var patchData = function patchData(text, is_done, viaCheckBox) {
     return __awaiter(void 0, void 0, void 0, function () {
       var data;
       return __generator(this, function (_a) {
         switch (_a.label) {
           case 0:
+            if (viaCheckBox) {
+              is_done === 0 ? is_done = 1 : is_done = 0;
+            }
+
             data = {
               title: text,
-              is_done: checked ? 1 : 0
+              is_done: is_done
             };
             console.log(data);
             return [4
@@ -3649,7 +3674,10 @@ var TaskCard = function TaskCard(_a) {
             _a.sent();
 
             try {
-              checked ? setIs_done(1) : setIs_done(0);
+              setIs_done(is_done); //tasksの値を書き換えないといけない
+
+              task.is_done = is_done;
+              setTasks(tasks); // setChange(change + 1);
             } catch (error) {
               console.log(error);
             }
@@ -3664,26 +3692,25 @@ var TaskCard = function TaskCard(_a) {
 
   return react_1["default"].createElement(Style, null, react_1["default"].createElement(CheckBox_1["default"], {
     is_done: is_done,
-    setIs_done: setIs_done,
     patchData: patchData,
-    text: text
+    text: text,
+    setChecked: setChecked
   }), react_1["default"].createElement(TaskTitle_1["default"], {
-    title: title,
     is_done: is_done,
     editActive: editActive,
     text: text,
     setText: setText
   }), react_1["default"].createElement(EditButton_1["default"], {
+    is_done: is_done,
     patchData: patchData,
-    change: change,
-    setChange: setChange,
     editActive: editActive,
     setEditActive: setEditActive,
     tasksEditActive: tasksEditActive,
     setTasksEditActive: setTasksEditActive,
     text: text
   }), react_1["default"].createElement(DeleteButton_1["default"], {
-    deleteData: deleteData
+    deleteData: deleteData,
+    setIs_done: setIs_done
   }));
 };
 

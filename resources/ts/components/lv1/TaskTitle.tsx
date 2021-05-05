@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import styled from "styled-components";
 
 type Props = {
-    title: string;
     is_done: 0 | 1;
     editActive: boolean;
     text: string;
@@ -10,7 +9,6 @@ type Props = {
 };
 
 const TaskTitle: React.VFC<Props> = ({
-    title,
     is_done,
     editActive,
     text,

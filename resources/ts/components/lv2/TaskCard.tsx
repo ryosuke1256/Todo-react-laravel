@@ -15,9 +15,9 @@ type API = {
 };
 
 type Props = {
-    title: string;
+    title: string; //task.title
     task: API;
-    tasks: [];
+    tasks: any;
     setTasks: (param: {}) => void;
     change: number;
     setChange: (param: number) => void;
@@ -39,16 +39,23 @@ const TaskCard: React.VFC<Props> = ({
     id,
     i,
 }: Props) => {
-    const [is_done, setIs_done] = useState<0 | 1>(task.is_done);
     const [editActive, setEditActive] = useState(false);
     const [text, setText] = useState(title);
+    const [checked, setChecked] = useState(false);
+    //こっち使おう
+    const [is_done, setIs_done] = useState<0 | 1>(task.is_done);
+    const [taskObj, setTaskObj] = useState(task);
 
     useEffect(() => {
         setText(title);
-    }, [title]);
+        setIs_done(task.is_done);
+    }, [title, task.is_done]);
+
+    useEffect(() => {
+        setChecked(task.is_done === 1);
+    }, []);
 
     const deleteData = async () => {
-        console.log(id);
         await axios.delete(`api/tasks/${id}`);
         try {
             tasks.splice(i, 1);
@@ -64,15 +71,26 @@ const TaskCard: React.VFC<Props> = ({
         is_done: 0 | 1;
     };
 
-    const patchData = async (text: string, checked?: boolean) => {
+    const patchData = async (
+        text: string,
+        is_done: 0 | 1,
+        viaCheckBox: boolean
+    ) => {
+        if (viaCheckBox) {
+            is_done === 0 ? (is_done = 1) : (is_done = 0);
+        }
         const data: Data = {
             title: text,
-            is_done: checked ? 1 : 0,
+            is_done: is_done,
         };
         console.log(data);
         await axios.put(`api/tasks/${id}`, data);
         try {
-            checked ? setIs_done(1) : setIs_done(0);
+            setIs_done(is_done);
+            //tasksの値を書き換えないといけない
+            task.is_done = is_done;
+
+            setTasks(tasks);
         } catch (error) {
             console.log(error);
         }
@@ -82,28 +100,26 @@ const TaskCard: React.VFC<Props> = ({
         <Style>
             <CheckBox
                 is_done={is_done}
-                setIs_done={setIs_done}
                 patchData={patchData}
                 text={text}
+                setChecked={setChecked}
             />
             <TaskTitle
-                title={title}
                 is_done={is_done}
                 editActive={editActive}
                 text={text}
                 setText={setText}
             />
             <EditButton
+                is_done={is_done}
                 patchData={patchData}
-                change={change}
-                setChange={setChange}
                 editActive={editActive}
                 setEditActive={setEditActive}
                 tasksEditActive={tasksEditActive}
                 setTasksEditActive={setTasksEditActive}
                 text={text}
             />
-            <DeleteButton deleteData={deleteData} />
+            <DeleteButton deleteData={deleteData} setIs_done={setIs_done} />
         </Style>
     );
 };
