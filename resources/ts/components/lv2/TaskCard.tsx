@@ -39,10 +39,11 @@ const TaskCard: React.VFC<Props> = ({
     id,
     i,
 }: Props) => {
-    const [is_done, setIs_done] = useState<0 | 1>(task.is_done);
     const [editActive, setEditActive] = useState(false);
     const [text, setText] = useState(title);
     const [checked, setChecked] = useState(false);
+    //こっち使おう
+    const [is_done, setIs_done] = useState<0 | 1>(task.is_done);
 
     useEffect(() => {
         setText(title);
@@ -91,11 +92,11 @@ const TaskCard: React.VFC<Props> = ({
         <Style>
             <CheckBox
                 task={task}
-                // is_done={is_done}
+                is_done={is_done}
                 setIs_done={setIs_done}
                 patchData={patchData}
                 text={text}
-                checked={checked}
+                // checked={checked}
                 setChecked={setChecked}
             />
             <TaskTitle

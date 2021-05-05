@@ -11,27 +11,31 @@ type API = {
 
 type Props = {
     task: API;
-    // is_done: 0 | 1;
+    is_done: 0 | 1;
     setIs_done: (param: 0 | 1) => void;
     patchData: (text: string, checked: boolean) => void;
     text: string;
-    checked: boolean;
+    // checked: boolean;
     setChecked: (param: boolean) => void;
 };
 
 const CheckBox: React.VFC<Props> = ({
     task,
-    // is_done,
+    is_done,
     setIs_done,
     patchData,
     text,
-    checked,
+    // checked,
     setChecked,
 }: Props) => {
     const handleChange = (e: any) => {
-        // console.log(e.target.checked);
+        console.log(e.target.checked);
         setChecked(e.target.checked);
     };
+    let checked = false;
+    if (is_done === 1) {
+        checked = true;
+    }
     return (
         <input
             type="checkbox"

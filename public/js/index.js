@@ -2920,17 +2920,23 @@ var react_1 = __importDefault(__webpack_require__(/*! react */ "./node_modules/r
 
 var CheckBox = function CheckBox(_a) {
   var task = _a.task,
-      // is_done,
-  setIs_done = _a.setIs_done,
+      is_done = _a.is_done,
+      setIs_done = _a.setIs_done,
       patchData = _a.patchData,
       text = _a.text,
-      checked = _a.checked,
-      setChecked = _a.setChecked;
+      // checked,
+  setChecked = _a.setChecked;
 
   var handleChange = function handleChange(e) {
-    // console.log(e.target.checked);
+    console.log(e.target.checked);
     setChecked(e.target.checked);
   };
+
+  var checked = false;
+
+  if (is_done === 1) {
+    checked = true;
+  }
 
   return react_1["default"].createElement("input", {
     type: "checkbox",
@@ -3593,21 +3599,22 @@ var TaskCard = function TaskCard(_a) {
       id = _a.id,
       i = _a.i;
 
-  var _b = react_1.useState(task.is_done),
-      is_done = _b[0],
-      setIs_done = _b[1];
+  var _b = react_1.useState(false),
+      editActive = _b[0],
+      setEditActive = _b[1];
 
-  var _c = react_1.useState(false),
-      editActive = _c[0],
-      setEditActive = _c[1];
+  var _c = react_1.useState(title),
+      text = _c[0],
+      setText = _c[1];
 
-  var _d = react_1.useState(title),
-      text = _d[0],
-      setText = _d[1];
+  var _d = react_1.useState(false),
+      checked = _d[0],
+      setChecked = _d[1]; //こっち使おう
 
-  var _e = react_1.useState(false),
-      checked = _e[0],
-      setChecked = _e[1];
+
+  var _e = react_1.useState(task.is_done),
+      is_done = _e[0],
+      setIs_done = _e[1];
 
   react_1.useEffect(function () {
     setText(title);
@@ -3682,11 +3689,11 @@ var TaskCard = function TaskCard(_a) {
 
   return react_1["default"].createElement(Style, null, react_1["default"].createElement(CheckBox_1["default"], {
     task: task,
-    // is_done={is_done}
+    is_done: is_done,
     setIs_done: setIs_done,
     patchData: patchData,
     text: text,
-    checked: checked,
+    // checked={checked}
     setChecked: setChecked
   }), react_1["default"].createElement(TaskTitle_1["default"], {
     title: title,
