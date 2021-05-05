@@ -53,11 +53,8 @@ const TaskCard: React.VFC<Props> = ({
     useEffect(() => {
         setChecked(task.is_done === 1);
     }, []);
-    // console.log(task);
 
     const deleteData = async () => {
-        console.log(id);
-        console.log(i);
         await axios.delete(`api/tasks/${id}`);
         try {
             tasks.splice(i, 1);
@@ -83,6 +80,7 @@ const TaskCard: React.VFC<Props> = ({
         try {
             checked ? setIs_done(0) : setIs_done(1);
             setTasks(tasks);
+            setChange(change + 1);
         } catch (error) {
             console.log(error);
         }
@@ -91,26 +89,19 @@ const TaskCard: React.VFC<Props> = ({
     return (
         <Style>
             <CheckBox
-                task={task}
                 is_done={is_done}
-                setIs_done={setIs_done}
                 patchData={patchData}
                 text={text}
-                // checked={checked}
                 setChecked={setChecked}
             />
             <TaskTitle
-                title={title}
                 is_done={is_done}
                 editActive={editActive}
                 text={text}
                 setText={setText}
-                checked={checked}
             />
             <EditButton
                 patchData={patchData}
-                change={change}
-                setChange={setChange}
                 editActive={editActive}
                 setEditActive={setEditActive}
                 tasksEditActive={tasksEditActive}

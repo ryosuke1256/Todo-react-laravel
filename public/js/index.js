@@ -2919,13 +2919,10 @@ Object.defineProperty(exports, "__esModule", ({
 var react_1 = __importDefault(__webpack_require__(/*! react */ "./node_modules/react/index.js"));
 
 var CheckBox = function CheckBox(_a) {
-  var task = _a.task,
-      is_done = _a.is_done,
-      setIs_done = _a.setIs_done,
+  var is_done = _a.is_done,
       patchData = _a.patchData,
       text = _a.text,
-      // checked,
-  setChecked = _a.setChecked;
+      setChecked = _a.setChecked;
 
   var handleChange = function handleChange(e) {
     console.log(e.target.checked);
@@ -3078,8 +3075,6 @@ var styled_components_1 = __importDefault(__webpack_require__(/*! styled-compone
 
 var EditButton = function EditButton(_a) {
   var patchData = _a.patchData,
-      change = _a.change,
-      setChange = _a.setChange,
       editActive = _a.editActive,
       setEditActive = _a.setEditActive,
       tasksEditActive = _a.tasksEditActive,
@@ -3240,12 +3235,10 @@ var react_1 = __importDefault(__webpack_require__(/*! react */ "./node_modules/r
 var styled_components_1 = __importDefault(__webpack_require__(/*! styled-components */ "./node_modules/styled-components/dist/styled-components.browser.esm.js"));
 
 var TaskTitle = function TaskTitle(_a) {
-  var title = _a.title,
-      is_done = _a.is_done,
+  var is_done = _a.is_done,
       editActive = _a.editActive,
       text = _a.text,
-      setText = _a.setText,
-      checked = _a.checked;
+      setText = _a.setText;
 
   var handleChange = function handleChange(e) {
     setText(function () {
@@ -3622,15 +3615,13 @@ var TaskCard = function TaskCard(_a) {
   }, [title, task.is_done]);
   react_1.useEffect(function () {
     setChecked(task.is_done === 1);
-  }, []); // console.log(task);
+  }, []);
 
   var deleteData = function deleteData() {
     return __awaiter(void 0, void 0, void 0, function () {
       return __generator(this, function (_a) {
         switch (_a.label) {
           case 0:
-            console.log(id);
-            console.log(i);
             return [4
             /*yield*/
             , axios_1["default"]["delete"]("api/tasks/" + id)];
@@ -3675,6 +3666,7 @@ var TaskCard = function TaskCard(_a) {
             try {
               checked ? setIs_done(0) : setIs_done(1);
               setTasks(tasks);
+              setChange(change + 1);
             } catch (error) {
               console.log(error);
             }
@@ -3688,24 +3680,17 @@ var TaskCard = function TaskCard(_a) {
   };
 
   return react_1["default"].createElement(Style, null, react_1["default"].createElement(CheckBox_1["default"], {
-    task: task,
     is_done: is_done,
-    setIs_done: setIs_done,
     patchData: patchData,
     text: text,
-    // checked={checked}
     setChecked: setChecked
   }), react_1["default"].createElement(TaskTitle_1["default"], {
-    title: title,
     is_done: is_done,
     editActive: editActive,
     text: text,
-    setText: setText,
-    checked: checked
+    setText: setText
   }), react_1["default"].createElement(EditButton_1["default"], {
     patchData: patchData,
-    change: change,
-    setChange: setChange,
     editActive: editActive,
     setEditActive: setEditActive,
     tasksEditActive: tasksEditActive,

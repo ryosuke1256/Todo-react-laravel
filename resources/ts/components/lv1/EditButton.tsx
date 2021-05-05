@@ -3,8 +3,6 @@ import styled from "styled-components";
 
 type Props = {
     patchData: (text: string, checked?: boolean) => Promise<void>;
-    change: number;
-    setChange: (param: number) => void;
     editActive: boolean;
     setEditActive: (param: boolean) => void;
     tasksEditActive: boolean;
@@ -14,8 +12,6 @@ type Props = {
 
 const EditButton: React.VFC<Props> = ({
     patchData,
-    change,
-    setChange,
     editActive,
     setEditActive,
     tasksEditActive,
