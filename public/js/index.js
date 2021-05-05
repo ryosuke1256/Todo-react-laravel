@@ -3570,7 +3570,8 @@ var axios_1 = __importDefault(__webpack_require__(/*! axios */ "./node_modules/a
 
 var TaskCard = function TaskCard(_a) {
   var title = _a.title,
-      task = _a.task,
+      //task.title
+  task = _a.task,
       tasks = _a.tasks,
       setTasks = _a.setTasks,
       change = _a.change,
@@ -3586,8 +3587,7 @@ var TaskCard = function TaskCard(_a) {
 
   var _c = react_1.useState(title),
       text = _c[0],
-      setText = _c[1]; //こっち使おう
-
+      setText = _c[1];
 
   var _d = react_1.useState(task.is_done),
       is_done = _d[0],
@@ -3599,8 +3599,10 @@ var TaskCard = function TaskCard(_a) {
 
   react_1.useEffect(function () {
     setText(title);
+  }, [title]);
+  react_1.useEffect(function () {
     setIs_done(task.is_done);
-  }, [title, task.is_done]);
+  }, [task.is_done]);
 
   var deleteData = function deleteData() {
     return __awaiter(void 0, void 0, void 0, function () {

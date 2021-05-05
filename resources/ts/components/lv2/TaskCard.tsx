@@ -33,7 +33,7 @@ type Data = {
 };
 
 const TaskCard: React.VFC<Props> = ({
-    title,
+    title, //task.title
     task,
     tasks,
     setTasks,
@@ -46,15 +46,16 @@ const TaskCard: React.VFC<Props> = ({
 }: Props) => {
     const [editActive, setEditActive] = useState(false);
     const [text, setText] = useState(title);
-
-    //こっち使おう
     const [is_done, setIs_done] = useState<0 | 1>(task.is_done);
     const [taskObj, setTaskObj] = useState(task);
 
     useEffect(() => {
         setText(title);
+    }, [title]);
+
+    useEffect(() => {
         setIs_done(task.is_done);
-    }, [title, task.is_done]);
+    }, [task.is_done]);
 
     const deleteData = async () => {
         await axios.delete(`api/tasks/${id}`);
