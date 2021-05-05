@@ -3609,13 +3609,19 @@ var TaskCard = function TaskCard(_a) {
       is_done = _e[0],
       setIs_done = _e[1];
 
+  var _f = react_1.useState(task),
+      taskObj = _f[0],
+      setTaskObj = _f[1];
+
   react_1.useEffect(function () {
     setText(title);
     setIs_done(task.is_done);
   }, [title, task.is_done]);
   react_1.useEffect(function () {
     setChecked(task.is_done === 1);
-  }, []);
+  }, []); // useEffect(() => {
+  //     setTasks(tasks);
+  // }, [is_done]);
 
   var deleteData = function deleteData() {
     return __awaiter(void 0, void 0, void 0, function () {
@@ -3684,8 +3690,13 @@ var TaskCard = function TaskCard(_a) {
 
             try {
               setIs_done(is_done);
-              setTasks(tasks);
-              setChange(change + 1);
+              console.log(task.is_done); //tasksの値を書き換えないといけない
+
+              task.is_done = is_done;
+              console.log(tasks[i]);
+              console.log(task); // tasks[i] = task;
+
+              setTasks(tasks); // setChange(change + 1);
             } catch (error) {
               console.log(error);
             }
@@ -3698,6 +3709,7 @@ var TaskCard = function TaskCard(_a) {
     });
   };
 
+  console.log(tasks);
   return react_1["default"].createElement(Style, null, react_1["default"].createElement(CheckBox_1["default"], {
     is_done: is_done,
     patchData: patchData,

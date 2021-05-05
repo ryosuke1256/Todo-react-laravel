@@ -17,7 +17,7 @@ type API = {
 type Props = {
     title: string; //task.title
     task: API;
-    tasks: [];
+    tasks: any;
     setTasks: (param: {}) => void;
     change: number;
     setChange: (param: number) => void;
@@ -44,6 +44,7 @@ const TaskCard: React.VFC<Props> = ({
     const [checked, setChecked] = useState(false);
     //こっち使おう
     const [is_done, setIs_done] = useState<0 | 1>(task.is_done);
+    const [taskObj, setTaskObj] = useState(task);
 
     useEffect(() => {
         setText(title);
@@ -53,6 +54,10 @@ const TaskCard: React.VFC<Props> = ({
     useEffect(() => {
         setChecked(task.is_done === 1);
     }, []);
+
+    // useEffect(() => {
+    //     setTasks(tasks);
+    // }, [is_done]);
 
     const deleteData = async () => {
         await axios.delete(`api/tasks/${id}`);
@@ -102,12 +107,20 @@ const TaskCard: React.VFC<Props> = ({
         await axios.put(`api/tasks/${id}`, data);
         try {
             setIs_done(is_done);
+            console.log(task.is_done);
+            //tasksの値を書き換えないといけない
+            task.is_done = is_done;
+            console.log(tasks[i]);
+            console.log(task);
+            // tasks[i] = task;
+
             setTasks(tasks);
-            setChange(change + 1);
+            // setChange(change + 1);
         } catch (error) {
             console.log(error);
         }
     };
+    console.log(tasks);
 
     return (
         <Style>
