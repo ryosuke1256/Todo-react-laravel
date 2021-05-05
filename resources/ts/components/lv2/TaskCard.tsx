@@ -27,6 +27,11 @@ type Props = {
     i: number;
 };
 
+type Data = {
+    title: string;
+    is_done: 0 | 1;
+};
+
 const TaskCard: React.VFC<Props> = ({
     title,
     task,
@@ -66,11 +71,6 @@ const TaskCard: React.VFC<Props> = ({
         }
     };
 
-    type Data = {
-        title: string;
-        is_done: 0 | 1;
-    };
-
     const patchData = async (
         text: string,
         is_done: 0 | 1,
@@ -83,14 +83,12 @@ const TaskCard: React.VFC<Props> = ({
             title: text,
             is_done: is_done,
         };
-        console.log(data);
         await axios.put(`api/tasks/${id}`, data);
         try {
-            setIs_done(is_done);
             //tasksの値を書き換えないといけない
             task.is_done = is_done;
-
             setTasks(tasks);
+            setIs_done(is_done);
         } catch (error) {
             console.log(error);
         }

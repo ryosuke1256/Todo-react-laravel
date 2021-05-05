@@ -2795,12 +2795,12 @@ var TaskCards_1 = __webpack_require__(/*! ./components/lv3/TaskCards */ "./resou
 var App = function App() {
   var _a = react_1.useState([]),
       tasks = _a[0],
-      setTasks = _a[1]; //render走らせる用
-
+      setTasks = _a[1];
 
   var _b = react_1.useState(0),
       change = _b[0],
-      setChange = _b[1];
+      setChange = _b[1]; //render走らせる用
+
 
   var _c = react_1.useState(false),
       tasksEditActive = _c[0],
@@ -2929,12 +2929,6 @@ var CheckBox = function CheckBox(_a) {
     setChecked(e.target.checked);
   };
 
-  var checked = false;
-
-  if (is_done === 1) {
-    checked = true;
-  }
-
   return react_1["default"].createElement("input", {
     type: "checkbox",
     onClick: function onClick() {
@@ -2943,7 +2937,7 @@ var CheckBox = function CheckBox(_a) {
     onChange: function onChange(e) {
       return handleChange(e);
     },
-    checked: checked
+    checked: is_done === 1 ? true : false
   });
 };
 
@@ -3092,13 +3086,11 @@ var EditButton = function EditButton(_a) {
       return null;
     } else {
       setEditButtonTitle("変更");
-      setEditActive(!editActive); //これで無駄なrender走ってる
-
+      setEditActive(!editActive);
       setTasksEditActive(true);
 
       if (editActive) {
-        setEditButtonTitle("編集"); //これで無駄なrender走ってる
-
+        setEditButtonTitle("編集");
         setTasksEditActive(false);
       }
     }
@@ -3619,9 +3611,7 @@ var TaskCard = function TaskCard(_a) {
   }, [title, task.is_done]);
   react_1.useEffect(function () {
     setChecked(task.is_done === 1);
-  }, []); // useEffect(() => {
-  //     setTasks(tasks);
-  // }, [is_done]);
+  }, []);
 
   var deleteData = function deleteData() {
     return __awaiter(void 0, void 0, void 0, function () {
@@ -3665,7 +3655,6 @@ var TaskCard = function TaskCard(_a) {
               title: text,
               is_done: is_done
             };
-            console.log(data);
             return [4
             /*yield*/
             , axios_1["default"].put("api/tasks/" + id, data)];
@@ -3674,10 +3663,10 @@ var TaskCard = function TaskCard(_a) {
             _a.sent();
 
             try {
-              setIs_done(is_done); //tasksの値を書き換えないといけない
-
+              //tasksの値を書き換えないといけない
               task.is_done = is_done;
-              setTasks(tasks); // setChange(change + 1);
+              setTasks(tasks);
+              setIs_done(is_done);
             } catch (error) {
               console.log(error);
             }
