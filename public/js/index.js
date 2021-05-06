@@ -2923,11 +2923,8 @@ var CheckBox = function CheckBox(_a) {
       patchData = _a.patchData,
       text = _a.text;
 
-<<<<<<< HEAD
-=======
   var handleChange = function handleChange(e) {};
 
->>>>>>> 20df75f2d8d814149aa6a572e221568171ee57ff
   return react_1["default"].createElement("input", {
     type: "checkbox",
     onClick: function onClick() {
@@ -3604,13 +3601,8 @@ var TaskCard = function TaskCard(_a) {
     setText(title);
   }, [title]);
   react_1.useEffect(function () {
-<<<<<<< HEAD
-    setChecked(task.is_done === 1);
-  }, []);
-=======
     setIs_done(task.is_done);
   }, [task.is_done]);
->>>>>>> 20df75f2d8d814149aa6a572e221568171ee57ff
 
   var deleteData = function deleteData() {
     return __awaiter(void 0, void 0, void 0, function () {
@@ -3665,10 +3657,7 @@ var TaskCard = function TaskCard(_a) {
               //tasksの値を書き換えないといけない
               task.is_done = is_done;
               setTasks(tasks);
-<<<<<<< HEAD
-=======
               setIs_done(is_done);
->>>>>>> 20df75f2d8d814149aa6a572e221568171ee57ff
             } catch (error) {
               console.log(error);
             }
