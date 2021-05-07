@@ -47,7 +47,7 @@ const App: React.VFC = () => {
 
     return (
         <>
-            <Header />
+            {/* <Header /> */}
             <TextForm postData={postData} />
             <TaskCards>
                 {tasks.map((task: any, key: number) => {

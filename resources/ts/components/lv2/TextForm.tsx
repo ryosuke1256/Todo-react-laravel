@@ -26,4 +26,5 @@ export default TextForm;
 const Style = styled.div`
     width: 92%;
     margin: 0 auto;
+    padding-top: 22px;
 `;
