@@ -100,6 +100,7 @@
                             <img src='/images/todo.png' width='400px' height='400px'/>
                         </div>
                         <h2>サンプル画面</h2>
+                        <div class='welcome-sample-explain'>タスクの新規作成、打ち消し線、編集、削除ができます</div>
                         <img src='/images/image.png' width='800px' /><br>
                     </div>
                 @endauth

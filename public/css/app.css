@@ -65,6 +65,7 @@ section {
 }
 
 .welcome-content {
+    background-color: #fcfcfc;
     padding: 30px 20vw 0 25vw;
 }
 .welcome-block {
@@ -76,18 +77,22 @@ section {
 }
 .login {
     display: inline-block;
+    font-weight: 600;
     color: white;
     padding: 0.75rem;
     background-color: #3ea8ff;
     border-radius: 10px;
 }
-
 .Register {
     display: inline-block;
+    font-weight: 600;
     color: white;
     padding: 0.75rem;
     background-color: #3ea8ff;
     border-radius: 10px;
+}
+.welcome-sample-explain {
+    padding-bottom: 20px;
 }
 
 body {
