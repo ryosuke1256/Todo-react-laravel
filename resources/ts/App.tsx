@@ -47,7 +47,11 @@ const App: React.VFC = () => {
 
     return (
         <>
+<<<<<<< HEAD
             {/* <Header /> */}
+=======
+            {/* <Header />z */}
+>>>>>>> 685af6e3ee76d4fee1084af4a97ce038b74d0fe5
             <TextForm postData={postData} />
             <TaskCards>
                 {tasks.map((task: any, key: number) => {
