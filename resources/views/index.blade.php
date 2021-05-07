@@ -7,7 +7,7 @@
 
     <link rel="stylesheet" href="../css/app.css">
     <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
-
+    <meta name='description' content='シンプルなTodoアプリです' >
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
@@ -25,12 +25,14 @@
 </head>
 <body>
             @if (Route::has('login'))
+            <!-- ログイン後 -->
                 <div class="hidden fixed top-0 right-0 px-6 py-4 sm:block">
                     @auth
                     <!-- <a href="{{ url('/home') }}" class="text-sm text-gray-700 underline">Home</a> -->
 
                     <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
                         <div class="container">
+                        <img src='/images/whale.png' width='40px' height=40px'/>
                         <a class="navbar-brand" href="{{ url('/') }}">
                             {{ config('app.name', 'Laravel') }}
                         </a>
@@ -79,13 +81,23 @@
                                 </li>
                             @endguest
                         </ul>
+                        </div>
                     </nav>
 
-                    <!-- フロント接続 -->
+                    <!-- React -->
                     <div id="app"></div>
                     <script src="/js/index.js"></script>
 
             @else
+                    <!-- ログイン前 -->
+                    <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
+                        <div class="container">
+                            <img src='/images/whale.png' width='40px' height=40px'/>
+                            <a class="navbar-brand" href="{{ url('/') }}">
+                                {{ config('app.name', 'Laravel')}}
+                            </a>
+                        </div>
+                    </nav>
 
                     <div class='welcome-content'>
                         <h1 class='welcome-title'>Todoアプリ作ってみたよ！会員登録して使ってみてね！</h1>

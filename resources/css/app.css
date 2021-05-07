@@ -4325,12 +4325,12 @@ input[type="button"].btn-block {
     display: flex;
     flex-wrap: wrap;
     align-items: center;
-    justify-content: space-between;
 }
 .navbar-brand {
     display: inline-block;
     padding-top: 0.32rem;
     padding-bottom: 0.32rem;
+    padding-left: 0.5rem;
     margin-right: 1rem;
     font-size: 1.3rem;
     line-height: inherit;
