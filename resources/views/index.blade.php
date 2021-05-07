@@ -86,14 +86,17 @@
                     <script src="/js/index.js"></script>
 
             @else
-                    <a href="{{ route('login') }}" class="text-sm text-gray-700 underline">Log in</a>
-                    @if (Route::has('register'))
-                        <a href="{{ route('register') }}" class="ml-4 text-sm text-gray-700 underline">Register</a>
-                    @endif
+
                     <div class='welcome-content'>
                         <h1 class='welcome-title'>Todoアプリ作ってみたよ！会員登録して使ってみてね！</h1>
                         <div class='welcome-block'>
+                            <div>
                             <div class='welcome-block-title'>タスク管理ツールを使って生産性を上げよう</div>
+                            <a href="{{ route('login') }}" class="text-sm text-gray-700 underline login">Login</a>
+                            @if (Route::has('register'))
+                                <a href="{{ route('register') }}" class="ml-4 text-sm text-gray-700 underline Register">Register</a>
+                            @endif
+                            </div>
                             <img src='/images/todo.png' width='400px' height='400px'/>
                         </div>
                         <h2>サンプル画面</h2>
