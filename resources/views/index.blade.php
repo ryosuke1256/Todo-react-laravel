@@ -81,6 +81,7 @@
                         </ul>
                     </nav>
 
+                    <!-- フロント接続 -->
                     <div id="app"></div>
                     <script src="/js/index.js"></script>
 
@@ -89,8 +90,15 @@
                     @if (Route::has('register'))
                         <a href="{{ route('register') }}" class="ml-4 text-sm text-gray-700 underline">Register</a>
                     @endif
-                    <h1 style='padding-top:30px'>Todoアプリ作ってみたよ！会員登録して使ってみてね！</h1>
-                    <img src='/images/todo.png' width='400px' height='400px'/>
+                    <div class='welcome-content'>
+                        <h1 class='welcome-title'>Todoアプリ作ってみたよ！会員登録して使ってみてね！</h1>
+                        <div class='welcome-block'>
+                            <div class='welcome-block-title'>タスク管理ツールを使って生産性を上げよう</div>
+                            <img src='/images/todo.png' width='400px' height='400px'/>
+                        </div>
+                        <h2>サンプル画面</h2>
+                        <img src='/images/image.png' width='800px' /><br>
+                    </div>
                 @endauth
             @endif
 </body>
