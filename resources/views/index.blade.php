@@ -96,6 +96,10 @@
                             <a class="navbar-brand" href="{{ url('/') }}">
                                 {{ config('app.name', 'Laravel')}}
                             </a>
+                            <a href="{{ route('login') }}" class="text-sm text-gray-700 underline" >Login</a>
+                            @if (Route::has('register'))
+                                <a href="{{ route('register') }}" class="ml-4 text-sm text-gray-700 underline">Register</a>
+                            @endif
                         </div>
                     </nav>
 
@@ -104,7 +108,7 @@
                         <div class='welcome-block'>
                             <div>
                             <div class='welcome-block-title'>タスク管理ツールを使って生産性を上げよう</div>
-                            <a href="{{ route('login') }}" class="text-sm text-gray-700 underline login">Login</a>
+                            <a href="{{ route('login') }}" class="text-sm text-gray-700 underline Login">Login</a>
                             @if (Route::has('register'))
                                 <a href="{{ route('register') }}" class="ml-4 text-sm text-gray-700 underline Register">Register</a>
                             @endif

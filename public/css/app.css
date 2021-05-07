@@ -75,7 +75,7 @@ section {
     font-size: 1.3rem;
     padding: 80px 0 20px 0;
 }
-.login {
+.Login {
     display: inline-block;
     font-weight: 600;
     color: white;
@@ -91,6 +91,7 @@ section {
     background-color: #3ea8ff;
     border-radius: 10px;
 }
+
 .welcome-sample-explain {
     padding-bottom: 20px;
 }
@@ -4335,6 +4336,7 @@ input[type="button"].btn-block {
     font-size: 1.3rem;
     line-height: inherit;
     white-space: nowrap;
+    flex-grow: 1;
 }
 .navbar-brand:hover,
 .navbar-brand:focus {
