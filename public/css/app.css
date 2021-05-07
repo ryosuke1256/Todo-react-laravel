@@ -1,5 +1,5 @@
 @import url(https://fonts.googleapis.com/css?family=Nunito);
-@charset "UTF-8";
+/* @charset "UTF-8"; */
 /*!
  * Bootstrap v4.6.0 (https://getbootstrap.com/)
  * Copyright 2011-2021 The Bootstrap Authors
@@ -62,6 +62,38 @@ main,
 nav,
 section {
     display: block;
+}
+
+.welcome-content {
+    background-color: #fcfcfc;
+    padding: 30px 20vw 0 25vw;
+}
+.welcome-block {
+    display: flex;
+}
+.welcome-block-title {
+    font-size: 1.3rem;
+    padding: 80px 0 20px 0;
+}
+.Login {
+    display: inline-block;
+    font-weight: 600;
+    color: white;
+    padding: 0.75rem;
+    background-color: #3ea8ff;
+    border-radius: 10px;
+}
+.Register {
+    display: inline-block;
+    font-weight: 600;
+    color: white;
+    padding: 0.75rem;
+    background-color: #3ea8ff;
+    border-radius: 10px;
+}
+
+.welcome-sample-explain {
+    padding-bottom: 20px;
 }
 
 body {
@@ -4294,16 +4326,17 @@ input[type="button"].btn-block {
     display: flex;
     flex-wrap: wrap;
     align-items: center;
-    justify-content: space-between;
 }
 .navbar-brand {
     display: inline-block;
     padding-top: 0.32rem;
     padding-bottom: 0.32rem;
+    padding-left: 0.5rem;
     margin-right: 1rem;
-    font-size: 1.125rem;
+    font-size: 1.3rem;
     line-height: inherit;
     white-space: nowrap;
+    flex-grow: 1;
 }
 .navbar-brand:hover,
 .navbar-brand:focus {
@@ -8150,8 +8183,8 @@ button.bg-dark:focus {
 .p-4 {
     padding: 1.5rem !important;
 }
-
-/* .pt-4,
+/* 
+.pt-4,
 .py-4 {
     padding-top: 1.5rem !important;
 } */
@@ -10421,3 +10454,4 @@ a.text-dark:focus {
         border-color: #dee2e6;
     }
 }
+

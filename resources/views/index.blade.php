@@ -7,7 +7,7 @@
 
     <link rel="stylesheet" href="../css/app.css">
     <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
-
+    <meta name='description' content='シンプルなTodoアプリです' >
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
@@ -25,12 +25,14 @@
 </head>
 <body>
             @if (Route::has('login'))
+            <!-- ログイン後 -->
                 <div class="hidden fixed top-0 right-0 px-6 py-4 sm:block">
                     @auth
                     <!-- <a href="{{ url('/home') }}" class="text-sm text-gray-700 underline">Home</a> -->
 
                     <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
                         <div class="container">
+                        <img src='/images/whale.png' width='40px' height=40px'/>
                         <a class="navbar-brand" href="{{ url('/') }}">
                             {{ config('app.name', 'Laravel') }}
                         </a>
@@ -79,18 +81,44 @@
                                 </li>
                             @endguest
                         </ul>
+                        </div>
                     </nav>
 
+                    <!-- React -->
                     <div id="app"></div>
                     <script src="/js/index.js"></script>
 
             @else
-                    <a href="{{ route('login') }}" class="text-sm text-gray-700 underline">Log in</a>
-                    @if (Route::has('register'))
-                        <a href="{{ route('register') }}" class="ml-4 text-sm text-gray-700 underline">Register</a>
-                    @endif
-                    <h1 style='padding-top:30px'>Todoアプリ作ってみたよ！会員登録して使ってみてね！</h1>
-                    <img src='/images/todo.png' width='400px' height='400px'/>
+                    <!-- ログイン前 -->
+                    <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
+                        <div class="container" style='padding-left:23px'>
+                            <img src='/images/whale.png' width='40px' height=40px' />
+                            <a class="navbar-brand" href="{{ url('/') }}">
+                                {{ config('app.name', 'Laravel')}}
+                            </a>
+                            <a href="{{ route('login') }}" class="text-sm text-gray-700 underline" >Login</a>
+                            @if (Route::has('register'))
+                                <a href="{{ route('register') }}" class="ml-4 text-sm text-gray-700 underline">Register</a>
+                            @endif
+                        </div>
+                    </nav>
+
+                    <div class='welcome-content'>
+                        <h1 class='welcome-title'>Todoアプリ作ってみたよ！会員登録して使ってみてね！</h1>
+                        <div class='welcome-block'>
+                            <div>
+                            <div class='welcome-block-title'>タスク管理ツールを使って生産性を上げよう</div>
+                            <a href="{{ route('login') }}" class="text-sm text-gray-700 underline Login">Login</a>
+                            @if (Route::has('register'))
+                                <a href="{{ route('register') }}" class="ml-4 text-sm text-gray-700 underline Register">Register</a>
+                            @endif
+                            </div>
+                            <img src='/images/todo.png' width='400px' height='400px'/>
+                        </div>
+                        <h2>サンプル画面</h2>
+                        <div class='welcome-sample-explain'>タスクの新規作成、打ち消し線、編集、削除ができます</div>
+                        <img src='/images/image.png' width='800px' /><br>
+                    </div>
                 @endauth
             @endif
 </body>
