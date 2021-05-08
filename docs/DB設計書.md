@@ -2,13 +2,16 @@
 
 ## users
 
-|  カラム名  |   データ型   | NULL | Default |
-| :--------: | :----------: | :--: | :-----: |
-|     id     |  bigint(20)  |  No  |  None   |
-|    name    | varchar(255) |  No  |  None   |
-|  password  | varchar(255) |  No  |  None   |
-| created_at |  timestamp   |  No  |  NULL   |
-| deleted_at |  timestamp   |  No  |  NULL   |
+|     カラム名      |   データ型   | NULL | Default |
+| :---------------: | :----------: | :--: | :-----: |
+|        id         |  bigint(20)  |  No  |  None   |
+|       name        | varchar(255) |  No  |  None   |
+|       email       | varchar(255) |  No  |  None   |
+| email_verified_at |  timestamp   | Yes  |  NULL   |
+|     password      | varchar(255) |  No  |  None   |
+|  remember_token   | varchar(100) | Yes  |  NULL   |
+|    created_at     |  timestamp   | Yes  |  NULL   |
+|    deleted_at     |  timestamp   | Yes  |  NULL   |
 
 ## tasks
 

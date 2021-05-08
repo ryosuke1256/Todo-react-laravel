@@ -14,7 +14,7 @@ class Task extends Model
     protected $fillable = [
         'title','is_done'
     ];
-    public function dept() {
+    public function user() {
         return $this->belongsTo('App/Models/User');
     }
 }
