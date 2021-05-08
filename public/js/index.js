@@ -2793,7 +2793,8 @@ var TaskCards_1 = __webpack_require__(/*! ./components/lv3/TaskCards */ "./resou
 var App = function App() {
   var _a = react_1.useState([]),
       tasks = _a[0],
-      setTasks = _a[1];
+      setTasks = _a[1]; // const [user_id,setUser_id] = useState(tasks.);
+
 
   var _b = react_1.useState(0),
       change = _b[0],
@@ -3170,6 +3171,7 @@ var SubmitButton = function SubmitButton(_a) {
       postData = _a.postData,
       setText = _a.setText;
   var data = {
+    user_id: 2,
     title: text,
     is_done: 0
   };

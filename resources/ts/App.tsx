@@ -7,6 +7,7 @@ import { TaskCards } from "./components/lv3/TaskCards";
 
 const App: React.VFC = () => {
     const [tasks, setTasks] = useState<any>([]);
+    // const [user_id,setUser_id] = useState(tasks.);
     const [change, setChange] = useState(0); //render走らせる用
     const [tasksEditActive, setTasksEditActive] = useState(false);
 
@@ -24,6 +25,7 @@ const App: React.VFC = () => {
     }, []);
 
     type Data = {
+        user_id: number;
         title: string;
         is_done: 0 | 1;
     };
