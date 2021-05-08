@@ -10,7 +10,7 @@ type Props = {
 const TextForm: React.VFC<Props> = ({ postData }: Props) => {
     const [text, setText] = useState("");
 
-    const handleChange = (e: any) => {
+    const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
         setText(() => e.target.value);
     };
 
