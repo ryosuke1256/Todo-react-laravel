@@ -12,11 +12,14 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
+// $id = Auth::id();
 
-Route::get('/', function () {
-    if(Auth::id()===1) {
+Route::get('/{id}', function () {
+    // if(Auth::id()===2) {
         return view('index');
-    }
+    // }
+    // dd(Auth::id());
+
 });
 
 Auth::routes();

@@ -12,7 +12,8 @@ const App: React.VFC = () => {
     const [tasksEditActive, setTasksEditActive] = useState(false);
 
     const getData = async () => {
-        const jsonData = await axios.get("api/tasks/1");
+        //api/tasks/ルートの値(user_id)
+        const jsonData = await axios.get("api/tasks/2");
         try {
             setTasks(jsonData.data.map((data: {}) => data));
         } catch (error) {
@@ -20,21 +21,8 @@ const App: React.VFC = () => {
         }
     };
 
-    console.log(user_id);
-
-    const getData2 = async () => {
-        const data = await axios.get("api");
-        try {
-            //null
-            setUser_id(data.data);
-        } catch (error) {
-            console.log(error);
-        }
-    };
-
     useEffect(() => {
         getData();
-        getData2();
     }, []);
 
     type Data = {

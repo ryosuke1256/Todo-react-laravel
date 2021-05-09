@@ -2816,7 +2816,7 @@ var App = function App() {
           case 0:
             return [4
             /*yield*/
-            , axios_1["default"].get("api/tasks/1")];
+            , axios_1["default"].get("api/tasks/2")];
 
           case 1:
             jsonData = _a.sent();
@@ -2837,39 +2837,8 @@ var App = function App() {
     });
   };
 
-  console.log(user_id);
-
-  var getData2 = function getData2() {
-    return __awaiter(void 0, void 0, void 0, function () {
-      var data;
-      return __generator(this, function (_a) {
-        switch (_a.label) {
-          case 0:
-            return [4
-            /*yield*/
-            , axios_1["default"].get("api")];
-
-          case 1:
-            data = _a.sent();
-
-            try {
-              //null
-              setUser_id(data.data);
-            } catch (error) {
-              console.log(error);
-            }
-
-            return [2
-            /*return*/
-            ];
-        }
-      });
-    });
-  };
-
   react_1.useEffect(function () {
     getData();
-    getData2();
   }, []);
 
   var postData = function postData(_postData) {
