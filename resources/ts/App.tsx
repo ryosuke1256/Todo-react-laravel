@@ -12,7 +12,7 @@ const App: React.VFC = () => {
     const [tasksEditActive, setTasksEditActive] = useState(false);
 
     const getData = async () => {
-        //api/tasks/ルートの値(user_id)
+        //api/tasks/パラメータの値(user_id)
         const jsonData = await axios.get("api/tasks/2");
         try {
             setTasks(jsonData.data.map((data: {}) => data));
