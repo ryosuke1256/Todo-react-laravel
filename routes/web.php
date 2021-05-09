@@ -14,7 +14,9 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('index');
+    if(Auth::id()===1) {
+        return view('index');
+    }
 });
 
 Auth::routes();

@@ -2793,17 +2793,20 @@ var TaskCards_1 = __webpack_require__(/*! ./components/lv3/TaskCards */ "./resou
 var App = function App() {
   var _a = react_1.useState([]),
       tasks = _a[0],
-      setTasks = _a[1]; // const [user_id,setUser_id] = useState(tasks.);
+      setTasks = _a[1];
+
+  var _b = react_1.useState([]),
+      user_id = _b[0],
+      setUser_id = _b[1];
+
+  var _c = react_1.useState(0),
+      change = _c[0],
+      setChange = _c[1]; //render走らせる用
 
 
-  var _b = react_1.useState(0),
-      change = _b[0],
-      setChange = _b[1]; //render走らせる用
-
-
-  var _c = react_1.useState(false),
-      tasksEditActive = _c[0],
-      setTasksEditActive = _c[1];
+  var _d = react_1.useState(false),
+      tasksEditActive = _d[0],
+      setTasksEditActive = _d[1];
 
   var getData = function getData() {
     return __awaiter(void 0, void 0, void 0, function () {
@@ -2813,7 +2816,7 @@ var App = function App() {
           case 0:
             return [4
             /*yield*/
-            , axios_1["default"].get("api/tasks")];
+            , axios_1["default"].get("api/tasks/1")];
 
           case 1:
             jsonData = _a.sent();
@@ -2834,8 +2837,39 @@ var App = function App() {
     });
   };
 
+  console.log(user_id);
+
+  var getData2 = function getData2() {
+    return __awaiter(void 0, void 0, void 0, function () {
+      var data;
+      return __generator(this, function (_a) {
+        switch (_a.label) {
+          case 0:
+            return [4
+            /*yield*/
+            , axios_1["default"].get("api")];
+
+          case 1:
+            data = _a.sent();
+
+            try {
+              //null
+              setUser_id(data.data);
+            } catch (error) {
+              console.log(error);
+            }
+
+            return [2
+            /*return*/
+            ];
+        }
+      });
+    });
+  };
+
   react_1.useEffect(function () {
     getData();
+    getData2();
   }, []);
 
   var postData = function postData(_postData) {
@@ -2870,8 +2904,8 @@ var App = function App() {
     });
   };
 
-  var i = -1;
-  console.log(tasks);
+  var i = -1; // console.log(tasks);
+
   return react_1["default"].createElement(react_1["default"].Fragment, null, react_1["default"].createElement(TextForm_1["default"], {
     postData: postData
   }), react_1["default"].createElement(TaskCards_1.TaskCards, null, tasks.map(function (task, key) {

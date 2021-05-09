@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Task;
+use App\Models\User;
 use Illuminate\Http\Request;
 
 class TaskController extends Controller
@@ -11,11 +12,21 @@ class TaskController extends Controller
      * api/tasks
      * 
      */
-    public function index()
+    // public function index(User $user)
+    public function index(User $user)
     {
         
         // dd('aaaaaaaa');
         // return Task::all();
+        //wep.phpを経由しないといけない
+        // $user_id = Auth::id();
+
+        //ログインしているuser_idのレコードが欲しい
+        // return Task::where('user_id',1)->orderByDesc('id')->get();
+        // return Task::where('user_id',$user->id)->orderByDesc('id')->get();
+        // return Task::where('user_id',1)->orderByDesc('id')->get();
+
+        //全レコードを降順で取得する
         return Task::orderByDesc('id')->get();
     }
 
@@ -38,13 +49,16 @@ class TaskController extends Controller
 
     /**
      * Display the specified resource.
-     *
+     * api/tasks/{id}
+     * GET
+     * 
      * @param  \App\Models\Task  $task
      * @return \Illuminate\Http\Response
      */
     public function show(Task $task)
     {
-        //
+        //user_id毎のデータを取得
+        return Task::where('user_id',$task->id)->orderByDesc('id')->get();
     }
 
     /**
