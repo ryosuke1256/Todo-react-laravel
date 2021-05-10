@@ -12,6 +12,9 @@ class Task extends Model
     protected $table = 'tasks';
     //カラムを追加する、可変項目
     protected $fillable = [
-        'title','is_done'
+        'user_id','title','is_done',
     ];
+    public function user() {
+        return $this->belongsTo('App/Models/User');
+    }
 }

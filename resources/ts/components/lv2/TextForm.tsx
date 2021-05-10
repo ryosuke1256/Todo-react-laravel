@@ -4,13 +4,17 @@ import InputText from "../lv1/InputText";
 import SubmitButton from "../lv1/SubmitButton";
 
 type Props = {
-    postData: (postData: { title: string; is_done: 0 | 1 }) => void;
+    postData: (postData: {
+        user_id: number;
+        title: string;
+        is_done: 0 | 1;
+    }) => void;
 };
 
 const TextForm: React.VFC<Props> = ({ postData }: Props) => {
     const [text, setText] = useState("");
 
-    const handleChange = (e: any) => {
+    const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
         setText(() => e.target.value);
     };
 

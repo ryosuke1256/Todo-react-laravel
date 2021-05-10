@@ -7,11 +7,13 @@ import { TaskCards } from "./components/lv3/TaskCards";
 
 const App: React.VFC = () => {
     const [tasks, setTasks] = useState<any>([]);
+    const [user_id, setUser_id] = useState<any>([]);
     const [change, setChange] = useState(0); //render走らせる用
     const [tasksEditActive, setTasksEditActive] = useState(false);
 
     const getData = async () => {
-        const jsonData = await axios.get("api/tasks");
+        //api/tasks/パラメータの値(user_id)
+        const jsonData = await axios.get("api/tasks/2");
         try {
             setTasks(jsonData.data.map((data: {}) => data));
         } catch (error) {
@@ -24,6 +26,7 @@ const App: React.VFC = () => {
     }, []);
 
     type Data = {
+        user_id: number;
         title: string;
         is_done: 0 | 1;
     };
@@ -43,7 +46,7 @@ const App: React.VFC = () => {
     };
 
     let i: number = -1;
-    console.log(tasks);
+    // console.log(tasks);
 
     return (
         <>

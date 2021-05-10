@@ -16,7 +16,11 @@ use Illuminate\Support\Facades\Route;
 
 // api/tasks
 Route::apiResource('tasks','TaskController');
+// //ログインユーザを取得する
+// Route::get('/','UserController@index');
 
-// Route::middleware('auth:api')->get('/user', function (Request $request) {
-//     return $request->user();
-// });
+Route::middleware('auth:api')->get('/user', function (Request $request) {
+    return $request->user();
+});
+
+// Auth::routes();
