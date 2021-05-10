@@ -12,7 +12,7 @@
 ## フロントエンド
 
 -   TypeScript
--   React
+-   React  
 ※ Laravel Mix
 
 ## バックエンド
