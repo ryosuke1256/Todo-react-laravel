@@ -13,6 +13,7 @@
 
 -   TypeScript
 -   React  
+
 ※ Laravel Mix
 
 ## バックエンド
