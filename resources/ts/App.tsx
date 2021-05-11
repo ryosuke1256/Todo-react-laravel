@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-import Header from "./components/lv2/Header";
 import TaskCard from "./components/lv2/TaskCard";
 import TextForm from "./components/lv2/TextForm";
 import { TaskCards } from "./components/lv3/TaskCards";
@@ -66,8 +65,6 @@ const App: React.VFC = () => {
 
     return (
         <>
-            {/* <Header />z */}
-
             <TextForm postData={postData} userID={userID} />
             <TaskCards>
                 {tasks.map((task: any, key: number) => {
