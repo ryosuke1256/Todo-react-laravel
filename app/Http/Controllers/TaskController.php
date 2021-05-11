@@ -10,22 +10,10 @@ class TaskController extends Controller
 {
     /**
      * api/tasks
-     * 
+     * GET
      */
-    // public function index(User $user)
     public function index(User $user)
     {
-        
-        // dd('aaaaaaaa');
-        // return Task::all();
-        //wep.phpを経由しないといけない
-        // $user_id = Auth::id();
-
-        //ログインしているuser_idのレコードが欲しい
-        // return Task::where('user_id',1)->orderByDesc('id')->get();
-        // return Task::where('user_id',$user->id)->orderByDesc('id')->get();
-        // return Task::where('user_id',1)->orderByDesc('id')->get();
-
         //全レコードを降順で取得する
         // return Task::orderByDesc('id')->get();
     }
@@ -33,7 +21,7 @@ class TaskController extends Controller
     /**
      * Store a newly created resource in storage.
      * api/tasks
-     * postメソッド
+     * POST
      *
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\JsonResponse
@@ -49,7 +37,7 @@ class TaskController extends Controller
 
     /**
      * Display the specified resource.
-     * api/tasks/{uid}
+     * api/tasks/{user_id}
      * GET
      * 
      * @param  \App\Models\Task  $task
@@ -58,7 +46,6 @@ class TaskController extends Controller
     public function show(Task $task)
     {
         //user_id毎のデータを取得
-        // dd($task->id);
         return Task::where('user_id',$task->id)->orderByDesc('id')->get();
     }
 
