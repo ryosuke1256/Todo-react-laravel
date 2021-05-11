@@ -12,7 +12,9 @@ class UserController extends Controller
     }
 
     /**
-     * 現在ログインしているユーザ情報取得
+     * 現在ログインしているユーザーIDを取得する
+     * api/users
+     * GET
      *
      * @return \App\User|null
      */

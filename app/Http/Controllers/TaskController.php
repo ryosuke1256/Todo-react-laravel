@@ -12,7 +12,6 @@ class TaskController extends Controller
      * api/tasks
      * GET
      */
-    // public function index(User $user)
     public function index(User $user)
     {
         //全レコードを降順で取得する
@@ -47,7 +46,6 @@ class TaskController extends Controller
     public function show(Task $task)
     {
         //user_id毎のデータを取得
-        // dd($task->id);
         return Task::where('user_id',$task->id)->orderByDesc('id')->get();
     }
 
