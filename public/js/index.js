@@ -2907,10 +2907,10 @@ var App = function App() {
     });
   };
 
-  var i = -1; // console.log(tasks);
-
+  var i = -1;
   return react_1["default"].createElement(react_1["default"].Fragment, null, react_1["default"].createElement(TextForm_1["default"], {
-    postData: postData
+    postData: postData,
+    userID: userID
   }), react_1["default"].createElement(TaskCards_1.TaskCards, null, tasks.map(function (task, key) {
     i++;
     return react_1["default"].createElement(TaskCard_1["default"], {
@@ -3206,9 +3206,10 @@ var react_1 = __importDefault(__webpack_require__(/*! react */ "./node_modules/r
 var SubmitButton = function SubmitButton(_a) {
   var text = _a.text,
       postData = _a.postData,
-      setText = _a.setText;
+      setText = _a.setText,
+      userID = _a.userID;
   var data = {
-    user_id: 2,
+    user_id: userID,
     title: text,
     is_done: 0
   };
@@ -3724,7 +3725,8 @@ var InputText_1 = __importDefault(__webpack_require__(/*! ../lv1/InputText */ ".
 var SubmitButton_1 = __importDefault(__webpack_require__(/*! ../lv1/SubmitButton */ "./resources/ts/components/lv1/SubmitButton.tsx"));
 
 var TextForm = function TextForm(_a) {
-  var postData = _a.postData;
+  var postData = _a.postData,
+      userID = _a.userID;
 
   var _b = react_1.useState(""),
       text = _b[0],
@@ -3742,7 +3744,8 @@ var TextForm = function TextForm(_a) {
   }), react_1["default"].createElement(SubmitButton_1["default"], {
     text: text,
     postData: postData,
-    setText: setText
+    setText: setText,
+    userID: userID
   }));
 };
 

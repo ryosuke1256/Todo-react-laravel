@@ -43,7 +43,7 @@ const App: React.VFC = () => {
     }, [userID]);
 
     type Data = {
-        user_id: number;
+        user_id?: number;
         title: string;
         is_done: 0 | 1;
     };
@@ -63,13 +63,12 @@ const App: React.VFC = () => {
     };
 
     let i: number = -1;
-    // console.log(tasks);
 
     return (
         <>
             {/* <Header />z */}
 
-            <TextForm postData={postData} />
+            <TextForm postData={postData} userID={userID} />
             <TaskCards>
                 {tasks.map((task: any, key: number) => {
                     i++;
