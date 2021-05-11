@@ -2795,9 +2795,9 @@ var App = function App() {
       tasks = _a[0],
       setTasks = _a[1];
 
-  var _b = react_1.useState([]),
-      user_id = _b[0],
-      setUser_id = _b[1];
+  var _b = react_1.useState(),
+      userID = _b[0],
+      setUserID = _b[1];
 
   var _c = react_1.useState(0),
       change = _c[0],
@@ -2808,35 +2808,6 @@ var App = function App() {
       tasksEditActive = _d[0],
       setTasksEditActive = _d[1];
 
-  var getData = function getData() {
-    return __awaiter(void 0, void 0, void 0, function () {
-      var jsonData;
-      return __generator(this, function (_a) {
-        switch (_a.label) {
-          case 0:
-            return [4
-            /*yield*/
-            , axios_1["default"].get("api/tasks/1")];
-
-          case 1:
-            jsonData = _a.sent();
-
-            try {
-              setTasks(jsonData.data.map(function (data) {
-                return data;
-              }));
-            } catch (error) {
-              console.log(error);
-            }
-
-            return [2
-            /*return*/
-            ];
-        }
-      });
-    });
-  };
-
   var getUser = function getUser() {
     return __awaiter(void 0, void 0, void 0, function () {
       return __generator(this, function (_a) {
@@ -2845,7 +2816,7 @@ var App = function App() {
             return [4
             /*yield*/
             , axios_1["default"].get("api/users").then(function (res) {
-              console.log(res.data);
+              setUserID(res.data);
             })["catch"](function (err) {
               console.log(err);
             })];
@@ -2861,10 +2832,48 @@ var App = function App() {
     });
   };
 
+  var getData = function getData() {
+    return __awaiter(void 0, void 0, void 0, function () {
+      var jsonData;
+      return __generator(this, function (_a) {
+        switch (_a.label) {
+          case 0:
+            console.log(userID);
+            if (!!(userID === undefined)) return [3
+            /*break*/
+            , 2];
+            return [4
+            /*yield*/
+            , axios_1["default"].get("api/tasks/" + userID)];
+
+          case 1:
+            jsonData = _a.sent();
+
+            try {
+              setTasks(jsonData.data.map(function (data) {
+                return data;
+              }));
+            } catch (error) {
+              console.log(error);
+            }
+
+            _a.label = 2;
+
+          case 2:
+            return [2
+            /*return*/
+            ];
+        }
+      });
+    });
+  };
+
   react_1.useEffect(function () {
-    getData();
     getUser();
   }, []);
+  react_1.useEffect(function () {
+    getData();
+  }, [userID]);
 
   var postData = function postData(_postData) {
     return __awaiter(void 0, void 0, void 0, function () {

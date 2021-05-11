@@ -15,11 +15,7 @@ use Illuminate\Support\Facades\Route;
 // $id = Auth::id();
 
 Route::get('/', function () {
-    // if(Auth::id()===2) {
         return view('index');
-    // }
-    // dd(Auth::id());
-
 });
 
 Route::get('api/users','UserController@index');
