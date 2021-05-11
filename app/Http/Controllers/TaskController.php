@@ -27,7 +27,7 @@ class TaskController extends Controller
         // return Task::where('user_id',1)->orderByDesc('id')->get();
 
         //全レコードを降順で取得する
-        return Task::orderByDesc('id')->get();
+        // return Task::orderByDesc('id')->get();
     }
 
     /**
@@ -49,7 +49,7 @@ class TaskController extends Controller
 
     /**
      * Display the specified resource.
-     * api/tasks/{id}
+     * api/tasks/{uid}
      * GET
      * 
      * @param  \App\Models\Task  $task
