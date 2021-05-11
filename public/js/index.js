@@ -2816,7 +2816,7 @@ var App = function App() {
           case 0:
             return [4
             /*yield*/
-            , axios_1["default"].get("api/tasks/2")];
+            , axios_1["default"].get("api/tasks/1")];
 
           case 1:
             jsonData = _a.sent();
@@ -2837,8 +2837,33 @@ var App = function App() {
     });
   };
 
+  var getUser = function getUser() {
+    return __awaiter(void 0, void 0, void 0, function () {
+      return __generator(this, function (_a) {
+        switch (_a.label) {
+          case 0:
+            return [4
+            /*yield*/
+            , axios_1["default"].get("api/users").then(function (res) {
+              console.log(res.data);
+            })["catch"](function (err) {
+              console.log(err);
+            })];
+
+          case 1:
+            _a.sent();
+
+            return [2
+            /*return*/
+            ];
+        }
+      });
+    });
+  };
+
   react_1.useEffect(function () {
     getData();
+    getUser();
   }, []);
 
   var postData = function postData(_postData) {

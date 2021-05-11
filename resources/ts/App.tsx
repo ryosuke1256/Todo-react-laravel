@@ -13,7 +13,7 @@ const App: React.VFC = () => {
 
     const getData = async () => {
         //api/tasks/パラメータの値(user_id)
-        const jsonData = await axios.get("api/tasks/2");
+        const jsonData = await axios.get("api/tasks/1");
         try {
             setTasks(jsonData.data.map((data: {}) => data));
         } catch (error) {
@@ -21,8 +21,20 @@ const App: React.VFC = () => {
         }
     };
 
+    const getUser = async () => {
+        await axios
+            .get("api/users")
+            .then((res) => {
+                console.log(res.data);
+            })
+            .catch((err) => {
+                console.log(err);
+            });
+    };
+
     useEffect(() => {
         getData();
+        getUser();
     }, []);
 
     type Data = {
