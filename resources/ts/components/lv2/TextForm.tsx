@@ -5,13 +5,14 @@ import SubmitButton from "../lv1/SubmitButton";
 
 type Props = {
     postData: (postData: {
-        user_id: number;
+        user_id?: number;
         title: string;
         is_done: 0 | 1;
     }) => void;
+    userID?: number;
 };
 
-const TextForm: React.VFC<Props> = ({ postData }: Props) => {
+const TextForm: React.VFC<Props> = ({ postData, userID }: Props) => {
     const [text, setText] = useState("");
 
     const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -21,7 +22,12 @@ const TextForm: React.VFC<Props> = ({ postData }: Props) => {
     return (
         <Style>
             <InputText text={text} handleChange={handleChange} />
-            <SubmitButton text={text} postData={postData} setText={setText} />
+            <SubmitButton
+                text={text}
+                postData={postData}
+                setText={setText}
+                userID={userID}
+            />
         </Style>
     );
 };

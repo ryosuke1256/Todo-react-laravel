@@ -2795,9 +2795,9 @@ var App = function App() {
       tasks = _a[0],
       setTasks = _a[1];
 
-  var _b = react_1.useState([]),
-      user_id = _b[0],
-      setUser_id = _b[1];
+  var _b = react_1.useState(),
+      userID = _b[0],
+      setUserID = _b[1];
 
   var _c = react_1.useState(0),
       change = _c[0],
@@ -2808,15 +2808,43 @@ var App = function App() {
       tasksEditActive = _d[0],
       setTasksEditActive = _d[1];
 
+  var getUser = function getUser() {
+    return __awaiter(void 0, void 0, void 0, function () {
+      return __generator(this, function (_a) {
+        switch (_a.label) {
+          case 0:
+            return [4
+            /*yield*/
+            , axios_1["default"].get("api/users").then(function (res) {
+              setUserID(res.data);
+            })["catch"](function (err) {
+              console.log(err);
+            })];
+
+          case 1:
+            _a.sent();
+
+            return [2
+            /*return*/
+            ];
+        }
+      });
+    });
+  };
+
   var getData = function getData() {
     return __awaiter(void 0, void 0, void 0, function () {
       var jsonData;
       return __generator(this, function (_a) {
         switch (_a.label) {
           case 0:
+            console.log(userID);
+            if (!!(userID === undefined)) return [3
+            /*break*/
+            , 2];
             return [4
             /*yield*/
-            , axios_1["default"].get("api/tasks/2")];
+            , axios_1["default"].get("api/tasks/" + userID)];
 
           case 1:
             jsonData = _a.sent();
@@ -2829,6 +2857,9 @@ var App = function App() {
               console.log(error);
             }
 
+            _a.label = 2;
+
+          case 2:
             return [2
             /*return*/
             ];
@@ -2838,8 +2869,11 @@ var App = function App() {
   };
 
   react_1.useEffect(function () {
-    getData();
+    getUser();
   }, []);
+  react_1.useEffect(function () {
+    getData();
+  }, [userID]);
 
   var postData = function postData(_postData) {
     return __awaiter(void 0, void 0, void 0, function () {
@@ -2873,10 +2907,10 @@ var App = function App() {
     });
   };
 
-  var i = -1; // console.log(tasks);
-
+  var i = -1;
   return react_1["default"].createElement(react_1["default"].Fragment, null, react_1["default"].createElement(TextForm_1["default"], {
-    postData: postData
+    postData: postData,
+    userID: userID
   }), react_1["default"].createElement(TaskCards_1.TaskCards, null, tasks.map(function (task, key) {
     i++;
     return react_1["default"].createElement(TaskCard_1["default"], {
@@ -3172,9 +3206,10 @@ var react_1 = __importDefault(__webpack_require__(/*! react */ "./node_modules/r
 var SubmitButton = function SubmitButton(_a) {
   var text = _a.text,
       postData = _a.postData,
-      setText = _a.setText;
+      setText = _a.setText,
+      userID = _a.userID;
   var data = {
-    user_id: 2,
+    user_id: userID,
     title: text,
     is_done: 0
   };
@@ -3690,7 +3725,8 @@ var InputText_1 = __importDefault(__webpack_require__(/*! ../lv1/InputText */ ".
 var SubmitButton_1 = __importDefault(__webpack_require__(/*! ../lv1/SubmitButton */ "./resources/ts/components/lv1/SubmitButton.tsx"));
 
 var TextForm = function TextForm(_a) {
-  var postData = _a.postData;
+  var postData = _a.postData,
+      userID = _a.userID;
 
   var _b = react_1.useState(""),
       text = _b[0],
@@ -3708,7 +3744,8 @@ var TextForm = function TextForm(_a) {
   }), react_1["default"].createElement(SubmitButton_1["default"], {
     text: text,
     postData: postData,
-    setText: setText
+    setText: setText,
+    userID: userID
   }));
 };
 

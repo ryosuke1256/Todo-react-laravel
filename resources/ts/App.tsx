@@ -7,26 +7,43 @@ import { TaskCards } from "./components/lv3/TaskCards";
 
 const App: React.VFC = () => {
     const [tasks, setTasks] = useState<any>([]);
-    const [user_id, setUser_id] = useState<any>([]);
+    const [userID, setUserID] = useState();
     const [change, setChange] = useState(0); //render走らせる用
     const [tasksEditActive, setTasksEditActive] = useState(false);
 
+    const getUser = async () => {
+        await axios
+            .get("api/users")
+            .then((res) => {
+                setUserID(res.data);
+            })
+            .catch((err) => {
+                console.log(err);
+            });
+    };
+
     const getData = async () => {
-        //api/tasks/パラメータの値(user_id)
-        const jsonData = await axios.get("api/tasks/2");
-        try {
-            setTasks(jsonData.data.map((data: {}) => data));
-        } catch (error) {
-            console.log(error);
+        console.log(userID);
+        if (!(userID === undefined)) {
+            const jsonData = await axios.get(`api/tasks/${userID}`);
+            try {
+                setTasks(jsonData.data.map((data: {}) => data));
+            } catch (error) {
+                console.log(error);
+            }
         }
     };
 
     useEffect(() => {
-        getData();
+        getUser();
     }, []);
 
+    useEffect(() => {
+        getData();
+    }, [userID]);
+
     type Data = {
-        user_id: number;
+        user_id?: number;
         title: string;
         is_done: 0 | 1;
     };
@@ -46,13 +63,12 @@ const App: React.VFC = () => {
     };
 
     let i: number = -1;
-    // console.log(tasks);
 
     return (
         <>
             {/* <Header />z */}
 
-            <TextForm postData={postData} />
+            <TextForm postData={postData} userID={userID} />
             <TaskCards>
                 {tasks.map((task: any, key: number) => {
                     i++;
