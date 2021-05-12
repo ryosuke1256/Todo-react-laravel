@@ -45,8 +45,14 @@ class TaskController extends Controller
      */
     public function show(Task $task)
     {
-        //user_id毎のデータを取得
-        return Task::where('user_id',$task->id)->orderByDesc('id')->get();
+        //パターン１、user_id毎のデータを取得
+        // return Task::where('user_id',$task->id)->orderByDesc('id')->get();
+
+
+        //パターン２、データベースのリレーションを使ったやり方
+        $user = User::find($task->id);
+        $task = $user->task;
+        return $task;
     }
 
     /**
