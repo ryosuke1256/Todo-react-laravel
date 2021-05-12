@@ -43,6 +43,6 @@ class User extends Authenticatable
     ];
 
     public function task() {
-        return $this->hasMany('App\Models\Task');
+        return $this->hasMany('App\Models\Task')->orderByDesc('id');
     }
 }
