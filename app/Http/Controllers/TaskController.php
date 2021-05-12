@@ -5,9 +5,13 @@ namespace App\Http\Controllers;
 use App\Models\Task;
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+
 
 class TaskController extends Controller
 {
+
+
     /**
      * api/tasks
      * GET
@@ -52,9 +56,12 @@ class TaskController extends Controller
 
         // パターン２、データベースのリレーションを使ったやり方、
         // App\Models\Userのtask()にorderByDesc('id')つけてね
-        $user = User::find($task->id);
-        $task = $user->task;
-        return $task;
+        // dd(Auth::id());
+        if(Auth::id() === $task->id) {
+            $user = User::find($task->id);
+            $task = $user->task;
+            return $task;
+        }
     }
 
     /**
