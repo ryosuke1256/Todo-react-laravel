@@ -14,7 +14,7 @@
 -   TypeScript
 -   React  
 
-※ Laravel Mix
+※ Laravel Mix（同一オリジン）
 
 ## バックエンド
 
