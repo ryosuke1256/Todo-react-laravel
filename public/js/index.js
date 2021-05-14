@@ -3195,8 +3195,6 @@ Object.defineProperty(exports, "__esModule", ({
 
 var react_1 = __importDefault(__webpack_require__(/*! react */ "./node_modules/react/index.js"));
 
-var ButtonStyle_1 = __webpack_require__(/*! ../../style/ButtonStyle */ "./resources/ts/style/ButtonStyle.tsx");
-
 var SubmitButton = function SubmitButton(_a) {
   var text = _a.text,
       postData = _a.postData,
@@ -3207,17 +3205,22 @@ var SubmitButton = function SubmitButton(_a) {
     title: text,
     is_done: 0
   };
-  return react_1["default"].createElement(ButtonStyle_1.ButtonStyle, {
-    onClick: function onClick() {
-      postData(data);
-      setText("");
-    },
-    backgroundColor: "#8cdb4c",
-    style: {
-      borderRadius: "0px",
-      border: "1px solid #80ce41"
-    }
-  }, "\u8FFD\u52A0");
+  return (// <ButtonStyle
+    react_1["default"].createElement("button", {
+      onClick: function onClick() {
+        postData(data);
+        setText("");
+      },
+      // backgroundColor="#8cdb4c"
+      style: {
+        // borderRadius: "0px",
+        // border: "1px solid #80ce41",
+        border: "1px solid",
+        padding: "6px"
+      }
+    }, "\u8FFD\u52A0") // </ButtonStyle>
+
+  );
 };
 
 exports.default = SubmitButton;
