@@ -118,10 +118,10 @@ export default TaskCard;
 
 const Style = styled.div`
     display: flex;
+    align-items: center;
     border: 1px solid #c4cfd6;
-    width: 90%;
-    margin: 0 auto;
-    padding: 13px;
+    padding: 1.3%;
     border-bottom: 0px;
     border-radius: 6px;
+    background-color: rgb(254, 254, 254);
 `;

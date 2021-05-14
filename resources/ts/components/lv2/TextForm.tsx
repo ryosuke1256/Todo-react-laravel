@@ -34,7 +34,8 @@ const TextForm: React.VFC<Props> = ({ postData, userID }: Props) => {
 export default TextForm;
 
 const Style = styled.div`
-    width: 92%;
+    max-width: 1300px;
+    width: 85%;
     margin: 0 auto;
-    padding-top: 22px;
+    padding-top: 35px;
 `;

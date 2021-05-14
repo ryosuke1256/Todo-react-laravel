@@ -1,5 +1,5 @@
 import React from "react";
-import styled from "styled-components";
+import { ButtonStyle } from "../../style/ButtonStyle";
 
 type Props = {
     deleteData: () => Promise<void>;
@@ -8,19 +8,16 @@ type Props = {
 
 const DeleteButton: React.VFC<Props> = ({ deleteData, setIs_done }: Props) => {
     return (
-        <Style
+        <ButtonStyle
             onClick={() => {
                 deleteData();
                 setIs_done(0);
             }}
+            backgroundColor="#da6161"
         >
             削除
-        </Style>
+        </ButtonStyle>
     );
 };
 
 export default DeleteButton;
-
-const Style = styled.button`
-    /* flex-grow: 3; */
-`;

@@ -12,7 +12,7 @@ const InputText: React.VFC<Props> = ({ text, handleChange }: Props) => {
             value={text}
             placeholder="タスクを入力"
             onChange={(e) => handleChange(e)}
-            style={{ padding: "2px" }}
+            style={{ padding: "5px" }}
         />
     );
 };
