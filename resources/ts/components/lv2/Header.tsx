@@ -14,7 +14,7 @@ export default Header;
 
 const Style = styled.div`
     text-align: center;
-    margin-bottom: 15px;
+    margin-bottom: 20px;
     /* パターン１ */
     /* border-bottom: 1px solid #c4cfd6; */
     /* パターン２ */

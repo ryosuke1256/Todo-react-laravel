@@ -34,6 +34,7 @@ const SubmitButton: React.VFC<Props> = ({
                 postData(data);
                 setText("");
             }}
+            style={{ padding: "5px" }}
         >
             追加
         </button>

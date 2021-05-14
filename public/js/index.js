@@ -2942,6 +2942,18 @@ exports.default = App;
 "use strict";
 
 
+var __makeTemplateObject = this && this.__makeTemplateObject || function (cooked, raw) {
+  if (Object.defineProperty) {
+    Object.defineProperty(cooked, "raw", {
+      value: raw
+    });
+  } else {
+    cooked.raw = raw;
+  }
+
+  return cooked;
+};
+
 var __importDefault = this && this.__importDefault || function (mod) {
   return mod && mod.__esModule ? mod : {
     "default": mod
@@ -2954,6 +2966,8 @@ Object.defineProperty(exports, "__esModule", ({
 
 var react_1 = __importDefault(__webpack_require__(/*! react */ "./node_modules/react/index.js"));
 
+var styled_components_1 = __importDefault(__webpack_require__(/*! styled-components */ "./node_modules/styled-components/dist/styled-components.browser.esm.js"));
+
 var CheckBox = function CheckBox(_a) {
   var is_done = _a.is_done,
       patchData = _a.patchData,
@@ -2961,7 +2975,7 @@ var CheckBox = function CheckBox(_a) {
 
   var handleChange = function handleChange(e) {};
 
-  return react_1["default"].createElement("input", {
+  return react_1["default"].createElement(_CheckBox, null, react_1["default"].createElement("input", {
     type: "checkbox",
     onClick: function onClick() {
       patchData(text, is_done, true);
@@ -2970,10 +2984,14 @@ var CheckBox = function CheckBox(_a) {
       return handleChange(e);
     },
     checked: is_done === 1 ? true : false
-  });
+  }));
 };
 
 exports.default = CheckBox;
+
+var _CheckBox = styled_components_1["default"].div(templateObject_1 || (templateObject_1 = __makeTemplateObject(["\n    padding-right: 5px;\n    transform: scale(1.5);\n"], ["\n    padding-right: 5px;\n    transform: scale(1.5);\n"])));
+
+var templateObject_1;
 
 /***/ }),
 
@@ -3141,7 +3159,7 @@ var InputText = function InputText(_a) {
       return handleChange(e);
     },
     style: {
-      padding: "2px"
+      padding: "5px"
     }
   });
 };
@@ -3185,6 +3203,9 @@ var SubmitButton = function SubmitButton(_a) {
     onClick: function onClick() {
       postData(data);
       setText("");
+    },
+    style: {
+      padding: "5px"
     }
   }, "\u8FFD\u52A0");
 };
@@ -3718,7 +3739,7 @@ var TextForm = function TextForm(_a) {
 };
 
 exports.default = TextForm;
-var Style = styled_components_1["default"].div(templateObject_1 || (templateObject_1 = __makeTemplateObject(["\n    max-width: 1300px;\n    width: 85%;\n    margin: 0 auto;\n    padding-top: 22px;\n"], ["\n    max-width: 1300px;\n    width: 85%;\n    margin: 0 auto;\n    padding-top: 22px;\n"])));
+var Style = styled_components_1["default"].div(templateObject_1 || (templateObject_1 = __makeTemplateObject(["\n    max-width: 1300px;\n    width: 85%;\n    margin: 0 auto;\n    padding-top: 35px;\n"], ["\n    max-width: 1300px;\n    width: 85%;\n    margin: 0 auto;\n    padding-top: 35px;\n"])));
 var templateObject_1;
 
 /***/ }),
