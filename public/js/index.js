@@ -2986,18 +2986,6 @@ exports.default = CheckBox;
 "use strict";
 
 
-var __makeTemplateObject = this && this.__makeTemplateObject || function (cooked, raw) {
-  if (Object.defineProperty) {
-    Object.defineProperty(cooked, "raw", {
-      value: raw
-    });
-  } else {
-    cooked.raw = raw;
-  }
-
-  return cooked;
-};
-
 var __importDefault = this && this.__importDefault || function (mod) {
   return mod && mod.__esModule ? mod : {
     "default": mod
@@ -3010,22 +2998,21 @@ Object.defineProperty(exports, "__esModule", ({
 
 var react_1 = __importDefault(__webpack_require__(/*! react */ "./node_modules/react/index.js"));
 
-var styled_components_1 = __importDefault(__webpack_require__(/*! styled-components */ "./node_modules/styled-components/dist/styled-components.browser.esm.js"));
+var ButtonStyle_1 = __webpack_require__(/*! ../../style/ButtonStyle */ "./resources/ts/style/ButtonStyle.tsx");
 
 var DeleteButton = function DeleteButton(_a) {
   var deleteData = _a.deleteData,
       setIs_done = _a.setIs_done;
-  return react_1["default"].createElement(Style, {
+  return react_1["default"].createElement(ButtonStyle_1.ButtonStyle, {
     onClick: function onClick() {
       deleteData();
       setIs_done(0);
-    }
+    },
+    backgroundColor: "#da6161"
   }, "\u524A\u9664");
 };
 
 exports.default = DeleteButton;
-var Style = styled_components_1["default"].button(templateObject_1 || (templateObject_1 = __makeTemplateObject(["\n    /* flex-grow: 3; */\n"], ["\n    /* flex-grow: 3; */\n"])));
-var templateObject_1;
 
 /***/ }),
 
@@ -3037,18 +3024,6 @@ var templateObject_1;
 
 "use strict";
 
-
-var __makeTemplateObject = this && this.__makeTemplateObject || function (cooked, raw) {
-  if (Object.defineProperty) {
-    Object.defineProperty(cooked, "raw", {
-      value: raw
-    });
-  } else {
-    cooked.raw = raw;
-  }
-
-  return cooked;
-};
 
 var __createBinding = this && this.__createBinding || (Object.create ? function (o, m, k, k2) {
   if (k2 === undefined) k2 = k;
@@ -3084,19 +3059,13 @@ var __importStar = this && this.__importStar || function (mod) {
   return result;
 };
 
-var __importDefault = this && this.__importDefault || function (mod) {
-  return mod && mod.__esModule ? mod : {
-    "default": mod
-  };
-};
-
 Object.defineProperty(exports, "__esModule", ({
   value: true
 }));
 
 var react_1 = __importStar(__webpack_require__(/*! react */ "./node_modules/react/index.js"));
 
-var styled_components_1 = __importDefault(__webpack_require__(/*! styled-components */ "./node_modules/styled-components/dist/styled-components.browser.esm.js"));
+var ButtonStyle_1 = __webpack_require__(/*! ../../style/ButtonStyle */ "./resources/ts/style/ButtonStyle.tsx");
 
 var EditButton = function EditButton(_a) {
   var is_done = _a.is_done,
@@ -3128,16 +3097,15 @@ var EditButton = function EditButton(_a) {
     }
   };
 
-  return react_1["default"].createElement(Style, {
+  return react_1["default"].createElement(ButtonStyle_1.ButtonStyle, {
     onClick: function onClick() {
       return changeTaskTitle();
-    }
+    },
+    backgroundColor: "#3fc8eb"
   }, editButtonTitle);
 };
 
 exports.default = EditButton;
-var Style = styled_components_1["default"].button(templateObject_1 || (templateObject_1 = __makeTemplateObject(["\n    margin-right: 12px;\n"], ["\n    margin-right: 12px;\n"])));
-var templateObject_1;
 
 /***/ }),
 
@@ -3646,7 +3614,7 @@ var TaskCard = function TaskCard(_a) {
 };
 
 exports.default = TaskCard;
-var Style = styled_components_1["default"].div(templateObject_1 || (templateObject_1 = __makeTemplateObject(["\n    display: flex;\n    border: 1px solid #c4cfd6;\n    width: 90%;\n    margin: 0 auto;\n    padding: 13px;\n    border-bottom: 0px;\n    border-radius: 6px;\n"], ["\n    display: flex;\n    border: 1px solid #c4cfd6;\n    width: 90%;\n    margin: 0 auto;\n    padding: 13px;\n    border-bottom: 0px;\n    border-radius: 6px;\n"])));
+var Style = styled_components_1["default"].div(templateObject_1 || (templateObject_1 = __makeTemplateObject(["\n    display: flex;\n    align-items: center;\n    border: 1px solid #c4cfd6;\n    padding: 1.3%;\n    border-bottom: 0px;\n    border-radius: 6px;\n    background-color: rgb(254, 254, 254);\n"], ["\n    display: flex;\n    align-items: center;\n    border: 1px solid #c4cfd6;\n    padding: 1.3%;\n    border-bottom: 0px;\n    border-radius: 6px;\n    background-color: rgb(254, 254, 254);\n"])));
 var templateObject_1;
 
 /***/ }),
@@ -3750,7 +3718,7 @@ var TextForm = function TextForm(_a) {
 };
 
 exports.default = TextForm;
-var Style = styled_components_1["default"].div(templateObject_1 || (templateObject_1 = __makeTemplateObject(["\n    width: 92%;\n    margin: 0 auto;\n    padding-top: 22px;\n"], ["\n    width: 92%;\n    margin: 0 auto;\n    padding-top: 22px;\n"])));
+var Style = styled_components_1["default"].div(templateObject_1 || (templateObject_1 = __makeTemplateObject(["\n    max-width: 1300px;\n    width: 85%;\n    margin: 0 auto;\n    padding-top: 22px;\n"], ["\n    max-width: 1300px;\n    width: 85%;\n    margin: 0 auto;\n    padding-top: 22px;\n"])));
 var templateObject_1;
 
 /***/ }),
@@ -3789,7 +3757,7 @@ exports.TaskCards = void 0;
 
 var styled_components_1 = __importDefault(__webpack_require__(/*! styled-components */ "./node_modules/styled-components/dist/styled-components.browser.esm.js"));
 
-exports.TaskCards = styled_components_1["default"].div(templateObject_1 || (templateObject_1 = __makeTemplateObject(["\n    padding-top: 10px;\n"], ["\n    padding-top: 10px;\n"])));
+exports.TaskCards = styled_components_1["default"].div(templateObject_1 || (templateObject_1 = __makeTemplateObject(["\n    max-width: 1300px;\n    width: 85%;\n    margin: 0 auto;\n    padding-top: 10px;\n"], ["\n    max-width: 1300px;\n    width: 85%;\n    margin: 0 auto;\n    padding-top: 10px;\n"])));
 var templateObject_1;
 
 /***/ }),
@@ -3820,6 +3788,47 @@ var react_dom_1 = __importDefault(__webpack_require__(/*! react-dom */ "./node_m
 var App_1 = __importDefault(__webpack_require__(/*! ./App */ "./resources/ts/App.tsx"));
 
 react_dom_1["default"].render(react_1["default"].createElement(App_1["default"], null), document.getElementById("app"));
+
+/***/ }),
+
+/***/ "./resources/ts/style/ButtonStyle.tsx":
+/*!********************************************!*\
+  !*** ./resources/ts/style/ButtonStyle.tsx ***!
+  \********************************************/
+/***/ (function(__unused_webpack_module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var __makeTemplateObject = this && this.__makeTemplateObject || function (cooked, raw) {
+  if (Object.defineProperty) {
+    Object.defineProperty(cooked, "raw", {
+      value: raw
+    });
+  } else {
+    cooked.raw = raw;
+  }
+
+  return cooked;
+};
+
+var __importDefault = this && this.__importDefault || function (mod) {
+  return mod && mod.__esModule ? mod : {
+    "default": mod
+  };
+};
+
+Object.defineProperty(exports, "__esModule", ({
+  value: true
+}));
+exports.ButtonStyle = void 0;
+
+var styled_components_1 = __importDefault(__webpack_require__(/*! styled-components */ "./node_modules/styled-components/dist/styled-components.browser.esm.js"));
+
+exports.ButtonStyle = styled_components_1["default"].div(templateObject_1 || (templateObject_1 = __makeTemplateObject(["\n    display: inline-block;\n    text-align: center;\n    background-color: ", ";\n    opacity: 0.9;\n    /* color: #252525; */\n    color: white;\n    padding: 6px 10px;\n    border-radius: 4px;\n    /* border-bottom: 4px solid #627295; */\n    margin-right: 12px;\n    cursor: pointer;\n    &:hover {\n        opacity: 0.6;\n    }\n"], ["\n    display: inline-block;\n    text-align: center;\n    background-color: ", ";\n    opacity: 0.9;\n    /* color: #252525; */\n    color: white;\n    padding: 6px 10px;\n    border-radius: 4px;\n    /* border-bottom: 4px solid #627295; */\n    margin-right: 12px;\n    cursor: pointer;\n    &:hover {\n        opacity: 0.6;\n    }\n"])), function (props) {
+  return props.backgroundColor;
+});
+var templateObject_1;
 
 /***/ }),
 

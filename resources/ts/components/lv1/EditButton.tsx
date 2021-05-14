@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import styled from "styled-components";
+import { ButtonStyle } from "../../style/ButtonStyle";
 
 type Props = {
     is_done: 0 | 1;
@@ -40,11 +40,14 @@ const EditButton: React.VFC<Props> = ({
         }
     };
 
-    return <Style onClick={() => changeTaskTitle()}>{editButtonTitle}</Style>;
+    return (
+        <ButtonStyle
+            onClick={() => changeTaskTitle()}
+            backgroundColor="#3fc8eb"
+        >
+            {editButtonTitle}
+        </ButtonStyle>
+    );
 };
 
 export default EditButton;
-
-const Style = styled.button`
-    margin-right: 12px;
-`;
