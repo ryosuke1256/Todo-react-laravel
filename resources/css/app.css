@@ -75,6 +75,7 @@ section {
     font-size: 1.3rem;
     padding: 80px 0 20px 0;
 }
+
 .Login {
     display: inline-block;
     font-weight: 600;
@@ -83,6 +84,19 @@ section {
     background-color: #3ea8ff;
     border-radius: 10px;
 }
+
+.Login:hover {
+    color: white;
+    text-decoration: none;
+    opacity: 0.75;
+}
+
+.Register:hover {
+    color: white;
+    text-decoration: none;
+    opacity: 0.75;
+}
+
 .Register {
     display: inline-block;
     font-weight: 600;

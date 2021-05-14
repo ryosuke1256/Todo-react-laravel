@@ -3028,7 +3028,7 @@ var DeleteButton = function DeleteButton(_a) {
     },
     backgroundColor: "#da6161",
     style: {
-      border: "1px solid #d85858"
+      border: "1px solid #db5e5e"
     }
   }, "\u524A\u9664");
 };
