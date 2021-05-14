@@ -1,4 +1,5 @@
 import React from "react";
+import { ButtonStyle } from "../../style/ButtonStyle";
 
 type Props = {
     text: string;
@@ -29,15 +30,19 @@ const SubmitButton: React.VFC<Props> = ({
         is_done: 0,
     };
     return (
-        <button
+        <ButtonStyle
             onClick={() => {
                 postData(data);
                 setText("");
             }}
-            style={{ padding: "5px" }}
+            backgroundColor="#8cdb4c"
+            style={{
+                borderRadius: "0px",
+                border: "1px solid #80ce41",
+            }}
         >
             追加
-        </button>
+        </ButtonStyle>
     );
 };
 

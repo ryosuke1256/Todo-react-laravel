@@ -14,6 +14,7 @@ const DeleteButton: React.VFC<Props> = ({ deleteData, setIs_done }: Props) => {
                 setIs_done(0);
             }}
             backgroundColor="#da6161"
+            style={{ border: "1px solid #d85858" }}
         >
             削除
         </ButtonStyle>

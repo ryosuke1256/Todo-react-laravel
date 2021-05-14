@@ -43,7 +43,8 @@ const EditButton: React.VFC<Props> = ({
     return (
         <ButtonStyle
             onClick={() => changeTaskTitle()}
-            backgroundColor="#3fc8eb"
+            backgroundColor="#3bc2e4"
+            style={{ border: "1px solid #2eb9db" }}
         >
             {editButtonTitle}
         </ButtonStyle>

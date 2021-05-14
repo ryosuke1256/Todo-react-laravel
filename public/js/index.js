@@ -3026,7 +3026,10 @@ var DeleteButton = function DeleteButton(_a) {
       deleteData();
       setIs_done(0);
     },
-    backgroundColor: "#da6161"
+    backgroundColor: "#da6161",
+    style: {
+      border: "1px solid #d85858"
+    }
   }, "\u524A\u9664");
 };
 
@@ -3119,7 +3122,10 @@ var EditButton = function EditButton(_a) {
     onClick: function onClick() {
       return changeTaskTitle();
     },
-    backgroundColor: "#3fc8eb"
+    backgroundColor: "#3bc2e4",
+    style: {
+      border: "1px solid #2eb9db"
+    }
   }, editButtonTitle);
 };
 
@@ -3189,6 +3195,8 @@ Object.defineProperty(exports, "__esModule", ({
 
 var react_1 = __importDefault(__webpack_require__(/*! react */ "./node_modules/react/index.js"));
 
+var ButtonStyle_1 = __webpack_require__(/*! ../../style/ButtonStyle */ "./resources/ts/style/ButtonStyle.tsx");
+
 var SubmitButton = function SubmitButton(_a) {
   var text = _a.text,
       postData = _a.postData,
@@ -3199,13 +3207,15 @@ var SubmitButton = function SubmitButton(_a) {
     title: text,
     is_done: 0
   };
-  return react_1["default"].createElement("button", {
+  return react_1["default"].createElement(ButtonStyle_1.ButtonStyle, {
     onClick: function onClick() {
       postData(data);
       setText("");
     },
+    backgroundColor: "#8cdb4c",
     style: {
-      padding: "5px"
+      borderRadius: "0px",
+      border: "1px solid #80ce41"
     }
   }, "\u8FFD\u52A0");
 };
