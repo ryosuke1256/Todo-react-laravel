@@ -64,17 +64,25 @@ section {
     display: block;
 }
 
+.welcome-title {
+    padding-top: 20px;
+    font-size: 1.5rem;
+}
+
 .welcome-content {
     background-color: #fcfcfc;
     padding: 30px 20vw 0 25vw;
 }
+
 .welcome-block {
     display: flex;
 }
+
 .welcome-block-title {
     font-size: 1.3rem;
-    padding: 80px 0 20px 0;
+    padding: 60px 0 20px 0;
 }
+
 .Login {
     display: inline-block;
     font-weight: 600;
@@ -83,6 +91,19 @@ section {
     background-color: #3ea8ff;
     border-radius: 10px;
 }
+
+.Login:hover {
+    color: white;
+    text-decoration: none;
+    opacity: 0.75;
+}
+
+.Register:hover {
+    color: white;
+    text-decoration: none;
+    opacity: 0.75;
+}
+
 .Register {
     display: inline-block;
     font-weight: 600;

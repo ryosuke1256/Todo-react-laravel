@@ -3026,7 +3026,10 @@ var DeleteButton = function DeleteButton(_a) {
       deleteData();
       setIs_done(0);
     },
-    backgroundColor: "#da6161"
+    backgroundColor: "#da6161",
+    style: {
+      border: "1px solid #db5e5e"
+    }
   }, "\u524A\u9664");
 };
 
@@ -3119,7 +3122,10 @@ var EditButton = function EditButton(_a) {
     onClick: function onClick() {
       return changeTaskTitle();
     },
-    backgroundColor: "#3fc8eb"
+    backgroundColor: "#3bc2e4",
+    style: {
+      border: "1px solid #2eb9db"
+    }
   }, editButtonTitle);
 };
 
@@ -3199,15 +3205,22 @@ var SubmitButton = function SubmitButton(_a) {
     title: text,
     is_done: 0
   };
-  return react_1["default"].createElement("button", {
-    onClick: function onClick() {
-      postData(data);
-      setText("");
-    },
-    style: {
-      padding: "5px"
-    }
-  }, "\u8FFD\u52A0");
+  return (// <ButtonStyle
+    react_1["default"].createElement("button", {
+      onClick: function onClick() {
+        postData(data);
+        setText("");
+      },
+      // backgroundColor="#8cdb4c"
+      style: {
+        // borderRadius: "0px",
+        // border: "1px solid #80ce41",
+        border: "1px solid",
+        padding: "6px"
+      }
+    }, "\u8FFD\u52A0") // </ButtonStyle>
+
+  );
 };
 
 exports.default = SubmitButton;
