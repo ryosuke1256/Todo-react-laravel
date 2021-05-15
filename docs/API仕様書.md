@@ -1,7 +1,7 @@
-|  Method   |      Endpoint       |     Name      |                   Action                    |                                          Description                                          |
-| :-------: | :-----------------: | :-----------: | :-----------------------------------------: | :-------------------------------------------------------------------------------------------: |
-|   POST    |      api/tasks      |  tasks.store  |  App\Http\Controllers\TaskController@store  |                tasks テーブルにレコードを新規作成する。タスクの新規追加をする                 |
-|    GET    | api/tasks/{user_id} |  tasks.show   |  App\Http\Controllers\TaskController@show   | tasks テーブルのuser_idに一致するレコードを全て取得する。トップページでユーザー毎のタスク一覧を表示する |
-| PUT/PATCH |   api/tasks/{id}    | tasks.update  | App\Http\Controllers\TaskController@update  |                 tasks テーブルの id のレコードを更新する。タスクの編集をする                  |
-|  DELETE   |   api/tasks/{id}    | tasks.destroy | App\Http\Controllers\TaskController@destroy |                 tasks テーブルの id のレコードを削除する。タスクの削除をする                  |
-|    GET    |      api/users      |               |  App\Http\Controllers\UserController@index  |                   ログインされたユーザーの id を取得する                    |
+|  Method   |    Endpoint    |     Name      |                   Action                    |                                                                                Description                                                                                |
+| :-------: | :------------: | :-----------: | :-----------------------------------------: | :-----------------------------------------------------------------------------------------------------------------------------------------------------------------------: |
+|   POST    |   api/tasks    |  tasks.store  |  App\Http\Controllers\TaskController@store  |                                                      tasks テーブルにレコードを新規作成する。タスクの新規追加をする                                                       |
+| PUT/PATCH | api/tasks/{id} | tasks.update  | App\Http\Controllers\TaskController@update  |                                                       tasks テーブルの id のレコードを更新する。タスクの編集をする                                                        |
+|  DELETE   | api/tasks/{id} | tasks.destroy | App\Http\Controllers\TaskController@destroy |                                                       tasks テーブルの id のレコードを削除する。タスクの削除をする                                                        |
+|    GET    |   api/users    |               |  App\Http\Controllers\UserController@index  |                                                                  ログインされたユーザーの id を取得する                                                                   |
+|    GET    | api/users/{id} |               | App\Http\Controllers\UserController@getTask | users テーブルでログインして user の id に一致する tasks テーブルのレコードを取得する（データベースのリレーション使って）。トップページでユーザー毎のタスク一覧を表示する |
