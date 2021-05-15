@@ -4,4 +4,4 @@
 | PUT/PATCH | api/tasks/{id} | tasks.update  | App\Http\Controllers\TaskController@update  |                                                       tasks テーブルの id のレコードを更新する。タスクの編集をする                                                        |
 |  DELETE   | api/tasks/{id} | tasks.destroy | App\Http\Controllers\TaskController@destroy |                                                       tasks テーブルの id のレコードを削除する。タスクの削除をする                                                        |
 |    GET    |   api/users    |               |  App\Http\Controllers\UserController@index  |                                                                  ログインされたユーザーの id を取得する                                                                   |
-|    GET    | api/users/{id} |               | App\Http\Controllers\UserController@getTask | users テーブルでログインして user の id に一致する tasks テーブルのレコードを取得する（データベースのリレーション使って）。トップページでユーザー毎のタスク一覧を表示する |
+|    GET    | api/users/{id} |               | App\Http\Controllers\UserController@getTask | ログインしている user の id に一致する tasks テーブルのレコードを取得する（データベースのリレーション使って）。トップページでユーザー毎のタスク一覧を表示する |
