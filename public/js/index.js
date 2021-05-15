@@ -2844,7 +2844,7 @@ var App = function App() {
             , 2];
             return [4
             /*yield*/
-            , axios_1["default"].get("api/tasks/" + userID)];
+            , axios_1["default"].get("api/users/" + userID)];
 
           case 1:
             jsonData = _a.sent();

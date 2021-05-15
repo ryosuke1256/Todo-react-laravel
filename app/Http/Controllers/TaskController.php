@@ -40,31 +40,6 @@ class TaskController extends Controller
     }
 
     /**
-     * Display the specified resource.
-     * api/tasks/{user_id}
-     * GET
-     * 
-     * @param  \App\Models\Task  $task
-     * @return \Illuminate\Http\Response
-     */
-    public function show(Task $task)
-    {
-        // use Illuminate\Database\Eloquent\Collection::latest;
-        //パターン１、user_id毎のデータを取得
-        // return Task::where('user_id',$task->id)->orderByDesc('id')->get();
-
-
-        // パターン２、データベースのリレーションを使ったやり方、
-        // App\Models\Userのtask()にorderByDesc('id')つけてね
-        // dd(Auth::id());
-        if(Auth::id() === $task->id) {
-            $user = User::find($task->id);
-            $task = $user->task;
-            return $task;
-        }
-    }
-
-    /**
      * Update the specified resource in storage.
      *
      * api/tasks/{id}
