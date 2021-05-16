@@ -103,18 +103,7 @@ section {
     padding: 0.75rem;
     background-color: #3ea8ff;
     border-radius: 10px;
-}
-
-.Login:hover {
-    color: white;
-    text-decoration: none;
-    opacity: 0.75;
-}
-
-.Register:hover {
-    color: white;
-    text-decoration: none;
-    opacity: 0.75;
+    opacity: 0.8;
 }
 
 .Register {
@@ -124,6 +113,19 @@ section {
     padding: 0.75rem;
     background-color: #3ea8ff;
     border-radius: 10px;
+    opacity: 0.8;
+}
+
+.Login:hover {
+    color: white;
+    text-decoration: none;
+    opacity: 0.65;
+}
+
+.Register:hover {
+    color: white;
+    text-decoration: none;
+    opacity: 0.65;
 }
 
 .welcome-sample-explain {
