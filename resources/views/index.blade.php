@@ -103,6 +103,7 @@
                         </div>
                     </nav>
 
+                    <img src='/images/background.jpg' class="background-image" />
                     <div class='welcome-content'>
                         <h1 class='welcome-title'>Todoアプリ作ってみたよ！会員登録して使ってみてね！</h1>
                         <div class='welcome-block'>
