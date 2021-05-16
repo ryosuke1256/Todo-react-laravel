@@ -80,15 +80,17 @@ const TaskCard: React.VFC<Props> = ({
             title: text,
             is_done: is_done,
         };
-        await axios.put(`api/tasks/${id}`, data);
-        try {
-            //tasksの値を書き換えないといけない
-            task.is_done = is_done;
-            setTasks(tasks);
-            setIs_done(is_done);
-        } catch (error) {
-            console.log(error);
-        }
+        await axios
+            .patch(`api/tasks/${id}`, data)
+            .then(() => {
+                //tasksの値を書き換えないといけない
+                task.is_done = is_done;
+                setTasks(tasks);
+                setIs_done(is_done);
+            })
+            .catch((err) => {
+                console.log(err);
+            });
     };
 
     return (

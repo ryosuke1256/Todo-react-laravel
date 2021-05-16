@@ -30,23 +30,18 @@ const SubmitButton: React.VFC<Props> = ({
         is_done: 0,
     };
     return (
-        // <ButtonStyle
         <button
             onClick={() => {
                 postData(data);
                 setText("");
             }}
-            // backgroundColor="#8cdb4c"
             style={{
-                // borderRadius: "0px",
-                // border: "1px solid #80ce41",
                 border: "1px solid",
                 padding: "6px",
             }}
         >
             追加
         </button>
-        // </ButtonStyle>
     );
 };
 

@@ -3205,22 +3205,16 @@ var SubmitButton = function SubmitButton(_a) {
     title: text,
     is_done: 0
   };
-  return (// <ButtonStyle
-    react_1["default"].createElement("button", {
-      onClick: function onClick() {
-        postData(data);
-        setText("");
-      },
-      // backgroundColor="#8cdb4c"
-      style: {
-        // borderRadius: "0px",
-        // border: "1px solid #80ce41",
-        border: "1px solid",
-        padding: "6px"
-      }
-    }, "\u8FFD\u52A0") // </ButtonStyle>
-
-  );
+  return react_1["default"].createElement("button", {
+    onClick: function onClick() {
+      postData(data);
+      setText("");
+    },
+    style: {
+      border: "1px solid",
+      padding: "6px"
+    }
+  }, "\u8FFD\u52A0");
 };
 
 exports.default = SubmitButton;
@@ -3602,19 +3596,17 @@ var TaskCard = function TaskCard(_a) {
             };
             return [4
             /*yield*/
-            , axios_1["default"].put("api/tasks/" + id, data)];
-
-          case 1:
-            _a.sent();
-
-            try {
+            , axios_1["default"].patch("api/tasks/" + id, data).then(function () {
               //tasksの値を書き換えないといけない
               task.is_done = is_done;
               setTasks(tasks);
               setIs_done(is_done);
-            } catch (error) {
-              console.log(error);
-            }
+            })["catch"](function (err) {
+              console.log(err);
+            })];
+
+          case 1:
+            _a.sent();
 
             return [2
             /*return*/
