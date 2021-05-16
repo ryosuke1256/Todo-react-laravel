@@ -37,5 +37,5 @@ const Style = styled.div`
     max-width: 1300px;
     width: 85%;
     margin: 0 auto;
-    padding-top: 35px;
+    padding-top: 105px;
 `;
