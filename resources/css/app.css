@@ -96,7 +96,7 @@ section {
     opacity: 0.9;
 }
 
-.Login {
+.Button {
     display: inline-block;
     font-weight: 600;
     color: white;
@@ -104,16 +104,7 @@ section {
     background-color: #3ea8ff;
     border-radius: 10px;
     opacity: 0.8;
-}
-
-.Register {
-    display: inline-block;
-    font-weight: 600;
-    color: white;
-    padding: 0.75rem;
-    background-color: #3ea8ff;
-    border-radius: 10px;
-    opacity: 0.8;
+    box-shadow: 0 2px #3284c7;
 }
 
 .Login:hover {

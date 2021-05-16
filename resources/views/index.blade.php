@@ -109,9 +109,9 @@
                         <div class='welcome-block'>
                             <div>
                             <div class='welcome-block-title'>タスク管理ツールを使って生産性を上げよう</div>
-                            <a href="{{ route('login') }}" class="text-sm text-gray-700 underline Login">ログイン</a>
+                            <a href="{{ route('login') }}" class="text-sm text-gray-700 underline Button Login">ログイン</a>
                             @if (Route::has('register'))
-                                <a href="{{ route('register') }}" class="ml-4 text-sm text-gray-700 underline Register">新規登録</a>
+                                <a href="{{ route('register') }}" class="ml-4 text-sm text-gray-700 underline Button Register">新規登録</a>
                             @endif
                             </div>
                             <img src='/images/todo.png' width='400px' height='400px'/>
