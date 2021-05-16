@@ -103,6 +103,7 @@
                         </div>
                     </nav>
 
+                    <div class="wallpaper">
                     <img src='/images/background.jpg' class="background-image" />
                     <div class='welcome-content'>
                         <h1 class='welcome-title'>Todoアプリ作ってみたよ！会員登録して使ってみてね！</h1>
@@ -119,6 +120,7 @@
                         <!-- <h2>サンプル画面</h2>
                         <div class='welcome-sample-explain'>タスクの新規作成、打ち消し線、編集、削除ができます</div> -->
                         <img src='/images/image.png' width='800px' /><br>
+                    </div>
                     </div>
                 @endauth
             @endif
