@@ -5,6 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+    <link rel="stylesheet" href="../css/app.css">
     <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
     <meta name='description' content='シンプルなTodoアプリです' >
     <!-- CSRF Token -->
@@ -12,12 +13,15 @@
 
     <title>{{ config('app.name', 'Laravel') }}</title>
 
+    <!-- Scripts -->
+    <script src="{{ asset('js/app.js') }}" defer></script>
+
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
 
     <!-- Styles -->
-    <link rel="stylesheet" href="{{ mix('/css/app.css') }}" >
+    <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 </head>
 <body>
             @if (Route::has('login'))
@@ -82,7 +86,7 @@
 
                     <!-- React -->
                     <div id="app"></div>
-                    <script src="{{ mix('/js/index.js') }}" ></script>
+                    <script src="/js/index.js"></script>
 
             @else
                     <!-- ログイン前 -->
@@ -113,6 +117,8 @@
                             </div>
                             <img src='/images/todo.png' width='400px' height='400px'/>
                         </div>
+                        <!-- <h2>サンプル画面</h2>
+                        <div class='welcome-sample-explain'>タスクの新規作成、打ち消し線、編集、削除ができます</div> -->
                         <img src='/images/image.png' width='800px' /><br>
                     </div>
                     </div>
