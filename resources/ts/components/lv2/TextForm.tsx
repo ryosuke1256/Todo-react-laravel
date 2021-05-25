@@ -1,14 +1,10 @@
 import React, { useState } from "react";
 import styled from "styled-components";
-import InputText from "../lv1/InputText";
-import SubmitButton from "../lv1/SubmitButton";
+import { InputText, SubmitButton } from "../lv1/_index";
+import { API } from "../../api/API";
 
 type Props = {
-    postData: (postData: {
-        user_id?: number;
-        title: string;
-        is_done: 0 | 1;
-    }) => void;
+    postData: (postData: API) => void;
     userID?: number;
 };
 
@@ -20,7 +16,7 @@ const TextForm: React.VFC<Props> = ({ postData, userID }: Props) => {
     };
 
     return (
-        <Style>
+        <_TextForm>
             <InputText text={text} handleChange={handleChange} />
             <SubmitButton
                 text={text}
@@ -28,12 +24,12 @@ const TextForm: React.VFC<Props> = ({ postData, userID }: Props) => {
                 setText={setText}
                 userID={userID}
             />
-        </Style>
+        </_TextForm>
     );
 };
 export default TextForm;
 
-const Style = styled.div`
+const _TextForm = styled.div`
     max-width: 1300px;
     width: 85%;
     margin: 0 auto;

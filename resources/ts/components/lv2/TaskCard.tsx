@@ -1,18 +1,8 @@
 import React, { useEffect, useState } from "react";
 import styled from "styled-components";
-import EditButton from "../lv1/EditButton";
-import DeleteButton from "../lv1/DeleteButton";
-import CheckBox from "../lv1/CheckBox";
-import TaskTitle from "../lv1/TaskTitle";
 import axios from "axios";
-
-type API = {
-    id: number;
-    title: string;
-    is_done: 0 | 1;
-    created_at?: string;
-    updated_at?: string;
-};
+import { EditButton, DeleteButton, CheckBox, TaskTitle } from "../lv1/_index";
+import { API } from "../../api/API";
 
 type Props = {
     title: string; //task.title
@@ -25,11 +15,6 @@ type Props = {
     setTasksEditActive: (param: boolean) => void;
     id: number;
     i: number;
-};
-
-type Data = {
-    title: string;
-    is_done: 0 | 1;
 };
 
 const TaskCard: React.VFC<Props> = ({
@@ -63,8 +48,8 @@ const TaskCard: React.VFC<Props> = ({
             tasks.splice(i, 1);
             setTasks(tasks);
             setChange(change + 1);
-        } catch (error) {
-            console.log(error);
+        } catch (err) {
+            console.log(err);
         }
     };
 
@@ -76,7 +61,7 @@ const TaskCard: React.VFC<Props> = ({
         if (viaCheckBox) {
             is_done === 0 ? (is_done = 1) : (is_done = 0);
         }
-        const data: Data = {
+        const data: API = {
             title: text,
             is_done: is_done,
         };
@@ -94,7 +79,7 @@ const TaskCard: React.VFC<Props> = ({
     };
 
     return (
-        <Style>
+        <_TaskCard>
             <CheckBox is_done={is_done} patchData={patchData} text={text} />
             <TaskTitle
                 is_done={is_done}
@@ -112,13 +97,13 @@ const TaskCard: React.VFC<Props> = ({
                 text={text}
             />
             <DeleteButton deleteData={deleteData} setIs_done={setIs_done} />
-        </Style>
+        </_TaskCard>
     );
 };
 
 export default TaskCard;
 
-const Style = styled.div`
+const _TaskCard = styled.div`
     display: flex;
     align-items: center;
     border: 1px solid #c4cfd6;

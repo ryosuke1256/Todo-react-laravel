@@ -1,21 +1,11 @@
 import React from "react";
-import { ButtonStyle } from "../../style/ButtonStyle";
+import { API } from "../../api/API";
 
 type Props = {
     text: string;
-    postData: (postData: {
-        user_id?: number;
-        title: string;
-        is_done: 0 | 1;
-    }) => void;
+    postData: (postData: API) => void;
     setText: (param: string) => void;
     userID?: number;
-};
-
-type Data = {
-    user_id?: number;
-    title: string;
-    is_done: 0 | 1;
 };
 
 const SubmitButton: React.VFC<Props> = ({
@@ -24,8 +14,8 @@ const SubmitButton: React.VFC<Props> = ({
     setText,
     userID,
 }: Props) => {
-    const data: Data = {
-        user_id: userID,
+    const data: API = {
+        id: userID,
         title: text,
         is_done: 0,
     };

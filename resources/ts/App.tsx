@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-import TaskCard from "./components/lv2/TaskCard";
-import TextForm from "./components/lv2/TextForm";
 import { TaskCards } from "./components/lv3/TaskCards";
+import { TaskCard, TextForm } from "./components/lv2/_index";
+import { API } from "./api/API";
 
 const App: React.VFC = () => {
     const [tasks, setTasks] = useState<any>([]);
@@ -22,13 +22,12 @@ const App: React.VFC = () => {
     };
 
     const getData = async () => {
-        console.log(userID);
         if (!(userID === undefined)) {
             const jsonData = await axios.get(`api/users/${userID}`);
             try {
                 setTasks(jsonData.data.map((data: {}) => data));
-            } catch (error) {
-                console.log(error);
+            } catch (err) {
+                console.log(err);
             }
         }
     };
@@ -41,23 +40,14 @@ const App: React.VFC = () => {
         getData();
     }, [userID]);
 
-    type Data = {
-        user_id?: number;
-        title: string;
-        is_done: 0 | 1;
-    };
-
-    const postData = async (postData: Data) => {
-        console.log(postData);
+    const postData = async (postData: API) => {
         const response = await axios.post("api/tasks", postData);
         try {
-            console.log(response.data);
-            console.log(tasks);
             tasks.unshift(response.data);
             setTasks(tasks);
             setChange(change + 1);
-        } catch (error) {
-            console.log(error);
+        } catch (err) {
+            console.log(err);
         }
     };
 
