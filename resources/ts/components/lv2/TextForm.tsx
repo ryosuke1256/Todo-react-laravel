@@ -19,7 +19,7 @@ const TextForm: React.VFC<Props> = ({ postData, userID }: Props) => {
     };
 
     return (
-        <Style>
+        <_TextForm>
             <InputText text={text} handleChange={handleChange} />
             <SubmitButton
                 text={text}
@@ -27,12 +27,12 @@ const TextForm: React.VFC<Props> = ({ postData, userID }: Props) => {
                 setText={setText}
                 userID={userID}
             />
-        </Style>
+        </_TextForm>
     );
 };
 export default TextForm;
 
-const Style = styled.div`
+const _TextForm = styled.div`
     max-width: 1300px;
     width: 85%;
     margin: 0 auto;

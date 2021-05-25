@@ -79,7 +79,7 @@ const TaskCard: React.VFC<Props> = ({
     };
 
     return (
-        <Style>
+        <_TaskCard>
             <CheckBox is_done={is_done} patchData={patchData} text={text} />
             <TaskTitle
                 is_done={is_done}
@@ -97,13 +97,13 @@ const TaskCard: React.VFC<Props> = ({
                 text={text}
             />
             <DeleteButton deleteData={deleteData} setIs_done={setIs_done} />
-        </Style>
+        </_TaskCard>
     );
 };
 
 export default TaskCard;
 
-const Style = styled.div`
+const _TaskCard = styled.div`
     display: flex;
     align-items: center;
     border: 1px solid #c4cfd6;

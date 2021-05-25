@@ -41,16 +41,13 @@ const App: React.VFC = () => {
     }, [userID]);
 
     const postData = async (postData: API) => {
-        console.log(postData);
         const response = await axios.post("api/tasks", postData);
         try {
-            console.log(response.data);
-            console.log(tasks);
             tasks.unshift(response.data);
             setTasks(tasks);
             setChange(change + 1);
-        } catch (error) {
-            console.log(error);
+        } catch (err) {
+            console.log(err);
         }
     };
 

@@ -8,7 +8,7 @@ type Props = {
 };
 
 const CheckBox: React.VFC<Props> = ({ is_done, patchData, text }: Props) => {
-    const handleChange = (e: any) => {};
+    const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {};
     return (
         <_CheckBox>
             <input
