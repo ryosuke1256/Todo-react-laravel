@@ -15,7 +15,7 @@ const App: React.VFC = () => {
     }, []);
 
     useEffect(() => {
-        getData();
+        getTasks();
     }, [userID]);
 
     const getUser = async () => {
@@ -29,7 +29,7 @@ const App: React.VFC = () => {
             });
     };
 
-    const getData = async () => {
+    const getTasks = async () => {
         if (!(userID === undefined)) {
             const Data = await axios.get(`api/users/${userID}`);
             try {
@@ -40,7 +40,7 @@ const App: React.VFC = () => {
         }
     };
 
-    const postData = async (postData: API) => {
+    const postTask = async (postData: API) => {
         console.log({ postData });
         const response = await axios.post("api/tasks", postData);
         try {
@@ -56,7 +56,7 @@ const App: React.VFC = () => {
 
     return (
         <>
-            <TextForm postData={postData} userID={userID} />
+            <TextForm postTask={postTask} userID={userID} />
             <TaskCards>
                 {tasks.map((task: any, key: number) => {
                     i++;

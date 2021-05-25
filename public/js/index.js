@@ -2810,7 +2810,7 @@ var App = function App() {
     getUser();
   }, []);
   react_1.useEffect(function () {
-    getData();
+    getTasks();
   }, [userID]);
 
   var getUser = function getUser() {
@@ -2837,7 +2837,7 @@ var App = function App() {
     });
   };
 
-  var getData = function getData() {
+  var getTasks = function getTasks() {
     return __awaiter(void 0, void 0, void 0, function () {
       var Data;
       return __generator(this, function (_a) {
@@ -2872,18 +2872,18 @@ var App = function App() {
     });
   };
 
-  var postData = function postData(_postData) {
+  var postTask = function postTask(postData) {
     return __awaiter(void 0, void 0, void 0, function () {
       var response;
       return __generator(this, function (_a) {
         switch (_a.label) {
           case 0:
             console.log({
-              postData: _postData
+              postData: postData
             });
             return [4
             /*yield*/
-            , axios_1["default"].post("api/tasks", _postData)];
+            , axios_1["default"].post("api/tasks", postData)];
 
           case 1:
             response = _a.sent();
@@ -2906,7 +2906,7 @@ var App = function App() {
 
   var i = -1;
   return react_1["default"].createElement(react_1["default"].Fragment, null, react_1["default"].createElement(_index_1.TextForm, {
-    postData: postData,
+    postTask: postTask,
     userID: userID
   }), react_1["default"].createElement(TaskCards_1.TaskCards, null, tasks.map(function (task, key) {
     i++;
@@ -3190,7 +3190,7 @@ var react_1 = __importDefault(__webpack_require__(/*! react */ "./node_modules/r
 
 var SubmitButton = function SubmitButton(_a) {
   var text = _a.text,
-      postData = _a.postData,
+      postTask = _a.postTask,
       setText = _a.setText,
       userID = _a.userID;
   var data = {
@@ -3200,7 +3200,7 @@ var SubmitButton = function SubmitButton(_a) {
   };
   return react_1["default"].createElement("button", {
     onClick: function onClick() {
-      postData(data);
+      postTask(data);
       setText("");
     },
     style: {
@@ -3818,7 +3818,7 @@ var styled_components_1 = __importDefault(__webpack_require__(/*! styled-compone
 var _index_1 = __webpack_require__(/*! ../lv1/_index */ "./resources/ts/components/lv1/_index.js");
 
 var TextForm = function TextForm(_a) {
-  var postData = _a.postData,
+  var postTask = _a.postTask,
       userID = _a.userID;
 
   var _b = react_1.useState(""),
@@ -3836,7 +3836,7 @@ var TextForm = function TextForm(_a) {
     handleChange: handleChange
   }), react_1["default"].createElement(_index_1.SubmitButton, {
     text: text,
-    postData: postData,
+    postTask: postTask,
     setText: setText,
     userID: userID
   }));
