@@ -15,10 +15,11 @@ const SubmitButton: React.VFC<Props> = ({
     userID,
 }: Props) => {
     const data: API = {
-        id: userID,
+        user_id: userID,
         title: text,
         is_done: 0,
     };
+
     return (
         <button
             onClick={() => {

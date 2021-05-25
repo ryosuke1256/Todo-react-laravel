@@ -3,18 +3,17 @@ import styled from "styled-components";
 
 type Props = {
     is_done: 0 | 1;
-    patchData: (text: string, is_done: 0 | 1, viaCheckBox: boolean) => void;
-    text: string;
+    checkTask: (is_done: 0 | 1) => Promise<void>;
 };
 
-const CheckBox: React.VFC<Props> = ({ is_done, patchData, text }: Props) => {
+const CheckBox: React.VFC<Props> = ({ is_done, checkTask }: Props) => {
     const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {};
     return (
         <_CheckBox>
             <input
                 type="checkbox"
                 onClick={() => {
-                    patchData(text, is_done, true);
+                    checkTask(is_done);
                 }}
                 onChange={(e) => handleChange(e)}
                 checked={is_done === 1 ? true : false}

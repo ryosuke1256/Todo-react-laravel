@@ -53,14 +53,25 @@ const TaskCard: React.VFC<Props> = ({
         }
     };
 
-    const patchData = async (
-        text: string,
-        is_done: 0 | 1,
-        viaCheckBox: boolean
-    ) => {
-        if (viaCheckBox) {
-            is_done === 0 ? (is_done = 1) : (is_done = 0);
-        }
+    const checkTask = async (is_done: 0 | 1) => {
+        is_done === 0 ? (is_done = 1) : (is_done = 0);
+        const data: API = {
+            title: title,
+            is_done: is_done,
+        };
+        await axios
+            .patch(`api/tasks/${id}`, data)
+            .then(() => {
+                task.is_done = is_done;
+                setTasks(tasks);
+                setIs_done(is_done);
+            })
+            .catch((err) => {
+                console.log(err);
+            });
+    };
+
+    const editTask = async (text: string) => {
         const data: API = {
             title: text,
             is_done: is_done,
@@ -68,7 +79,6 @@ const TaskCard: React.VFC<Props> = ({
         await axios
             .patch(`api/tasks/${id}`, data)
             .then(() => {
-                //tasksの値を書き換えないといけない
                 task.is_done = is_done;
                 setTasks(tasks);
                 setIs_done(is_done);
@@ -80,7 +90,7 @@ const TaskCard: React.VFC<Props> = ({
 
     return (
         <_TaskCard>
-            <CheckBox is_done={is_done} patchData={patchData} text={text} />
+            <CheckBox is_done={is_done} checkTask={checkTask} />
             <TaskTitle
                 is_done={is_done}
                 editActive={editActive}
@@ -88,8 +98,7 @@ const TaskCard: React.VFC<Props> = ({
                 setText={setText}
             />
             <EditButton
-                is_done={is_done}
-                patchData={patchData}
+                editTask={editTask}
                 editActive={editActive}
                 setEditActive={setEditActive}
                 tasksEditActive={tasksEditActive}

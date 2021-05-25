@@ -41,6 +41,7 @@ const App: React.VFC = () => {
     }, [userID]);
 
     const postData = async (postData: API) => {
+        console.log({ postData });
         const response = await axios.post("api/tasks", postData);
         try {
             tasks.unshift(response.data);
