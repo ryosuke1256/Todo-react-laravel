@@ -2911,7 +2911,6 @@ var App = function App() {
   }), react_1["default"].createElement(TaskCards_1.TaskCards, null, tasks.map(function (task, key) {
     i++;
     return react_1["default"].createElement(_index_1.TaskCard, {
-      title: task.title,
       task: task,
       setTasks: setTasks,
       tasks: tasks,
@@ -3090,18 +3089,17 @@ var EditButton = function EditButton(_a) {
       setEditActive = _a.setEditActive,
       tasksEditActive = _a.tasksEditActive,
       setTasksEditActive = _a.setTasksEditActive,
-      text = _a.text;
+      title = _a.title;
 
   var _b = react_1.useState("編集"),
       editButtonTitle = _b[0],
       setEditButtonTitle = _b[1];
 
   var changeTaskTitle = function changeTaskTitle() {
-    editTask(text);
-
     if (!editActive && tasksEditActive) {
       return null;
     } else {
+      editTask(title);
       setEditButtonTitle("変更");
       setEditActive(!editActive);
       setTasksEditActive(true);
@@ -3254,11 +3252,11 @@ var styled_components_1 = __importDefault(__webpack_require__(/*! styled-compone
 var TaskTitle = function TaskTitle(_a) {
   var is_done = _a.is_done,
       editActive = _a.editActive,
-      text = _a.text,
-      setText = _a.setText;
+      title = _a.title,
+      setTitle = _a.setTitle;
 
   var handleChange = function handleChange(e) {
-    setText(function () {
+    setTitle(function () {
       return e.target.value;
     });
   };
@@ -3266,7 +3264,7 @@ var TaskTitle = function TaskTitle(_a) {
   if (editActive) {
     return react_1["default"].createElement("input", {
       type: "text",
-      value: text,
+      value: title,
       onChange: function onChange(e) {
         return handleChange(e);
       },
@@ -3277,7 +3275,7 @@ var TaskTitle = function TaskTitle(_a) {
   } else {
     return react_1["default"].createElement(_TaskTitle, {
       is_done: is_done
-    }, text);
+    }, title);
   }
 };
 
@@ -3596,9 +3594,7 @@ var axios_1 = __importDefault(__webpack_require__(/*! axios */ "./node_modules/a
 var _index_1 = __webpack_require__(/*! ../lv1/_index */ "./resources/ts/components/lv1/_index.js");
 
 var TaskCard = function TaskCard(_a) {
-  var title = _a.title,
-      //task.title
-  task = _a.task,
+  var task = _a.task,
       tasks = _a.tasks,
       setTasks = _a.setTasks,
       change = _a.change,
@@ -3608,25 +3604,26 @@ var TaskCard = function TaskCard(_a) {
       id = _a.id,
       i = _a.i;
 
-  var _b = react_1.useState(false),
-      editActive = _b[0],
-      setEditActive = _b[1];
+  var _b = react_1.useState(task),
+      todo = _b[0],
+      setTodo = _b[1];
 
-  var _c = react_1.useState(title),
-      text = _c[0],
-      setText = _c[1];
+  var _c = react_1.useState(task.title),
+      title = _c[0],
+      setTitle = _c[1];
 
   var _d = react_1.useState(task.is_done),
       is_done = _d[0],
       setIs_done = _d[1];
 
-  var _e = react_1.useState(task),
-      taskObj = _e[0],
-      setTaskObj = _e[1];
+  var _e = react_1.useState(false),
+      editActive = _e[0],
+      setEditActive = _e[1];
 
+  console.log(task.title);
   react_1.useEffect(function () {
-    setText(title);
-  }, [title]);
+    setTitle(task.title);
+  }, [task.title]);
   react_1.useEffect(function () {
     setIs_done(task.is_done);
   }, [task.is_done]);
@@ -3673,9 +3670,8 @@ var TaskCard = function TaskCard(_a) {
             return [4
             /*yield*/
             , axios_1["default"].patch("api/tasks/" + id, data).then(function () {
-              task.is_done = is_done;
-              setTasks(tasks);
               setIs_done(is_done);
+              setTitle(title);
             })["catch"](function (err) {
               console.log(err);
             })];
@@ -3691,22 +3687,20 @@ var TaskCard = function TaskCard(_a) {
     });
   };
 
-  var editTask = function editTask(text) {
+  var editTask = function editTask(title) {
     return __awaiter(void 0, void 0, void 0, function () {
       var data;
       return __generator(this, function (_a) {
         switch (_a.label) {
           case 0:
             data = {
-              title: text,
+              title: title,
               is_done: is_done
             };
             return [4
             /*yield*/
             , axios_1["default"].patch("api/tasks/" + id, data).then(function () {
-              task.is_done = is_done;
-              setTasks(tasks);
-              setIs_done(is_done);
+              setTitle(title);
             })["catch"](function (err) {
               console.log(err);
             })];
@@ -3728,15 +3722,15 @@ var TaskCard = function TaskCard(_a) {
   }), react_1["default"].createElement(_index_1.TaskTitle, {
     is_done: is_done,
     editActive: editActive,
-    text: text,
-    setText: setText
+    title: title,
+    setTitle: setTitle
   }), react_1["default"].createElement(_index_1.EditButton, {
     editTask: editTask,
     editActive: editActive,
     setEditActive: setEditActive,
     tasksEditActive: tasksEditActive,
     setTasksEditActive: setTasksEditActive,
-    text: text
+    title: title
   }), react_1["default"].createElement(_index_1.DeleteButton, {
     deleteData: deleteData,
     setIs_done: setIs_done

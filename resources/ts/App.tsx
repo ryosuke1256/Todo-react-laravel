@@ -62,7 +62,6 @@ const App: React.VFC = () => {
                     i++;
                     return (
                         <TaskCard
-                            title={task.title}
                             task={task}
                             setTasks={setTasks}
                             tasks={tasks}
