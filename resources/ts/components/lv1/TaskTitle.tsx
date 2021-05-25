@@ -14,7 +14,7 @@ const TaskTitle: React.VFC<Props> = ({
     text,
     setText,
 }: Props) => {
-    const handleChange = (e: any) => {
+    const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
         setText(() => e.target.value);
     };
 

@@ -2878,7 +2878,6 @@ var App = function App() {
       return __generator(this, function (_a) {
         switch (_a.label) {
           case 0:
-            console.log(_postData);
             return [4
             /*yield*/
             , axios_1["default"].post("api/tasks", _postData)];
@@ -2887,13 +2886,11 @@ var App = function App() {
             response = _a.sent();
 
             try {
-              console.log(response.data);
-              console.log(tasks);
               tasks.unshift(response.data);
               setTasks(tasks);
               setChange(change + 1);
-            } catch (error) {
-              console.log(error);
+            } catch (err) {
+              console.log(err);
             }
 
             return [2
@@ -3198,7 +3195,7 @@ var SubmitButton = function SubmitButton(_a) {
       setText = _a.setText,
       userID = _a.userID;
   var data = {
-    user_id: userID,
+    id: userID,
     title: text,
     is_done: 0
   };
@@ -3370,11 +3367,13 @@ var styled_components_1 = __importDefault(__webpack_require__(/*! styled-compone
 var TitleName_1 = __webpack_require__(/*! ../lv1/TitleName */ "./resources/ts/components/lv1/TitleName.tsx");
 
 var Header = function Header() {
-  return react_1["default"].createElement(Style, null, react_1["default"].createElement(TitleName_1.TitleName, null, "Todo\u30A2\u30D7\u30EA"));
+  return react_1["default"].createElement(_Header, null, react_1["default"].createElement(TitleName_1.TitleName, null, "Todo\u30A2\u30D7\u30EA"));
 };
 
 exports.default = Header;
-var Style = styled_components_1["default"].div(templateObject_1 || (templateObject_1 = __makeTemplateObject(["\n    text-align: center;\n    margin-bottom: 20px;\n    /* \u30D1\u30BF\u30FC\u30F3\uFF11 */\n    /* border-bottom: 1px solid #c4cfd6; */\n    /* \u30D1\u30BF\u30FC\u30F3\uFF12 */\n    /* background-color: #52bfff; */\n    /* color: white; */\n    /* \u30D1\u30BF\u30FC\u30F33 */\n    background-color: rgba(121, 184, 255, 0.4);\n"], ["\n    text-align: center;\n    margin-bottom: 20px;\n    /* \u30D1\u30BF\u30FC\u30F3\uFF11 */\n    /* border-bottom: 1px solid #c4cfd6; */\n    /* \u30D1\u30BF\u30FC\u30F3\uFF12 */\n    /* background-color: #52bfff; */\n    /* color: white; */\n    /* \u30D1\u30BF\u30FC\u30F33 */\n    background-color: rgba(121, 184, 255, 0.4);\n"])));
+
+var _Header = styled_components_1["default"].div(templateObject_1 || (templateObject_1 = __makeTemplateObject(["\n    text-align: center;\n    margin-bottom: 20px;\n    background-color: rgba(121, 184, 255, 0.4);\n"], ["\n    text-align: center;\n    margin-bottom: 20px;\n    background-color: rgba(121, 184, 255, 0.4);\n"])));
+
 var templateObject_1;
 
 /***/ }),
@@ -3695,7 +3694,7 @@ var TaskCard = function TaskCard(_a) {
     });
   };
 
-  return react_1["default"].createElement(Style, null, react_1["default"].createElement(_index_1.CheckBox, {
+  return react_1["default"].createElement(_TaskCard, null, react_1["default"].createElement(_index_1.CheckBox, {
     is_done: is_done,
     patchData: patchData,
     text: text
@@ -3719,7 +3718,9 @@ var TaskCard = function TaskCard(_a) {
 };
 
 exports.default = TaskCard;
-var Style = styled_components_1["default"].div(templateObject_1 || (templateObject_1 = __makeTemplateObject(["\n    display: flex;\n    align-items: center;\n    border: 1px solid #c4cfd6;\n    padding: 1.3%;\n    border-bottom: 0px;\n    border-radius: 6px;\n    background-color: rgb(254, 254, 254);\n"], ["\n    display: flex;\n    align-items: center;\n    border: 1px solid #c4cfd6;\n    padding: 1.3%;\n    border-bottom: 0px;\n    border-radius: 6px;\n    background-color: rgb(254, 254, 254);\n"])));
+
+var _TaskCard = styled_components_1["default"].div(templateObject_1 || (templateObject_1 = __makeTemplateObject(["\n    display: flex;\n    align-items: center;\n    border: 1px solid #c4cfd6;\n    padding: 1.3%;\n    border-bottom: 0px;\n    border-radius: 6px;\n    background-color: rgb(254, 254, 254);\n"], ["\n    display: flex;\n    align-items: center;\n    border: 1px solid #c4cfd6;\n    padding: 1.3%;\n    border-bottom: 0px;\n    border-radius: 6px;\n    background-color: rgb(254, 254, 254);\n"])));
+
 var templateObject_1;
 
 /***/ }),
@@ -3809,7 +3810,7 @@ var TextForm = function TextForm(_a) {
     });
   };
 
-  return react_1["default"].createElement(Style, null, react_1["default"].createElement(_index_1.InputText, {
+  return react_1["default"].createElement(_TextForm, null, react_1["default"].createElement(_index_1.InputText, {
     text: text,
     handleChange: handleChange
   }), react_1["default"].createElement(_index_1.SubmitButton, {
@@ -3821,7 +3822,9 @@ var TextForm = function TextForm(_a) {
 };
 
 exports.default = TextForm;
-var Style = styled_components_1["default"].div(templateObject_1 || (templateObject_1 = __makeTemplateObject(["\n    max-width: 1300px;\n    width: 85%;\n    margin: 0 auto;\n    padding-top: 105px;\n"], ["\n    max-width: 1300px;\n    width: 85%;\n    margin: 0 auto;\n    padding-top: 105px;\n"])));
+
+var _TextForm = styled_components_1["default"].div(templateObject_1 || (templateObject_1 = __makeTemplateObject(["\n    max-width: 1300px;\n    width: 85%;\n    margin: 0 auto;\n    padding-top: 105px;\n"], ["\n    max-width: 1300px;\n    width: 85%;\n    margin: 0 auto;\n    padding-top: 105px;\n"])));
+
 var templateObject_1;
 
 /***/ }),

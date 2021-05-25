@@ -1,13 +1,10 @@
 import React, { useState } from "react";
 import styled from "styled-components";
 import { InputText, SubmitButton } from "../lv1/_index";
+import { API } from "../../api/API";
 
 type Props = {
-    postData: (postData: {
-        user_id?: number;
-        title: string;
-        is_done: 0 | 1;
-    }) => void;
+    postData: (postData: API) => void;
     userID?: number;
 };
 

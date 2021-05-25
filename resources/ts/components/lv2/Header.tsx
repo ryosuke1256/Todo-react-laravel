@@ -4,15 +4,15 @@ import { TitleName } from "../lv1/TitleName";
 
 const Header: React.VFC = () => {
     return (
-        <Style>
+        <_Header>
             <TitleName>Todoアプリ</TitleName>
-        </Style>
+        </_Header>
     );
 };
 
 export default Header;
 
-const Style = styled.div`
+const _Header = styled.div`
     text-align: center;
     margin-bottom: 20px;
     background-color: rgba(121, 184, 255, 0.4);
