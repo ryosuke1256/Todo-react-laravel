@@ -17,11 +17,6 @@ type Props = {
     i: number;
 };
 
-type Data = {
-    title: string;
-    is_done: 0 | 1;
-};
-
 const TaskCard: React.VFC<Props> = ({
     title, //task.title
     task,
@@ -66,7 +61,7 @@ const TaskCard: React.VFC<Props> = ({
         if (viaCheckBox) {
             is_done === 0 ? (is_done = 1) : (is_done = 0);
         }
-        const data: Data = {
+        const data: API = {
             title: text,
             is_done: is_done,
         };

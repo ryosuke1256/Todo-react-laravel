@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { TaskCards } from "./components/lv3/TaskCards";
 import { TaskCard, TextForm } from "./components/lv2/_index";
+import { API } from "./api/API";
 
 const App: React.VFC = () => {
     const [tasks, setTasks] = useState<any>([]);
@@ -25,8 +26,8 @@ const App: React.VFC = () => {
             const jsonData = await axios.get(`api/users/${userID}`);
             try {
                 setTasks(jsonData.data.map((data: {}) => data));
-            } catch (error) {
-                console.log(error);
+            } catch (err) {
+                console.log(err);
             }
         }
     };
@@ -39,13 +40,7 @@ const App: React.VFC = () => {
         getData();
     }, [userID]);
 
-    type Data = {
-        user_id?: number;
-        title: string;
-        is_done: 0 | 1;
-    };
-
-    const postData = async (postData: Data) => {
+    const postData = async (postData: API) => {
         console.log(postData);
         const response = await axios.post("api/tasks", postData);
         try {

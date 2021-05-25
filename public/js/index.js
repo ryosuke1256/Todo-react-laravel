@@ -2850,8 +2850,8 @@ var App = function App() {
               setTasks(jsonData.data.map(function (data) {
                 return data;
               }));
-            } catch (error) {
-              console.log(error);
+            } catch (err) {
+              console.log(err);
             }
 
             _a.label = 2;
