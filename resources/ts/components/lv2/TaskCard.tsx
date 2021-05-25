@@ -2,14 +2,7 @@ import React, { useEffect, useState } from "react";
 import styled from "styled-components";
 import axios from "axios";
 import { EditButton, DeleteButton, CheckBox, TaskTitle } from "../lv1/_index";
-
-type API = {
-    id: number;
-    title: string;
-    is_done: 0 | 1;
-    created_at?: string;
-    updated_at?: string;
-};
+import { API } from "../../api/API";
 
 type Props = {
     title: string; //task.title
