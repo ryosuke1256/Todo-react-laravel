@@ -10,6 +10,14 @@ const App: React.VFC = () => {
     const [change, setChange] = useState(0); //render走らせる用
     const [tasksEditActive, setTasksEditActive] = useState(false);
 
+    useEffect(() => {
+        getUser();
+    }, []);
+
+    useEffect(() => {
+        getData();
+    }, [userID]);
+
     const getUser = async () => {
         await axios
             .get("api/users")
@@ -23,22 +31,14 @@ const App: React.VFC = () => {
 
     const getData = async () => {
         if (!(userID === undefined)) {
-            const jsonData = await axios.get(`api/users/${userID}`);
+            const Data = await axios.get(`api/users/${userID}`);
             try {
-                setTasks(jsonData.data.map((data: {}) => data));
+                setTasks(Data.data.map((data: {}) => data));
             } catch (err) {
                 console.log(err);
             }
         }
     };
-
-    useEffect(() => {
-        getUser();
-    }, []);
-
-    useEffect(() => {
-        getData();
-    }, [userID]);
 
     const postData = async (postData: API) => {
         console.log({ postData });

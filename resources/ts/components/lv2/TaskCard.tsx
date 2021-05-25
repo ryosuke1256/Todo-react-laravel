@@ -28,8 +28,8 @@ const TaskCard: React.VFC<Props> = ({
     i,
 }: Props) => {
     const [todo, setTodo] = useState(task);
-    const [title, setTitle] = useState(task.title);
-    const [is_done, setIs_done] = useState<0 | 1>(task.is_done);
+    const [title, setTitle] = useState(todo.title);
+    const [is_done, setIs_done] = useState<0 | 1>(todo.is_done);
     const [editActive, setEditActive] = useState(false);
 
     useEffect(() => {

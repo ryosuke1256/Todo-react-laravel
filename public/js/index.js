@@ -2806,6 +2806,13 @@ var App = function App() {
       tasksEditActive = _d[0],
       setTasksEditActive = _d[1];
 
+  react_1.useEffect(function () {
+    getUser();
+  }, []);
+  react_1.useEffect(function () {
+    getData();
+  }, [userID]);
+
   var getUser = function getUser() {
     return __awaiter(void 0, void 0, void 0, function () {
       return __generator(this, function (_a) {
@@ -2832,7 +2839,7 @@ var App = function App() {
 
   var getData = function getData() {
     return __awaiter(void 0, void 0, void 0, function () {
-      var jsonData;
+      var Data;
       return __generator(this, function (_a) {
         switch (_a.label) {
           case 0:
@@ -2844,10 +2851,10 @@ var App = function App() {
             , axios_1["default"].get("api/users/" + userID)];
 
           case 1:
-            jsonData = _a.sent();
+            Data = _a.sent();
 
             try {
-              setTasks(jsonData.data.map(function (data) {
+              setTasks(Data.data.map(function (data) {
                 return data;
               }));
             } catch (err) {
@@ -2864,13 +2871,6 @@ var App = function App() {
       });
     });
   };
-
-  react_1.useEffect(function () {
-    getUser();
-  }, []);
-  react_1.useEffect(function () {
-    getData();
-  }, [userID]);
 
   var postData = function postData(_postData) {
     return __awaiter(void 0, void 0, void 0, function () {
@@ -3608,11 +3608,11 @@ var TaskCard = function TaskCard(_a) {
       todo = _b[0],
       setTodo = _b[1];
 
-  var _c = react_1.useState(task.title),
+  var _c = react_1.useState(todo.title),
       title = _c[0],
       setTitle = _c[1];
 
-  var _d = react_1.useState(task.is_done),
+  var _d = react_1.useState(todo.is_done),
       is_done = _d[0],
       setIs_done = _d[1];
 
