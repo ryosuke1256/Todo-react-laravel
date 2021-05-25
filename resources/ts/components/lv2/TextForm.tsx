@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import styled from "styled-components";
-import InputText from "../lv1/InputText";
-import SubmitButton from "../lv1/SubmitButton";
+import { InputText, SubmitButton } from "../lv1/_index";
 
 type Props = {
     postData: (postData: {

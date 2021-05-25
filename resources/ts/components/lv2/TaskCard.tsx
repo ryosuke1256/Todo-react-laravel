@@ -1,10 +1,7 @@
 import React, { useEffect, useState } from "react";
 import styled from "styled-components";
-import EditButton from "../lv1/EditButton";
-import DeleteButton from "../lv1/DeleteButton";
-import CheckBox from "../lv1/CheckBox";
-import TaskTitle from "../lv1/TaskTitle";
 import axios from "axios";
+import { EditButton, DeleteButton, CheckBox, TaskTitle } from "../lv1/_index";
 
 type API = {
     id: number;
