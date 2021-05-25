@@ -5,7 +5,6 @@ import { EditButton, DeleteButton, CheckBox, TaskTitle } from "../lv1/_index";
 import { API } from "../../api/API";
 
 type Props = {
-    title: string; //task.title
     task: API;
     tasks: any;
     setTasks: (param: {}) => void;
@@ -18,7 +17,6 @@ type Props = {
 };
 
 const TaskCard: React.VFC<Props> = ({
-    title, //task.title
     task,
     tasks,
     setTasks,
@@ -29,14 +27,16 @@ const TaskCard: React.VFC<Props> = ({
     id,
     i,
 }: Props) => {
-    const [editActive, setEditActive] = useState(false);
-    const [text, setText] = useState(title);
+    const [todo, setTodo] = useState(task);
+    const [title, setTitle] = useState(task.title);
     const [is_done, setIs_done] = useState<0 | 1>(task.is_done);
-    const [taskObj, setTaskObj] = useState(task);
+    const [editActive, setEditActive] = useState(false);
+
+    console.log(task.title);
 
     useEffect(() => {
-        setText(title);
-    }, [title]);
+        setTitle(task.title);
+    }, [task.title]);
 
     useEffect(() => {
         setIs_done(task.is_done);
@@ -62,26 +62,23 @@ const TaskCard: React.VFC<Props> = ({
         await axios
             .patch(`api/tasks/${id}`, data)
             .then(() => {
-                task.is_done = is_done;
-                setTasks(tasks);
                 setIs_done(is_done);
+                setTitle(title);
             })
             .catch((err) => {
                 console.log(err);
             });
     };
 
-    const editTask = async (text: string) => {
+    const editTask = async (title: string) => {
         const data: API = {
-            title: text,
+            title: title,
             is_done: is_done,
         };
         await axios
             .patch(`api/tasks/${id}`, data)
             .then(() => {
-                task.is_done = is_done;
-                setTasks(tasks);
-                setIs_done(is_done);
+                setTitle(title);
             })
             .catch((err) => {
                 console.log(err);
@@ -94,8 +91,8 @@ const TaskCard: React.VFC<Props> = ({
             <TaskTitle
                 is_done={is_done}
                 editActive={editActive}
-                text={text}
-                setText={setText}
+                title={title}
+                setTitle={setTitle}
             />
             <EditButton
                 editTask={editTask}
@@ -103,7 +100,7 @@ const TaskCard: React.VFC<Props> = ({
                 setEditActive={setEditActive}
                 tasksEditActive={tasksEditActive}
                 setTasksEditActive={setTasksEditActive}
-                text={text}
+                title={title}
             />
             <DeleteButton deleteData={deleteData} setIs_done={setIs_done} />
         </_TaskCard>

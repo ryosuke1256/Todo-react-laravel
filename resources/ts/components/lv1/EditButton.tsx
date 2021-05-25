@@ -2,12 +2,12 @@ import React, { useState } from "react";
 import { ButtonStyle } from "../../style/ButtonStyle";
 
 type Props = {
-    editTask: (text: string) => Promise<void>;
+    editTask: (title: string) => Promise<void>;
     editActive: boolean;
     setEditActive: (param: boolean) => void;
     tasksEditActive: boolean;
     setTasksEditActive: (param: boolean) => void;
-    text: string;
+    title: string;
 };
 
 const EditButton: React.VFC<Props> = ({
@@ -16,14 +16,14 @@ const EditButton: React.VFC<Props> = ({
     setEditActive,
     tasksEditActive,
     setTasksEditActive,
-    text,
+    title,
 }: Props) => {
     const [editButtonTitle, setEditButtonTitle] = useState("編集");
     const changeTaskTitle = () => {
-        editTask(text);
         if (!editActive && tasksEditActive) {
             return null;
         } else {
+            editTask(title);
             setEditButtonTitle("変更");
             setEditActive(!editActive);
             setTasksEditActive(true);

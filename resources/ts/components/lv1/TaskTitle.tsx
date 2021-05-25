@@ -1,34 +1,34 @@
-import React, { useState } from "react";
+import React from "react";
 import styled from "styled-components";
 
 type Props = {
     is_done: 0 | 1;
     editActive: boolean;
-    text: string;
-    setText: (param: any) => void;
+    title: string;
+    setTitle: (param: () => string) => void;
 };
 
 const TaskTitle: React.VFC<Props> = ({
     is_done,
     editActive,
-    text,
-    setText,
+    title,
+    setTitle,
 }: Props) => {
     const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-        setText(() => e.target.value);
+        setTitle(() => e.target.value);
     };
 
     if (editActive) {
         return (
             <input
                 type="text"
-                value={text}
+                value={title}
                 onChange={(e) => handleChange(e)}
                 style={{ flexGrow: 1 }}
             />
         );
     } else {
-        return <_TaskTitle is_done={is_done}>{text}</_TaskTitle>;
+        return <_TaskTitle is_done={is_done}>{title}</_TaskTitle>;
     }
 };
 
