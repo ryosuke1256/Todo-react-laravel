@@ -2878,6 +2878,9 @@ var App = function App() {
       return __generator(this, function (_a) {
         switch (_a.label) {
           case 0:
+            console.log({
+              postData: _postData
+            });
             return [4
             /*yield*/
             , axios_1["default"].post("api/tasks", _postData)];
@@ -2964,15 +2967,14 @@ var styled_components_1 = __importDefault(__webpack_require__(/*! styled-compone
 
 var CheckBox = function CheckBox(_a) {
   var is_done = _a.is_done,
-      patchData = _a.patchData,
-      text = _a.text;
+      checkTask = _a.checkTask;
 
   var handleChange = function handleChange(e) {};
 
   return react_1["default"].createElement(_CheckBox, null, react_1["default"].createElement("input", {
     type: "checkbox",
     onClick: function onClick() {
-      patchData(text, is_done, true);
+      checkTask(is_done);
     },
     onChange: function onChange(e) {
       return handleChange(e);
@@ -3083,8 +3085,7 @@ var react_1 = __importStar(__webpack_require__(/*! react */ "./node_modules/reac
 var ButtonStyle_1 = __webpack_require__(/*! ../../style/ButtonStyle */ "./resources/ts/style/ButtonStyle.tsx");
 
 var EditButton = function EditButton(_a) {
-  var is_done = _a.is_done,
-      patchData = _a.patchData,
+  var editTask = _a.editTask,
       editActive = _a.editActive,
       setEditActive = _a.setEditActive,
       tasksEditActive = _a.tasksEditActive,
@@ -3096,7 +3097,7 @@ var EditButton = function EditButton(_a) {
       setEditButtonTitle = _b[1];
 
   var changeTaskTitle = function changeTaskTitle() {
-    patchData(text, is_done, false);
+    editTask(text);
 
     if (!editActive && tasksEditActive) {
       return null;
@@ -3195,7 +3196,7 @@ var SubmitButton = function SubmitButton(_a) {
       setText = _a.setText,
       userID = _a.userID;
   var data = {
-    id: userID,
+    user_id: userID,
     title: text,
     is_done: 0
   };
@@ -3658,16 +3659,44 @@ var TaskCard = function TaskCard(_a) {
     });
   };
 
-  var patchData = function patchData(text, is_done, viaCheckBox) {
+  var checkTask = function checkTask(is_done) {
     return __awaiter(void 0, void 0, void 0, function () {
       var data;
       return __generator(this, function (_a) {
         switch (_a.label) {
           case 0:
-            if (viaCheckBox) {
-              is_done === 0 ? is_done = 1 : is_done = 0;
-            }
+            is_done === 0 ? is_done = 1 : is_done = 0;
+            data = {
+              title: title,
+              is_done: is_done
+            };
+            return [4
+            /*yield*/
+            , axios_1["default"].patch("api/tasks/" + id, data).then(function () {
+              task.is_done = is_done;
+              setTasks(tasks);
+              setIs_done(is_done);
+            })["catch"](function (err) {
+              console.log(err);
+            })];
 
+          case 1:
+            _a.sent();
+
+            return [2
+            /*return*/
+            ];
+        }
+      });
+    });
+  };
+
+  var editTask = function editTask(text) {
+    return __awaiter(void 0, void 0, void 0, function () {
+      var data;
+      return __generator(this, function (_a) {
+        switch (_a.label) {
+          case 0:
             data = {
               title: text,
               is_done: is_done
@@ -3675,7 +3704,6 @@ var TaskCard = function TaskCard(_a) {
             return [4
             /*yield*/
             , axios_1["default"].patch("api/tasks/" + id, data).then(function () {
-              //tasksの値を書き換えないといけない
               task.is_done = is_done;
               setTasks(tasks);
               setIs_done(is_done);
@@ -3696,16 +3724,14 @@ var TaskCard = function TaskCard(_a) {
 
   return react_1["default"].createElement(_TaskCard, null, react_1["default"].createElement(_index_1.CheckBox, {
     is_done: is_done,
-    patchData: patchData,
-    text: text
+    checkTask: checkTask
   }), react_1["default"].createElement(_index_1.TaskTitle, {
     is_done: is_done,
     editActive: editActive,
     text: text,
     setText: setText
   }), react_1["default"].createElement(_index_1.EditButton, {
-    is_done: is_done,
-    patchData: patchData,
+    editTask: editTask,
     editActive: editActive,
     setEditActive: setEditActive,
     tasksEditActive: tasksEditActive,
