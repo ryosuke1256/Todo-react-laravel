@@ -32,8 +32,6 @@ const TaskCard: React.VFC<Props> = ({
     const [is_done, setIs_done] = useState<0 | 1>(task.is_done);
     const [editActive, setEditActive] = useState(false);
 
-    console.log(task.title);
-
     useEffect(() => {
         setTitle(task.title);
     }, [task.title]);
@@ -42,9 +40,10 @@ const TaskCard: React.VFC<Props> = ({
         setIs_done(task.is_done);
     }, [task.is_done]);
 
-    const deleteData = async () => {
-        await axios.delete(`api/tasks/${id}`);
+    const deleteTask = async () => {
+        const data = await axios.delete(`api/tasks/${id}`);
         try {
+            //stateをこうゆう書き方はできない
             tasks.splice(i, 1);
             setTasks(tasks);
             setChange(change + 1);
@@ -102,7 +101,7 @@ const TaskCard: React.VFC<Props> = ({
                 setTasksEditActive={setTasksEditActive}
                 title={title}
             />
-            <DeleteButton deleteData={deleteData} setIs_done={setIs_done} />
+            <DeleteButton deleteTask={deleteTask} setIs_done={setIs_done} />
         </_TaskCard>
     );
 };

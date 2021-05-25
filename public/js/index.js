@@ -3014,11 +3014,11 @@ var react_1 = __importDefault(__webpack_require__(/*! react */ "./node_modules/r
 var ButtonStyle_1 = __webpack_require__(/*! ../../style/ButtonStyle */ "./resources/ts/style/ButtonStyle.tsx");
 
 var DeleteButton = function DeleteButton(_a) {
-  var deleteData = _a.deleteData,
+  var deleteTask = _a.deleteTask,
       setIs_done = _a.setIs_done;
   return react_1["default"].createElement(ButtonStyle_1.ButtonStyle, {
     onClick: function onClick() {
-      deleteData();
+      deleteTask();
       setIs_done(0);
     },
     backgroundColor: "#da6161",
@@ -3620,7 +3620,6 @@ var TaskCard = function TaskCard(_a) {
       editActive = _e[0],
       setEditActive = _e[1];
 
-  console.log(task.title);
   react_1.useEffect(function () {
     setTitle(task.title);
   }, [task.title]);
@@ -3628,8 +3627,9 @@ var TaskCard = function TaskCard(_a) {
     setIs_done(task.is_done);
   }, [task.is_done]);
 
-  var deleteData = function deleteData() {
+  var deleteTask = function deleteTask() {
     return __awaiter(void 0, void 0, void 0, function () {
+      var data;
       return __generator(this, function (_a) {
         switch (_a.label) {
           case 0:
@@ -3638,9 +3638,10 @@ var TaskCard = function TaskCard(_a) {
             , axios_1["default"]["delete"]("api/tasks/" + id)];
 
           case 1:
-            _a.sent();
+            data = _a.sent();
 
             try {
+              //stateをこうゆう書き方はできない
               tasks.splice(i, 1);
               setTasks(tasks);
               setChange(change + 1);
@@ -3732,7 +3733,7 @@ var TaskCard = function TaskCard(_a) {
     setTasksEditActive: setTasksEditActive,
     title: title
   }), react_1["default"].createElement(_index_1.DeleteButton, {
-    deleteData: deleteData,
+    deleteTask: deleteTask,
     setIs_done: setIs_done
   }));
 };
