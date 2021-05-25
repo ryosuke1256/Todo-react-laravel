@@ -60,8 +60,8 @@ const TaskCard: React.VFC<Props> = ({
             tasks.splice(i, 1);
             setTasks(tasks);
             setChange(change + 1);
-        } catch (error) {
-            console.log(error);
+        } catch (err) {
+            console.log(err);
         }
     };
 

@@ -28,13 +28,13 @@ const TaskTitle: React.VFC<Props> = ({
             />
         );
     } else {
-        return <TextStyle is_done={is_done}>{text}</TextStyle>;
+        return <_TaskTitle is_done={is_done}>{text}</_TaskTitle>;
     }
 };
 
 export default TaskTitle;
 
-const TextStyle = styled.div<{ is_done: 0 | 1 }>`
+const _TaskTitle = styled.div<{ is_done: 0 | 1 }>`
     flex-grow: 1;
     padding-left: 13px;
     text-decoration: ${(props) =>

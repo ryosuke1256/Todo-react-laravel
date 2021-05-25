@@ -2784,11 +2784,9 @@ var react_1 = __importStar(__webpack_require__(/*! react */ "./node_modules/reac
 
 var axios_1 = __importDefault(__webpack_require__(/*! axios */ "./node_modules/axios/index.js"));
 
-var TaskCard_1 = __importDefault(__webpack_require__(/*! ./components/lv2/TaskCard */ "./resources/ts/components/lv2/TaskCard.tsx"));
-
-var TextForm_1 = __importDefault(__webpack_require__(/*! ./components/lv2/TextForm */ "./resources/ts/components/lv2/TextForm.tsx"));
-
 var TaskCards_1 = __webpack_require__(/*! ./components/lv3/TaskCards */ "./resources/ts/components/lv3/TaskCards.tsx");
+
+var _index_1 = __webpack_require__(/*! ./components/lv2/_index */ "./resources/ts/components/lv2/_index.js");
 
 var App = function App() {
   var _a = react_1.useState([]),
@@ -2908,12 +2906,12 @@ var App = function App() {
   };
 
   var i = -1;
-  return react_1["default"].createElement(react_1["default"].Fragment, null, react_1["default"].createElement(TextForm_1["default"], {
+  return react_1["default"].createElement(react_1["default"].Fragment, null, react_1["default"].createElement(_index_1.TextForm, {
     postData: postData,
     userID: userID
   }), react_1["default"].createElement(TaskCards_1.TaskCards, null, tasks.map(function (task, key) {
     i++;
-    return react_1["default"].createElement(TaskCard_1["default"], {
+    return react_1["default"].createElement(_index_1.TaskCard, {
       title: task.title,
       task: task,
       setTasks: setTasks,
@@ -3280,16 +3278,18 @@ var TaskTitle = function TaskTitle(_a) {
       }
     });
   } else {
-    return react_1["default"].createElement(TextStyle, {
+    return react_1["default"].createElement(_TaskTitle, {
       is_done: is_done
     }, text);
   }
 };
 
 exports.default = TaskTitle;
-var TextStyle = styled_components_1["default"].div(templateObject_1 || (templateObject_1 = __makeTemplateObject(["\n    flex-grow: 1;\n    padding-left: 13px;\n    text-decoration: ", ";\n"], ["\n    flex-grow: 1;\n    padding-left: 13px;\n    text-decoration: ", ";\n"])), function (props) {
+
+var _TaskTitle = styled_components_1["default"].div(templateObject_1 || (templateObject_1 = __makeTemplateObject(["\n    flex-grow: 1;\n    padding-left: 13px;\n    text-decoration: ", ";\n"], ["\n    flex-grow: 1;\n    padding-left: 13px;\n    text-decoration: ", ";\n"])), function (props) {
   return props.is_done === 1 ? "line-through" : "none";
 });
+
 var templateObject_1;
 
 /***/ }),
@@ -3329,6 +3329,53 @@ exports.TitleName = void 0;
 var styled_components_1 = __importDefault(__webpack_require__(/*! styled-components */ "./node_modules/styled-components/dist/styled-components.browser.esm.js"));
 
 exports.TitleName = styled_components_1["default"].div(templateObject_1 || (templateObject_1 = __makeTemplateObject(["\n    font-size: 2.5rem;\n"], ["\n    font-size: 2.5rem;\n"])));
+var templateObject_1;
+
+/***/ }),
+
+/***/ "./resources/ts/components/lv2/Header.tsx":
+/*!************************************************!*\
+  !*** ./resources/ts/components/lv2/Header.tsx ***!
+  \************************************************/
+/***/ (function(__unused_webpack_module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var __makeTemplateObject = this && this.__makeTemplateObject || function (cooked, raw) {
+  if (Object.defineProperty) {
+    Object.defineProperty(cooked, "raw", {
+      value: raw
+    });
+  } else {
+    cooked.raw = raw;
+  }
+
+  return cooked;
+};
+
+var __importDefault = this && this.__importDefault || function (mod) {
+  return mod && mod.__esModule ? mod : {
+    "default": mod
+  };
+};
+
+Object.defineProperty(exports, "__esModule", ({
+  value: true
+}));
+
+var react_1 = __importDefault(__webpack_require__(/*! react */ "./node_modules/react/index.js"));
+
+var styled_components_1 = __importDefault(__webpack_require__(/*! styled-components */ "./node_modules/styled-components/dist/styled-components.browser.esm.js"));
+
+var TitleName_1 = __webpack_require__(/*! ../lv1/TitleName */ "./resources/ts/components/lv1/TitleName.tsx");
+
+var Header = function Header() {
+  return react_1["default"].createElement(Style, null, react_1["default"].createElement(TitleName_1.TitleName, null, "Todo\u30A2\u30D7\u30EA"));
+};
+
+exports.default = Header;
+var Style = styled_components_1["default"].div(templateObject_1 || (templateObject_1 = __makeTemplateObject(["\n    text-align: center;\n    margin-bottom: 20px;\n    /* \u30D1\u30BF\u30FC\u30F3\uFF11 */\n    /* border-bottom: 1px solid #c4cfd6; */\n    /* \u30D1\u30BF\u30FC\u30F3\uFF12 */\n    /* background-color: #52bfff; */\n    /* color: white; */\n    /* \u30D1\u30BF\u30FC\u30F33 */\n    background-color: rgba(121, 184, 255, 0.4);\n"], ["\n    text-align: center;\n    margin-bottom: 20px;\n    /* \u30D1\u30BF\u30FC\u30F3\uFF11 */\n    /* border-bottom: 1px solid #c4cfd6; */\n    /* \u30D1\u30BF\u30FC\u30F3\uFF12 */\n    /* background-color: #52bfff; */\n    /* color: white; */\n    /* \u30D1\u30BF\u30FC\u30F33 */\n    background-color: rgba(121, 184, 255, 0.4);\n"])));
 var templateObject_1;
 
 /***/ }),
@@ -3601,8 +3648,8 @@ var TaskCard = function TaskCard(_a) {
               tasks.splice(i, 1);
               setTasks(tasks);
               setChange(change + 1);
-            } catch (error) {
-              console.log(error);
+            } catch (err) {
+              console.log(err);
             }
 
             return [2
@@ -3674,108 +3721,6 @@ var TaskCard = function TaskCard(_a) {
 
 exports.default = TaskCard;
 var Style = styled_components_1["default"].div(templateObject_1 || (templateObject_1 = __makeTemplateObject(["\n    display: flex;\n    align-items: center;\n    border: 1px solid #c4cfd6;\n    padding: 1.3%;\n    border-bottom: 0px;\n    border-radius: 6px;\n    background-color: rgb(254, 254, 254);\n"], ["\n    display: flex;\n    align-items: center;\n    border: 1px solid #c4cfd6;\n    padding: 1.3%;\n    border-bottom: 0px;\n    border-radius: 6px;\n    background-color: rgb(254, 254, 254);\n"])));
-var templateObject_1;
-
-/***/ }),
-
-/***/ "./resources/ts/components/lv2/TextForm.tsx":
-/*!**************************************************!*\
-  !*** ./resources/ts/components/lv2/TextForm.tsx ***!
-  \**************************************************/
-/***/ (function(__unused_webpack_module, exports, __webpack_require__) {
-
-"use strict";
-
-
-var __makeTemplateObject = this && this.__makeTemplateObject || function (cooked, raw) {
-  if (Object.defineProperty) {
-    Object.defineProperty(cooked, "raw", {
-      value: raw
-    });
-  } else {
-    cooked.raw = raw;
-  }
-
-  return cooked;
-};
-
-var __createBinding = this && this.__createBinding || (Object.create ? function (o, m, k, k2) {
-  if (k2 === undefined) k2 = k;
-  Object.defineProperty(o, k2, {
-    enumerable: true,
-    get: function get() {
-      return m[k];
-    }
-  });
-} : function (o, m, k, k2) {
-  if (k2 === undefined) k2 = k;
-  o[k2] = m[k];
-});
-
-var __setModuleDefault = this && this.__setModuleDefault || (Object.create ? function (o, v) {
-  Object.defineProperty(o, "default", {
-    enumerable: true,
-    value: v
-  });
-} : function (o, v) {
-  o["default"] = v;
-});
-
-var __importStar = this && this.__importStar || function (mod) {
-  if (mod && mod.__esModule) return mod;
-  var result = {};
-  if (mod != null) for (var k in mod) {
-    if (k !== "default" && Object.prototype.hasOwnProperty.call(mod, k)) __createBinding(result, mod, k);
-  }
-
-  __setModuleDefault(result, mod);
-
-  return result;
-};
-
-var __importDefault = this && this.__importDefault || function (mod) {
-  return mod && mod.__esModule ? mod : {
-    "default": mod
-  };
-};
-
-Object.defineProperty(exports, "__esModule", ({
-  value: true
-}));
-
-var react_1 = __importStar(__webpack_require__(/*! react */ "./node_modules/react/index.js"));
-
-var styled_components_1 = __importDefault(__webpack_require__(/*! styled-components */ "./node_modules/styled-components/dist/styled-components.browser.esm.js"));
-
-var _index_1 = __webpack_require__(/*! ../lv1/_index */ "./resources/ts/components/lv1/_index.js");
-
-var TextForm = function TextForm(_a) {
-  var postData = _a.postData,
-      userID = _a.userID;
-
-  var _b = react_1.useState(""),
-      text = _b[0],
-      setText = _b[1];
-
-  var handleChange = function handleChange(e) {
-    setText(function () {
-      return e.target.value;
-    });
-  };
-
-  return react_1["default"].createElement(Style, null, react_1["default"].createElement(_index_1.InputText, {
-    text: text,
-    handleChange: handleChange
-  }), react_1["default"].createElement(_index_1.SubmitButton, {
-    text: text,
-    postData: postData,
-    setText: setText,
-    userID: userID
-  }));
-};
-
-exports.default = TextForm;
-var Style = styled_components_1["default"].div(templateObject_1 || (templateObject_1 = __makeTemplateObject(["\n    max-width: 1300px;\n    width: 85%;\n    margin: 0 auto;\n    padding-top: 105px;\n"], ["\n    max-width: 1300px;\n    width: 85%;\n    margin: 0 auto;\n    padding-top: 105px;\n"])));
 var templateObject_1;
 
 /***/ }),
@@ -3951,6 +3896,30 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
+
+
+
+
+/***/ }),
+
+/***/ "./resources/ts/components/lv2/_index.js":
+/*!***********************************************!*\
+  !*** ./resources/ts/components/lv2/_index.js ***!
+  \***********************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "Header": () => (/* reexport default from dynamic */ _Header__WEBPACK_IMPORTED_MODULE_0___default.a),
+/* harmony export */   "TaskCard": () => (/* reexport default from dynamic */ _TaskCard__WEBPACK_IMPORTED_MODULE_1___default.a)
+/* harmony export */ });
+/* empty/unused harmony star reexport */
+/* harmony import */ var _Header__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Header */ "./resources/ts/components/lv2/Header.tsx");
+/* harmony import */ var _Header__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_Header__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _TaskCard__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./TaskCard */ "./resources/ts/components/lv2/TaskCard.tsx");
+/* harmony import */ var _TaskCard__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_TaskCard__WEBPACK_IMPORTED_MODULE_1__);
+Object(function webpackMissingModule() { var e = new Error("Cannot find module './TaskForm'"); e.code = 'MODULE_NOT_FOUND'; throw e; }());
 
 
 
