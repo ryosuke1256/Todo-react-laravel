@@ -4,11 +4,11 @@ import { InputText, SubmitButton } from "../lv1/_index";
 import { API } from "../../api/API";
 
 type Props = {
-    postData: (postData: API) => void;
+    postTask: (postTask: API) => void;
     userID?: number;
 };
 
-const TextForm: React.VFC<Props> = ({ postData, userID }: Props) => {
+const TextForm: React.VFC<Props> = ({ postTask, userID }: Props) => {
     const [text, setText] = useState("");
 
     const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -20,7 +20,7 @@ const TextForm: React.VFC<Props> = ({ postData, userID }: Props) => {
             <InputText text={text} handleChange={handleChange} />
             <SubmitButton
                 text={text}
-                postData={postData}
+                postTask={postTask}
                 setText={setText}
                 userID={userID}
             />

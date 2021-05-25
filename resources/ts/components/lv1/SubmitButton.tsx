@@ -3,14 +3,14 @@ import { API } from "../../api/API";
 
 type Props = {
     text: string;
-    postData: (postData: API) => void;
+    postTask: (postData: API) => void;
     setText: (param: string) => void;
     userID?: number;
 };
 
 const SubmitButton: React.VFC<Props> = ({
     text,
-    postData,
+    postTask,
     setText,
     userID,
 }: Props) => {
@@ -23,7 +23,7 @@ const SubmitButton: React.VFC<Props> = ({
     return (
         <button
             onClick={() => {
-                postData(data);
+                postTask(data);
                 setText("");
             }}
             style={{

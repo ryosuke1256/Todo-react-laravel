@@ -2,15 +2,15 @@ import React from "react";
 import { ButtonStyle } from "../../style/ButtonStyle";
 
 type Props = {
-    deleteData: () => Promise<void>;
+    deleteTask: () => Promise<void>;
     setIs_done: (param: 0 | 1) => void;
 };
 
-const DeleteButton: React.VFC<Props> = ({ deleteData, setIs_done }: Props) => {
+const DeleteButton: React.VFC<Props> = ({ deleteTask, setIs_done }: Props) => {
     return (
         <ButtonStyle
             onClick={() => {
-                deleteData();
+                deleteTask();
                 setIs_done(0);
             }}
             backgroundColor="#da6161"

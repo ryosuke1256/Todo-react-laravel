@@ -2806,6 +2806,13 @@ var App = function App() {
       tasksEditActive = _d[0],
       setTasksEditActive = _d[1];
 
+  react_1.useEffect(function () {
+    getUser();
+  }, []);
+  react_1.useEffect(function () {
+    getTasks();
+  }, [userID]);
+
   var getUser = function getUser() {
     return __awaiter(void 0, void 0, void 0, function () {
       return __generator(this, function (_a) {
@@ -2830,9 +2837,9 @@ var App = function App() {
     });
   };
 
-  var getData = function getData() {
+  var getTasks = function getTasks() {
     return __awaiter(void 0, void 0, void 0, function () {
-      var jsonData;
+      var Data;
       return __generator(this, function (_a) {
         switch (_a.label) {
           case 0:
@@ -2844,10 +2851,10 @@ var App = function App() {
             , axios_1["default"].get("api/users/" + userID)];
 
           case 1:
-            jsonData = _a.sent();
+            Data = _a.sent();
 
             try {
-              setTasks(jsonData.data.map(function (data) {
+              setTasks(Data.data.map(function (data) {
                 return data;
               }));
             } catch (err) {
@@ -2865,25 +2872,18 @@ var App = function App() {
     });
   };
 
-  react_1.useEffect(function () {
-    getUser();
-  }, []);
-  react_1.useEffect(function () {
-    getData();
-  }, [userID]);
-
-  var postData = function postData(_postData) {
+  var postTask = function postTask(postData) {
     return __awaiter(void 0, void 0, void 0, function () {
       var response;
       return __generator(this, function (_a) {
         switch (_a.label) {
           case 0:
             console.log({
-              postData: _postData
+              postData: postData
             });
             return [4
             /*yield*/
-            , axios_1["default"].post("api/tasks", _postData)];
+            , axios_1["default"].post("api/tasks", postData)];
 
           case 1:
             response = _a.sent();
@@ -2906,7 +2906,7 @@ var App = function App() {
 
   var i = -1;
   return react_1["default"].createElement(react_1["default"].Fragment, null, react_1["default"].createElement(_index_1.TextForm, {
-    postData: postData,
+    postTask: postTask,
     userID: userID
   }), react_1["default"].createElement(TaskCards_1.TaskCards, null, tasks.map(function (task, key) {
     i++;
@@ -3014,11 +3014,11 @@ var react_1 = __importDefault(__webpack_require__(/*! react */ "./node_modules/r
 var ButtonStyle_1 = __webpack_require__(/*! ../../style/ButtonStyle */ "./resources/ts/style/ButtonStyle.tsx");
 
 var DeleteButton = function DeleteButton(_a) {
-  var deleteData = _a.deleteData,
+  var deleteTask = _a.deleteTask,
       setIs_done = _a.setIs_done;
   return react_1["default"].createElement(ButtonStyle_1.ButtonStyle, {
     onClick: function onClick() {
-      deleteData();
+      deleteTask();
       setIs_done(0);
     },
     backgroundColor: "#da6161",
@@ -3190,7 +3190,7 @@ var react_1 = __importDefault(__webpack_require__(/*! react */ "./node_modules/r
 
 var SubmitButton = function SubmitButton(_a) {
   var text = _a.text,
-      postData = _a.postData,
+      postTask = _a.postTask,
       setText = _a.setText,
       userID = _a.userID;
   var data = {
@@ -3200,7 +3200,7 @@ var SubmitButton = function SubmitButton(_a) {
   };
   return react_1["default"].createElement("button", {
     onClick: function onClick() {
-      postData(data);
+      postTask(data);
       setText("");
     },
     style: {
@@ -3608,11 +3608,11 @@ var TaskCard = function TaskCard(_a) {
       todo = _b[0],
       setTodo = _b[1];
 
-  var _c = react_1.useState(task.title),
+  var _c = react_1.useState(todo.title),
       title = _c[0],
       setTitle = _c[1];
 
-  var _d = react_1.useState(task.is_done),
+  var _d = react_1.useState(todo.is_done),
       is_done = _d[0],
       setIs_done = _d[1];
 
@@ -3620,7 +3620,6 @@ var TaskCard = function TaskCard(_a) {
       editActive = _e[0],
       setEditActive = _e[1];
 
-  console.log(task.title);
   react_1.useEffect(function () {
     setTitle(task.title);
   }, [task.title]);
@@ -3628,8 +3627,9 @@ var TaskCard = function TaskCard(_a) {
     setIs_done(task.is_done);
   }, [task.is_done]);
 
-  var deleteData = function deleteData() {
+  var deleteTask = function deleteTask() {
     return __awaiter(void 0, void 0, void 0, function () {
+      var data;
       return __generator(this, function (_a) {
         switch (_a.label) {
           case 0:
@@ -3638,9 +3638,10 @@ var TaskCard = function TaskCard(_a) {
             , axios_1["default"]["delete"]("api/tasks/" + id)];
 
           case 1:
-            _a.sent();
+            data = _a.sent();
 
             try {
+              //stateをこうゆう書き方はできない
               tasks.splice(i, 1);
               setTasks(tasks);
               setChange(change + 1);
@@ -3732,7 +3733,7 @@ var TaskCard = function TaskCard(_a) {
     setTasksEditActive: setTasksEditActive,
     title: title
   }), react_1["default"].createElement(_index_1.DeleteButton, {
-    deleteData: deleteData,
+    deleteTask: deleteTask,
     setIs_done: setIs_done
   }));
 };
@@ -3817,7 +3818,7 @@ var styled_components_1 = __importDefault(__webpack_require__(/*! styled-compone
 var _index_1 = __webpack_require__(/*! ../lv1/_index */ "./resources/ts/components/lv1/_index.js");
 
 var TextForm = function TextForm(_a) {
-  var postData = _a.postData,
+  var postTask = _a.postTask,
       userID = _a.userID;
 
   var _b = react_1.useState(""),
@@ -3835,7 +3836,7 @@ var TextForm = function TextForm(_a) {
     handleChange: handleChange
   }), react_1["default"].createElement(_index_1.SubmitButton, {
     text: text,
-    postData: postData,
+    postTask: postTask,
     setText: setText,
     userID: userID
   }));
