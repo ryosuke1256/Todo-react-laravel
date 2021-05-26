@@ -2872,8 +2872,6 @@ var App = function App() {
     });
   };
 
-  console.log(tasks);
-
   var postTask = function postTask(postData) {
     return __awaiter(void 0, void 0, void 0, function () {
       var res, todos;
@@ -2891,12 +2889,10 @@ var App = function App() {
             res = _a.sent();
 
             try {
-              console.log(res.data);
               todos = tasks;
               todos.unshift(res.data);
               setTasks(todos);
-              setChange(change + 1); //こっちのは方がいい
-              // setTasks([...tasks, res.data]);
+              setChange(change + 1); // setTasks([...tasks, res.data]);
             } catch (err) {
               console.log(err);
             }
@@ -3613,29 +3609,24 @@ var TaskCard = function TaskCard(_a) {
       todo = _b[0],
       setTodo = _b[1];
 
-  var _c = react_1.useState(task.title),
+  var _c = react_1.useState(todo.title),
       title = _c[0],
       setTitle = _c[1];
 
-  var _d = react_1.useState(task.is_done),
+  var _d = react_1.useState(todo.is_done),
       is_done = _d[0],
       setIs_done = _d[1];
 
   var _e = react_1.useState(false),
       editActive = _e[0],
-      setEditActive = _e[1]; // useEffect(() => {
-  //     setTitle(task.title);
-  // }, [task.title]);
-  // useEffect(() => {
-  //     setIs_done(task.is_done);
-  // }, [task.is_done]);
-
+      setEditActive = _e[1];
 
   react_1.useEffect(function () {
-    setTodo(task);
-    setTitle(task.title); // setIs_done(task.is_done);
-  }, [task]);
-  console.log(task);
+    setTitle(task.title);
+  }, [task.title]);
+  react_1.useEffect(function () {
+    setIs_done(task.is_done);
+  }, [task.is_done]);
 
   var deleteTask = function deleteTask() {
     return __awaiter(void 0, void 0, void 0, function () {
@@ -3674,7 +3665,6 @@ var TaskCard = function TaskCard(_a) {
       return __generator(this, function (_a) {
         switch (_a.label) {
           case 0:
-            console.log("check");
             is_done === 0 ? is_done = 1 : is_done = 0;
             data = {
               title: title,
