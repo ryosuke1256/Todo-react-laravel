@@ -3613,24 +3613,29 @@ var TaskCard = function TaskCard(_a) {
       todo = _b[0],
       setTodo = _b[1];
 
-  var _c = react_1.useState(todo.title),
+  var _c = react_1.useState(task.title),
       title = _c[0],
       setTitle = _c[1];
 
-  var _d = react_1.useState(todo.is_done),
+  var _d = react_1.useState(task.is_done),
       is_done = _d[0],
       setIs_done = _d[1];
 
   var _e = react_1.useState(false),
       editActive = _e[0],
-      setEditActive = _e[1];
+      setEditActive = _e[1]; // useEffect(() => {
+  //     setTitle(task.title);
+  // }, [task.title]);
+  // useEffect(() => {
+  //     setIs_done(task.is_done);
+  // }, [task.is_done]);
+
 
   react_1.useEffect(function () {
-    setTitle(task.title);
-  }, [task.title]);
-  react_1.useEffect(function () {
-    setIs_done(task.is_done);
-  }, [task.is_done]);
+    setTodo(task);
+    setTitle(task.title); // setIs_done(task.is_done);
+  }, [task]);
+  console.log(task);
 
   var deleteTask = function deleteTask() {
     return __awaiter(void 0, void 0, void 0, function () {

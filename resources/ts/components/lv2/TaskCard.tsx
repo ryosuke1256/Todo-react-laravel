@@ -28,23 +28,30 @@ const TaskCard: React.VFC<Props> = ({
     i,
 }: Props) => {
     const [todo, setTodo] = useState(task);
-    const [title, setTitle] = useState(todo.title);
-    const [is_done, setIs_done] = useState<0 | 1>(todo.is_done);
+    const [title, setTitle] = useState(task.title);
+    const [is_done, setIs_done] = useState<0 | 1>(task.is_done);
     const [editActive, setEditActive] = useState(false);
 
-    useEffect(() => {
-        setTitle(task.title);
-    }, [task.title]);
+    // useEffect(() => {
+    //     setTitle(task.title);
+    // }, [task.title]);
+
+    // useEffect(() => {
+    //     setIs_done(task.is_done);
+    // }, [task.is_done]);
 
     useEffect(() => {
-        setIs_done(task.is_done);
-    }, [task.is_done]);
+        setTodo(task);
+        setTitle(task.title);
+        // setIs_done(task.is_done);
+    }, [task]);
+
+    console.log(task);
 
     const deleteTask = async () => {
         const res = await axios.delete(`api/tasks/${id}`);
         try {
             setTasks(tasks.filter((task) => task.id !== res.data.id));
-
             // tasks.splice(i, 1);
             // setTasks(tasks);
             // setChange(change + 1);
