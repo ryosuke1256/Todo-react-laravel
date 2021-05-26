@@ -6,7 +6,7 @@ import { API } from "../../api/API";
 
 type Props = {
     task: API;
-    tasks: any;
+    tasks: [API];
     setTasks: (param: {}) => void;
     change: number;
     setChange: (param: number) => void;
@@ -41,18 +41,21 @@ const TaskCard: React.VFC<Props> = ({
     }, [task.is_done]);
 
     const deleteTask = async () => {
-        const data = await axios.delete(`api/tasks/${id}`);
+        const res = await axios.delete(`api/tasks/${id}`);
         try {
-            //stateをこうゆう書き方はできない
-            tasks.splice(i, 1);
-            setTasks(tasks);
-            setChange(change + 1);
+            setTasks(tasks.filter((task) => task.id !== res.data.id));
+
+            // tasks.splice(i, 1);
+            // setTasks(tasks);
+            // setChange(change + 1);
         } catch (err) {
             console.log(err);
         }
     };
 
     const checkTask = async (is_done: 0 | 1) => {
+        console.log("check");
+
         is_done === 0 ? (is_done = 1) : (is_done = 0);
         const data: API = {
             title: title,

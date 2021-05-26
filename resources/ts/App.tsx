@@ -39,14 +39,23 @@ const App: React.VFC = () => {
             }
         }
     };
+    console.log(tasks);
 
     const postTask = async (postData: API) => {
         console.log({ postData });
-        const response = await axios.post("api/tasks", postData);
+        const res = await axios.post("api/tasks", postData);
         try {
-            tasks.unshift(response.data);
-            setTasks(tasks);
+            console.log(res.data);
+
+            //この書き方多分よくない
+            //TaskCardのuseEffect描かないと呼び出されない。なぜか
+            const todos = tasks;
+            todos.unshift(res.data);
+            setTasks(todos);
             setChange(change + 1);
+
+            //こっちのは方がいい
+            // setTasks([...tasks, res.data]);
         } catch (err) {
             console.log(err);
         }
@@ -58,7 +67,7 @@ const App: React.VFC = () => {
         <>
             <TextForm postTask={postTask} userID={userID} />
             <TaskCards>
-                {tasks.map((task: any, key: number) => {
+                {tasks.map((task: API, key: number) => {
                     i++;
                     return (
                         <TaskCard

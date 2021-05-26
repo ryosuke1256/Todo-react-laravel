@@ -2872,9 +2872,11 @@ var App = function App() {
     });
   };
 
+  console.log(tasks);
+
   var postTask = function postTask(postData) {
     return __awaiter(void 0, void 0, void 0, function () {
-      var response;
+      var res, todos;
       return __generator(this, function (_a) {
         switch (_a.label) {
           case 0:
@@ -2886,12 +2888,15 @@ var App = function App() {
             , axios_1["default"].post("api/tasks", postData)];
 
           case 1:
-            response = _a.sent();
+            res = _a.sent();
 
             try {
-              tasks.unshift(response.data);
-              setTasks(tasks);
-              setChange(change + 1);
+              console.log(res.data);
+              todos = tasks;
+              todos.unshift(res.data);
+              setTasks(todos);
+              setChange(change + 1); //こっちのは方がいい
+              // setTasks([...tasks, res.data]);
             } catch (err) {
               console.log(err);
             }
@@ -3629,7 +3634,7 @@ var TaskCard = function TaskCard(_a) {
 
   var deleteTask = function deleteTask() {
     return __awaiter(void 0, void 0, void 0, function () {
-      var data;
+      var res;
       return __generator(this, function (_a) {
         switch (_a.label) {
           case 0:
@@ -3638,13 +3643,14 @@ var TaskCard = function TaskCard(_a) {
             , axios_1["default"]["delete"]("api/tasks/" + id)];
 
           case 1:
-            data = _a.sent();
+            res = _a.sent();
 
             try {
-              //stateをこうゆう書き方はできない
-              tasks.splice(i, 1);
-              setTasks(tasks);
-              setChange(change + 1);
+              setTasks(tasks.filter(function (task) {
+                return task.id !== res.data.id;
+              })); // tasks.splice(i, 1);
+              // setTasks(tasks);
+              // setChange(change + 1);
             } catch (err) {
               console.log(err);
             }
@@ -3663,6 +3669,7 @@ var TaskCard = function TaskCard(_a) {
       return __generator(this, function (_a) {
         switch (_a.label) {
           case 0:
+            console.log("check");
             is_done === 0 ? is_done = 1 : is_done = 0;
             data = {
               title: title,
