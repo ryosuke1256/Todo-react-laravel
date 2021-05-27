@@ -8,11 +8,8 @@ type Props = {
     task: API;
     tasks: [API];
     setTasks: (param: {}) => void;
-    change: number;
-    setChange: (param: number) => void;
     tasksEditActive: boolean;
     setTasksEditActive: (param: boolean) => void;
-    userID: number;
     id: number;
     i: number;
 };
