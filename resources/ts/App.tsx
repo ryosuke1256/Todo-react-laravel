@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-import { TaskCards } from "./components/lv3/TaskCards";
+import { _TaskCards } from "./components/lv3/TaskCards";
 import { TaskCard, TextForm } from "./components/lv2/_index";
 import { API } from "./api/API";
 
@@ -57,7 +57,7 @@ const App: React.VFC = () => {
     return (
         <>
             <TextForm postTask={postTask} userID={userID} />
-            <TaskCards>
+            <_TaskCards>
                 {tasks.map((task: API, key: number) => {
                     i++;
                     return (
@@ -73,7 +73,7 @@ const App: React.VFC = () => {
                         />
                     );
                 })}
-            </TaskCards>
+            </_TaskCards>
         </>
     );
 };

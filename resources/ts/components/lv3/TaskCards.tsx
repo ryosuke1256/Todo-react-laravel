@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import customMedia from "../../style/customMedia";
 
-export const TaskCards = styled.div`
+export const _TaskCards = styled.div`
     max-width: 1300px;
     width: 85%;
     margin: 0 auto;
