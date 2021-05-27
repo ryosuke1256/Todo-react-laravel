@@ -18,6 +18,8 @@ const App: React.VFC = () => {
         getTasks();
     }, [userID]);
 
+    console.log(tasks);
+
     const getUser = async () => {
         await axios
             .get("api/users")
@@ -72,6 +74,7 @@ const App: React.VFC = () => {
                             setChange={setChange}
                             tasksEditActive={tasksEditActive}
                             setTasksEditActive={setTasksEditActive}
+                            userID={userID}
                             id={task.id}
                             i={i}
                             key={key}

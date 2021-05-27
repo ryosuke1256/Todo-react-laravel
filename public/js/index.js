@@ -2812,6 +2812,7 @@ var App = function App() {
   react_1.useEffect(function () {
     getTasks();
   }, [userID]);
+  console.log(tasks);
 
   var getUser = function getUser() {
     return __awaiter(void 0, void 0, void 0, function () {
@@ -2919,6 +2920,7 @@ var App = function App() {
       setChange: setChange,
       tasksEditActive: tasksEditActive,
       setTasksEditActive: setTasksEditActive,
+      userID: userID,
       id: task.id,
       i: i,
       key: key
@@ -3602,6 +3604,7 @@ var TaskCard = function TaskCard(_a) {
       setChange = _a.setChange,
       tasksEditActive = _a.tasksEditActive,
       setTasksEditActive = _a.setTasksEditActive,
+      userID = _a.userID,
       id = _a.id,
       i = _a.i;
 
@@ -3609,11 +3612,11 @@ var TaskCard = function TaskCard(_a) {
       todo = _b[0],
       setTodo = _b[1];
 
-  var _c = react_1.useState(todo.title),
+  var _c = react_1.useState(task.title),
       title = _c[0],
       setTitle = _c[1];
 
-  var _d = react_1.useState(todo.is_done),
+  var _d = react_1.useState(task.is_done),
       is_done = _d[0],
       setIs_done = _d[1];
 
@@ -3626,7 +3629,10 @@ var TaskCard = function TaskCard(_a) {
   }, [task.title]);
   react_1.useEffect(function () {
     setIs_done(task.is_done);
-  }, [task.is_done]);
+  }, [task.is_done]); // useEffect(() => {
+  //     setTitle(title);
+  //     setIs_done(is_done);
+  // }, [tasks]);
 
   var deleteTask = function deleteTask() {
     return __awaiter(void 0, void 0, void 0, function () {
@@ -3673,8 +3679,9 @@ var TaskCard = function TaskCard(_a) {
             return [4
             /*yield*/
             , axios_1["default"].patch("api/tasks/" + id, data).then(function () {
+              //tasksのis_doneも変更しないといけない
+              tasks[i].is_done = is_done;
               setIs_done(is_done);
-              setTitle(title);
             })["catch"](function (err) {
               console.log(err);
             })];
