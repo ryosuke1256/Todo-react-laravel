@@ -6,12 +6,13 @@ import { API } from "../../api/API";
 
 type Props = {
     task: API;
-    tasks: any;
+    tasks: [API];
     setTasks: (param: {}) => void;
     change: number;
     setChange: (param: number) => void;
     tasksEditActive: boolean;
     setTasksEditActive: (param: boolean) => void;
+    userID: number;
     id: number;
     i: number;
 };
@@ -20,33 +21,29 @@ const TaskCard: React.VFC<Props> = ({
     task,
     tasks,
     setTasks,
-    change,
-    setChange,
     tasksEditActive,
     setTasksEditActive,
     id,
     i,
 }: Props) => {
     const [todo, setTodo] = useState(task);
-    const [title, setTitle] = useState(todo.title);
-    const [is_done, setIs_done] = useState<0 | 1>(todo.is_done);
+    const [title, setTitle] = useState(task.title);
+    const [is_done, setIs_done] = useState<0 | 1>(task.is_done);
     const [editActive, setEditActive] = useState(false);
 
     useEffect(() => {
         setTitle(task.title);
-    }, [task.title]);
-
-    useEffect(() => {
         setIs_done(task.is_done);
-    }, [task.is_done]);
+    }, [task]);
 
     const deleteTask = async () => {
-        const data = await axios.delete(`api/tasks/${id}`);
+        const res = await axios.delete(`api/tasks/${id}`);
         try {
-            //stateをこうゆう書き方はできない
-            tasks.splice(i, 1);
-            setTasks(tasks);
-            setChange(change + 1);
+            setTasks(tasks.filter((task) => task.id !== res.data.id));
+
+            // tasks.splice(i, 1);
+            // setTasks(tasks);
+            // setChange(change + 1);
         } catch (err) {
             console.log(err);
         }
@@ -61,8 +58,9 @@ const TaskCard: React.VFC<Props> = ({
         await axios
             .patch(`api/tasks/${id}`, data)
             .then(() => {
+                //tasksのis_doneも変更しないといけない
+                tasks[i].is_done = is_done;
                 setIs_done(is_done);
-                setTitle(title);
             })
             .catch((err) => {
                 console.log(err);

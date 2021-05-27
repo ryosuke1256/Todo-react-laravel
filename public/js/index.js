@@ -2812,6 +2812,7 @@ var App = function App() {
   react_1.useEffect(function () {
     getTasks();
   }, [userID]);
+  console.log(tasks);
 
   var getUser = function getUser() {
     return __awaiter(void 0, void 0, void 0, function () {
@@ -2874,7 +2875,7 @@ var App = function App() {
 
   var postTask = function postTask(postData) {
     return __awaiter(void 0, void 0, void 0, function () {
-      var response;
+      var res, todos;
       return __generator(this, function (_a) {
         switch (_a.label) {
           case 0:
@@ -2886,12 +2887,13 @@ var App = function App() {
             , axios_1["default"].post("api/tasks", postData)];
 
           case 1:
-            response = _a.sent();
+            res = _a.sent();
 
             try {
-              tasks.unshift(response.data);
-              setTasks(tasks);
-              setChange(change + 1);
+              todos = tasks;
+              todos.unshift(res.data);
+              setTasks(todos);
+              setChange(change + 1); // setTasks([...tasks, res.data]);
             } catch (err) {
               console.log(err);
             }
@@ -2914,8 +2916,6 @@ var App = function App() {
       task: task,
       setTasks: setTasks,
       tasks: tasks,
-      change: change,
-      setChange: setChange,
       tasksEditActive: tasksEditActive,
       setTasksEditActive: setTasksEditActive,
       id: task.id,
@@ -3597,8 +3597,6 @@ var TaskCard = function TaskCard(_a) {
   var task = _a.task,
       tasks = _a.tasks,
       setTasks = _a.setTasks,
-      change = _a.change,
-      setChange = _a.setChange,
       tasksEditActive = _a.tasksEditActive,
       setTasksEditActive = _a.setTasksEditActive,
       id = _a.id,
@@ -3608,11 +3606,11 @@ var TaskCard = function TaskCard(_a) {
       todo = _b[0],
       setTodo = _b[1];
 
-  var _c = react_1.useState(todo.title),
+  var _c = react_1.useState(task.title),
       title = _c[0],
       setTitle = _c[1];
 
-  var _d = react_1.useState(todo.is_done),
+  var _d = react_1.useState(task.is_done),
       is_done = _d[0],
       setIs_done = _d[1];
 
@@ -3622,14 +3620,12 @@ var TaskCard = function TaskCard(_a) {
 
   react_1.useEffect(function () {
     setTitle(task.title);
-  }, [task.title]);
-  react_1.useEffect(function () {
     setIs_done(task.is_done);
-  }, [task.is_done]);
+  }, [task]);
 
   var deleteTask = function deleteTask() {
     return __awaiter(void 0, void 0, void 0, function () {
-      var data;
+      var res;
       return __generator(this, function (_a) {
         switch (_a.label) {
           case 0:
@@ -3638,13 +3634,14 @@ var TaskCard = function TaskCard(_a) {
             , axios_1["default"]["delete"]("api/tasks/" + id)];
 
           case 1:
-            data = _a.sent();
+            res = _a.sent();
 
             try {
-              //stateをこうゆう書き方はできない
-              tasks.splice(i, 1);
-              setTasks(tasks);
-              setChange(change + 1);
+              setTasks(tasks.filter(function (task) {
+                return task.id !== res.data.id;
+              })); // tasks.splice(i, 1);
+              // setTasks(tasks);
+              // setChange(change + 1);
             } catch (err) {
               console.log(err);
             }
@@ -3671,8 +3668,9 @@ var TaskCard = function TaskCard(_a) {
             return [4
             /*yield*/
             , axios_1["default"].patch("api/tasks/" + id, data).then(function () {
+              //tasksのis_doneも変更しないといけない
+              tasks[i].is_done = is_done;
               setIs_done(is_done);
-              setTitle(title);
             })["catch"](function (err) {
               console.log(err);
             })];

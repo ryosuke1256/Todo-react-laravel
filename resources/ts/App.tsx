@@ -18,6 +18,8 @@ const App: React.VFC = () => {
         getTasks();
     }, [userID]);
 
+    console.log(tasks);
+
     const getUser = async () => {
         await axios
             .get("api/users")
@@ -42,11 +44,14 @@ const App: React.VFC = () => {
 
     const postTask = async (postData: API) => {
         console.log({ postData });
-        const response = await axios.post("api/tasks", postData);
+        const res = await axios.post("api/tasks", postData);
         try {
-            tasks.unshift(response.data);
-            setTasks(tasks);
+            const todos = tasks;
+            todos.unshift(res.data);
+            setTasks(todos);
             setChange(change + 1);
+
+            // setTasks([...tasks, res.data]);
         } catch (err) {
             console.log(err);
         }
@@ -58,15 +63,13 @@ const App: React.VFC = () => {
         <>
             <TextForm postTask={postTask} userID={userID} />
             <TaskCards>
-                {tasks.map((task: any, key: number) => {
+                {tasks.map((task: API, key: number) => {
                     i++;
                     return (
                         <TaskCard
                             task={task}
                             setTasks={setTasks}
                             tasks={tasks}
-                            change={change}
-                            setChange={setChange}
                             tasksEditActive={tasksEditActive}
                             setTasksEditActive={setTasksEditActive}
                             id={task.id}
