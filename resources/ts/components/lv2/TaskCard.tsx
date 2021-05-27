@@ -37,7 +37,6 @@ const TaskCard: React.VFC<Props> = ({
         const res = await axios.delete(`api/tasks/${id}`);
         try {
             setTasks(tasks.filter((task) => task.id !== res.data.id));
-
             // tasks.splice(i, 1);
             // setTasks(tasks);
             // setChange(change + 1);

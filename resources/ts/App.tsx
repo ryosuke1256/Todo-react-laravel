@@ -18,8 +18,6 @@ const App: React.VFC = () => {
         getTasks();
     }, [userID]);
 
-    console.log(tasks);
-
     const getUser = async () => {
         await axios
             .get("api/users")
@@ -46,9 +44,7 @@ const App: React.VFC = () => {
         console.log({ postData });
         const res = await axios.post("api/tasks", postData);
         try {
-            const todos = tasks;
-            todos.unshift(res.data);
-            setTasks(todos);
+            tasks.unshift(res.data);
             setChange(change + 1);
 
             // setTasks([...tasks, res.data]);
