@@ -70,11 +70,8 @@ const App: React.VFC = () => {
                             task={task}
                             setTasks={setTasks}
                             tasks={tasks}
-                            change={change}
-                            setChange={setChange}
                             tasksEditActive={tasksEditActive}
                             setTasksEditActive={setTasksEditActive}
-                            userID={userID}
                             id={task.id}
                             i={i}
                             key={key}

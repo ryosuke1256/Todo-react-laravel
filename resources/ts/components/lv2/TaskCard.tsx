@@ -21,11 +21,8 @@ const TaskCard: React.VFC<Props> = ({
     task,
     tasks,
     setTasks,
-    change,
-    setChange,
     tasksEditActive,
     setTasksEditActive,
-    userID,
     id,
     i,
 }: Props) => {
@@ -36,21 +33,14 @@ const TaskCard: React.VFC<Props> = ({
 
     useEffect(() => {
         setTitle(task.title);
-    }, [task.title]);
-
-    useEffect(() => {
         setIs_done(task.is_done);
-    }, [task.is_done]);
-
-    // useEffect(() => {
-    //     setTitle(title);
-    //     setIs_done(is_done);
-    // }, [tasks]);
+    }, [task]);
 
     const deleteTask = async () => {
         const res = await axios.delete(`api/tasks/${id}`);
         try {
             setTasks(tasks.filter((task) => task.id !== res.data.id));
+
             // tasks.splice(i, 1);
             // setTasks(tasks);
             // setChange(change + 1);
@@ -70,7 +60,6 @@ const TaskCard: React.VFC<Props> = ({
             .then(() => {
                 //tasksのis_doneも変更しないといけない
                 tasks[i].is_done = is_done;
-
                 setIs_done(is_done);
             })
             .catch((err) => {

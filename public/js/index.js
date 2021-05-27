@@ -2916,11 +2916,8 @@ var App = function App() {
       task: task,
       setTasks: setTasks,
       tasks: tasks,
-      change: change,
-      setChange: setChange,
       tasksEditActive: tasksEditActive,
       setTasksEditActive: setTasksEditActive,
-      userID: userID,
       id: task.id,
       i: i,
       key: key
@@ -3600,11 +3597,8 @@ var TaskCard = function TaskCard(_a) {
   var task = _a.task,
       tasks = _a.tasks,
       setTasks = _a.setTasks,
-      change = _a.change,
-      setChange = _a.setChange,
       tasksEditActive = _a.tasksEditActive,
       setTasksEditActive = _a.setTasksEditActive,
-      userID = _a.userID,
       id = _a.id,
       i = _a.i;
 
@@ -3626,13 +3620,8 @@ var TaskCard = function TaskCard(_a) {
 
   react_1.useEffect(function () {
     setTitle(task.title);
-  }, [task.title]);
-  react_1.useEffect(function () {
     setIs_done(task.is_done);
-  }, [task.is_done]); // useEffect(() => {
-  //     setTitle(title);
-  //     setIs_done(is_done);
-  // }, [tasks]);
+  }, [task]);
 
   var deleteTask = function deleteTask() {
     return __awaiter(void 0, void 0, void 0, function () {
