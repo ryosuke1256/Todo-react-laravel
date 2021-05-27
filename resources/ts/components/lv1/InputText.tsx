@@ -2,7 +2,7 @@ import React from "react";
 
 type Props = {
     text: string;
-    handleChange: (e: any) => void;
+    handleChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
 };
 
 const InputText: React.VFC<Props> = ({ text, handleChange }: Props) => {
