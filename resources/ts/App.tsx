@@ -46,7 +46,6 @@ const App: React.VFC = () => {
         try {
             tasks.unshift(res.data);
             setChange(change + 1);
-
             // setTasks([...tasks, res.data]);
         } catch (err) {
             console.log(err);
