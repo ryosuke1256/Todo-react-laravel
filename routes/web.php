@@ -17,8 +17,7 @@ Route::get('/', function () {
         return view('index');
 });
 Route::get('api/users','UserController@index');
-Route::get('api/users/{id}','UserController@getTask');
-
+Route::get('api/users/{id}','UserController@getTask');å
 // api/tasks
 Route::apiResource('api/tasks','TaskController');
 Auth::routes();
