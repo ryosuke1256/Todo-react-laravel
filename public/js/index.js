@@ -2812,7 +2812,6 @@ var App = function App() {
   react_1.useEffect(function () {
     getTasks();
   }, [userID]);
-  console.log(tasks);
 
   var getUser = function getUser() {
     return __awaiter(void 0, void 0, void 0, function () {
@@ -2875,7 +2874,7 @@ var App = function App() {
 
   var postTask = function postTask(postData) {
     return __awaiter(void 0, void 0, void 0, function () {
-      var res, todos;
+      var res;
       return __generator(this, function (_a) {
         switch (_a.label) {
           case 0:
@@ -2890,9 +2889,7 @@ var App = function App() {
             res = _a.sent();
 
             try {
-              todos = tasks;
-              todos.unshift(res.data);
-              setTasks(todos);
+              tasks.unshift(res.data);
               setChange(change + 1); // setTasks([...tasks, res.data]);
             } catch (err) {
               console.log(err);
@@ -2910,7 +2907,7 @@ var App = function App() {
   return react_1["default"].createElement(react_1["default"].Fragment, null, react_1["default"].createElement(_index_1.TextForm, {
     postTask: postTask,
     userID: userID
-  }), react_1["default"].createElement(TaskCards_1.TaskCards, null, tasks.map(function (task, key) {
+  }), react_1["default"].createElement(TaskCards_1._TaskCards, null, tasks.map(function (task, key) {
     i++;
     return react_1["default"].createElement(_index_1.TaskCard, {
       task: task,
@@ -3878,13 +3875,13 @@ var __importDefault = this && this.__importDefault || function (mod) {
 Object.defineProperty(exports, "__esModule", ({
   value: true
 }));
-exports.TaskCards = void 0;
+exports._TaskCards = void 0;
 
 var styled_components_1 = __importDefault(__webpack_require__(/*! styled-components */ "./node_modules/styled-components/dist/styled-components.browser.esm.js"));
 
 var customMedia_1 = __importDefault(__webpack_require__(/*! ../../style/customMedia */ "./resources/ts/style/customMedia.tsx"));
 
-exports.TaskCards = styled_components_1["default"].div(templateObject_4 || (templateObject_4 = __makeTemplateObject(["\n    max-width: 1300px;\n    width: 85%;\n    margin: 0 auto;\n    padding-top: 10px;\n    //\u30B9\u30DE\u30DB\n    ", " //\u30BF\u30D6\u30EC\u30C3\u30C8\n    ", " //PC\n    ", "\n"], ["\n    max-width: 1300px;\n    width: 85%;\n    margin: 0 auto;\n    padding-top: 10px;\n    //\u30B9\u30DE\u30DB\n    ", " //\u30BF\u30D6\u30EC\u30C3\u30C8\n    ", " //PC\n    ", "\n"])), customMedia_1["default"].lessThan("mobile")(templateObject_1 || (templateObject_1 = __makeTemplateObject(["\n     /* screen width is less than 599px (tablet) */\n    width: 100%;\n    "], ["\n     /* screen width is less than 599px (tablet) */\n    width: 100%;\n    "]))), customMedia_1["default"].between("mobile", "tablet")(templateObject_2 || (templateObject_2 = __makeTemplateObject(["\n    /* screen width is between 599px (tablet) and 1024px (desktop) */\n\n    "], ["\n    /* screen width is between 599px (tablet) and 1024px (desktop) */\n\n    "]))), customMedia_1["default"].greaterThan("tablet")(templateObject_3 || (templateObject_3 = __makeTemplateObject(["\n    /* screen width is greater than 1024px (tablet) */\n    \n    "], ["\n    /* screen width is greater than 1024px (tablet) */\n    \n    "]))));
+exports._TaskCards = styled_components_1["default"].div(templateObject_4 || (templateObject_4 = __makeTemplateObject(["\n    max-width: 1300px;\n    width: 85%;\n    margin: 0 auto;\n    padding-top: 10px;\n    //\u30B9\u30DE\u30DB\n    ", " //\u30BF\u30D6\u30EC\u30C3\u30C8\n    ", " //PC\n    ", "\n"], ["\n    max-width: 1300px;\n    width: 85%;\n    margin: 0 auto;\n    padding-top: 10px;\n    //\u30B9\u30DE\u30DB\n    ", " //\u30BF\u30D6\u30EC\u30C3\u30C8\n    ", " //PC\n    ", "\n"])), customMedia_1["default"].lessThan("mobile")(templateObject_1 || (templateObject_1 = __makeTemplateObject(["\n     /* screen width is less than 599px (tablet) */\n    width: 100%;\n    "], ["\n     /* screen width is less than 599px (tablet) */\n    width: 100%;\n    "]))), customMedia_1["default"].between("mobile", "tablet")(templateObject_2 || (templateObject_2 = __makeTemplateObject(["\n    /* screen width is between 599px (tablet) and 1024px (desktop) */\n\n    "], ["\n    /* screen width is between 599px (tablet) and 1024px (desktop) */\n\n    "]))), customMedia_1["default"].greaterThan("tablet")(templateObject_3 || (templateObject_3 = __makeTemplateObject(["\n    /* screen width is greater than 1024px (tablet) */\n    \n    "], ["\n    /* screen width is greater than 1024px (tablet) */\n    \n    "]))));
 var templateObject_1, templateObject_2, templateObject_3, templateObject_4;
 
 /***/ }),
@@ -3952,7 +3949,7 @@ exports.ButtonStyle = void 0;
 
 var styled_components_1 = __importDefault(__webpack_require__(/*! styled-components */ "./node_modules/styled-components/dist/styled-components.browser.esm.js"));
 
-exports.ButtonStyle = styled_components_1["default"].div(templateObject_1 || (templateObject_1 = __makeTemplateObject(["\n    display: inline-block;\n    text-align: center;\n    background-color: ", ";\n    opacity: 0.9;\n    /* color: #252525; */\n    color: white;\n    padding: 6px 10px;\n    border-radius: 4px;\n    /* border-bottom: 4px solid #627295; */\n    margin-right: 12px;\n    cursor: pointer;\n    &:hover {\n        opacity: 0.6;\n    }\n"], ["\n    display: inline-block;\n    text-align: center;\n    background-color: ", ";\n    opacity: 0.9;\n    /* color: #252525; */\n    color: white;\n    padding: 6px 10px;\n    border-radius: 4px;\n    /* border-bottom: 4px solid #627295; */\n    margin-right: 12px;\n    cursor: pointer;\n    &:hover {\n        opacity: 0.6;\n    }\n"])), function (props) {
+exports.ButtonStyle = styled_components_1["default"].div(templateObject_1 || (templateObject_1 = __makeTemplateObject(["\n    display: inline-block;\n    text-align: center;\n    background-color: ", ";\n    opacity: 0.9;\n    color: white;\n    padding: 6px 10px;\n    border-radius: 4px;\n    margin-right: 12px;\n    cursor: pointer;\n    &:hover {\n        opacity: 0.6;\n    }\n"], ["\n    display: inline-block;\n    text-align: center;\n    background-color: ", ";\n    opacity: 0.9;\n    color: white;\n    padding: 6px 10px;\n    border-radius: 4px;\n    margin-right: 12px;\n    cursor: pointer;\n    &:hover {\n        opacity: 0.6;\n    }\n"])), function (props) {
   return props.backgroundColor;
 });
 var templateObject_1;
