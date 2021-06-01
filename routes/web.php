@@ -16,9 +16,10 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
         return view('index');
 });
-
 Route::get('api/users','UserController@index');
 Route::get('api/users/{id}','UserController@getTask');
+// api/tasks
+Route::apiResource('tasks','TaskController');
 
 Auth::routes();
 

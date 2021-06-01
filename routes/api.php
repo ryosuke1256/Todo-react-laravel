@@ -14,8 +14,6 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-// api/tasks
-Route::apiResource('tasks','TaskController');
 
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();

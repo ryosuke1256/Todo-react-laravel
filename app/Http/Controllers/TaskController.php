@@ -10,20 +10,16 @@ use Illuminate\Support\Facades\Auth;
 
 class TaskController extends Controller
 {
-
-
     /**
      * api/tasks
      * GET
      */
     public function index(User $user)
     {
-        //全レコードを降順で取得する
-        // return Task::orderByDesc('id')->get();
+
     }
 
     /**
-     * Store a newly created resource in storage.
      * api/tasks
      * POST
      *
@@ -36,14 +32,12 @@ class TaskController extends Controller
         $task = Task::create($request->all());
         return $task 
         ? response()->json($task,201)
-        : response()->json(['エラーです'],500);
+        : response()->json(['Error'],500);
     }
 
     /**
-     * Update the specified resource in storage.
-     *
      * api/tasks/{id}
-     * PUT PATCH
+     * PUT/PATCH
      * 
      * @param  \Illuminate\Http\Request  $request
      * @param  \App\Models\Task  $task
@@ -55,12 +49,10 @@ class TaskController extends Controller
         $task->is_done = $request->is_done;
         return $task->update() 
         ? response()->json($task)
-        : response()->json(['エラーです'],500);
+        : response()->json(['Error'],500);
     }
 
     /**
-     * Remove the specified resource from storage.
-     * 
      * api/tasks/{id}
      * DELETE
      *
@@ -71,6 +63,6 @@ class TaskController extends Controller
     {
         return $task->delete() 
         ? response()->json($task)
-        : response()->json(['エラーです'],500);
+        : response()->json(['Error'],500);
     }
 }
