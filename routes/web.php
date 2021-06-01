@@ -18,9 +18,9 @@ Route::get('/', function () {
 });
 Route::get('api/users','UserController@index');
 Route::get('api/users/{id}','UserController@getTask');
-// api/tasks
-Route::apiResource('tasks','TaskController');
 
+// api/tasks
+Route::apiResource('api/tasks','TaskController');
 Auth::routes();
 
 // Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
