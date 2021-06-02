@@ -21,6 +21,7 @@
 
     <!-- Styles -->
     <link rel="stylesheet" href="{{ mix('css/app.css') }}">
+    <link rel="stylesheet" href="{{ mix('css/style.css') }}">
 </head>
 <body>
             @if (Route::has('login'))
@@ -103,9 +104,13 @@
                     </nav>
 
                     <div class="wallpaper">
-                    <img src='/images/background.jpg' class="background-image" />
+                    <img class="background-image" src='/images/background.jpg' />
+                    <img class="background-image2" src='/images/background2.jpg' />
                     <div class='welcome-content'>
-                        <h1 class='welcome-title'>Todoアプリ作ってみたよ！会員登録して使ってみてね！</h1>
+                        <h1 class='welcome-title'>
+                            <div class='underLine'>Todoアプリ作ってみたよ！</div>
+                            <div class='underLine'>会員登録して使ってみてね！</div>
+                        </h1>
                         <div class='welcome-block'>
                             <div>
                             <div class='welcome-block-title'>タスク管理ツールを使って生産性を上げよう</div>
@@ -114,9 +119,9 @@
                                 <a href="{{ route('register') }}" class="ml-4 text-sm text-gray-700 underline Button Register">新規登録</a>
                             @endif
                             </div>
-                            <img src='/images/todo.png' width='400px' height='400px'/>
+                            <img  src='/images/todo.png' width='400px' height='400px'/>
                         </div>
-                        <img src='/images/image.png' width='800px' /><br>
+                        <img class='todo-image' src='/images/image.png' width='800px' /><br>
                     </div>
                     </div>
                 @endauth
