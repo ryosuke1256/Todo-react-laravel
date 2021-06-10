@@ -12,8 +12,9 @@
 ## フロントエンド
 
 -   TypeScript
--   React(styled components)　　
+-   React　　
 
+* styled components
 ※ Laravel Mix（同一オリジン）
 
 ## バックエンド
