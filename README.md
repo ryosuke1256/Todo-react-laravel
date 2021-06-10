@@ -14,8 +14,7 @@
 -   TypeScript
 -   React　　
 
-※ styled components  
-※ Laravel Mix（同一オリジン）
+※ styled componentｓ,Laravel Mix（同一オリジン）
 
 ## バックエンド
 
