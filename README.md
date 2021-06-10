@@ -27,9 +27,8 @@
 ## インフラ
  
 -   AWS ( VPC, EC2 , RDS, ELB, Route53, CloudWatch)  
-
-サーバー ミドルウェア: Nginx  
-サーバー OS: Amazon Linux  
+- サーバー ミドルウェア: Nginx  
+- サーバー OS: Amazon Linux  
 
 ## 設計
 
