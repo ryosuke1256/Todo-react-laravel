@@ -28,9 +28,9 @@
  
 -   AWS ( VPC, EC2 , RDS, ELB, Route53, CloudWatch)  
 -   サーバー ミドルウェア
-- - Nginx  
+ - Nginx  
 -   サーバー OS
-Amazon Linux  
+ - Amazon Linux  
 
 ## 設計
 
