@@ -57,23 +57,23 @@
                             @guest
                                 @if (Route::has('login'))
                                     <li class="nav-item">
-                                        <a class="nav-link" href="{{ url('login',true) }}">{{ __('Login') }}</a>
+                                        <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
                                     </li>
                                 @endif
 
                                 @if (Route::has('register'))
                                     <li class="nav-item">
-                                        <a class="nav-link" href="{{ url('register',true) }}">{{ __('Register') }}</a>
+                                        <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
                                     </li>
                                 @endif
                             @else
                                 <li class="nav-item dropdown">
-                                    <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                                    <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup=" aria-expanded="false" v-pre>
                                         {{ Auth::user()->name }}
                                     </a>
 
                                     <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                                        <a class="dropdown-item" href="{{ url('logout',true) }}"
+                                        <a class="dropdown-item" href="{{ route('logout') }}"
                                             onclick="event.preventDefault();
                                                 document.getElementById('logout-form').submit();">
                                                 {{ __('Logout') }}
@@ -101,9 +101,9 @@
                             <a class="navbar-brand" href="{{ url('/') }}">
                                 {{ config('app.name', 'Laravel')}}
                             </a>
-                            <a href="{{ url('login',true) }}" class="text-sm text-gray-700 underline" >ログイン</a>
+                            <a href="{{ route('login') }}" class="text-sm text-gray-700 underline" >ログイン</a>
                             @if (Route::has('register'))
-                                <a href="{{ url('register',true) }}" class="ml-4 text-sm text-gray-700 underline">新規登録</a>
+                                <a href="{{ route('register') }}" class="ml-4 text-sm text-gray-700 underline">新規登録</a>
                             @endif
                         </div>
                     </nav>
@@ -119,9 +119,9 @@
                         <div class='welcome-block'>
                             <div>
                             <div class='welcome-block-title'>タスク管理ツールを使って生産性を上げよう</div>
-                            <a href="{{ url('login',true) }}" class="text-sm text-gray-700 underline Button Login">ログイン</a>
+                            <a href="{{ route('login') }}" class="text-sm text-gray-700 underline Button Login">ログイン</a>
                             @if (Route::has('register'))
-                                <a href="{{ url('register',true) }}" class="ml-4 text-sm text-gray-700 underline Button Register">新規登録</a>
+                                <a href="{{ route('register') }}" class="ml-4 text-sm text-gray-700 underline Button Register">新規登録</a>
                             @endif
                             </div>
                             <img  src='/images/todo.png' width='400px' height='400px'/>
