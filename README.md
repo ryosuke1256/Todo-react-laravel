@@ -12,7 +12,7 @@
 ## フロントエンド
 
 -   TypeScript
--   React  
+-   React
 
 ※ Laravel Mix（同一オリジン）
 
@@ -24,5 +24,12 @@
 
 -   MySQL
 
+## インフラ
+
+-   AWS ( VPC, EC2 , RDS, ELB, Route53, CloudWatch)
+-   サーバー ミドルウェア: Nginx
+-   サーバー OS: Amazon Linux
+
 ## 設計
-- [Docs](https://github.com/ryosuke1256/Todo-react-laravel/tree/develop/docs)
+
+-   [Docs](https://github.com/ryosuke1256/Todo-react-laravel/tree/develop/docs)
