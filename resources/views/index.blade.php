@@ -18,15 +18,15 @@
     <title>{{ config('app.name', 'Laravel') }}</title>
 
     <!-- Scripts -->
-    <script src="{{ asset('js/app.js') }}" defer></script>
+    <script src="{{ asset('js/app.js',$is_production) }}" defer></script>
 
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
 
     <!-- Styles -->
-    <link rel="stylesheet" href="{{ mix('css/app.css') }}">
-    <link rel="stylesheet" href="{{ mix('css/style.css') }}">
+    <link rel="stylesheet" href="{{ asset(mix('css/app.css'),$is_production) }}">
+    <link rel="stylesheet" href="{{ asset(mix('css/style.css'),$is_production) }}">
 </head>
 <body>
             @if (Route::has('login'))
@@ -38,7 +38,7 @@
                     <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
                         <div class="container">
                         <img src='/images/whale.png' width='40px' height=40px'/>
-                        <a class="navbar-brand" href="{{ url('/') }}">
+                        <a class="navbar-brand" href="{{ url('/',null, $is_production) }}">
                             {{ config('app.name', 'Laravel') }}
                         </a>
                         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
@@ -57,29 +57,29 @@
                             @guest
                                 @if (Route::has('login'))
                                     <li class="nav-item">
-                                        <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
+                                        <a class="nav-link" href="{{ url('login', null, $is_production) }}">{{ __('Login') }}</a>
                                     </li>
                                 @endif
 
                                 @if (Route::has('register'))
                                     <li class="nav-item">
-                                        <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
+                                        <a class="nav-link" href="{{ url('register', null, $is_production) }}">{{ __('Register') }}</a>
                                     </li>
                                 @endif
                             @else
                                 <li class="nav-item dropdown">
-                                    <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                                    <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup=" aria-expanded="false" v-pre>
                                         {{ Auth::user()->name }}
                                     </a>
 
                                     <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                                        <a class="dropdown-item" href="{{ route('logout') }}"
+                                        <a class="dropdown-item" href="{{ url('logout', null, $is_production) }}"
                                             onclick="event.preventDefault();
                                                 document.getElementById('logout-form').submit();">
                                                 {{ __('Logout') }}
                                         </a>
 
-                                        <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                                        <form id="logout-form" action="{{ url('logout', null , $is_production) }}" method="POST" class="d-none">
                                             @csrf
                                         </form>
                                     </div>
@@ -98,12 +98,12 @@
                     <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
                         <div class="container" style='padding-left:23px'>
                             <img src='/images/whale.png' width='40px' height=40px' />
-                            <a class="navbar-brand" href="{{ url('/') }}">
+                            <a class="navbar-brand" href="{{ url('/' , null , $is_production) }}">
                                 {{ config('app.name', 'Laravel')}}
                             </a>
-                            <a href="{{ route('login') }}" class="text-sm text-gray-700 underline" >ログイン</a>
+                            <a href="{{ url('login', null , $is_production) }}" class="text-sm text-gray-700 underline" >ログイン</a>
                             @if (Route::has('register'))
-                                <a href="{{ route('register') }}" class="ml-4 text-sm text-gray-700 underline">新規登録</a>
+                                <a href="{{ url('register', null, $is_production) }}" class="ml-4 text-sm text-gray-700 underline">新規登録</a>
                             @endif
                         </div>
                     </nav>
@@ -119,9 +119,9 @@
                         <div class='welcome-block'>
                             <div>
                             <div class='welcome-block-title'>タスク管理ツールを使って生産性を上げよう</div>
-                            <a href="{{ route('login') }}" class="text-sm text-gray-700 underline Button Login">ログイン</a>
+                            <a href="{{ url('login', null , $is_production) }}" class="text-sm text-gray-700 underline Button Login">ログイン</a>
                             @if (Route::has('register'))
-                                <a href="{{ route('register') }}" class="ml-4 text-sm text-gray-700 underline Button Register">新規登録</a>
+                                <a href="{{ url('register', null , $is_production) }}" class="ml-4 text-sm text-gray-700 underline Button Register">新規登録</a>
                             @endif
                             </div>
                             <img  src='/images/todo.png' width='400px' height='400px'/>
