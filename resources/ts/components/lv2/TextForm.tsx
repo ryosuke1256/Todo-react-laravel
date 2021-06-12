@@ -17,7 +17,13 @@ const TextForm: React.VFC<Props> = ({ postTask, userID }: Props) => {
 
     return (
         <_TextForm>
-            <InputText text={text} handleChange={handleChange} />
+            <InputText
+                text={text}
+                handleChange={handleChange}
+                postTask={postTask}
+                setText={setText}
+                userID={userID}
+            />
             <SubmitButton
                 text={text}
                 postTask={postTask}

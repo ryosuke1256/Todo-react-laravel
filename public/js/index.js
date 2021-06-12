@@ -3203,13 +3203,28 @@ var react_1 = __importDefault(__webpack_require__(/*! react */ "./node_modules/r
 
 var InputText = function InputText(_a) {
   var text = _a.text,
-      handleChange = _a.handleChange;
+      handleChange = _a.handleChange,
+      postTask = _a.postTask,
+      setText = _a.setText,
+      userID = _a.userID;
+  var data = {
+    user_id: userID,
+    title: text,
+    is_done: 0
+  };
   return react_1["default"].createElement("input", {
     name: "task",
     value: text,
     placeholder: "\u30BF\u30B9\u30AF\u3092\u5165\u529B",
     onChange: function onChange(e) {
       return handleChange(e);
+    },
+    onKeyPress: function onKeyPress(e) {
+      if (e.key === "Enter") {
+        e.preventDefault();
+        postTask(data);
+        setText("");
+      }
     },
     style: {
       padding: "5px"
@@ -3885,7 +3900,10 @@ var TextForm = function TextForm(_a) {
 
   return react_1["default"].createElement(_TextForm, null, react_1["default"].createElement(_index_1.InputText, {
     text: text,
-    handleChange: handleChange
+    handleChange: handleChange,
+    postTask: postTask,
+    setText: setText,
+    userID: userID
   }), react_1["default"].createElement(_index_1.SubmitButton, {
     text: text,
     postTask: postTask,
