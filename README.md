@@ -28,7 +28,7 @@
  
 -   AWS ( VPC, EC2 , RDS, ELB, Route53, CloudWatch)  
 
-**サーバー**　　
+**Webサーバー**　　
 
 　ミドルウェア : Nginx　　
  
