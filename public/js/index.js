@@ -3716,7 +3716,7 @@ var TaskCard = function TaskCard(_a) {
               setTasks(tasks.filter(function (task) {
                 return task.id !== res.data.id;
               })); // tasks.splice(i, 1);
-              // setTasks(tas10px
+              // setTasks(tasks);
               // setChange(change + 1);
             } catch (err) {
               console.log(err);
