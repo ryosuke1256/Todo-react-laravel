@@ -39,7 +39,7 @@ const TaskCard: React.VFC<Props> = ({
         try {
             setTasks(tasks.filter((task) => task.id !== res.data.id));
             // tasks.splice(i, 1);
-            // setTasks(tas10px
+            // setTasks(tasks);
             // setChange(change + 1);
         } catch (err) {
             console.log(err);
