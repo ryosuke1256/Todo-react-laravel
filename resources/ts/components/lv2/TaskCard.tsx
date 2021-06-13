@@ -3,6 +3,7 @@ import styled from "styled-components";
 import axios from "axios";
 import { EditButton, DeleteButton, CheckBox, TaskTitle } from "../lv1/_index";
 import { API } from "../../api/API";
+import customMedia from "../../style/customMedia";
 
 type Props = {
     task: API;
@@ -106,8 +107,20 @@ const _TaskCard = styled.div`
     display: flex;
     align-items: center;
     border: 1px solid #c4cfd6;
-    padding: 1.3%;
+    padding: 10px;
     border-bottom: 0px;
     border-radius: 6px;
     background-color: rgb(254, 254, 254);
+    ${customMedia.lessThan("mobile")`
+     /* screen width is less than 599px (tablet) */
+        padding:13px;
+    `}
+    ${customMedia.between("mobile", "tablet")`
+    /* screen width is between 599px (tablet) and 1024px (desktop) */
+
+    `}
+    ${customMedia.greaterThan("tablet")`
+    /* screen width is greater than 1024px (tablet) */
+    
+    `}
 `;
