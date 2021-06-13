@@ -76,7 +76,7 @@
                                         <a class="dropdown-item" href="{{ url('logout', null, $is_production) }}"
                                             onclick="event.preventDefault();
                                                 document.getElementById('logout-form').submit();">
-                                                {{ __('Logout') }}
+                                                ログアウト
                                         </a>
 
                                         <form id="logout-form" action="{{ url('logout', null , $is_production) }}" method="POST" class="d-none">
