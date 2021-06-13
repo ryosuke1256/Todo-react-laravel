@@ -39,4 +39,5 @@ const _TaskTitle = styled.div<{ is_done: 0 | 1 }>`
     padding-left: 13px;
     text-decoration: ${(props) =>
         props.is_done === 1 ? "line-through" : "none"};
+    color: ${(props) => (props.is_done === 1 ? "#6b6b6b" : "#212529")};
 `;
