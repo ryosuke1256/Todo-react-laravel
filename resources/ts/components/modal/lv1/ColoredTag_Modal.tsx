@@ -27,7 +27,7 @@ const TagColorModal: React.VFC<Props> = ({backgroundColor,selected_color,setSele
                     } else if (i === 2) {
                         setSelected_color({red:selected_color.red,blue:selected_color.blue,yellow:!selected_color.yellow,green:selected_color.green});
                     } else if (i === 3) {
-                        setSelected_color({red:selected_color.red,blue:!selected_color.blue,yellow:selected_color.yellow,green:!selected_color.green});
+                        setSelected_color({red:selected_color.red,blue:selected_color.blue,yellow:selected_color.yellow,green:!selected_color.green});
                     }
                 }}
                 is_selected={is_selected}

@@ -1,6 +1,6 @@
-import React, { useState } from "react";
+import React from "react";
 import styled from "styled-components";
-import TagColor_Modal from "../lv1/TagColorModal";
+import TagColor_Modal from "../lv1/ColoredTag_Modal";
 import { Color } from "../../../type/color/Color";
 
 type Props = {

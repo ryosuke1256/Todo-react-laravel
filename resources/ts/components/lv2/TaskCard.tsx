@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import styled from "styled-components";
 import axios from "axios";
-import { TagColors } from "./_index";
+import { ColoredTags } from "./_index";
 import Modal from "../modal/lv2/Modal";
 import { EditButton, DeleteButton, CheckBox, TaskTitle } from "../lv1/_index"; //prettier-ignore
 import { API } from "../../type/api/API";
@@ -101,7 +101,7 @@ const TaskCard: React.VFC<Props> = ({task,tasks,setTasks,tasksEditActive,setTask
                     />
                 </_Wrapper>
                 <_Wrapper onClick={() => setHasModalOpened(true)}>
-                    <TagColors
+                    <ColoredTags
                         selected_color={selected_color}
                     />
                 </_Wrapper>
