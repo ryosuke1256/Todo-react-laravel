@@ -1,8 +1,10 @@
 import React, { useEffect, useState } from "react";
 import styled from "styled-components";
 import axios from "axios";
-import { EditButton, DeleteButton, CheckBox, TaskTitle } from "../lv1/_index";
-import { API } from "../../api/API";
+import { TagColors } from "./_index";
+import Modal from "../modal/lv2/Modal";
+import { EditButton, DeleteButton, CheckBox, TaskTitle } from "../lv1/_index"; //prettier-ignore
+import { API } from "../../type/api/API";
 import customMedia from "../../style/customMedia";
 
 type Props = {
@@ -15,19 +17,14 @@ type Props = {
     i: number;
 };
 
-const TaskCard: React.VFC<Props> = ({
-    task,
-    tasks,
-    setTasks,
-    tasksEditActive,
-    setTasksEditActive,
-    id,
-    i,
-}: Props) => {
+//prettier-ignore
+const TaskCard: React.VFC<Props> = ({task,tasks,setTasks,tasksEditActive,setTasksEditActive,id,i,}: Props) => {
     const [todo, setTodo] = useState(task);
     const [title, setTitle] = useState(task.title);
     const [is_done, setIs_done] = useState<0 | 1>(task.is_done);
     const [editActive, setEditActive] = useState(false);
+    const [hasModalOpened, setHasModalOpened] = useState(false);
+    const [selected_color, setSelected_color] = useState({red:false,blue:false,yellow:false,green:false}); //prettier-ignore
 
     useEffect(() => {
         setTitle(task.title);
@@ -80,47 +77,65 @@ const TaskCard: React.VFC<Props> = ({
     };
 
     return (
-        <_TaskCard>
-            <CheckBox is_done={is_done} checkTask={checkTask} />
-            <TaskTitle
-                is_done={is_done}
-                editActive={editActive}
-                title={title}
-                setTitle={setTitle}
+        <>
+            <_TaskCard>
+                <_Wrapper>
+                    <CheckBox is_done={is_done} checkTask={checkTask} />
+                    <TaskTitle
+                        is_done={is_done}
+                        editActive={editActive}
+                        title={title}
+                        setTitle={setTitle}
+                    />
+                    <EditButton
+                        editTask={editTask}
+                        editActive={editActive}
+                        setEditActive={setEditActive}
+                        tasksEditActive={tasksEditActive}
+                        setTasksEditActive={setTasksEditActive}
+                        title={title}
+                    />
+                    <DeleteButton
+                        deleteTask={deleteTask}
+                        setIs_done={setIs_done}
+                    />
+                </_Wrapper>
+                <_Wrapper onClick={() => setHasModalOpened(true)}>
+                    <TagColors
+                        selected_color={selected_color}
+                    />
+                </_Wrapper>
+            </_TaskCard>
+            <Modal
+                hasModalOpened={hasModalOpened}
+                setHasModalOpened={setHasModalOpened}
+                selected_color={selected_color}
+                setSelected_color={setSelected_color}
             />
-            <EditButton
-                editTask={editTask}
-                editActive={editActive}
-                setEditActive={setEditActive}
-                tasksEditActive={tasksEditActive}
-                setTasksEditActive={setTasksEditActive}
-                title={title}
-            />
-            <DeleteButton deleteTask={deleteTask} setIs_done={setIs_done} />
-        </_TaskCard>
+        </>
     );
 };
 
 export default TaskCard;
 
 const _TaskCard = styled.div`
-    display: flex;
-    align-items: center;
     border: 1px solid #c4cfd6;
     padding: 10px;
     border-bottom: 0px;
     border-radius: 6px;
     background-color: rgb(254, 254, 254);
     ${customMedia.lessThan("mobile")`
-     /* screen width is less than 599px (tablet) */
         padding:13px;
     `}
     ${customMedia.between("mobile", "tablet")`
-    /* screen width is between 599px (tablet) and 1024px (desktop) */
 
     `}
     ${customMedia.greaterThan("tablet")`
-    /* screen width is greater than 1024px (tablet) */
     
     `}
+`;
+
+const _Wrapper = styled.div`
+    display: flex;
+    align-items: center;
 `;

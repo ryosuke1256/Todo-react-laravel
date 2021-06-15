@@ -3286,6 +3286,53 @@ exports.default = SubmitButton;
 
 /***/ }),
 
+/***/ "./resources/ts/components/lv1/TagColor.tsx":
+/*!**************************************************!*\
+  !*** ./resources/ts/components/lv1/TagColor.tsx ***!
+  \**************************************************/
+/***/ (function(__unused_webpack_module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var __makeTemplateObject = this && this.__makeTemplateObject || function (cooked, raw) {
+  if (Object.defineProperty) {
+    Object.defineProperty(cooked, "raw", {
+      value: raw
+    });
+  } else {
+    cooked.raw = raw;
+  }
+
+  return cooked;
+};
+
+var __importDefault = this && this.__importDefault || function (mod) {
+  return mod && mod.__esModule ? mod : {
+    "default": mod
+  };
+};
+
+Object.defineProperty(exports, "__esModule", ({
+  value: true
+}));
+exports.TagColor = void 0;
+
+var styled_components_1 = __importDefault(__webpack_require__(/*! styled-components */ "./node_modules/styled-components/dist/styled-components.browser.esm.js"));
+
+exports.TagColor = styled_components_1["default"].div(templateObject_1 || (templateObject_1 = __makeTemplateObject(["\n    height: 10px;\n    width: 35px;\n    border-radius: 30px;\n    margin-left: 10px;\n    background-color: ", ";\n    background-color: ", ";\n    background-color: ", ";\n    background-color: ", ";\n"], ["\n    height: 10px;\n    width: 35px;\n    border-radius: 30px;\n    margin-left: 10px;\n    background-color: ", ";\n    background-color: ", ";\n    background-color: ", ";\n    background-color: ", ";\n"])), function (props) {
+  return props.red ? "rgba(255, 65, 51)" : null;
+}, function (props) {
+  return props.blue ? "rgba(51, 194, 255)" : null;
+}, function (props) {
+  return props.yellow ? "rgba(250, 250, 0)" : null;
+}, function (props) {
+  return props.green ? "rgba(48, 255, 69)" : null;
+});
+var templateObject_1;
+
+/***/ }),
+
 /***/ "./resources/ts/components/lv1/TaskTitle.tsx":
 /*!***************************************************!*\
   !*** ./resources/ts/components/lv1/TaskTitle.tsx ***!
@@ -3446,6 +3493,159 @@ var Header = function Header() {
 exports.default = Header;
 
 var _Header = styled_components_1["default"].div(templateObject_1 || (templateObject_1 = __makeTemplateObject(["\n    text-align: center;\n    margin-bottom: 20px;\n    background-color: rgba(121, 184, 255, 0.4);\n"], ["\n    text-align: center;\n    margin-bottom: 20px;\n    background-color: rgba(121, 184, 255, 0.4);\n"])));
+
+var templateObject_1;
+
+/***/ }),
+
+/***/ "./resources/ts/components/lv2/TagColors.tsx":
+/*!***************************************************!*\
+  !*** ./resources/ts/components/lv2/TagColors.tsx ***!
+  \***************************************************/
+/***/ (function(__unused_webpack_module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var __makeTemplateObject = this && this.__makeTemplateObject || function (cooked, raw) {
+  if (Object.defineProperty) {
+    Object.defineProperty(cooked, "raw", {
+      value: raw
+    });
+  } else {
+    cooked.raw = raw;
+  }
+
+  return cooked;
+};
+
+var __importDefault = this && this.__importDefault || function (mod) {
+  return mod && mod.__esModule ? mod : {
+    "default": mod
+  };
+};
+
+Object.defineProperty(exports, "__esModule", ({
+  value: true
+}));
+
+var react_1 = __importDefault(__webpack_require__(/*! react */ "./node_modules/react/index.js"));
+
+var TagColor_1 = __webpack_require__(/*! ../lv1/TagColor */ "./resources/ts/components/lv1/TagColor.tsx");
+
+var styled_components_1 = __importDefault(__webpack_require__(/*! styled-components */ "./node_modules/styled-components/dist/styled-components.browser.esm.js")); //prettier-ignore
+
+
+var TagColors = function TagColors(_a) {
+  var selected_color = _a.selected_color; //クソみたいな書き方、後でリファクタリング
+
+  var GetTagColors = function GetTagColors() {
+    //prettier-ignore
+    if (selected_color.red && selected_color.blue && selected_color.yellow && selected_color.green) {
+      return react_1["default"].createElement(react_1["default"].Fragment, null, react_1["default"].createElement(TagColor_1.TagColor, {
+        red: selected_color.red
+      }), react_1["default"].createElement(TagColor_1.TagColor, {
+        blue: selected_color.blue
+      }), react_1["default"].createElement(TagColor_1.TagColor, {
+        yellow: selected_color.yellow
+      }), react_1["default"].createElement(TagColor_1.TagColor, {
+        green: selected_color.green
+      }));
+    } else if (selected_color.red && selected_color.blue && selected_color.yellow) {
+      return react_1["default"].createElement(react_1["default"].Fragment, null, react_1["default"].createElement(TagColor_1.TagColor, {
+        red: selected_color.red
+      }), react_1["default"].createElement(TagColor_1.TagColor, {
+        blue: selected_color.blue
+      }), react_1["default"].createElement(TagColor_1.TagColor, {
+        yellow: selected_color.yellow
+      }));
+    } else if (selected_color.red && selected_color.blue && selected_color.green) {
+      return react_1["default"].createElement(react_1["default"].Fragment, null, react_1["default"].createElement(TagColor_1.TagColor, {
+        red: selected_color.red
+      }), react_1["default"].createElement(TagColor_1.TagColor, {
+        blue: selected_color.blue
+      }), react_1["default"].createElement(TagColor_1.TagColor, {
+        green: selected_color.green
+      }));
+    } else if (selected_color.red && selected_color.yellow && selected_color.green) {
+      return react_1["default"].createElement(react_1["default"].Fragment, null, react_1["default"].createElement(TagColor_1.TagColor, {
+        red: selected_color.red
+      }), react_1["default"].createElement(TagColor_1.TagColor, {
+        yellow: selected_color.yellow
+      }), react_1["default"].createElement(TagColor_1.TagColor, {
+        green: selected_color.green
+      }));
+    } else if (selected_color.blue && selected_color.yellow && selected_color.green) {
+      return react_1["default"].createElement(react_1["default"].Fragment, null, react_1["default"].createElement(TagColor_1.TagColor, {
+        blue: selected_color.blue
+      }), react_1["default"].createElement(TagColor_1.TagColor, {
+        yellow: selected_color.yellow
+      }), react_1["default"].createElement(TagColor_1.TagColor, {
+        green: selected_color.green
+      }));
+    } else if (selected_color.yellow && selected_color.green) {
+      return react_1["default"].createElement(react_1["default"].Fragment, null, react_1["default"].createElement(TagColor_1.TagColor, {
+        yellow: selected_color.yellow
+      }), react_1["default"].createElement(TagColor_1.TagColor, {
+        green: selected_color.green
+      }));
+    } else if (selected_color.blue && selected_color.green) {
+      return react_1["default"].createElement(react_1["default"].Fragment, null, react_1["default"].createElement(TagColor_1.TagColor, {
+        blue: selected_color.blue
+      }), react_1["default"].createElement(TagColor_1.TagColor, {
+        green: selected_color.green
+      }));
+    } else if (selected_color.blue && selected_color.yellow) {
+      return react_1["default"].createElement(react_1["default"].Fragment, null, react_1["default"].createElement(TagColor_1.TagColor, {
+        blue: selected_color.blue
+      }), react_1["default"].createElement(TagColor_1.TagColor, {
+        yellow: selected_color.yellow
+      }));
+    } else if (selected_color.red && selected_color.green) {
+      return react_1["default"].createElement(react_1["default"].Fragment, null, react_1["default"].createElement(TagColor_1.TagColor, {
+        red: selected_color.red
+      }), react_1["default"].createElement(TagColor_1.TagColor, {
+        green: selected_color.green
+      }));
+    } else if (selected_color.red && selected_color.yellow) {
+      return react_1["default"].createElement(react_1["default"].Fragment, null, react_1["default"].createElement(TagColor_1.TagColor, {
+        red: selected_color.red
+      }), react_1["default"].createElement(TagColor_1.TagColor, {
+        yellow: selected_color.yellow
+      }));
+    } else if (selected_color.red && selected_color.blue) {
+      return react_1["default"].createElement(react_1["default"].Fragment, null, react_1["default"].createElement(TagColor_1.TagColor, {
+        red: selected_color.red
+      }), react_1["default"].createElement(TagColor_1.TagColor, {
+        blue: selected_color.blue
+      }));
+    } else if (selected_color.red) {
+      return react_1["default"].createElement(TagColor_1.TagColor, {
+        red: selected_color.red
+      });
+    } else if (selected_color.blue) {
+      return react_1["default"].createElement(TagColor_1.TagColor, {
+        blue: selected_color.blue
+      });
+    } else if (selected_color.yellow) {
+      return react_1["default"].createElement(TagColor_1.TagColor, {
+        yellow: selected_color.yellow
+      });
+    } else if (selected_color.green) {
+      return react_1["default"].createElement(TagColor_1.TagColor, {
+        green: selected_color.green
+      });
+    } else {
+      return react_1["default"].createElement("div", null, "\uFF0B");
+    }
+  };
+
+  return react_1["default"].createElement(_TagColors, null, react_1["default"].createElement(GetTagColors, null));
+};
+
+exports.default = TagColors;
+
+var _TagColors = styled_components_1["default"].div(templateObject_1 || (templateObject_1 = __makeTemplateObject(["\n    display: flex;\n    height: 10px;\n"], ["\n    display: flex;\n    height: 10px;\n"])));
 
 var templateObject_1;
 
@@ -3665,9 +3865,15 @@ var styled_components_1 = __importDefault(__webpack_require__(/*! styled-compone
 
 var axios_1 = __importDefault(__webpack_require__(/*! axios */ "./node_modules/axios/index.js"));
 
-var _index_1 = __webpack_require__(/*! ../lv1/_index */ "./resources/ts/components/lv1/_index.js");
+var _index_1 = __webpack_require__(/*! ./_index */ "./resources/ts/components/lv2/_index.js");
 
-var customMedia_1 = __importDefault(__webpack_require__(/*! ../../style/customMedia */ "./resources/ts/style/customMedia.tsx"));
+var Modal_1 = __importDefault(__webpack_require__(/*! ../modal/lv2/Modal */ "./resources/ts/components/modal/lv2/Modal.tsx"));
+
+var _index_2 = __webpack_require__(/*! ../lv1/_index */ "./resources/ts/components/lv1/_index.js"); //prettier-ignore
+
+
+var customMedia_1 = __importDefault(__webpack_require__(/*! ../../style/customMedia */ "./resources/ts/style/customMedia.tsx")); //prettier-ignore
+
 
 var TaskCard = function TaskCard(_a) {
   var task = _a.task,
@@ -3693,6 +3899,20 @@ var TaskCard = function TaskCard(_a) {
   var _e = react_1.useState(false),
       editActive = _e[0],
       setEditActive = _e[1];
+
+  var _f = react_1.useState(false),
+      hasModalOpened = _f[0],
+      setHasModalOpened = _f[1];
+
+  var _g = react_1.useState({
+    red: false,
+    blue: false,
+    yellow: false,
+    green: false
+  }),
+      selected_color = _g[0],
+      setSelected_color = _g[1]; //prettier-ignore
+
 
   react_1.useEffect(function () {
     setTitle(task.title);
@@ -3791,32 +4011,45 @@ var TaskCard = function TaskCard(_a) {
     });
   };
 
-  return react_1["default"].createElement(_TaskCard, null, react_1["default"].createElement(_index_1.CheckBox, {
+  return react_1["default"].createElement(react_1["default"].Fragment, null, react_1["default"].createElement(_TaskCard, null, react_1["default"].createElement(_Wrapper, null, react_1["default"].createElement(_index_2.CheckBox, {
     is_done: is_done,
     checkTask: checkTask
-  }), react_1["default"].createElement(_index_1.TaskTitle, {
+  }), react_1["default"].createElement(_index_2.TaskTitle, {
     is_done: is_done,
     editActive: editActive,
     title: title,
     setTitle: setTitle
-  }), react_1["default"].createElement(_index_1.EditButton, {
+  }), react_1["default"].createElement(_index_2.EditButton, {
     editTask: editTask,
     editActive: editActive,
     setEditActive: setEditActive,
     tasksEditActive: tasksEditActive,
     setTasksEditActive: setTasksEditActive,
     title: title
-  }), react_1["default"].createElement(_index_1.DeleteButton, {
+  }), react_1["default"].createElement(_index_2.DeleteButton, {
     deleteTask: deleteTask,
     setIs_done: setIs_done
+  })), react_1["default"].createElement(_Wrapper, {
+    onClick: function onClick() {
+      return setHasModalOpened(true);
+    }
+  }, react_1["default"].createElement(_index_1.TagColors, {
+    selected_color: selected_color
+  }))), react_1["default"].createElement(Modal_1["default"], {
+    hasModalOpened: hasModalOpened,
+    setHasModalOpened: setHasModalOpened,
+    selected_color: selected_color,
+    setSelected_color: setSelected_color
   }));
 };
 
 exports.default = TaskCard;
 
-var _TaskCard = styled_components_1["default"].div(templateObject_4 || (templateObject_4 = __makeTemplateObject(["\n    display: flex;\n    align-items: center;\n    border: 1px solid #c4cfd6;\n    padding: 10px;\n    border-bottom: 0px;\n    border-radius: 6px;\n    background-color: rgb(254, 254, 254);\n    ", "\n    ", "\n    ", "\n"], ["\n    display: flex;\n    align-items: center;\n    border: 1px solid #c4cfd6;\n    padding: 10px;\n    border-bottom: 0px;\n    border-radius: 6px;\n    background-color: rgb(254, 254, 254);\n    ", "\n    ", "\n    ", "\n"])), customMedia_1["default"].lessThan("mobile")(templateObject_1 || (templateObject_1 = __makeTemplateObject(["\n     /* screen width is less than 599px (tablet) */\n        padding:13px;\n    "], ["\n     /* screen width is less than 599px (tablet) */\n        padding:13px;\n    "]))), customMedia_1["default"].between("mobile", "tablet")(templateObject_2 || (templateObject_2 = __makeTemplateObject(["\n    /* screen width is between 599px (tablet) and 1024px (desktop) */\n\n    "], ["\n    /* screen width is between 599px (tablet) and 1024px (desktop) */\n\n    "]))), customMedia_1["default"].greaterThan("tablet")(templateObject_3 || (templateObject_3 = __makeTemplateObject(["\n    /* screen width is greater than 1024px (tablet) */\n    \n    "], ["\n    /* screen width is greater than 1024px (tablet) */\n    \n    "]))));
+var _TaskCard = styled_components_1["default"].div(templateObject_4 || (templateObject_4 = __makeTemplateObject(["\n    border: 1px solid #c4cfd6;\n    padding: 10px;\n    border-bottom: 0px;\n    border-radius: 6px;\n    background-color: rgb(254, 254, 254);\n    ", "\n    ", "\n    ", "\n"], ["\n    border: 1px solid #c4cfd6;\n    padding: 10px;\n    border-bottom: 0px;\n    border-radius: 6px;\n    background-color: rgb(254, 254, 254);\n    ", "\n    ", "\n    ", "\n"])), customMedia_1["default"].lessThan("mobile")(templateObject_1 || (templateObject_1 = __makeTemplateObject(["\n        padding:13px;\n    "], ["\n        padding:13px;\n    "]))), customMedia_1["default"].between("mobile", "tablet")(templateObject_2 || (templateObject_2 = __makeTemplateObject(["\n\n    "], ["\n\n    "]))), customMedia_1["default"].greaterThan("tablet")(templateObject_3 || (templateObject_3 = __makeTemplateObject(["\n    \n    "], ["\n    \n    "]))));
 
-var templateObject_1, templateObject_2, templateObject_3, templateObject_4;
+var _Wrapper = styled_components_1["default"].div(templateObject_5 || (templateObject_5 = __makeTemplateObject(["\n    display: flex;\n    align-items: center;\n"], ["\n    display: flex;\n    align-items: center;\n"])));
+
+var templateObject_1, templateObject_2, templateObject_3, templateObject_4, templateObject_5;
 
 /***/ }),
 
@@ -3968,6 +4201,276 @@ var templateObject_1, templateObject_2, templateObject_3, templateObject_4;
 
 /***/ }),
 
+/***/ "./resources/ts/components/modal/lv1/CheckMark.tsx":
+/*!*********************************************************!*\
+  !*** ./resources/ts/components/modal/lv1/CheckMark.tsx ***!
+  \*********************************************************/
+/***/ (function(__unused_webpack_module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var __makeTemplateObject = this && this.__makeTemplateObject || function (cooked, raw) {
+  if (Object.defineProperty) {
+    Object.defineProperty(cooked, "raw", {
+      value: raw
+    });
+  } else {
+    cooked.raw = raw;
+  }
+
+  return cooked;
+};
+
+var __importDefault = this && this.__importDefault || function (mod) {
+  return mod && mod.__esModule ? mod : {
+    "default": mod
+  };
+};
+
+Object.defineProperty(exports, "__esModule", ({
+  value: true
+}));
+exports.CheckMark = void 0;
+
+var styled_components_1 = __importDefault(__webpack_require__(/*! styled-components */ "./node_modules/styled-components/dist/styled-components.browser.esm.js"));
+
+exports.CheckMark = styled_components_1["default"].div(templateObject_1 || (templateObject_1 = __makeTemplateObject(["\n    position: relative;\n    left: 40%;\n    top: 12%;\n    width: 20px;\n    height: 10px;\n    border-left: 2px solid white;\n    border-bottom: 2px solid white;\n    transform: rotate(-45deg);\n"], ["\n    position: relative;\n    left: 40%;\n    top: 12%;\n    width: 20px;\n    height: 10px;\n    border-left: 2px solid white;\n    border-bottom: 2px solid white;\n    transform: rotate(-45deg);\n"])));
+var templateObject_1;
+
+/***/ }),
+
+/***/ "./resources/ts/components/modal/lv1/TagColorModal.tsx":
+/*!*************************************************************!*\
+  !*** ./resources/ts/components/modal/lv1/TagColorModal.tsx ***!
+  \*************************************************************/
+/***/ (function(__unused_webpack_module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var __makeTemplateObject = this && this.__makeTemplateObject || function (cooked, raw) {
+  if (Object.defineProperty) {
+    Object.defineProperty(cooked, "raw", {
+      value: raw
+    });
+  } else {
+    cooked.raw = raw;
+  }
+
+  return cooked;
+};
+
+var __createBinding = this && this.__createBinding || (Object.create ? function (o, m, k, k2) {
+  if (k2 === undefined) k2 = k;
+  Object.defineProperty(o, k2, {
+    enumerable: true,
+    get: function get() {
+      return m[k];
+    }
+  });
+} : function (o, m, k, k2) {
+  if (k2 === undefined) k2 = k;
+  o[k2] = m[k];
+});
+
+var __setModuleDefault = this && this.__setModuleDefault || (Object.create ? function (o, v) {
+  Object.defineProperty(o, "default", {
+    enumerable: true,
+    value: v
+  });
+} : function (o, v) {
+  o["default"] = v;
+});
+
+var __importStar = this && this.__importStar || function (mod) {
+  if (mod && mod.__esModule) return mod;
+  var result = {};
+  if (mod != null) for (var k in mod) {
+    if (k !== "default" && Object.prototype.hasOwnProperty.call(mod, k)) __createBinding(result, mod, k);
+  }
+
+  __setModuleDefault(result, mod);
+
+  return result;
+};
+
+var __importDefault = this && this.__importDefault || function (mod) {
+  return mod && mod.__esModule ? mod : {
+    "default": mod
+  };
+};
+
+Object.defineProperty(exports, "__esModule", ({
+  value: true
+}));
+
+var react_1 = __importStar(__webpack_require__(/*! react */ "./node_modules/react/index.js"));
+
+var styled_components_1 = __importDefault(__webpack_require__(/*! styled-components */ "./node_modules/styled-components/dist/styled-components.browser.esm.js"));
+
+var CheckMark_1 = __webpack_require__(/*! ./CheckMark */ "./resources/ts/components/modal/lv1/CheckMark.tsx"); //prettier-ignore
+
+
+var TagColorModal = function TagColorModal(_a) {
+  var backgroundColor = _a.backgroundColor,
+      selected_color = _a.selected_color,
+      setSelected_color = _a.setSelected_color,
+      initChecked = _a.initChecked,
+      i = _a.i;
+
+  var _b = react_1.useState(initChecked),
+      is_selected = _b[0],
+      setIs_Selected = _b[1];
+
+  return react_1["default"].createElement(react_1["default"].Fragment, null, react_1["default"].createElement(_TagColor, {
+    onClick: function onClick() {
+      setIs_Selected(function (prevState) {
+        return !prevState;
+      });
+
+      if (i === 0) {
+        setSelected_color({
+          red: !selected_color.red,
+          blue: selected_color.blue,
+          yellow: selected_color.yellow,
+          green: selected_color.green
+        });
+      } else if (i === 1) {
+        setSelected_color({
+          red: selected_color.red,
+          blue: !selected_color.blue,
+          yellow: selected_color.yellow,
+          green: selected_color.green
+        });
+      } else if (i === 2) {
+        setSelected_color({
+          red: selected_color.red,
+          blue: selected_color.blue,
+          yellow: !selected_color.yellow,
+          green: selected_color.green
+        });
+      } else if (i === 3) {
+        setSelected_color({
+          red: selected_color.red,
+          blue: !selected_color.blue,
+          yellow: selected_color.yellow,
+          green: !selected_color.green
+        });
+      }
+    },
+    is_selected: is_selected,
+    backgroundColor: backgroundColor
+  }, is_selected ? react_1["default"].createElement(CheckMark_1.CheckMark, null) : null));
+};
+
+exports.default = TagColorModal;
+
+var _TagColor = styled_components_1["default"].div(templateObject_1 || (templateObject_1 = __makeTemplateObject(["\n    height: 20px;\n    width: 80px;\n    margin-top: 30px;\n    margin-right: 30px;\n    background-color: ", ";\n    border-radius: 30px;\n"], ["\n    height: 20px;\n    width: 80px;\n    margin-top: 30px;\n    margin-right: 30px;\n    background-color: ", ";\n    border-radius: 30px;\n"])), function (props) {
+  return props.backgroundColor;
+});
+
+var templateObject_1;
+
+/***/ }),
+
+/***/ "./resources/ts/components/modal/lv2/Modal.tsx":
+/*!*****************************************************!*\
+  !*** ./resources/ts/components/modal/lv2/Modal.tsx ***!
+  \*****************************************************/
+/***/ (function(__unused_webpack_module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var __makeTemplateObject = this && this.__makeTemplateObject || function (cooked, raw) {
+  if (Object.defineProperty) {
+    Object.defineProperty(cooked, "raw", {
+      value: raw
+    });
+  } else {
+    cooked.raw = raw;
+  }
+
+  return cooked;
+};
+
+var __importDefault = this && this.__importDefault || function (mod) {
+  return mod && mod.__esModule ? mod : {
+    "default": mod
+  };
+};
+
+Object.defineProperty(exports, "__esModule", ({
+  value: true
+}));
+
+var react_1 = __importDefault(__webpack_require__(/*! react */ "./node_modules/react/index.js"));
+
+var styled_components_1 = __importDefault(__webpack_require__(/*! styled-components */ "./node_modules/styled-components/dist/styled-components.browser.esm.js"));
+
+var TagColorModal_1 = __importDefault(__webpack_require__(/*! ../lv1/TagColorModal */ "./resources/ts/components/modal/lv1/TagColorModal.tsx")); //prettier-ignore
+
+
+var Modal = function Modal(_a) {
+  var hasModalOpened = _a.hasModalOpened,
+      selected_color = _a.selected_color,
+      setHasModalOpened = _a.setHasModalOpened,
+      setSelected_color = _a.setSelected_color;
+
+  if (!hasModalOpened) {
+    return null;
+  }
+
+  return react_1["default"].createElement(_BlackBackground, null, react_1["default"].createElement(_Modal, null, react_1["default"].createElement("div", {
+    style: {
+      fontSize: "1.3rem"
+    }
+  }, "\u30BF\u30B0\u306E\u8272\u3092\u9078\u629E\u3059\u308B"), react_1["default"].createElement(_TagColors, null, react_1["default"].createElement(TagColorModal_1["default"], {
+    backgroundColor: "rgba(255, 65, 51)",
+    selected_color: selected_color,
+    setSelected_color: setSelected_color,
+    initChecked: selected_color.red,
+    i: 0
+  }), react_1["default"].createElement(TagColorModal_1["default"], {
+    backgroundColor: "rgba(51, 194, 255)",
+    selected_color: selected_color,
+    setSelected_color: setSelected_color,
+    initChecked: selected_color.blue,
+    i: 1
+  }), react_1["default"].createElement(TagColorModal_1["default"], {
+    backgroundColor: "rgba(250, 250, 0)",
+    selected_color: selected_color,
+    setSelected_color: setSelected_color,
+    initChecked: selected_color.yellow,
+    i: 2
+  }), react_1["default"].createElement(TagColorModal_1["default"], {
+    backgroundColor: "rgba(48, 255, 69)",
+    setSelected_color: setSelected_color,
+    selected_color: selected_color,
+    initChecked: selected_color.green,
+    i: 3
+  })), react_1["default"].createElement(_CloseButton, {
+    onClick: function onClick() {
+      setHasModalOpened(false);
+    }
+  }, "\u9589\u3058\u308B")));
+};
+
+exports.default = Modal;
+
+var _BlackBackground = styled_components_1["default"].div(templateObject_1 || (templateObject_1 = __makeTemplateObject(["\n    position: fixed;\n    left: 0;\n    top: 0;\n    width: 100%;\n    height: 100%;\n    background-color: rgba(116, 116, 116, 0.74);\n    z-index: 500;\n    cursor: pointer;\n"], ["\n    position: fixed;\n    left: 0;\n    top: 0;\n    width: 100%;\n    height: 100%;\n    background-color: rgba(116, 116, 116, 0.74);\n    z-index: 500;\n    cursor: pointer;\n"])));
+
+var _Modal = styled_components_1["default"].div(templateObject_2 || (templateObject_2 = __makeTemplateObject(["\n    position: fixed;\n    left: 50%;\n    top: 50%;\n    transform: translate(-50%, -50%);\n    height: 500px;\n    width: 500px;\n    padding: 50px;\n    background-color: #fff;\n    z-index: 1000;\n    border-radius: 30px;\n"], ["\n    position: fixed;\n    left: 50%;\n    top: 50%;\n    transform: translate(-50%, -50%);\n    height: 500px;\n    width: 500px;\n    padding: 50px;\n    background-color: #fff;\n    z-index: 1000;\n    border-radius: 30px;\n"])));
+
+var _TagColors = styled_components_1["default"].div(templateObject_3 || (templateObject_3 = __makeTemplateObject(["\n    display: flex;\n    flex-wrap: wrap;\n"], ["\n    display: flex;\n    flex-wrap: wrap;\n"])));
+
+var _CloseButton = styled_components_1["default"].div(templateObject_4 || (templateObject_4 = __makeTemplateObject(["\n    display: inline-block;\n    margin-top: 40px;\n    padding: 10px;\n    border-radius: 10px;\n    background-color: #d6d6d6;\n"], ["\n    display: inline-block;\n    margin-top: 40px;\n    padding: 10px;\n    border-radius: 10px;\n    background-color: #d6d6d6;\n"])));
+
+var templateObject_1, templateObject_2, templateObject_3, templateObject_4;
+
+/***/ }),
+
 /***/ "./resources/ts/index.tsx":
 /*!********************************!*\
   !*** ./resources/ts/index.tsx ***!
@@ -4078,7 +4581,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "InputText": () => (/* reexport default from dynamic */ _InputText__WEBPACK_IMPORTED_MODULE_3___default.a),
 /* harmony export */   "SubmitButton": () => (/* reexport default from dynamic */ _SubmitButton__WEBPACK_IMPORTED_MODULE_4___default.a),
 /* harmony export */   "TaskTitle": () => (/* reexport default from dynamic */ _TaskTitle__WEBPACK_IMPORTED_MODULE_5___default.a),
-/* harmony export */   "TitleName": () => (/* reexport default from dynamic */ _TitleName__WEBPACK_IMPORTED_MODULE_6___default.a)
+/* harmony export */   "TitleName": () => (/* reexport default from dynamic */ _TitleName__WEBPACK_IMPORTED_MODULE_6___default.a),
+/* harmony export */   "TagColor": () => (/* reexport default from dynamic */ _TagColor__WEBPACK_IMPORTED_MODULE_7___default.a)
 /* harmony export */ });
 /* harmony import */ var _CheckBox__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./CheckBox */ "./resources/ts/components/lv1/CheckBox.tsx");
 /* harmony import */ var _CheckBox__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_CheckBox__WEBPACK_IMPORTED_MODULE_0__);
@@ -4094,6 +4598,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _TaskTitle__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(_TaskTitle__WEBPACK_IMPORTED_MODULE_5__);
 /* harmony import */ var _TitleName__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./TitleName */ "./resources/ts/components/lv1/TitleName.tsx");
 /* harmony import */ var _TitleName__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(_TitleName__WEBPACK_IMPORTED_MODULE_6__);
+/* harmony import */ var _TagColor__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./TagColor */ "./resources/ts/components/lv1/TagColor.tsx");
+/* harmony import */ var _TagColor__WEBPACK_IMPORTED_MODULE_7___default = /*#__PURE__*/__webpack_require__.n(_TagColor__WEBPACK_IMPORTED_MODULE_7__);
+
 
 
 
@@ -4115,14 +4622,18 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "Header": () => (/* reexport default from dynamic */ _Header__WEBPACK_IMPORTED_MODULE_0___default.a),
 /* harmony export */   "TaskCard": () => (/* reexport default from dynamic */ _TaskCard__WEBPACK_IMPORTED_MODULE_1___default.a),
-/* harmony export */   "TextForm": () => (/* reexport default from dynamic */ _TextForm__WEBPACK_IMPORTED_MODULE_2___default.a)
+/* harmony export */   "TagColors": () => (/* reexport default from dynamic */ _TagColors__WEBPACK_IMPORTED_MODULE_2___default.a),
+/* harmony export */   "TextForm": () => (/* reexport default from dynamic */ _TextForm__WEBPACK_IMPORTED_MODULE_3___default.a)
 /* harmony export */ });
 /* harmony import */ var _Header__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Header */ "./resources/ts/components/lv2/Header.tsx");
 /* harmony import */ var _Header__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_Header__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var _TaskCard__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./TaskCard */ "./resources/ts/components/lv2/TaskCard.tsx");
 /* harmony import */ var _TaskCard__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_TaskCard__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var _TextForm__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./TextForm */ "./resources/ts/components/lv2/TextForm.tsx");
-/* harmony import */ var _TextForm__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_TextForm__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var _TagColors__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./TagColors */ "./resources/ts/components/lv2/TagColors.tsx");
+/* harmony import */ var _TagColors__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_TagColors__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var _TextForm__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./TextForm */ "./resources/ts/components/lv2/TextForm.tsx");
+/* harmony import */ var _TextForm__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_TextForm__WEBPACK_IMPORTED_MODULE_3__);
+
 
 
 

@@ -2,14 +2,13 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { _TaskCards } from "./components/lv3/TaskCards";
 import { TaskCard, TextForm } from "./components/lv2/_index";
-import { API } from "./api/API";
+import { API } from "./type/api/API";
 
 const App: React.VFC = () => {
     const [tasks, setTasks] = useState<any>([]);
     const [userID, setUserID] = useState();
     const [change, setChange] = useState(0); //render走らせる用
     const [tasksEditActive, setTasksEditActive] = useState(false);
-
     useEffect(() => {
         getUser();
     }, []);

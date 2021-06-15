@@ -1,5 +1,5 @@
 import React from "react";
-import { API } from "../../api/API";
+import { API } from "../../type/api/API";
 
 type Props = {
     text: string;

@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import styled from "styled-components";
 import { InputText, SubmitButton } from "../lv1/_index";
-import { API } from "../../api/API";
+import { API } from "../../type/api/API";
 
 type Props = {
     postTask: (postTask: API) => void;
