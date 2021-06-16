@@ -3521,10 +3521,7 @@ var styled_components_1 = __importDefault(__webpack_require__(/*! styled-compone
 
 var ColoredTags = function ColoredTags(_a) {
   var selected_color = _a.selected_color,
-      taskID = _a.taskID;
-  console.log({
-    selected_color: selected_color
-  }); //prettier-ignore
+      taskID = _a.taskID; //prettier-ignore
 
   if (selected_color.red === false && selected_color.blue === false && selected_color.yellow === false && selected_color.green === false || selected_color.red === undefined && selected_color.blue === undefined && selected_color.yellow === undefined && selected_color.green === undefined) {
     return react_1["default"].createElement("div", null, "\uFF0B");
