@@ -5,5 +5,5 @@
 |   POST    |   api/tasks    |   App\Http\Controllers\TaskController@store  |                                                      tasks テーブルのレコードを新規作成する。タスクの新規作成をする                                                       |
 | PUT/PATCH | api/tasks/{id} |  App\Http\Controllers\TaskController@update  |                                                       tasks テーブルの id のレコードを更新する。タスクの編集をする                                                        |
 |  DELETE   | api/tasks/{id} | App\Http\Controllers\TaskController@destroy |                                                       tasks テーブルの id のレコードを削除する。タスクの削除をする                                                        |
-|    GET    | api/tags/tasks/{id} |    App\Http\Controllers\TagController@index        |     タスクのidに一致するタグを取得する。タスク毎のタグを表示する           |
+|    GET    | api/tags/tasks/{id} |    App\Http\Controllers\TagController@index        |     タスクのidに一致するtagsテーブルのレコードを取得する。タスク毎のタグを表示する           |
 |   POST    |   api/tags    |        App\Http\Controllers\TagController@store       |    tagsテーブルのレコードを新規作成する。タグの新規作成をする
