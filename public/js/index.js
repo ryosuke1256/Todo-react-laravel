@@ -4584,8 +4584,7 @@ var Modal = function Modal(_a) {
     i: 3
   })), react_1["default"].createElement(_CloseButton, {
     onClick: function onClick() {
-      setHasModalOpened(false); // postTag(selected_color);
-
+      setHasModalOpened(false);
       postTag({
         task_id: 1,
         checked_red: true,
