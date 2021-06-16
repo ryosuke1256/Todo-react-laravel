@@ -1,4 +1,4 @@
-## リレーション: 1 対 多
+## ※　migrationファイルを作成してあるのでmigrationを実行して作成してください
 
 ## users
 
@@ -23,5 +23,18 @@
 |  user_id   |  bigint(20)  |  No  |  None   |                外部キー                |
 |   title    | varchar(255) |  No  |  None   |           タスクのタイトル名           |
 |  is_done   |  tinyint(1)  |  No  |  None   | タスクが完了したかどうか、打ち消し線用 |
+| created_at |  timestamp   |  No  |  NULL   |                 作成日                 |
+| updated_at |  timestamp   |  No  |  NULL   |                 更新日                 |
+
+## tags
+
+|  カラム名    |   データ型     | NULL | Default |              Description               |
+| :--------: | :----------: | :--: | :-----: | :------------------------------------: |
+|     id     |  bigint(20)  |  No  |  None   |            プライマリーキー            |
+|  task_id   |  bigint(20)  |  No  |  None   |                外部キー                |
+|checked_red | tinyint(1) |  Yes  |  None   |           タスクのタイトル名           |
+|checked_blue |  tinyint(1)  |  Yes  |  None   | タスクが完了したかどうか、打ち消し線用 |
+|checked_yellow | tinyint(1) |  Yes  |  None   |           タスクのタイトル名           |
+|checked_green |  tinyint(1)  |  Yes  |  None   | タスクが完了したかどうか、打ち消し線用 |
 | created_at |  timestamp   |  No  |  NULL   |                 作成日                 |
 | updated_at |  timestamp   |  No  |  NULL   |                 更新日                 |
