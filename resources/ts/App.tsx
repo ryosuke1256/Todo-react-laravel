@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { _TaskCards } from "./components/lv3/TaskCards";
 import { TaskCard, TextForm } from "./components/lv2/_index";
-import { API } from "./type/api/API";
+import { TaskAPI } from "./type/api/TaskAPI";
 
 const App: React.VFC = () => {
     const [tasks, setTasks] = useState<any>([]);
@@ -39,7 +39,7 @@ const App: React.VFC = () => {
         }
     };
 
-    const postTask = async (postData: API) => {
+    const postTask = async (postData: TaskAPI) => {
         console.log({ postData });
         const res = await axios.post("api/tasks", postData);
         try {
@@ -57,7 +57,7 @@ const App: React.VFC = () => {
         <>
             <TextForm postTask={postTask} userID={userID} />
             <_TaskCards>
-                {tasks.map((task: API, key: number) => {
+                {tasks.map((task: TaskAPI, key: number) => {
                     i++;
                     return (
                         <TaskCard

@@ -14,4 +14,11 @@ class Tag extends Model
     protected $fillable = [
         'task_id','checked_red','checked_blue','checked_yellow','checked_green',
     ];
+
+    protected $casts = [
+        'checked_red' => 'boolean',
+        'checked_blue' => 'boolean',
+        'checked_yellow' => 'boolean',
+        'checked_green' => 'boolean'
+    ];
 }

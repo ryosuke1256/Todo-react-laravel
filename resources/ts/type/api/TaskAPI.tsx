@@ -1,4 +1,4 @@
-export type API = {
+export type TaskAPI = {
     id?: number;
     user_id?: number;
     title: string;

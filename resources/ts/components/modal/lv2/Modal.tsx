@@ -65,7 +65,7 @@ const Modal: React.VFC<Props> = ({hasModalOpened,selected_color,setHasModalOpene
                     onClick={() => {
                         setHasModalOpened(false);
                         // postTag(selected_color);
-                        postTag({task_id:1,checked_red: 1, checked_blue: 0, checked_yellow: 0, checked_green: 1});
+                        postTag({task_id:1,checked_red:true, checked_blue:false, checked_yellow:true, checked_green:false});
                     }}
                 >
                     閉じる

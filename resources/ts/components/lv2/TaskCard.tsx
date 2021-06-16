@@ -4,12 +4,12 @@ import axios from "axios";
 import { ColoredTags } from "./_index";
 import Modal from "../modal/lv2/Modal";
 import { EditButton, DeleteButton, CheckBox, TaskTitle } from "../lv1/_index"; //prettier-ignore
-import { API } from "../../type/api/API";
+import { TaskAPI } from "../../type/api/TaskAPI";
 import customMedia from "../../style/customMedia";
 
 type Props = {
-    task: API;
-    tasks: [API];
+    task: TaskAPI;
+    tasks: [TaskAPI];
     setTasks: (param: {}) => void;
     tasksEditActive: boolean;
     setTasksEditActive: (param: boolean) => void;
@@ -45,7 +45,7 @@ const TaskCard: React.VFC<Props> = ({task,tasks,setTasks,tasksEditActive,setTask
 
     const checkTask = async (is_done: 0 | 1) => {
         is_done === 0 ? (is_done = 1) : (is_done = 0);
-        const data: API = {
+        const data: TaskAPI = {
             title: title,
             is_done: is_done,
         };
@@ -62,7 +62,7 @@ const TaskCard: React.VFC<Props> = ({task,tasks,setTasks,tasksEditActive,setTask
     };
 
     const editTask = async (title: string) => {
-        const data: API = {
+        const data: TaskAPI = {
             title: title,
             is_done: is_done,
         };

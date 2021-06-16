@@ -4588,10 +4588,10 @@ var Modal = function Modal(_a) {
 
       postTag({
         task_id: 1,
-        checked_red: 1,
-        checked_blue: 0,
-        checked_yellow: 0,
-        checked_green: 1
+        checked_red: true,
+        checked_blue: false,
+        checked_yellow: true,
+        checked_green: false
       });
     }
   }, "\u9589\u3058\u308B")));

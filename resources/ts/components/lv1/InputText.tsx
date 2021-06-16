@@ -1,10 +1,10 @@
 import React from "react";
-import { API } from "../../type/api/API";
+import { TaskAPI } from "../../type/api/TaskAPI";
 
 type Props = {
     text: string;
     handleChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
-    postTask: (postData: API) => void;
+    postTask: (postData: TaskAPI) => void;
     setText: (param: string) => void;
     userID?: number;
 };
@@ -16,7 +16,7 @@ const InputText: React.VFC<Props> = ({
     setText,
     userID,
 }: Props) => {
-    const data: API = {
+    const data: TaskAPI = {
         user_id: userID,
         title: text,
         is_done: 0,
