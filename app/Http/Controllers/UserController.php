@@ -24,16 +24,5 @@ class UserController extends Controller
     {
         return Auth::id();
     }
-    /**
-     * api/tasks/users/{user_id}
-     * GET
-     */
-    public function getTask($id)
-    {
-        if(Auth::id() == $id) {
-            $user = User::find(Auth::id());
-            $task = $user->task;
-            return $task;
-        }
-    }
+
 }
