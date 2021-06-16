@@ -8,13 +8,14 @@
 -   タスク編集機能
 -   タスク削除機能
 -   ログイン機能
+-   タグ、色分け機能
 
 ## フロントエンド
 
 -   TypeScript
--   React　　
+-   React
 
- ※   styled components, Laravel Mix（同一オリジン）
+※ styled components, Laravel Mix（同一オリジン）
 
 ## バックエンド
 
@@ -25,14 +26,14 @@
 -   MySQL
 
 ## インフラ
- 
--   AWS ( VPC, EC2 , RDS, ELB, Route53, CloudWatch)  
 
-**サーバー**　　
+-   AWS ( VPC, EC2 , RDS, ELB, Route53, CloudWatch)
 
-　ミドルウェア : Nginx　　
- 
-　OS　      : Amazon Linux　　
+**サーバー**
+
+ミドルウェア : Nginx
+
+OS 　 : Amazon Linux
 
 ## 設計
 
