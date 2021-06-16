@@ -2,6 +2,7 @@ import React from "react";
 import styled from "styled-components";
 import TagColor_Modal from "../lv1/ColoredTag_Modal";
 import { Color } from "../../../type/color/Color";
+import axios from "axios";
 
 type Props = {
     hasModalOpened: boolean;
@@ -15,6 +16,16 @@ const Modal: React.VFC<Props> = ({hasModalOpened,selected_color,setHasModalOpene
     if (!hasModalOpened) {
         return null;
 }
+
+    const postTag = async (postData) => {
+        console.log({postData});
+        const res = await axios.post('api/tags',postData);
+        try {
+
+        } catch (err) {
+            console.log(err);
+        }
+    }
 
     return (
         <_BlackBackground>
@@ -53,6 +64,8 @@ const Modal: React.VFC<Props> = ({hasModalOpened,selected_color,setHasModalOpene
                 <_CloseButton
                     onClick={() => {
                         setHasModalOpened(false);
+                        // postTag(selected_color);
+                        postTag({task_id:1,checked_red: 1, checked_blue: 0, checked_yellow: 0, checked_green: 1});
                     }}
                 >
                     閉じる

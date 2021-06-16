@@ -11,7 +11,7 @@ class Task extends Model
     use HasFactory;
 
     protected $table = 'tasks';
-    //カラムを追加する、可変項目
+
     protected $fillable = [
         'user_id','title','is_done',
     ];

@@ -36,7 +36,6 @@ class TaskController extends Controller
      */
     public function store(Request $request)
     {
-        //Modelクラス::create fillable書く必要がある！
         $task = Task::create($request->all());
         return $task 
         ? response()->json($task,201)
