@@ -1,4 +1,4 @@
-## ※　migrationファイルを作成してあるのでmigrationを実行して作成してください
+### ※　migrationファイルを作成してあるのでmigrationを実行して作成してください
 
 ## users
 
