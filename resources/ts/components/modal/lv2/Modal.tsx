@@ -10,10 +10,11 @@ type Props = {
     setHasModalOpened: (param: boolean) => void;
     selected_color: Color;
     setSelected_color: (prevState: any) => boolean | void;
+    taskID?: number;
 };
 
 //prettier-ignore
-const Modal: React.VFC<Props> = ({hasModalOpened,selected_color,setHasModalOpened,setSelected_color}: Props) => {
+const Modal: React.VFC<Props> = ({hasModalOpened,selected_color,setHasModalOpened,setSelected_color,taskID}: Props) => {
     if (!hasModalOpened) {
         return null;
 }
@@ -66,11 +67,11 @@ const Modal: React.VFC<Props> = ({hasModalOpened,selected_color,setHasModalOpene
                     onClick={() => {
                         setHasModalOpened(false);
                         postTag({
-                            task_id:1,
-                            checked_red:true,
-                            checked_blue:false,
-                            checked_yellow:true,
-                            checked_green:false
+                            task_id:taskID,
+                            checked_red:selected_color.red,
+                            checked_blue:selected_color.blue,
+                            checked_yellow:selected_color.yellow,
+                            checked_green:selected_color.green
                         });
                     }}
                 >

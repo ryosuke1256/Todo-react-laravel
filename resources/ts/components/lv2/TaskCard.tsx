@@ -111,6 +111,7 @@ const TaskCard: React.VFC<Props> = ({task,tasks,setTasks,tasksEditActive,setTask
                 setHasModalOpened={setHasModalOpened}
                 selected_color={selected_color}
                 setSelected_color={setSelected_color}
+                taskID={task.id}
             />
         </>
     );

@@ -1,6 +1,6 @@
 export type TagAPI = {
     id?: number;
-    task_id: number;
+    task_id?: number;
     checked_red: boolean;
     checked_blue: boolean;
     checked_yellow: boolean;

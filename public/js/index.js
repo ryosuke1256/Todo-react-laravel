@@ -3998,7 +3998,8 @@ var TaskCard = function TaskCard(_a) {
     hasModalOpened: hasModalOpened,
     setHasModalOpened: setHasModalOpened,
     selected_color: selected_color,
-    setSelected_color: setSelected_color
+    setSelected_color: setSelected_color,
+    taskID: task.id
   }));
 };
 
@@ -4520,7 +4521,8 @@ var Modal = function Modal(_a) {
   var hasModalOpened = _a.hasModalOpened,
       selected_color = _a.selected_color,
       setHasModalOpened = _a.setHasModalOpened,
-      setSelected_color = _a.setSelected_color;
+      setSelected_color = _a.setSelected_color,
+      taskID = _a.taskID;
 
   if (!hasModalOpened) {
     return null;
@@ -4586,11 +4588,11 @@ var Modal = function Modal(_a) {
     onClick: function onClick() {
       setHasModalOpened(false);
       postTag({
-        task_id: 1,
-        checked_red: true,
-        checked_blue: false,
-        checked_yellow: true,
-        checked_green: false
+        task_id: taskID,
+        checked_red: selected_color.red,
+        checked_blue: selected_color.blue,
+        checked_yellow: selected_color.yellow,
+        checked_green: selected_color.green
       });
     }
   }, "\u9589\u3058\u308B")));
