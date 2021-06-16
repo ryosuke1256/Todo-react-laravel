@@ -8,13 +8,15 @@ use App\Models\Tag;
 class TagController extends Controller
 {
     /**
-     * Display a listing of the resource.
-     *
+     * api/tags/tasks/{id}
+     * GET
+     * 
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index($id)
     {
-        //
+        $tag = Tag::where('task_id',$id)->first();
+        return $tag;
     }
 
     /**

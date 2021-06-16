@@ -3520,9 +3520,13 @@ var ColoredTag_1 = __importDefault(__webpack_require__(/*! ../lv1/ColoredTag */ 
 var styled_components_1 = __importDefault(__webpack_require__(/*! styled-components */ "./node_modules/styled-components/dist/styled-components.browser.esm.js"));
 
 var ColoredTags = function ColoredTags(_a) {
-  var selected_color = _a.selected_color; //prettier-ignore
+  var selected_color = _a.selected_color,
+      taskID = _a.taskID;
+  console.log({
+    selected_color: selected_color
+  }); //prettier-ignore
 
-  if (selected_color.red === false && selected_color.blue === false && selected_color.yellow === false && selected_color.green === false) {
+  if (selected_color.red === false && selected_color.blue === false && selected_color.yellow === false && selected_color.green === false || selected_color.red === undefined && selected_color.blue === undefined && selected_color.yellow === undefined && selected_color.green === undefined) {
     return react_1["default"].createElement("div", null, "\uFF0B");
   } else {
     return react_1["default"].createElement(_ColoredTags, null, react_1["default"].createElement(ColoredTag_1["default"], {
@@ -3874,9 +3878,48 @@ var TaskCard = function TaskCard(_a) {
 
 
   react_1.useEffect(function () {
+    getTags();
+  }, []);
+  react_1.useEffect(function () {
     setTitle(task.title);
     setIs_done(task.is_done);
   }, [task]);
+
+  var getTags = function getTags() {
+    return __awaiter(void 0, void 0, void 0, function () {
+      var res;
+      return __generator(this, function (_a) {
+        switch (_a.label) {
+          case 0:
+            return [4
+            /*yield*/
+            , axios_1["default"].get("api/tags/tasks/" + task.id)];
+
+          case 1:
+            res = _a.sent();
+            console.log({
+              res: res
+            });
+
+            try {
+              console.log(res.data);
+              setSelected_color({
+                red: res.data.checked_red,
+                blue: res.data.checked_blue,
+                yellow: res.data.checked_yellow,
+                green: res.data.checked_green
+              });
+            } catch (err) {
+              console.log(err);
+            }
+
+            return [2
+            /*return*/
+            ];
+        }
+      });
+    });
+  };
 
   var deleteTask = function deleteTask() {
     return __awaiter(void 0, void 0, void 0, function () {
