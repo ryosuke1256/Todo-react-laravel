@@ -3,6 +3,7 @@ import styled from "styled-components";
 import TagColor_Modal from "../lv1/ColoredTag_Modal";
 import { Color } from "../../../type/color/Color";
 import axios from "axios";
+import { TagAPI } from "../../../type/api/TagAPI";
 
 type Props = {
     hasModalOpened: boolean;
@@ -17,7 +18,7 @@ const Modal: React.VFC<Props> = ({hasModalOpened,selected_color,setHasModalOpene
         return null;
 }
 
-    const postTag = async (postData) => {
+    const postTag = async (postData:TagAPI) => {
         console.log({postData});
         const res = await axios.post('api/tags',postData);
         try {
