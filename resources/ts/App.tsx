@@ -30,7 +30,7 @@ const App: React.VFC = () => {
 
     const getTasks = async () => {
         if (!(userID === undefined)) {
-            const Data = await axios.get(`api/users/${userID}`);
+            const Data = await axios.get(`api/tasks/users/${userID}`);
             try {
                 setTasks(Data.data.map((data: {}) => data));
             } catch (err) {

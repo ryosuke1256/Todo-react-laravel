@@ -25,7 +25,7 @@ class UserController extends Controller
         return Auth::id();
     }
     /**
-     * api/users/{user_id}
+     * api/tasks/users/{user_id}
      * GET
      */
     public function getTask($id)
