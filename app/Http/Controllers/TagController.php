@@ -35,10 +35,11 @@ class TagController extends Controller
     }
 
     /**
-     * Update the specified resource in storage.
+     * api/tags/{id}
+     * PATCH
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Task $task
+     * @param  \App\Models\Tag $tag
      * @return \Illuminate\Http\JsonResponse
      */
     public function update(Request $request, Tag $tag)

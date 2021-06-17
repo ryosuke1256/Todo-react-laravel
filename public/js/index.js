@@ -3873,6 +3873,10 @@ var TaskCard = function TaskCard(_a) {
       setSelected_color = _g[1]; //prettier-ignore
 
 
+  var _h = react_1.useState(null),
+      tagID = _h[0],
+      setTagID = _h[1];
+
   react_1.useEffect(function () {
     getTags();
   }, []);
@@ -3901,6 +3905,7 @@ var TaskCard = function TaskCard(_a) {
             res = _a.sent();
 
             try {
+              setTagID(res.data.id);
               setSelected_color({
                 red: res.data.checked_red,
                 blue: res.data.checked_blue,
@@ -4045,6 +4050,8 @@ var TaskCard = function TaskCard(_a) {
     selected_color: selected_color,
     setSelected_color: setSelected_color,
     taskID: task.id,
+    tagID: tagID,
+    setTagID: setTagID,
     tasks: tasks,
     task: task,
     setTasks: setTasks
@@ -4403,6 +4410,40 @@ var __makeTemplateObject = this && this.__makeTemplateObject || function (cooked
   return cooked;
 };
 
+var __createBinding = this && this.__createBinding || (Object.create ? function (o, m, k, k2) {
+  if (k2 === undefined) k2 = k;
+  Object.defineProperty(o, k2, {
+    enumerable: true,
+    get: function get() {
+      return m[k];
+    }
+  });
+} : function (o, m, k, k2) {
+  if (k2 === undefined) k2 = k;
+  o[k2] = m[k];
+});
+
+var __setModuleDefault = this && this.__setModuleDefault || (Object.create ? function (o, v) {
+  Object.defineProperty(o, "default", {
+    enumerable: true,
+    value: v
+  });
+} : function (o, v) {
+  o["default"] = v;
+});
+
+var __importStar = this && this.__importStar || function (mod) {
+  if (mod && mod.__esModule) return mod;
+  var result = {};
+  if (mod != null) for (var k in mod) {
+    if (k !== "default" && Object.prototype.hasOwnProperty.call(mod, k)) __createBinding(result, mod, k);
+  }
+
+  __setModuleDefault(result, mod);
+
+  return result;
+};
+
 var __awaiter = this && this.__awaiter || function (thisArg, _arguments, P, generator) {
   function adopt(value) {
     return value instanceof P ? value : new P(function (resolve) {
@@ -4556,7 +4597,7 @@ Object.defineProperty(exports, "__esModule", ({
   value: true
 }));
 
-var react_1 = __importDefault(__webpack_require__(/*! react */ "./node_modules/react/index.js"));
+var react_1 = __importStar(__webpack_require__(/*! react */ "./node_modules/react/index.js"));
 
 var styled_components_1 = __importDefault(__webpack_require__(/*! styled-components */ "./node_modules/styled-components/dist/styled-components.browser.esm.js"));
 
@@ -4571,9 +4612,15 @@ var Modal = function Modal(_a) {
       setHasModalOpened = _a.setHasModalOpened,
       setSelected_color = _a.setSelected_color,
       taskID = _a.taskID,
+      setTagID = _a.setTagID,
+      tagID = _a.tagID,
       tasks = _a.tasks,
       task = _a.task,
       setTasks = _a.setTasks;
+
+  var _b = react_1.useState(false),
+      hasDonePostTag = _b[0],
+      setHasDonePostTag = _b[1];
 
   if (!hasModalOpened) {
     return null;
@@ -4591,6 +4638,44 @@ var Modal = function Modal(_a) {
             return [4
             /*yield*/
             , axios_1["default"].post('api/tags', postData)];
+
+          case 1:
+            res = _a.sent();
+
+            try {
+              setTagID(res.data.id);
+              task.red = res.data.checked_red;
+              task.blue = res.data.checked_blue;
+              task.yellow = res.data.checked_yellow;
+              task.green = res.data.checked_green;
+            } catch (err) {
+              console.log(err);
+            }
+
+            return [2
+            /*return*/
+            ];
+        }
+      });
+    });
+  };
+
+  var changeTag = function changeTag(patchData) {
+    return __awaiter(void 0, void 0, void 0, function () {
+      var res;
+      return __generator(this, function (_a) {
+        switch (_a.label) {
+          case 0:
+            patchData.checked_red === undefined ? patchData.checked_red = false : patchData.checked_red;
+            patchData.checked_blue === undefined ? patchData.checked_blue = false : patchData.checked_blue;
+            patchData.checked_yellow === undefined ? patchData.checked_yellow = false : patchData.checked_yellow;
+            patchData.checked_green === undefined ? patchData.checked_green = false : patchData.checked_green;
+            console.log({
+              patchData: patchData
+            });
+            return [4
+            /*yield*/
+            , axios_1["default"].put("api/tags/" + tagID, patchData)];
 
           case 1:
             res = _a.sent();
@@ -4643,7 +4728,14 @@ var Modal = function Modal(_a) {
   })), react_1["default"].createElement(_CloseButton, {
     onClick: function onClick() {
       setHasModalOpened(false);
-      postTag({
+      setHasDonePostTag(true);
+      hasDonePostTag ? changeTag({
+        // task_id:taskID,
+        checked_red: selected_color.red,
+        checked_blue: selected_color.blue,
+        checked_yellow: selected_color.yellow,
+        checked_green: selected_color.green
+      }) : postTag({
         task_id: taskID,
         checked_red: selected_color.red,
         checked_blue: selected_color.blue,

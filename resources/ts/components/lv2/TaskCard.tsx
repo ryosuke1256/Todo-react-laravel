@@ -26,6 +26,7 @@ const TaskCard: React.VFC<Props> = ({task,tasks,setTasks,tasksEditActive,setTask
     const [editActive, setEditActive] = useState(false);
     const [hasModalOpened, setHasModalOpened] = useState(false);
     const [selected_color, setSelected_color] = useState({red:false,blue:false,yellow:false,green:false}); //prettier-ignore
+    const [tagID,setTagID] = useState(null);
 
     useEffect(()=>{
         getTags();
@@ -40,6 +41,7 @@ const TaskCard: React.VFC<Props> = ({task,tasks,setTasks,tasksEditActive,setTask
     const getTags = async () => {
         const res = await axios.get(`api/tags/tasks/${task.id}`);
         try {
+                setTagID(res.data.id);
                 setSelected_color({red:res.data.checked_red,blue:res.data.checked_blue,yellow:res.data.checked_yellow,green:res.data.checked_green});
                 task.red = res.data.checked_red;
                 task.blue = res.data.checked_blue;
@@ -131,6 +133,8 @@ const TaskCard: React.VFC<Props> = ({task,tasks,setTasks,tasksEditActive,setTask
                 selected_color={selected_color}
                 setSelected_color={setSelected_color}
                 taskID={task.id}
+                tagID={tagID}
+                setTagID={setTagID}
                 tasks={tasks}
                 task={task}
                 setTasks={setTasks}
