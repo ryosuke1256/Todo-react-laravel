@@ -39,7 +39,6 @@ const App: React.VFC = () => {
             }
         }
     };
-    console.log(tasks);
 
     const postTask = async (postData: TaskAPI) => {
         console.log({ postData });

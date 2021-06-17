@@ -2872,8 +2872,6 @@ var App = function App() {
     });
   };
 
-  console.log(tasks);
-
   var postTask = function postTask(postData) {
     return __awaiter(void 0, void 0, void 0, function () {
       var res;
@@ -3909,6 +3907,10 @@ var TaskCard = function TaskCard(_a) {
                 yellow: res.data.checked_yellow,
                 green: res.data.checked_green
               });
+              task.red = res.data.checked_red;
+              task.blue = res.data.checked_blue;
+              task.yellow = res.data.checked_yellow;
+              task.green = res.data.checked_green;
             } catch (err) {
               console.log(err);
             }
