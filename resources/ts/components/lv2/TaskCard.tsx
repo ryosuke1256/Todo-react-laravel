@@ -27,6 +27,7 @@ const TaskCard: React.VFC<Props> = ({task,tasks,setTasks,tasksEditActive,setTask
     const [hasModalOpened, setHasModalOpened] = useState(false);
     const [selected_color, setSelected_color] = useState({red:false,blue:false,yellow:false,green:false}); //prettier-ignore
     const [tagID,setTagID] = useState(null);
+    const [hasDonePostTag,setHasDonePostTag] = useState(false);
 
     useEffect(()=>{
         getTags();
@@ -41,12 +42,15 @@ const TaskCard: React.VFC<Props> = ({task,tasks,setTasks,tasksEditActive,setTask
     const getTags = async () => {
         const res = await axios.get(`api/tags/tasks/${task.id}`);
         try {
-                setTagID(res.data.id);
-                setSelected_color({red:res.data.checked_red,blue:res.data.checked_blue,yellow:res.data.checked_yellow,green:res.data.checked_green});
-                task.red = res.data.checked_red;
-                task.blue = res.data.checked_blue;
-                task.yellow = res.data.checked_yellow;
-                task.green = res.data.checked_green;
+                if (res.data) {
+                    setHasDonePostTag(true);
+                    setTagID(res.data.id);
+                    setSelected_color({red:res.data.checked_red,blue:res.data.checked_blue,yellow:res.data.checked_yellow,green:res.data.checked_green});
+                    task.red = res.data.checked_red;
+                    task.blue = res.data.checked_blue;
+                    task.yellow = res.data.checked_yellow;
+                    task.green = res.data.checked_green;
+                }
         } catch (err) {
             console.log(err);
         }
@@ -135,9 +139,9 @@ const TaskCard: React.VFC<Props> = ({task,tasks,setTasks,tasksEditActive,setTask
                 taskID={task.id}
                 tagID={tagID}
                 setTagID={setTagID}
-                tasks={tasks}
                 task={task}
-                setTasks={setTasks}
+                hasDonePostTag={hasDonePostTag}
+                setHasDonePostTag={setHasDonePostTag}
             />
         </>
     );

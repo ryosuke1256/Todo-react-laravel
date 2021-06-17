@@ -15,14 +15,13 @@ type Props = {
     taskID?: number;
     tagID: number | null;
     setTagID: any;
-    tasks: [TaskAndColor];
     task: TaskAndColor;
-    setTasks: (param: {}) => void;
+    hasDonePostTag: boolean;
+    setHasDonePostTag: (param: boolean) => void;
 };
 
 //prettier-ignore
-const Modal: React.VFC<Props> = ({hasModalOpened,selected_color,setHasModalOpened,setSelected_color,taskID,setTagID,tagID,tasks,task,setTasks}: Props) => {
-    const [hasDonePostTag,setHasDonePostTag] = useState(false);
+const Modal: React.VFC<Props> = ({hasModalOpened,selected_color,setHasModalOpened,setSelected_color,taskID,setTagID,tagID,task,hasDonePostTag,setHasDonePostTag}: Props) => {
 
     if (!hasModalOpened) {
         return null;
@@ -37,6 +36,7 @@ const Modal: React.VFC<Props> = ({hasModalOpened,selected_color,setHasModalOpene
             task.blue = res.data.checked_blue;
             task.yellow = res.data.checked_yellow;
             task.green = res.data.checked_green;
+            setHasDonePostTag(true);
         } catch (err) {
             console.log(err);
         }
@@ -98,7 +98,6 @@ const Modal: React.VFC<Props> = ({hasModalOpened,selected_color,setHasModalOpene
                 <_CloseButton
                     onClick={() => {
                         setHasModalOpened(false);
-                        setHasDonePostTag(true);
                         hasDonePostTag?
                         changeTag({
                             // task_id:taskID,

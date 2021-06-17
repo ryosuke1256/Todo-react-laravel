@@ -3877,6 +3877,10 @@ var TaskCard = function TaskCard(_a) {
       tagID = _h[0],
       setTagID = _h[1];
 
+  var _j = react_1.useState(false),
+      hasDonePostTag = _j[0],
+      setHasDonePostTag = _j[1];
+
   react_1.useEffect(function () {
     getTags();
   }, []);
@@ -3905,17 +3909,20 @@ var TaskCard = function TaskCard(_a) {
             res = _a.sent();
 
             try {
-              setTagID(res.data.id);
-              setSelected_color({
-                red: res.data.checked_red,
-                blue: res.data.checked_blue,
-                yellow: res.data.checked_yellow,
-                green: res.data.checked_green
-              });
-              task.red = res.data.checked_red;
-              task.blue = res.data.checked_blue;
-              task.yellow = res.data.checked_yellow;
-              task.green = res.data.checked_green;
+              if (res.data) {
+                setHasDonePostTag(true);
+                setTagID(res.data.id);
+                setSelected_color({
+                  red: res.data.checked_red,
+                  blue: res.data.checked_blue,
+                  yellow: res.data.checked_yellow,
+                  green: res.data.checked_green
+                });
+                task.red = res.data.checked_red;
+                task.blue = res.data.checked_blue;
+                task.yellow = res.data.checked_yellow;
+                task.green = res.data.checked_green;
+              }
             } catch (err) {
               console.log(err);
             }
@@ -4052,9 +4059,9 @@ var TaskCard = function TaskCard(_a) {
     taskID: task.id,
     tagID: tagID,
     setTagID: setTagID,
-    tasks: tasks,
     task: task,
-    setTasks: setTasks
+    hasDonePostTag: hasDonePostTag,
+    setHasDonePostTag: setHasDonePostTag
   }));
 };
 
@@ -4410,40 +4417,6 @@ var __makeTemplateObject = this && this.__makeTemplateObject || function (cooked
   return cooked;
 };
 
-var __createBinding = this && this.__createBinding || (Object.create ? function (o, m, k, k2) {
-  if (k2 === undefined) k2 = k;
-  Object.defineProperty(o, k2, {
-    enumerable: true,
-    get: function get() {
-      return m[k];
-    }
-  });
-} : function (o, m, k, k2) {
-  if (k2 === undefined) k2 = k;
-  o[k2] = m[k];
-});
-
-var __setModuleDefault = this && this.__setModuleDefault || (Object.create ? function (o, v) {
-  Object.defineProperty(o, "default", {
-    enumerable: true,
-    value: v
-  });
-} : function (o, v) {
-  o["default"] = v;
-});
-
-var __importStar = this && this.__importStar || function (mod) {
-  if (mod && mod.__esModule) return mod;
-  var result = {};
-  if (mod != null) for (var k in mod) {
-    if (k !== "default" && Object.prototype.hasOwnProperty.call(mod, k)) __createBinding(result, mod, k);
-  }
-
-  __setModuleDefault(result, mod);
-
-  return result;
-};
-
 var __awaiter = this && this.__awaiter || function (thisArg, _arguments, P, generator) {
   function adopt(value) {
     return value instanceof P ? value : new P(function (resolve) {
@@ -4597,7 +4570,7 @@ Object.defineProperty(exports, "__esModule", ({
   value: true
 }));
 
-var react_1 = __importStar(__webpack_require__(/*! react */ "./node_modules/react/index.js"));
+var react_1 = __importDefault(__webpack_require__(/*! react */ "./node_modules/react/index.js"));
 
 var styled_components_1 = __importDefault(__webpack_require__(/*! styled-components */ "./node_modules/styled-components/dist/styled-components.browser.esm.js"));
 
@@ -4614,13 +4587,9 @@ var Modal = function Modal(_a) {
       taskID = _a.taskID,
       setTagID = _a.setTagID,
       tagID = _a.tagID,
-      tasks = _a.tasks,
       task = _a.task,
-      setTasks = _a.setTasks;
-
-  var _b = react_1.useState(false),
-      hasDonePostTag = _b[0],
-      setHasDonePostTag = _b[1];
+      hasDonePostTag = _a.hasDonePostTag,
+      setHasDonePostTag = _a.setHasDonePostTag;
 
   if (!hasModalOpened) {
     return null;
@@ -4648,6 +4617,7 @@ var Modal = function Modal(_a) {
               task.blue = res.data.checked_blue;
               task.yellow = res.data.checked_yellow;
               task.green = res.data.checked_green;
+              setHasDonePostTag(true);
             } catch (err) {
               console.log(err);
             }
@@ -4728,7 +4698,6 @@ var Modal = function Modal(_a) {
   })), react_1["default"].createElement(_CloseButton, {
     onClick: function onClick() {
       setHasModalOpened(false);
-      setHasDonePostTag(true);
       hasDonePostTag ? changeTag({
         // task_id:taskID,
         checked_red: selected_color.red,
