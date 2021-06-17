@@ -2872,6 +2872,8 @@ var App = function App() {
     });
   };
 
+  console.log(tasks);
+
   var postTask = function postTask(postData) {
     return __awaiter(void 0, void 0, void 0, function () {
       var res;
@@ -3520,8 +3522,7 @@ var ColoredTag_1 = __importDefault(__webpack_require__(/*! ../lv1/ColoredTag */ 
 var styled_components_1 = __importDefault(__webpack_require__(/*! styled-components */ "./node_modules/styled-components/dist/styled-components.browser.esm.js"));
 
 var ColoredTags = function ColoredTags(_a) {
-  var selected_color = _a.selected_color,
-      taskID = _a.taskID; //prettier-ignore
+  var selected_color = _a.selected_color; //prettier-ignore
 
   if (selected_color.red === false && selected_color.blue === false && selected_color.yellow === false && selected_color.green === false || selected_color.red === undefined && selected_color.blue === undefined && selected_color.yellow === undefined && selected_color.green === undefined) {
     return react_1["default"].createElement("div", null, "\uFF0B");
@@ -3880,6 +3881,12 @@ var TaskCard = function TaskCard(_a) {
   react_1.useEffect(function () {
     setTitle(task.title);
     setIs_done(task.is_done);
+    setSelected_color({
+      red: task.red,
+      blue: task.blue,
+      yellow: task.yellow,
+      green: task.green
+    });
   }, [task]);
 
   var getTags = function getTags() {
@@ -3894,12 +3901,8 @@ var TaskCard = function TaskCard(_a) {
 
           case 1:
             res = _a.sent();
-            console.log({
-              res: res
-            });
 
             try {
-              console.log(res.data);
               setSelected_color({
                 red: res.data.checked_red,
                 blue: res.data.checked_blue,
@@ -4039,7 +4042,10 @@ var TaskCard = function TaskCard(_a) {
     setHasModalOpened: setHasModalOpened,
     selected_color: selected_color,
     setSelected_color: setSelected_color,
-    taskID: task.id
+    taskID: task.id,
+    tasks: tasks,
+    task: task,
+    setTasks: setTasks
   }));
 };
 
@@ -4562,7 +4568,10 @@ var Modal = function Modal(_a) {
       selected_color = _a.selected_color,
       setHasModalOpened = _a.setHasModalOpened,
       setSelected_color = _a.setSelected_color,
-      taskID = _a.taskID;
+      taskID = _a.taskID,
+      tasks = _a.tasks,
+      task = _a.task,
+      setTasks = _a.setTasks;
 
   if (!hasModalOpened) {
     return null;
@@ -4584,7 +4593,12 @@ var Modal = function Modal(_a) {
           case 1:
             res = _a.sent();
 
-            try {} catch (err) {
+            try {
+              task.red = res.data.checked_red;
+              task.blue = res.data.checked_blue;
+              task.yellow = res.data.checked_yellow;
+              task.green = res.data.checked_green;
+            } catch (err) {
               console.log(err);
             }
 

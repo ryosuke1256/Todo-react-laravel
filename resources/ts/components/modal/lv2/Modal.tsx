@@ -1,9 +1,11 @@
 import React from "react";
 import styled from "styled-components";
 import TagColor_Modal from "../lv1/ColoredTag_Modal";
-import { Color } from "../../../type/color/Color";
+import { Color } from "../../../type/Color";
 import axios from "axios";
+import { TaskAPI } from "../../../type/api/TaskAPI";
 import { TagAPI } from "../../../type/api/TagAPI";
+import { TaskAndColor } from "../../../type/TaskAndColor";
 
 type Props = {
     hasModalOpened: boolean;
@@ -11,10 +13,13 @@ type Props = {
     selected_color: Color;
     setSelected_color: (prevState: any) => boolean | void;
     taskID?: number;
+    tasks: [TaskAndColor];
+    task: TaskAndColor;
+    setTasks: (param: {}) => void;
 };
 
 //prettier-ignore
-const Modal: React.VFC<Props> = ({hasModalOpened,selected_color,setHasModalOpened,setSelected_color,taskID}: Props) => {
+const Modal: React.VFC<Props> = ({hasModalOpened,selected_color,setHasModalOpened,setSelected_color,taskID,tasks,task,setTasks}: Props) => {
     if (!hasModalOpened) {
         return null;
 }
@@ -23,7 +28,10 @@ const Modal: React.VFC<Props> = ({hasModalOpened,selected_color,setHasModalOpene
         console.log({postData});
         const res = await axios.post('api/tags',postData);
         try {
-
+            task.red = res.data.checked_red;
+            task.blue = res.data.checked_blue;
+            task.yellow = res.data.checked_yellow;
+            task.green = res.data.checked_green;
         } catch (err) {
             console.log(err);
         }

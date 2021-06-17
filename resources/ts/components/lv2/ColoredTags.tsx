@@ -1,14 +1,13 @@
 import React from "react";
 import ColoredTag from "../lv1/ColoredTag";
 import styled from "styled-components";
-import { Color } from "../../type/color/Color";
+import { Color } from "../../type/Color";
 
 type Props = {
     selected_color: Color;
-    taskID: number;
 };
 
-const ColoredTags: React.VFC<Props> = ({ selected_color, taskID }: Props) => {
+const ColoredTags: React.VFC<Props> = ({ selected_color }: Props) => {
     //prettier-ignore
     if (selected_color.red === false &&selected_color.blue === false &&selected_color.yellow === false &&selected_color.green === false
         || selected_color.red === undefined &&selected_color.blue === undefined &&selected_color.yellow === undefined &&selected_color.green === undefined) {
