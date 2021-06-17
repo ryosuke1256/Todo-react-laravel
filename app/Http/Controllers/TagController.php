@@ -38,12 +38,18 @@ class TagController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
+     * @param  \App\Models\Task $task
+     * @return \Illuminate\Http\JsonResponse
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Tag $tag)
     {
-        //
+        $tag->checked_red = $request->checked_red;
+        $tag->checked_blue = $request->checked_blue;
+        $tag->checked_yellow = $request->checked_yellow;
+        $tag->checked_green = $request->checked_green;
+        return $tag->update() 
+        ? response()->json($tag)
+        : response()->json(['Error'],500);
     }
 
     /**
