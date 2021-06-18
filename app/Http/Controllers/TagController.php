@@ -8,13 +8,15 @@ use App\Models\Tag;
 class TagController extends Controller
 {
     /**
-     * Display a listing of the resource.
-     *
+     * api/tags/tasks/{id}
+     * GET
+     * 
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index($id)
     {
-        //
+        $tag = Tag::where('task_id',$id)->first();
+        return $tag;
     }
 
     /**
@@ -33,15 +35,22 @@ class TagController extends Controller
     }
 
     /**
-     * Update the specified resource in storage.
+     * api/tags/{id}
+     * PATCH
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
+     * @param  \App\Models\Tag $tag
+     * @return \Illuminate\Http\JsonResponse
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Tag $tag)
     {
-        //
+        $tag->checked_red = $request->checked_red;
+        $tag->checked_blue = $request->checked_blue;
+        $tag->checked_yellow = $request->checked_yellow;
+        $tag->checked_green = $request->checked_green;
+        return $tag->update() 
+        ? response()->json($tag)
+        : response()->json(['Error'],500);
     }
 
     /**

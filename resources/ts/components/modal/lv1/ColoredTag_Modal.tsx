@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import styled from "styled-components";
 import { CheckMark } from "./CheckMark";
-import { Color } from "../../../type/color/Color";
+import { Color } from "../../../type/Color";
 
 type Props = {
     backgroundColor: string;

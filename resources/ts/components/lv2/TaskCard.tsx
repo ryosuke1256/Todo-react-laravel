@@ -5,11 +5,12 @@ import { ColoredTags } from "./_index";
 import Modal from "../modal/lv2/Modal";
 import { EditButton, DeleteButton, CheckBox, TaskTitle } from "../lv1/_index"; //prettier-ignore
 import { TaskAPI } from "../../type/api/TaskAPI";
+import { TaskAndColor } from "../../type/TaskAndColor";
 import customMedia from "../../style/customMedia";
 
 type Props = {
-    task: TaskAPI;
-    tasks: [TaskAPI];
+    task: TaskAndColor;
+    tasks: [TaskAndColor];
     setTasks: (param: {}) => void;
     tasksEditActive: boolean;
     setTasksEditActive: (param: boolean) => void;
@@ -25,11 +26,35 @@ const TaskCard: React.VFC<Props> = ({task,tasks,setTasks,tasksEditActive,setTask
     const [editActive, setEditActive] = useState(false);
     const [hasModalOpened, setHasModalOpened] = useState(false);
     const [selected_color, setSelected_color] = useState({red:false,blue:false,yellow:false,green:false}); //prettier-ignore
+    const [tagID,setTagID] = useState(null);
+    const [hasDonePostTag,setHasDonePostTag] = useState(false);
+
+    useEffect(()=>{
+        getTags();
+    },[])
 
     useEffect(() => {
         setTitle(task.title);
         setIs_done(task.is_done);
+        setSelected_color({red:task.red,blue:task.blue,yellow:task.yellow,green:task.green})
     }, [task]);
+
+    const getTags = async () => {
+        const res = await axios.get(`api/tags/tasks/${task.id}`);
+        try {
+                if (res.data) {
+                    setHasDonePostTag(true);
+                    setTagID(res.data.id);
+                    setSelected_color({red:res.data.checked_red,blue:res.data.checked_blue,yellow:res.data.checked_yellow,green:res.data.checked_green});
+                    task.red = res.data.checked_red;
+                    task.blue = res.data.checked_blue;
+                    task.yellow = res.data.checked_yellow;
+                    task.green = res.data.checked_green;
+                }
+        } catch (err) {
+            console.log(err);
+        }
+    };
 
     const deleteTask = async () => {
         const res = await axios.delete(`api/tasks/${id}`);
@@ -112,6 +137,11 @@ const TaskCard: React.VFC<Props> = ({task,tasks,setTasks,tasksEditActive,setTask
                 selected_color={selected_color}
                 setSelected_color={setSelected_color}
                 taskID={task.id}
+                tagID={tagID}
+                setTagID={setTagID}
+                task={task}
+                hasDonePostTag={hasDonePostTag}
+                setHasDonePostTag={setHasDonePostTag}
             />
         </>
     );

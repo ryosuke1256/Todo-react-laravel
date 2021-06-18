@@ -3522,7 +3522,7 @@ var styled_components_1 = __importDefault(__webpack_require__(/*! styled-compone
 var ColoredTags = function ColoredTags(_a) {
   var selected_color = _a.selected_color; //prettier-ignore
 
-  if (selected_color.red === false && selected_color.blue === false && selected_color.yellow === false && selected_color.green === false) {
+  if (selected_color.red === false && selected_color.blue === false && selected_color.yellow === false && selected_color.green === false || selected_color.red === undefined && selected_color.blue === undefined && selected_color.yellow === undefined && selected_color.green === undefined) {
     return react_1["default"].createElement("div", null, "\uFF0B");
   } else {
     return react_1["default"].createElement(_ColoredTags, null, react_1["default"].createElement(ColoredTag_1["default"], {
@@ -3873,10 +3873,67 @@ var TaskCard = function TaskCard(_a) {
       setSelected_color = _g[1]; //prettier-ignore
 
 
+  var _h = react_1.useState(null),
+      tagID = _h[0],
+      setTagID = _h[1];
+
+  var _j = react_1.useState(false),
+      hasDonePostTag = _j[0],
+      setHasDonePostTag = _j[1];
+
+  react_1.useEffect(function () {
+    getTags();
+  }, []);
   react_1.useEffect(function () {
     setTitle(task.title);
     setIs_done(task.is_done);
+    setSelected_color({
+      red: task.red,
+      blue: task.blue,
+      yellow: task.yellow,
+      green: task.green
+    });
   }, [task]);
+
+  var getTags = function getTags() {
+    return __awaiter(void 0, void 0, void 0, function () {
+      var res;
+      return __generator(this, function (_a) {
+        switch (_a.label) {
+          case 0:
+            return [4
+            /*yield*/
+            , axios_1["default"].get("api/tags/tasks/" + task.id)];
+
+          case 1:
+            res = _a.sent();
+
+            try {
+              if (res.data) {
+                setHasDonePostTag(true);
+                setTagID(res.data.id);
+                setSelected_color({
+                  red: res.data.checked_red,
+                  blue: res.data.checked_blue,
+                  yellow: res.data.checked_yellow,
+                  green: res.data.checked_green
+                });
+                task.red = res.data.checked_red;
+                task.blue = res.data.checked_blue;
+                task.yellow = res.data.checked_yellow;
+                task.green = res.data.checked_green;
+              }
+            } catch (err) {
+              console.log(err);
+            }
+
+            return [2
+            /*return*/
+            ];
+        }
+      });
+    });
+  };
 
   var deleteTask = function deleteTask() {
     return __awaiter(void 0, void 0, void 0, function () {
@@ -3999,7 +4056,12 @@ var TaskCard = function TaskCard(_a) {
     setHasModalOpened: setHasModalOpened,
     selected_color: selected_color,
     setSelected_color: setSelected_color,
-    taskID: task.id
+    taskID: task.id,
+    tagID: tagID,
+    setTagID: setTagID,
+    task: task,
+    hasDonePostTag: hasDonePostTag,
+    setHasDonePostTag: setHasDonePostTag
   }));
 };
 
@@ -4522,7 +4584,12 @@ var Modal = function Modal(_a) {
       selected_color = _a.selected_color,
       setHasModalOpened = _a.setHasModalOpened,
       setSelected_color = _a.setSelected_color,
-      taskID = _a.taskID;
+      taskID = _a.taskID,
+      setTagID = _a.setTagID,
+      tagID = _a.tagID,
+      task = _a.task,
+      hasDonePostTag = _a.hasDonePostTag,
+      setHasDonePostTag = _a.setHasDonePostTag;
 
   if (!hasModalOpened) {
     return null;
@@ -4544,7 +4611,51 @@ var Modal = function Modal(_a) {
           case 1:
             res = _a.sent();
 
-            try {} catch (err) {
+            try {
+              setTagID(res.data.id);
+              task.red = res.data.checked_red;
+              task.blue = res.data.checked_blue;
+              task.yellow = res.data.checked_yellow;
+              task.green = res.data.checked_green;
+              setHasDonePostTag(true);
+            } catch (err) {
+              console.log(err);
+            }
+
+            return [2
+            /*return*/
+            ];
+        }
+      });
+    });
+  };
+
+  var changeTag = function changeTag(patchData) {
+    return __awaiter(void 0, void 0, void 0, function () {
+      var res;
+      return __generator(this, function (_a) {
+        switch (_a.label) {
+          case 0:
+            patchData.checked_red === undefined ? patchData.checked_red = false : patchData.checked_red;
+            patchData.checked_blue === undefined ? patchData.checked_blue = false : patchData.checked_blue;
+            patchData.checked_yellow === undefined ? patchData.checked_yellow = false : patchData.checked_yellow;
+            patchData.checked_green === undefined ? patchData.checked_green = false : patchData.checked_green;
+            console.log({
+              patchData: patchData
+            });
+            return [4
+            /*yield*/
+            , axios_1["default"].patch("api/tags/" + tagID, patchData)];
+
+          case 1:
+            res = _a.sent();
+
+            try {
+              task.red = res.data.checked_red;
+              task.blue = res.data.checked_blue;
+              task.yellow = res.data.checked_yellow;
+              task.green = res.data.checked_green;
+            } catch (err) {
               console.log(err);
             }
 
@@ -4587,7 +4698,12 @@ var Modal = function Modal(_a) {
   })), react_1["default"].createElement(_CloseButton, {
     onClick: function onClick() {
       setHasModalOpened(false);
-      postTag({
+      hasDonePostTag ? changeTag({
+        checked_red: selected_color.red,
+        checked_blue: selected_color.blue,
+        checked_yellow: selected_color.yellow,
+        checked_green: selected_color.green
+      }) : postTag({
         task_id: taskID,
         checked_red: selected_color.red,
         checked_blue: selected_color.blue,

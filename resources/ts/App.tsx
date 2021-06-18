@@ -3,6 +3,7 @@ import axios from "axios";
 import { _TaskCards } from "./components/lv3/TaskCards";
 import { TaskCard, TextForm } from "./components/lv2/_index";
 import { TaskAPI } from "./type/api/TaskAPI";
+import { TaskAndColor } from "./type/TaskAndColor";
 
 const App: React.VFC = () => {
     const [tasks, setTasks] = useState<any>([]);
@@ -57,7 +58,7 @@ const App: React.VFC = () => {
         <>
             <TextForm postTask={postTask} userID={userID} />
             <_TaskCards>
-                {tasks.map((task: TaskAPI, key: number) => {
+                {tasks.map((task: TaskAndColor, key: number) => {
                     i++;
                     return (
                         <TaskCard

@@ -1,9 +1,10 @@
 import React from "react";
 import styled from "styled-components";
 import TagColor_Modal from "../lv1/ColoredTag_Modal";
-import { Color } from "../../../type/color/Color";
+import { Color } from "../../../type/Color";
 import axios from "axios";
 import { TagAPI } from "../../../type/api/TagAPI";
+import { TaskAndColor } from "../../../type/TaskAndColor";
 
 type Props = {
     hasModalOpened: boolean;
@@ -11,10 +12,15 @@ type Props = {
     selected_color: Color;
     setSelected_color: (prevState: any) => boolean | void;
     taskID?: number;
+    tagID: number | null;
+    setTagID: any;
+    task: TaskAndColor;
+    hasDonePostTag: boolean;
+    setHasDonePostTag: (param: boolean) => void;
 };
 
 //prettier-ignore
-const Modal: React.VFC<Props> = ({hasModalOpened,selected_color,setHasModalOpened,setSelected_color,taskID}: Props) => {
+const Modal: React.VFC<Props> = ({hasModalOpened,selected_color,setHasModalOpened,setSelected_color,taskID,setTagID,tagID,task,hasDonePostTag,setHasDonePostTag}: Props) => {
     if (!hasModalOpened) {
         return null;
 }
@@ -23,10 +29,34 @@ const Modal: React.VFC<Props> = ({hasModalOpened,selected_color,setHasModalOpene
         console.log({postData});
         const res = await axios.post('api/tags',postData);
         try {
-
+            setTagID(res.data.id);
+            task.red = res.data.checked_red;
+            task.blue = res.data.checked_blue;
+            task.yellow = res.data.checked_yellow;
+            task.green = res.data.checked_green;
+            setHasDonePostTag(true);
         } catch (err) {
             console.log(err);
         }
+    }
+
+    const changeTag = async (patchData:TagAPI) => {
+        patchData.checked_red===undefined?patchData.checked_red=false:patchData.checked_red;
+        patchData.checked_blue===undefined?patchData.checked_blue=false:patchData.checked_blue;
+        patchData.checked_yellow===undefined?patchData.checked_yellow=false:patchData.checked_yellow;
+        patchData.checked_green===undefined?patchData.checked_green=false:patchData.checked_green;
+
+        console.log({patchData});
+        const res = await axios.patch(`api/tags/${tagID}`, patchData);
+        try {
+            task.red = res.data.checked_red;
+            task.blue = res.data.checked_blue;
+            task.yellow = res.data.checked_yellow;
+            task.green = res.data.checked_green;
+        } catch (err) {
+            console.log(err);
+        }
+        
     }
 
     return (
@@ -66,13 +96,21 @@ const Modal: React.VFC<Props> = ({hasModalOpened,selected_color,setHasModalOpene
                 <_CloseButton
                     onClick={() => {
                         setHasModalOpened(false);
+                        hasDonePostTag?
+                        changeTag({
+                            checked_red:selected_color.red,
+                            checked_blue:selected_color.blue,
+                            checked_yellow:selected_color.yellow,
+                            checked_green:selected_color.green
+                            
+                        }): 
                         postTag({
                             task_id:taskID,
                             checked_red:selected_color.red,
                             checked_blue:selected_color.blue,
                             checked_yellow:selected_color.yellow,
                             checked_green:selected_color.green
-                        });
+                        })
                     }}
                 >
                     閉じる

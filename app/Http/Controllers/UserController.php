@@ -8,7 +8,7 @@ use Illuminate\Support\Facades\Auth;
 
 class UserController extends Controller
 {
-    //ログイン済みの場合
+    // ログイン済みの場合
     public function __construct() {
         $this->middleware('auth');
     }
