@@ -14,7 +14,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-        return view('index');
+        return view('top/welcome');
 });
 Route::get('api/users','UserController@index');
 Route::get('api/tasks/users/{id}','TaskController@index');
