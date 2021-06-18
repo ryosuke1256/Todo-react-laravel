@@ -9,7 +9,6 @@ body {
     color: #212529;
     text-align: left;
     background-color: #f8fafc;
-    overflow-x: hidden;
 }
 
 .wallpaper {
@@ -99,6 +98,9 @@ body {
 }
 /* スマホ */
 @media (max-width: 599px) {
+    body {
+        overflow-x: hidden;
+    }
     .welcome {
         width: 100vw;
         text-align: center;
