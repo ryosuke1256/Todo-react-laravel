@@ -1,9 +1,8 @@
-import React, { useState } from "react";
+import React from "react";
 import styled from "styled-components";
 import TagColor_Modal from "../lv1/ColoredTag_Modal";
 import { Color } from "../../../type/Color";
 import axios from "axios";
-import { TaskAPI } from "../../../type/api/TaskAPI";
 import { TagAPI } from "../../../type/api/TagAPI";
 import { TaskAndColor } from "../../../type/TaskAndColor";
 
@@ -22,7 +21,6 @@ type Props = {
 
 //prettier-ignore
 const Modal: React.VFC<Props> = ({hasModalOpened,selected_color,setHasModalOpened,setSelected_color,taskID,setTagID,tagID,task,hasDonePostTag,setHasDonePostTag}: Props) => {
-
     if (!hasModalOpened) {
         return null;
 }
@@ -49,7 +47,7 @@ const Modal: React.VFC<Props> = ({hasModalOpened,selected_color,setHasModalOpene
         patchData.checked_green===undefined?patchData.checked_green=false:patchData.checked_green;
 
         console.log({patchData});
-        const res = await axios.put(`api/tags/${tagID}`, patchData);
+        const res = await axios.patch(`api/tags/${tagID}`, patchData);
         try {
             task.red = res.data.checked_red;
             task.blue = res.data.checked_blue;
@@ -100,7 +98,6 @@ const Modal: React.VFC<Props> = ({hasModalOpened,selected_color,setHasModalOpene
                         setHasModalOpened(false);
                         hasDonePostTag?
                         changeTag({
-                            // task_id:taskID,
                             checked_red:selected_color.red,
                             checked_blue:selected_color.blue,
                             checked_yellow:selected_color.yellow,

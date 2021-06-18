@@ -4645,7 +4645,7 @@ var Modal = function Modal(_a) {
             });
             return [4
             /*yield*/
-            , axios_1["default"].put("api/tags/" + tagID, patchData)];
+            , axios_1["default"].patch("api/tags/" + tagID, patchData)];
 
           case 1:
             res = _a.sent();
@@ -4699,7 +4699,6 @@ var Modal = function Modal(_a) {
     onClick: function onClick() {
       setHasModalOpened(false);
       hasDonePostTag ? changeTag({
-        // task_id:taskID,
         checked_red: selected_color.red,
         checked_blue: selected_color.blue,
         checked_yellow: selected_color.yellow,

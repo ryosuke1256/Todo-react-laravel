@@ -17,10 +17,10 @@ class CreateTagsTable extends Migration
             $table->id();
             $table->bigInteger('task_id')->unsigned();
             $table->foreign('task_id')->references('id')->on('tasks')->onDelete('cascade');
-            $table->boolean('checked_red')->nullable()->default(false);
-            $table->boolean('checked_blue')->nullable()->default(false);
-            $table->boolean('checked_yellow')->nullable()->default(false);
-            $table->boolean('checked_green')->nullable()->default(false);
+            $table->boolean('checked_red')->default(false);
+            $table->boolean('checked_blue')->default(false);
+            $table->boolean('checked_yellow')->default(false);
+            $table->boolean('checked_green')->default(false);
             $table->timestamps();
         });
     }
