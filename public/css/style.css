@@ -18,14 +18,14 @@ body {
     width: 100%;
 }
 
-.welcome-content {
+.welcome {
     position: absolute;
     top: 90px;
     left: 0px;
     padding: 30px 20vw 0 25vw;
 }
 
-.welcome-title {
+.welcome__title {
     display: flex;
     padding-top: 20px;
     font-size: 1.6rem;
@@ -33,23 +33,23 @@ body {
     opacity: 0.9;
 }
 
-.underLine {
+.welcome__title--underLine {
     padding-top: 10px;
     background: linear-gradient(transparent 70%, rgba(255, 192, 56, 0.3) 0%);
 }
 
-.welcome-block {
+.welcome__content {
     display: flex;
 }
 
-.welcome-block-title {
+.welcome__content--title {
     font-size: 1.3rem;
     padding: 110px 0 20px 0;
     color: #282929;
     opacity: 0.9;
 }
 
-.Button {
+.welcome__content--button {
     display: inline-block;
     font-weight: 600;
     color: white;
@@ -60,20 +60,10 @@ body {
     box-shadow: 0 2px #3284c7;
 }
 
-.Login:hover {
+.welcome__content--hover:hover {
     color: white;
     text-decoration: none;
     opacity: 0.65;
-}
-
-.Register:hover {
-    color: white;
-    text-decoration: none;
-    opacity: 0.65;
-}
-
-.welcome-sample-explain {
-    padding-bottom: 20px;
 }
 
 .background-image {
@@ -87,20 +77,20 @@ body {
 
 /* タブレット */
 @media (max-width: 1024px) {
-    .welcome-content {
+    .welcome {
         position: absolute;
         top: 90px;
         left: 0px;
         padding: 30px 18vw 0 18vw;
     }
-    .welcome-title {
+    .welcome__title {
         display: flex;
         padding-top: 20px;
         color: #282929;
         font-size: 1.4rem;
         opacity: 0.9;
     }
-    .welcome-block-title {
+    .welcome__content--title {
         font-size: 1.3rem;
         padding: 110px 0 20px 0;
         color: #282929;
@@ -109,7 +99,7 @@ body {
 }
 /* スマホ */
 @media (max-width: 599px) {
-    .welcome-content {
+    .welcome {
         width: 100vw;
         text-align: center;
         position: absolute;
@@ -117,18 +107,18 @@ body {
         left: 0px;
         padding: 10px 1vw 0 1vw;
     }
-    .welcome-title {
+    .welcome__title {
         display: inline-block;
         padding-top: 20px;
         color: #282929;
-        font-size: 1.1rem;
+        font-size: 1.2rem;
         opacity: 0.9;
     }
-    .welcome-block {
+    .welcome__content {
         display: flex;
         flex-direction: column;
     }
-    .welcome-block-title {
+    .welcome__content--title {
         font-size: 1rem;
         padding: 80px 0 20px 0;
         color: #282929;
@@ -149,3 +139,4 @@ body {
         background-size: cover;
     }
 }
+
