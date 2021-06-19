@@ -5,6 +5,7 @@ import { Color } from "../../../type/Color";
 import axios from "axios";
 import { TagAPI } from "../../../type/api/TagAPI";
 import { TaskAndColor } from "../../../type/TaskAndColor";
+import customMedia from "../../../style/customMedia";
 
 type Props = {
     hasModalOpened: boolean;
@@ -144,6 +145,17 @@ const _Modal = styled.div`
     background-color: #fff;
     z-index: 1000;
     border-radius: 30px;
+    ${customMedia.lessThan("mobile")`
+        height:60vh;
+        width:95vw;
+    `}
+    ${customMedia.between("mobile", "tablet")`
+        height:60vh;
+        width:80vw;
+    `}
+    ${customMedia.greaterThan("tablet")`
+    
+    `}
 `;
 
 const _TagColors = styled.div`
