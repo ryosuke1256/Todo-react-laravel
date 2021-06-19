@@ -4576,7 +4576,9 @@ var styled_components_1 = __importDefault(__webpack_require__(/*! styled-compone
 
 var ColoredTag_Modal_1 = __importDefault(__webpack_require__(/*! ../lv1/ColoredTag_Modal */ "./resources/ts/components/modal/lv1/ColoredTag_Modal.tsx"));
 
-var axios_1 = __importDefault(__webpack_require__(/*! axios */ "./node_modules/axios/index.js")); //prettier-ignore
+var axios_1 = __importDefault(__webpack_require__(/*! axios */ "./node_modules/axios/index.js"));
+
+var customMedia_1 = __importDefault(__webpack_require__(/*! ../../../style/customMedia */ "./resources/ts/style/customMedia.tsx")); //prettier-ignore
 
 
 var Modal = function Modal(_a) {
@@ -4718,13 +4720,13 @@ exports.default = Modal;
 
 var _BlackBackground = styled_components_1["default"].div(templateObject_1 || (templateObject_1 = __makeTemplateObject(["\n    position: fixed;\n    left: 0;\n    top: 0;\n    width: 100%;\n    height: 100%;\n    background-color: rgba(116, 116, 116, 0.74);\n    z-index: 500;\n    cursor: pointer;\n"], ["\n    position: fixed;\n    left: 0;\n    top: 0;\n    width: 100%;\n    height: 100%;\n    background-color: rgba(116, 116, 116, 0.74);\n    z-index: 500;\n    cursor: pointer;\n"])));
 
-var _Modal = styled_components_1["default"].div(templateObject_2 || (templateObject_2 = __makeTemplateObject(["\n    position: fixed;\n    left: 50%;\n    top: 50%;\n    transform: translate(-50%, -50%);\n    height: 500px;\n    width: 500px;\n    padding: 50px;\n    background-color: #fff;\n    z-index: 1000;\n    border-radius: 30px;\n"], ["\n    position: fixed;\n    left: 50%;\n    top: 50%;\n    transform: translate(-50%, -50%);\n    height: 500px;\n    width: 500px;\n    padding: 50px;\n    background-color: #fff;\n    z-index: 1000;\n    border-radius: 30px;\n"])));
+var _Modal = styled_components_1["default"].div(templateObject_5 || (templateObject_5 = __makeTemplateObject(["\n    position: fixed;\n    left: 50%;\n    top: 50%;\n    transform: translate(-50%, -50%);\n    height: 500px;\n    width: 500px;\n    padding: 50px;\n    background-color: #fff;\n    z-index: 1000;\n    border-radius: 30px;\n    ", "\n    ", "\n    ", "\n"], ["\n    position: fixed;\n    left: 50%;\n    top: 50%;\n    transform: translate(-50%, -50%);\n    height: 500px;\n    width: 500px;\n    padding: 50px;\n    background-color: #fff;\n    z-index: 1000;\n    border-radius: 30px;\n    ", "\n    ", "\n    ", "\n"])), customMedia_1["default"].lessThan("mobile")(templateObject_2 || (templateObject_2 = __makeTemplateObject(["\n        height:60vh;\n        width:95vw;\n    "], ["\n        height:60vh;\n        width:95vw;\n    "]))), customMedia_1["default"].between("mobile", "tablet")(templateObject_3 || (templateObject_3 = __makeTemplateObject(["\n        height:60vh;\n        width:80vw;\n    "], ["\n        height:60vh;\n        width:80vw;\n    "]))), customMedia_1["default"].greaterThan("tablet")(templateObject_4 || (templateObject_4 = __makeTemplateObject(["\n    \n    "], ["\n    \n    "]))));
 
-var _TagColors = styled_components_1["default"].div(templateObject_3 || (templateObject_3 = __makeTemplateObject(["\n    display: flex;\n    flex-wrap: wrap;\n"], ["\n    display: flex;\n    flex-wrap: wrap;\n"])));
+var _TagColors = styled_components_1["default"].div(templateObject_6 || (templateObject_6 = __makeTemplateObject(["\n    display: flex;\n    flex-wrap: wrap;\n"], ["\n    display: flex;\n    flex-wrap: wrap;\n"])));
 
-var _CloseButton = styled_components_1["default"].div(templateObject_4 || (templateObject_4 = __makeTemplateObject(["\n    display: inline-block;\n    margin-top: 40px;\n    padding: 10px;\n    border-radius: 10px;\n    background-color: #d6d6d6;\n"], ["\n    display: inline-block;\n    margin-top: 40px;\n    padding: 10px;\n    border-radius: 10px;\n    background-color: #d6d6d6;\n"])));
+var _CloseButton = styled_components_1["default"].div(templateObject_7 || (templateObject_7 = __makeTemplateObject(["\n    display: inline-block;\n    margin-top: 40px;\n    padding: 10px;\n    border-radius: 10px;\n    background-color: #d6d6d6;\n"], ["\n    display: inline-block;\n    margin-top: 40px;\n    padding: 10px;\n    border-radius: 10px;\n    background-color: #d6d6d6;\n"])));
 
-var templateObject_1, templateObject_2, templateObject_3, templateObject_4;
+var templateObject_1, templateObject_2, templateObject_3, templateObject_4, templateObject_5, templateObject_6, templateObject_7;
 
 /***/ }),
 
