@@ -2,19 +2,22 @@
 
 -   Todo アプリを React と Laravel で作ってみた
 
-## 機能
+## 機能一覧
 
--   タスク作成機能
--   タスク編集機能
--   タスク削除機能
--   ログイン機能
+-   タスク一覧表示
+-   タスク新規作成
+-   タスク編集
+-   タスクのチェック
+-   タスク削除
+-   サインアップ、ログイン
+-   タグ(色付きのラベル)の表示、新規作成、編集
 
 ## フロントエンド
 
 -   TypeScript
--   React　　
+-   React
 
- ※   styled components, Laravel Mix（同一オリジン）
+※ styled components, Laravel Mix（同一オリジン）
 
 ## バックエンド
 
@@ -25,14 +28,14 @@
 -   MySQL
 
 ## インフラ
- 
--   AWS ( VPC, EC2 , RDS, ELB, Route53, CloudWatch)  
 
-**サーバー**　　
+-   AWS ( VPC, EC2 , RDS, ELB, Route53, CloudWatch)
 
-　ミドルウェア : Nginx　　
- 
-　OS　      : Amazon Linux　　
+**サーバー**
+
+ミドルウェア : Nginx
+
+OS 　 : Amazon Linux
 
 ## 設計
 

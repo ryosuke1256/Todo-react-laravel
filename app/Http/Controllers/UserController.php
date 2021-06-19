@@ -8,7 +8,7 @@ use Illuminate\Support\Facades\Auth;
 
 class UserController extends Controller
 {
-    //ログイン済みの場合
+    // ログイン済みの場合
     public function __construct() {
         $this->middleware('auth');
     }
@@ -24,16 +24,5 @@ class UserController extends Controller
     {
         return Auth::id();
     }
-    /**
-     * api/users/{user_id}
-     * GET
-     */
-    public function getTask($id)
-    {
-        if(Auth::id() == $id) {
-            $user = User::find(Auth::id());
-            $task = $user->task;
-            return $task;
-        }
-    }
+
 }

@@ -2,14 +2,14 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { _TaskCards } from "./components/lv3/TaskCards";
 import { TaskCard, TextForm } from "./components/lv2/_index";
-import { API } from "./api/API";
+import { TaskAPI } from "./type/api/TaskAPI";
+import { TaskAndColor } from "./type/TaskAndColor";
 
 const App: React.VFC = () => {
     const [tasks, setTasks] = useState<any>([]);
     const [userID, setUserID] = useState();
     const [change, setChange] = useState(0); //render走らせる用
     const [tasksEditActive, setTasksEditActive] = useState(false);
-
     useEffect(() => {
         getUser();
     }, []);
@@ -31,7 +31,7 @@ const App: React.VFC = () => {
 
     const getTasks = async () => {
         if (!(userID === undefined)) {
-            const Data = await axios.get(`api/users/${userID}`);
+            const Data = await axios.get(`api/tasks/users/${userID}`);
             try {
                 setTasks(Data.data.map((data: {}) => data));
             } catch (err) {
@@ -40,7 +40,7 @@ const App: React.VFC = () => {
         }
     };
 
-    const postTask = async (postData: API) => {
+    const postTask = async (postData: TaskAPI) => {
         console.log({ postData });
         const res = await axios.post("api/tasks", postData);
         try {
@@ -58,7 +58,7 @@ const App: React.VFC = () => {
         <>
             <TextForm postTask={postTask} userID={userID} />
             <_TaskCards>
-                {tasks.map((task: API, key: number) => {
+                {tasks.map((task: TaskAndColor, key: number) => {
                     i++;
                     return (
                         <TaskCard

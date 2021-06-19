@@ -1,10 +1,10 @@
 import React, { useState } from "react";
 import styled from "styled-components";
 import { InputText, SubmitButton } from "../lv1/_index";
-import { API } from "../../api/API";
+import { TaskAPI } from "../../type/api/TaskAPI";
 
 type Props = {
-    postTask: (postTask: API) => void;
+    postTask: (postTask: TaskAPI) => void;
     userID?: number;
 };
 
@@ -17,7 +17,13 @@ const TextForm: React.VFC<Props> = ({ postTask, userID }: Props) => {
 
     return (
         <_TextForm>
-            <InputText text={text} handleChange={handleChange} />
+            <InputText
+                text={text}
+                handleChange={handleChange}
+                postTask={postTask}
+                setText={setText}
+                userID={userID}
+            />
             <SubmitButton
                 text={text}
                 postTask={postTask}

@@ -7,16 +7,23 @@ use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
-
 class TaskController extends Controller
 {
+    public function __construct() {
+        $this->middleware('auth');
+    }
+
     /**
-     * api/tasks
+     * api/tasks/users/{id}
      * GET
      */
-    public function index(User $user)
+    public function index($id)
     {
-
+        if(Auth::id() == $id) {
+            $user = User::find(Auth::id());
+            $task = $user->task;
+            return $task;
+        }
     }
 
     /**
@@ -28,7 +35,6 @@ class TaskController extends Controller
      */
     public function store(Request $request)
     {
-        //Modelクラス::create fillable書く必要がある！
         $task = Task::create($request->all());
         return $task 
         ? response()->json($task,201)

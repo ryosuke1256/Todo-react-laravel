@@ -14,11 +14,13 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-        return view('index');
+        return view('top/welcome');
 });
 Route::get('api/users','UserController@index');
-Route::get('api/users/{id}','UserController@getTask');
+Route::get('api/tasks/users/{id}','TaskController@index');
 Route::apiResource('api/tasks','TaskController');
+Route::Resource('api/tags','TagController');
+Route::get('api/tags/tasks/{id}','TagController@index');
 Auth::routes();
 
 // Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
