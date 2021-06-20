@@ -28,6 +28,7 @@ const TaskCard: React.VFC<Props> = ({task,tasks,setTasks,tasksEditActive,setTask
     const [selected_color, setSelected_color] = useState({red:false,blue:false,yellow:false,green:false}); //prettier-ignore
     const [tagID,setTagID] = useState(null);
     const [hasDonePostTag,setHasDonePostTag] = useState(false);
+    const [editButtonTitle, setEditButtonTitle] = useState("編集");
 
     useEffect(()=>{
         getTags();
@@ -111,6 +112,11 @@ const TaskCard: React.VFC<Props> = ({task,tasks,setTasks,tasksEditActive,setTask
                         editActive={editActive}
                         title={title}
                         setTitle={setTitle}
+                        editTask={editTask}
+                        setEditActive={setEditActive}
+                        tasksEditActive={tasksEditActive}
+                        setTasksEditActive={setTasksEditActive}
+                        setEditButtonTitle={setEditButtonTitle}
                     />
                     <EditButton
                         editTask={editTask}
@@ -119,6 +125,8 @@ const TaskCard: React.VFC<Props> = ({task,tasks,setTasks,tasksEditActive,setTask
                         tasksEditActive={tasksEditActive}
                         setTasksEditActive={setTasksEditActive}
                         title={title}
+                        editButtonTitle={editButtonTitle}
+                        setEditButtonTitle={setEditButtonTitle}
                     />
                     <DeleteButton
                         deleteTask={deleteTask}
