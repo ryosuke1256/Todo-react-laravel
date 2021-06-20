@@ -3146,40 +3146,6 @@ exports.default = DeleteButton;
 "use strict";
 
 
-var __createBinding = this && this.__createBinding || (Object.create ? function (o, m, k, k2) {
-  if (k2 === undefined) k2 = k;
-  Object.defineProperty(o, k2, {
-    enumerable: true,
-    get: function get() {
-      return m[k];
-    }
-  });
-} : function (o, m, k, k2) {
-  if (k2 === undefined) k2 = k;
-  o[k2] = m[k];
-});
-
-var __setModuleDefault = this && this.__setModuleDefault || (Object.create ? function (o, v) {
-  Object.defineProperty(o, "default", {
-    enumerable: true,
-    value: v
-  });
-} : function (o, v) {
-  o["default"] = v;
-});
-
-var __importStar = this && this.__importStar || function (mod) {
-  if (mod && mod.__esModule) return mod;
-  var result = {};
-  if (mod != null) for (var k in mod) {
-    if (k !== "default" && Object.prototype.hasOwnProperty.call(mod, k)) __createBinding(result, mod, k);
-  }
-
-  __setModuleDefault(result, mod);
-
-  return result;
-};
-
 var __importDefault = this && this.__importDefault || function (mod) {
   return mod && mod.__esModule ? mod : {
     "default": mod
@@ -3190,7 +3156,7 @@ Object.defineProperty(exports, "__esModule", ({
   value: true
 }));
 
-var react_1 = __importStar(__webpack_require__(/*! react */ "./node_modules/react/index.js"));
+var react_1 = __importDefault(__webpack_require__(/*! react */ "./node_modules/react/index.js"));
 
 var ButtonStyle_1 = __webpack_require__(/*! ../../style/ButtonStyle */ "./resources/ts/style/ButtonStyle.tsx");
 
@@ -3202,22 +3168,22 @@ var EditButton = function EditButton(_a) {
       setEditActive = _a.setEditActive,
       tasksEditActive = _a.tasksEditActive,
       setTasksEditActive = _a.setTasksEditActive,
-      title = _a.title;
-
-  var _b = react_1.useState("編集"),
-      editButtonTitle = _b[0],
-      setEditButtonTitle = _b[1];
+      title = _a.title,
+      editButtonTitle = _a.editButtonTitle,
+      setEditButtonTitle = _a.setEditButtonTitle;
 
   var changeTaskTitle = function changeTaskTitle() {
     if (!editActive && tasksEditActive) {
       return null;
     } else {
-      editTask(title);
       setEditButtonTitle("変更");
-      setEditActive(!editActive);
+      setEditActive(function (prevState) {
+        return !prevState;
+      });
       setTasksEditActive(true);
 
       if (editActive) {
+        editTask(title);
         setEditButtonTitle("編集");
         setTasksEditActive(false);
       }
@@ -3406,7 +3372,11 @@ var TaskTitle = function TaskTitle(_a) {
   var is_done = _a.is_done,
       editActive = _a.editActive,
       title = _a.title,
-      setTitle = _a.setTitle;
+      setTitle = _a.setTitle,
+      editTask = _a.editTask,
+      setEditActive = _a.setEditActive,
+      setTasksEditActive = _a.setTasksEditActive,
+      setEditButtonTitle = _a.setEditButtonTitle;
 
   var handleChange = function handleChange(e) {
     setTitle(function () {
@@ -3423,6 +3393,15 @@ var TaskTitle = function TaskTitle(_a) {
       },
       style: {
         flexGrow: 1
+      },
+      onKeyPress: function onKeyPress(e) {
+        if (e.key === "Enter") {
+          e.preventDefault();
+          editTask(title);
+          setEditActive(!editActive);
+          setEditButtonTitle("編集");
+          setTasksEditActive(false);
+        }
       }
     });
   } else {
@@ -3882,6 +3861,10 @@ var TaskCard = function TaskCard(_a) {
       hasDonePostTag = _j[0],
       setHasDonePostTag = _j[1];
 
+  var _k = react_1.useState("編集"),
+      editButtonTitle = _k[0],
+      setEditButtonTitle = _k[1];
+
   react_1.useEffect(function () {
     getTags();
   }, []);
@@ -4035,14 +4018,21 @@ var TaskCard = function TaskCard(_a) {
     is_done: is_done,
     editActive: editActive,
     title: title,
-    setTitle: setTitle
+    setTitle: setTitle,
+    editTask: editTask,
+    setEditActive: setEditActive,
+    tasksEditActive: tasksEditActive,
+    setTasksEditActive: setTasksEditActive,
+    setEditButtonTitle: setEditButtonTitle
   }), react_1["default"].createElement(_index_2.EditButton, {
     editTask: editTask,
     editActive: editActive,
     setEditActive: setEditActive,
     tasksEditActive: tasksEditActive,
     setTasksEditActive: setTasksEditActive,
-    title: title
+    title: title,
+    editButtonTitle: editButtonTitle,
+    setEditButtonTitle: setEditButtonTitle
   }), react_1["default"].createElement(_index_2.DeleteButton, {
     deleteTask: deleteTask,
     setIs_done: setIs_done
