@@ -28,7 +28,7 @@ const SubmitButton: React.VFC<Props> = ({
             }}
             style={{
                 border: "1px solid",
-                padding: "6px",
+                padding: "7px",
             }}
         >
             追加

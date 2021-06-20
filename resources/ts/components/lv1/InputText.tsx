@@ -34,7 +34,7 @@ const InputText: React.VFC<Props> = ({
                     setText("");
                 }
             }}
-            style={{ padding: "5px" }}
+            style={{ fontSize: "16px", padding: "5px" }}
         />
     );
 };

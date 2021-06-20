@@ -3310,6 +3310,7 @@ var InputText = function InputText(_a) {
       }
     },
     style: {
+      fontSize: "16px",
       padding: "5px"
     }
   });
@@ -3357,7 +3358,7 @@ var SubmitButton = function SubmitButton(_a) {
     },
     style: {
       border: "1px solid",
-      padding: "6px"
+      padding: "7px"
     }
   }, "\u8FFD\u52A0");
 };
