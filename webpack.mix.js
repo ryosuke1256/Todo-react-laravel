@@ -13,7 +13,7 @@ const mix = require("laravel-mix");
 
 mix.ts("resources/ts/index.tsx", "public/js")
     .react()
-    .postCss("resources/css/app.css", "public/css")
+    .postCss("resources/css/app.css", "public/css", [require("tailwindcss")])
     .postCss("resources/css/style.css", "public/css");
 
 if (mix.inProduction()) {

@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 const TopPageContent: React.VFC = () => {
     return (
@@ -26,18 +27,18 @@ const TopPageContent: React.VFC = () => {
                             <div className="welcome__content--title">
                                 タスク管理ツールを使って生産性を上げよう
                             </div>
-                            <a
-                                href="{{ url('login', null , $is_production) }}"
+                            <Link
+                                to="/login"
                                 className="text-sm text-gray-700 underline welcome__content--button welcome__content--hover"
                             >
                                 ログイン
-                            </a>
-                            <a
-                                href="{{ url('register', null , $is_production) }}"
+                            </Link>
+                            <Link
+                                to="/register"
                                 className="ml-4 text-sm text-gray-700 underline welcome__content--button welcome__content--hover"
                             >
                                 新規登録
-                            </a>
+                            </Link>
                         </div>
                         <img
                             src="/images/todo.png"
