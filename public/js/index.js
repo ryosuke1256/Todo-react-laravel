@@ -2927,28 +2927,178 @@ var ButtonStyle_1 = __webpack_require__(/*! ../../style/ButtonStyle */ "./resour
 
 var react_responsive_1 = __importDefault(__webpack_require__(/*! react-responsive */ "./node_modules/react-responsive/dist/react-responsive.js"));
 
+<<<<<<< HEAD
+=======
+var ColoredTag = function ColoredTag(_a) {
+  var red = _a.red,
+      blue = _a.blue,
+      yellow = _a.yellow,
+      green = _a.green,
+      i = _a.i;
+
+  if (i === 0) {
+    return red ? react_1["default"].createElement(_TagColor, {
+      red: red
+    }) : null;
+  } else if (i === 1) {
+    return blue ? react_1["default"].createElement(_TagColor, {
+      blue: blue
+    }) : null;
+  } else if (i === 2) {
+    return yellow ? react_1["default"].createElement(_TagColor, {
+      yellow: yellow
+    }) : null;
+  } else if (i === 3) {
+    return green ? react_1["default"].createElement(_TagColor, {
+      green: green
+    }) : null;
+  } else {
+    return null;
+  }
+};
+
+exports.default = ColoredTag;
+
+var _TagColor = styled_components_1["default"].div(templateObject_1 || (templateObject_1 = __makeTemplateObject(["\n    height: 10px;\n    width: 35px;\n    border-radius: 30px;\n    margin-left: 10px;\n    background-color: ", ";\n    background-color: ", ";\n    background-color: ", ";\n    background-color: ", ";\n"], ["\n    height: 10px;\n    width: 35px;\n    border-radius: 30px;\n    margin-left: 10px;\n    background-color: ", ";\n    background-color: ", ";\n    background-color: ", ";\n    background-color: ", ";\n"])), function (props) {
+  return props.red ? "rgba(255, 65, 51)" : null;
+}, function (props) {
+  return props.blue ? "rgba(51, 194, 255)" : null;
+}, function (props) {
+  return props.yellow ? "rgba(250, 250, 0)" : null;
+}, function (props) {
+  return props.green ? "rgba(48, 255, 69)" : null;
+});
+
+var templateObject_1;
+
+/***/ }),
+
+/***/ "./resources/ts/components/lv1/DeleteButton.tsx":
+/*!******************************************************!*\
+  !*** ./resources/ts/components/lv1/DeleteButton.tsx ***!
+  \******************************************************/
+/***/ (function(__unused_webpack_module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var __importDefault = this && this.__importDefault || function (mod) {
+  return mod && mod.__esModule ? mod : {
+    "default": mod
+  };
+};
+
+Object.defineProperty(exports, "__esModule", ({
+  value: true
+}));
+
+var react_1 = __importDefault(__webpack_require__(/*! react */ "./node_modules/react/index.js"));
+
+var ButtonStyle_1 = __webpack_require__(/*! ../../style/ButtonStyle */ "./resources/ts/style/ButtonStyle.tsx");
+
+var react_responsive_1 = __importDefault(__webpack_require__(/*! react-responsive */ "./node_modules/react-responsive/dist/react-responsive.js"));
+
+var DeleteButton = function DeleteButton(_a) {
+  var deleteTask = _a.deleteTask,
+      setIs_done = _a.setIs_done;
+  return react_1["default"].createElement(react_1["default"].Fragment, null, react_1["default"].createElement(react_responsive_1["default"], {
+    query: "(max-width: 599px)"
+  }, react_1["default"].createElement("div", {
+    style: {
+      paddingLeft: "10px"
+    }
+  }, react_1["default"].createElement("svg", {
+    onClick: function onClick() {
+      deleteTask();
+      setIs_done(0);
+    },
+    "aria-hidden": "true",
+    focusable: "false",
+    "data-prefix": "fas",
+    "data-icon": "trash",
+    className: "svg-inline--fa fa-trash fa-w-14",
+    role: "img",
+    xmlns: "http://www.w3.org/2000/svg",
+    viewBox: "0 0 448 512",
+    width: "25",
+    height: "25",
+    fill: "#da6161"
+  }, react_1["default"].createElement("path", {
+    d: "M432 32H312l-9.4-18.7A24 24 0 0 0 281.1 0H166.8a23.72 23.72 0 0 0-21.4 13.3L136 32H16A16 16 0 0 0 0 48v32a16 16 0 0 0 16 16h416a16 16 0 0 0 16-16V48a16 16 0 0 0-16-16zM53.2 467a48 48 0 0 0 47.9 45h245.8a48 48 0 0 0 47.9-45L416 128H32z"
+  })))), react_1["default"].createElement(react_responsive_1["default"], {
+    query: "(min-width: 599px)"
+  }, react_1["default"].createElement(ButtonStyle_1.ButtonStyle, {
+    onClick: function onClick() {
+      deleteTask();
+      setIs_done(0);
+    },
+    backgroundColor: "#da6161",
+    style: {
+      border: "1px solid #db5e5e"
+    }
+  }, "\u524A\u9664")));
+};
+
+exports.default = DeleteButton;
+
+/***/ }),
+
+/***/ "./resources/ts/components/lv1/EditButton.tsx":
+/*!****************************************************!*\
+  !*** ./resources/ts/components/lv1/EditButton.tsx ***!
+  \****************************************************/
+/***/ (function(__unused_webpack_module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var __importDefault = this && this.__importDefault || function (mod) {
+  return mod && mod.__esModule ? mod : {
+    "default": mod
+  };
+};
+
+Object.defineProperty(exports, "__esModule", ({
+  value: true
+}));
+
+var react_1 = __importDefault(__webpack_require__(/*! react */ "./node_modules/react/index.js"));
+
+var ButtonStyle_1 = __webpack_require__(/*! ../../style/ButtonStyle */ "./resources/ts/style/ButtonStyle.tsx");
+
+var react_responsive_1 = __importDefault(__webpack_require__(/*! react-responsive */ "./node_modules/react-responsive/dist/react-responsive.js"));
+
+>>>>>>> b388267e331fd033fc0802ff088943f583a37066
 var EditButton = function EditButton(_a) {
   var editTask = _a.editTask,
       editActive = _a.editActive,
       setEditActive = _a.setEditActive,
       tasksEditActive = _a.tasksEditActive,
       setTasksEditActive = _a.setTasksEditActive,
+<<<<<<< HEAD
       title = _a.title;
 
   var _b = react_1.useState("編集"),
       editButtonTitle = _b[0],
       setEditButtonTitle = _b[1];
+=======
+      title = _a.title,
+      editButtonTitle = _a.editButtonTitle,
+      setEditButtonTitle = _a.setEditButtonTitle;
+>>>>>>> b388267e331fd033fc0802ff088943f583a37066
 
   var changeTaskTitle = function changeTaskTitle() {
     if (!editActive && tasksEditActive) {
       return null;
     } else {
-      editTask(title);
       setEditButtonTitle("変更");
-      setEditActive(!editActive);
+      setEditActive(function (prevState) {
+        return !prevState;
+      });
       setTasksEditActive(true);
 
       if (editActive) {
+        editTask(title);
         setEditButtonTitle("編集");
         setTasksEditActive(false);
       }
@@ -3137,7 +3287,11 @@ var TaskTitle = function TaskTitle(_a) {
   var is_done = _a.is_done,
       editActive = _a.editActive,
       title = _a.title,
-      setTitle = _a.setTitle;
+      setTitle = _a.setTitle,
+      editTask = _a.editTask,
+      setEditActive = _a.setEditActive,
+      setTasksEditActive = _a.setTasksEditActive,
+      setEditButtonTitle = _a.setEditButtonTitle;
 
   var handleChange = function handleChange(e) {
     setTitle(function () {
@@ -3154,6 +3308,15 @@ var TaskTitle = function TaskTitle(_a) {
       },
       style: {
         flexGrow: 1
+      },
+      onKeyPress: function onKeyPress(e) {
+        if (e.key === "Enter") {
+          e.preventDefault();
+          editTask(title);
+          setEditActive(!editActive);
+          setEditButtonTitle("編集");
+          setTasksEditActive(false);
+        }
       }
     });
   } else {
@@ -4182,6 +4345,10 @@ var TodoContent = function TodoContent() {
       tasksEditActive = _d[0],
       setTasksEditActive = _d[1];
 
+  var _k = react_1.useState("編集"),
+      editButtonTitle = _k[0],
+      setEditButtonTitle = _k[1];
+
   react_1.useEffect(function () {
     getUser();
   }, []);
@@ -4248,6 +4415,7 @@ var TodoContent = function TodoContent() {
     });
   };
 
+<<<<<<< HEAD
   var postTask = function postTask(postData) {
     return __awaiter(void 0, void 0, void 0, function () {
       var res;
@@ -4260,6 +4428,133 @@ var TodoContent = function TodoContent() {
             return [4
             /*yield*/
             , axios_1["default"].post("api/tasks", postData)];
+=======
+  return react_1["default"].createElement(react_1["default"].Fragment, null, react_1["default"].createElement(_TaskCard, null, react_1["default"].createElement(_Wrapper, null, react_1["default"].createElement(_index_2.CheckBox, {
+    is_done: is_done,
+    checkTask: checkTask
+  }), react_1["default"].createElement(_index_2.TaskTitle, {
+    is_done: is_done,
+    editActive: editActive,
+    title: title,
+    setTitle: setTitle,
+    editTask: editTask,
+    setEditActive: setEditActive,
+    tasksEditActive: tasksEditActive,
+    setTasksEditActive: setTasksEditActive,
+    setEditButtonTitle: setEditButtonTitle
+  }), react_1["default"].createElement(_index_2.EditButton, {
+    editTask: editTask,
+    editActive: editActive,
+    setEditActive: setEditActive,
+    tasksEditActive: tasksEditActive,
+    setTasksEditActive: setTasksEditActive,
+    title: title,
+    editButtonTitle: editButtonTitle,
+    setEditButtonTitle: setEditButtonTitle
+  }), react_1["default"].createElement(_index_2.DeleteButton, {
+    deleteTask: deleteTask,
+    setIs_done: setIs_done
+  })), react_1["default"].createElement(_Wrapper, {
+    onClick: function onClick() {
+      return setHasModalOpened(true);
+    }
+  }, react_1["default"].createElement(_index_1.ColoredTags, {
+    selected_color: selected_color
+  }))), react_1["default"].createElement(Modal_1["default"], {
+    hasModalOpened: hasModalOpened,
+    setHasModalOpened: setHasModalOpened,
+    selected_color: selected_color,
+    setSelected_color: setSelected_color,
+    taskID: task.id,
+    tagID: tagID,
+    setTagID: setTagID,
+    task: task,
+    hasDonePostTag: hasDonePostTag,
+    setHasDonePostTag: setHasDonePostTag
+  }));
+};
+
+exports.default = TaskCard;
+
+var _TaskCard = styled_components_1["default"].div(templateObject_4 || (templateObject_4 = __makeTemplateObject(["\n    border: 1px solid #c4cfd6;\n    padding: 10px;\n    border-bottom: 0px;\n    border-radius: 6px;\n    background-color: rgb(254, 254, 254);\n    ", "\n    ", "\n    ", "\n"], ["\n    border: 1px solid #c4cfd6;\n    padding: 10px;\n    border-bottom: 0px;\n    border-radius: 6px;\n    background-color: rgb(254, 254, 254);\n    ", "\n    ", "\n    ", "\n"])), customMedia_1["default"].lessThan("mobile")(templateObject_1 || (templateObject_1 = __makeTemplateObject(["\n        padding:13px;\n    "], ["\n        padding:13px;\n    "]))), customMedia_1["default"].between("mobile", "tablet")(templateObject_2 || (templateObject_2 = __makeTemplateObject(["\n\n    "], ["\n\n    "]))), customMedia_1["default"].greaterThan("tablet")(templateObject_3 || (templateObject_3 = __makeTemplateObject(["\n    \n    "], ["\n    \n    "]))));
+
+var _Wrapper = styled_components_1["default"].div(templateObject_5 || (templateObject_5 = __makeTemplateObject(["\n    display: flex;\n    align-items: center;\n"], ["\n    display: flex;\n    align-items: center;\n"])));
+
+var templateObject_1, templateObject_2, templateObject_3, templateObject_4, templateObject_5;
+
+/***/ }),
+
+/***/ "./resources/ts/components/lv2/TextForm.tsx":
+/*!**************************************************!*\
+  !*** ./resources/ts/components/lv2/TextForm.tsx ***!
+  \**************************************************/
+/***/ (function(__unused_webpack_module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var __makeTemplateObject = this && this.__makeTemplateObject || function (cooked, raw) {
+  if (Object.defineProperty) {
+    Object.defineProperty(cooked, "raw", {
+      value: raw
+    });
+  } else {
+    cooked.raw = raw;
+  }
+
+  return cooked;
+};
+
+var __createBinding = this && this.__createBinding || (Object.create ? function (o, m, k, k2) {
+  if (k2 === undefined) k2 = k;
+  Object.defineProperty(o, k2, {
+    enumerable: true,
+    get: function get() {
+      return m[k];
+    }
+  });
+} : function (o, m, k, k2) {
+  if (k2 === undefined) k2 = k;
+  o[k2] = m[k];
+});
+
+var __setModuleDefault = this && this.__setModuleDefault || (Object.create ? function (o, v) {
+  Object.defineProperty(o, "default", {
+    enumerable: true,
+    value: v
+  });
+} : function (o, v) {
+  o["default"] = v;
+});
+
+var __importStar = this && this.__importStar || function (mod) {
+  if (mod && mod.__esModule) return mod;
+  var result = {};
+  if (mod != null) for (var k in mod) {
+    if (k !== "default" && Object.prototype.hasOwnProperty.call(mod, k)) __createBinding(result, mod, k);
+  }
+
+  __setModuleDefault(result, mod);
+
+  return result;
+};
+
+var __importDefault = this && this.__importDefault || function (mod) {
+  return mod && mod.__esModule ? mod : {
+    "default": mod
+  };
+};
+
+Object.defineProperty(exports, "__esModule", ({
+  value: true
+}));
+
+var react_1 = __importStar(__webpack_require__(/*! react */ "./node_modules/react/index.js"));
+
+var styled_components_1 = __importDefault(__webpack_require__(/*! styled-components */ "./node_modules/styled-components/dist/styled-components.browser.esm.js"));
+
+var _index_1 = __webpack_require__(/*! ../lv1/_index */ "./resources/ts/components/lv1/_index.js");
+>>>>>>> b388267e331fd033fc0802ff088943f583a37066
 
           case 1:
             res = _a.sent();

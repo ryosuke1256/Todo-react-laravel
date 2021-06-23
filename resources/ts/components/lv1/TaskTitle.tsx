@@ -6,6 +6,10 @@ type Props = {
     editActive: boolean;
     title: string;
     setTitle: (param: () => string) => void;
+    editTask: (title: string) => Promise<void>;
+    setEditActive: (param: boolean) => void;
+    setTasksEditActive: (param: boolean) => void;
+    setEditButtonTitle: (param: string) => void;
 };
 
 const TaskTitle: React.VFC<Props> = ({
@@ -13,6 +17,10 @@ const TaskTitle: React.VFC<Props> = ({
     editActive,
     title,
     setTitle,
+    editTask,
+    setEditActive,
+    setTasksEditActive,
+    setEditButtonTitle,
 }: Props) => {
     const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
         setTitle(() => e.target.value);
@@ -25,6 +33,15 @@ const TaskTitle: React.VFC<Props> = ({
                 value={title}
                 onChange={(e) => handleChange(e)}
                 style={{ flexGrow: 1 }}
+                onKeyPress={(e) => {
+                    if (e.key === "Enter") {
+                        e.preventDefault();
+                        editTask(title);
+                        setEditActive(!editActive);
+                        setEditButtonTitle("編集");
+                        setTasksEditActive(false);
+                    }
+                }}
             />
         );
     } else {

@@ -1,14 +1,16 @@
-import React, { useState } from "react";
+import React from "react";
 import { ButtonStyle } from "../../style/ButtonStyle";
 import MediaQuery from "react-responsive";
 
 type Props = {
     editTask: (title: string) => Promise<void>;
     editActive: boolean;
-    setEditActive: (param: boolean) => void;
+    setEditActive: (prevState: any) => void;
     tasksEditActive: boolean;
     setTasksEditActive: (param: boolean) => void;
     title: string;
+    editButtonTitle: string;
+    setEditButtonTitle: (param: string) => void;
 };
 
 const EditButton: React.VFC<Props> = ({
@@ -18,17 +20,18 @@ const EditButton: React.VFC<Props> = ({
     tasksEditActive,
     setTasksEditActive,
     title,
+    editButtonTitle,
+    setEditButtonTitle,
 }: Props) => {
-    const [editButtonTitle, setEditButtonTitle] = useState("編集");
     const changeTaskTitle = () => {
         if (!editActive && tasksEditActive) {
             return null;
         } else {
-            editTask(title);
             setEditButtonTitle("変更");
-            setEditActive(!editActive);
+            setEditActive((prevState) => !prevState);
             setTasksEditActive(true);
             if (editActive) {
+                editTask(title);
                 setEditButtonTitle("編集");
                 setTasksEditActive(false);
             }
