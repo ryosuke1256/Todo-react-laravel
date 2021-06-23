@@ -4039,6 +4039,8 @@ Object.defineProperty(exports, "__esModule", ({
 
 var react_1 = __importDefault(__webpack_require__(/*! react */ "./node_modules/react/index.js"));
 
+var react_router_dom_1 = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/esm/react-router-dom.js");
+
 var LoginContent = function LoginContent() {
   return react_1["default"].createElement("div", {
     className: "min-h-screen bg-gray-100 flex flex-col justify-center sm:py-12"
@@ -4133,7 +4135,8 @@ var LoginContent = function LoginContent() {
     "stroke-linejoin": "round",
     "stroke-width": "2",
     d: "M10 19l-7-7m0 0l7-7m-7 7h18"
-  })), react_1["default"].createElement("span", {
+  })), react_1["default"].createElement(react_router_dom_1.Link, {
+    to: "/",
     className: "inline-block ml-1"
   }, "Back to your-app.com")))))));
 };

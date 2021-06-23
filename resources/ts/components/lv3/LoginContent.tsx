@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 const LoginContent: React.VFC = () => {
     return (
@@ -109,9 +110,9 @@ const LoginContent: React.VFC = () => {
                                         d="M10 19l-7-7m0 0l7-7m-7 7h18"
                                     />
                                 </svg>
-                                <span className="inline-block ml-1">
+                                <Link to="/" className="inline-block ml-1">
                                     Back to your-app.com
-                                </span>
+                                </Link>
                             </button>
                         </div>
                     </div>
