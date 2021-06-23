@@ -1,7 +1,25 @@
-import React from "react";
+import axios from "axios";
+import React, { useEffect } from "react";
 import { Link } from "react-router-dom";
+import("../../../js/bootstrap");
 
 const LoginContent: React.VFC = () => {
+    useEffect(() => {
+        initCSRF();
+    }, []);
+
+    const initCSRF = () => {
+        axios.get("/sanctum/csrf-cookie").then((res) => {
+            console.log(res.data);
+        });
+    };
+
+    const onSubmit = () => {
+        axios.post("/login").then((res) => {
+            console.log(res.data);
+        });
+    };
+
     return (
         <div className="min-h-screen bg-gray-100 flex flex-col justify-center sm:py-12">
             <div className="p-10 xs:p-0 mx-auto md:w-full md:max-w-md">
