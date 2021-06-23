@@ -13,9 +13,9 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-        return view('top/welcome');
-});
+Route::get('{all}', function () {
+        return view('index');
+})->where(['all' => '.*']);
 Route::get('api/users','UserController@index');
 Route::get('api/tasks/users/{id}','TaskController@index');
 Route::apiResource('api/tasks','TaskController');
