@@ -2627,149 +2627,6 @@ var __importStar = this && this.__importStar || function (mod) {
   return result;
 };
 
-var __awaiter = this && this.__awaiter || function (thisArg, _arguments, P, generator) {
-  function adopt(value) {
-    return value instanceof P ? value : new P(function (resolve) {
-      resolve(value);
-    });
-  }
-
-  return new (P || (P = Promise))(function (resolve, reject) {
-    function fulfilled(value) {
-      try {
-        step(generator.next(value));
-      } catch (e) {
-        reject(e);
-      }
-    }
-
-    function rejected(value) {
-      try {
-        step(generator["throw"](value));
-      } catch (e) {
-        reject(e);
-      }
-    }
-
-    function step(result) {
-      result.done ? resolve(result.value) : adopt(result.value).then(fulfilled, rejected);
-    }
-
-    step((generator = generator.apply(thisArg, _arguments || [])).next());
-  });
-};
-
-var __generator = this && this.__generator || function (thisArg, body) {
-  var _ = {
-    label: 0,
-    sent: function sent() {
-      if (t[0] & 1) throw t[1];
-      return t[1];
-    },
-    trys: [],
-    ops: []
-  },
-      f,
-      y,
-      t,
-      g;
-  return g = {
-    next: verb(0),
-    "throw": verb(1),
-    "return": verb(2)
-  }, typeof Symbol === "function" && (g[Symbol.iterator] = function () {
-    return this;
-  }), g;
-
-  function verb(n) {
-    return function (v) {
-      return step([n, v]);
-    };
-  }
-
-  function step(op) {
-    if (f) throw new TypeError("Generator is already executing.");
-
-    while (_) {
-      try {
-        if (f = 1, y && (t = op[0] & 2 ? y["return"] : op[0] ? y["throw"] || ((t = y["return"]) && t.call(y), 0) : y.next) && !(t = t.call(y, op[1])).done) return t;
-        if (y = 0, t) op = [op[0] & 2, t.value];
-
-        switch (op[0]) {
-          case 0:
-          case 1:
-            t = op;
-            break;
-
-          case 4:
-            _.label++;
-            return {
-              value: op[1],
-              done: false
-            };
-
-          case 5:
-            _.label++;
-            y = op[1];
-            op = [0];
-            continue;
-
-          case 7:
-            op = _.ops.pop();
-
-            _.trys.pop();
-
-            continue;
-
-          default:
-            if (!(t = _.trys, t = t.length > 0 && t[t.length - 1]) && (op[0] === 6 || op[0] === 2)) {
-              _ = 0;
-              continue;
-            }
-
-            if (op[0] === 3 && (!t || op[1] > t[0] && op[1] < t[3])) {
-              _.label = op[1];
-              break;
-            }
-
-            if (op[0] === 6 && _.label < t[1]) {
-              _.label = t[1];
-              t = op;
-              break;
-            }
-
-            if (t && _.label < t[2]) {
-              _.label = t[2];
-
-              _.ops.push(op);
-
-              break;
-            }
-
-            if (t[2]) _.ops.pop();
-
-            _.trys.pop();
-
-            continue;
-        }
-
-        op = body.call(thisArg, _);
-      } catch (e) {
-        op = [6, e];
-        y = 0;
-      } finally {
-        f = t = 0;
-      }
-    }
-
-    if (op[0] & 5) throw op[1];
-    return {
-      value: op[0] ? op[1] : void 0,
-      done: true
-    };
-  }
-};
-
 var __importDefault = this && this.__importDefault || function (mod) {
   return mod && mod.__esModule ? mod : {
     "default": mod
@@ -2782,144 +2639,18 @@ Object.defineProperty(exports, "__esModule", ({
 
 var react_1 = __importStar(__webpack_require__(/*! react */ "./node_modules/react/index.js"));
 
-var axios_1 = __importDefault(__webpack_require__(/*! axios */ "./node_modules/axios/index.js"));
+var TodoContent_1 = __importDefault(__webpack_require__(/*! ./components/lv3/TodoContent */ "./resources/ts/components/lv3/TodoContent.tsx"));
 
-var TaskCards_1 = __webpack_require__(/*! ./components/lv3/TaskCards */ "./resources/ts/components/lv3/TaskCards.tsx");
+var TopPageContent_1 = __importDefault(__webpack_require__(/*! ./components/lv3/TopPageContent */ "./resources/ts/components/lv3/TopPageContent.tsx"));
 
-var _index_1 = __webpack_require__(/*! ./components/lv2/_index */ "./resources/ts/components/lv2/_index.js");
+var Header_1 = __importDefault(__webpack_require__(/*! ./components/lv2/Header */ "./resources/ts/components/lv2/Header.tsx"));
 
 var App = function App() {
-  var _a = react_1.useState([]),
-      tasks = _a[0],
-      setTasks = _a[1];
+  var _a = react_1.useState(false),
+      is_authenticated = _a[0],
+      setIs_authenticated = _a[1];
 
-  var _b = react_1.useState(),
-      userID = _b[0],
-      setUserID = _b[1];
-
-  var _c = react_1.useState(0),
-      change = _c[0],
-      setChange = _c[1]; //render走らせる用
-
-
-  var _d = react_1.useState(false),
-      tasksEditActive = _d[0],
-      setTasksEditActive = _d[1];
-
-  react_1.useEffect(function () {
-    getUser();
-  }, []);
-  react_1.useEffect(function () {
-    getTasks();
-  }, [userID]);
-
-  var getUser = function getUser() {
-    return __awaiter(void 0, void 0, void 0, function () {
-      return __generator(this, function (_a) {
-        switch (_a.label) {
-          case 0:
-            return [4
-            /*yield*/
-            , axios_1["default"].get("api/users").then(function (res) {
-              setUserID(res.data);
-            })["catch"](function (err) {
-              console.log(err);
-            })];
-
-          case 1:
-            _a.sent();
-
-            return [2
-            /*return*/
-            ];
-        }
-      });
-    });
-  };
-
-  var getTasks = function getTasks() {
-    return __awaiter(void 0, void 0, void 0, function () {
-      var Data;
-      return __generator(this, function (_a) {
-        switch (_a.label) {
-          case 0:
-            if (!!(userID === undefined)) return [3
-            /*break*/
-            , 2];
-            return [4
-            /*yield*/
-            , axios_1["default"].get("api/tasks/users/" + userID)];
-
-          case 1:
-            Data = _a.sent();
-
-            try {
-              setTasks(Data.data.map(function (data) {
-                return data;
-              }));
-            } catch (err) {
-              console.log(err);
-            }
-
-            _a.label = 2;
-
-          case 2:
-            return [2
-            /*return*/
-            ];
-        }
-      });
-    });
-  };
-
-  var postTask = function postTask(postData) {
-    return __awaiter(void 0, void 0, void 0, function () {
-      var res;
-      return __generator(this, function (_a) {
-        switch (_a.label) {
-          case 0:
-            console.log({
-              postData: postData
-            });
-            return [4
-            /*yield*/
-            , axios_1["default"].post("api/tasks", postData)];
-
-          case 1:
-            res = _a.sent();
-
-            try {
-              tasks.unshift(res.data);
-              setChange(change + 1); // setTasks([...tasks, res.data]);
-            } catch (err) {
-              console.log(err);
-            }
-
-            return [2
-            /*return*/
-            ];
-        }
-      });
-    });
-  };
-
-  var i = -1;
-  return react_1["default"].createElement(react_1["default"].Fragment, null, react_1["default"].createElement(_index_1.TextForm, {
-    postTask: postTask,
-    userID: userID
-  }), react_1["default"].createElement(TaskCards_1._TaskCards, null, tasks.map(function (task, key) {
-    i++;
-    return react_1["default"].createElement(_index_1.TaskCard, {
-      task: task,
-      setTasks: setTasks,
-      tasks: tasks,
-      tasksEditActive: tasksEditActive,
-      setTasksEditActive: setTasksEditActive,
-      id: task.id,
-      i: i,
-      key: key
-    });
-  })));
+  return react_1["default"].createElement(react_1["default"].Fragment, null, react_1["default"].createElement(Header_1["default"], null), is_authenticated ? react_1["default"].createElement(TodoContent_1["default"], null) : react_1["default"].createElement(TopPageContent_1["default"], null));
 };
 
 exports.default = App;
@@ -3597,17 +3328,22 @@ var react_1 = __importDefault(__webpack_require__(/*! react */ "./node_modules/r
 
 var styled_components_1 = __importDefault(__webpack_require__(/*! styled-components */ "./node_modules/styled-components/dist/styled-components.browser.esm.js"));
 
-var TitleName_1 = __webpack_require__(/*! ../lv1/TitleName */ "./resources/ts/components/lv1/TitleName.tsx");
-
 var Header = function Header() {
-  return react_1["default"].createElement(_Header, null, react_1["default"].createElement(TitleName_1.TitleName, null, "Todo\u30A2\u30D7\u30EA"));
+  return react_1["default"].createElement(_Header, null, react_1["default"].createElement("img", {
+    src: "./images/whale.png",
+    alt: "\u30AF\u30B8\u30E9",
+    width: "40px",
+    height: "40px"
+  }), react_1["default"].createElement(_Title, null, "Todo"));
 };
 
 exports.default = Header;
 
-var _Header = styled_components_1["default"].div(templateObject_1 || (templateObject_1 = __makeTemplateObject(["\n    text-align: center;\n    margin-bottom: 20px;\n    background-color: rgba(121, 184, 255, 0.4);\n"], ["\n    text-align: center;\n    margin-bottom: 20px;\n    background-color: rgba(121, 184, 255, 0.4);\n"])));
+var _Header = styled_components_1["default"].div(templateObject_1 || (templateObject_1 = __makeTemplateObject(["\n    position: fixed;\n    display: flex;\n    flex-wrap: wrap;\n    z-index: 1000;\n    height: 60px;\n    width: 100vw;\n    padding: 8px 120px;\n    background-color: #fff;\n    box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075);\n"], ["\n    position: fixed;\n    display: flex;\n    flex-wrap: wrap;\n    z-index: 1000;\n    height: 60px;\n    width: 100vw;\n    padding: 8px 120px;\n    background-color: #fff;\n    box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075);\n"])));
 
-var templateObject_1;
+var _Title = styled_components_1["default"].div(templateObject_2 || (templateObject_2 = __makeTemplateObject(["\n    padding: 0.45rem 1rem;\n    font-size: 1.3rem;\n"], ["\n    padding: 0.45rem 1rem;\n    font-size: 1.3rem;\n"])));
+
+var templateObject_1, templateObject_2;
 
 /***/ }),
 
@@ -4221,6 +3957,411 @@ var customMedia_1 = __importDefault(__webpack_require__(/*! ../../style/customMe
 
 exports._TaskCards = styled_components_1["default"].div(templateObject_4 || (templateObject_4 = __makeTemplateObject(["\n    max-width: 1300px;\n    width: 85%;\n    margin: 0 auto;\n    padding-top: 10px;\n    //\u30B9\u30DE\u30DB\n    ", " //\u30BF\u30D6\u30EC\u30C3\u30C8\n    ", " //PC\n    ", "\n"], ["\n    max-width: 1300px;\n    width: 85%;\n    margin: 0 auto;\n    padding-top: 10px;\n    //\u30B9\u30DE\u30DB\n    ", " //\u30BF\u30D6\u30EC\u30C3\u30C8\n    ", " //PC\n    ", "\n"])), customMedia_1["default"].lessThan("mobile")(templateObject_1 || (templateObject_1 = __makeTemplateObject(["\n     /* screen width is less than 599px (tablet) */\n    width: 100%;\n    "], ["\n     /* screen width is less than 599px (tablet) */\n    width: 100%;\n    "]))), customMedia_1["default"].between("mobile", "tablet")(templateObject_2 || (templateObject_2 = __makeTemplateObject(["\n    /* screen width is between 599px (tablet) and 1024px (desktop) */\n\n    "], ["\n    /* screen width is between 599px (tablet) and 1024px (desktop) */\n\n    "]))), customMedia_1["default"].greaterThan("tablet")(templateObject_3 || (templateObject_3 = __makeTemplateObject(["\n    /* screen width is greater than 1024px (tablet) */\n    \n    "], ["\n    /* screen width is greater than 1024px (tablet) */\n    \n    "]))));
 var templateObject_1, templateObject_2, templateObject_3, templateObject_4;
+
+/***/ }),
+
+/***/ "./resources/ts/components/lv3/TodoContent.tsx":
+/*!*****************************************************!*\
+  !*** ./resources/ts/components/lv3/TodoContent.tsx ***!
+  \*****************************************************/
+/***/ (function(__unused_webpack_module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var __createBinding = this && this.__createBinding || (Object.create ? function (o, m, k, k2) {
+  if (k2 === undefined) k2 = k;
+  Object.defineProperty(o, k2, {
+    enumerable: true,
+    get: function get() {
+      return m[k];
+    }
+  });
+} : function (o, m, k, k2) {
+  if (k2 === undefined) k2 = k;
+  o[k2] = m[k];
+});
+
+var __setModuleDefault = this && this.__setModuleDefault || (Object.create ? function (o, v) {
+  Object.defineProperty(o, "default", {
+    enumerable: true,
+    value: v
+  });
+} : function (o, v) {
+  o["default"] = v;
+});
+
+var __importStar = this && this.__importStar || function (mod) {
+  if (mod && mod.__esModule) return mod;
+  var result = {};
+  if (mod != null) for (var k in mod) {
+    if (k !== "default" && Object.prototype.hasOwnProperty.call(mod, k)) __createBinding(result, mod, k);
+  }
+
+  __setModuleDefault(result, mod);
+
+  return result;
+};
+
+var __awaiter = this && this.__awaiter || function (thisArg, _arguments, P, generator) {
+  function adopt(value) {
+    return value instanceof P ? value : new P(function (resolve) {
+      resolve(value);
+    });
+  }
+
+  return new (P || (P = Promise))(function (resolve, reject) {
+    function fulfilled(value) {
+      try {
+        step(generator.next(value));
+      } catch (e) {
+        reject(e);
+      }
+    }
+
+    function rejected(value) {
+      try {
+        step(generator["throw"](value));
+      } catch (e) {
+        reject(e);
+      }
+    }
+
+    function step(result) {
+      result.done ? resolve(result.value) : adopt(result.value).then(fulfilled, rejected);
+    }
+
+    step((generator = generator.apply(thisArg, _arguments || [])).next());
+  });
+};
+
+var __generator = this && this.__generator || function (thisArg, body) {
+  var _ = {
+    label: 0,
+    sent: function sent() {
+      if (t[0] & 1) throw t[1];
+      return t[1];
+    },
+    trys: [],
+    ops: []
+  },
+      f,
+      y,
+      t,
+      g;
+  return g = {
+    next: verb(0),
+    "throw": verb(1),
+    "return": verb(2)
+  }, typeof Symbol === "function" && (g[Symbol.iterator] = function () {
+    return this;
+  }), g;
+
+  function verb(n) {
+    return function (v) {
+      return step([n, v]);
+    };
+  }
+
+  function step(op) {
+    if (f) throw new TypeError("Generator is already executing.");
+
+    while (_) {
+      try {
+        if (f = 1, y && (t = op[0] & 2 ? y["return"] : op[0] ? y["throw"] || ((t = y["return"]) && t.call(y), 0) : y.next) && !(t = t.call(y, op[1])).done) return t;
+        if (y = 0, t) op = [op[0] & 2, t.value];
+
+        switch (op[0]) {
+          case 0:
+          case 1:
+            t = op;
+            break;
+
+          case 4:
+            _.label++;
+            return {
+              value: op[1],
+              done: false
+            };
+
+          case 5:
+            _.label++;
+            y = op[1];
+            op = [0];
+            continue;
+
+          case 7:
+            op = _.ops.pop();
+
+            _.trys.pop();
+
+            continue;
+
+          default:
+            if (!(t = _.trys, t = t.length > 0 && t[t.length - 1]) && (op[0] === 6 || op[0] === 2)) {
+              _ = 0;
+              continue;
+            }
+
+            if (op[0] === 3 && (!t || op[1] > t[0] && op[1] < t[3])) {
+              _.label = op[1];
+              break;
+            }
+
+            if (op[0] === 6 && _.label < t[1]) {
+              _.label = t[1];
+              t = op;
+              break;
+            }
+
+            if (t && _.label < t[2]) {
+              _.label = t[2];
+
+              _.ops.push(op);
+
+              break;
+            }
+
+            if (t[2]) _.ops.pop();
+
+            _.trys.pop();
+
+            continue;
+        }
+
+        op = body.call(thisArg, _);
+      } catch (e) {
+        op = [6, e];
+        y = 0;
+      } finally {
+        f = t = 0;
+      }
+    }
+
+    if (op[0] & 5) throw op[1];
+    return {
+      value: op[0] ? op[1] : void 0,
+      done: true
+    };
+  }
+};
+
+var __importDefault = this && this.__importDefault || function (mod) {
+  return mod && mod.__esModule ? mod : {
+    "default": mod
+  };
+};
+
+Object.defineProperty(exports, "__esModule", ({
+  value: true
+}));
+
+var react_1 = __importStar(__webpack_require__(/*! react */ "./node_modules/react/index.js"));
+
+var axios_1 = __importDefault(__webpack_require__(/*! axios */ "./node_modules/axios/index.js"));
+
+var TaskCards_1 = __webpack_require__(/*! ../lv3/TaskCards */ "./resources/ts/components/lv3/TaskCards.tsx");
+
+var _index_1 = __webpack_require__(/*! ../lv2/_index */ "./resources/ts/components/lv2/_index.js");
+
+var TodoContent = function TodoContent() {
+  var _a = react_1.useState([]),
+      tasks = _a[0],
+      setTasks = _a[1];
+
+  var _b = react_1.useState(),
+      userID = _b[0],
+      setUserID = _b[1];
+
+  var _c = react_1.useState(0),
+      change = _c[0],
+      setChange = _c[1]; //render走らせる用
+
+
+  var _d = react_1.useState(false),
+      tasksEditActive = _d[0],
+      setTasksEditActive = _d[1];
+
+  react_1.useEffect(function () {
+    getUser();
+  }, []);
+  react_1.useEffect(function () {
+    getTasks();
+  }, [userID]);
+
+  var getUser = function getUser() {
+    return __awaiter(void 0, void 0, void 0, function () {
+      return __generator(this, function (_a) {
+        switch (_a.label) {
+          case 0:
+            return [4
+            /*yield*/
+            , axios_1["default"].get("api/users").then(function (res) {
+              setUserID(res.data);
+            })["catch"](function (err) {
+              console.log(err);
+            })];
+
+          case 1:
+            _a.sent();
+
+            return [2
+            /*return*/
+            ];
+        }
+      });
+    });
+  };
+
+  var getTasks = function getTasks() {
+    return __awaiter(void 0, void 0, void 0, function () {
+      var Data;
+      return __generator(this, function (_a) {
+        switch (_a.label) {
+          case 0:
+            if (!!(userID === undefined)) return [3
+            /*break*/
+            , 2];
+            return [4
+            /*yield*/
+            , axios_1["default"].get("api/tasks/users/" + userID)];
+
+          case 1:
+            Data = _a.sent();
+
+            try {
+              setTasks(Data.data.map(function (data) {
+                return data;
+              }));
+            } catch (err) {
+              console.log(err);
+            }
+
+            _a.label = 2;
+
+          case 2:
+            return [2
+            /*return*/
+            ];
+        }
+      });
+    });
+  };
+
+  var postTask = function postTask(postData) {
+    return __awaiter(void 0, void 0, void 0, function () {
+      var res;
+      return __generator(this, function (_a) {
+        switch (_a.label) {
+          case 0:
+            console.log({
+              postData: postData
+            });
+            return [4
+            /*yield*/
+            , axios_1["default"].post("api/tasks", postData)];
+
+          case 1:
+            res = _a.sent();
+
+            try {
+              tasks.unshift(res.data);
+              setChange(change + 1); // setTasks([...tasks, res.data]);
+            } catch (err) {
+              console.log(err);
+            }
+
+            return [2
+            /*return*/
+            ];
+        }
+      });
+    });
+  };
+
+  var i = -1;
+  return react_1["default"].createElement(react_1["default"].Fragment, null, react_1["default"].createElement(_index_1.TextForm, {
+    postTask: postTask,
+    userID: userID
+  }), react_1["default"].createElement(TaskCards_1._TaskCards, null, tasks.map(function (task, key) {
+    i++;
+    return react_1["default"].createElement(_index_1.TaskCard, {
+      task: task,
+      setTasks: setTasks,
+      tasks: tasks,
+      tasksEditActive: tasksEditActive,
+      setTasksEditActive: setTasksEditActive,
+      id: task.id,
+      i: i,
+      key: key
+    });
+  })));
+};
+
+exports.default = TodoContent;
+
+/***/ }),
+
+/***/ "./resources/ts/components/lv3/TopPageContent.tsx":
+/*!********************************************************!*\
+  !*** ./resources/ts/components/lv3/TopPageContent.tsx ***!
+  \********************************************************/
+/***/ (function(__unused_webpack_module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var __importDefault = this && this.__importDefault || function (mod) {
+  return mod && mod.__esModule ? mod : {
+    "default": mod
+  };
+};
+
+Object.defineProperty(exports, "__esModule", ({
+  value: true
+}));
+
+var react_1 = __importDefault(__webpack_require__(/*! react */ "./node_modules/react/index.js"));
+
+var TopPageContent = function TopPageContent() {
+  return react_1["default"].createElement(react_1["default"].Fragment, null, react_1["default"].createElement("div", {
+    className: "wallpaper"
+  }, react_1["default"].createElement("img", {
+    className: "background-image",
+    src: "/images/background.jpg"
+  }), react_1["default"].createElement("img", {
+    className: "background-image2",
+    src: "/images/background2.jpg"
+  }), react_1["default"].createElement("div", {
+    className: "welcome"
+  }, react_1["default"].createElement("h1", {
+    className: "welcome__title"
+  }, react_1["default"].createElement("div", {
+    className: "welcome__title--underLine"
+  }, "Todo\u30A2\u30D7\u30EA\u4F5C\u3063\u3066\u307F\u305F\u3088\uFF01"), react_1["default"].createElement("div", {
+    className: "welcome__title--underLine"
+  }, "\u4F1A\u54E1\u767B\u9332\u3057\u3066\u4F7F\u3063\u3066\u307F\u3066\u306D\uFF01")), react_1["default"].createElement("div", {
+    className: "welcome__content"
+  }, react_1["default"].createElement("div", null, react_1["default"].createElement("div", {
+    className: "welcome__content--title"
+  }, "\u30BF\u30B9\u30AF\u7BA1\u7406\u30C4\u30FC\u30EB\u3092\u4F7F\u3063\u3066\u751F\u7523\u6027\u3092\u4E0A\u3052\u3088\u3046"), react_1["default"].createElement("a", {
+    href: "{{ url('login', null , $is_production) }}",
+    className: "text-sm text-gray-700 underline welcome__content--button welcome__content--hover"
+  }, "\u30ED\u30B0\u30A4\u30F3"), react_1["default"].createElement("a", {
+    href: "{{ url('register', null , $is_production) }}",
+    className: "ml-4 text-sm text-gray-700 underline welcome__content--button welcome__content--hover"
+  }, "\u65B0\u898F\u767B\u9332")), react_1["default"].createElement("img", {
+    src: "/images/todo.png",
+    width: "400px",
+    height: "400px"
+  })), react_1["default"].createElement("img", {
+    className: "todo-image",
+    src: "/images/image.png",
+    width: "800px"
+  }), react_1["default"].createElement("br", null))));
+};
+
+exports.default = TopPageContent;
 
 /***/ }),
 
