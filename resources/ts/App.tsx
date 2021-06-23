@@ -1,9 +1,6 @@
 import React, { useState } from "react";
-import TodoContent from "./components/lv3/TodoContent";
-import TopPageContent from "./components/lv3/TopPageContent";
-import LoginContent from "./components/lv3/LoginContent";
-import RegisterContent from "./components/lv3/RegisterContent";
 import Header from "./components/lv2/Header";
+import {LoginContent,RegisterContent,TodoContent,TopPageContent} from "./components/lv3/_index"; //prettier-ignore
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
 const App: React.VFC = () => {

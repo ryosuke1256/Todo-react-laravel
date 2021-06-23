@@ -2741,15 +2741,10 @@ Object.defineProperty(exports, "__esModule", ({
 
 var react_1 = __importStar(__webpack_require__(/*! react */ "./node_modules/react/index.js"));
 
-var TodoContent_1 = __importDefault(__webpack_require__(/*! ./components/lv3/TodoContent */ "./resources/ts/components/lv3/TodoContent.tsx"));
-
-var TopPageContent_1 = __importDefault(__webpack_require__(/*! ./components/lv3/TopPageContent */ "./resources/ts/components/lv3/TopPageContent.tsx"));
-
-var LoginContent_1 = __importDefault(__webpack_require__(/*! ./components/lv3/LoginContent */ "./resources/ts/components/lv3/LoginContent.tsx"));
-
-var RegisterContent_1 = __importDefault(__webpack_require__(/*! ./components/lv3/RegisterContent */ "./resources/ts/components/lv3/RegisterContent.tsx"));
-
 var Header_1 = __importDefault(__webpack_require__(/*! ./components/lv2/Header */ "./resources/ts/components/lv2/Header.tsx"));
+
+var _index_1 = __webpack_require__(/*! ./components/lv3/_index */ "./resources/ts/components/lv3/_index.js"); //prettier-ignore
+
 
 var react_router_dom_1 = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/esm/react-router-dom.js");
 
@@ -2760,11 +2755,11 @@ var App = function App() {
 
   return react_1["default"].createElement(react_1["default"].Fragment, null, react_1["default"].createElement(Header_1["default"], null), react_1["default"].createElement(react_router_dom_1.BrowserRouter, null, react_1["default"].createElement(react_router_dom_1.Switch, null, react_1["default"].createElement(react_router_dom_1.Route, {
     path: "/register"
-  }, react_1["default"].createElement(RegisterContent_1["default"], null)), react_1["default"].createElement(react_router_dom_1.Route, {
+  }, react_1["default"].createElement(_index_1.RegisterContent, null)), react_1["default"].createElement(react_router_dom_1.Route, {
     path: "/login"
-  }, react_1["default"].createElement(LoginContent_1["default"], null)), react_1["default"].createElement(react_router_dom_1.Route, {
+  }, react_1["default"].createElement(_index_1.LoginContent, null)), react_1["default"].createElement(react_router_dom_1.Route, {
     path: "/"
-  }, is_authenticated ? react_1["default"].createElement(TodoContent_1["default"], null) : react_1["default"].createElement(TopPageContent_1["default"], null)))));
+  }, is_authenticated ? react_1["default"].createElement(_index_1.TodoContent, null) : react_1["default"].createElement(_index_1.TopPageContent, null)))));
 };
 
 exports.default = App;
@@ -5174,6 +5169,35 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _ColoredTags__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_ColoredTags__WEBPACK_IMPORTED_MODULE_2__);
 /* harmony import */ var _TextForm__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./TextForm */ "./resources/ts/components/lv2/TextForm.tsx");
 /* harmony import */ var _TextForm__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_TextForm__WEBPACK_IMPORTED_MODULE_3__);
+
+
+
+
+
+/***/ }),
+
+/***/ "./resources/ts/components/lv3/_index.js":
+/*!***********************************************!*\
+  !*** ./resources/ts/components/lv3/_index.js ***!
+  \***********************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "LoginContent": () => (/* reexport default from dynamic */ _LoginContent__WEBPACK_IMPORTED_MODULE_0___default.a),
+/* harmony export */   "RegisterContent": () => (/* reexport default from dynamic */ _RegisterContent__WEBPACK_IMPORTED_MODULE_1___default.a),
+/* harmony export */   "TodoContent": () => (/* reexport default from dynamic */ _TodoContent__WEBPACK_IMPORTED_MODULE_2___default.a),
+/* harmony export */   "TopPageContent": () => (/* reexport default from dynamic */ _TopPageContent__WEBPACK_IMPORTED_MODULE_3___default.a)
+/* harmony export */ });
+/* harmony import */ var _LoginContent__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./LoginContent */ "./resources/ts/components/lv3/LoginContent.tsx");
+/* harmony import */ var _LoginContent__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_LoginContent__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _RegisterContent__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./RegisterContent */ "./resources/ts/components/lv3/RegisterContent.tsx");
+/* harmony import */ var _RegisterContent__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_RegisterContent__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _TodoContent__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./TodoContent */ "./resources/ts/components/lv3/TodoContent.tsx");
+/* harmony import */ var _TodoContent__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_TodoContent__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var _TopPageContent__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./TopPageContent */ "./resources/ts/components/lv3/TopPageContent.tsx");
+/* harmony import */ var _TopPageContent__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_TopPageContent__WEBPACK_IMPORTED_MODULE_3__);
 
 
 
