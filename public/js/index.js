@@ -2643,12 +2643,14 @@ var TodoContent_1 = __importDefault(__webpack_require__(/*! ./components/lv3/Tod
 
 var TopPageContent_1 = __importDefault(__webpack_require__(/*! ./components/lv3/TopPageContent */ "./resources/ts/components/lv3/TopPageContent.tsx"));
 
+var Header_1 = __importDefault(__webpack_require__(/*! ./components/lv2/Header */ "./resources/ts/components/lv2/Header.tsx"));
+
 var App = function App() {
   var _a = react_1.useState(false),
       is_authenticated = _a[0],
       setIs_authenticated = _a[1];
 
-  return react_1["default"].createElement(react_1["default"].Fragment, null, is_authenticated ? react_1["default"].createElement(TodoContent_1["default"], null) : react_1["default"].createElement(TopPageContent_1["default"], null));
+  return react_1["default"].createElement(react_1["default"].Fragment, null, react_1["default"].createElement(Header_1["default"], null), is_authenticated ? react_1["default"].createElement(TodoContent_1["default"], null) : react_1["default"].createElement(TopPageContent_1["default"], null));
 };
 
 exports.default = App;
@@ -3326,17 +3328,22 @@ var react_1 = __importDefault(__webpack_require__(/*! react */ "./node_modules/r
 
 var styled_components_1 = __importDefault(__webpack_require__(/*! styled-components */ "./node_modules/styled-components/dist/styled-components.browser.esm.js"));
 
-var TitleName_1 = __webpack_require__(/*! ../lv1/TitleName */ "./resources/ts/components/lv1/TitleName.tsx");
-
 var Header = function Header() {
-  return react_1["default"].createElement(_Header, null, react_1["default"].createElement(TitleName_1.TitleName, null, "Todo\u30A2\u30D7\u30EA"));
+  return react_1["default"].createElement(_Header, null, react_1["default"].createElement("img", {
+    src: "./images/whale.png",
+    alt: "\u30AF\u30B8\u30E9",
+    width: "40px",
+    height: "40px"
+  }), react_1["default"].createElement(_Title, null, "Todo"));
 };
 
 exports.default = Header;
 
-var _Header = styled_components_1["default"].div(templateObject_1 || (templateObject_1 = __makeTemplateObject(["\n    text-align: center;\n    margin-bottom: 20px;\n    background-color: rgba(121, 184, 255, 0.4);\n"], ["\n    text-align: center;\n    margin-bottom: 20px;\n    background-color: rgba(121, 184, 255, 0.4);\n"])));
+var _Header = styled_components_1["default"].div(templateObject_1 || (templateObject_1 = __makeTemplateObject(["\n    position: fixed;\n    display: flex;\n    flex-wrap: wrap;\n    z-index: 1000;\n    height: 60px;\n    width: 100vw;\n    padding: 8px 120px;\n    background-color: #fff;\n    box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075);\n"], ["\n    position: fixed;\n    display: flex;\n    flex-wrap: wrap;\n    z-index: 1000;\n    height: 60px;\n    width: 100vw;\n    padding: 8px 120px;\n    background-color: #fff;\n    box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075);\n"])));
 
-var templateObject_1;
+var _Title = styled_components_1["default"].div(templateObject_2 || (templateObject_2 = __makeTemplateObject(["\n    padding: 0.45rem 1rem;\n    font-size: 1.3rem;\n"], ["\n    padding: 0.45rem 1rem;\n    font-size: 1.3rem;\n"])));
+
+var templateObject_1, templateObject_2;
 
 /***/ }),
 
