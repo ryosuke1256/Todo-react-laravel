@@ -1,11 +1,12 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-import { _TaskCards } from "../lv3/TaskCards";
 import { TaskCard, TextForm } from "../lv2/_index";
 import { TaskAPI } from "../../type/api/TaskAPI";
 import { TaskAndColor } from "../../type/TaskAndColor";
+import styled from "styled-components";
+import customMedia from "../../style/customMedia";
 
-const TodoContent = () => {
+const TodoContent: React.VFC = () => {
     const [tasks, setTasks] = useState<any>([]);
     const [userID, setUserID] = useState();
     const [change, setChange] = useState(0); //render走らせる用
@@ -79,3 +80,23 @@ const TodoContent = () => {
 };
 
 export default TodoContent;
+
+export const _TaskCards = styled.div`
+    max-width: 1300px;
+    width: 85%;
+    margin: 0 auto;
+    padding-top: 10px;
+    //スマホ
+    ${customMedia.lessThan("mobile")`
+     /* screen width is less than 599px (tablet) */
+    width: 100%;
+    `} //タブレット
+    ${customMedia.between("mobile", "tablet")`
+    /* screen width is between 599px (tablet) and 1024px (desktop) */
+
+    `} //PC
+    ${customMedia.greaterThan("tablet")`
+    /* screen width is greater than 1024px (tablet) */
+    
+    `}
+`;
