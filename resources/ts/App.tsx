@@ -7,8 +7,8 @@ const App: React.VFC = () => {
     const [is_authenticated, setIs_authenticated] = useState(false);
     return (
         <>
-            <Header />
             <Router>
+                <Header />
                 <Switch>
                     <Route path="/register">
                         <RegisterContent />

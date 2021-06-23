@@ -2753,7 +2753,7 @@ var App = function App() {
       is_authenticated = _a[0],
       setIs_authenticated = _a[1];
 
-  return react_1["default"].createElement(react_1["default"].Fragment, null, react_1["default"].createElement(Header_1["default"], null), react_1["default"].createElement(react_router_dom_1.BrowserRouter, null, react_1["default"].createElement(react_router_dom_1.Switch, null, react_1["default"].createElement(react_router_dom_1.Route, {
+  return react_1["default"].createElement(react_1["default"].Fragment, null, react_1["default"].createElement(react_router_dom_1.BrowserRouter, null, react_1["default"].createElement(Header_1["default"], null), react_1["default"].createElement(react_router_dom_1.Switch, null, react_1["default"].createElement(react_router_dom_1.Route, {
     path: "/register"
   }, react_1["default"].createElement(_index_1.RegisterContent, null)), react_1["default"].createElement(react_router_dom_1.Route, {
     path: "/login"
@@ -3416,22 +3416,35 @@ var react_1 = __importDefault(__webpack_require__(/*! react */ "./node_modules/r
 
 var styled_components_1 = __importDefault(__webpack_require__(/*! styled-components */ "./node_modules/styled-components/dist/styled-components.browser.esm.js"));
 
+var react_router_dom_1 = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/esm/react-router-dom.js");
+
 var Header = function Header() {
-  return react_1["default"].createElement(_Header, null, react_1["default"].createElement("img", {
+  return react_1["default"].createElement(_Header, null, react_1["default"].createElement(react_router_dom_1.Link, {
+    to: "/",
+    style: {
+      textDecoration: "none"
+    }
+  }, react_1["default"].createElement(_TapableRange, {
+    style: {
+      display: "flex"
+    }
+  }, react_1["default"].createElement("img", {
     src: "./images/whale.png",
     alt: "\u30AF\u30B8\u30E9",
     width: "40px",
     height: "40px"
-  }), react_1["default"].createElement(_Title, null, "Todo"));
+  }), react_1["default"].createElement(_Title, null, "Todo"))));
 };
 
 exports.default = Header;
 
-var _Header = styled_components_1["default"].div(templateObject_1 || (templateObject_1 = __makeTemplateObject(["\n    position: fixed;\n    display: flex;\n    flex-wrap: wrap;\n    z-index: 1000;\n    height: 60px;\n    width: 100vw;\n    padding: 8px 120px;\n    background-color: #fff;\n    box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075);\n"], ["\n    position: fixed;\n    display: flex;\n    flex-wrap: wrap;\n    z-index: 1000;\n    height: 60px;\n    width: 100vw;\n    padding: 8px 120px;\n    background-color: #fff;\n    box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075);\n"])));
+var _Header = styled_components_1["default"].div(templateObject_1 || (templateObject_1 = __makeTemplateObject(["\n    position: fixed;\n    z-index: 1000;\n    height: 60px;\n    width: 100vw;\n    padding: 8px 120px;\n    background-color: #fff;\n    box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075);\n"], ["\n    position: fixed;\n    z-index: 1000;\n    height: 60px;\n    width: 100vw;\n    padding: 8px 120px;\n    background-color: #fff;\n    box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075);\n"])));
 
-var _Title = styled_components_1["default"].div(templateObject_2 || (templateObject_2 = __makeTemplateObject(["\n    padding: 0.45rem 1rem;\n    font-size: 1.3rem;\n"], ["\n    padding: 0.45rem 1rem;\n    font-size: 1.3rem;\n"])));
+var _TapableRange = styled_components_1["default"].div(templateObject_2 || (templateObject_2 = __makeTemplateObject(["\n    display: flex;\n"], ["\n    display: flex;\n"])));
 
-var templateObject_1, templateObject_2;
+var _Title = styled_components_1["default"].div(templateObject_3 || (templateObject_3 = __makeTemplateObject(["\n    display: inline-block;\n    color: #212529;\n    padding: 0.45rem 1rem;\n    font-size: 1.3rem;\n"], ["\n    display: inline-block;\n    color: #212529;\n    padding: 0.45rem 1rem;\n    font-size: 1.3rem;\n"])));
+
+var templateObject_1, templateObject_2, templateObject_3;
 
 /***/ }),
 
