@@ -4461,6 +4461,8 @@ Object.defineProperty(exports, "__esModule", ({
 
 var react_1 = __importDefault(__webpack_require__(/*! react */ "./node_modules/react/index.js"));
 
+var react_router_dom_1 = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/esm/react-router-dom.js");
+
 var TopPageContent = function TopPageContent() {
   return react_1["default"].createElement(react_1["default"].Fragment, null, react_1["default"].createElement("div", {
     className: "wallpaper"
@@ -4482,11 +4484,11 @@ var TopPageContent = function TopPageContent() {
     className: "welcome__content"
   }, react_1["default"].createElement("div", null, react_1["default"].createElement("div", {
     className: "welcome__content--title"
-  }, "\u30BF\u30B9\u30AF\u7BA1\u7406\u30C4\u30FC\u30EB\u3092\u4F7F\u3063\u3066\u751F\u7523\u6027\u3092\u4E0A\u3052\u3088\u3046"), react_1["default"].createElement("a", {
-    href: "{{ url('login', null , $is_production) }}",
+  }, "\u30BF\u30B9\u30AF\u7BA1\u7406\u30C4\u30FC\u30EB\u3092\u4F7F\u3063\u3066\u751F\u7523\u6027\u3092\u4E0A\u3052\u3088\u3046"), react_1["default"].createElement(react_router_dom_1.Link, {
+    to: "/login",
     className: "text-sm text-gray-700 underline welcome__content--button welcome__content--hover"
-  }, "\u30ED\u30B0\u30A4\u30F3"), react_1["default"].createElement("a", {
-    href: "{{ url('register', null , $is_production) }}",
+  }, "\u30ED\u30B0\u30A4\u30F3"), react_1["default"].createElement(react_router_dom_1.Link, {
+    to: "/register",
     className: "ml-4 text-sm text-gray-700 underline welcome__content--button welcome__content--hover"
   }, "\u65B0\u898F\u767B\u9332")), react_1["default"].createElement("img", {
     src: "/images/todo.png",
