@@ -16,9 +16,9 @@ const LoginContent: React.VFC<Props> = ({ setIs_authenticated }: Props) => {
         initCSRF();
     }, []);
 
-    const initCSRF = () => {
+    const initCSRF = async () => {
         console.log("initCSRF");
-        axios
+        await axios
             .get("/sanctum/csrf-cookie")
             .then((res) => {
                 console.log(res.data);
@@ -28,12 +28,12 @@ const LoginContent: React.VFC<Props> = ({ setIs_authenticated }: Props) => {
             });
     };
 
-    const onSubmit = () => {
+    const onSubmit = async () => {
         console.log(loginData);
-        axios
+        await axios
             .post("/login", loginData)
             .then((res) => {
-                console.log(res);
+                console.log(res.data.result);
                 // setIs_authenticated(true);
             })
             .catch((err) => {
