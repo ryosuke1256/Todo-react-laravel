@@ -5,16 +5,20 @@ import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
 const App: React.VFC = () => {
     const [is_authenticated, setIs_authenticated] = useState(false);
+    console.log(is_authenticated);
+
     return (
         <>
-            <Header />
             <Router>
+                <Header />
                 <Switch>
                     <Route path="/register">
                         <RegisterContent />
                     </Route>
                     <Route path="/login">
-                        <LoginContent />
+                        <LoginContent
+                            setIs_authenticated={setIs_authenticated}
+                        />
                     </Route>
                     <Route path="/">
                         {is_authenticated ? (
