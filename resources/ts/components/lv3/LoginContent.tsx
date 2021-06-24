@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-import { Link } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 import("../../../js/bootstrap");
+import TodoContent from "./TodoContent";
 
 type Props = {
     setIs_authenticated: (param: boolean) => void;
@@ -12,6 +13,8 @@ const LoginContent: React.VFC<Props> = ({ setIs_authenticated }: Props) => {
         email: "",
         password: "",
     });
+    const history = useHistory();
+
     useEffect(() => {
         initCSRF();
     }, []);
@@ -34,7 +37,11 @@ const LoginContent: React.VFC<Props> = ({ setIs_authenticated }: Props) => {
             .post("/login", loginData)
             .then((res) => {
                 console.log(res.data.result);
-                // setIs_authenticated(true);
+                if (res.data.result === true) {
+                    console.log("ログインに成功しました");
+                    history.push("/");
+                    setIs_authenticated(true);
+                }
             })
             .catch((err) => {
                 console.log(err);

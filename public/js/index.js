@@ -4250,6 +4250,7 @@ var LoginContent = function LoginContent(_a) {
       loginData = _b[0],
       setLoginData = _b[1];
 
+  var history = react_router_dom_1.useHistory();
   react_1.useEffect(function () {
     initCSRF();
   }, []);
@@ -4288,7 +4289,13 @@ var LoginContent = function LoginContent(_a) {
             return [4
             /*yield*/
             , axios_1["default"].post("/login", loginData).then(function (res) {
-              console.log(res.data.result); // setIs_authenticated(true);
+              console.log(res.data.result);
+
+              if (res.data.result === true) {
+                console.log("ログインに成功しました");
+                history.push("/");
+                setIs_authenticated(true);
+              }
             })["catch"](function (err) {
               console.log(err);
             })];
