@@ -27,9 +27,6 @@ class LoginController extends Controller
             //sucess
             $result = true;
             $user = Auth::user();
-            // return redirect()->intended('dashboard');
-            // return redirect('/');
-            // return new JsonResponse(['message' => 'ログインしました']);
         }
         return response()->json(['result' => $result,'user' => $user]);
         // return back()->withErrors([

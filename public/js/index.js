@@ -2753,7 +2753,7 @@ var App = function App() {
       is_authenticated = _a[0],
       setIs_authenticated = _a[1];
 
-  var _b = react_1.useState(),
+  var _b = react_1.useState(""),
       userID = _b[0],
       setUserID = _b[1];
 
@@ -2767,7 +2767,8 @@ var App = function App() {
   })), react_1["default"].createElement(react_router_dom_1.Route, {
     path: "/"
   }, is_authenticated ? react_1["default"].createElement(_index_1.TodoContent, {
-    userID: userID
+    userID: userID,
+    setUserID: setUserID
   }) : react_1["default"].createElement(_index_1.TopPageContent, null)))));
 };
 
@@ -4861,12 +4862,12 @@ var styled_components_1 = __importDefault(__webpack_require__(/*! styled-compone
 var customMedia_1 = __importDefault(__webpack_require__(/*! ../../style/customMedia */ "./resources/ts/style/customMedia.tsx"));
 
 var TodoContent = function TodoContent(_a) {
-  var userID = _a.userID;
+  var userID = _a.userID,
+      setUserID = _a.setUserID;
 
   var _b = react_1.useState([]),
       tasks = _b[0],
-      setTasks = _b[1]; // const [userID, setUserID] = useState();
-
+      setTasks = _b[1];
 
   var _c = react_1.useState(0),
       change = _c[0],
@@ -4875,27 +4876,36 @@ var TodoContent = function TodoContent(_a) {
 
   var _d = react_1.useState(false),
       tasksEditActive = _d[0],
-      setTasksEditActive = _d[1]; // useEffect(() => {
-  //     getUser();
-  // }, []);
-  // useEffect(() => {
-  //     getTasks();
-  // }, [userID]);
-
+      setTasksEditActive = _d[1];
 
   react_1.useEffect(function () {
     getTasks();
-  }, []); // const getUser = async () => {
-  //     await axios
-  //         .get("api/users")
-  //         .then((res) => {
-  //             console.log("getUser");
-  //             setUserID(res.data);
-  //         })
-  //         .catch((err) => {
-  //             console.log(err);
-  //         });
-  // };
+  }, [userID]);
+
+  var getUser = function getUser() {
+    return __awaiter(void 0, void 0, void 0, function () {
+      return __generator(this, function (_a) {
+        switch (_a.label) {
+          case 0:
+            return [4
+            /*yield*/
+            , axios_1["default"].get("api/users").then(function (res) {
+              console.log("getUser");
+              setUserID(res.data);
+            })["catch"](function (err) {
+              console.log(err);
+            })];
+
+          case 1:
+            _a.sent();
+
+            return [2
+            /*return*/
+            ];
+        }
+      });
+    });
+  };
 
   var getTasks = function getTasks() {
     return __awaiter(void 0, void 0, void 0, function () {
