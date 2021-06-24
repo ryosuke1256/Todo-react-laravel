@@ -3,9 +3,21 @@ import styled from "styled-components";
 import { Link } from "react-router-dom";
 import axios from "axios";
 
-const Header: React.VFC = () => {
+type Props = {
+    setIs_authenticated: (param: boolean) => void;
+};
+
+const Header: React.VFC<Props> = ({ setIs_authenticated }: Props) => {
     const logout = async () => {
-        console.log("logout");
+        await axios
+            .post("/logout")
+            .then((res) => {
+                console.log(res.data);
+                setIs_authenticated(false);
+            })
+            .catch((err) => {
+                console.log(err);
+            });
     };
 
     return (

@@ -2914,9 +2914,7 @@ var App = function App() {
             return [4
             /*yield*/
             , axios_1["default"].get("api/users").then(function (res) {
-              console.log(res.data); // if (!(res.data === undefined)) {
-              //     setIs_authenticated(true);
-              // }
+              console.log(res.data); // setIs_authenticated(true);
 
               setUserID(res.data);
             })["catch"](function (err) {
@@ -2934,7 +2932,9 @@ var App = function App() {
     });
   };
 
-  return react_1["default"].createElement(react_1["default"].Fragment, null, react_1["default"].createElement(react_router_dom_1.BrowserRouter, null, react_1["default"].createElement(Header_1["default"], null), react_1["default"].createElement(react_router_dom_1.Switch, null, react_1["default"].createElement(react_router_dom_1.Route, {
+  return react_1["default"].createElement(react_1["default"].Fragment, null, react_1["default"].createElement(react_router_dom_1.BrowserRouter, null, react_1["default"].createElement(Header_1["default"], {
+    setIs_authenticated: setIs_authenticated
+  }), react_1["default"].createElement(react_router_dom_1.Switch, null, react_1["default"].createElement(react_router_dom_1.Route, {
     path: "/register"
   }, react_1["default"].createElement(_index_1.RegisterContent, null)), react_1["default"].createElement(react_router_dom_1.Route, {
     path: "/login"
@@ -3748,14 +3748,32 @@ var styled_components_1 = __importDefault(__webpack_require__(/*! styled-compone
 
 var react_router_dom_1 = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/esm/react-router-dom.js");
 
-var Header = function Header() {
+var axios_1 = __importDefault(__webpack_require__(/*! axios */ "./node_modules/axios/index.js"));
+
+var Header = function Header(_a) {
+  var setIs_authenticated = _a.setIs_authenticated;
+
   var logout = function logout() {
     return __awaiter(void 0, void 0, void 0, function () {
       return __generator(this, function (_a) {
-        console.log("logout");
-        return [2
-        /*return*/
-        ];
+        switch (_a.label) {
+          case 0:
+            return [4
+            /*yield*/
+            , axios_1["default"].post("/logout").then(function (res) {
+              console.log(res.data);
+              setIs_authenticated(false);
+            })["catch"](function (err) {
+              console.log(err);
+            })];
+
+          case 1:
+            _a.sent();
+
+            return [2
+            /*return*/
+            ];
+        }
       });
     });
   };
@@ -4638,6 +4656,7 @@ var LoginContent = function LoginContent(_a) {
               if (res.data.result === true) {
                 console.log("ログインに成功しました");
                 history.push("/");
+                console.log(res.data);
                 setUserID(res.data.user.id);
                 setIs_authenticated(true);
               }

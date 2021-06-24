@@ -17,9 +17,7 @@ const App: React.VFC = () => {
             .get("api/users")
             .then((res) => {
                 console.log(res.data);
-                // if (!(res.data === undefined)) {
-                //     setIs_authenticated(true);
-                // }
+                // setIs_authenticated(true);
                 setUserID(res.data);
             })
             .catch((err) => {
@@ -30,7 +28,7 @@ const App: React.VFC = () => {
     return (
         <>
             <Router>
-                <Header />
+                <Header setIs_authenticated={setIs_authenticated} />
                 <Switch>
                     <Route path="/register">
                         <RegisterContent />

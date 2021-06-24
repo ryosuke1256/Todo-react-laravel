@@ -43,6 +43,7 @@ const LoginContent: React.VFC<Props> = ({
                 if (res.data.result === true) {
                     console.log("ログインに成功しました");
                     history.push("/");
+                    console.log(res.data);
                     setUserID(res.data.user.id);
                     setIs_authenticated(true);
                 }

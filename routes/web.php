@@ -2,7 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Auth\LoginController;
-use App\Http\Controllers\Auth\LooutController;
+use App\Http\Controllers\Auth\LogoutController;
 
 /*
 |--------------------------------------------------------------------------
@@ -27,7 +27,7 @@ Route::apiResource('api/tasks','TaskController');
 Route::Resource('api/tags','TagController');
 Route::get('api/tags/tasks/{id}','TagController@index');
 Route::post('/login', [LoginController::class, 'authenticate']);
-// Route::post('/logout', [LogoutController::class, 'logout']);
+Route::post('/logout', [LogoutController::class, 'logout']);
 // Auth::routes();
 
 // Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
