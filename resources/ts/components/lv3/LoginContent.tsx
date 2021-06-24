@@ -41,6 +41,7 @@ const LoginContent: React.VFC<Props> = ({ setIs_authenticated }: Props) => {
                     console.log("ログインに成功しました");
                     history.push("/");
                     setIs_authenticated(true);
+                    console.log(res.data.user);
                 }
             })
             .catch((err) => {
