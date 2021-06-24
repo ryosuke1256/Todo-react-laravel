@@ -4084,9 +4084,9 @@ Object.defineProperty(exports, "__esModule", ({
   value: true
 }));
 
-var axios_1 = __importDefault(__webpack_require__(/*! axios */ "./node_modules/axios/index.js"));
-
 var react_1 = __importStar(__webpack_require__(/*! react */ "./node_modules/react/index.js"));
+
+var axios_1 = __importDefault(__webpack_require__(/*! axios */ "./node_modules/axios/index.js"));
 
 var react_router_dom_1 = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/esm/react-router-dom.js");
 
@@ -4095,19 +4095,46 @@ Promise.resolve().then(function () {
 });
 
 var LoginContent = function LoginContent() {
+  var _a = react_1.useState({
+    email: "",
+    password: ""
+  }),
+      loginData = _a[0],
+      setLoginData = _a[1];
+
   react_1.useEffect(function () {
+    console.log("initCSRF");
     initCSRF();
   }, []);
 
   var initCSRF = function initCSRF() {
     axios_1["default"].get("/sanctum/csrf-cookie").then(function (res) {
       console.log(res.data);
+    })["catch"](function (err) {
+      console.log(err);
     });
   };
 
   var onSubmit = function onSubmit() {
-    axios_1["default"].post("/login").then(function (res) {
+    console.log(loginData);
+    axios_1["default"].post("/login", loginData).then(function (res) {
       console.log(res.data);
+    })["catch"](function (err) {
+      console.log(err);
+    });
+  };
+
+  var handleChangeEmail = function handleChangeEmail(e) {
+    setLoginData({
+      email: e.target.value,
+      password: loginData.password
+    });
+  };
+
+  var handleChangePassword = function handleChangePassword(e) {
+    setLoginData({
+      email: loginData.email,
+      password: e.target.value
     });
   };
 
@@ -4125,15 +4152,23 @@ var LoginContent = function LoginContent() {
     className: "font-semibold text-sm text-gray-600 pb-1 block"
   }, "E-mail"), react_1["default"].createElement("input", {
     type: "text",
-    className: "border rounded-lg px-3 py-2 mt-1 mb-5 text-sm w-full"
+    className: "border rounded-lg px-3 py-2 mt-1 mb-5 text-sm w-full",
+    value: loginData.email,
+    onChange: function onChange(e) {
+      return handleChangeEmail(e);
+    }
   }), react_1["default"].createElement("label", {
     className: "font-semibold text-sm text-gray-600 pb-1 block"
   }, "Password"), react_1["default"].createElement("input", {
     type: "text",
-    className: "border rounded-lg px-3 py-2 mt-1 mb-5 text-sm w-full"
+    className: "border rounded-lg px-3 py-2 mt-1 mb-5 text-sm w-full",
+    onChange: function onChange(e) {
+      return handleChangePassword(e);
+    }
   }), react_1["default"].createElement("button", {
     type: "button",
-    className: "transition duration-200 bg-blue-500 hover:bg-blue-600 focus:bg-blue-700 focus:shadow-sm focus:ring-4 focus:ring-blue-500 focus:ring-opacity-50 text-white w-full py-2.5 rounded-lg text-sm shadow-sm hover:shadow-md font-semibold text-center inline-block"
+    className: "transition duration-200 bg-blue-500 hover:bg-blue-600 focus:bg-blue-700 focus:shadow-sm focus:ring-4 focus:ring-blue-500 focus:ring-opacity-50 text-white w-full py-2.5 rounded-lg text-sm shadow-sm hover:shadow-md font-semibold text-center inline-block",
+    onClick: onSubmit
   }, react_1["default"].createElement("span", {
     className: "inline-block mr-2"
   }, "Login"), react_1["default"].createElement("svg", {

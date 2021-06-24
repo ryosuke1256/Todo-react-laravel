@@ -1,23 +1,47 @@
+import React, { useState, useEffect } from "react";
 import axios from "axios";
-import React, { useEffect } from "react";
 import { Link } from "react-router-dom";
 import("../../../js/bootstrap");
 
 const LoginContent: React.VFC = () => {
+    const [loginData, setLoginData] = useState<any>({
+        email: "",
+        password: "",
+    });
     useEffect(() => {
+        console.log("initCSRF");
         initCSRF();
     }, []);
 
     const initCSRF = () => {
-        axios.get("/sanctum/csrf-cookie").then((res) => {
-            console.log(res.data);
-        });
+        axios
+            .get("/sanctum/csrf-cookie")
+            .then((res) => {
+                console.log(res.data);
+            })
+            .catch((err) => {
+                console.log(err);
+            });
     };
 
     const onSubmit = () => {
-        axios.post("/login").then((res) => {
-            console.log(res.data);
-        });
+        console.log(loginData);
+        axios
+            .post("/login", loginData)
+            .then((res) => {
+                console.log(res.data);
+            })
+            .catch((err) => {
+                console.log(err);
+            });
+    };
+
+    const handleChangeEmail = (e: React.ChangeEvent<HTMLInputElement>) => {
+        setLoginData({ email: e.target.value, password: loginData.password });
+    };
+
+    const handleChangePassword = (e: React.ChangeEvent<HTMLInputElement>) => {
+        setLoginData({ email: loginData.email, password: e.target.value });
     };
 
     return (
@@ -34,6 +58,8 @@ const LoginContent: React.VFC = () => {
                         <input
                             type="text"
                             className="border rounded-lg px-3 py-2 mt-1 mb-5 text-sm w-full"
+                            value={loginData.email}
+                            onChange={(e) => handleChangeEmail(e)}
                         />
                         <label className="font-semibold text-sm text-gray-600 pb-1 block">
                             Password
@@ -41,10 +67,12 @@ const LoginContent: React.VFC = () => {
                         <input
                             type="text"
                             className="border rounded-lg px-3 py-2 mt-1 mb-5 text-sm w-full"
+                            onChange={(e) => handleChangePassword(e)}
                         />
                         <button
                             type="button"
                             className="transition duration-200 bg-blue-500 hover:bg-blue-600 focus:bg-blue-700 focus:shadow-sm focus:ring-4 focus:ring-blue-500 focus:ring-opacity-50 text-white w-full py-2.5 rounded-lg text-sm shadow-sm hover:shadow-md font-semibold text-center inline-block"
+                            onClick={onSubmit}
                         >
                             <span className="inline-block mr-2">Login</span>
                             <svg
