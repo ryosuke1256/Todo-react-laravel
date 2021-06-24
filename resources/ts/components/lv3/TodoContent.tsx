@@ -20,22 +20,7 @@ const TodoContent: React.VFC<Props> = ({ userID, setUserID }: Props) => {
         getTasks();
     }, [userID]);
 
-    const getUser = async () => {
-        await axios
-            .get("api/users")
-            .then((res) => {
-                console.log("getUser");
-                setUserID(res.data);
-            })
-            .catch((err) => {
-                console.log(err);
-            });
-    };
-
     const getTasks = async () => {
-        console.log("hello");
-        console.log({ userID });
-
         if (!(userID === undefined)) {
             const Data = await axios.get(`api/tasks/users/${userID}`);
             console.log(Data);
