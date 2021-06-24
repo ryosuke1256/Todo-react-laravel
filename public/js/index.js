@@ -2753,16 +2753,22 @@ var App = function App() {
       is_authenticated = _a[0],
       setIs_authenticated = _a[1];
 
-  console.log(is_authenticated);
+  var _b = react_1.useState(),
+      userID = _b[0],
+      setUserID = _b[1];
+
   return react_1["default"].createElement(react_1["default"].Fragment, null, react_1["default"].createElement(react_router_dom_1.BrowserRouter, null, react_1["default"].createElement(Header_1["default"], null), react_1["default"].createElement(react_router_dom_1.Switch, null, react_1["default"].createElement(react_router_dom_1.Route, {
     path: "/register"
   }, react_1["default"].createElement(_index_1.RegisterContent, null)), react_1["default"].createElement(react_router_dom_1.Route, {
     path: "/login"
   }, react_1["default"].createElement(_index_1.LoginContent, {
-    setIs_authenticated: setIs_authenticated
+    setIs_authenticated: setIs_authenticated,
+    setUserID: setUserID
   })), react_1["default"].createElement(react_router_dom_1.Route, {
     path: "/"
-  }, is_authenticated ? react_1["default"].createElement(_index_1.TodoContent, null) : react_1["default"].createElement(_index_1.TopPageContent, null)))));
+  }, is_authenticated ? react_1["default"].createElement(_index_1.TodoContent, {
+    userID: userID
+  }) : react_1["default"].createElement(_index_1.TopPageContent, null)))));
 };
 
 exports.default = App;
@@ -4241,7 +4247,8 @@ Promise.resolve().then(function () {
 });
 
 var LoginContent = function LoginContent(_a) {
-  var setIs_authenticated = _a.setIs_authenticated;
+  var setIs_authenticated = _a.setIs_authenticated,
+      setUserID = _a.setUserID;
 
   var _b = react_1.useState({
     email: "",
@@ -4294,8 +4301,8 @@ var LoginContent = function LoginContent(_a) {
               if (res.data.result === true) {
                 console.log("ログインに成功しました");
                 history.push("/");
+                setUserID(res.data.user.id);
                 setIs_authenticated(true);
-                console.log(res.data.user);
               }
             })["catch"](function (err) {
               console.log(err);
@@ -4853,14 +4860,13 @@ var styled_components_1 = __importDefault(__webpack_require__(/*! styled-compone
 
 var customMedia_1 = __importDefault(__webpack_require__(/*! ../../style/customMedia */ "./resources/ts/style/customMedia.tsx"));
 
-var TodoContent = function TodoContent() {
-  var _a = react_1.useState([]),
-      tasks = _a[0],
-      setTasks = _a[1];
+var TodoContent = function TodoContent(_a) {
+  var userID = _a.userID;
 
-  var _b = react_1.useState(),
-      userID = _b[0],
-      setUserID = _b[1];
+  var _b = react_1.useState([]),
+      tasks = _b[0],
+      setTasks = _b[1]; // const [userID, setUserID] = useState();
+
 
   var _c = react_1.useState(0),
       change = _c[0],
@@ -4869,38 +4875,27 @@ var TodoContent = function TodoContent() {
 
   var _d = react_1.useState(false),
       tasksEditActive = _d[0],
-      setTasksEditActive = _d[1];
+      setTasksEditActive = _d[1]; // useEffect(() => {
+  //     getUser();
+  // }, []);
+  // useEffect(() => {
+  //     getTasks();
+  // }, [userID]);
 
-  react_1.useEffect(function () {
-    getUser();
-  }, []);
+
   react_1.useEffect(function () {
     getTasks();
-  }, [userID]);
-
-  var getUser = function getUser() {
-    return __awaiter(void 0, void 0, void 0, function () {
-      return __generator(this, function (_a) {
-        switch (_a.label) {
-          case 0:
-            return [4
-            /*yield*/
-            , axios_1["default"].get("api/users").then(function (res) {
-              setUserID(res.data);
-            })["catch"](function (err) {
-              console.log(err);
-            })];
-
-          case 1:
-            _a.sent();
-
-            return [2
-            /*return*/
-            ];
-        }
-      });
-    });
-  };
+  }, []); // const getUser = async () => {
+  //     await axios
+  //         .get("api/users")
+  //         .then((res) => {
+  //             console.log("getUser");
+  //             setUserID(res.data);
+  //         })
+  //         .catch((err) => {
+  //             console.log(err);
+  //         });
+  // };
 
   var getTasks = function getTasks() {
     return __awaiter(void 0, void 0, void 0, function () {
@@ -4908,6 +4903,10 @@ var TodoContent = function TodoContent() {
       return __generator(this, function (_a) {
         switch (_a.label) {
           case 0:
+            console.log("hello");
+            console.log({
+              userID: userID
+            });
             if (!!(userID === undefined)) return [3
             /*break*/
             , 2];
@@ -4917,6 +4916,7 @@ var TodoContent = function TodoContent() {
 
           case 1:
             Data = _a.sent();
+            console.log(Data);
 
             try {
               setTasks(Data.data.map(function (data) {

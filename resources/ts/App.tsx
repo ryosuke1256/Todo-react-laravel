@@ -5,7 +5,7 @@ import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
 const App: React.VFC = () => {
     const [is_authenticated, setIs_authenticated] = useState(false);
-    console.log(is_authenticated);
+    const [userID, setUserID] = useState();
 
     return (
         <>
@@ -18,11 +18,12 @@ const App: React.VFC = () => {
                     <Route path="/login">
                         <LoginContent
                             setIs_authenticated={setIs_authenticated}
+                            setUserID={setUserID}
                         />
                     </Route>
                     <Route path="/">
                         {is_authenticated ? (
-                            <TodoContent />
+                            <TodoContent userID={userID} />
                         ) : (
                             <TopPageContent />
                         )}

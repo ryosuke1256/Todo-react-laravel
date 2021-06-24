@@ -15,9 +15,12 @@ use App\Http\Controllers\Auth\LooutController;
 |
 */
 
-Route::get('{all}', function () {
+Route::get('/', function () {
         return view('index');
-})->where(['all' => '.*']);
+});
+Route::get('/login', function () {
+        return redirect('/');
+});
 Route::get('api/users','UserController@index');
 Route::get('api/tasks/users/{id}','TaskController@index');
 Route::apiResource('api/tasks','TaskController');
