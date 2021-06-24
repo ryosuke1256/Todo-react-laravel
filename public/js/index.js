@@ -4103,11 +4103,11 @@ var LoginContent = function LoginContent() {
       setLoginData = _a[1];
 
   react_1.useEffect(function () {
-    console.log("initCSRF");
     initCSRF();
   }, []);
 
   var initCSRF = function initCSRF() {
+    console.log("initCSRF");
     axios_1["default"].get("/sanctum/csrf-cookie").then(function (res) {
       console.log(res.data);
     })["catch"](function (err) {
@@ -4141,7 +4141,7 @@ var LoginContent = function LoginContent() {
   return react_1["default"].createElement("div", {
     className: "min-h-screen bg-gray-100 flex flex-col justify-center sm:py-12"
   }, react_1["default"].createElement("div", {
-    className: "p-10 xs:p-0 mx-auto md:w-full md:max-w-md"
+    className: "xs:p-0 mx-auto md:w-full md:max-w-md"
   }, react_1["default"].createElement("h1", {
     className: "font-bold text-center text-2xl mb-5"
   }, "Your Logo"), react_1["default"].createElement("div", {
@@ -4271,7 +4271,51 @@ Object.defineProperty(exports, "__esModule", ({
 var react_1 = __importDefault(__webpack_require__(/*! react */ "./node_modules/react/index.js"));
 
 var RegisterContent = function RegisterContent() {
-  return react_1["default"].createElement("div", null);
+  return react_1["default"].createElement("div", {
+    className: "bg-grey-lighter min-h-screen flex flex-col"
+  }, react_1["default"].createElement("div", {
+    className: "container max-w-sm mx-auto flex-1 flex flex-col items-center justify-center px-2"
+  }, react_1["default"].createElement("div", {
+    className: "bg-white px-6 py-8 rounded shadow-md text-black w-6/12"
+  }, react_1["default"].createElement("h1", {
+    className: "mb-8 text-3xl text-center"
+  }, "Sign up"), react_1["default"].createElement("input", {
+    type: "text",
+    className: "block border border-grey-light w-full p-3 rounded mb-4",
+    name: "fullname",
+    placeholder: "Full Name"
+  }), react_1["default"].createElement("input", {
+    type: "text",
+    className: "block border border-grey-light w-full p-3 rounded mb-4",
+    name: "email",
+    placeholder: "Email"
+  }), react_1["default"].createElement("input", {
+    type: "password",
+    className: "block border border-grey-light w-full p-3 rounded mb-4",
+    name: "password",
+    placeholder: "Password"
+  }), react_1["default"].createElement("input", {
+    type: "password",
+    className: "block border border-grey-light w-full p-3 rounded mb-4",
+    name: "confirm_password",
+    placeholder: "Confirm Password"
+  }), react_1["default"].createElement("button", {
+    type: "submit",
+    className: "w-full text-center py-3 rounded bg-green text-white hover:bg-green-dark focus:outline-none my-1"
+  }, "Create Account"), react_1["default"].createElement("div", {
+    className: "text-center text-sm text-grey-dark mt-4"
+  }, "By signing up, you agree to the", react_1["default"].createElement("a", {
+    className: "no-underline border-b border-grey-dark text-grey-dark",
+    href: "#"
+  }, "Terms of Service"), " ", "and", react_1["default"].createElement("a", {
+    className: "no-underline border-b border-grey-dark text-grey-dark",
+    href: "#"
+  }, "Privacy Policy"))), react_1["default"].createElement("div", {
+    className: "text-grey-dark mt-6"
+  }, "Already have an account?", react_1["default"].createElement("a", {
+    className: "no-underline border-b border-blue text-blue",
+    href: "../login/"
+  }, "Log in"), ".")));
 };
 
 exports.default = RegisterContent;
