@@ -3,7 +3,11 @@ import axios from "axios";
 import { Link } from "react-router-dom";
 import("../../../js/bootstrap");
 
-const LoginContent: React.VFC = () => {
+type Props = {
+    setIs_authenticated: (param: boolean) => void;
+};
+
+const LoginContent: React.VFC<Props> = ({ setIs_authenticated }: Props) => {
     const [loginData, setLoginData] = useState<any>({
         email: "",
         password: "",
@@ -29,7 +33,8 @@ const LoginContent: React.VFC = () => {
         axios
             .post("/login", loginData)
             .then((res) => {
-                console.log(res.data);
+                console.log(res);
+                // setIs_authenticated(true);
             })
             .catch((err) => {
                 console.log(err);
@@ -47,10 +52,10 @@ const LoginContent: React.VFC = () => {
     return (
         <div className="min-h-screen bg-gray-100 flex flex-col justify-center sm:py-12">
             <div className="xs:p-0 mx-auto md:w-full md:max-w-md">
-                <h1 className="font-bold text-center text-2xl mb-5">
-                    Your Logo
-                </h1>
                 <div className="bg-white shadow w-full rounded-lg divide-y divide-gray-200">
+                    <h1 className="font-bold text-center text-2xl py-3 mb-5">
+                        Login
+                    </h1>
                     <div className="px-5 py-7">
                         <label className="font-semibold text-sm text-gray-600 pb-1 block">
                             E-mail
@@ -156,7 +161,7 @@ const LoginContent: React.VFC = () => {
                                         d="M10 19l-7-7m0 0l7-7m-7 7h18"
                                     />
                                 </svg>
-                                <Link to="/" className="inline-block ml-1">
+                                <Link to="/" className="ml-1">
                                     Back to your-app.com
                                 </Link>
                             </button>

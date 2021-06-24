@@ -2753,11 +2753,14 @@ var App = function App() {
       is_authenticated = _a[0],
       setIs_authenticated = _a[1];
 
+  console.log(is_authenticated);
   return react_1["default"].createElement(react_1["default"].Fragment, null, react_1["default"].createElement(react_router_dom_1.BrowserRouter, null, react_1["default"].createElement(Header_1["default"], null), react_1["default"].createElement(react_router_dom_1.Switch, null, react_1["default"].createElement(react_router_dom_1.Route, {
     path: "/register"
   }, react_1["default"].createElement(_index_1.RegisterContent, null)), react_1["default"].createElement(react_router_dom_1.Route, {
     path: "/login"
-  }, react_1["default"].createElement(_index_1.LoginContent, null)), react_1["default"].createElement(react_router_dom_1.Route, {
+  }, react_1["default"].createElement(_index_1.LoginContent, {
+    setIs_authenticated: setIs_authenticated
+  })), react_1["default"].createElement(react_router_dom_1.Route, {
     path: "/"
   }, is_authenticated ? react_1["default"].createElement(_index_1.TodoContent, null) : react_1["default"].createElement(_index_1.TopPageContent, null)))));
 };
@@ -4094,13 +4097,15 @@ Promise.resolve().then(function () {
   return __importStar(__webpack_require__(/*! ../../../js/bootstrap */ "./resources/js/bootstrap.js"));
 });
 
-var LoginContent = function LoginContent() {
-  var _a = react_1.useState({
+var LoginContent = function LoginContent(_a) {
+  var setIs_authenticated = _a.setIs_authenticated;
+
+  var _b = react_1.useState({
     email: "",
     password: ""
   }),
-      loginData = _a[0],
-      setLoginData = _a[1];
+      loginData = _b[0],
+      setLoginData = _b[1];
 
   react_1.useEffect(function () {
     initCSRF();
@@ -4118,7 +4123,7 @@ var LoginContent = function LoginContent() {
   var onSubmit = function onSubmit() {
     console.log(loginData);
     axios_1["default"].post("/login", loginData).then(function (res) {
-      console.log(res.data);
+      console.log(res); // setIs_authenticated(true);
     })["catch"](function (err) {
       console.log(err);
     });
@@ -4142,11 +4147,11 @@ var LoginContent = function LoginContent() {
     className: "min-h-screen bg-gray-100 flex flex-col justify-center sm:py-12"
   }, react_1["default"].createElement("div", {
     className: "xs:p-0 mx-auto md:w-full md:max-w-md"
-  }, react_1["default"].createElement("h1", {
-    className: "font-bold text-center text-2xl mb-5"
-  }, "Your Logo"), react_1["default"].createElement("div", {
-    className: "bg-white shadow w-full rounded-lg divide-y divide-gray-200"
   }, react_1["default"].createElement("div", {
+    className: "bg-white shadow w-full rounded-lg divide-y divide-gray-200"
+  }, react_1["default"].createElement("h1", {
+    className: "font-bold text-center text-2xl py-3 mb-5"
+  }, "Login"), react_1["default"].createElement("div", {
     className: "px-5 py-7"
   }, react_1["default"].createElement("label", {
     className: "font-semibold text-sm text-gray-600 pb-1 block"
@@ -4241,7 +4246,7 @@ var LoginContent = function LoginContent() {
     d: "M10 19l-7-7m0 0l7-7m-7 7h18"
   })), react_1["default"].createElement(react_router_dom_1.Link, {
     to: "/",
-    className: "inline-block ml-1"
+    className: "ml-1"
   }, "Back to your-app.com")))))));
 };
 
@@ -4258,6 +4263,40 @@ exports.default = LoginContent;
 "use strict";
 
 
+var __createBinding = this && this.__createBinding || (Object.create ? function (o, m, k, k2) {
+  if (k2 === undefined) k2 = k;
+  Object.defineProperty(o, k2, {
+    enumerable: true,
+    get: function get() {
+      return m[k];
+    }
+  });
+} : function (o, m, k, k2) {
+  if (k2 === undefined) k2 = k;
+  o[k2] = m[k];
+});
+
+var __setModuleDefault = this && this.__setModuleDefault || (Object.create ? function (o, v) {
+  Object.defineProperty(o, "default", {
+    enumerable: true,
+    value: v
+  });
+} : function (o, v) {
+  o["default"] = v;
+});
+
+var __importStar = this && this.__importStar || function (mod) {
+  if (mod && mod.__esModule) return mod;
+  var result = {};
+  if (mod != null) for (var k in mod) {
+    if (k !== "default" && Object.prototype.hasOwnProperty.call(mod, k)) __createBinding(result, mod, k);
+  }
+
+  __setModuleDefault(result, mod);
+
+  return result;
+};
+
 var __importDefault = this && this.__importDefault || function (mod) {
   return mod && mod.__esModule ? mod : {
     "default": mod
@@ -4268,9 +4307,70 @@ Object.defineProperty(exports, "__esModule", ({
   value: true
 }));
 
-var react_1 = __importDefault(__webpack_require__(/*! react */ "./node_modules/react/index.js"));
+var react_1 = __importStar(__webpack_require__(/*! react */ "./node_modules/react/index.js"));
+
+var react_router_dom_1 = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/esm/react-router-dom.js");
+
+var axios_1 = __importDefault(__webpack_require__(/*! axios */ "./node_modules/axios/index.js"));
 
 var RegisterContent = function RegisterContent() {
+  //name:required,string,max255
+  //email:require,string,email.max255,unique:users
+  //password:required,string,min8,confirmed
+  var _a = react_1.useState({
+    name: "",
+    email: "",
+    password: ""
+  }),
+      registerData = _a[0],
+      setRegisterData = _a[1];
+
+  var _b = react_1.useState(""),
+      confirmPassword = _b[0],
+      setConfirmPassword = _b[1];
+
+  var onSubmit = function onSubmit() {
+    console.log(registerData);
+
+    if (confirmPassword === registerData.password) {
+      axios_1["default"].post("/register", registerData).then(function (res) {
+        console.log(res.data);
+      })["catch"](function (err) {
+        console.log(err);
+      });
+    } else {
+      console.log("validation.confirmed");
+    }
+  };
+
+  var handleChangeName = function handleChangeName(e) {
+    setRegisterData({
+      name: e.target.value,
+      email: registerData.email,
+      password: registerData.password
+    });
+  };
+
+  var handleChangeEmail = function handleChangeEmail(e) {
+    setRegisterData({
+      name: registerData.name,
+      email: e.target.value,
+      password: registerData.password
+    });
+  };
+
+  var handleChangePassword = function handleChangePassword(e) {
+    setRegisterData({
+      name: registerData.name,
+      email: registerData.email,
+      password: e.target.value
+    });
+  };
+
+  var handleChangeConfirmPassword = function handleChangeConfirmPassword(e) {
+    setConfirmPassword(e.target.value);
+  };
+
   return react_1["default"].createElement("div", {
     className: "bg-grey-lighter min-h-screen flex flex-col"
   }, react_1["default"].createElement("div", {
@@ -4283,25 +4383,38 @@ var RegisterContent = function RegisterContent() {
     type: "text",
     className: "block border border-grey-light w-full p-3 rounded mb-4",
     name: "fullname",
-    placeholder: "Full Name"
+    placeholder: "Full Name",
+    onChange: function onChange(e) {
+      return handleChangeName(e);
+    }
   }), react_1["default"].createElement("input", {
     type: "text",
     className: "block border border-grey-light w-full p-3 rounded mb-4",
     name: "email",
-    placeholder: "Email"
+    placeholder: "Email",
+    onChange: function onChange(e) {
+      return handleChangeEmail(e);
+    }
   }), react_1["default"].createElement("input", {
     type: "password",
     className: "block border border-grey-light w-full p-3 rounded mb-4",
     name: "password",
-    placeholder: "Password"
+    placeholder: "Password",
+    onChange: function onChange(e) {
+      return handleChangePassword(e);
+    }
   }), react_1["default"].createElement("input", {
     type: "password",
     className: "block border border-grey-light w-full p-3 rounded mb-4",
     name: "confirm_password",
-    placeholder: "Confirm Password"
+    placeholder: "Confirm Password",
+    onChange: function onChange(e) {
+      return handleChangeConfirmPassword(e);
+    }
   }), react_1["default"].createElement("button", {
     type: "submit",
-    className: "w-full text-center py-3 rounded bg-green text-white hover:bg-green-dark focus:outline-none my-1"
+    className: "w-full text-center py-3 rounded bg-green text-black hover:bg-green-dark focus:outline-none my-1",
+    onClick: onSubmit
   }, "Create Account"), react_1["default"].createElement("div", {
     className: "text-center text-sm text-grey-dark mt-4"
   }, "By signing up, you agree to the", react_1["default"].createElement("a", {
@@ -4315,7 +4428,23 @@ var RegisterContent = function RegisterContent() {
   }, "Already have an account?", react_1["default"].createElement("a", {
     className: "no-underline border-b border-blue text-blue",
     href: "../login/"
-  }, "Log in"), ".")));
+  }, "Log in"), "."), react_1["default"].createElement("button", {
+    className: "transition duration-200 mx-5 px-5 py-4 cursor-pointer font-normal text-sm rounded-lg text-gray-500 hover:bg-gray-200 focus:outline-none focus:bg-gray-300 focus:ring-2 focus:ring-gray-400 focus:ring-opacity-50 ring-inset"
+  }, react_1["default"].createElement("svg", {
+    xmlns: "http://www.w3.org/2000/svg",
+    fill: "none",
+    viewBox: "0 0 24 24",
+    stroke: "currentColor",
+    className: "w-4 h-4 inline-block align-text-top"
+  }, react_1["default"].createElement("path", {
+    strokeLinecap: "round",
+    strokeLinejoin: "round",
+    strokeWidth: "2",
+    d: "M10 19l-7-7m0 0l7-7m-7 7h18"
+  })), react_1["default"].createElement(react_router_dom_1.Link, {
+    to: "/",
+    className: "ml-1"
+  }, "Back to your-app.com"))));
 };
 
 exports.default = RegisterContent;

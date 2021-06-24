@@ -21,6 +21,6 @@ Route::get('api/tasks/users/{id}','TaskController@index');
 Route::apiResource('api/tasks','TaskController');
 Route::Resource('api/tags','TagController');
 Route::get('api/tags/tasks/{id}','TagController@index');
-Auth::routes();
+// Auth::routes();
 
 // Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
