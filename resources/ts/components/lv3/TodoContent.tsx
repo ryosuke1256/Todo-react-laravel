@@ -21,7 +21,7 @@ const TodoContent: React.VFC<Props> = ({ userID, setUserID }: Props) => {
     }, [userID]);
 
     const getTasks = async () => {
-        if (!(userID === undefined)) {
+        if (!(userID === "")) {
             const Data = await axios.get(`api/tasks/users/${userID}`);
             console.log(Data);
             try {
@@ -77,17 +77,11 @@ export const _TaskCards = styled.div`
     width: 85%;
     margin: 0 auto;
     padding-top: 10px;
-    //スマホ
     ${customMedia.lessThan("mobile")`
-     /* screen width is less than 599px (tablet) */
     width: 100%;
-    `} //タブレット
+    `}
     ${customMedia.between("mobile", "tablet")`
-    /* screen width is between 599px (tablet) and 1024px (desktop) */
-
-    `} //PC
+    `} 
     ${customMedia.greaterThan("tablet")`
-    /* screen width is greater than 1024px (tablet) */
-    
     `}
 `;

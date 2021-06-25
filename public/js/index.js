@@ -2909,7 +2909,7 @@ var App = function App() {
 
   react_1.useEffect(function () {
     getUser();
-  }, [is_authenticated]);
+  }, []);
   console.log({
     is_began: is_began
   });
@@ -2925,7 +2925,6 @@ var App = function App() {
             return [4
             /*yield*/
             , axios_1["default"].get("api/users").then(function (res) {
-              // console.log(res.data);
               if (res.data) {
                 setIs_authenticated(true);
               } else {
@@ -3793,7 +3792,6 @@ var Header = function Header(_a) {
             return [4
             /*yield*/
             , axios_1["default"].post("/logout").then(function (res) {
-              // console.log(res.data);
               setIs_authenticated(false);
             })["catch"](function (err) {
               console.log(err);
@@ -4683,11 +4681,9 @@ var LoginContent = function LoginContent(_a) {
             return [4
             /*yield*/
             , axios_1["default"].post("/login", loginData).then(function (res) {
-              // console.log(res.data.result);
               if (res.data.result === true) {
                 console.log("ログインに成功しました");
-                history.push("/"); // console.log(res.data);
-
+                history.push("/");
                 setUserID(res.data.user.id);
                 setIs_authenticated(true);
               }
@@ -5274,7 +5270,7 @@ var TodoContent = function TodoContent(_a) {
       return __generator(this, function (_a) {
         switch (_a.label) {
           case 0:
-            if (!!(userID === undefined)) return [3
+            if (!!(userID === "")) return [3
             /*break*/
             , 2];
             return [4
@@ -5355,7 +5351,7 @@ var TodoContent = function TodoContent(_a) {
 };
 
 exports.default = TodoContent;
-exports._TaskCards = styled_components_1["default"].div(templateObject_4 || (templateObject_4 = __makeTemplateObject(["\n    max-width: 1300px;\n    width: 85%;\n    margin: 0 auto;\n    padding-top: 10px;\n    //\u30B9\u30DE\u30DB\n    ", " //\u30BF\u30D6\u30EC\u30C3\u30C8\n    ", " //PC\n    ", "\n"], ["\n    max-width: 1300px;\n    width: 85%;\n    margin: 0 auto;\n    padding-top: 10px;\n    //\u30B9\u30DE\u30DB\n    ", " //\u30BF\u30D6\u30EC\u30C3\u30C8\n    ", " //PC\n    ", "\n"])), customMedia_1["default"].lessThan("mobile")(templateObject_1 || (templateObject_1 = __makeTemplateObject(["\n     /* screen width is less than 599px (tablet) */\n    width: 100%;\n    "], ["\n     /* screen width is less than 599px (tablet) */\n    width: 100%;\n    "]))), customMedia_1["default"].between("mobile", "tablet")(templateObject_2 || (templateObject_2 = __makeTemplateObject(["\n    /* screen width is between 599px (tablet) and 1024px (desktop) */\n\n    "], ["\n    /* screen width is between 599px (tablet) and 1024px (desktop) */\n\n    "]))), customMedia_1["default"].greaterThan("tablet")(templateObject_3 || (templateObject_3 = __makeTemplateObject(["\n    /* screen width is greater than 1024px (tablet) */\n    \n    "], ["\n    /* screen width is greater than 1024px (tablet) */\n    \n    "]))));
+exports._TaskCards = styled_components_1["default"].div(templateObject_4 || (templateObject_4 = __makeTemplateObject(["\n    max-width: 1300px;\n    width: 85%;\n    margin: 0 auto;\n    padding-top: 10px;\n    ", "\n    ", " \n    ", "\n"], ["\n    max-width: 1300px;\n    width: 85%;\n    margin: 0 auto;\n    padding-top: 10px;\n    ", "\n    ", " \n    ", "\n"])), customMedia_1["default"].lessThan("mobile")(templateObject_1 || (templateObject_1 = __makeTemplateObject(["\n    width: 100%;\n    "], ["\n    width: 100%;\n    "]))), customMedia_1["default"].between("mobile", "tablet")(templateObject_2 || (templateObject_2 = __makeTemplateObject(["\n    "], ["\n    "]))), customMedia_1["default"].greaterThan("tablet")(templateObject_3 || (templateObject_3 = __makeTemplateObject(["\n    "], ["\n    "]))));
 var templateObject_1, templateObject_2, templateObject_3, templateObject_4;
 
 /***/ }),
