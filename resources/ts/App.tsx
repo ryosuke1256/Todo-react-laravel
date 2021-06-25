@@ -5,29 +5,48 @@ import { BrowserRouter as Router, Switch, Route, Redirect } from "react-router-d
 import axios from "axios";
 
 const App: React.VFC = () => {
-    const [is_authenticated, setIs_authenticated] = useState<boolean>();
+    const [is_authenticated, setIs_authenticated] = useState<boolean>(false);
     const [userID, setUserID] = useState("");
-    console.log(is_authenticated);
+    const [is_began, setIs_began] = useState(false);
 
     useEffect(() => {
         getUser();
-    }, [setIs_authenticated]);
+    }, [is_authenticated]);
+
+    console.log({ is_began });
+    console.log({ is_authenticated });
 
     const getUser = async () => {
         await axios
             .get("api/users")
             .then((res) => {
-                console.log(res.data);
+                // console.log(res.data);
                 if (res.data) {
                     setIs_authenticated(true);
                 } else {
                     setIs_authenticated(false);
                 }
+                setIs_began(true);
                 setUserID(res.data);
             })
             .catch((err) => {
                 console.log(err);
+                setIs_began(true);
             });
+    };
+
+    const GetTopPageContent = (): JSX.Element | null => {
+        if (is_began) {
+            if (is_authenticated) {
+                return <TodoContent userID={userID} setUserID={setUserID} />;
+            } else if (is_authenticated === false) {
+                return <TopPageContent />;
+            } else {
+                return null;
+            }
+        } else {
+            return null;
+        }
     };
 
     return (
@@ -45,14 +64,7 @@ const App: React.VFC = () => {
                         />
                     </Route>
                     <Route path="/">
-                        {is_authenticated ? (
-                            <TodoContent
-                                userID={userID}
-                                setUserID={setUserID}
-                            />
-                        ) : !(is_authenticated === undefined) ? (
-                            <TopPageContent />
-                        ) : null}
+                        <GetTopPageContent />
                     </Route>
                 </Switch>
             </Router>

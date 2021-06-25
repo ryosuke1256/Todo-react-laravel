@@ -2895,7 +2895,7 @@ var react_router_dom_1 = __webpack_require__(/*! react-router-dom */ "./node_mod
 var axios_1 = __importDefault(__webpack_require__(/*! axios */ "./node_modules/axios/index.js"));
 
 var App = function App() {
-  var _a = react_1.useState(),
+  var _a = react_1.useState(false),
       is_authenticated = _a[0],
       setIs_authenticated = _a[1];
 
@@ -2903,10 +2903,19 @@ var App = function App() {
       userID = _b[0],
       setUserID = _b[1];
 
-  console.log(is_authenticated);
+  var _c = react_1.useState(false),
+      is_began = _c[0],
+      setIs_began = _c[1];
+
   react_1.useEffect(function () {
     getUser();
-  }, [setIs_authenticated]);
+  }, [is_authenticated]);
+  console.log({
+    is_began: is_began
+  });
+  console.log({
+    is_authenticated: is_authenticated
+  });
 
   var getUser = function getUser() {
     return __awaiter(void 0, void 0, void 0, function () {
@@ -2916,17 +2925,18 @@ var App = function App() {
             return [4
             /*yield*/
             , axios_1["default"].get("api/users").then(function (res) {
-              console.log(res.data);
-
+              // console.log(res.data);
               if (res.data) {
                 setIs_authenticated(true);
               } else {
                 setIs_authenticated(false);
               }
 
+              setIs_began(true);
               setUserID(res.data);
             })["catch"](function (err) {
               console.log(err);
+              setIs_began(true);
             })];
 
           case 1:
@@ -2940,6 +2950,23 @@ var App = function App() {
     });
   };
 
+  var GetTopPageContent = function GetTopPageContent() {
+    if (is_began) {
+      if (is_authenticated) {
+        return react_1["default"].createElement(_index_1.TodoContent, {
+          userID: userID,
+          setUserID: setUserID
+        });
+      } else if (is_authenticated === false) {
+        return react_1["default"].createElement(_index_1.TopPageContent, null);
+      } else {
+        return null;
+      }
+    } else {
+      return null;
+    }
+  };
+
   return react_1["default"].createElement(react_1["default"].Fragment, null, react_1["default"].createElement(react_router_dom_1.BrowserRouter, null, react_1["default"].createElement(Header_1["default"], {
     setIs_authenticated: setIs_authenticated
   }), react_1["default"].createElement(react_router_dom_1.Switch, null, react_1["default"].createElement(react_router_dom_1.Route, {
@@ -2951,10 +2978,7 @@ var App = function App() {
     setUserID: setUserID
   })), react_1["default"].createElement(react_router_dom_1.Route, {
     path: "/"
-  }, is_authenticated ? react_1["default"].createElement(_index_1.TodoContent, {
-    userID: userID,
-    setUserID: setUserID
-  }) : !(is_authenticated === undefined) ? react_1["default"].createElement(_index_1.TopPageContent, null) : null))));
+  }, react_1["default"].createElement(GetTopPageContent, null)))));
 };
 
 exports.default = App;
@@ -3769,7 +3793,7 @@ var Header = function Header(_a) {
             return [4
             /*yield*/
             , axios_1["default"].post("/logout").then(function (res) {
-              console.log(res.data);
+              // console.log(res.data);
               setIs_authenticated(false);
             })["catch"](function (err) {
               console.log(err);
@@ -4659,12 +4683,11 @@ var LoginContent = function LoginContent(_a) {
             return [4
             /*yield*/
             , axios_1["default"].post("/login", loginData).then(function (res) {
-              console.log(res.data.result);
-
+              // console.log(res.data.result);
               if (res.data.result === true) {
                 console.log("ログインに成功しました");
-                history.push("/");
-                console.log(res.data);
+                history.push("/"); // console.log(res.data);
+
                 setUserID(res.data.user.id);
                 setIs_authenticated(true);
               }
