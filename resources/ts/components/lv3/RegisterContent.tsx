@@ -3,15 +3,14 @@ import { Link } from "react-router-dom";
 import axios from "axios";
 
 const RegisterContent: React.VFC = () => {
-    //name:required,string,max255
-    //email:require,string,email.max255,unique:users
-    //password:required,string,min8,confirmed
     const [registerData, setRegisterData] = useState<any>({
         name: "",
         email: "",
         password: "",
     });
     const [confirmPassword, setConfirmPassword] = useState("");
+    const [isRevealPassword, setIsRevealPassword] = useState(false);
+    const [isRevealConfirmPassword, setIsRevealConfirmPassword] = useState(false); // prettier-ignore
 
     const onSubmit = () => {
         console.log(registerData);
@@ -59,10 +58,20 @@ const RegisterContent: React.VFC = () => {
         setConfirmPassword(e.target.value);
     };
 
+    const togglePassword = (password: string) => {
+        if (password === "Password") {
+            setIsRevealPassword((prevState) => !prevState);
+        } else if (password === "ConfirmPassword") {
+            setIsRevealConfirmPassword((prevState) => !prevState);
+        } else {
+            return null;
+        }
+    };
+
     return (
         <div className="bg-grey-lighter min-h-screen flex flex-col">
             <div className="container max-w-sm mx-auto flex-1 flex flex-col items-center justify-center px-2">
-                <div className="bg-white px-6 py-8 rounded shadow-md text-black w-6/12">
+                <div className="bg-white px-12 py-8 rounded shadow-md text-black w-8/12">
                     <h1 className="mb-8 text-3xl text-center">Sign up</h1>
                     <input
                         type="text"
@@ -79,22 +88,38 @@ const RegisterContent: React.VFC = () => {
                         placeholder="Email"
                         onChange={(e) => handleChangeEmail(e)}
                     />
-
-                    <input
-                        type="password"
-                        className="block border border-grey-light w-full p-3 rounded mb-4"
-                        name="password"
-                        placeholder="Password"
-                        onChange={(e) => handleChangePassword(e)}
-                    />
-                    <input
-                        type="password"
-                        className="block border border-grey-light w-full p-3 rounded mb-4"
-                        name="confirm_password"
-                        placeholder="Confirm Password"
-                        onChange={(e) => handleChangeConfirmPassword(e)}
-                    />
-
+                    <div className="w-full">
+                        <input
+                            type={isRevealPassword ? "text" : "password"}
+                            className="border border-grey-light w-10/12 p-3 rounded mb-4"
+                            name="password"
+                            placeholder="Password"
+                            onChange={(e) => handleChangePassword(e)}
+                        />
+                        <span onClick={() => togglePassword("Password")}>
+                            {isRevealPassword ? (
+                                <i className="far fa-eye pl-2 text-gray-600" />
+                            ) : (
+                                <i className="far fa-eye-slash pl-2 text-gray-600" />
+                            )}
+                        </span>
+                    </div>
+                    <div className="w-full">
+                        <input
+                            type={isRevealConfirmPassword ? "text" : "password"}
+                            className="border border-grey-light w-10/12 p-3 rounded mb-4"
+                            name="confirm_password"
+                            placeholder="Confirm Password"
+                            onChange={(e) => handleChangeConfirmPassword(e)}
+                        />
+                        <span onClick={() => togglePassword("ConfirmPassword")}>
+                            {isRevealConfirmPassword ? (
+                                <i className="far fa-eye pl-2 text-gray-600" />
+                            ) : (
+                                <i className="far fa-eye-slash pl-2 text-gray-600" />
+                            )}
+                        </span>
+                    </div>
                     <button
                         type="submit"
                         className="w-full text-center py-3 rounded bg-green text-black hover:bg-green-dark focus:outline-none my-1"

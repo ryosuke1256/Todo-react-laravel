@@ -4640,7 +4640,12 @@ var LoginContent = function LoginContent(_a) {
     password: ""
   }),
       loginData = _b[0],
-      setLoginData = _b[1];
+      setLoginData = _b[1]; //prettier-ignore
+
+
+  var _c = react_1.useState(false),
+      isRevealPassword = _c[0],
+      setIsRevealPassword = _c[1];
 
   var history = react_router_dom_1.useHistory();
   react_1.useEffect(function () {
@@ -4702,6 +4707,12 @@ var LoginContent = function LoginContent(_a) {
     });
   };
 
+  var togglePassword = function togglePassword() {
+    setIsRevealPassword(function (prevState) {
+      return !prevState;
+    });
+  };
+
   var handleChangeEmail = function handleChangeEmail(e) {
     setLoginData({
       email: e.target.value,
@@ -4729,6 +4740,7 @@ var LoginContent = function LoginContent(_a) {
   }, react_1["default"].createElement("label", {
     className: "font-semibold text-sm text-gray-600 pb-1 block"
   }, "E-mail"), react_1["default"].createElement("input", {
+    placeholder: "E-mail",
     type: "text",
     className: "border rounded-lg px-3 py-2 mt-1 mb-5 text-sm w-full",
     value: loginData.email,
@@ -4737,13 +4749,22 @@ var LoginContent = function LoginContent(_a) {
     }
   }), react_1["default"].createElement("label", {
     className: "font-semibold text-sm text-gray-600 pb-1 block"
-  }, "Password"), react_1["default"].createElement("input", {
-    type: "text",
-    className: "border rounded-lg px-3 py-2 mt-1 mb-5 text-sm w-full",
+  }, "Password"), react_1["default"].createElement("div", {
+    className: "w-full"
+  }, react_1["default"].createElement("input", {
+    placeholder: "Password",
+    type: isRevealPassword ? "text" : "password",
+    className: "border rounded-lg px-3 py-2 mt-1 mb-5 text-sm w-11/12",
     onChange: function onChange(e) {
       return handleChangePassword(e);
     }
-  }), react_1["default"].createElement("button", {
+  }), react_1["default"].createElement("span", {
+    onClick: togglePassword
+  }, isRevealPassword ? react_1["default"].createElement("i", {
+    className: "far fa-eye pl-2 text-gray-600"
+  }) : react_1["default"].createElement("i", {
+    className: "far fa-eye-slash pl-2 text-gray-600"
+  }))), react_1["default"].createElement("button", {
     type: "button",
     className: "transition duration-200 bg-blue-500 hover:bg-blue-600 focus:bg-blue-700 focus:shadow-sm focus:ring-4 focus:ring-blue-500 focus:ring-opacity-50 text-white w-full py-2.5 rounded-lg text-sm shadow-sm hover:shadow-md font-semibold text-center inline-block",
     onClick: onSubmit
@@ -4887,9 +4908,6 @@ var react_router_dom_1 = __webpack_require__(/*! react-router-dom */ "./node_mod
 var axios_1 = __importDefault(__webpack_require__(/*! axios */ "./node_modules/axios/index.js"));
 
 var RegisterContent = function RegisterContent() {
-  //name:required,string,max255
-  //email:require,string,email.max255,unique:users
-  //password:required,string,min8,confirmed
   var _a = react_1.useState({
     name: "",
     email: "",
@@ -4901,6 +4919,15 @@ var RegisterContent = function RegisterContent() {
   var _b = react_1.useState(""),
       confirmPassword = _b[0],
       setConfirmPassword = _b[1];
+
+  var _c = react_1.useState(false),
+      isRevealPassword = _c[0],
+      setIsRevealPassword = _c[1];
+
+  var _d = react_1.useState(false),
+      isRevealConfirmPassword = _d[0],
+      setIsRevealConfirmPassword = _d[1]; // prettier-ignore
+
 
   var onSubmit = function onSubmit() {
     console.log(registerData);
@@ -4944,12 +4971,26 @@ var RegisterContent = function RegisterContent() {
     setConfirmPassword(e.target.value);
   };
 
+  var togglePassword = function togglePassword(password) {
+    if (password === "Password") {
+      setIsRevealPassword(function (prevState) {
+        return !prevState;
+      });
+    } else if (password === "ConfirmPassword") {
+      setIsRevealConfirmPassword(function (prevState) {
+        return !prevState;
+      });
+    } else {
+      return null;
+    }
+  };
+
   return react_1["default"].createElement("div", {
     className: "bg-grey-lighter min-h-screen flex flex-col"
   }, react_1["default"].createElement("div", {
     className: "container max-w-sm mx-auto flex-1 flex flex-col items-center justify-center px-2"
   }, react_1["default"].createElement("div", {
-    className: "bg-white px-6 py-8 rounded shadow-md text-black w-6/12"
+    className: "bg-white px-12 py-8 rounded shadow-md text-black w-8/12"
   }, react_1["default"].createElement("h1", {
     className: "mb-8 text-3xl text-center"
   }, "Sign up"), react_1["default"].createElement("input", {
@@ -4968,23 +5009,43 @@ var RegisterContent = function RegisterContent() {
     onChange: function onChange(e) {
       return handleChangeEmail(e);
     }
-  }), react_1["default"].createElement("input", {
-    type: "password",
-    className: "block border border-grey-light w-full p-3 rounded mb-4",
+  }), react_1["default"].createElement("div", {
+    className: "w-full"
+  }, react_1["default"].createElement("input", {
+    type: isRevealPassword ? "text" : "password",
+    className: "border border-grey-light w-10/12 p-3 rounded mb-4",
     name: "password",
     placeholder: "Password",
     onChange: function onChange(e) {
       return handleChangePassword(e);
     }
-  }), react_1["default"].createElement("input", {
-    type: "password",
-    className: "block border border-grey-light w-full p-3 rounded mb-4",
+  }), react_1["default"].createElement("span", {
+    onClick: function onClick() {
+      return togglePassword("Password");
+    }
+  }, isRevealPassword ? react_1["default"].createElement("i", {
+    className: "far fa-eye pl-2 text-gray-600"
+  }) : react_1["default"].createElement("i", {
+    className: "far fa-eye-slash pl-2 text-gray-600"
+  }))), react_1["default"].createElement("div", {
+    className: "w-full"
+  }, react_1["default"].createElement("input", {
+    type: isRevealConfirmPassword ? "text" : "password",
+    className: "border border-grey-light w-10/12 p-3 rounded mb-4",
     name: "confirm_password",
     placeholder: "Confirm Password",
     onChange: function onChange(e) {
       return handleChangeConfirmPassword(e);
     }
-  }), react_1["default"].createElement("button", {
+  }), react_1["default"].createElement("span", {
+    onClick: function onClick() {
+      return togglePassword("ConfirmPassword");
+    }
+  }, isRevealConfirmPassword ? react_1["default"].createElement("i", {
+    className: "far fa-eye pl-2 text-gray-600"
+  }) : react_1["default"].createElement("i", {
+    className: "far fa-eye-slash pl-2 text-gray-600"
+  }))), react_1["default"].createElement("button", {
     type: "submit",
     className: "w-full text-center py-3 rounded bg-green text-black hover:bg-green-dark focus:outline-none my-1",
     onClick: onSubmit

@@ -18,9 +18,6 @@ use App\Http\Controllers\Auth\LogoutController;
 Route::get('/', function () {
         return view('index');
 });
-Route::get('/login', function () {
-        return redirect('/');
-});
 Route::get('api/users','UserController@index');
 Route::get('api/tasks/users/{id}','TaskController@index');
 Route::apiResource('api/tasks','TaskController');
@@ -28,6 +25,14 @@ Route::Resource('api/tags','TagController');
 Route::get('api/tags/tasks/{id}','TagController@index');
 Route::post('/login', [LoginController::class, 'authenticate']);
 Route::post('/logout', [LogoutController::class, 'logout']);
+
+Route::get('/login', function () {
+        return redirect('/');
+});
+Route::get('/register', function () {
+        return redirect('/');
+});
+
 // Auth::routes();
 
 // Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

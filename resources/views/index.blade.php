@@ -28,6 +28,8 @@
     <!-- Styles -->
     <link rel="stylesheet" href="{{ asset(mix('css/app.css'),$is_production) }}">
     <link rel="stylesheet" href="{{ asset(mix('css/style.css'),$is_production) }}">
+
+    <script src="https://kit.fontawesome.com/41ccc374d2.js" crossorigin="anonymous"></script>
 </head>
 <body>
     <div id="app"></div>

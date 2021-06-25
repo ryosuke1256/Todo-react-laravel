@@ -12,10 +12,9 @@ const LoginContent: React.VFC<Props> = ({
     setIs_authenticated,
     setUserID,
 }: Props) => {
-    const [loginData, setLoginData] = useState<any>({
-        email: "",
-        password: "",
-    });
+    const [loginData, setLoginData] = useState<any>({ email: "",password: "" }); //prettier-ignore
+    const [isRevealPassword, setIsRevealPassword] = useState(false);
+
     const history = useHistory();
 
     useEffect(() => {
@@ -51,6 +50,10 @@ const LoginContent: React.VFC<Props> = ({
             });
     };
 
+    const togglePassword = () => {
+        setIsRevealPassword((prevState) => !prevState);
+    };
+
     const handleChangeEmail = (e: React.ChangeEvent<HTMLInputElement>) => {
         setLoginData({ email: e.target.value, password: loginData.password });
     };
@@ -71,6 +74,7 @@ const LoginContent: React.VFC<Props> = ({
                             E-mail
                         </label>
                         <input
+                            placeholder="E-mail"
                             type="text"
                             className="border rounded-lg px-3 py-2 mt-1 mb-5 text-sm w-full"
                             value={loginData.email}
@@ -79,11 +83,21 @@ const LoginContent: React.VFC<Props> = ({
                         <label className="font-semibold text-sm text-gray-600 pb-1 block">
                             Password
                         </label>
-                        <input
-                            type="text"
-                            className="border rounded-lg px-3 py-2 mt-1 mb-5 text-sm w-full"
-                            onChange={(e) => handleChangePassword(e)}
-                        />
+                        <div className="w-full">
+                            <input
+                                placeholder="Password"
+                                type={isRevealPassword ? "text" : "password"}
+                                className="border rounded-lg px-3 py-2 mt-1 mb-5 text-sm w-11/12"
+                                onChange={(e) => handleChangePassword(e)}
+                            />
+                            <span onClick={togglePassword}>
+                                {isRevealPassword ? (
+                                    <i className="far fa-eye pl-2 text-gray-600" />
+                                ) : (
+                                    <i className="far fa-eye-slash pl-2 text-gray-600" />
+                                )}
+                            </span>
+                        </div>
                         <button
                             type="button"
                             className="transition duration-200 bg-blue-500 hover:bg-blue-600 focus:bg-blue-700 focus:shadow-sm focus:ring-4 focus:ring-blue-500 focus:ring-opacity-50 text-white w-full py-2.5 rounded-lg text-sm shadow-sm hover:shadow-md font-semibold text-center inline-block"
