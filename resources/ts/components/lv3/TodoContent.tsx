@@ -6,33 +6,24 @@ import { TaskAndColor } from "../../type/TaskAndColor";
 import styled from "styled-components";
 import customMedia from "../../style/customMedia";
 
-const TodoContent: React.VFC = () => {
+type Props = {
+    userID: string;
+    setUserID: (param: string) => void;
+};
+
+const TodoContent: React.VFC<Props> = ({ userID, setUserID }: Props) => {
     const [tasks, setTasks] = useState<any>([]);
-    const [userID, setUserID] = useState();
     const [change, setChange] = useState(0); //render走らせる用
     const [tasksEditActive, setTasksEditActive] = useState(false);
-    useEffect(() => {
-        getUser();
-    }, []);
 
     useEffect(() => {
         getTasks();
     }, [userID]);
 
-    const getUser = async () => {
-        await axios
-            .get("api/users")
-            .then((res) => {
-                setUserID(res.data);
-            })
-            .catch((err) => {
-                console.log(err);
-            });
-    };
-
     const getTasks = async () => {
         if (!(userID === undefined)) {
             const Data = await axios.get(`api/tasks/users/${userID}`);
+            console.log(Data);
             try {
                 setTasks(Data.data.map((data: {}) => data));
             } catch (err) {

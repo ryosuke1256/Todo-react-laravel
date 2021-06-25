@@ -2,13 +2,16 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { Link, useHistory } from "react-router-dom";
 import("../../../js/bootstrap");
-import TodoContent from "./TodoContent";
 
 type Props = {
     setIs_authenticated: (param: boolean) => void;
+    setUserID: (param: string) => void;
 };
 
-const LoginContent: React.VFC<Props> = ({ setIs_authenticated }: Props) => {
+const LoginContent: React.VFC<Props> = ({
+    setIs_authenticated,
+    setUserID,
+}: Props) => {
     const [loginData, setLoginData] = useState<any>({
         email: "",
         password: "",
@@ -36,10 +39,12 @@ const LoginContent: React.VFC<Props> = ({ setIs_authenticated }: Props) => {
         await axios
             .post("/login", loginData)
             .then((res) => {
-                console.log(res.data.result);
+                // console.log(res.data.result);
                 if (res.data.result === true) {
                     console.log("ログインに成功しました");
                     history.push("/");
+                    // console.log(res.data);
+                    setUserID(res.data.user.id);
                     setIs_authenticated(true);
                 }
             })
