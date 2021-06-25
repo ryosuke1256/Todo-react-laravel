@@ -2889,12 +2889,13 @@ var Header_1 = __importDefault(__webpack_require__(/*! ./components/lv2/Header *
 var _index_1 = __webpack_require__(/*! ./components/lv3/_index */ "./resources/ts/components/lv3/_index.js"); //prettier-ignore
 
 
-var react_router_dom_1 = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/esm/react-router-dom.js");
+var react_router_dom_1 = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/esm/react-router-dom.js"); //prettier-ignore
+
 
 var axios_1 = __importDefault(__webpack_require__(/*! axios */ "./node_modules/axios/index.js"));
 
 var App = function App() {
-  var _a = react_1.useState(false),
+  var _a = react_1.useState(),
       is_authenticated = _a[0],
       setIs_authenticated = _a[1];
 
@@ -2902,9 +2903,10 @@ var App = function App() {
       userID = _b[0],
       setUserID = _b[1];
 
+  console.log(is_authenticated);
   react_1.useEffect(function () {
     getUser();
-  }, []);
+  }, [setIs_authenticated]);
 
   var getUser = function getUser() {
     return __awaiter(void 0, void 0, void 0, function () {
@@ -2914,7 +2916,13 @@ var App = function App() {
             return [4
             /*yield*/
             , axios_1["default"].get("api/users").then(function (res) {
-              console.log(res.data); // setIs_authenticated(true);
+              console.log(res.data);
+
+              if (res.data) {
+                setIs_authenticated(true);
+              } else {
+                setIs_authenticated(false);
+              }
 
               setUserID(res.data);
             })["catch"](function (err) {
@@ -2946,7 +2954,7 @@ var App = function App() {
   }, is_authenticated ? react_1["default"].createElement(_index_1.TodoContent, {
     userID: userID,
     setUserID: setUserID
-  }) : react_1["default"].createElement(_index_1.TopPageContent, null)))));
+  }) : !(is_authenticated === undefined) ? react_1["default"].createElement(_index_1.TopPageContent, null) : null))));
 };
 
 exports.default = App;

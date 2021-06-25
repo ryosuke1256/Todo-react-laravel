@@ -1,23 +1,28 @@
 import React, { useState, useEffect } from "react";
 import Header from "./components/lv2/Header";
 import {LoginContent,RegisterContent,TodoContent,TopPageContent} from "./components/lv3/_index"; //prettier-ignore
-import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import { BrowserRouter as Router, Switch, Route, Redirect } from "react-router-dom"; //prettier-ignore
 import axios from "axios";
 
 const App: React.VFC = () => {
-    const [is_authenticated, setIs_authenticated] = useState(false);
+    const [is_authenticated, setIs_authenticated] = useState<boolean>();
     const [userID, setUserID] = useState("");
+    console.log(is_authenticated);
 
     useEffect(() => {
         getUser();
-    }, []);
+    }, [setIs_authenticated]);
 
     const getUser = async () => {
         await axios
             .get("api/users")
             .then((res) => {
                 console.log(res.data);
-                // setIs_authenticated(true);
+                if (res.data) {
+                    setIs_authenticated(true);
+                } else {
+                    setIs_authenticated(false);
+                }
                 setUserID(res.data);
             })
             .catch((err) => {
@@ -45,9 +50,9 @@ const App: React.VFC = () => {
                                 userID={userID}
                                 setUserID={setUserID}
                             />
-                        ) : (
+                        ) : !(is_authenticated === undefined) ? (
                             <TopPageContent />
-                        )}
+                        ) : null}
                     </Route>
                 </Switch>
             </Router>
