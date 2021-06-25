@@ -11,7 +11,7 @@ const App: React.VFC = () => {
 
     useEffect(() => {
         getUser();
-    }, [is_authenticated]);
+    }, []);
 
     console.log({ is_began });
     console.log({ is_authenticated });
@@ -20,7 +20,6 @@ const App: React.VFC = () => {
         await axios
             .get("api/users")
             .then((res) => {
-                // console.log(res.data);
                 if (res.data) {
                     setIs_authenticated(true);
                 } else {
