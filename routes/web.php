@@ -23,7 +23,7 @@ Route::get('api/tasks/users/{id}','TaskController@index');
 Route::apiResource('api/tasks','TaskController');
 Route::Resource('api/tags','TagController');
 Route::get('api/tags/tasks/{id}','TagController@index');
-Route::post('/login', [LoginController::class, 'authenticate']);
+Route::post('/login', [LoginController::class, 'login']);
 Route::post('/logout', [LogoutController::class, 'logout']);
 
 Route::get('/login', function () {

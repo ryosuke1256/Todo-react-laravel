@@ -16,14 +16,15 @@ class TaskController extends Controller
     /**
      * api/tasks/users/{id}
      * GET
+        
+     * @param  int  $id
+     * @return \Illuminate\Http\JsonResponse
      */
-    public function index($id)
+    public function index($id) 
     {
-        if(Auth::id() == $id) {
-            $user = User::find(Auth::id());
-            $task = $user->task;
-            return $task;
-        }
+        $user = Auth::user();
+        $task = $user->task;
+        return $task;
     }
 
     /**

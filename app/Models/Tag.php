@@ -21,4 +21,7 @@ class Tag extends Model
         'checked_yellow' => 'boolean',
         'checked_green' => 'boolean'
     ];
+    public function task() {
+        return $this->belongsTo('App/Models/Task');
+    }
 }
