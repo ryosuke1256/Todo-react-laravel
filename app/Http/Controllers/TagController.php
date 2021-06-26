@@ -12,7 +12,7 @@ class TagController extends Controller
      * GET
      * 
      * @param  int  $id
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Http\JsonResponse
      */
     public function index($id)
     {
