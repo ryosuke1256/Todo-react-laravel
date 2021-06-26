@@ -13,9 +13,6 @@ const App: React.VFC = () => {
         getUser();
     }, []);
 
-    console.log({ is_began });
-    console.log({ is_authenticated });
-
     const getUser = async () => {
         await axios
             .get("api/users")
