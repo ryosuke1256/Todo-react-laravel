@@ -11,6 +11,7 @@ class TagController extends Controller
      * api/tags/tasks/{id}
      * GET
      * 
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
     public function index($id)

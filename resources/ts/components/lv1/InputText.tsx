@@ -24,6 +24,7 @@ const InputText: React.VFC<Props> = ({
     return (
         <input
             name="task"
+            type="text"
             value={text}
             placeholder="タスクを入力"
             onChange={(e) => handleChange(e)}
@@ -34,7 +35,11 @@ const InputText: React.VFC<Props> = ({
                     setText("");
                 }
             }}
-            style={{ fontSize: "16px", padding: "5px" }}
+            style={{
+                fontSize: "16px",
+                padding: "5px",
+                border: "1px solid #7d7d7d",
+            }}
         />
     );
 };

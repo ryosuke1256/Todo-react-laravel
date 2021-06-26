@@ -3112,13 +3112,13 @@ var ColoredTag = function ColoredTag(_a) {
 exports.default = ColoredTag;
 
 var _TagColor = styled_components_1["default"].div(templateObject_1 || (templateObject_1 = __makeTemplateObject(["\n    height: 10px;\n    width: 35px;\n    border-radius: 30px;\n    margin-left: 10px;\n    background-color: ", ";\n    background-color: ", ";\n    background-color: ", ";\n    background-color: ", ";\n"], ["\n    height: 10px;\n    width: 35px;\n    border-radius: 30px;\n    margin-left: 10px;\n    background-color: ", ";\n    background-color: ", ";\n    background-color: ", ";\n    background-color: ", ";\n"])), function (props) {
-  return props.red ? "rgba(255, 65, 51)" : null;
+  return props.red ? "rgba(255, 65, 51, 0.7)" : null;
 }, function (props) {
-  return props.blue ? "rgba(51, 194, 255)" : null;
+  return props.blue ? "rgba(51, 194, 255, 0.7)" : null;
 }, function (props) {
-  return props.yellow ? "rgba(250, 250, 0)" : null;
+  return props.yellow ? "rgba(250, 250, 0, 0.7)" : null;
 }, function (props) {
-  return props.green ? "rgba(48, 255, 69)" : null;
+  return props.green ? "rgba(48, 255, 69, 0.7)" : null;
 });
 
 var templateObject_1;
@@ -3321,6 +3321,7 @@ var InputText = function InputText(_a) {
   };
   return react_1["default"].createElement("input", {
     name: "task",
+    type: "text",
     value: text,
     placeholder: "\u30BF\u30B9\u30AF\u3092\u5165\u529B",
     onChange: function onChange(e) {
@@ -3335,7 +3336,8 @@ var InputText = function InputText(_a) {
     },
     style: {
       fontSize: "16px",
-      padding: "5px"
+      padding: "5px",
+      border: "1px solid #7d7d7d"
     }
   });
 };
@@ -3477,45 +3479,6 @@ var _TaskTitle = styled_components_1["default"].div(templateObject_1 || (templat
   return props.is_done === 1 ? "#6b6b6b" : "#212529";
 });
 
-var templateObject_1;
-
-/***/ }),
-
-/***/ "./resources/ts/components/lv1/TitleName.tsx":
-/*!***************************************************!*\
-  !*** ./resources/ts/components/lv1/TitleName.tsx ***!
-  \***************************************************/
-/***/ (function(__unused_webpack_module, exports, __webpack_require__) {
-
-"use strict";
-
-
-var __makeTemplateObject = this && this.__makeTemplateObject || function (cooked, raw) {
-  if (Object.defineProperty) {
-    Object.defineProperty(cooked, "raw", {
-      value: raw
-    });
-  } else {
-    cooked.raw = raw;
-  }
-
-  return cooked;
-};
-
-var __importDefault = this && this.__importDefault || function (mod) {
-  return mod && mod.__esModule ? mod : {
-    "default": mod
-  };
-};
-
-Object.defineProperty(exports, "__esModule", ({
-  value: true
-}));
-exports.TitleName = void 0;
-
-var styled_components_1 = __importDefault(__webpack_require__(/*! styled-components */ "./node_modules/styled-components/dist/styled-components.browser.esm.js"));
-
-exports.TitleName = styled_components_1["default"].div(templateObject_1 || (templateObject_1 = __makeTemplateObject(["\n    font-size: 2.5rem;\n"], ["\n    font-size: 2.5rem;\n"])));
 var templateObject_1;
 
 /***/ }),
@@ -4145,20 +4108,18 @@ var TaskCard = function TaskCard(_a) {
             res = _a.sent();
 
             try {
-              if (res.data) {
-                setHasDonePostTag(true);
-                setTagID(res.data.id);
-                setSelected_color({
-                  red: res.data.checked_red,
-                  blue: res.data.checked_blue,
-                  yellow: res.data.checked_yellow,
-                  green: res.data.checked_green
-                });
-                task.red = res.data.checked_red;
-                task.blue = res.data.checked_blue;
-                task.yellow = res.data.checked_yellow;
-                task.green = res.data.checked_green;
-              }
+              setHasDonePostTag(true);
+              setTagID(res.data.id);
+              setSelected_color({
+                red: res.data.checked_red,
+                blue: res.data.checked_blue,
+                yellow: res.data.checked_yellow,
+                green: res.data.checked_green
+              });
+              task.red = res.data.checked_red;
+              task.blue = res.data.checked_blue;
+              task.yellow = res.data.checked_yellow;
+              task.green = res.data.checked_green;
             } catch (err) {
               console.log(err);
             }
@@ -6144,8 +6105,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "InputText": () => (/* reexport default from dynamic */ _InputText__WEBPACK_IMPORTED_MODULE_3___default.a),
 /* harmony export */   "SubmitButton": () => (/* reexport default from dynamic */ _SubmitButton__WEBPACK_IMPORTED_MODULE_4___default.a),
 /* harmony export */   "TaskTitle": () => (/* reexport default from dynamic */ _TaskTitle__WEBPACK_IMPORTED_MODULE_5___default.a),
-/* harmony export */   "TitleName": () => (/* reexport default from dynamic */ _TitleName__WEBPACK_IMPORTED_MODULE_6___default.a),
-/* harmony export */   "ColoredTag": () => (/* reexport default from dynamic */ _ColoredTag__WEBPACK_IMPORTED_MODULE_7___default.a)
+/* harmony export */   "ColoredTag": () => (/* reexport default from dynamic */ _ColoredTag__WEBPACK_IMPORTED_MODULE_6___default.a)
 /* harmony export */ });
 /* harmony import */ var _CheckBox__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./CheckBox */ "./resources/ts/components/lv1/CheckBox.tsx");
 /* harmony import */ var _CheckBox__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_CheckBox__WEBPACK_IMPORTED_MODULE_0__);
@@ -6159,11 +6119,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _SubmitButton__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(_SubmitButton__WEBPACK_IMPORTED_MODULE_4__);
 /* harmony import */ var _TaskTitle__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./TaskTitle */ "./resources/ts/components/lv1/TaskTitle.tsx");
 /* harmony import */ var _TaskTitle__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(_TaskTitle__WEBPACK_IMPORTED_MODULE_5__);
-/* harmony import */ var _TitleName__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./TitleName */ "./resources/ts/components/lv1/TitleName.tsx");
-/* harmony import */ var _TitleName__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(_TitleName__WEBPACK_IMPORTED_MODULE_6__);
-/* harmony import */ var _ColoredTag__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./ColoredTag */ "./resources/ts/components/lv1/ColoredTag.tsx");
-/* harmony import */ var _ColoredTag__WEBPACK_IMPORTED_MODULE_7___default = /*#__PURE__*/__webpack_require__.n(_ColoredTag__WEBPACK_IMPORTED_MODULE_7__);
-
+/* harmony import */ var _ColoredTag__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./ColoredTag */ "./resources/ts/components/lv1/ColoredTag.tsx");
+/* harmony import */ var _ColoredTag__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(_ColoredTag__WEBPACK_IMPORTED_MODULE_6__);
 
 
 
