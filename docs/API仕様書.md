@@ -8,3 +8,5 @@
 |    GET    | api/tags/tasks/{id}  |  App\Http\Controllers\TagController@index   |                    タスクの id に一致する tags テーブルのレコードを取得する。タスク毎のタグを表示する                     |
 |   POST    |       api/tags       |  App\Http\Controllers\TagController@store   |                                tags テーブルのレコードを新規作成する。タグの新規作成をする                                |
 | PUT/PATCH |    api/tags/{id}     |  App\Http\Controllers\TagController@update  |                                 tags テーブルの id のレコードを更新する。タグの編集をする                                 |
+|   POST    |       login          |  App\Http\Controllers\Auth\LoginController@login  　　 |  ログイン機能 　　　　　|
+|   POST    |    logout            |  App\Http\Controllers\Auth\LogoutController@logout  |   ログアウト機能　　　|
