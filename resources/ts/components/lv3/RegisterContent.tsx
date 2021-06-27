@@ -29,41 +29,20 @@ const RegisterContent: React.VFC = () => {
     };
 
     const handleChangeName = (e: React.ChangeEvent<HTMLInputElement>) => {
-        setRegisterData({
-            name: e.target.value,
-            email: registerData.email,
-            password: registerData.password,
-            password_confirmation: registerData.password,
-        });
+        setRegisterData({ ...registerData, name: e.target.value });
     };
 
     const handleChangeEmail = (e: React.ChangeEvent<HTMLInputElement>) => {
-        setRegisterData({
-            name: registerData.name,
-            email: e.target.value,
-            password: registerData.password,
-            password_confirmation: registerData.password,
-        });
+        setRegisterData({ ...registerData, email: e.target.value });
     };
 
     const handleChangePassword = (e: React.ChangeEvent<HTMLInputElement>) => {
-        setRegisterData({
-            name: registerData.name,
-            email: registerData.email,
-            password: e.target.value,
-            password_confirmation: e.target.value,
-        });
+        setRegisterData({ ...registerData, password: e.target.value });
     };
 
-    const handleChangeConfirmPassword = (
-        e: React.ChangeEvent<HTMLInputElement>
-    ) => {
-        setRegisterData({
-            name: registerData.name,
-            email: registerData.email,
-            password: registerData.password,
-            password_confirmation: e.target.value,
-        });
+    //prettier-ignore
+    const handleChangeConfirmPassword = (e: React.ChangeEvent<HTMLInputElement>) => {
+        setRegisterData({ ...registerData, password_confirmation: e.target.value }); //prettier-ignore
     };
 
     const togglePassword = (password: string) => {

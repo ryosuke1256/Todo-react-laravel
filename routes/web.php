@@ -19,22 +19,22 @@ use App\Http\Controllers\Auth\RegisterController;
 Route::get('/', function () {
         return view('index');
 });
+
 Route::get('api/users','UserController@index');
 Route::get('api/tasks/users/{id}','TaskController@index');
 Route::apiResource('api/tasks','TaskController');
-Route::Resource('api/tags','TagController');
 Route::get('api/tags/tasks/{id}','TagController@index');
+Route::Resource('api/tags','TagController');
+
 Route::post('/login', [LoginController::class, 'login']);
 Route::post('/logout', [LogoutController::class, 'logout']);
 Route::post('/register',[RegisterController::class, 'register']);
 
-Route::get('/login', function () {
+Route::get('login', function() {
         return redirect('/');
 });
-Route::get('/register', function () {
+Route::get('register', function() {
         return redirect('/');
 });
 
 // Auth::routes();
-
-// Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
