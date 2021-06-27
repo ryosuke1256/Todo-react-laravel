@@ -5475,24 +5475,25 @@ var react_router_dom_1 = __webpack_require__(/*! react-router-dom */ "./node_mod
 
 var TopPageContent = function TopPageContent() {
   return react_1["default"].createElement(react_1["default"].Fragment, null, react_1["default"].createElement("div", {
+    id: 'wrapper',
     className: "bg-white h-full w-full"
-  }, react_1["default"].createElement("img", {
+  }, react_1["default"].createElement("aside", null, react_1["default"].createElement("img", {
     className: "relative bg-cover",
     src: "/images/background.jpg"
   }), react_1["default"].createElement("img", {
     className: "hidden",
     src: "/images/background2.jpg"
-  }), react_1["default"].createElement("div", {
+  })), react_1["default"].createElement("main", {
     className: "welcome"
-  }, react_1["default"].createElement("h1", {
+  }, react_1["default"].createElement("title", {
     className: "welcome__title"
-  }, react_1["default"].createElement("div", {
+  }, react_1["default"].createElement("span", {
     className: "welcome__title--underLine"
-  }, "Todo\u30A2\u30D7\u30EA\u4F5C\u3063\u3066\u307F\u305F\u3088\uFF01"), react_1["default"].createElement("div", {
+  }, "Todo\u30A2\u30D7\u30EA\u4F5C\u3063\u3066\u307F\u305F\u3088\uFF01"), react_1["default"].createElement("span", {
     className: "welcome__title--underLine"
-  }, "\u4F1A\u54E1\u767B\u9332\u3057\u3066\u4F7F\u3063\u3066\u307F\u3066\u306D\uFF01")), react_1["default"].createElement("div", {
+  }, "\u4F1A\u54E1\u767B\u9332\u3057\u3066\u4F7F\u3063\u3066\u307F\u3066\u306D\uFF01")), react_1["default"].createElement("article", {
     className: "welcome__content"
-  }, react_1["default"].createElement("div", null, react_1["default"].createElement("div", {
+  }, react_1["default"].createElement("section", null, react_1["default"].createElement("h1", {
     className: "welcome__content--title"
   }, "\u30BF\u30B9\u30AF\u7BA1\u7406\u30C4\u30FC\u30EB\u3092\u4F7F\u3063\u3066\u751F\u7523\u6027\u3092\u4E0A\u3052\u3088\u3046"), react_1["default"].createElement(react_router_dom_1.Link, {
     to: "/login",
@@ -5500,15 +5501,15 @@ var TopPageContent = function TopPageContent() {
   }, "\u30ED\u30B0\u30A4\u30F3"), react_1["default"].createElement(react_router_dom_1.Link, {
     to: "/register",
     className: "ml-4 text-sm text-gray-700 underline welcome__content--button welcome__content--hover"
-  }, "\u65B0\u898F\u767B\u9332")), react_1["default"].createElement("img", {
+  }, "\u65B0\u898F\u767B\u9332")), react_1["default"].createElement("section", null, react_1["default"].createElement("img", {
     src: "/images/todo.png",
     width: "400px",
     height: "400px"
-  })), react_1["default"].createElement("img", {
+  }))), react_1["default"].createElement("article", null, react_1["default"].createElement("img", {
     className: "todo-image",
     src: "/images/image.png",
     width: "800px"
-  }), react_1["default"].createElement("br", null))));
+  })))));
 };
 
 exports.default = TopPageContent;
