@@ -43,7 +43,6 @@ const TaskCard: React.VFC<Props> = ({task,tasks,setTasks,tasksEditActive,setTask
     const getTags = async () => {
         const res = await axios.get(`api/tags/tasks/${task.id}`);
         try {
-                setHasDonePostTag(true);
                 setTagID(res.data.id);
                 setSelected_color({red:res.data.checked_red,blue:res.data.checked_blue,yellow:res.data.checked_yellow,green:res.data.checked_green});
                 task.red = res.data.checked_red;

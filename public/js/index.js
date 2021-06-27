@@ -4172,7 +4172,6 @@ var TaskCard = function TaskCard(_a) {
             res = _a.sent();
 
             try {
-              setHasDonePostTag(true);
               setTagID(res.data.id);
               setSelected_color({
                 red: res.data.checked_red,
