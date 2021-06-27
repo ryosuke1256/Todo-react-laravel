@@ -25,6 +25,8 @@ const Modal: React.VFC<Props> = ({hasModalOpened,selected_color,setHasModalOpene
     if (!hasModalOpened) {
         return null;
 }
+console.log(hasDonePostTag);
+
 
     const postTag = async (postData:TagAPI) => {
         console.log({postData});

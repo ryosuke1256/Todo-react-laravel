@@ -4172,7 +4172,6 @@ var TaskCard = function TaskCard(_a) {
             res = _a.sent();
 
             try {
-              setHasDonePostTag(true);
               setTagID(res.data.id);
               setSelected_color({
                 red: res.data.checked_red,
@@ -5889,6 +5888,8 @@ var Modal = function Modal(_a) {
   if (!hasModalOpened) {
     return null;
   }
+
+  console.log(hasDonePostTag);
 
   var postTag = function postTag(postData) {
     return __awaiter(void 0, void 0, void 0, function () {
