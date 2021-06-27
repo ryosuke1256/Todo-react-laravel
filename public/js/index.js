@@ -5889,8 +5889,6 @@ var Modal = function Modal(_a) {
     return null;
   }
 
-  console.log(hasDonePostTag);
-
   var postTag = function postTag(postData) {
     return __awaiter(void 0, void 0, void 0, function () {
       var res;
