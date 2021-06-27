@@ -10,3 +10,4 @@
 | PUT/PATCH |    api/tags/{id}     |  App\Http\Controllers\TagController@update  |                                 tags テーブルの id のレコードを更新する。タグの編集をする                                 |
 |   POST    |       login          |  App\Http\Controllers\Auth\LoginController@login  　　 |  ログイン機能 　　　　　|
 |   POST    |    logout            |  App\Http\Controllers\Auth\LogoutController@logout  |   ログアウト機能　　　|
+|   POST    |    register            |  App\Http\Controllers\Auth\RegisterController@register  |   ユーザー登録機能　　　|
