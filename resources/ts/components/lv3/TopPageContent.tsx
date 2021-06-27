@@ -4,14 +4,14 @@ import { Link } from "react-router-dom";
 const TopPageContent: React.VFC = () => {
     return (
         <>
-            <div className="bg-white h-full w-full text-center">
+            <div className="bg-white h-full w-full text-center relative">
                 <aside>
                     <img
-                        className="relative bg-cover"
+                        className="invisible sm:visible absolute top-0 left-0 bg-cover"
                         src="/images/background.jpg"
                     />
                     <img
-                        className="hidden"
+                        className="visible sm:invisible absolute top-0 left-0 bg-cover"
                         src="/images/background2.jpg"
                     />
                 </aside>
@@ -27,18 +27,18 @@ const TopPageContent: React.VFC = () => {
                         </title>
                         <article className="flex">
                             <section>
-                                <h1 className="welcome__content--title">
+                                <h1 className="text-xl pt-36 pb-5">
                                     タスク管理ツールを使って生産性を上げよう
                                 </h1>
                                 <Link
                                     to="/login"
-                                    className="text-sm text-gray-700 underline welcome__content--button welcome__content--hover"
+                                    className="button welcome__content--hover"
                                 >
                                     ログイン
                                 </Link>
                                 <Link
                                     to="/register"
-                                    className="ml-4 text-sm text-gray-700 underline welcome__content--button welcome__content--hover"
+                                    className="button welcome__content--hover"
                                 >
                                     新規登録
                                 </Link>

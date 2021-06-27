@@ -16,26 +16,6 @@ body {
     background-color: white;
 }
 
-/* .wallpaper {
-    background-color: white;
-    height: 100%;
-    width: 100%;
-} */
-
-.welcome {
-    position: absolute;
-    top: 90px;
-    left: 0px;
-    padding: 30px 20vw 0 25vw;
-}
-
-.welcome__title {
-    display: flex;
-    font-size: 1.6rem;
-    color: #282929;
-    opacity: 0.9;
-}
-
 .underLine {
     background: linear-gradient(transparent 70%, rgba(255, 192, 56, 0.3) 0%);
 }
@@ -51,7 +31,7 @@ body {
     opacity: 0.9;
 }
 
-.welcome__content--button {
+.button {
     display: inline-block;
     font-weight: 600;
     color: white;
@@ -60,19 +40,14 @@ body {
     border-radius: 10px;
     opacity: 0.8;
     box-shadow: 0 2px #3284c7;
-    margin-left: 10px;
+    margin-left: 30px;
 }
 
-.welcome__content--hover:hover {
+.hover:hover {
     color: white;
     text-decoration: none;
     opacity: 0.65;
 }
-
-/* .background-image {
-    position: relative;
-    background-size: cover;
-} */
 
 .background-image2 {
     display: none;
