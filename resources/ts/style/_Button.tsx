@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-export const ButtonStyle = styled.div<{ backgroundColor: string }>`
+export const _Button = styled.div<{ backgroundColor: string }>`
     display: inline-block;
     text-align: center;
     background-color: ${(props) => props.backgroundColor};

@@ -38,12 +38,11 @@ const LoginContent: React.VFC<Props> = ({
         await axios
             .post("/login", loginData)
             .then((res) => {
-                if (res.data.result === true) {
-                    console.log("ログインに成功しました");
-                    history.push("/");
-                    setUserID(res.data.user.id);
-                    setIs_authenticated(true);
-                }
+                console.log(res.data.result);
+                console.log("ログインに成功しました");
+                history.push("/");
+                setUserID(res.data.user.id);
+                setIs_authenticated(true);
             })
             .catch((err) => {
                 console.log(err);

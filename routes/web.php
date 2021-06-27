@@ -30,7 +30,11 @@ Route::post('/login', [LoginController::class, 'login']);
 Route::post('/logout', [LogoutController::class, 'logout']);
 Route::post('/register',[RegisterController::class, 'register']);
 
-Route::redirect('/login','/');
-Route::redirect('/register','/');
+Route::get('login', function() {
+        return redirect('/');
+});
+Route::get('register', function() {
+        return redirect('/');
+});
 
 // Auth::routes();

@@ -27,7 +27,6 @@ const RegisterContent: React.VFC = () => {
             console.log("確認のパスワードが一致しません");
         }
     };
-    console.log(registerData);
 
     const handleChangeName = (e: React.ChangeEvent<HTMLInputElement>) => {
         setRegisterData({ ...registerData, name: e.target.value });

@@ -3140,7 +3140,9 @@ Object.defineProperty(exports, "__esModule", ({
 
 var react_1 = __importDefault(__webpack_require__(/*! react */ "./node_modules/react/index.js"));
 
-var ButtonStyle_1 = __webpack_require__(/*! ../../style/ButtonStyle */ "./resources/ts/style/ButtonStyle.tsx");
+var _Button_1 = __webpack_require__(/*! ../../style/_Button */ "./resources/ts/style/_Button.tsx");
+
+var _index_1 = __webpack_require__(/*! ./_index */ "./resources/ts/components/lv1/_index.js");
 
 var react_responsive_1 = __importDefault(__webpack_require__(/*! react-responsive */ "./node_modules/react-responsive/dist/react-responsive.js"));
 
@@ -3153,7 +3155,52 @@ var DeleteButton = function DeleteButton(_a) {
     style: {
       paddingLeft: "10px"
     }
-  }, react_1["default"].createElement("svg", {
+  }, react_1["default"].createElement(_index_1.DeleteIcon, {
+    deleteTask: deleteTask,
+    setIs_done: setIs_done
+  }))), react_1["default"].createElement(react_responsive_1["default"], {
+    query: "(min-width: 599px)"
+  }, react_1["default"].createElement(_Button_1._Button, {
+    onClick: function onClick() {
+      deleteTask();
+      setIs_done(0);
+    },
+    backgroundColor: "#da6161",
+    style: {
+      border: "1px solid #db5e5e"
+    }
+  }, "\u524A\u9664")));
+};
+
+exports.default = DeleteButton;
+
+/***/ }),
+
+/***/ "./resources/ts/components/lv1/DeleteIcon.tsx":
+/*!****************************************************!*\
+  !*** ./resources/ts/components/lv1/DeleteIcon.tsx ***!
+  \****************************************************/
+/***/ (function(__unused_webpack_module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var __importDefault = this && this.__importDefault || function (mod) {
+  return mod && mod.__esModule ? mod : {
+    "default": mod
+  };
+};
+
+Object.defineProperty(exports, "__esModule", ({
+  value: true
+}));
+
+var react_1 = __importDefault(__webpack_require__(/*! react */ "./node_modules/react/index.js"));
+
+var DeleteIcon = function DeleteIcon(_a) {
+  var deleteTask = _a.deleteTask,
+      setIs_done = _a.setIs_done;
+  return react_1["default"].createElement("div", null, react_1["default"].createElement("svg", {
     onClick: function onClick() {
       deleteTask();
       setIs_done(0);
@@ -3171,21 +3218,10 @@ var DeleteButton = function DeleteButton(_a) {
     fill: "#da6161"
   }, react_1["default"].createElement("path", {
     d: "M432 32H312l-9.4-18.7A24 24 0 0 0 281.1 0H166.8a23.72 23.72 0 0 0-21.4 13.3L136 32H16A16 16 0 0 0 0 48v32a16 16 0 0 0 16 16h416a16 16 0 0 0 16-16V48a16 16 0 0 0-16-16zM53.2 467a48 48 0 0 0 47.9 45h245.8a48 48 0 0 0 47.9-45L416 128H32z"
-  })))), react_1["default"].createElement(react_responsive_1["default"], {
-    query: "(min-width: 599px)"
-  }, react_1["default"].createElement(ButtonStyle_1.ButtonStyle, {
-    onClick: function onClick() {
-      deleteTask();
-      setIs_done(0);
-    },
-    backgroundColor: "#da6161",
-    style: {
-      border: "1px solid #db5e5e"
-    }
-  }, "\u524A\u9664")));
+  })));
 };
 
-exports.default = DeleteButton;
+exports.default = DeleteIcon;
 
 /***/ }),
 
@@ -3210,7 +3246,9 @@ Object.defineProperty(exports, "__esModule", ({
 
 var react_1 = __importDefault(__webpack_require__(/*! react */ "./node_modules/react/index.js"));
 
-var ButtonStyle_1 = __webpack_require__(/*! ../../style/ButtonStyle */ "./resources/ts/style/ButtonStyle.tsx");
+var _index_1 = __webpack_require__(/*! ./_index */ "./resources/ts/components/lv1/_index.js");
+
+var _Button_1 = __webpack_require__(/*! ../../style/_Button */ "./resources/ts/style/_Button.tsx");
 
 var react_responsive_1 = __importDefault(__webpack_require__(/*! react-responsive */ "./node_modules/react-responsive/dist/react-responsive.js"));
 
@@ -3244,7 +3282,49 @@ var EditButton = function EditButton(_a) {
 
   return react_1["default"].createElement(react_1["default"].Fragment, null, react_1["default"].createElement(react_responsive_1["default"], {
     query: "(max-width: 599px)"
-  }, react_1["default"].createElement("svg", {
+  }, react_1["default"].createElement(_index_1.EditIcon, {
+    changeTaskTitle: changeTaskTitle
+  })), react_1["default"].createElement(react_responsive_1["default"], {
+    query: "(min-width: 599px)"
+  }, react_1["default"].createElement(_Button_1._Button, {
+    onClick: function onClick() {
+      return changeTaskTitle();
+    },
+    backgroundColor: "#3bc2e4",
+    style: {
+      border: "1px solid #2eb9db"
+    }
+  }, editButtonTitle)));
+};
+
+exports.default = EditButton;
+
+/***/ }),
+
+/***/ "./resources/ts/components/lv1/EditIcon.tsx":
+/*!**************************************************!*\
+  !*** ./resources/ts/components/lv1/EditIcon.tsx ***!
+  \**************************************************/
+/***/ (function(__unused_webpack_module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var __importDefault = this && this.__importDefault || function (mod) {
+  return mod && mod.__esModule ? mod : {
+    "default": mod
+  };
+};
+
+Object.defineProperty(exports, "__esModule", ({
+  value: true
+}));
+
+var react_1 = __importDefault(__webpack_require__(/*! react */ "./node_modules/react/index.js"));
+
+var EditIcon = function EditIcon(_a) {
+  var changeTaskTitle = _a.changeTaskTitle;
+  return react_1["default"].createElement("svg", {
     onClick: function onClick() {
       return changeTaskTitle();
     },
@@ -3264,20 +3344,10 @@ var EditButton = function EditButton(_a) {
     }
   }, react_1["default"].createElement("path", {
     d: "M290.74 93.24l128.02 128.02-277.99 277.99-114.14 12.6C11.35 513.54-1.56 500.62.14 485.34l12.7-114.22 277.9-277.88zm207.2-19.06l-60.11-60.11c-18.75-18.75-49.16-18.75-67.91 0l-56.55 56.55 128.02 128.02 56.55-56.55c18.75-18.76 18.75-49.16 0-67.91z"
-  }))), react_1["default"].createElement(react_responsive_1["default"], {
-    query: "(min-width: 599px)"
-  }, react_1["default"].createElement(ButtonStyle_1.ButtonStyle, {
-    onClick: function onClick() {
-      return changeTaskTitle();
-    },
-    backgroundColor: "#3bc2e4",
-    style: {
-      border: "1px solid #2eb9db"
-    }
-  }, editButtonTitle)));
+  }));
 };
 
-exports.default = EditButton;
+exports.default = EditIcon;
 
 /***/ }),
 
@@ -4641,12 +4711,11 @@ var LoginContent = function LoginContent(_a) {
             return [4
             /*yield*/
             , axios_1["default"].post("/login", loginData).then(function (res) {
-              if (res.data.result === true) {
-                console.log("ログインに成功しました");
-                history.push("/");
-                setUserID(res.data.user.id);
-                setIs_authenticated(true);
-              }
+              console.log(res.data.result);
+              console.log("ログインに成功しました");
+              history.push("/");
+              setUserID(res.data.user.id);
+              setIs_authenticated(true);
             })["catch"](function (err) {
               console.log(err);
             })];
@@ -4910,8 +4979,6 @@ var RegisterContent = function RegisterContent() {
       console.log("確認のパスワードが一致しません");
     }
   };
-
-  console.log(registerData);
 
   var handleChangeName = function handleChangeName(e) {
     setRegisterData(__assign(__assign({}, registerData), {
@@ -5985,10 +6052,10 @@ react_dom_1["default"].render(react_1["default"].createElement(App_1["default"],
 
 /***/ }),
 
-/***/ "./resources/ts/style/ButtonStyle.tsx":
-/*!********************************************!*\
-  !*** ./resources/ts/style/ButtonStyle.tsx ***!
-  \********************************************/
+/***/ "./resources/ts/style/_Button.tsx":
+/*!****************************************!*\
+  !*** ./resources/ts/style/_Button.tsx ***!
+  \****************************************/
 /***/ (function(__unused_webpack_module, exports, __webpack_require__) {
 
 "use strict";
@@ -6015,11 +6082,11 @@ var __importDefault = this && this.__importDefault || function (mod) {
 Object.defineProperty(exports, "__esModule", ({
   value: true
 }));
-exports.ButtonStyle = void 0;
+exports._Button = void 0;
 
 var styled_components_1 = __importDefault(__webpack_require__(/*! styled-components */ "./node_modules/styled-components/dist/styled-components.browser.esm.js"));
 
-exports.ButtonStyle = styled_components_1["default"].div(templateObject_1 || (templateObject_1 = __makeTemplateObject(["\n    display: inline-block;\n    text-align: center;\n    background-color: ", ";\n    opacity: 0.9;\n    color: white;\n    padding: 6px 10px;\n    border-radius: 4px;\n    margin-right: 12px;\n    cursor: pointer;\n    &:hover {\n        opacity: 0.6;\n    }\n"], ["\n    display: inline-block;\n    text-align: center;\n    background-color: ", ";\n    opacity: 0.9;\n    color: white;\n    padding: 6px 10px;\n    border-radius: 4px;\n    margin-right: 12px;\n    cursor: pointer;\n    &:hover {\n        opacity: 0.6;\n    }\n"])), function (props) {
+exports._Button = styled_components_1["default"].div(templateObject_1 || (templateObject_1 = __makeTemplateObject(["\n    display: inline-block;\n    text-align: center;\n    background-color: ", ";\n    opacity: 0.9;\n    color: white;\n    padding: 6px 10px;\n    border-radius: 4px;\n    margin-right: 12px;\n    cursor: pointer;\n    &:hover {\n        opacity: 0.6;\n    }\n"], ["\n    display: inline-block;\n    text-align: center;\n    background-color: ", ";\n    opacity: 0.9;\n    color: white;\n    padding: 6px 10px;\n    border-radius: 4px;\n    margin-right: 12px;\n    cursor: pointer;\n    &:hover {\n        opacity: 0.6;\n    }\n"])), function (props) {
   return props.backgroundColor;
 });
 var templateObject_1;
@@ -6107,26 +6174,34 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "CheckBox": () => (/* reexport default from dynamic */ _CheckBox__WEBPACK_IMPORTED_MODULE_0___default.a),
 /* harmony export */   "DeleteButton": () => (/* reexport default from dynamic */ _DeleteButton__WEBPACK_IMPORTED_MODULE_1___default.a),
-/* harmony export */   "EditButton": () => (/* reexport default from dynamic */ _EditButton__WEBPACK_IMPORTED_MODULE_2___default.a),
-/* harmony export */   "InputText": () => (/* reexport default from dynamic */ _InputText__WEBPACK_IMPORTED_MODULE_3___default.a),
-/* harmony export */   "SubmitButton": () => (/* reexport default from dynamic */ _SubmitButton__WEBPACK_IMPORTED_MODULE_4___default.a),
-/* harmony export */   "TaskTitle": () => (/* reexport default from dynamic */ _TaskTitle__WEBPACK_IMPORTED_MODULE_5___default.a),
-/* harmony export */   "ColoredTag": () => (/* reexport default from dynamic */ _ColoredTag__WEBPACK_IMPORTED_MODULE_6___default.a)
+/* harmony export */   "DeleteIcon": () => (/* reexport default from dynamic */ _DeleteIcon__WEBPACK_IMPORTED_MODULE_2___default.a),
+/* harmony export */   "EditButton": () => (/* reexport default from dynamic */ _EditButton__WEBPACK_IMPORTED_MODULE_3___default.a),
+/* harmony export */   "EditIcon": () => (/* reexport default from dynamic */ _EditIcon__WEBPACK_IMPORTED_MODULE_4___default.a),
+/* harmony export */   "InputText": () => (/* reexport default from dynamic */ _InputText__WEBPACK_IMPORTED_MODULE_5___default.a),
+/* harmony export */   "SubmitButton": () => (/* reexport default from dynamic */ _SubmitButton__WEBPACK_IMPORTED_MODULE_6___default.a),
+/* harmony export */   "TaskTitle": () => (/* reexport default from dynamic */ _TaskTitle__WEBPACK_IMPORTED_MODULE_7___default.a),
+/* harmony export */   "ColoredTag": () => (/* reexport default from dynamic */ _ColoredTag__WEBPACK_IMPORTED_MODULE_8___default.a)
 /* harmony export */ });
 /* harmony import */ var _CheckBox__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./CheckBox */ "./resources/ts/components/lv1/CheckBox.tsx");
 /* harmony import */ var _CheckBox__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_CheckBox__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var _DeleteButton__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./DeleteButton */ "./resources/ts/components/lv1/DeleteButton.tsx");
 /* harmony import */ var _DeleteButton__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_DeleteButton__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var _EditButton__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./EditButton */ "./resources/ts/components/lv1/EditButton.tsx");
-/* harmony import */ var _EditButton__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_EditButton__WEBPACK_IMPORTED_MODULE_2__);
-/* harmony import */ var _InputText__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./InputText */ "./resources/ts/components/lv1/InputText.tsx");
-/* harmony import */ var _InputText__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_InputText__WEBPACK_IMPORTED_MODULE_3__);
-/* harmony import */ var _SubmitButton__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./SubmitButton */ "./resources/ts/components/lv1/SubmitButton.tsx");
-/* harmony import */ var _SubmitButton__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(_SubmitButton__WEBPACK_IMPORTED_MODULE_4__);
-/* harmony import */ var _TaskTitle__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./TaskTitle */ "./resources/ts/components/lv1/TaskTitle.tsx");
-/* harmony import */ var _TaskTitle__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(_TaskTitle__WEBPACK_IMPORTED_MODULE_5__);
-/* harmony import */ var _ColoredTag__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./ColoredTag */ "./resources/ts/components/lv1/ColoredTag.tsx");
-/* harmony import */ var _ColoredTag__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(_ColoredTag__WEBPACK_IMPORTED_MODULE_6__);
+/* harmony import */ var _DeleteIcon__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./DeleteIcon */ "./resources/ts/components/lv1/DeleteIcon.tsx");
+/* harmony import */ var _DeleteIcon__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_DeleteIcon__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var _EditButton__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./EditButton */ "./resources/ts/components/lv1/EditButton.tsx");
+/* harmony import */ var _EditButton__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_EditButton__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var _EditIcon__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./EditIcon */ "./resources/ts/components/lv1/EditIcon.tsx");
+/* harmony import */ var _EditIcon__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(_EditIcon__WEBPACK_IMPORTED_MODULE_4__);
+/* harmony import */ var _InputText__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./InputText */ "./resources/ts/components/lv1/InputText.tsx");
+/* harmony import */ var _InputText__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(_InputText__WEBPACK_IMPORTED_MODULE_5__);
+/* harmony import */ var _SubmitButton__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./SubmitButton */ "./resources/ts/components/lv1/SubmitButton.tsx");
+/* harmony import */ var _SubmitButton__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(_SubmitButton__WEBPACK_IMPORTED_MODULE_6__);
+/* harmony import */ var _TaskTitle__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./TaskTitle */ "./resources/ts/components/lv1/TaskTitle.tsx");
+/* harmony import */ var _TaskTitle__WEBPACK_IMPORTED_MODULE_7___default = /*#__PURE__*/__webpack_require__.n(_TaskTitle__WEBPACK_IMPORTED_MODULE_7__);
+/* harmony import */ var _ColoredTag__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./ColoredTag */ "./resources/ts/components/lv1/ColoredTag.tsx");
+/* harmony import */ var _ColoredTag__WEBPACK_IMPORTED_MODULE_8___default = /*#__PURE__*/__webpack_require__.n(_ColoredTag__WEBPACK_IMPORTED_MODULE_8__);
+
+
 
 
 
