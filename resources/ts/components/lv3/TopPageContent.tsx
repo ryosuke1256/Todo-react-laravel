@@ -4,9 +4,10 @@ import { Link } from "react-router-dom";
 const TopPageContent: React.VFC = () => {
     return (
         <>
-            <div id='wrapper' className="bg-white h-full w-full">
+            <div id='wrapper' className="bg-white h-full w-full text-center">
                 <aside>
                     <img
+                        // className="relative bg-cover"
                         className="relative bg-cover"
                         src="/images/background.jpg"
                     />
@@ -15,7 +16,9 @@ const TopPageContent: React.VFC = () => {
                         src="/images/background2.jpg"
                     />
                 </aside>
-                <main className="welcome">
+                <div className="absolute z-50 top-0 left-0 w-full h-full">
+                <main className="inline-block pt-40">
+                    <div className="inline-block">
                     <title className="welcome__title">
                         <span className="welcome__title--underLine">
                             Todoアプリ作ってみたよ！
@@ -57,7 +60,10 @@ const TopPageContent: React.VFC = () => {
                             width="800px"
                         />
                     </article>
+                    </div>
                 </main>
+                </div>
+                
             </div>
         </>
     );
