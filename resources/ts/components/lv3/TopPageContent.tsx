@@ -4,13 +4,13 @@ import { Link } from "react-router-dom";
 const TopPageContent: React.VFC = () => {
     return (
         <>
-            <div className="wallpaper">
+            <div className="bg-white h-full w-full">
                 <img
-                    className="background-image"
+                    className="relative bg-cover"
                     src="/images/background.jpg"
                 />
                 <img
-                    className="background-image2"
+                    className="hidden"
                     src="/images/background2.jpg"
                 />
                 <div className="welcome">

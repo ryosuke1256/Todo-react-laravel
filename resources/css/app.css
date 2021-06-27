@@ -15,11 +15,11 @@ body {
     background-color: #f8fafc;
 }
 
-.wallpaper {
+/* .wallpaper {
     background-color: white;
     height: 100%;
     width: 100%;
-}
+} */
 
 .welcome {
     position: absolute;
@@ -70,10 +70,10 @@ body {
     opacity: 0.65;
 }
 
-.background-image {
+/* .background-image {
     position: relative;
     background-size: cover;
-}
+} */
 
 .background-image2 {
     display: none;

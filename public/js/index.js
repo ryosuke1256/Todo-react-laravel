@@ -5475,12 +5475,12 @@ var react_router_dom_1 = __webpack_require__(/*! react-router-dom */ "./node_mod
 
 var TopPageContent = function TopPageContent() {
   return react_1["default"].createElement(react_1["default"].Fragment, null, react_1["default"].createElement("div", {
-    className: "wallpaper"
+    className: "bg-white h-full w-full"
   }, react_1["default"].createElement("img", {
-    className: "background-image",
+    className: "relative bg-cover",
     src: "/images/background.jpg"
   }), react_1["default"].createElement("img", {
-    className: "background-image2",
+    className: "hidden",
     src: "/images/background2.jpg"
   }), react_1["default"].createElement("div", {
     className: "welcome"
