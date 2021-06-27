@@ -17,15 +17,15 @@ const TopPageContent: React.VFC = () => {
                 </aside>
                 <div className="absolute top-0 left-0 w-full h-full">
                     <main className="inline-block pt-40">
-                        <title className="welcome__title">
-                            <span className="welcome__title--underLine">
+                        <title className="flex text-2xl">
+                            <span className="pt-3 underLine">
                                 Todoアプリ作ってみたよ！
                             </span>
-                            <span className="welcome__title--underLine">
+                            <span className="pt-3 underLine">
                                 会員登録して使ってみてね！
                             </span>
                         </title>
-                        <article className="welcome__content">
+                        <article className="flex">
                             <section>
                                 <h1 className="welcome__content--title">
                                     タスク管理ツールを使って生産性を上げよう

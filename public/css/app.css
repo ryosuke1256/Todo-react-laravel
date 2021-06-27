@@ -31894,14 +31894,12 @@ body {
 
 .welcome__title {
   display: flex;
-  padding-top: 20px;
   font-size: 1.6rem;
   color: #282929;
   opacity: 0.9;
 }
 
-.welcome__title--underLine {
-  padding-top: 10px;
+.underLine {
   background: linear-gradient(transparent 70%, rgba(255, 192, 56, 0.3) 0%);
 }
 
