@@ -70,8 +70,8 @@ const RegisterContent: React.VFC = () => {
 
     return (
         <div className="bg-grey-lighter min-h-screen flex flex-col">
-            <div className="container max-w-sm mx-auto flex-1 flex flex-col items-center justify-center px-2">
-                <div className="bg-white px-12 py-8 rounded shadow-md text-black w-8/12">
+            <div className="container max-w-lg mx-auto flex-1 flex flex-col items-center justify-center px-2 w-10/12">
+                <div className="bg-white px-12 py-8 rounded shadow-md text-black w-full">
                     <h1 className="mb-8 text-3xl text-center">Sign up</h1>
                     <input
                         type="text"

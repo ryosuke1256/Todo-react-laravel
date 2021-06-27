@@ -4943,9 +4943,9 @@ var RegisterContent = function RegisterContent() {
   return react_1["default"].createElement("div", {
     className: "bg-grey-lighter min-h-screen flex flex-col"
   }, react_1["default"].createElement("div", {
-    className: "container max-w-sm mx-auto flex-1 flex flex-col items-center justify-center px-2"
+    className: "container max-w-lg mx-auto flex-1 flex flex-col items-center justify-center px-2 w-10/12"
   }, react_1["default"].createElement("div", {
-    className: "bg-white px-12 py-8 rounded shadow-md text-black w-8/12"
+    className: "bg-white px-12 py-8 rounded shadow-md text-black w-full"
   }, react_1["default"].createElement("h1", {
     className: "mb-8 text-3xl text-center"
   }, "Sign up"), react_1["default"].createElement("input", {
