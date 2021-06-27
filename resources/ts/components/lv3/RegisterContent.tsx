@@ -7,14 +7,14 @@ const RegisterContent: React.VFC = () => {
         name: "",
         email: "",
         password: "",
+        password_confirmation: "",
     });
-    const [confirmPassword, setConfirmPassword] = useState("");
     const [isRevealPassword, setIsRevealPassword] = useState(false);
     const [isRevealConfirmPassword, setIsRevealConfirmPassword] = useState(false); // prettier-ignore
 
     const onSubmit = () => {
         console.log(registerData);
-        if (confirmPassword === registerData.password) {
+        if (registerData.password_confirmation === registerData.password) {
             axios
                 .post("/register", registerData)
                 .then((res) => {
@@ -33,6 +33,7 @@ const RegisterContent: React.VFC = () => {
             name: e.target.value,
             email: registerData.email,
             password: registerData.password,
+            password_confirmation: registerData.password,
         });
     };
 
@@ -41,6 +42,7 @@ const RegisterContent: React.VFC = () => {
             name: registerData.name,
             email: e.target.value,
             password: registerData.password,
+            password_confirmation: registerData.password,
         });
     };
 
@@ -49,13 +51,19 @@ const RegisterContent: React.VFC = () => {
             name: registerData.name,
             email: registerData.email,
             password: e.target.value,
+            password_confirmation: e.target.value,
         });
     };
 
     const handleChangeConfirmPassword = (
         e: React.ChangeEvent<HTMLInputElement>
     ) => {
-        setConfirmPassword(e.target.value);
+        setRegisterData({
+            name: registerData.name,
+            email: registerData.email,
+            password: registerData.password,
+            password_confirmation: e.target.value,
+        });
     };
 
     const togglePassword = (password: string) => {
