@@ -5475,21 +5475,17 @@ var react_router_dom_1 = __webpack_require__(/*! react-router-dom */ "./node_mod
 
 var TopPageContent = function TopPageContent() {
   return react_1["default"].createElement(react_1["default"].Fragment, null, react_1["default"].createElement("div", {
-    id: 'wrapper',
     className: "bg-white h-full w-full text-center"
   }, react_1["default"].createElement("aside", null, react_1["default"].createElement("img", {
-    // className="relative bg-cover"
     className: "relative bg-cover",
     src: "/images/background.jpg"
   }), react_1["default"].createElement("img", {
     className: "hidden",
     src: "/images/background2.jpg"
   })), react_1["default"].createElement("div", {
-    className: "absolute z-50 top-0 left-0 w-full h-full"
+    className: "absolute top-0 left-0 w-full h-full"
   }, react_1["default"].createElement("main", {
     className: "inline-block pt-40"
-  }, react_1["default"].createElement("div", {
-    className: "inline-block"
   }, react_1["default"].createElement("title", {
     className: "welcome__title"
   }, react_1["default"].createElement("span", {
@@ -5514,7 +5510,7 @@ var TopPageContent = function TopPageContent() {
     className: "todo-image",
     src: "/images/image.png",
     width: "800px"
-  })))))));
+  }))))));
 };
 
 exports.default = TopPageContent;
