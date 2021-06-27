@@ -4894,7 +4894,7 @@ var RegisterContent = function RegisterContent() {
         console.log(err);
       });
     } else {
-      console.log("validation.confirmed");
+      console.log("確認のパスワードが一致しません");
     }
   };
 

@@ -24,7 +24,7 @@ const RegisterContent: React.VFC = () => {
                     console.log(err);
                 });
         } else {
-            console.log("validation.confirmed");
+            console.log("確認のパスワードが一致しません");
         }
     };
 
