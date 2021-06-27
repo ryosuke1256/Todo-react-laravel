@@ -4866,35 +4866,32 @@ var RegisterContent = function RegisterContent() {
   var _a = react_1.useState({
     name: "",
     email: "",
-    password: ""
+    password: "",
+    password_confirmation: ""
   }),
       registerData = _a[0],
       setRegisterData = _a[1];
 
-  var _b = react_1.useState(""),
-      confirmPassword = _b[0],
-      setConfirmPassword = _b[1];
+  var _b = react_1.useState(false),
+      isRevealPassword = _b[0],
+      setIsRevealPassword = _b[1];
 
   var _c = react_1.useState(false),
-      isRevealPassword = _c[0],
-      setIsRevealPassword = _c[1];
-
-  var _d = react_1.useState(false),
-      isRevealConfirmPassword = _d[0],
-      setIsRevealConfirmPassword = _d[1]; // prettier-ignore
+      isRevealConfirmPassword = _c[0],
+      setIsRevealConfirmPassword = _c[1]; // prettier-ignore
 
 
   var onSubmit = function onSubmit() {
     console.log(registerData);
 
-    if (confirmPassword === registerData.password) {
+    if (registerData.password_confirmation === registerData.password) {
       axios_1["default"].post("/register", registerData).then(function (res) {
         console.log(res.data);
       })["catch"](function (err) {
         console.log(err);
       });
     } else {
-      console.log("validation.confirmed");
+      console.log("確認のパスワードが一致しません");
     }
   };
 
@@ -4902,7 +4899,8 @@ var RegisterContent = function RegisterContent() {
     setRegisterData({
       name: e.target.value,
       email: registerData.email,
-      password: registerData.password
+      password: registerData.password,
+      password_confirmation: registerData.password
     });
   };
 
@@ -4910,7 +4908,8 @@ var RegisterContent = function RegisterContent() {
     setRegisterData({
       name: registerData.name,
       email: e.target.value,
-      password: registerData.password
+      password: registerData.password,
+      password_confirmation: registerData.password
     });
   };
 
@@ -4918,12 +4917,18 @@ var RegisterContent = function RegisterContent() {
     setRegisterData({
       name: registerData.name,
       email: registerData.email,
-      password: e.target.value
+      password: e.target.value,
+      password_confirmation: e.target.value
     });
   };
 
   var handleChangeConfirmPassword = function handleChangeConfirmPassword(e) {
-    setConfirmPassword(e.target.value);
+    setRegisterData({
+      name: registerData.name,
+      email: registerData.email,
+      password: registerData.password,
+      password_confirmation: e.target.value
+    });
   };
 
   var togglePassword = function togglePassword(password) {

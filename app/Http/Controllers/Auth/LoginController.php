@@ -23,14 +23,11 @@ class LoginController extends Controller
         $result = false;
 
         if (Auth::attempt($credentials)) {
-            $request->session()->regenerate();
             //sucess
+            $request->session()->regenerate();
             $result = true;
             $user = Auth::user();
         }
         return response()->json(['result' => $result,'user' => $user]);
-        // return back()->withErrors([
-        //     'email' => 'The provided credentials do not match our records.',
-        // ]);
     }
 }
