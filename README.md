@@ -1,6 +1,6 @@
 ## 概要
 
--   Todo アプリを React と Laravel で作ってみた
+-   Todo アプリを React と Laravel でSPAで作ってみた
 
 ## 機能一覧
 
