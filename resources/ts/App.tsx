@@ -51,7 +51,10 @@ const App: React.VFC = () => {
                 <Header setIs_authenticated={setIs_authenticated} />
                 <Switch>
                     <Route path="/register">
-                        <RegisterContent />
+                        <RegisterContent 
+                            setIs_authenticated={setIs_authenticated}
+                            setUserID={setUserID}
+                        />
                     </Route>
                     <Route path="/login">
                         <LoginContent
