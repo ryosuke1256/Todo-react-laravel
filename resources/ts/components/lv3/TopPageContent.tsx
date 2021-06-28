@@ -16,7 +16,7 @@ const TopPageContent: React.VFC = () => {
                     />
                 </aside>
                 <div className="absolute top-0 left-0 w-full h-full">
-                    <main className="inline-block pt-40">
+                    <main className="w-11/12 sm:w-10/12 lg:w-8/12 xl:w-6-12 inline-block pt-32 sm:pt-40">
                         <title className="inline-block text-2xl">
                             <span className="block sm:inline-block pt-3 underLine">
                                 Todoアプリ作ってみたよ！
@@ -25,9 +25,9 @@ const TopPageContent: React.VFC = () => {
                                 会員登録して使ってみてね！
                             </span>
                         </title>
-                        <article className="flex flex-col sm:flex-row ">
+                        <article className=" flex flex-col sm:flex-row ">
                             <section>
-                                <h1 className="text-xl pt-36 pb-5">
+                                <h1 className="text-xl pt-20 sm:pt-36 pb-5">
                                     タスク管理ツールを使って生産性を上げよう
                                 </h1>
                                 <Link
