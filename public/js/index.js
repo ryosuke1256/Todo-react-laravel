@@ -3808,6 +3808,8 @@ var react_router_dom_1 = __webpack_require__(/*! react-router-dom */ "./node_mod
 
 var axios_1 = __importDefault(__webpack_require__(/*! axios */ "./node_modules/axios/index.js"));
 
+var customMedia_1 = __importDefault(__webpack_require__(/*! ../../style/customMedia */ "./resources/ts/style/customMedia.tsx"));
+
 var Header = function Header(_a) {
   var setIs_authenticated = _a.setIs_authenticated;
 
@@ -3857,15 +3859,15 @@ var Header = function Header(_a) {
 
 exports.default = Header;
 
-var _Header = styled_components_1["default"].div(templateObject_1 || (templateObject_1 = __makeTemplateObject(["\n    display: flex;\n    position: fixed;\n    z-index: 1000;\n    height: 60px;\n    width: 100vw;\n    padding: 8px 120px;\n    background-color: #fff;\n    box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075);\n"], ["\n    display: flex;\n    position: fixed;\n    z-index: 1000;\n    height: 60px;\n    width: 100vw;\n    padding: 8px 120px;\n    background-color: #fff;\n    box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075);\n"])));
+var _Header = styled_components_1["default"].div(templateObject_4 || (templateObject_4 = __makeTemplateObject(["\n    display: flex;\n    position: fixed;\n    z-index: 1000;\n    height: 60px;\n    width: 100vw;\n    padding: 8px 120px;\n    background-color: #fff;\n    box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075);\n    ", "\n    ", "\n    ", "\n"], ["\n    display: flex;\n    position: fixed;\n    z-index: 1000;\n    height: 60px;\n    width: 100vw;\n    padding: 8px 120px;\n    background-color: #fff;\n    box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075);\n    ", "\n    ", "\n    ", "\n"])), customMedia_1["default"].lessThan("mobile")(templateObject_1 || (templateObject_1 = __makeTemplateObject(["\n        padding: 8px 60px;\n    "], ["\n        padding: 8px 60px;\n    "]))), customMedia_1["default"].between("mobile", "tablet")(templateObject_2 || (templateObject_2 = __makeTemplateObject(["\n        padding: 8px 80px;\n\n    "], ["\n        padding: 8px 80px;\n\n    "]))), customMedia_1["default"].greaterThan("tablet")(templateObject_3 || (templateObject_3 = __makeTemplateObject(["\n    \n    "], ["\n    \n    "]))));
 
-var _TapableRange = styled_components_1["default"].div(templateObject_2 || (templateObject_2 = __makeTemplateObject([""], [""])));
+var _TapableRange = styled_components_1["default"].div(templateObject_5 || (templateObject_5 = __makeTemplateObject([""], [""])));
 
-var _Title = styled_components_1["default"].div(templateObject_3 || (templateObject_3 = __makeTemplateObject(["\n    display: inline-block;\n    color: #212529;\n    padding: 0.45rem 1rem;\n    font-size: 1.3rem;\n"], ["\n    display: inline-block;\n    color: #212529;\n    padding: 0.45rem 1rem;\n    font-size: 1.3rem;\n"])));
+var _Title = styled_components_1["default"].div(templateObject_6 || (templateObject_6 = __makeTemplateObject(["\n    display: inline-block;\n    color: #212529;\n    padding: 0.45rem 1rem;\n    font-size: 1.3rem;\n"], ["\n    display: inline-block;\n    color: #212529;\n    padding: 0.45rem 1rem;\n    font-size: 1.3rem;\n"])));
 
-var _Logout = styled_components_1["default"].div(templateObject_4 || (templateObject_4 = __makeTemplateObject(["\n    color: #5fb7ff;\n    line-height: 52px;\n    cursor: pointer;\n"], ["\n    color: #5fb7ff;\n    line-height: 52px;\n    cursor: pointer;\n"])));
+var _Logout = styled_components_1["default"].div(templateObject_7 || (templateObject_7 = __makeTemplateObject(["\n    color: #5fb7ff;\n    line-height: 52px;\n    cursor: pointer;\n"], ["\n    color: #5fb7ff;\n    line-height: 52px;\n    cursor: pointer;\n"])));
 
-var templateObject_1, templateObject_2, templateObject_3, templateObject_4;
+var templateObject_1, templateObject_2, templateObject_3, templateObject_4, templateObject_5, templateObject_6, templateObject_7;
 
 /***/ }),
 
@@ -5497,7 +5499,7 @@ var TopPageContent = function TopPageContent() {
   }, react_1["default"].createElement("section", {
     className: "w-10/12 lg:w-8/12 xl:5/12 sm:pl-1 lg:pl-16 xl:pl-36"
   }, react_1["default"].createElement("h1", {
-    className: "text-lg sm:text-xl pt-20 sm:pt-36 pb-5"
+    className: "text-lg sm:text-xl pt-20 sm:pt-24 lg:pt-32 pb-5"
   }, "\u30BF\u30B9\u30AF\u7BA1\u7406\u30C4\u30FC\u30EB\u3092\u4F7F\u3063\u3066\u751F\u7523\u6027\u3092\u4E0A\u3052\u3088\u3046"), react_1["default"].createElement(react_router_dom_1.Link, {
     to: "/login",
     className: "button hover"

@@ -27,7 +27,7 @@ const TopPageContent: React.VFC = () => {
                         </title>
                         <article className=" flex flex-col sm:flex-row ">
                             <section className="w-10/12 lg:w-8/12 xl:5/12 sm:pl-1 lg:pl-16 xl:pl-36">
-                                <h1 className="text-lg sm:text-xl pt-20 sm:pt-36 pb-5">
+                                <h1 className="text-lg sm:text-xl pt-20 sm:pt-24 lg:pt-32 pb-5">
                                     タスク管理ツールを使って生産性を上げよう
                                 </h1>
                                 <Link
