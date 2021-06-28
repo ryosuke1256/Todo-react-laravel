@@ -1,8 +1,13 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 import axios from "axios";
 
-const RegisterContent: React.VFC = () => {
+type Props = {
+    setIs_authenticated: (param: boolean) => void;
+    setUserID: (param: string) => void;
+};
+
+const RegisterContent: React.VFC<Props> = ({setIs_authenticated,setUserID}:Props) => {
     const [registerData, setRegisterData] = useState({
         name: "",
         email: "",
@@ -11,15 +16,20 @@ const RegisterContent: React.VFC = () => {
     });
     const [isRevealPassword, setIsRevealPassword] = useState(false);
     const [isRevealConfirmPassword, setIsRevealConfirmPassword] = useState(false); // prettier-ignore
+    
+    const history = useHistory();
 
-    const onSubmit = () => {
+    const register = async () => {
         console.log(registerData);
         if (registerData.password_confirmation === registerData.password) {
-            axios
+            await axios
                 .post("/register", registerData)
                 .then((res) => {
-                    console.log(res.data);
                     console.log(res.data.result);
+                    if(res.data.result === true) {
+                        console.log('ユーザ登録に成功しました');
+                        login({email:registerData.email,password:registerData.password});
+                    }
                 })
                 .catch((err) => {
                     console.log(err);
@@ -28,6 +38,21 @@ const RegisterContent: React.VFC = () => {
             console.log("確認のパスワードが一致しません");
         }
     };
+    
+    const login = async (loginData)=> {
+        console.log(loginData);
+        await axios
+            .post("/login", loginData)
+            .then((res) => {
+                console.log("ログインに成功しました");
+                history.push("/");
+                setUserID(res.data.user.id);
+                setIs_authenticated(true);
+            })
+            .catch((err) => {
+                console.log(err);
+            });
+    }
 
     const handleChange = (e:React.ChangeEvent<HTMLInputElement>,title:string) => {
         if(title === 'name') {
@@ -107,41 +132,24 @@ const RegisterContent: React.VFC = () => {
                     </div>
                     <button
                         type="submit"
-                        className="w-full text-center py-3 rounded bg-green text-black hover:bg-green-dark focus:outline-none my-1"
-                        onClick={onSubmit}
+                        className="w-full text-center py-3 rounded-lg bg-blue-500 hover:bg-blue-600 text-white hover:bg-green-dark focus:outline-none my-1"
+                        onClick={register}
                     >
                         Create Account
                     </button>
-
-                    <div className="text-center text-sm text-grey-dark mt-4">
-                        By signing up, you agree to the
-                        <a
-                            className="no-underline border-b border-grey-dark text-grey-dark"
-                            href="#"
-                        >
-                            Terms of Service
-                        </a>{" "}
-                        and
-                        <a
-                            className="no-underline border-b border-grey-dark text-grey-dark"
-                            href="#"
-                        >
-                            Privacy Policy
-                        </a>
-                    </div>
                 </div>
 
-                <div className="text-grey-dark mt-6">
+                <div className="text-grey-dark pt-6 pb-7">
                     Already have an account?
-                    <a
+                    <Link
                         className="no-underline border-b border-blue text-blue"
-                        href="../login/"
+                        to="/login"
                     >
                         Log in
-                    </a>
+                    </Link>
                     .
                 </div>
-                <button className="transition duration-200 mx-5 px-5 py-4 cursor-pointer font-normal text-sm rounded-lg text-gray-500 hover:bg-gray-200 focus:outline-none focus:bg-gray-300 focus:ring-2 focus:ring-gray-400 focus:ring-opacity-50 ring-inset">
+                <button className="transition duration-200 px-5 py-4 pt-4 cursor-pointer font-normal text-sm rounded-lg text-gray-500 hover:bg-gray-200 focus:outline-none focus:bg-gray-300 focus:ring-2 focus:ring-gray-400 focus:ring-opacity-50 ring-inset">
                     <svg
                         xmlns="http://www.w3.org/2000/svg"
                         fill="none"
@@ -156,7 +164,7 @@ const RegisterContent: React.VFC = () => {
                             d="M10 19l-7-7m0 0l7-7m-7 7h18"
                         />
                     </svg>
-                    <Link to="/" className="ml-1">
+                    <Link to="/">
                         Back to your-app.com
                     </Link>
                 </button>
