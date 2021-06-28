@@ -2,6 +2,7 @@ import React from "react";
 import styled from "styled-components";
 import { Link } from "react-router-dom";
 import axios from "axios";
+import customMedia from "../../style/customMedia";
 
 type Props = {
     setIs_authenticated: (param: boolean) => void;
@@ -52,6 +53,16 @@ const _Header = styled.div`
     padding: 8px 120px;
     background-color: #fff;
     box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075);
+    ${customMedia.lessThan("mobile")`
+        padding: 8px 60px;
+    `}
+    ${customMedia.between("mobile", "tablet")`
+        padding: 8px 80px;
+
+    `}
+    ${customMedia.greaterThan("tablet")`
+    
+    `}
 `;
 
 const _TapableRange = styled.div``;
