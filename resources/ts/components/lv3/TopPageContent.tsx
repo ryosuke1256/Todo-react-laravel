@@ -7,11 +7,11 @@ const TopPageContent: React.VFC = () => {
             <div className="bg-white h-full w-full text-center relative">
                 <aside>
                     <img
-                        className="invisible sm:visible absolute top-0 left-0 bg-cover"
+                        className="invisible lg:visible absolute top-0 left-0 bg-cover"
                         src="/images/background.jpg"
                     />
                     <img
-                        className="visible sm:invisible absolute top-0 left-0 bg-cover"
+                        className="visible lg:invisible absolute top-0 left-0 bg-cover"
                         src="/images/background2.jpg"
                     />
                 </aside>

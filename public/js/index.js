@@ -5479,10 +5479,10 @@ var TopPageContent = function TopPageContent() {
   return react_1["default"].createElement(react_1["default"].Fragment, null, react_1["default"].createElement("div", {
     className: "bg-white h-full w-full text-center relative"
   }, react_1["default"].createElement("aside", null, react_1["default"].createElement("img", {
-    className: "invisible sm:visible absolute top-0 left-0 bg-cover",
+    className: "invisible lg:visible absolute top-0 left-0 bg-cover",
     src: "/images/background.jpg"
   }), react_1["default"].createElement("img", {
-    className: "visible sm:invisible absolute top-0 left-0 bg-cover",
+    className: "visible lg:invisible absolute top-0 left-0 bg-cover",
     src: "/images/background2.jpg"
   })), react_1["default"].createElement("div", {
     className: "absolute top-0 left-0 w-full h-full"
