@@ -5494,7 +5494,9 @@ var TopPageContent = function TopPageContent() {
     className: "block sm:inline-block pt-3 underLine"
   }, "\u4F1A\u54E1\u767B\u9332\u3057\u3066\u4F7F\u3063\u3066\u307F\u3066\u306D\uFF01")), react_1["default"].createElement("article", {
     className: " flex flex-col sm:flex-row "
-  }, react_1["default"].createElement("section", null, react_1["default"].createElement("h1", {
+  }, react_1["default"].createElement("section", {
+    className: "sm:pl-1 lg:pl-16 xl:pl-36"
+  }, react_1["default"].createElement("h1", {
     className: "text-xl pt-20 sm:pt-36 pb-5"
   }, "\u30BF\u30B9\u30AF\u7BA1\u7406\u30C4\u30FC\u30EB\u3092\u4F7F\u3063\u3066\u751F\u7523\u6027\u3092\u4E0A\u3052\u3088\u3046"), react_1["default"].createElement(react_router_dom_1.Link, {
     to: "/login",
@@ -5510,7 +5512,7 @@ var TopPageContent = function TopPageContent() {
     height: "400px",
     src: "/images/todo.png"
   }))), react_1["default"].createElement("article", null, react_1["default"].createElement("img", {
-    className: "invisible sm:visible block ",
+    className: "invisible sm:visible inline-block ",
     src: "/images/image.png",
     width: "800px"
   }))))));

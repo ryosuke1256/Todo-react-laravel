@@ -26,7 +26,7 @@ const TopPageContent: React.VFC = () => {
                             </span>
                         </title>
                         <article className=" flex flex-col sm:flex-row ">
-                            <section>
+                            <section className="sm:pl-1 lg:pl-16 xl:pl-36">
                                 <h1 className="text-xl pt-20 sm:pt-36 pb-5">
                                     タスク管理ツールを使って生産性を上げよう
                                 </h1>
@@ -54,7 +54,7 @@ const TopPageContent: React.VFC = () => {
                         </article>
                         <article>
                             <img
-                                className="invisible sm:visible block "
+                                className="invisible sm:visible inline-block "
                                 src="/images/image.png"
                                 width="800px"
                             />
