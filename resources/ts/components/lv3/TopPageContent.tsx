@@ -17,11 +17,11 @@ const TopPageContent: React.VFC = () => {
                 </aside>
                 <div className="absolute top-0 left-0 w-full h-full">
                     <main className="inline-block pt-40">
-                        <title className="flex text-2xl">
-                            <span className="pt-3 underLine">
+                        <title className="inline-block text-2xl">
+                            <span className="block sm:inline-block pt-3 underLine">
                                 Todoアプリ作ってみたよ！
                             </span>
-                            <span className="pt-3 underLine">
+                            <span className="block sm:inline-block pt-3 underLine">
                                 会員登録して使ってみてね！
                             </span>
                         </title>
@@ -32,13 +32,13 @@ const TopPageContent: React.VFC = () => {
                                 </h1>
                                 <Link
                                     to="/login"
-                                    className="button welcome__content--hover"
+                                    className="button hover"
                                 >
                                     ログイン
                                 </Link>
                                 <Link
                                     to="/register"
-                                    className="button welcome__content--hover"
+                                    className="button hover"
                                 >
                                     新規登録
                                 </Link>

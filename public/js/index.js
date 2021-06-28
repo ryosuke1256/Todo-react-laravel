@@ -5487,21 +5487,21 @@ var TopPageContent = function TopPageContent() {
   }, react_1["default"].createElement("main", {
     className: "inline-block pt-40"
   }, react_1["default"].createElement("title", {
-    className: "flex text-2xl"
+    className: "inline-block text-2xl"
   }, react_1["default"].createElement("span", {
-    className: "pt-3 underLine"
+    className: "block sm:inline-block pt-3 underLine"
   }, "Todo\u30A2\u30D7\u30EA\u4F5C\u3063\u3066\u307F\u305F\u3088\uFF01"), react_1["default"].createElement("span", {
-    className: "pt-3 underLine"
+    className: "block sm:inline-block pt-3 underLine"
   }, "\u4F1A\u54E1\u767B\u9332\u3057\u3066\u4F7F\u3063\u3066\u307F\u3066\u306D\uFF01")), react_1["default"].createElement("article", {
     className: "flex"
   }, react_1["default"].createElement("section", null, react_1["default"].createElement("h1", {
     className: "text-xl pt-36 pb-5"
   }, "\u30BF\u30B9\u30AF\u7BA1\u7406\u30C4\u30FC\u30EB\u3092\u4F7F\u3063\u3066\u751F\u7523\u6027\u3092\u4E0A\u3052\u3088\u3046"), react_1["default"].createElement(react_router_dom_1.Link, {
     to: "/login",
-    className: "button welcome__content--hover"
+    className: "button hover"
   }, "\u30ED\u30B0\u30A4\u30F3"), react_1["default"].createElement(react_router_dom_1.Link, {
     to: "/register",
-    className: "button welcome__content--hover"
+    className: "button hover"
   }, "\u65B0\u898F\u767B\u9332")), react_1["default"].createElement("section", null, react_1["default"].createElement("img", {
     src: "/images/todo.png",
     width: "400px",
