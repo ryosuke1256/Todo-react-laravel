@@ -25,7 +25,7 @@ const TopPageContent: React.VFC = () => {
                                 会員登録して使ってみてね！
                             </span>
                         </title>
-                        <article className="flex">
+                        <article className="flex flex-col sm:flex-row ">
                             <section>
                                 <h1 className="text-xl pt-36 pb-5">
                                     タスク管理ツールを使って生産性を上げよう
@@ -43,17 +43,18 @@ const TopPageContent: React.VFC = () => {
                                     新規登録
                                 </Link>
                             </section>
-                            <section>
+                            <section className="w-full">
                                 <img
-                                    src="/images/todo.png"
+                                    className="inline-block"
                                     width="400px"
                                     height="400px"
+                                    src="/images/todo.png"
                                 />
                             </section>
                         </article>
                         <article>
                             <img
-                                className="todo-image"
+                                className="invisible sm:visible block "
                                 src="/images/image.png"
                                 width="800px"
                             />
