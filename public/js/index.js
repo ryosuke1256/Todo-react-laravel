@@ -5485,9 +5485,9 @@ var TopPageContent = function TopPageContent() {
   })), react_1["default"].createElement("div", {
     className: "absolute top-0 left-0 w-full h-full"
   }, react_1["default"].createElement("main", {
-    className: "w-11/12 sm:w-10/12 lg:w-8/12 xl:w-6-12 inline-block pt-32 sm:pt-40"
+    className: "w-11/12 sm:w-10/12 lg:w-8/12 xl:w-6-12 max-w-5xl inline-block pt-32 sm:pt-40"
   }, react_1["default"].createElement("title", {
-    className: "inline-block text-2xl"
+    className: "inline-block text-2xl xl:text-3xl"
   }, react_1["default"].createElement("span", {
     className: "block sm:inline-block pt-3 underLine"
   }, "Todo\u30A2\u30D7\u30EA\u4F5C\u3063\u3066\u307F\u305F\u3088\uFF01"), react_1["default"].createElement("span", {
@@ -5495,9 +5495,9 @@ var TopPageContent = function TopPageContent() {
   }, "\u4F1A\u54E1\u767B\u9332\u3057\u3066\u4F7F\u3063\u3066\u307F\u3066\u306D\uFF01")), react_1["default"].createElement("article", {
     className: " flex flex-col sm:flex-row "
   }, react_1["default"].createElement("section", {
-    className: "sm:pl-1 lg:pl-16 xl:pl-36"
+    className: "w-10/12 lg:w-8/12 xl:5/12 sm:pl-1 lg:pl-16 xl:pl-36"
   }, react_1["default"].createElement("h1", {
-    className: "text-xl pt-20 sm:pt-36 pb-5"
+    className: "text-lg sm:text-xl pt-20 sm:pt-36 pb-5"
   }, "\u30BF\u30B9\u30AF\u7BA1\u7406\u30C4\u30FC\u30EB\u3092\u4F7F\u3063\u3066\u751F\u7523\u6027\u3092\u4E0A\u3052\u3088\u3046"), react_1["default"].createElement(react_router_dom_1.Link, {
     to: "/login",
     className: "button hover"
@@ -5507,7 +5507,7 @@ var TopPageContent = function TopPageContent() {
   }, "\u65B0\u898F\u767B\u9332")), react_1["default"].createElement("section", {
     className: "w-full"
   }, react_1["default"].createElement("img", {
-    className: "inline-block",
+    className: "inline-block w-96 sm:w-80 lg:w-96",
     width: "400px",
     height: "400px",
     src: "/images/todo.png"
