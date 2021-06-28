@@ -4973,6 +4973,7 @@ var RegisterContent = function RegisterContent() {
     if (registerData.password_confirmation === registerData.password) {
       axios_1["default"].post("/register", registerData).then(function (res) {
         console.log(res.data);
+        console.log(res.data.result);
       })["catch"](function (err) {
         console.log(err);
       });
@@ -4981,29 +4982,26 @@ var RegisterContent = function RegisterContent() {
     }
   };
 
-  var handleChangeName = function handleChangeName(e) {
-    setRegisterData(__assign(__assign({}, registerData), {
-      name: e.target.value
-    }));
-  };
-
-  var handleChangeEmail = function handleChangeEmail(e) {
-    setRegisterData(__assign(__assign({}, registerData), {
-      email: e.target.value
-    }));
-  };
-
-  var handleChangePassword = function handleChangePassword(e) {
-    setRegisterData(__assign(__assign({}, registerData), {
-      password: e.target.value
-    }));
-  }; //prettier-ignore
-
-
-  var handleChangeConfirmPassword = function handleChangeConfirmPassword(e) {
-    setRegisterData(__assign(__assign({}, registerData), {
-      password_confirmation: e.target.value
-    })); //prettier-ignore
+  var handleChange = function handleChange(e, title) {
+    if (title === 'name') {
+      setRegisterData(__assign(__assign({}, registerData), {
+        name: e.target.value
+      }));
+    } else if (title === 'email') {
+      setRegisterData(__assign(__assign({}, registerData), {
+        email: e.target.value
+      }));
+    } else if (title === 'password') {
+      setRegisterData(__assign(__assign({}, registerData), {
+        password: e.target.value
+      }));
+    } else if (title === 'confirmPassword') {
+      setRegisterData(__assign(__assign({}, registerData), {
+        password_confirmation: e.target.value
+      })); //prettier-ignore
+    } else {
+      return null;
+    }
   };
 
   var togglePassword = function togglePassword(password) {
@@ -5034,7 +5032,7 @@ var RegisterContent = function RegisterContent() {
     name: "fullname",
     placeholder: "Full Name",
     onChange: function onChange(e) {
-      return handleChangeName(e);
+      return handleChange(e, 'name');
     }
   }), react_1["default"].createElement("input", {
     type: "text",
@@ -5042,7 +5040,7 @@ var RegisterContent = function RegisterContent() {
     name: "email",
     placeholder: "Email",
     onChange: function onChange(e) {
-      return handleChangeEmail(e);
+      return handleChange(e, 'email');
     }
   }), react_1["default"].createElement("div", {
     className: "w-full"
@@ -5052,7 +5050,7 @@ var RegisterContent = function RegisterContent() {
     name: "password",
     placeholder: "Password",
     onChange: function onChange(e) {
-      return handleChangePassword(e);
+      return handleChange(e, 'password');
     }
   }), react_1["default"].createElement("span", {
     onClick: function onClick() {
@@ -5070,7 +5068,7 @@ var RegisterContent = function RegisterContent() {
     name: "confirm_password",
     placeholder: "Confirm Password",
     onChange: function onChange(e) {
-      return handleChangeConfirmPassword(e);
+      return handleChange(e, "confirmPassword");
     }
   }), react_1["default"].createElement("span", {
     onClick: function onClick() {

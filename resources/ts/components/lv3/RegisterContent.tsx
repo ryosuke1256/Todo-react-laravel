@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import axios from "axios";
 
 const RegisterContent: React.VFC = () => {
-    const [registerData, setRegisterData] = useState<any>({
+    const [registerData, setRegisterData] = useState({
         name: "",
         email: "",
         password: "",
@@ -19,6 +19,7 @@ const RegisterContent: React.VFC = () => {
                 .post("/register", registerData)
                 .then((res) => {
                     console.log(res.data);
+                    console.log(res.data.result);
                 })
                 .catch((err) => {
                     console.log(err);
@@ -28,22 +29,19 @@ const RegisterContent: React.VFC = () => {
         }
     };
 
-    const handleChangeName = (e: React.ChangeEvent<HTMLInputElement>) => {
-        setRegisterData({ ...registerData, name: e.target.value });
-    };
-
-    const handleChangeEmail = (e: React.ChangeEvent<HTMLInputElement>) => {
-        setRegisterData({ ...registerData, email: e.target.value });
-    };
-
-    const handleChangePassword = (e: React.ChangeEvent<HTMLInputElement>) => {
-        setRegisterData({ ...registerData, password: e.target.value });
-    };
-
-    //prettier-ignore
-    const handleChangeConfirmPassword = (e: React.ChangeEvent<HTMLInputElement>) => {
-        setRegisterData({ ...registerData, password_confirmation: e.target.value }); //prettier-ignore
-    };
+    const handleChange = (e:React.ChangeEvent<HTMLInputElement>,title:string) => {
+        if(title === 'name') {
+            setRegisterData({ ...registerData, name: e.target.value });
+        } else if(title === 'email') {
+            setRegisterData({ ...registerData, email: e.target.value });
+        }  else if(title === 'password') {
+            setRegisterData({ ...registerData, password: e.target.value });
+        } else if(title ===  'confirmPassword') {
+            setRegisterData({ ...registerData, password_confirmation: e.target.value }); //prettier-ignore
+        } else {
+            return null;
+        }
+    }
 
     const togglePassword = (password: string) => {
         if (password === "Password") {
@@ -65,7 +63,7 @@ const RegisterContent: React.VFC = () => {
                         className="block border border-grey-light w-full p-3 rounded mb-4"
                         name="fullname"
                         placeholder="Full Name"
-                        onChange={(e) => handleChangeName(e)}
+                        onChange={(e) => handleChange(e,'name')}
                     />
 
                     <input
@@ -73,7 +71,7 @@ const RegisterContent: React.VFC = () => {
                         className="block border border-grey-light w-full p-3 rounded mb-4"
                         name="email"
                         placeholder="Email"
-                        onChange={(e) => handleChangeEmail(e)}
+                        onChange={(e) => handleChange(e,'email')}
                     />
                     <div className="w-full">
                         <input
@@ -81,7 +79,7 @@ const RegisterContent: React.VFC = () => {
                             className="border border-grey-light w-10/12 p-3 rounded mb-4"
                             name="password"
                             placeholder="Password"
-                            onChange={(e) => handleChangePassword(e)}
+                            onChange={(e) => handleChange(e,'password')}
                         />
                         <span onClick={() => togglePassword("Password")}>
                             {isRevealPassword ? (
@@ -97,7 +95,7 @@ const RegisterContent: React.VFC = () => {
                             className="border border-grey-light w-10/12 p-3 rounded mb-4"
                             name="confirm_password"
                             placeholder="Confirm Password"
-                            onChange={(e) => handleChangeConfirmPassword(e)}
+                            onChange={(e) => handleChange(e,"confirmPassword")}
                         />
                         <span onClick={() => togglePassword("ConfirmPassword")}>
                             {isRevealConfirmPassword ? (
