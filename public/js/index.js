@@ -4174,6 +4174,10 @@ var TaskCard = function TaskCard(_a) {
                 yellow: res.data.checked_yellow,
                 green: res.data.checked_green
               };
+
+              if (res.data.id) {
+                setHasDonePostTag(true);
+              }
             } catch (err) {
               console.log(err);
             }
