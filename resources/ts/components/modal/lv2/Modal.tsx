@@ -57,7 +57,7 @@ const Modal: React.VFC<Props> = ({hasModalOpened,selected_color,setHasModalOpene
     return (
         <_BlackBackground>
             <_Modal>
-                <div style={{ fontSize: "1.3rem" }}>タグの色を選択する</div>
+                <div style={{ fontSize: "1.3rem",display:"inline-block" }}>タグの色を選択する</div>
                 <_TagColors>
                     <TagColor_Modal
                         backgroundColor={"rgba(255, 65, 51)"}
@@ -135,17 +135,21 @@ const _Modal = styled.div`
     transform: translate(-50%, -50%);
     height: 500px;
     width: 500px;
+    max-height:500px;
+    max-width:500px;
     padding: 50px;
     background-color: #fff;
     z-index: 1000;
     border-radius: 30px;
+    text-align: center;
     ${customMedia.lessThan("mobile")`
-        height:60vh;
+        height:70vh;
         width:95vw;
+        padding: 40px;
     `}
     ${customMedia.between("mobile", "tablet")`
-        height:60vh;
-        width:80vw;
+        height:70vh;
+        width:83vw;
     `}
     ${customMedia.greaterThan("tablet")`
     
@@ -155,6 +159,7 @@ const _Modal = styled.div`
 const _TagColors = styled.div`
     display: flex;
     flex-wrap: wrap;
+    justify-content:space-between;
 `;
 
 const _CloseButton = styled.div`

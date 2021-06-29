@@ -6,7 +6,8 @@ import axios from "axios";
 
 const App: React.VFC = () => {
     const [is_authenticated, setIs_authenticated] = useState<boolean>(false);
-    const [userID, setUserID] = useState("");
+    const [userID, setUserID] = useState<number| null>(null);
+    const [userName, setUserName] = useState<string>('');
     const [is_began, setIs_began] = useState(false);
 
     useEffect(() => {
@@ -18,12 +19,13 @@ const App: React.VFC = () => {
             .get("api/users")
             .then((res) => {
                 if (res.data) {
+                    setUserName(res.data.name);
                     setIs_authenticated(true);
                 } else {
                     setIs_authenticated(false);
                 }
                 setIs_began(true);
-                setUserID(res.data);
+                setUserID(res.data.id);
             })
             .catch((err) => {
                 console.log(err);
@@ -48,7 +50,12 @@ const App: React.VFC = () => {
     return (
         <>
             <Router>
-                <Header setIs_authenticated={setIs_authenticated} />
+                <Header 
+                    setIs_authenticated={setIs_authenticated}
+                    is_authenticated={is_authenticated}
+                    setUserID={setUserID}
+                    userName={userName}
+                />
                 <Switch>
                     <Route path="/register">
                         <RegisterContent 

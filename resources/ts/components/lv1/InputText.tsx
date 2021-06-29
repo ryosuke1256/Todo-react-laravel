@@ -1,5 +1,6 @@
 import React from "react";
 import { TaskAPI } from "../../type/api/TaskAPI";
+import styled from "styled-components";
 
 type Props = {
     text: string;
@@ -22,7 +23,7 @@ const InputText: React.VFC<Props> = ({
         is_done: 0,
     };
     return (
-        <input
+        <_InputText
             name="task"
             type="text"
             value={text}
@@ -35,13 +36,14 @@ const InputText: React.VFC<Props> = ({
                     setText("");
                 }
             }}
-            style={{
-                fontSize: "16px",
-                padding: "5px",
-                border: "1px solid #7d7d7d",
-            }}
         />
     );
 };
 
 export default InputText;
+
+const _InputText = styled.input`
+    font-size: 16px;
+    padding: 5px;
+    border: 1px solid rgba(186, 186, 186, 0.7);
+`;

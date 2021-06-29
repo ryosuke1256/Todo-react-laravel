@@ -41,18 +41,19 @@ const EditButton: React.VFC<Props> = ({
 
     return (
         <>
-            <MediaQuery query="(max-width: 599px)">
-                <EditIcon changeTaskTitle={changeTaskTitle} />
-            </MediaQuery>
-            <MediaQuery query="(min-width: 599px)">
-                <_Button
-                    onClick={() => changeTaskTitle()}
-                    backgroundColor="#3bc2e4"
-                    style={{ border: "1px solid #2eb9db" }}
-                >
-                    {editButtonTitle}
-                </_Button>
-            </MediaQuery>
+            <div>
+                <MediaQuery query="(max-width: 599px)">
+                    <EditIcon changeTaskTitle={changeTaskTitle} />
+                </MediaQuery>
+                <MediaQuery query="(min-width: 599px)">
+                    <_Button
+                        onClick={() => changeTaskTitle()}
+                        backgroundColor="#3bc2e4"
+                    >
+                        {editButtonTitle}
+                    </_Button>
+                </MediaQuery>
+            </div>
         </>
     );
 };

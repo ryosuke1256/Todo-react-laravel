@@ -44,7 +44,7 @@ const _TagColor = styled.div<{ is_selected; backgroundColor: string }>`
     height: 20px;
     width: 80px;
     margin-top: 30px;
-    margin-right: 30px;
+    margin-right: 20px;
     background-color: ${(props) => props.backgroundColor};
     border-radius: 30px;
 `;
