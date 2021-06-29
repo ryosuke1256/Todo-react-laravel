@@ -1,6 +1,6 @@
 |  Method   |       Endpoint       |                   Action                    |                                                        Description                                                        |
 | :-------: | :------------------: | :-----------------------------------------: | :-----------------------------------------------------------------------------------------------------------------------: |
-|    GET    |      api/users       |  App\Http\Controllers\UserController@index  |                                          ログインされたユーザーの id を取得する                                           |
+|    GET    |      api/users       |  App\Http\Controllers\UserController@index  |                                          ログインされたユーザーのレコードを取得する                                           |
 |    GET    | api/tasks/users/{id} |  App\Http\Controllers\TaskController@index  | ログインしている user の id に一致する tasks テーブルのレコードを取得する、トップページでユーザー毎のタスク一覧を表示する |
 |   POST    |      api/tasks       |  App\Http\Controllers\TaskController@store  |                              tasks テーブルのレコードを新規作成する。タスクの新規作成をする                               |
 | PUT/PATCH |    api/tasks/{id}    | App\Http\Controllers\TaskController@update  |                               tasks テーブルの id のレコードを更新する。タスクの編集をする                                |

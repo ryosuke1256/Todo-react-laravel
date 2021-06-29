@@ -42,10 +42,8 @@ const _SubmitButton = styled.div`
     border-radius: 8px;
     padding: 6px;
     margin-left:7px;
-    background-color:#6dceff;
-    /* background-color:#8bd8ff; */
-    border: 1px solid #62c7fa;
-    /* border: 1px solid #7dcaf0; */
+    background-color:#5287EC;
+    border: 1px solid #4b81e6;
     opacity:0.9;
     cursor: pointer;
     &:hover {

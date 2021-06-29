@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import styled from "styled-components";
 import { InputText, SubmitButton } from "../lv1/_index";
 import { TaskAPI } from "../../type/api/TaskAPI";
+import customMedia from "../../style/customMedia";
 
 type Props = {
     postTask: (postTask: TaskAPI) => void;
@@ -16,7 +17,7 @@ const TextForm: React.VFC<Props> = ({ postTask, userID }: Props) => {
     };
 
     return (
-        <>
+        <_TextForm>
             <InputText
                 text={text}
                 handleChange={handleChange}
@@ -30,7 +31,20 @@ const TextForm: React.VFC<Props> = ({ postTask, userID }: Props) => {
                 setText={setText}
                 userID={userID}
             />
-        </>
+        </_TextForm>
     );
 };
 export default TextForm;
+
+const _TextForm = styled.div` 
+    ${customMedia.lessThan("mobile")`
+        padding-left:20px;
+    `}
+    ${customMedia.between("mobile", "tablet")`
+
+    `} 
+    ${customMedia.greaterThan("tablet")`
+
+    `}
+    
+`;
