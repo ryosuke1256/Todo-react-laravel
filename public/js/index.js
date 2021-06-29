@@ -3586,6 +3586,304 @@ var templateObject_1;
 
 /***/ }),
 
+/***/ "./resources/ts/components/lv1/WelcomeImage.tsx":
+/*!******************************************************!*\
+  !*** ./resources/ts/components/lv1/WelcomeImage.tsx ***!
+  \******************************************************/
+/***/ (function(__unused_webpack_module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var __makeTemplateObject = this && this.__makeTemplateObject || function (cooked, raw) {
+  if (Object.defineProperty) {
+    Object.defineProperty(cooked, "raw", {
+      value: raw
+    });
+  } else {
+    cooked.raw = raw;
+  }
+
+  return cooked;
+};
+
+var __importDefault = this && this.__importDefault || function (mod) {
+  return mod && mod.__esModule ? mod : {
+    "default": mod
+  };
+};
+
+Object.defineProperty(exports, "__esModule", ({
+  value: true
+}));
+
+var react_1 = __importDefault(__webpack_require__(/*! react */ "./node_modules/react/index.js"));
+
+var styled_components_1 = __importDefault(__webpack_require__(/*! styled-components */ "./node_modules/styled-components/dist/styled-components.browser.esm.js"));
+
+var customMedia_1 = __importDefault(__webpack_require__(/*! ../../style/customMedia */ "./resources/ts/style/customMedia.tsx"));
+
+var WelcomeImage = function WelcomeImage() {
+  return react_1["default"].createElement(_WelcomeImage, {
+    id: "ae81c40f-6eb7-45b1-b509-6cf6baf1840d",
+    "data-name": "Layer 1",
+    xmlns: "http://www.w3.org/2000/svg",
+    width: "380px",
+    height: "380px",
+    viewBox: "0 0 808 607.0183"
+  }, react_1["default"].createElement("rect", {
+    x: "203.7002",
+    y: "186.04004",
+    width: "405.23975",
+    height: "2",
+    fill: "#ccc"
+  }), react_1["default"].createElement("rect", {
+    x: "405",
+    y: "1.00172",
+    width: "2",
+    height: "186.03613",
+    fill: "#ccc"
+  }), react_1["default"].createElement("rect", {
+    x: "235.3501",
+    y: "93.02002",
+    width: "341.2998",
+    height: "2",
+    fill: "#ccc"
+  }), react_1["default"].createElement("path", {
+    d: "M666.54,476.8326a41.97008,41.97008,0,0,1-10.39014,27.66c-.6001.69-1.23,1.35-1.86963,2h-59.5c-.64013-.65-1.2705-1.31-1.87011-2a41.84634,41.84634,0,0,1-8.59034-15.45s.01026,0,0-.01a42.01722,42.01722,0,0,1-1.7998-12.2,40.808,40.808,0,0,1,.31006-5.09,42.01253,42.01253,0,0,1,83.39013-.11A42.46344,42.46344,0,0,1,666.54,476.8326Z",
+    transform: "translate(-196 -146.49085)",
+    fill: "#2f2e41"
+  }), react_1["default"].createElement("polygon", {
+    points: "375.58 360.002 370.44 360.002 374.43 358.002 374.55 357.942 374.58 358.002 375.58 360.002",
+    fill: "#2f2e41"
+  }), react_1["default"].createElement("polygon", {
+    points: "410.61 360.002 405.47 360.002 406.47 358.002 406.5 357.942 406.62 358.002 410.61 360.002",
+    fill: "#2f2e41"
+  }), react_1["default"].createElement("circle", {
+    cx: "425.58781",
+    cy: "320.06702",
+    r: "14.35864",
+    fill: "#fff"
+  }), react_1["default"].createElement("ellipse", {
+    cx: "616.68644",
+    cy: "469.41108",
+    rx: "4.76624",
+    ry: "4.8",
+    transform: "translate(-347.30048 427.05964) rotate(-45)",
+    fill: "#3f3d56"
+  }), react_1["default"].createElement("path", {
+    d: "M657.67091,431.1294c.63177-15.55358-12.77314-28.7276-29.9408-29.42492s-31.59692,11.346-32.22873,26.89959,11.30191,19.08747,28.46957,19.78486S657.03907,446.683,657.67091,431.1294Z",
+    transform: "translate(-196 -146.49085)",
+    fill: "#469fe8"
+  }), react_1["default"].createElement("path", {
+    d: "M636.06776,493.39088a9.57244,9.57244,0,1,1-18.83533,3.42883l-.00336-.01849c-.94177-5.20215,3.08039-7.043,8.28253-7.98474S635.12605,488.18873,636.06776,493.39088Z",
+    transform: "translate(-196 -146.49085)",
+    fill: "#fff"
+  }), react_1["default"].createElement("path", {
+    d: "M843,504.49085H351a18,18,0,0,0,0,36H843a18,18,0,0,0,0-36Z",
+    transform: "translate(-196 -146.49085)",
+    fill: "#ccc"
+  }), react_1["default"].createElement("path", {
+    d: "M806,350.49085v155h-2v-155q0-8.055-.62988-15.96c-.0503-.67005-.1001-1.33-.16016-2a200.66158,200.66158,0,0,0-31.20019-91.02c-.42969-.67-.85987-1.33-1.29981-2a201.96864,201.96864,0,0,0-167.71-91.01c-.33008-.01-.66992-.01-1-.01s-.66992,0-1,.01q-5.68506.015-11.27979.36a200.46931,200.46931,0,0,0-43.17041,7.37,199.60082,199.60082,0,0,0-23.42968,8.3,203.2477,203.2477,0,0,0-89.83008,74.98c-.43994.67-.87012,1.33-1.29981,2a200.66158,200.66158,0,0,0-31.20019,91.02c-.06006.67-.10986,1.32995-.16016,2Q400,342.43583,400,350.49085v155h-2v-155q0-9.12.79-18.03a202.46542,202.46542,0,0,1,32.25-93.15,204.17371,204.17371,0,0,1,116.58008-85.46,202.84863,202.84863,0,0,1,43.02-7.04q5.63964-.315,11.35986-.32a204.228,204.228,0,0,1,203.21,186.02Q805.99,341.39084,806,350.49085Z",
+    transform: "translate(-196 -146.49085)",
+    fill: "#3f3d56"
+  }), react_1["default"].createElement("path", {
+    d: "M545.63543,648.56507c56.612.96685,56.60308,85.176-.00182,86.13458C489.02347,733.73287,489.03234,649.52372,545.63543,648.56507Z",
+    transform: "translate(-196 -146.49085)",
+    fill: "#2f2e41"
+  }), react_1["default"].createElement("rect", {
+    x: "330.00982",
+    y: "578.94123",
+    width: "13.08374",
+    height: "23.44171",
+    fill: "#2f2e41"
+  }), react_1["default"].createElement("rect", {
+    x: "356.1773",
+    y: "578.94123",
+    width: "13.08374",
+    height: "23.44171",
+    fill: "#2f2e41"
+  }), react_1["default"].createElement("path", {
+    d: "M536.9129,745.05769c14.1376-.1004,14.13775,8.27842-.00059,8.17732C522.77529,753.33545,522.77513,744.95663,536.9129,745.05769Z",
+    transform: "translate(-196 -146.49085)",
+    fill: "#2f2e41"
+  }), react_1["default"].createElement("path", {
+    d: "M563.08044,744.51252c14.1376-.10039,14.13776,8.27843-.00059,8.17733C548.94283,752.79029,548.94268,744.41147,563.08044,744.51252Z",
+    transform: "translate(-196 -146.49085)",
+    fill: "#2f2e41"
+  }), react_1["default"].createElement("path", {
+    d: "M546.72575,666.01c19.24961.08648,19.248,29.35467-.00089,29.43843C527.47615,695.362,527.47781,666.09382,546.72575,666.01Z",
+    transform: "translate(-196 -146.49085)",
+    fill: "#fff"
+  }), react_1["default"].createElement("path", {
+    d: "M546.72575,675.82282c6.36583-.093,6.36592,9.90663-.00044,9.81284C540.35993,685.72865,540.35984,675.72907,546.72575,675.82282Z",
+    transform: "translate(-196 -146.49085)",
+    fill: "#3f3d56"
+  }), react_1["default"].createElement("path", {
+    d: "M503.85863,651.581c-8.0912-36.89139,53.88818-50.7244,62.25067-13.898,3.47716,15.57193-7.91523,21.31583-25.10517,25.15415S507.33617,667.15489,503.85863,651.581Z",
+    transform: "translate(-196 -146.49085)",
+    fill: "#ccc"
+  }), react_1["default"].createElement("path", {
+    d: "M564.40884,532.9464c10.03272-26.27355,22.67887-21.43935,12.62875,4.82779C567.0052,564.047,554.35905,559.21283,564.40884,532.9464Z",
+    transform: "translate(-196 -146.49085)",
+    fill: "#2f2e41"
+  }), react_1["default"].createElement("path", {
+    d: "M488.405,560.98342c10.02257-55.72612,93.143-42.22852,85.02207,13.799C563.40481,630.5068,480.28435,617.0092,488.405,560.98342Z",
+    transform: "translate(-196 -146.49085)",
+    fill: "#2f2e41"
+  }), react_1["default"].createElement("rect", {
+    x: "315.29058",
+    y: "455.1908",
+    width: "13.08374",
+    height: "23.44171",
+    fill: "#2f2e41"
+  }), react_1["default"].createElement("rect", {
+    x: "341.45805",
+    y: "455.1908",
+    width: "13.08374",
+    height: "23.44171",
+    fill: "#2f2e41"
+  }), react_1["default"].createElement("path", {
+    d: "M522.19372,621.30726c14.1376-.10039,14.13776,8.27842-.00058,8.17733C508.05611,629.585,508.056,621.20621,522.19372,621.30726Z",
+    transform: "translate(-196 -146.49085)",
+    fill: "#2f2e41"
+  }), react_1["default"].createElement("path", {
+    d: "M548.3612,620.76209c14.1376-.10039,14.13776,8.27843-.00058,8.17733C534.22359,629.03986,534.22344,620.661,548.3612,620.76209Z",
+    transform: "translate(-196 -146.49085)",
+    fill: "#2f2e41"
+  }), react_1["default"].createElement("path", {
+    d: "M489.13946,527.83055c-8.09119-36.89141,53.88807-50.72437,62.25063-13.89811,3.47717,15.57187-7.91523,21.31577-25.10517,25.15415S492.61694,543.4044,489.13946,527.83055Z",
+    transform: "translate(-196 -146.49085)",
+    fill: "#469fe8"
+  }), react_1["default"].createElement("path", {
+    d: "M462.95174,538.67072c3.04378-8.19044,43.33234,10.91771,38.912,18.45666C498.82053,565.3168,458.532,546.20865,462.95174,538.67072Z",
+    transform: "translate(-196 -146.49085)",
+    fill: "#2f2e41"
+  }), react_1["default"].createElement("ellipse", {
+    cx: "668.20504",
+    cy: "492.89483",
+    rx: "6.59448",
+    ry: "21.00616",
+    transform: "translate(-355.85909 407.66642) rotate(-40.64516)",
+    fill: "#2f2e41"
+  }), react_1["default"].createElement("ellipse", {
+    cx: "580.97057",
+    cy: "492.89483",
+    rx: "21.00616",
+    ry: "6.59448",
+    transform: "translate(-367.44563 466.16198) rotate(-49.35484)",
+    fill: "#2f2e41"
+  }), react_1["default"].createElement("path", {
+    d: "M959,282.49257H900a10,10,0,0,1,0-20v2a8,8,0,0,0,0,16h59Z",
+    transform: "translate(-196 -146.49085)",
+    fill: "#e6e6e6"
+  }), react_1["default"].createElement("path", {
+    d: "M898,335.49257H839a10,10,0,0,1,0-20v2a8,8,0,0,0,0,16h59Z",
+    transform: "translate(-196 -146.49085)",
+    fill: "#e6e6e6"
+  }), react_1["default"].createElement("path", {
+    d: "M975,387.49257v-2a8,8,0,0,0,0-16H916v-2h59a10,10,0,0,1,0,20Z",
+    transform: "translate(-196 -146.49085)",
+    fill: "#e6e6e6"
+  }), react_1["default"].createElement("path", {
+    d: "M994,205.49257v-2a8,8,0,0,0,0-16H935v-2h59a10,10,0,0,1,0,20Z",
+    transform: "translate(-196 -146.49085)",
+    fill: "#e6e6e6"
+  }), react_1["default"].createElement("path", {
+    d: "M902,224.49257H843a10,10,0,0,1,0-20v2a8,8,0,0,0,0,16h59Z",
+    transform: "translate(-196 -146.49085)",
+    fill: "#e6e6e6"
+  }), react_1["default"].createElement("path", {
+    d: "M326,414.49257H267a10,10,0,0,1,0-20v2a8,8,0,0,0,0,16h59Z",
+    transform: "translate(-196 -146.49085)",
+    fill: "#e6e6e6"
+  }), react_1["default"].createElement("path", {
+    d: "M357,448.49257v-2a8,8,0,0,0,0-16H298v-2h59a10,10,0,0,1,0,20Z",
+    transform: "translate(-196 -146.49085)",
+    fill: "#e6e6e6"
+  }), react_1["default"].createElement("path", {
+    d: "M265,467.49257H206a10,10,0,0,1,0-20v2a8,8,0,0,0,0,16h59Z",
+    transform: "translate(-196 -146.49085)",
+    fill: "#e6e6e6"
+  }), react_1["default"].createElement("path", {
+    d: "M330,303.49257H271a10,10,0,0,1,0-20v2a8,8,0,0,0,0,16h59Z",
+    transform: "translate(-196 -146.49085)",
+    fill: "#e6e6e6"
+  }), react_1["default"].createElement("path", {
+    d: "M361,337.49257v-2a8,8,0,0,0,0-16H302v-2h59a10,10,0,0,1,0,20Z",
+    transform: "translate(-196 -146.49085)",
+    fill: "#e6e6e6"
+  }), react_1["default"].createElement("path", {
+    d: "M269,356.49257H210a10,10,0,0,1,0-20v2a8,8,0,0,0,0,16h59Z",
+    transform: "translate(-196 -146.49085)",
+    fill: "#e6e6e6"
+  }), react_1["default"].createElement("path", {
+    d: "M755,611.49257H696a10,10,0,0,1,0-20v2a8,8,0,0,0,0,16h59Z",
+    transform: "translate(-196 -146.49085)",
+    fill: "#e6e6e6"
+  }), react_1["default"].createElement("path", {
+    d: "M821,665.49257v-2a8,8,0,0,0,0-16H762v-2h59a10,10,0,0,1,0,20Z",
+    transform: "translate(-196 -146.49085)",
+    fill: "#e6e6e6"
+  }), react_1["default"].createElement("path", {
+    d: "M701,675.49257H642a10,10,0,0,1,0-20v2a8,8,0,0,0,0,16h59Z",
+    transform: "translate(-196 -146.49085)",
+    fill: "#e6e6e6"
+  }), react_1["default"].createElement("path", {
+    d: "M487,670.49257v-2a8,8,0,0,0,0-16H428v-2h59a10,10,0,0,1,0,20Z",
+    transform: "translate(-196 -146.49085)",
+    fill: "#e6e6e6"
+  }), react_1["default"].createElement("path", {
+    d: "M309,695.49257H250a10,10,0,0,1,0-20v2a8,8,0,0,0,0,16h59Z",
+    transform: "translate(-196 -146.49085)",
+    fill: "#e6e6e6"
+  }), react_1["default"].createElement("path", {
+    d: "M706.88583,753.49257h-381a1,1,0,0,1,0-2h381a1,1,0,0,1,0,2Z",
+    transform: "translate(-196 -146.49085)",
+    fill: "#3f3d56"
+  }), react_1["default"].createElement("path", {
+    d: "M382.53027,752.72255c-.7705,1.77-3.35009.24-2.59033-1.51a100.85971,100.85971,0,0,0,7.16992-25.9,109.44309,109.44309,0,0,0-3.4497-45.66c-.16016-.53-.32032-1.06994-.48-1.6-.38038-1.22-.78028-2.44-1.2002-3.64a103.06206,103.06206,0,0,0-22.68018-37.46c-1.32959-1.4.79-3.52,2.12012-2.12a103.41725,103.41725,0,0,1,16.33985,22.51995,108.082,108.082,0,0,1,5.58007,12.08c.63037,1.61,1.22022,3.24,1.78028,4.87a114.2409,114.2409,0,0,1,5.81006,30.06A107.16153,107.16153,0,0,1,382.53027,752.72255Z",
+    transform: "translate(-196 -146.49085)",
+    fill: "#3f3d56"
+  }), react_1["default"].createElement("path", {
+    d: "M405.43018,599.89259q-4.99512,18.285-9.98,36.56995-5.1753,18.93009-10.33008,37.84-.73536,2.685-1.46,5.35c-.16016-.53-.32032-1.06994-.48-1.6-.38038-1.22-.78028-2.44-1.2002-3.64.4502-1.66.8999-3.32,1.35986-4.98q.93018-3.405,1.86036-6.81,8.66967-31.77,17.33984-63.53A1.50026,1.50026,0,0,1,405.43018,599.89259Z",
+    transform: "translate(-196 -146.49085)",
+    fill: "#3f3d56"
+  }), react_1["default"].createElement("path", {
+    d: "M343.74317,604.26147c-1.74844,3.83636-3.51256,7.72169-4.26924,11.86923s-.41209,8.65208,1.83118,12.22172a20.33914,20.33914,0,0,0,7.42114,6.45937c4.18676,2.38768,9.631,4.07456,13.6351,1.39181,4.04426-2.70966,4.474-8.83284,2.20829-13.14155s-6.47538-7.19855-10.58188-9.81294-7.32483-4.68135-9.98776-8.75654Z",
+    transform: "translate(-196 -146.49085)",
+    fill: "#469fe8"
+  }), react_1["default"].createElement("path", {
+    d: "M414.9958,565.17144c-4.00563,1.31514-8.0579,2.652-11.62,4.90715s-6.64018,5.562-7.74388,9.631a20.339,20.339,0,0,0,.28178,9.83449c1.0827,4.69656,3.533,9.84256,8.2196,10.96774,4.73358,1.13646,9.52652-2.69834,11.15836-7.28479s.90276-9.64026.04113-14.4315S413.80912,570.2371,415,565.51691Z",
+    transform: "translate(-196 -146.49085)",
+    fill: "#469fe8"
+  }), react_1["default"].createElement("path", {
+    d: "M343.11562,651.74288c1.11272,4.06651,2.24474,8.18069,4.31857,11.85137s5.22222,6.91062,9.23075,8.21687a20.33914,20.33914,0,0,0,9.83626.2115c4.74493-.846,10.00727-3.03526,11.36593-7.65955,1.37229-4.67067-2.21746-9.64979-6.71635-11.50946s-9.5829-1.38481-14.4113-.76441-8.624,1.09277-13.27861-.3332Z",
+    transform: "translate(-196 -146.49085)",
+    fill: "#469fe8"
+  }), react_1["default"].createElement("path", {
+    d: "M355.11562,704.74288c1.11272,4.06651,2.24474,8.18069,4.31857,11.85137s5.22222,6.91062,9.23075,8.21687a20.33914,20.33914,0,0,0,9.83626.2115c4.74493-.846,10.00727-3.03526,11.36593-7.65955,1.37229-4.67067-2.21746-9.64979-6.71635-11.50946s-9.5829-1.38481-14.41\n            13-.76441-8.624,1.09277-13.27861-.3332Z",
+    transform: "translate(-196 -146.49085)",
+    fill: "#469fe8"
+  }), react_1["default"].createElement("path", {
+    d: "M420.88438,669.74288c-1.11272,4.06651-2.24474,8.18069-4.31857,11.85137s-5.22222,6.91062-9.23075,8.21687a20.33914,20.33914,0,0,1-9.83626.2115c-4.74493-.846-10.00727-3.03526-11.36593-7.65955-1.37229-4.67067,2.21746-9.64979,6.71635-11.50946s9.5829-1.38481,14.4113-.76441,8.624,1.09277,13.27861-.3332Z",
+    transform: "translate(-196 -146.49085)",
+    fill: "#469fe8"
+  }), react_1["default"].createElement("path", {
+    d: "M432.88438,615.74288c-1.11272,4.06651-2.24474,8.18069-4.31857,11.85137s-5.22222,6.91062-9.23075,8.21687a20.33914,20.33914,0,0,1-9.83626.2115c-4.74493-.846-10.00727-3.03526-11.36593-7.65955-1.37229-4.67067,2.21746-9.64979,6.71635-11.50946s9.5829-1.38481,14.4113-.76441,8.624,1.09277,13.27861-.3332Z",
+    transform: "translate(-196 -146.49085)",
+    fill: "#469fe8"
+  }));
+};
+
+exports.default = WelcomeImage;
+
+var _WelcomeImage = styled_components_1["default"].svg(templateObject_4 || (templateObject_4 = __makeTemplateObject(["\n    display: inline-block;\n    ", "\n    ", " \n    ", "\n"], ["\n    display: inline-block;\n    ", "\n    ", " \n    ", "\n"])), customMedia_1["default"].lessThan("mobile")(templateObject_1 || (templateObject_1 = __makeTemplateObject(["\n        width: 300px;\n        height: 300px;\n    "], ["\n        width: 300px;\n        height: 300px;\n    "]))), customMedia_1["default"].between("mobile", "tablet")(templateObject_2 || (templateObject_2 = __makeTemplateObject(["\n    "], ["\n    "]))), customMedia_1["default"].greaterThan("tablet")(templateObject_3 || (templateObject_3 = __makeTemplateObject(["\n    "], ["\n    "]))));
+
+var templateObject_1, templateObject_2, templateObject_3, templateObject_4;
+
+/***/ }),
+
 /***/ "./resources/ts/components/lv2/ColoredTags.tsx":
 /*!*****************************************************!*\
   !*** ./resources/ts/components/lv2/ColoredTags.tsx ***!
@@ -4576,268 +4874,19 @@ var styled_components_1 = __importDefault(__webpack_require__(/*! styled-compone
 
 var customMedia_1 = __importDefault(__webpack_require__(/*! ../../style/customMedia */ "./resources/ts/style/customMedia.tsx"));
 
+var WelcomeImage_1 = __importDefault(__webpack_require__(/*! ../lv1/WelcomeImage */ "./resources/ts/components/lv1/WelcomeImage.tsx"));
+
 var WelcomeContent = function WelcomeContent() {
-  return react_1["default"].createElement(_WelcomeContent, null, react_1["default"].createElement(_WelcomeImage, {
-    id: "ae81c40f-6eb7-45b1-b509-6cf6baf1840d",
-    "data-name": "Layer 1",
-    xmlns: "http://www.w3.org/2000/svg",
-    width: "380px",
-    height: "380px",
-    viewBox: "0 0 808 607.0183"
-  }, react_1["default"].createElement("rect", {
-    x: "203.7002",
-    y: "186.04004",
-    width: "405.23975",
-    height: "2",
-    fill: "#ccc"
-  }), react_1["default"].createElement("rect", {
-    x: "405",
-    y: "1.00172",
-    width: "2",
-    height: "186.03613",
-    fill: "#ccc"
-  }), react_1["default"].createElement("rect", {
-    x: "235.3501",
-    y: "93.02002",
-    width: "341.2998",
-    height: "2",
-    fill: "#ccc"
-  }), react_1["default"].createElement("path", {
-    d: "M666.54,476.8326a41.97008,41.97008,0,0,1-10.39014,27.66c-.6001.69-1.23,1.35-1.86963,2h-59.5c-.64013-.65-1.2705-1.31-1.87011-2a41.84634,41.84634,0,0,1-8.59034-15.45s.01026,0,0-.01a42.01722,42.01722,0,0,1-1.7998-12.2,40.808,40.808,0,0,1,.31006-5.09,42.01253,42.01253,0,0,1,83.39013-.11A42.46344,42.46344,0,0,1,666.54,476.8326Z",
-    transform: "translate(-196 -146.49085)",
-    fill: "#2f2e41"
-  }), react_1["default"].createElement("polygon", {
-    points: "375.58 360.002 370.44 360.002 374.43 358.002 374.55 357.942 374.58 358.002 375.58 360.002",
-    fill: "#2f2e41"
-  }), react_1["default"].createElement("polygon", {
-    points: "410.61 360.002 405.47 360.002 406.47 358.002 406.5 357.942 406.62 358.002 410.61 360.002",
-    fill: "#2f2e41"
-  }), react_1["default"].createElement("circle", {
-    cx: "425.58781",
-    cy: "320.06702",
-    r: "14.35864",
-    fill: "#fff"
-  }), react_1["default"].createElement("ellipse", {
-    cx: "616.68644",
-    cy: "469.41108",
-    rx: "4.76624",
-    ry: "4.8",
-    transform: "translate(-347.30048 427.05964) rotate(-45)",
-    fill: "#3f3d56"
-  }), react_1["default"].createElement("path", {
-    d: "M657.67091,431.1294c.63177-15.55358-12.77314-28.7276-29.9408-29.42492s-31.59692,11.346-32.22873,26.89959,11.30191,19.08747,28.46957,19.78486S657.03907,446.683,657.67091,431.1294Z",
-    transform: "translate(-196 -146.49085)",
-    fill: "#469fe8"
-  }), react_1["default"].createElement("path", {
-    d: "M636.06776,493.39088a9.57244,9.57244,0,1,1-18.83533,3.42883l-.00336-.01849c-.94177-5.20215,3.08039-7.043,8.28253-7.98474S635.12605,488.18873,636.06776,493.39088Z",
-    transform: "translate(-196 -146.49085)",
-    fill: "#fff"
-  }), react_1["default"].createElement("path", {
-    d: "M843,504.49085H351a18,18,0,0,0,0,36H843a18,18,0,0,0,0-36Z",
-    transform: "translate(-196 -146.49085)",
-    fill: "#ccc"
-  }), react_1["default"].createElement("path", {
-    d: "M806,350.49085v155h-2v-155q0-8.055-.62988-15.96c-.0503-.67005-.1001-1.33-.16016-2a200.66158,200.66158,0,0,0-31.20019-91.02c-.42969-.67-.85987-1.33-1.29981-2a201.96864,201.96864,0,0,0-167.71-91.01c-.33008-.01-.66992-.01-1-.01s-.66992,0-1,.01q-5.68506.015-11.27979.36a200.46931,200.46931,0,0,0-43.17041,7.37,199.60082,199.60082,0,0,0-23.42968,8.3,203.2477,203.2477,0,0,0-89.83008,74.98c-.43994.67-.87012,1.33-1.29981,2a200.66158,200.66158,0,0,0-31.20019,91.02c-.06006.67-.10986,1.32995-.16016,2Q400,342.43583,400,350.49085v155h-2v-155q0-9.12.79-18.03a202.46542,202.46542,0,0,1,32.25-93.15,204.17371,204.17371,0,0,1,116.58008-85.46,202.84863,202.84863,0,0,1,43.02-7.04q5.63964-.315,11.35986-.32a204.228,204.228,0,0,1,203.21,186.02Q805.99,341.39084,806,350.49085Z",
-    transform: "translate(-196 -146.49085)",
-    fill: "#3f3d56"
-  }), react_1["default"].createElement("path", {
-    d: "M545.63543,648.56507c56.612.96685,56.60308,85.176-.00182,86.13458C489.02347,733.73287,489.03234,649.52372,545.63543,648.56507Z",
-    transform: "translate(-196 -146.49085)",
-    fill: "#2f2e41"
-  }), react_1["default"].createElement("rect", {
-    x: "330.00982",
-    y: "578.94123",
-    width: "13.08374",
-    height: "23.44171",
-    fill: "#2f2e41"
-  }), react_1["default"].createElement("rect", {
-    x: "356.1773",
-    y: "578.94123",
-    width: "13.08374",
-    height: "23.44171",
-    fill: "#2f2e41"
-  }), react_1["default"].createElement("path", {
-    d: "M536.9129,745.05769c14.1376-.1004,14.13775,8.27842-.00059,8.17732C522.77529,753.33545,522.77513,744.95663,536.9129,745.05769Z",
-    transform: "translate(-196 -146.49085)",
-    fill: "#2f2e41"
-  }), react_1["default"].createElement("path", {
-    d: "M563.08044,744.51252c14.1376-.10039,14.13776,8.27843-.00059,8.17733C548.94283,752.79029,548.94268,744.41147,563.08044,744.51252Z",
-    transform: "translate(-196 -146.49085)",
-    fill: "#2f2e41"
-  }), react_1["default"].createElement("path", {
-    d: "M546.72575,666.01c19.24961.08648,19.248,29.35467-.00089,29.43843C527.47615,695.362,527.47781,666.09382,546.72575,666.01Z",
-    transform: "translate(-196 -146.49085)",
-    fill: "#fff"
-  }), react_1["default"].createElement("path", {
-    d: "M546.72575,675.82282c6.36583-.093,6.36592,9.90663-.00044,9.81284C540.35993,685.72865,540.35984,675.72907,546.72575,675.82282Z",
-    transform: "translate(-196 -146.49085)",
-    fill: "#3f3d56"
-  }), react_1["default"].createElement("path", {
-    d: "M503.85863,651.581c-8.0912-36.89139,53.88818-50.7244,62.25067-13.898,3.47716,15.57193-7.91523,21.31583-25.10517,25.15415S507.33617,667.15489,503.85863,651.581Z",
-    transform: "translate(-196 -146.49085)",
-    fill: "#ccc"
-  }), react_1["default"].createElement("path", {
-    d: "M564.40884,532.9464c10.03272-26.27355,22.67887-21.43935,12.62875,4.82779C567.0052,564.047,554.35905,559.21283,564.40884,532.9464Z",
-    transform: "translate(-196 -146.49085)",
-    fill: "#2f2e41"
-  }), react_1["default"].createElement("path", {
-    d: "M488.405,560.98342c10.02257-55.72612,93.143-42.22852,85.02207,13.799C563.40481,630.5068,480.28435,617.0092,488.405,560.98342Z",
-    transform: "translate(-196 -146.49085)",
-    fill: "#2f2e41"
-  }), react_1["default"].createElement("rect", {
-    x: "315.29058",
-    y: "455.1908",
-    width: "13.08374",
-    height: "23.44171",
-    fill: "#2f2e41"
-  }), react_1["default"].createElement("rect", {
-    x: "341.45805",
-    y: "455.1908",
-    width: "13.08374",
-    height: "23.44171",
-    fill: "#2f2e41"
-  }), react_1["default"].createElement("path", {
-    d: "M522.19372,621.30726c14.1376-.10039,14.13776,8.27842-.00058,8.17733C508.05611,629.585,508.056,621.20621,522.19372,621.30726Z",
-    transform: "translate(-196 -146.49085)",
-    fill: "#2f2e41"
-  }), react_1["default"].createElement("path", {
-    d: "M548.3612,620.76209c14.1376-.10039,14.13776,8.27843-.00058,8.17733C534.22359,629.03986,534.22344,620.661,548.3612,620.76209Z",
-    transform: "translate(-196 -146.49085)",
-    fill: "#2f2e41"
-  }), react_1["default"].createElement("path", {
-    d: "M489.13946,527.83055c-8.09119-36.89141,53.88807-50.72437,62.25063-13.89811,3.47717,15.57187-7.91523,21.31577-25.10517,25.15415S492.61694,543.4044,489.13946,527.83055Z",
-    transform: "translate(-196 -146.49085)",
-    fill: "#469fe8"
-  }), react_1["default"].createElement("path", {
-    d: "M462.95174,538.67072c3.04378-8.19044,43.33234,10.91771,38.912,18.45666C498.82053,565.3168,458.532,546.20865,462.95174,538.67072Z",
-    transform: "translate(-196 -146.49085)",
-    fill: "#2f2e41"
-  }), react_1["default"].createElement("ellipse", {
-    cx: "668.20504",
-    cy: "492.89483",
-    rx: "6.59448",
-    ry: "21.00616",
-    transform: "translate(-355.85909 407.66642) rotate(-40.64516)",
-    fill: "#2f2e41"
-  }), react_1["default"].createElement("ellipse", {
-    cx: "580.97057",
-    cy: "492.89483",
-    rx: "21.00616",
-    ry: "6.59448",
-    transform: "translate(-367.44563 466.16198) rotate(-49.35484)",
-    fill: "#2f2e41"
-  }), react_1["default"].createElement("path", {
-    d: "M959,282.49257H900a10,10,0,0,1,0-20v2a8,8,0,0,0,0,16h59Z",
-    transform: "translate(-196 -146.49085)",
-    fill: "#e6e6e6"
-  }), react_1["default"].createElement("path", {
-    d: "M898,335.49257H839a10,10,0,0,1,0-20v2a8,8,0,0,0,0,16h59Z",
-    transform: "translate(-196 -146.49085)",
-    fill: "#e6e6e6"
-  }), react_1["default"].createElement("path", {
-    d: "M975,387.49257v-2a8,8,0,0,0,0-16H916v-2h59a10,10,0,0,1,0,20Z",
-    transform: "translate(-196 -146.49085)",
-    fill: "#e6e6e6"
-  }), react_1["default"].createElement("path", {
-    d: "M994,205.49257v-2a8,8,0,0,0,0-16H935v-2h59a10,10,0,0,1,0,20Z",
-    transform: "translate(-196 -146.49085)",
-    fill: "#e6e6e6"
-  }), react_1["default"].createElement("path", {
-    d: "M902,224.49257H843a10,10,0,0,1,0-20v2a8,8,0,0,0,0,16h59Z",
-    transform: "translate(-196 -146.49085)",
-    fill: "#e6e6e6"
-  }), react_1["default"].createElement("path", {
-    d: "M326,414.49257H267a10,10,0,0,1,0-20v2a8,8,0,0,0,0,16h59Z",
-    transform: "translate(-196 -146.49085)",
-    fill: "#e6e6e6"
-  }), react_1["default"].createElement("path", {
-    d: "M357,448.49257v-2a8,8,0,0,0,0-16H298v-2h59a10,10,0,0,1,0,20Z",
-    transform: "translate(-196 -146.49085)",
-    fill: "#e6e6e6"
-  }), react_1["default"].createElement("path", {
-    d: "M265,467.49257H206a10,10,0,0,1,0-20v2a8,8,0,0,0,0,16h59Z",
-    transform: "translate(-196 -146.49085)",
-    fill: "#e6e6e6"
-  }), react_1["default"].createElement("path", {
-    d: "M330,303.49257H271a10,10,0,0,1,0-20v2a8,8,0,0,0,0,16h59Z",
-    transform: "translate(-196 -146.49085)",
-    fill: "#e6e6e6"
-  }), react_1["default"].createElement("path", {
-    d: "M361,337.49257v-2a8,8,0,0,0,0-16H302v-2h59a10,10,0,0,1,0,20Z",
-    transform: "translate(-196 -146.49085)",
-    fill: "#e6e6e6"
-  }), react_1["default"].createElement("path", {
-    d: "M269,356.49257H210a10,10,0,0,1,0-20v2a8,8,0,0,0,0,16h59Z",
-    transform: "translate(-196 -146.49085)",
-    fill: "#e6e6e6"
-  }), react_1["default"].createElement("path", {
-    d: "M755,611.49257H696a10,10,0,0,1,0-20v2a8,8,0,0,0,0,16h59Z",
-    transform: "translate(-196 -146.49085)",
-    fill: "#e6e6e6"
-  }), react_1["default"].createElement("path", {
-    d: "M821,665.49257v-2a8,8,0,0,0,0-16H762v-2h59a10,10,0,0,1,0,20Z",
-    transform: "translate(-196 -146.49085)",
-    fill: "#e6e6e6"
-  }), react_1["default"].createElement("path", {
-    d: "M701,675.49257H642a10,10,0,0,1,0-20v2a8,8,0,0,0,0,16h59Z",
-    transform: "translate(-196 -146.49085)",
-    fill: "#e6e6e6"
-  }), react_1["default"].createElement("path", {
-    d: "M487,670.49257v-2a8,8,0,0,0,0-16H428v-2h59a10,10,0,0,1,0,20Z",
-    transform: "translate(-196 -146.49085)",
-    fill: "#e6e6e6"
-  }), react_1["default"].createElement("path", {
-    d: "M309,695.49257H250a10,10,0,0,1,0-20v2a8,8,0,0,0,0,16h59Z",
-    transform: "translate(-196 -146.49085)",
-    fill: "#e6e6e6"
-  }), react_1["default"].createElement("path", {
-    d: "M706.88583,753.49257h-381a1,1,0,0,1,0-2h381a1,1,0,0,1,0,2Z",
-    transform: "translate(-196 -146.49085)",
-    fill: "#3f3d56"
-  }), react_1["default"].createElement("path", {
-    d: "M382.53027,752.72255c-.7705,1.77-3.35009.24-2.59033-1.51a100.85971,100.85971,0,0,0,7.16992-25.9,109.44309,109.44309,0,0,0-3.4497-45.66c-.16016-.53-.32032-1.06994-.48-1.6-.38038-1.22-.78028-2.44-1.2002-3.64a103.06206,103.06206,0,0,0-22.68018-37.46c-1.32959-1.4.79-3.52,2.12012-2.12a103.41725,103.41725,0,0,1,16.33985,22.51995,108.082,108.082,0,0,1,5.58007,12.08c.63037,1.61,1.22022,3.24,1.78028,4.87a114.2409,114.2409,0,0,1,5.81006,30.06A107.16153,107.16153,0,0,1,382.53027,752.72255Z",
-    transform: "translate(-196 -146.49085)",
-    fill: "#3f3d56"
-  }), react_1["default"].createElement("path", {
-    d: "M405.43018,599.89259q-4.99512,18.285-9.98,36.56995-5.1753,18.93009-10.33008,37.84-.73536,2.685-1.46,5.35c-.16016-.53-.32032-1.06994-.48-1.6-.38038-1.22-.78028-2.44-1.2002-3.64.4502-1.66.8999-3.32,1.35986-4.98q.93018-3.405,1.86036-6.81,8.66967-31.77,17.33984-63.53A1.50026,1.50026,0,0,1,405.43018,599.89259Z",
-    transform: "translate(-196 -146.49085)",
-    fill: "#3f3d56"
-  }), react_1["default"].createElement("path", {
-    d: "M343.74317,604.26147c-1.74844,3.83636-3.51256,7.72169-4.26924,11.86923s-.41209,8.65208,1.83118,12.22172a20.33914,20.33914,0,0,0,7.42114,6.45937c4.18676,2.38768,9.631,4.07456,13.6351,1.39181,4.04426-2.70966,4.474-8.83284,2.20829-13.14155s-6.47538-7.19855-10.58188-9.81294-7.32483-4.68135-9.98776-8.75654Z",
-    transform: "translate(-196 -146.49085)",
-    fill: "#469fe8"
-  }), react_1["default"].createElement("path", {
-    d: "M414.9958,565.17144c-4.00563,1.31514-8.0579,2.652-11.62,4.90715s-6.64018,5.562-7.74388,9.631a20.339,20.339,0,0,0,.28178,9.83449c1.0827,4.69656,3.533,9.84256,8.2196,10.96774,4.73358,1.13646,9.52652-2.69834,11.15836-7.28479s.90276-9.64026.04113-14.4315S413.80912,570.2371,415,565.51691Z",
-    transform: "translate(-196 -146.49085)",
-    fill: "#469fe8"
-  }), react_1["default"].createElement("path", {
-    d: "M343.11562,651.74288c1.11272,4.06651,2.24474,8.18069,4.31857,11.85137s5.22222,6.91062,9.23075,8.21687a20.33914,20.33914,0,0,0,9.83626.2115c4.74493-.846,10.00727-3.03526,11.36593-7.65955,1.37229-4.67067-2.21746-9.64979-6.71635-11.50946s-9.5829-1.38481-14.4113-.76441-8.624,1.09277-13.27861-.3332Z",
-    transform: "translate(-196 -146.49085)",
-    fill: "#469fe8"
-  }), react_1["default"].createElement("path", {
-    d: "M355.11562,704.74288c1.11272,4.06651,2.24474,8.18069,4.31857,11.85137s5.22222,6.91062,9.23075,8.21687a20.33914,20.33914,0,0,0,9.83626.2115c4.74493-.846,10.00727-3.03526,11.36593-7.65955,1.37229-4.67067-2.21746-9.64979-6.71635-11.50946s-9.5829-1.38481-14.41\n            13-.76441-8.624,1.09277-13.27861-.3332Z",
-    transform: "translate(-196 -146.49085)",
-    fill: "#469fe8"
-  }), react_1["default"].createElement("path", {
-    d: "M420.88438,669.74288c-1.11272,4.06651-2.24474,8.18069-4.31857,11.85137s-5.22222,6.91062-9.23075,8.21687a20.33914,20.33914,0,0,1-9.83626.2115c-4.74493-.846-10.00727-3.03526-11.36593-7.65955-1.37229-4.67067,2.21746-9.64979,6.71635-11.50946s9.5829-1.38481,14.4113-.76441,8.624,1.09277,13.27861-.3332Z",
-    transform: "translate(-196 -146.49085)",
-    fill: "#469fe8"
-  }), react_1["default"].createElement("path", {
-    d: "M432.88438,615.74288c-1.11272,4.06651-2.24474,8.18069-4.31857,11.85137s-5.22222,6.91062-9.23075,8.21687a20.33914,20.33914,0,0,1-9.83626.2115c-4.74493-.846-10.00727-3.03526-11.36593-7.65955-1.37229-4.67067,2.21746-9.64979,6.71635-11.50946s9.5829-1.38481,14.4113-.76441,8.624,1.09277,13.27861-.3332Z",
-    transform: "translate(-196 -146.49085)",
-    fill: "#469fe8"
-  })), react_1["default"].createElement(_WelcomeTitle, null, "\u30BF\u30B9\u30AF\u3092\u5165\u529B\u3057\u3066\u8FFD\u52A0\u3092\u30AF\u30EA\u30C3\u30AF\u3067\u59CB\u3081\u3088\u3046\u2B50\uFE0E"));
+  return react_1["default"].createElement(_WelcomeContent, null, react_1["default"].createElement(WelcomeImage_1["default"], null), react_1["default"].createElement(_WelcomeTitle, null, "\u30BF\u30B9\u30AF\u3092\u5165\u529B\u3057\u3066\u8FFD\u52A0\u3092\u30AF\u30EA\u30C3\u30AF\u3067\u59CB\u3081\u3088\u3046\u2B50\uFE0E"));
 };
 
 exports.default = WelcomeContent;
 
 var _WelcomeContent = styled_components_1["default"].div(templateObject_1 || (templateObject_1 = __makeTemplateObject(["\n    padding-top: 60px;\n    text-align: center;\n"], ["\n    padding-top: 60px;\n    text-align: center;\n"])));
 
-var _WelcomeImage = styled_components_1["default"].svg(templateObject_5 || (templateObject_5 = __makeTemplateObject(["\n    display: inline-block;\n    ", "\n    ", " \n    ", "\n"], ["\n    display: inline-block;\n    ", "\n    ", " \n    ", "\n"])), customMedia_1["default"].lessThan("mobile")(templateObject_2 || (templateObject_2 = __makeTemplateObject(["\n        width: 300px;\n        height: 300px;\n    "], ["\n        width: 300px;\n        height: 300px;\n    "]))), customMedia_1["default"].between("mobile", "tablet")(templateObject_3 || (templateObject_3 = __makeTemplateObject(["\n    "], ["\n    "]))), customMedia_1["default"].greaterThan("tablet")(templateObject_4 || (templateObject_4 = __makeTemplateObject(["\n    "], ["\n    "]))));
+var _WelcomeTitle = styled_components_1["default"].div(templateObject_5 || (templateObject_5 = __makeTemplateObject(["\n    font-size: 1.4rem;\n    padding-top: 30px;\n    color: #5287ec;\n    opacity: 0.9;\n    ", "\n    ", " \n    ", "\n"], ["\n    font-size: 1.4rem;\n    padding-top: 30px;\n    color: #5287ec;\n    opacity: 0.9;\n    ", "\n    ", " \n    ", "\n"])), customMedia_1["default"].lessThan("mobile")(templateObject_2 || (templateObject_2 = __makeTemplateObject(["\n        font-size:1.2rem;\n    "], ["\n        font-size:1.2rem;\n    "]))), customMedia_1["default"].between("mobile", "tablet")(templateObject_3 || (templateObject_3 = __makeTemplateObject(["\n\n    "], ["\n\n    "]))), customMedia_1["default"].greaterThan("tablet")(templateObject_4 || (templateObject_4 = __makeTemplateObject(["\n\n    "], ["\n\n    "]))));
 
-var _WelcomeTitle = styled_components_1["default"].div(templateObject_9 || (templateObject_9 = __makeTemplateObject(["\n    font-size: 1.4rem;\n    padding-top:30px;\n    color: #5287EC;\n    opacity: 0.9;\n    ", "\n    ", " \n    ", "\n"], ["\n    font-size: 1.4rem;\n    padding-top:30px;\n    color: #5287EC;\n    opacity: 0.9;\n    ", "\n    ", " \n    ", "\n"])), customMedia_1["default"].lessThan("mobile")(templateObject_6 || (templateObject_6 = __makeTemplateObject(["\n        font-size:1.2rem;\n    "], ["\n        font-size:1.2rem;\n    "]))), customMedia_1["default"].between("mobile", "tablet")(templateObject_7 || (templateObject_7 = __makeTemplateObject(["\n\n    "], ["\n\n    "]))), customMedia_1["default"].greaterThan("tablet")(templateObject_8 || (templateObject_8 = __makeTemplateObject(["\n\n    "], ["\n\n    "]))));
-
-var templateObject_1, templateObject_2, templateObject_3, templateObject_4, templateObject_5, templateObject_6, templateObject_7, templateObject_8, templateObject_9;
+var templateObject_1, templateObject_2, templateObject_3, templateObject_4, templateObject_5;
 
 /***/ }),
 
@@ -6052,7 +6101,7 @@ var TodoContent = function TodoContent(_a) {
 };
 
 exports.default = TodoContent;
-exports._TaskCards = styled_components_1["default"].div(templateObject_1 || (templateObject_1 = __makeTemplateObject(["\n    padding-top:20px;\n"], ["\n    padding-top:20px;\n"])));
+exports._TaskCards = styled_components_1["default"].div(templateObject_1 || (templateObject_1 = __makeTemplateObject(["\n    padding-top: 20px;\n"], ["\n    padding-top: 20px;\n"])));
 exports._TodoContent = styled_components_1["default"].div(templateObject_5 || (templateObject_5 = __makeTemplateObject(["\n    max-width: 820px;\n    margin: 0 auto;\n    padding-top: 105px;\n    ", "\n    ", " \n    ", "\n"], ["\n    max-width: 820px;\n    margin: 0 auto;\n    padding-top: 105px;\n    ", "\n    ", " \n    ", "\n"])), customMedia_1["default"].lessThan("mobile")(templateObject_2 || (templateObject_2 = __makeTemplateObject(["\n    width: 99vw;\n    max-width:500px;\n    "], ["\n    width: 99vw;\n    max-width:500px;\n    "]))), customMedia_1["default"].between("mobile", "tablet")(templateObject_3 || (templateObject_3 = __makeTemplateObject(["\n    width: 84vw;\n    max-width: 710px;\n    "], ["\n    width: 84vw;\n    max-width: 710px;\n    "]))), customMedia_1["default"].greaterThan("tablet")(templateObject_4 || (templateObject_4 = __makeTemplateObject(["\n    width: 70vw;\n    "], ["\n    width: 70vw;\n    "]))));
 var templateObject_1, templateObject_2, templateObject_3, templateObject_4, templateObject_5;
 
@@ -6818,7 +6867,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "InputText": () => (/* reexport default from dynamic */ _InputText__WEBPACK_IMPORTED_MODULE_5___default.a),
 /* harmony export */   "SubmitButton": () => (/* reexport default from dynamic */ _SubmitButton__WEBPACK_IMPORTED_MODULE_6___default.a),
 /* harmony export */   "TaskTitle": () => (/* reexport default from dynamic */ _TaskTitle__WEBPACK_IMPORTED_MODULE_7___default.a),
-/* harmony export */   "ColoredTag": () => (/* reexport default from dynamic */ _ColoredTag__WEBPACK_IMPORTED_MODULE_8___default.a)
+/* harmony export */   "ColoredTag": () => (/* reexport default from dynamic */ _ColoredTag__WEBPACK_IMPORTED_MODULE_8___default.a),
+/* harmony export */   "WelcomeImage": () => (/* reexport default from dynamic */ _WelcomeImage__WEBPACK_IMPORTED_MODULE_9___default.a)
 /* harmony export */ });
 /* harmony import */ var _CheckBox__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./CheckBox */ "./resources/ts/components/lv1/CheckBox.tsx");
 /* harmony import */ var _CheckBox__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_CheckBox__WEBPACK_IMPORTED_MODULE_0__);
@@ -6838,6 +6888,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _TaskTitle__WEBPACK_IMPORTED_MODULE_7___default = /*#__PURE__*/__webpack_require__.n(_TaskTitle__WEBPACK_IMPORTED_MODULE_7__);
 /* harmony import */ var _ColoredTag__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./ColoredTag */ "./resources/ts/components/lv1/ColoredTag.tsx");
 /* harmony import */ var _ColoredTag__WEBPACK_IMPORTED_MODULE_8___default = /*#__PURE__*/__webpack_require__.n(_ColoredTag__WEBPACK_IMPORTED_MODULE_8__);
+/* harmony import */ var _WelcomeImage__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./WelcomeImage */ "./resources/ts/components/lv1/WelcomeImage.tsx");
+/* harmony import */ var _WelcomeImage__WEBPACK_IMPORTED_MODULE_9___default = /*#__PURE__*/__webpack_require__.n(_WelcomeImage__WEBPACK_IMPORTED_MODULE_9__);
+
 
 
 

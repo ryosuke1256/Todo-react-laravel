@@ -10,7 +10,7 @@ type Props = {
     userID: string;
 };
 
-const TodoContent: React.VFC<Props> = ({ userID}: Props) => {
+const TodoContent: React.VFC<Props> = ({ userID }: Props) => {
     const [tasks, setTasks] = useState<any>([]);
     const [change, setChange] = useState(0); //render走らせる用
     const [tasksEditActive, setTasksEditActive] = useState(false);
@@ -43,8 +43,6 @@ const TodoContent: React.VFC<Props> = ({ userID}: Props) => {
             console.log(err);
         }
     };
-    
-
 
     let i: number = -1;
 
@@ -52,26 +50,27 @@ const TodoContent: React.VFC<Props> = ({ userID}: Props) => {
         <>
             <_TodoContent>
                 <TextForm postTask={postTask} userID={userID} />
-                { tasks.length ===  0 && is_began === true ?
-                <WelcomeContent /> :
-                <_TaskCards>
-                    {tasks.map((task: TaskAndColor, key: number) => {
-                        i++;
-                        return (
-                            <TaskCard
-                                task={task}
-                                setTasks={setTasks}
-                                tasks={tasks}
-                                tasksEditActive={tasksEditActive}
-                                setTasksEditActive={setTasksEditActive}
-                                id={task.id}
-                                i={i}
-                                key={key}
-                            />
-                        );
-                    })}
-                </_TaskCards>
-                }   
+                {tasks.length === 0 && is_began === true ? (
+                    <WelcomeContent />
+                ) : (
+                    <_TaskCards>
+                        {tasks.map((task: TaskAndColor, key: number) => {
+                            i++;
+                            return (
+                                <TaskCard
+                                    task={task}
+                                    setTasks={setTasks}
+                                    tasks={tasks}
+                                    tasksEditActive={tasksEditActive}
+                                    setTasksEditActive={setTasksEditActive}
+                                    id={task.id}
+                                    i={i}
+                                    key={key}
+                                />
+                            );
+                        })}
+                    </_TaskCards>
+                )}
             </_TodoContent>
         </>
     );
@@ -80,7 +79,7 @@ const TodoContent: React.VFC<Props> = ({ userID}: Props) => {
 export default TodoContent;
 
 export const _TaskCards = styled.div`
-    padding-top:20px;
+    padding-top: 20px;
 `;
 
 export const _TodoContent = styled.div`
