@@ -151,8 +151,9 @@ const TaskCard: React.VFC<Props> = ({task,tasks,setTasks,tasksEditActive,setTask
 export default TaskCard;
 
 const _TaskCard = styled.div`
+
     border: 1px solid #d4e0e7;
-    padding: 10px;
+    padding: 10px 10px 8px 10px;
     border-bottom: 0px;
     border-radius: 6px;
     background-color: rgb(254, 254, 254);

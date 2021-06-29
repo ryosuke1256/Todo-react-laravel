@@ -3201,7 +3201,11 @@ var react_1 = __importDefault(__webpack_require__(/*! react */ "./node_modules/r
 var DeleteIcon = function DeleteIcon(_a) {
   var deleteTask = _a.deleteTask,
       setIs_done = _a.setIs_done;
-  return react_1["default"].createElement("div", null, react_1["default"].createElement("svg", {
+  return react_1["default"].createElement("div", {
+    style: {
+      paddingTop: '7px'
+    }
+  }, react_1["default"].createElement("svg", {
     onClick: function onClick() {
       deleteTask();
       setIs_done(0);
@@ -3281,7 +3285,7 @@ var EditButton = function EditButton(_a) {
     }
   };
 
-  return react_1["default"].createElement(react_1["default"].Fragment, null, react_1["default"].createElement(react_responsive_1["default"], {
+  return react_1["default"].createElement(react_1["default"].Fragment, null, react_1["default"].createElement("div", null, react_1["default"].createElement(react_responsive_1["default"], {
     query: "(max-width: 599px)"
   }, react_1["default"].createElement(_index_1.EditIcon, {
     changeTaskTitle: changeTaskTitle
@@ -3291,11 +3295,8 @@ var EditButton = function EditButton(_a) {
     onClick: function onClick() {
       return changeTaskTitle();
     },
-    backgroundColor: "#3bc2e4",
-    style: {
-      border: "1px solid #2eb9db"
-    }
-  }, editButtonTitle)));
+    backgroundColor: "#3bc2e4"
+  }, editButtonTitle))));
 };
 
 exports.default = EditButton;
@@ -3325,7 +3326,11 @@ var react_1 = __importDefault(__webpack_require__(/*! react */ "./node_modules/r
 
 var EditIcon = function EditIcon(_a) {
   var changeTaskTitle = _a.changeTaskTitle;
-  return react_1["default"].createElement("svg", {
+  return react_1["default"].createElement("div", {
+    style: {
+      paddingTop: '7px'
+    }
+  }, react_1["default"].createElement("svg", {
     onClick: function onClick() {
       return changeTaskTitle();
     },
@@ -3337,15 +3342,15 @@ var EditIcon = function EditIcon(_a) {
     role: "img",
     xmlns: "http://www.w3.org/2000/svg",
     viewBox: "0 0 512 512",
-    width: "35",
-    height: "35",
+    width: "33",
+    height: "33",
     fill: "#3bc2e4",
     style: {
       paddingRight: "10px"
     }
   }, react_1["default"].createElement("path", {
     d: "M290.74 93.24l128.02 128.02-277.99 277.99-114.14 12.6C11.35 513.54-1.56 500.62.14 485.34l12.7-114.22 277.9-277.88zm207.2-19.06l-60.11-60.11c-18.75-18.75-49.16-18.75-67.91 0l-56.55 56.55 128.02 128.02 56.55-56.55c18.75-18.76 18.75-49.16 0-67.91z"
-  }));
+  })));
 };
 
 exports.default = EditIcon;
@@ -3479,7 +3484,7 @@ var SubmitButton = function SubmitButton(_a) {
 
 exports.default = SubmitButton;
 
-var _SubmitButton = styled_components_1["default"].div(templateObject_1 || (templateObject_1 = __makeTemplateObject(["\n    display: inline-block;\n    color: #223877;\n    border-radius: 8px;\n    padding: 6px;\n    margin-left:7px;\n    background-color:#8bd8ff;\n    border: 1px solid #7dcaf0;\n    opacity:0.9;\n"], ["\n    display: inline-block;\n    color: #223877;\n    border-radius: 8px;\n    padding: 6px;\n    margin-left:7px;\n    background-color:#8bd8ff;\n    border: 1px solid #7dcaf0;\n    opacity:0.9;\n"])));
+var _SubmitButton = styled_components_1["default"].div(templateObject_1 || (templateObject_1 = __makeTemplateObject(["\n    display: inline-block;\n    /* color: #4d5772; */\n    color: white;\n    border-radius: 8px;\n    padding: 6px;\n    margin-left:7px;\n    background-color:#6dceff;\n    /* background-color:#8bd8ff; */\n    border: 1px solid #62c7fa;\n    /* border: 1px solid #7dcaf0; */\n    opacity:0.9;\n    cursor: pointer;\n    &:hover {\n        opacity: 0.7;\n    }\n"], ["\n    display: inline-block;\n    /* color: #4d5772; */\n    color: white;\n    border-radius: 8px;\n    padding: 6px;\n    margin-left:7px;\n    background-color:#6dceff;\n    /* background-color:#8bd8ff; */\n    border: 1px solid #62c7fa;\n    /* border: 1px solid #7dcaf0; */\n    opacity:0.9;\n    cursor: pointer;\n    &:hover {\n        opacity: 0.7;\n    }\n"])));
 
 var templateObject_1;
 
@@ -4358,7 +4363,7 @@ var TaskCard = function TaskCard(_a) {
 
 exports.default = TaskCard;
 
-var _TaskCard = styled_components_1["default"].div(templateObject_4 || (templateObject_4 = __makeTemplateObject(["\n    border: 1px solid #d4e0e7;\n    padding: 10px;\n    border-bottom: 0px;\n    border-radius: 6px;\n    background-color: rgb(254, 254, 254);\n    ", "\n    ", "\n    ", "\n"], ["\n    border: 1px solid #d4e0e7;\n    padding: 10px;\n    border-bottom: 0px;\n    border-radius: 6px;\n    background-color: rgb(254, 254, 254);\n    ", "\n    ", "\n    ", "\n"])), customMedia_1["default"].lessThan("mobile")(templateObject_1 || (templateObject_1 = __makeTemplateObject(["\n        padding:13px;\n        border-top: 1px solid #deeaf1;\n        border-bottom: 1px solid #deeaf1;\n        border-right: 0px;\n        border-left: 0px;\n    "], ["\n        padding:13px;\n        border-top: 1px solid #deeaf1;\n        border-bottom: 1px solid #deeaf1;\n        border-right: 0px;\n        border-left: 0px;\n    "]))), customMedia_1["default"].between("mobile", "tablet")(templateObject_2 || (templateObject_2 = __makeTemplateObject(["\n\n    "], ["\n\n    "]))), customMedia_1["default"].greaterThan("tablet")(templateObject_3 || (templateObject_3 = __makeTemplateObject(["\n    \n    "], ["\n    \n    "]))));
+var _TaskCard = styled_components_1["default"].div(templateObject_4 || (templateObject_4 = __makeTemplateObject(["\n\n    border: 1px solid #d4e0e7;\n    padding: 10px 10px 8px 10px;\n    border-bottom: 0px;\n    border-radius: 6px;\n    background-color: rgb(254, 254, 254);\n    ", "\n    ", "\n    ", "\n"], ["\n\n    border: 1px solid #d4e0e7;\n    padding: 10px 10px 8px 10px;\n    border-bottom: 0px;\n    border-radius: 6px;\n    background-color: rgb(254, 254, 254);\n    ", "\n    ", "\n    ", "\n"])), customMedia_1["default"].lessThan("mobile")(templateObject_1 || (templateObject_1 = __makeTemplateObject(["\n        padding:13px;\n        border-top: 1px solid #deeaf1;\n        border-bottom: 1px solid #deeaf1;\n        border-right: 0px;\n        border-left: 0px;\n    "], ["\n        padding:13px;\n        border-top: 1px solid #deeaf1;\n        border-bottom: 1px solid #deeaf1;\n        border-right: 0px;\n        border-left: 0px;\n    "]))), customMedia_1["default"].between("mobile", "tablet")(templateObject_2 || (templateObject_2 = __makeTemplateObject(["\n\n    "], ["\n\n    "]))), customMedia_1["default"].greaterThan("tablet")(templateObject_3 || (templateObject_3 = __makeTemplateObject(["\n    \n    "], ["\n    \n    "]))));
 
 var _Wrapper = styled_components_1["default"].div(templateObject_5 || (templateObject_5 = __makeTemplateObject(["\n    display: flex;\n    align-items: center;\n"], ["\n    display: flex;\n    align-items: center;\n"])));
 
@@ -6327,7 +6332,7 @@ exports._Button = void 0;
 
 var styled_components_1 = __importDefault(__webpack_require__(/*! styled-components */ "./node_modules/styled-components/dist/styled-components.browser.esm.js"));
 
-exports._Button = styled_components_1["default"].div(templateObject_1 || (templateObject_1 = __makeTemplateObject(["\n    display: inline-block;\n    text-align: center;\n    border: 1px solid #2eb9db;\n    background-color: ", ";\n    opacity: 0.8;\n    color: white;\n    padding: 6px 10px;\n    border-radius: 8px;\n    margin-right: 12px;\n    cursor: pointer;\n    &:hover {\n        opacity: 0.6;\n    }\n"], ["\n    display: inline-block;\n    text-align: center;\n    border: 1px solid #2eb9db;\n    background-color: ", ";\n    opacity: 0.8;\n    color: white;\n    padding: 6px 10px;\n    border-radius: 8px;\n    margin-right: 12px;\n    cursor: pointer;\n    &:hover {\n        opacity: 0.6;\n    }\n"])), function (props) {
+exports._Button = styled_components_1["default"].div(templateObject_1 || (templateObject_1 = __makeTemplateObject(["\n    display: inline-block;\n    text-align: center;\n    border: 1px solid #2eb9db;\n    background-color: ", ";\n    opacity: 0.7;\n    color: white;\n    padding: 6px 10px;\n    margin-top:7px;\n    border-radius: 8px;\n    margin-right: 12px;\n    cursor: pointer;\n    &:hover {\n        opacity: 0.6;\n    }\n"], ["\n    display: inline-block;\n    text-align: center;\n    border: 1px solid #2eb9db;\n    background-color: ", ";\n    opacity: 0.7;\n    color: white;\n    padding: 6px 10px;\n    margin-top:7px;\n    border-radius: 8px;\n    margin-right: 12px;\n    cursor: pointer;\n    &:hover {\n        opacity: 0.6;\n    }\n"])), function (props) {
   return props.backgroundColor;
 });
 var templateObject_1;

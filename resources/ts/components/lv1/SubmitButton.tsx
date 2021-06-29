@@ -37,11 +37,18 @@ export default SubmitButton;
 
 const _SubmitButton = styled.div`
     display: inline-block;
-    color: #223877;
+    /* color: #4d5772; */
+    color: white;
     border-radius: 8px;
     padding: 6px;
     margin-left:7px;
-    background-color:#8bd8ff;
-    border: 1px solid #7dcaf0;
+    background-color:#6dceff;
+    /* background-color:#8bd8ff; */
+    border: 1px solid #62c7fa;
+    /* border: 1px solid #7dcaf0; */
     opacity:0.9;
+    cursor: pointer;
+    &:hover {
+        opacity: 0.7;
+    }
 `;
