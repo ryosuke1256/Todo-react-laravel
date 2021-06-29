@@ -3587,17 +3587,7 @@ var styled_components_1 = __importDefault(__webpack_require__(/*! styled-compone
 var ColoredTags = function ColoredTags(_a) {
   var selected_color = _a.selected_color;
 
-  if (selected_color === {
-    red: false,
-    blue: false,
-    yellow: false,
-    green: false
-  } || selected_color === {
-    red: undefined,
-    blue: undefined,
-    yellow: undefined,
-    green: undefined
-  }) {
+  if (selected_color.red === false && selected_color.blue === false && selected_color.yellow === false && selected_color.green === false || selected_color.red === undefined && selected_color.blue === undefined && selected_color.yellow === undefined && selected_color.green === undefined) {
     return react_1["default"].createElement("div", null, "\uFF0B");
   } else {
     return react_1["default"].createElement(_ColoredTags, null, react_1["default"].createElement(ColoredTag_1["default"], {
@@ -5926,6 +5916,22 @@ var __makeTemplateObject = this && this.__makeTemplateObject || function (cooked
   return cooked;
 };
 
+var __assign = this && this.__assign || function () {
+  __assign = Object.assign || function (t) {
+    for (var s, i = 1, n = arguments.length; i < n; i++) {
+      s = arguments[i];
+
+      for (var p in s) {
+        if (Object.prototype.hasOwnProperty.call(s, p)) t[p] = s[p];
+      }
+    }
+
+    return t;
+  };
+
+  return __assign.apply(this, arguments);
+};
+
 var __awaiter = this && this.__awaiter || function (thisArg, _arguments, P, generator) {
   function adopt(value) {
     return value instanceof P ? value : new P(function (resolve) {
@@ -6124,10 +6130,12 @@ var Modal = function Modal(_a) {
 
             try {
               setTagID(res.data.id);
-              task.red = res.data.checked_red;
-              task.blue = res.data.checked_blue;
-              task.yellow = res.data.checked_yellow;
-              task.green = res.data.checked_green;
+              task = __assign(__assign({}, task), {
+                red: res.data.checked_red,
+                blue: res.data.checked_blue,
+                yellow: res.data.checked_yellow,
+                green: res.data.checked_green
+              });
               setHasDonePostTag(true);
             } catch (err) {
               console.log(err);
@@ -6162,10 +6170,12 @@ var Modal = function Modal(_a) {
             res = _a.sent();
 
             try {
-              task.red = res.data.checked_red;
-              task.blue = res.data.checked_blue;
-              task.yellow = res.data.checked_yellow;
-              task.green = res.data.checked_green;
+              task = __assign(__assign({}, task), {
+                red: res.data.checked_red,
+                blue: res.data.checked_blue,
+                yellow: res.data.checked_yellow,
+                green: res.data.checked_green
+              });
             } catch (err) {
               console.log(err);
             }
