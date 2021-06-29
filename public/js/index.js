@@ -4348,18 +4348,6 @@ var templateObject_1, templateObject_2, templateObject_3, templateObject_4, temp
 "use strict";
 
 
-var __makeTemplateObject = this && this.__makeTemplateObject || function (cooked, raw) {
-  if (Object.defineProperty) {
-    Object.defineProperty(cooked, "raw", {
-      value: raw
-    });
-  } else {
-    cooked.raw = raw;
-  }
-
-  return cooked;
-};
-
 var __createBinding = this && this.__createBinding || (Object.create ? function (o, m, k, k2) {
   if (k2 === undefined) k2 = k;
   Object.defineProperty(o, k2, {
@@ -4394,19 +4382,11 @@ var __importStar = this && this.__importStar || function (mod) {
   return result;
 };
 
-var __importDefault = this && this.__importDefault || function (mod) {
-  return mod && mod.__esModule ? mod : {
-    "default": mod
-  };
-};
-
 Object.defineProperty(exports, "__esModule", ({
   value: true
 }));
 
 var react_1 = __importStar(__webpack_require__(/*! react */ "./node_modules/react/index.js"));
-
-var styled_components_1 = __importDefault(__webpack_require__(/*! styled-components */ "./node_modules/styled-components/dist/styled-components.browser.esm.js"));
 
 var _index_1 = __webpack_require__(/*! ../lv1/_index */ "./resources/ts/components/lv1/_index.js");
 
@@ -4424,7 +4404,7 @@ var TextForm = function TextForm(_a) {
     });
   };
 
-  return react_1["default"].createElement(_TextForm, null, react_1["default"].createElement(_index_1.InputText, {
+  return react_1["default"].createElement(react_1["default"].Fragment, null, react_1["default"].createElement(_index_1.InputText, {
     text: text,
     handleChange: handleChange,
     postTask: postTask,
@@ -4439,10 +4419,6 @@ var TextForm = function TextForm(_a) {
 };
 
 exports.default = TextForm;
-
-var _TextForm = styled_components_1["default"].div(templateObject_1 || (templateObject_1 = __makeTemplateObject(["\n    max-width: 1300px;\n    width: 85%;\n    margin: 0 auto;\n    padding-top: 105px;\n"], ["\n    max-width: 1300px;\n    width: 85%;\n    margin: 0 auto;\n    padding-top: 105px;\n"])));
-
-var templateObject_1;
 
 /***/ }),
 
@@ -5533,7 +5509,7 @@ var __importDefault = this && this.__importDefault || function (mod) {
 Object.defineProperty(exports, "__esModule", ({
   value: true
 }));
-exports._TaskCards = void 0;
+exports._TodoContent = exports._TaskCards = void 0;
 
 var react_1 = __importStar(__webpack_require__(/*! react */ "./node_modules/react/index.js"));
 
@@ -5633,7 +5609,7 @@ var TodoContent = function TodoContent(_a) {
   };
 
   var i = -1;
-  return react_1["default"].createElement(react_1["default"].Fragment, null, react_1["default"].createElement(_index_1.TextForm, {
+  return react_1["default"].createElement(react_1["default"].Fragment, null, react_1["default"].createElement(exports._TodoContent, null, react_1["default"].createElement(_index_1.TextForm, {
     postTask: postTask,
     userID: userID
   }), react_1["default"].createElement(exports._TaskCards, null, tasks.map(function (task, key) {
@@ -5648,12 +5624,13 @@ var TodoContent = function TodoContent(_a) {
       i: i,
       key: key
     });
-  })));
+  }))));
 };
 
 exports.default = TodoContent;
-exports._TaskCards = styled_components_1["default"].div(templateObject_4 || (templateObject_4 = __makeTemplateObject(["\n    max-width: 1300px;\n    width: 85%;\n    margin: 0 auto;\n    padding-top: 10px;\n    ", "\n    ", " \n    ", "\n"], ["\n    max-width: 1300px;\n    width: 85%;\n    margin: 0 auto;\n    padding-top: 10px;\n    ", "\n    ", " \n    ", "\n"])), customMedia_1["default"].lessThan("mobile")(templateObject_1 || (templateObject_1 = __makeTemplateObject(["\n    width: 100%;\n    "], ["\n    width: 100%;\n    "]))), customMedia_1["default"].between("mobile", "tablet")(templateObject_2 || (templateObject_2 = __makeTemplateObject(["\n    "], ["\n    "]))), customMedia_1["default"].greaterThan("tablet")(templateObject_3 || (templateObject_3 = __makeTemplateObject(["\n    "], ["\n    "]))));
-var templateObject_1, templateObject_2, templateObject_3, templateObject_4;
+exports._TaskCards = styled_components_1["default"].div(templateObject_1 || (templateObject_1 = __makeTemplateObject(["\n    padding-top:20px;\n"], ["\n    padding-top:20px;\n"])));
+exports._TodoContent = styled_components_1["default"].div(templateObject_5 || (templateObject_5 = __makeTemplateObject(["\n    max-width: 820px;\n    margin: 0 auto;\n    padding-top: 105px;\n    ", "\n    ", " \n    ", "\n"], ["\n    max-width: 820px;\n    margin: 0 auto;\n    padding-top: 105px;\n    ", "\n    ", " \n    ", "\n"])), customMedia_1["default"].lessThan("mobile")(templateObject_2 || (templateObject_2 = __makeTemplateObject(["\n    width: 99vw;\n    max-width:500px;\n    "], ["\n    width: 99vw;\n    max-width:500px;\n    "]))), customMedia_1["default"].between("mobile", "tablet")(templateObject_3 || (templateObject_3 = __makeTemplateObject(["\n    width: 84vw;\n    max-width: 710px;\n    "], ["\n    width: 84vw;\n    max-width: 710px;\n    "]))), customMedia_1["default"].greaterThan("tablet")(templateObject_4 || (templateObject_4 = __makeTemplateObject(["\n    width: 70vw;\n    "], ["\n    width: 70vw;\n    "]))));
+var templateObject_1, templateObject_2, templateObject_3, templateObject_4, templateObject_5;
 
 /***/ }),
 

@@ -16,7 +16,7 @@ const TextForm: React.VFC<Props> = ({ postTask, userID }: Props) => {
     };
 
     return (
-        <_TextForm>
+        <>
             <InputText
                 text={text}
                 handleChange={handleChange}
@@ -30,14 +30,7 @@ const TextForm: React.VFC<Props> = ({ postTask, userID }: Props) => {
                 setText={setText}
                 userID={userID}
             />
-        </_TextForm>
+        </>
     );
 };
 export default TextForm;
-
-const _TextForm = styled.div`
-    max-width: 1300px;
-    width: 85%;
-    margin: 0 auto;
-    padding-top: 105px;
-`;

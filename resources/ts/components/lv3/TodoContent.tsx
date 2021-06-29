@@ -46,6 +46,7 @@ const TodoContent: React.VFC<Props> = ({ userID}: Props) => {
 
     return (
         <>
+            <_TodoContent>
             <TextForm postTask={postTask} userID={userID} />
             <_TaskCards>
                 {tasks.map((task: TaskAndColor, key: number) => {
@@ -64,6 +65,7 @@ const TodoContent: React.VFC<Props> = ({ userID}: Props) => {
                     );
                 })}
             </_TaskCards>
+            </_TodoContent>
         </>
     );
 };
@@ -71,15 +73,22 @@ const TodoContent: React.VFC<Props> = ({ userID}: Props) => {
 export default TodoContent;
 
 export const _TaskCards = styled.div`
-    max-width: 1300px;
-    width: 85%;
+    padding-top:20px;
+`;
+
+export const _TodoContent = styled.div`
+    max-width: 820px;
     margin: 0 auto;
-    padding-top: 10px;
+    padding-top: 105px;
     ${customMedia.lessThan("mobile")`
-    width: 100%;
+    width: 99vw;
+    max-width:500px;
     `}
     ${customMedia.between("mobile", "tablet")`
+    width: 84vw;
+    max-width: 710px;
     `} 
     ${customMedia.greaterThan("tablet")`
+    width: 70vw;
     `}
 `;
