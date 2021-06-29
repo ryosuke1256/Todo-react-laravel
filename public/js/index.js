@@ -3945,9 +3945,9 @@ var ColoredTags = function ColoredTags(_a) {
 
 exports.default = ColoredTags;
 
-var _ColoredTags = styled_components_1["default"].div(templateObject_1 || (templateObject_1 = __makeTemplateObject(["\n    display: flex;\n    flex-wrap:wrap;\n    height: 10px;\n    cursor:pointer;\n"], ["\n    display: flex;\n    flex-wrap:wrap;\n    height: 10px;\n    cursor:pointer;\n"])));
+var _ColoredTags = styled_components_1["default"].div(templateObject_1 || (templateObject_1 = __makeTemplateObject(["\n    display: flex;\n    flex-wrap: wrap;\n    height: 10px;\n    cursor: pointer;\n"], ["\n    display: flex;\n    flex-wrap: wrap;\n    height: 10px;\n    cursor: pointer;\n"])));
 
-var _Add = styled_components_1["default"].div(templateObject_2 || (templateObject_2 = __makeTemplateObject(["\n    cursor:pointer;\n"], ["\n    cursor:pointer;\n"])));
+var _Add = styled_components_1["default"].div(templateObject_2 || (templateObject_2 = __makeTemplateObject(["\n    cursor: pointer;\n"], ["\n    cursor: pointer;\n"])));
 
 var templateObject_1, templateObject_2;
 
@@ -4720,7 +4720,7 @@ var TaskCard = function TaskCard(_a) {
 
 exports.default = TaskCard;
 
-var _TaskCard = styled_components_1["default"].div(templateObject_4 || (templateObject_4 = __makeTemplateObject(["\n\n    border: 1px solid #d4e0e7;\n    padding: 10px 10px 8px 10px;\n    border-bottom: 0px;\n    border-radius: 6px;\n    background-color: rgb(254, 254, 254);\n    ", "\n    ", "\n    ", "\n"], ["\n\n    border: 1px solid #d4e0e7;\n    padding: 10px 10px 8px 10px;\n    border-bottom: 0px;\n    border-radius: 6px;\n    background-color: rgb(254, 254, 254);\n    ", "\n    ", "\n    ", "\n"])), customMedia_1["default"].lessThan("mobile")(templateObject_1 || (templateObject_1 = __makeTemplateObject(["\n        padding:13px;\n        border-top: 1px solid #deeaf1;\n        border-bottom: 1px solid #deeaf1;\n        border-right: 0px;\n        border-left: 0px;\n    "], ["\n        padding:13px;\n        border-top: 1px solid #deeaf1;\n        border-bottom: 1px solid #deeaf1;\n        border-right: 0px;\n        border-left: 0px;\n    "]))), customMedia_1["default"].between("mobile", "tablet")(templateObject_2 || (templateObject_2 = __makeTemplateObject(["\n\n    "], ["\n\n    "]))), customMedia_1["default"].greaterThan("tablet")(templateObject_3 || (templateObject_3 = __makeTemplateObject(["\n    \n    "], ["\n    \n    "]))));
+var _TaskCard = styled_components_1["default"].div(templateObject_4 || (templateObject_4 = __makeTemplateObject(["\n    border: 1px solid #d4e0e7;\n    padding: 10px 10px 8px 10px;\n    border-bottom: 0px;\n    border-radius: 6px;\n    background-color: rgb(254, 254, 254);\n    ", "\n    ", "\n    ", "\n"], ["\n    border: 1px solid #d4e0e7;\n    padding: 10px 10px 8px 10px;\n    border-bottom: 0px;\n    border-radius: 6px;\n    background-color: rgb(254, 254, 254);\n    ", "\n    ", "\n    ", "\n"])), customMedia_1["default"].lessThan("mobile")(templateObject_1 || (templateObject_1 = __makeTemplateObject(["\n        padding:13px;\n        border-top: 1px solid #deeaf1;\n        border-bottom: 1px solid #deeaf1;\n        border-right: 0px;\n        border-left: 0px;\n    "], ["\n        padding:13px;\n        border-top: 1px solid #deeaf1;\n        border-bottom: 1px solid #deeaf1;\n        border-right: 0px;\n        border-left: 0px;\n    "]))), customMedia_1["default"].between("mobile", "tablet")(templateObject_2 || (templateObject_2 = __makeTemplateObject(["\n\n    "], ["\n\n    "]))), customMedia_1["default"].greaterThan("tablet")(templateObject_3 || (templateObject_3 = __makeTemplateObject(["\n    \n    "], ["\n    \n    "]))));
 
 var _Wrapper = styled_components_1["default"].div(templateObject_5 || (templateObject_5 = __makeTemplateObject(["\n    display: flex;\n    align-items: center;\n"], ["\n    display: flex;\n    align-items: center;\n"])));
 
@@ -6059,6 +6059,7 @@ var TodoContent = function TodoContent(_a) {
             console.log({
               postData: postData
             });
+            console.log(tasks);
             return [4
             /*yield*/
             , axios_1["default"].post("api/tasks", postData)];
@@ -6592,14 +6593,13 @@ var Modal = function Modal(_a) {
             res = _a.sent();
 
             try {
+              console.log(res.data);
               setTagID(res.data.id);
               setHasDonePostTag(true);
-              task = __assign(__assign({}, task), {
-                red: res.data.checked_red,
-                blue: res.data.checked_blue,
-                yellow: res.data.checked_yellow,
-                green: res.data.checked_green
-              });
+              task.red = res.data.checked_red;
+              task.blue = res.data.checked_blue;
+              task.yellow = res.data.checked_yellow;
+              task.green = res.data.checked_green; // task = {...task, red:res.data.checked_red,blue:res.data.checked_blue,yellow:res.data.checked_yellow,green:res.data.checked_green};
             } catch (err) {
               console.log(err);
             }
@@ -6703,9 +6703,9 @@ exports.default = Modal;
 
 var _BlackBackground = styled_components_1["default"].div(templateObject_1 || (templateObject_1 = __makeTemplateObject(["\n    position: fixed;\n    left: 0;\n    top: 0;\n    width: 100%;\n    height: 100%;\n    background-color: rgba(116, 116, 116, 0.74);\n    z-index: 500;\n    cursor: pointer;\n"], ["\n    position: fixed;\n    left: 0;\n    top: 0;\n    width: 100%;\n    height: 100%;\n    background-color: rgba(116, 116, 116, 0.74);\n    z-index: 500;\n    cursor: pointer;\n"])));
 
-var _Modal = styled_components_1["default"].div(templateObject_5 || (templateObject_5 = __makeTemplateObject(["\n    position: fixed;\n    left: 50%;\n    top: 50%;\n    transform: translate(-50%, -50%);\n    height: 500px;\n    width: 500px;\n    max-height:500px;\n    max-width:500px;\n    padding: 50px;\n    background-color: #fff;\n    z-index: 1000;\n    border-radius: 30px;\n    text-align: center;\n    ", "\n    ", "\n    ", "\n"], ["\n    position: fixed;\n    left: 50%;\n    top: 50%;\n    transform: translate(-50%, -50%);\n    height: 500px;\n    width: 500px;\n    max-height:500px;\n    max-width:500px;\n    padding: 50px;\n    background-color: #fff;\n    z-index: 1000;\n    border-radius: 30px;\n    text-align: center;\n    ", "\n    ", "\n    ", "\n"])), customMedia_1["default"].lessThan("mobile")(templateObject_2 || (templateObject_2 = __makeTemplateObject(["\n        height:70vh;\n        width:95vw;\n        padding: 40px;\n    "], ["\n        height:70vh;\n        width:95vw;\n        padding: 40px;\n    "]))), customMedia_1["default"].between("mobile", "tablet")(templateObject_3 || (templateObject_3 = __makeTemplateObject(["\n        height:70vh;\n        width:83vw;\n    "], ["\n        height:70vh;\n        width:83vw;\n    "]))), customMedia_1["default"].greaterThan("tablet")(templateObject_4 || (templateObject_4 = __makeTemplateObject(["\n    \n    "], ["\n    \n    "]))));
+var _Modal = styled_components_1["default"].div(templateObject_5 || (templateObject_5 = __makeTemplateObject(["\n    position: fixed;\n    left: 50%;\n    top: 50%;\n    transform: translate(-50%, -50%);\n    height: 500px;\n    width: 500px;\n    max-height: 500px;\n    max-width: 500px;\n    padding: 50px;\n    background-color: #fff;\n    z-index: 1000;\n    border-radius: 30px;\n    text-align: center;\n    ", "\n    ", "\n    ", "\n"], ["\n    position: fixed;\n    left: 50%;\n    top: 50%;\n    transform: translate(-50%, -50%);\n    height: 500px;\n    width: 500px;\n    max-height: 500px;\n    max-width: 500px;\n    padding: 50px;\n    background-color: #fff;\n    z-index: 1000;\n    border-radius: 30px;\n    text-align: center;\n    ", "\n    ", "\n    ", "\n"])), customMedia_1["default"].lessThan("mobile")(templateObject_2 || (templateObject_2 = __makeTemplateObject(["\n        height:70vh;\n        width:95vw;\n        padding: 40px;\n    "], ["\n        height:70vh;\n        width:95vw;\n        padding: 40px;\n    "]))), customMedia_1["default"].between("mobile", "tablet")(templateObject_3 || (templateObject_3 = __makeTemplateObject(["\n        height:70vh;\n        width:83vw;\n    "], ["\n        height:70vh;\n        width:83vw;\n    "]))), customMedia_1["default"].greaterThan("tablet")(templateObject_4 || (templateObject_4 = __makeTemplateObject(["\n    \n    "], ["\n    \n    "]))));
 
-var _TagColors = styled_components_1["default"].div(templateObject_6 || (templateObject_6 = __makeTemplateObject(["\n    display: flex;\n    flex-wrap: wrap;\n    justify-content:space-between;\n"], ["\n    display: flex;\n    flex-wrap: wrap;\n    justify-content:space-between;\n"])));
+var _TagColors = styled_components_1["default"].div(templateObject_6 || (templateObject_6 = __makeTemplateObject(["\n    display: flex;\n    flex-wrap: wrap;\n    justify-content: space-between;\n"], ["\n    display: flex;\n    flex-wrap: wrap;\n    justify-content: space-between;\n"])));
 
 var _CloseButton = styled_components_1["default"].div(templateObject_7 || (templateObject_7 = __makeTemplateObject(["\n    display: inline-block;\n    margin-top: 40px;\n    padding: 10px;\n    border-radius: 10px;\n    background-color: #d6d6d6;\n"], ["\n    display: inline-block;\n    margin-top: 40px;\n    padding: 10px;\n    border-radius: 10px;\n    background-color: #d6d6d6;\n"])));
 

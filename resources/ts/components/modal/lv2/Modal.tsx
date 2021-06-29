@@ -30,9 +30,15 @@ const Modal: React.VFC<Props> = ({hasModalOpened,selected_color,setHasModalOpene
         console.log({postData});
         const res = await axios.post('api/tags',postData);
         try {
+            console.log(res.data);
+            
             setTagID(res.data.id);
             setHasDonePostTag(true);
-            task = {...task, red:res.data.checked_red,blue:res.data.checked_blue,yellow:res.data.checked_yellow,green:res.data.checked_green};
+            task.red = res.data.checked_red;
+            task.blue = res.data.checked_blue;
+            task.yellow = res.data.checked_yellow;
+            task.green = res.data.checked_green;
+            // task = {...task, red:res.data.checked_red,blue:res.data.checked_blue,yellow:res.data.checked_yellow,green:res.data.checked_green};
         } catch (err) {
             console.log(err);
         }
@@ -135,8 +141,8 @@ const _Modal = styled.div`
     transform: translate(-50%, -50%);
     height: 500px;
     width: 500px;
-    max-height:500px;
-    max-width:500px;
+    max-height: 500px;
+    max-width: 500px;
     padding: 50px;
     background-color: #fff;
     z-index: 1000;
@@ -159,7 +165,7 @@ const _Modal = styled.div`
 const _TagColors = styled.div`
     display: flex;
     flex-wrap: wrap;
-    justify-content:space-between;
+    justify-content: space-between;
 `;
 
 const _CloseButton = styled.div`

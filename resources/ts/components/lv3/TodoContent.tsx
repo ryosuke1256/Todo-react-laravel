@@ -35,6 +35,8 @@ const TodoContent: React.VFC<Props> = ({ userID }: Props) => {
 
     const postTask = async (postData: TaskAPI) => {
         console.log({ postData });
+        console.log(tasks);
+
         const res = await axios.post("api/tasks", postData);
         try {
             tasks.unshift(res.data);
