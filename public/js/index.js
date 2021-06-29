@@ -3361,6 +3361,18 @@ exports.default = EditIcon;
 "use strict";
 
 
+var __makeTemplateObject = this && this.__makeTemplateObject || function (cooked, raw) {
+  if (Object.defineProperty) {
+    Object.defineProperty(cooked, "raw", {
+      value: raw
+    });
+  } else {
+    cooked.raw = raw;
+  }
+
+  return cooked;
+};
+
 var __importDefault = this && this.__importDefault || function (mod) {
   return mod && mod.__esModule ? mod : {
     "default": mod
@@ -3373,6 +3385,8 @@ Object.defineProperty(exports, "__esModule", ({
 
 var react_1 = __importDefault(__webpack_require__(/*! react */ "./node_modules/react/index.js"));
 
+var styled_components_1 = __importDefault(__webpack_require__(/*! styled-components */ "./node_modules/styled-components/dist/styled-components.browser.esm.js"));
+
 var InputText = function InputText(_a) {
   var text = _a.text,
       handleChange = _a.handleChange,
@@ -3384,7 +3398,7 @@ var InputText = function InputText(_a) {
     title: text,
     is_done: 0
   };
-  return react_1["default"].createElement("input", {
+  return react_1["default"].createElement(_InputText, {
     name: "task",
     type: "text",
     value: text,
@@ -3398,16 +3412,15 @@ var InputText = function InputText(_a) {
         postTask(data);
         setText("");
       }
-    },
-    style: {
-      fontSize: "16px",
-      padding: "5px",
-      border: "1px solid #7d7d7d"
     }
   });
 };
 
 exports.default = InputText;
+
+var _InputText = styled_components_1["default"].input(templateObject_1 || (templateObject_1 = __makeTemplateObject(["\n    font-size: 16px;\n    padding: 5px;\n    border: 1px solid rgba(186, 186, 186, 0.7);\n"], ["\n    font-size: 16px;\n    padding: 5px;\n    border: 1px solid rgba(186, 186, 186, 0.7);\n"])));
+
+var templateObject_1;
 
 /***/ }),
 
@@ -3419,6 +3432,18 @@ exports.default = InputText;
 
 "use strict";
 
+
+var __makeTemplateObject = this && this.__makeTemplateObject || function (cooked, raw) {
+  if (Object.defineProperty) {
+    Object.defineProperty(cooked, "raw", {
+      value: raw
+    });
+  } else {
+    cooked.raw = raw;
+  }
+
+  return cooked;
+};
 
 var __importDefault = this && this.__importDefault || function (mod) {
   return mod && mod.__esModule ? mod : {
@@ -3432,6 +3457,8 @@ Object.defineProperty(exports, "__esModule", ({
 
 var react_1 = __importDefault(__webpack_require__(/*! react */ "./node_modules/react/index.js"));
 
+var styled_components_1 = __importDefault(__webpack_require__(/*! styled-components */ "./node_modules/styled-components/dist/styled-components.browser.esm.js"));
+
 var SubmitButton = function SubmitButton(_a) {
   var text = _a.text,
       postTask = _a.postTask,
@@ -3442,19 +3469,19 @@ var SubmitButton = function SubmitButton(_a) {
     title: text,
     is_done: 0
   };
-  return react_1["default"].createElement("button", {
+  return react_1["default"].createElement(_SubmitButton, {
     onClick: function onClick() {
       postTask(data);
       setText("");
-    },
-    style: {
-      border: "1px solid",
-      padding: "7px"
     }
   }, "\u8FFD\u52A0");
 };
 
 exports.default = SubmitButton;
+
+var _SubmitButton = styled_components_1["default"].div(templateObject_1 || (templateObject_1 = __makeTemplateObject(["\n    display: inline-block;\n    color: #223877;\n    border-radius: 8px;\n    padding: 6px;\n    margin-left:7px;\n    background-color:#8bd8ff;\n    border: 1px solid #7dcaf0;\n    opacity:0.9;\n"], ["\n    display: inline-block;\n    color: #223877;\n    border-radius: 8px;\n    padding: 6px;\n    margin-left:7px;\n    background-color:#8bd8ff;\n    border: 1px solid #7dcaf0;\n    opacity:0.9;\n"])));
+
+var templateObject_1;
 
 /***/ }),
 
@@ -4331,7 +4358,7 @@ var TaskCard = function TaskCard(_a) {
 
 exports.default = TaskCard;
 
-var _TaskCard = styled_components_1["default"].div(templateObject_4 || (templateObject_4 = __makeTemplateObject(["\n    border: 1px solid #d4e0e7;\n    padding: 10px;\n    border-bottom: 0px;\n    border-radius: 6px;\n    background-color: rgb(254, 254, 254);\n    ", "\n    ", "\n    ", "\n"], ["\n    border: 1px solid #d4e0e7;\n    padding: 10px;\n    border-bottom: 0px;\n    border-radius: 6px;\n    background-color: rgb(254, 254, 254);\n    ", "\n    ", "\n    ", "\n"])), customMedia_1["default"].lessThan("mobile")(templateObject_1 || (templateObject_1 = __makeTemplateObject(["\n        padding:13px;\n        border-top: 1px solid #d4e0e7;\n        border-bottom: 1px solid #d4e0e7;\n    "], ["\n        padding:13px;\n        border-top: 1px solid #d4e0e7;\n        border-bottom: 1px solid #d4e0e7;\n    "]))), customMedia_1["default"].between("mobile", "tablet")(templateObject_2 || (templateObject_2 = __makeTemplateObject(["\n\n    "], ["\n\n    "]))), customMedia_1["default"].greaterThan("tablet")(templateObject_3 || (templateObject_3 = __makeTemplateObject(["\n    \n    "], ["\n    \n    "]))));
+var _TaskCard = styled_components_1["default"].div(templateObject_4 || (templateObject_4 = __makeTemplateObject(["\n    border: 1px solid #d4e0e7;\n    padding: 10px;\n    border-bottom: 0px;\n    border-radius: 6px;\n    background-color: rgb(254, 254, 254);\n    ", "\n    ", "\n    ", "\n"], ["\n    border: 1px solid #d4e0e7;\n    padding: 10px;\n    border-bottom: 0px;\n    border-radius: 6px;\n    background-color: rgb(254, 254, 254);\n    ", "\n    ", "\n    ", "\n"])), customMedia_1["default"].lessThan("mobile")(templateObject_1 || (templateObject_1 = __makeTemplateObject(["\n        padding:13px;\n        border-top: 1px solid #deeaf1;\n        border-bottom: 1px solid #deeaf1;\n        border-right: 0px;\n        border-left: 0px;\n    "], ["\n        padding:13px;\n        border-top: 1px solid #deeaf1;\n        border-bottom: 1px solid #deeaf1;\n        border-right: 0px;\n        border-left: 0px;\n    "]))), customMedia_1["default"].between("mobile", "tablet")(templateObject_2 || (templateObject_2 = __makeTemplateObject(["\n\n    "], ["\n\n    "]))), customMedia_1["default"].greaterThan("tablet")(templateObject_3 || (templateObject_3 = __makeTemplateObject(["\n    \n    "], ["\n    \n    "]))));
 
 var _Wrapper = styled_components_1["default"].div(templateObject_5 || (templateObject_5 = __makeTemplateObject(["\n    display: flex;\n    align-items: center;\n"], ["\n    display: flex;\n    align-items: center;\n"])));
 
@@ -6300,7 +6327,7 @@ exports._Button = void 0;
 
 var styled_components_1 = __importDefault(__webpack_require__(/*! styled-components */ "./node_modules/styled-components/dist/styled-components.browser.esm.js"));
 
-exports._Button = styled_components_1["default"].div(templateObject_1 || (templateObject_1 = __makeTemplateObject(["\n    display: inline-block;\n    text-align: center;\n    background-color: ", ";\n    opacity: 0.9;\n    color: white;\n    padding: 6px 10px;\n    border-radius: 4px;\n    margin-right: 12px;\n    cursor: pointer;\n    &:hover {\n        opacity: 0.6;\n    }\n"], ["\n    display: inline-block;\n    text-align: center;\n    background-color: ", ";\n    opacity: 0.9;\n    color: white;\n    padding: 6px 10px;\n    border-radius: 4px;\n    margin-right: 12px;\n    cursor: pointer;\n    &:hover {\n        opacity: 0.6;\n    }\n"])), function (props) {
+exports._Button = styled_components_1["default"].div(templateObject_1 || (templateObject_1 = __makeTemplateObject(["\n    display: inline-block;\n    text-align: center;\n    border: 1px solid #2eb9db;\n    background-color: ", ";\n    opacity: 0.8;\n    color: white;\n    padding: 6px 10px;\n    border-radius: 8px;\n    margin-right: 12px;\n    cursor: pointer;\n    &:hover {\n        opacity: 0.6;\n    }\n"], ["\n    display: inline-block;\n    text-align: center;\n    border: 1px solid #2eb9db;\n    background-color: ", ";\n    opacity: 0.8;\n    color: white;\n    padding: 6px 10px;\n    border-radius: 8px;\n    margin-right: 12px;\n    cursor: pointer;\n    &:hover {\n        opacity: 0.6;\n    }\n"])), function (props) {
   return props.backgroundColor;
 });
 var templateObject_1;
