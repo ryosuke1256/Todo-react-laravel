@@ -6082,7 +6082,7 @@ var TodoContent = function TodoContent(_a) {
   };
 
   var i = -1;
-  return react_1["default"].createElement(react_1["default"].Fragment, null, react_1["default"].createElement(exports._TodoContent, null, react_1["default"].createElement(_index_1.TextForm, {
+  return react_1["default"].createElement(react_1["default"].Fragment, null, react_1["default"].createElement(_Wrapper, null, react_1["default"].createElement(exports._TodoContent, null, react_1["default"].createElement(_index_1.TextForm, {
     postTask: postTask,
     userID: userID
   }), tasks.length === 0 && is_began === true ? react_1["default"].createElement(_index_1.WelcomeContent, null) : react_1["default"].createElement(exports._TaskCards, null, tasks.map(function (task, key) {
@@ -6097,13 +6097,16 @@ var TodoContent = function TodoContent(_a) {
       i: i,
       key: key
     });
-  }))));
+  })))));
 };
 
 exports.default = TodoContent;
 exports._TaskCards = styled_components_1["default"].div(templateObject_1 || (templateObject_1 = __makeTemplateObject(["\n    padding-top: 20px;\n"], ["\n    padding-top: 20px;\n"])));
 exports._TodoContent = styled_components_1["default"].div(templateObject_5 || (templateObject_5 = __makeTemplateObject(["\n    max-width: 820px;\n    margin: 0 auto;\n    padding-top: 105px;\n    ", "\n    ", " \n    ", "\n"], ["\n    max-width: 820px;\n    margin: 0 auto;\n    padding-top: 105px;\n    ", "\n    ", " \n    ", "\n"])), customMedia_1["default"].lessThan("mobile")(templateObject_2 || (templateObject_2 = __makeTemplateObject(["\n    width: 99vw;\n    max-width:500px;\n    "], ["\n    width: 99vw;\n    max-width:500px;\n    "]))), customMedia_1["default"].between("mobile", "tablet")(templateObject_3 || (templateObject_3 = __makeTemplateObject(["\n    width: 84vw;\n    max-width: 710px;\n    "], ["\n    width: 84vw;\n    max-width: 710px;\n    "]))), customMedia_1["default"].greaterThan("tablet")(templateObject_4 || (templateObject_4 = __makeTemplateObject(["\n    width: 70vw;\n    "], ["\n    width: 70vw;\n    "]))));
-var templateObject_1, templateObject_2, templateObject_3, templateObject_4, templateObject_5;
+
+var _Wrapper = styled_components_1["default"].div(templateObject_6 || (templateObject_6 = __makeTemplateObject(["\n    height: 100vh;\n    width: 100vw;\n    background-color: #f9fbfe;\n"], ["\n    height: 100vh;\n    width: 100vw;\n    background-color: #f9fbfe;\n"])));
+
+var templateObject_1, templateObject_2, templateObject_3, templateObject_4, templateObject_5, templateObject_6;
 
 /***/ }),
 
@@ -6132,7 +6135,7 @@ var react_router_dom_1 = __webpack_require__(/*! react-router-dom */ "./node_mod
 
 var TopPageContent = function TopPageContent() {
   return react_1["default"].createElement(react_1["default"].Fragment, null, react_1["default"].createElement("div", {
-    className: "bg-white h-full w-full text-center relative"
+    className: "bg-white h-full w-screen text-center relative"
   }, react_1["default"].createElement("aside", null, react_1["default"].createElement("img", {
     className: "invisible lg:visible absolute top-0 left-0 bg-cover",
     src: "/images/background.jpg"

@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 const TopPageContent: React.VFC = () => {
     return (
         <>
-            <div className="bg-white h-full w-full text-center relative">
+            <div className="bg-white h-full w-screen text-center relative">
                 <aside>
                     <img
                         className="invisible lg:visible absolute top-0 left-0 bg-cover"
@@ -30,16 +30,10 @@ const TopPageContent: React.VFC = () => {
                                 <h1 className="text-lg sm:text-xl pt-20 sm:pt-24 lg:pt-32 pb-5">
                                     タスク管理ツールを使って生産性を上げよう
                                 </h1>
-                                <Link
-                                    to="/login"
-                                    className="button hover"
-                                >
+                                <Link to="/login" className="button hover">
                                     ログイン
                                 </Link>
-                                <Link
-                                    to="/register"
-                                    className="button hover"
-                                >
+                                <Link to="/register" className="button hover">
                                     新規登録
                                 </Link>
                             </section>

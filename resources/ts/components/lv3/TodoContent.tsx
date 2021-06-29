@@ -48,30 +48,32 @@ const TodoContent: React.VFC<Props> = ({ userID }: Props) => {
 
     return (
         <>
-            <_TodoContent>
-                <TextForm postTask={postTask} userID={userID} />
-                {tasks.length === 0 && is_began === true ? (
-                    <WelcomeContent />
-                ) : (
-                    <_TaskCards>
-                        {tasks.map((task: TaskAndColor, key: number) => {
-                            i++;
-                            return (
-                                <TaskCard
-                                    task={task}
-                                    setTasks={setTasks}
-                                    tasks={tasks}
-                                    tasksEditActive={tasksEditActive}
-                                    setTasksEditActive={setTasksEditActive}
-                                    id={task.id}
-                                    i={i}
-                                    key={key}
-                                />
-                            );
-                        })}
-                    </_TaskCards>
-                )}
-            </_TodoContent>
+            <_Wrapper>
+                <_TodoContent>
+                    <TextForm postTask={postTask} userID={userID} />
+                    {tasks.length === 0 && is_began === true ? (
+                        <WelcomeContent />
+                    ) : (
+                        <_TaskCards>
+                            {tasks.map((task: TaskAndColor, key: number) => {
+                                i++;
+                                return (
+                                    <TaskCard
+                                        task={task}
+                                        setTasks={setTasks}
+                                        tasks={tasks}
+                                        tasksEditActive={tasksEditActive}
+                                        setTasksEditActive={setTasksEditActive}
+                                        id={task.id}
+                                        i={i}
+                                        key={key}
+                                    />
+                                );
+                            })}
+                        </_TaskCards>
+                    )}
+                </_TodoContent>
+            </_Wrapper>
         </>
     );
 };
@@ -97,4 +99,10 @@ export const _TodoContent = styled.div`
     ${customMedia.greaterThan("tablet")`
     width: 70vw;
     `}
+`;
+
+const _Wrapper = styled.div`
+    height: 100vh;
+    width: 100vw;
+    background-color: #f9fbfe;
 `;
