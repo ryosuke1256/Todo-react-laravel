@@ -34,11 +34,7 @@ const Modal: React.VFC<Props> = ({hasModalOpened,selected_color,setHasModalOpene
             
             setTagID(res.data.id);
             setHasDonePostTag(true);
-            task.red = res.data.checked_red;
-            task.blue = res.data.checked_blue;
-            task.yellow = res.data.checked_yellow;
-            task.green = res.data.checked_green;
-            // task = {...task, red:res.data.checked_red,blue:res.data.checked_blue,yellow:res.data.checked_yellow,green:res.data.checked_green};
+            task = {...task, red:res.data.checked_red,blue:res.data.checked_blue,yellow:res.data.checked_yellow,green:res.data.checked_green};
         } catch (err) {
             console.log(err);
         }
