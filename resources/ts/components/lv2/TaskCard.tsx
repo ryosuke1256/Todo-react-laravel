@@ -151,13 +151,15 @@ const TaskCard: React.VFC<Props> = ({task,tasks,setTasks,tasksEditActive,setTask
 export default TaskCard;
 
 const _TaskCard = styled.div`
-    border: 1px solid #c4cfd6;
+    border: 1px solid #d4e0e7;
     padding: 10px;
     border-bottom: 0px;
     border-radius: 6px;
     background-color: rgb(254, 254, 254);
     ${customMedia.lessThan("mobile")`
         padding:13px;
+        border-top: 1px solid #d4e0e7;
+        border-bottom: 1px solid #d4e0e7;
     `}
     ${customMedia.between("mobile", "tablet")`
 
