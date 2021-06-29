@@ -3627,7 +3627,7 @@ var ColoredTags = function ColoredTags(_a) {
   var selected_color = _a.selected_color;
 
   if (selected_color.red === false && selected_color.blue === false && selected_color.yellow === false && selected_color.green === false || selected_color.red === undefined && selected_color.blue === undefined && selected_color.yellow === undefined && selected_color.green === undefined) {
-    return react_1["default"].createElement("div", null, "\uFF0B");
+    return react_1["default"].createElement(_Add, null, "\uFF0B");
   } else {
     return react_1["default"].createElement(_ColoredTags, null, react_1["default"].createElement(ColoredTag_1["default"], {
       selected_color: selected_color,
@@ -3647,9 +3647,11 @@ var ColoredTags = function ColoredTags(_a) {
 
 exports.default = ColoredTags;
 
-var _ColoredTags = styled_components_1["default"].div(templateObject_1 || (templateObject_1 = __makeTemplateObject(["\n    display: flex;\n    flex-wrap:wrap;\n    height: 10px;\n"], ["\n    display: flex;\n    flex-wrap:wrap;\n    height: 10px;\n"])));
+var _ColoredTags = styled_components_1["default"].div(templateObject_1 || (templateObject_1 = __makeTemplateObject(["\n    display: flex;\n    flex-wrap:wrap;\n    height: 10px;\n    cursor:pointer;\n"], ["\n    display: flex;\n    flex-wrap:wrap;\n    height: 10px;\n    cursor:pointer;\n"])));
 
-var templateObject_1;
+var _Add = styled_components_1["default"].div(templateObject_2 || (templateObject_2 = __makeTemplateObject(["\n    cursor:pointer;\n"], ["\n    cursor:pointer;\n"])));
+
+var templateObject_1, templateObject_2;
 
 /***/ }),
 

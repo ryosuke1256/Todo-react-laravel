@@ -10,7 +10,7 @@ type Props = {
 const ColoredTags: React.VFC<Props> = ({ selected_color }: Props) => {
     if (selected_color.red === false &&selected_color.blue === false &&selected_color.yellow === false &&selected_color.green === false
         || selected_color.red === undefined &&selected_color.blue === undefined &&selected_color.yellow === undefined &&selected_color.green === undefined) {
-        return <div>＋</div>;
+        return <_Add>＋</_Add>;
     } else {
         return (
             <_ColoredTags>
@@ -41,4 +41,9 @@ const _ColoredTags = styled.div`
     display: flex;
     flex-wrap:wrap;
     height: 10px;
+    cursor:pointer;
+`;
+
+const _Add = styled.div`
+    cursor:pointer;
 `;
