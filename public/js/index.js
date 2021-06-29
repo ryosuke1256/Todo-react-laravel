@@ -3585,9 +3585,19 @@ var ColoredTag_1 = __importDefault(__webpack_require__(/*! ../lv1/ColoredTag */ 
 var styled_components_1 = __importDefault(__webpack_require__(/*! styled-components */ "./node_modules/styled-components/dist/styled-components.browser.esm.js"));
 
 var ColoredTags = function ColoredTags(_a) {
-  var selected_color = _a.selected_color; //prettier-ignore
+  var selected_color = _a.selected_color;
 
-  if (selected_color.red === false && selected_color.blue === false && selected_color.yellow === false && selected_color.green === false || selected_color.red === undefined && selected_color.blue === undefined && selected_color.yellow === undefined && selected_color.green === undefined) {
+  if (selected_color === {
+    red: false,
+    blue: false,
+    yellow: false,
+    green: false
+  } || selected_color === {
+    red: undefined,
+    blue: undefined,
+    yellow: undefined,
+    green: undefined
+  }) {
     return react_1["default"].createElement("div", null, "\uFF0B");
   } else {
     return react_1["default"].createElement(_ColoredTags, null, react_1["default"].createElement(ColoredTag_1["default"], {
@@ -5831,8 +5841,7 @@ var react_1 = __importStar(__webpack_require__(/*! react */ "./node_modules/reac
 
 var styled_components_1 = __importDefault(__webpack_require__(/*! styled-components */ "./node_modules/styled-components/dist/styled-components.browser.esm.js"));
 
-var CheckMark_1 = __webpack_require__(/*! ./CheckMark */ "./resources/ts/components/modal/lv1/CheckMark.tsx"); //prettier-ignore
-
+var CheckMark_1 = __webpack_require__(/*! ./CheckMark */ "./resources/ts/components/modal/lv1/CheckMark.tsx");
 
 var TagColorModal = function TagColorModal(_a) {
   var backgroundColor = _a.backgroundColor,

@@ -7,11 +7,10 @@ type Props = {
     backgroundColor: string;
     selected_color: Color;
     setSelected_color: (prevState: any) => boolean | void;
-    initChecked: boolean;
+    initChecked?: boolean;
     i: 0 | 1 | 2 | 3;
 };
 
-//prettier-ignore
 const TagColorModal: React.VFC<Props> = ({backgroundColor,selected_color,setSelected_color,initChecked,i,}: Props) => {
     const [is_selected, setIs_Selected] = useState(initChecked);
 
