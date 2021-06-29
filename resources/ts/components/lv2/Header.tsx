@@ -12,7 +12,7 @@ const Header: React.VFC<Props> = ({ setIs_authenticated }: Props) => {
     const logout = async () => {
         await axios
             .post("/logout")
-            .then((res) => {
+            .then(() => {
                 setIs_authenticated(false);
             })
             .catch((err) => {

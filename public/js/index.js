@@ -3807,7 +3807,7 @@ var Header = function Header(_a) {
           case 0:
             return [4
             /*yield*/
-            , axios_1["default"].post("/logout").then(function (res) {
+            , axios_1["default"].post("/logout").then(function () {
               setIs_authenticated(false);
             })["catch"](function (err) {
               console.log(err);
@@ -5610,7 +5610,7 @@ var TodoContent = function TodoContent(_a) {
 
             try {
               tasks.unshift(res.data);
-              setChange(change + 1); // setTasks([...tasks, res.data]);
+              setChange(change + 1);
             } catch (err) {
               console.log(err);
             }
