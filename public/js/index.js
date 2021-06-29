@@ -4745,8 +4745,6 @@ var LoginContent = function LoginContent(_a) {
   };
 
   var handleChange = function handleChange(e, title) {
-    console.log(title);
-
     if (title === 'email') {
       setLoginData(__assign(__assign({}, loginData), {
         email: e.target.value

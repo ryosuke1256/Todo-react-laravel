@@ -54,8 +54,6 @@ const LoginContent: React.VFC<Props> = ({
     };
     
     const handleChange = (e: React.ChangeEvent<HTMLInputElement> ,title:string) => {
-        console.log(title);
-        
         if(title === 'email') {
             setLoginData({ ...loginData, email: e.target.value });
         } else if(title === 'password') {
