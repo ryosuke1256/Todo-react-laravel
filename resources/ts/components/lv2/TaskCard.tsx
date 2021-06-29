@@ -22,7 +22,7 @@ type Props = {
 const TaskCard: React.VFC<Props> = ({task,tasks,setTasks,tasksEditActive,setTasksEditActive,id,i,}: Props) => {
     const [todo, setTodo] = useState(task);
     const [title, setTitle] = useState(task.title);
-    const [is_done, setIs_done] = useState<0 | 1>(task.is_done);
+    const [is_done, setIs_done] = useState(task.is_done);
     const [editActive, setEditActive] = useState(false);
     const [hasModalOpened, setHasModalOpened] = useState(false);
     const [selected_color, setSelected_color] = useState({red:false,blue:false,yellow:false,green:false}); //prettier-ignore
@@ -45,10 +45,7 @@ const TaskCard: React.VFC<Props> = ({task,tasks,setTasks,tasksEditActive,setTask
         try {
                 setTagID(res.data.id);
                 setSelected_color({red:res.data.checked_red,blue:res.data.checked_blue,yellow:res.data.checked_yellow,green:res.data.checked_green});
-                task.red = res.data.checked_red;
-                task.blue = res.data.checked_blue;
-                task.yellow = res.data.checked_yellow;
-                task.green = res.data.checked_green;
+                task = {red:res.data.checked_red,blue:res.data.checked_blue,yellow:res.data.checked_yellow,green:res.data.checked_green}
         } catch (err) {
             console.log(err);
         }
@@ -58,9 +55,6 @@ const TaskCard: React.VFC<Props> = ({task,tasks,setTasks,tasksEditActive,setTask
         const res = await axios.delete(`api/tasks/${id}`);
         try {
             setTasks(tasks.filter((task) => task.id !== res.data.id));
-            // tasks.splice(i, 1);
-            // setTasks(tasks);
-            // setChange(change + 1);
         } catch (err) {
             console.log(err);
         }
@@ -75,7 +69,6 @@ const TaskCard: React.VFC<Props> = ({task,tasks,setTasks,tasksEditActive,setTask
         await axios
             .patch(`api/tasks/${id}`, data)
             .then(() => {
-                //tasksのis_doneも変更しないといけない
                 tasks[i].is_done = is_done;
                 setIs_done(is_done);
             })

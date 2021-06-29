@@ -34,7 +34,7 @@ const App: React.VFC = () => {
     const GetTopPageContent = (): JSX.Element | null => {
         if (is_began) {
             if (is_authenticated) {
-                return <TodoContent userID={userID} setUserID={setUserID} />;
+                return <TodoContent userID={userID} />;
             } else if (is_authenticated === false) {
                 return <TopPageContent />;
             } else {

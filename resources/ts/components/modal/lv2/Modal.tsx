@@ -45,6 +45,8 @@ const Modal: React.VFC<Props> = ({hasModalOpened,selected_color,setHasModalOpene
         patchData.checked_green===undefined?patchData.checked_green=false:patchData.checked_green;
 
         console.log({patchData});
+        console.log(tagID);
+        
         const res = await axios.patch(`api/tags/${tagID}`, patchData);
         try {
             task = {...task, red:res.data.checked_red,blue:res.data.checked_blue,yellow:res.data.checked_yellow,green:res.data.checked_green};

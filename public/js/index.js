@@ -2947,8 +2947,7 @@ var App = function App() {
     if (is_began) {
       if (is_authenticated) {
         return react_1["default"].createElement(_index_1.TodoContent, {
-          userID: userID,
-          setUserID: setUserID
+          userID: userID
         });
       } else if (is_authenticated === false) {
         return react_1["default"].createElement(_index_1.TopPageContent, null);
@@ -4169,10 +4168,12 @@ var TaskCard = function TaskCard(_a) {
                 yellow: res.data.checked_yellow,
                 green: res.data.checked_green
               });
-              task.red = res.data.checked_red;
-              task.blue = res.data.checked_blue;
-              task.yellow = res.data.checked_yellow;
-              task.green = res.data.checked_green;
+              task = {
+                red: res.data.checked_red,
+                blue: res.data.checked_blue,
+                yellow: res.data.checked_yellow,
+                green: res.data.checked_green
+              };
             } catch (err) {
               console.log(err);
             }
@@ -4201,9 +4202,7 @@ var TaskCard = function TaskCard(_a) {
             try {
               setTasks(tasks.filter(function (task) {
                 return task.id !== res.data.id;
-              })); // tasks.splice(i, 1);
-              // setTasks(tasks);
-              // setChange(change + 1);
+              }));
             } catch (err) {
               console.log(err);
             }
@@ -4230,7 +4229,6 @@ var TaskCard = function TaskCard(_a) {
             return [4
             /*yield*/
             , axios_1["default"].patch("api/tasks/" + id, data).then(function () {
-              //tasksのis_doneも変更しないといけない
               tasks[i].is_done = is_done;
               setIs_done(is_done);
             })["catch"](function (err) {
@@ -5539,8 +5537,7 @@ var styled_components_1 = __importDefault(__webpack_require__(/*! styled-compone
 var customMedia_1 = __importDefault(__webpack_require__(/*! ../../style/customMedia */ "./resources/ts/style/customMedia.tsx"));
 
 var TodoContent = function TodoContent(_a) {
-  var userID = _a.userID,
-      setUserID = _a.setUserID;
+  var userID = _a.userID;
 
   var _b = react_1.useState([]),
       tasks = _b[0],
@@ -6162,6 +6159,7 @@ var Modal = function Modal(_a) {
             console.log({
               patchData: patchData
             });
+            console.log(tagID);
             return [4
             /*yield*/
             , axios_1["default"].patch("api/tags/" + tagID, patchData)];
