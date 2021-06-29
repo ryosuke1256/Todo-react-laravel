@@ -2899,7 +2899,7 @@ var App = function App() {
       is_authenticated = _a[0],
       setIs_authenticated = _a[1];
 
-  var _b = react_1.useState(),
+  var _b = react_1.useState(null),
       userID = _b[0],
       setUserID = _b[1];
 
@@ -2961,7 +2961,8 @@ var App = function App() {
 
   return react_1["default"].createElement(react_1["default"].Fragment, null, react_1["default"].createElement(react_router_dom_1.BrowserRouter, null, react_1["default"].createElement(Header_1["default"], {
     setIs_authenticated: setIs_authenticated,
-    userID: userID
+    userID: userID,
+    setUserID: setUserID
   }), react_1["default"].createElement(react_router_dom_1.Switch, null, react_1["default"].createElement(react_router_dom_1.Route, {
     path: "/register"
   }, react_1["default"].createElement(_index_1.RegisterContent, {
@@ -3800,7 +3801,8 @@ var customMedia_1 = __importDefault(__webpack_require__(/*! ../../style/customMe
 
 var Header = function Header(_a) {
   var setIs_authenticated = _a.setIs_authenticated,
-      userID = _a.userID;
+      userID = _a.userID,
+      setUserID = _a.setUserID;
 
   var logout = function logout() {
     return __awaiter(void 0, void 0, void 0, function () {
@@ -3811,6 +3813,7 @@ var Header = function Header(_a) {
             /*yield*/
             , axios_1["default"].post("/logout").then(function () {
               setIs_authenticated(false);
+              setUserID(null);
             })["catch"](function (err) {
               console.log(err);
             })];
