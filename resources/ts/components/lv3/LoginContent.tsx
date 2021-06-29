@@ -53,10 +53,12 @@ const LoginContent: React.VFC<Props> = ({
         setIsRevealPassword((prevState) => !prevState);
     };
     
-    const handleChange = (e: React.ChangeEvent<HTMLInputElement>,title:string) => {
-        if(title='email') {
+    const handleChange = (e: React.ChangeEvent<HTMLInputElement> ,title:string) => {
+        console.log(title);
+        
+        if(title === 'email') {
             setLoginData({ ...loginData, email: e.target.value });
-        } else if(title='password') {
+        } else if(title === 'password') {
             setLoginData({ ...loginData, password: e.target.value });
         } else {
             return null;

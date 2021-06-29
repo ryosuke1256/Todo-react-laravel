@@ -4745,11 +4745,13 @@ var LoginContent = function LoginContent(_a) {
   };
 
   var handleChange = function handleChange(e, title) {
-    if (title = 'email') {
+    console.log(title);
+
+    if (title === 'email') {
       setLoginData(__assign(__assign({}, loginData), {
         email: e.target.value
       }));
-    } else if (title = 'password') {
+    } else if (title === 'password') {
       setLoginData(__assign(__assign({}, loginData), {
         password: e.target.value
       }));
