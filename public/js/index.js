@@ -5780,6 +5780,22 @@ var __makeTemplateObject = this && this.__makeTemplateObject || function (cooked
   return cooked;
 };
 
+var __assign = this && this.__assign || function () {
+  __assign = Object.assign || function (t) {
+    for (var s, i = 1, n = arguments.length; i < n; i++) {
+      s = arguments[i];
+
+      for (var p in s) {
+        if (Object.prototype.hasOwnProperty.call(s, p)) t[p] = s[p];
+      }
+    }
+
+    return t;
+  };
+
+  return __assign.apply(this, arguments);
+};
+
 var __createBinding = this && this.__createBinding || (Object.create ? function (o, m, k, k2) {
   if (k2 === undefined) k2 = k;
   Object.defineProperty(o, k2, {
@@ -5848,33 +5864,21 @@ var TagColorModal = function TagColorModal(_a) {
       });
 
       if (i === 0) {
-        setSelected_color({
-          red: !selected_color.red,
-          blue: selected_color.blue,
-          yellow: selected_color.yellow,
-          green: selected_color.green
-        });
+        setSelected_color(__assign(__assign({}, selected_color), {
+          red: !selected_color.red
+        }));
       } else if (i === 1) {
-        setSelected_color({
-          red: selected_color.red,
-          blue: !selected_color.blue,
-          yellow: selected_color.yellow,
-          green: selected_color.green
-        });
+        setSelected_color(__assign(__assign({}, selected_color), {
+          blue: !selected_color.blue
+        }));
       } else if (i === 2) {
-        setSelected_color({
-          red: selected_color.red,
-          blue: selected_color.blue,
-          yellow: !selected_color.yellow,
-          green: selected_color.green
-        });
+        setSelected_color(__assign(__assign({}, selected_color), {
+          yellow: !selected_color.yellow
+        }));
       } else if (i === 3) {
-        setSelected_color({
-          red: selected_color.red,
-          blue: selected_color.blue,
-          yellow: selected_color.yellow,
+        setSelected_color(__assign(__assign({}, selected_color), {
           green: !selected_color.green
-        });
+        }));
       }
     },
     is_selected: is_selected,
@@ -6127,13 +6131,13 @@ var Modal = function Modal(_a) {
 
             try {
               setTagID(res.data.id);
+              setHasDonePostTag(true);
               task = __assign(__assign({}, task), {
                 red: res.data.checked_red,
                 blue: res.data.checked_blue,
                 yellow: res.data.checked_yellow,
                 green: res.data.checked_green
               });
-              setHasDonePostTag(true);
             } catch (err) {
               console.log(err);
             }
@@ -6159,7 +6163,6 @@ var Modal = function Modal(_a) {
             console.log({
               patchData: patchData
             });
-            console.log(tagID);
             return [4
             /*yield*/
             , axios_1["default"].patch("api/tags/" + tagID, patchData)];
