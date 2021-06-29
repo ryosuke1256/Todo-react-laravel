@@ -33,7 +33,10 @@ const Modal: React.VFC<Props> = ({hasModalOpened,selected_color,setHasModalOpene
             console.log(res.data);
             setTagID(res.data.id);
             setHasDonePostTag(true);
-            task = {...task, ...{red:res.data.checked_red,blue:res.data.checked_blue,yellow:res.data.checked_yellow,green:res.data.checked_green}};
+            task.red = res.data.checked_red;
+            task.blue = res.data.checked_blue;
+            task.yellow = res.data.checked_yellow;
+            task.green = res.data.checked_green;
         } catch (err) {
             console.log(err);
         }
@@ -44,7 +47,6 @@ const Modal: React.VFC<Props> = ({hasModalOpened,selected_color,setHasModalOpene
         patchData.checked_blue===undefined?patchData.checked_blue=false:patchData.checked_blue;
         patchData.checked_yellow===undefined?patchData.checked_yellow=false:patchData.checked_yellow;
         patchData.checked_green===undefined?patchData.checked_green=false:patchData.checked_green;
-
         console.log({patchData});
         const res = await axios.patch(`api/tags/${tagID}`, patchData);
         try {
