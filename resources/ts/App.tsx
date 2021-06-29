@@ -50,7 +50,7 @@ const App: React.VFC = () => {
             <Router>
                 <Header 
                     setIs_authenticated={setIs_authenticated}
-                    userID={userID}
+                    is_authenticated={is_authenticated}
                     setUserID={setUserID}
                 />
                 <Switch>
