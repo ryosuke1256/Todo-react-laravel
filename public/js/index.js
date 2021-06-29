@@ -4463,6 +4463,22 @@ var templateObject_1;
 "use strict";
 
 
+var __assign = this && this.__assign || function () {
+  __assign = Object.assign || function (t) {
+    for (var s, i = 1, n = arguments.length; i < n; i++) {
+      s = arguments[i];
+
+      for (var p in s) {
+        if (Object.prototype.hasOwnProperty.call(s, p)) t[p] = s[p];
+      }
+    }
+
+    return t;
+  };
+
+  return __assign.apply(this, arguments);
+};
+
 var __createBinding = this && this.__createBinding || (Object.create ? function (o, m, k, k2) {
   if (k2 === undefined) k2 = k;
   Object.defineProperty(o, k2, {
@@ -4741,18 +4757,18 @@ var LoginContent = function LoginContent(_a) {
     });
   };
 
-  var handleChangeEmail = function handleChangeEmail(e) {
-    setLoginData({
-      email: e.target.value,
-      password: loginData.password
-    });
-  };
-
-  var handleChangePassword = function handleChangePassword(e) {
-    setLoginData({
-      email: loginData.email,
-      password: e.target.value
-    });
+  var handleChange = function handleChange(e, title) {
+    if (title = 'email') {
+      setLoginData(__assign(__assign({}, loginData), {
+        email: e.target.value
+      }));
+    } else if (title = 'password') {
+      setLoginData(__assign(__assign({}, loginData), {
+        password: e.target.value
+      }));
+    } else {
+      return null;
+    }
   };
 
   return react_1["default"].createElement("div", {
@@ -4773,7 +4789,7 @@ var LoginContent = function LoginContent(_a) {
     className: "border rounded-lg px-3 py-2 mt-1 mb-5 text-sm w-full",
     value: loginData.email,
     onChange: function onChange(e) {
-      return handleChangeEmail(e);
+      return handleChange(e, 'email');
     }
   }), react_1["default"].createElement("label", {
     className: "font-semibold text-sm text-gray-600 pb-1 block"
@@ -4784,7 +4800,7 @@ var LoginContent = function LoginContent(_a) {
     type: isRevealPassword ? "text" : "password",
     className: "border rounded-lg px-3 py-2 mt-1 mb-5 text-sm w-11/12",
     onChange: function onChange(e) {
-      return handleChangePassword(e);
+      return handleChange(e, 'password');
     }
   }), react_1["default"].createElement("span", {
     onClick: togglePassword

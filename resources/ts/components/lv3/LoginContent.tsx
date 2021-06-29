@@ -52,13 +52,15 @@ const LoginContent: React.VFC<Props> = ({
     const togglePassword = () => {
         setIsRevealPassword((prevState) => !prevState);
     };
-
-    const handleChangeEmail = (e: React.ChangeEvent<HTMLInputElement>) => {
-        setLoginData({ email: e.target.value, password: loginData.password });
-    };
-
-    const handleChangePassword = (e: React.ChangeEvent<HTMLInputElement>) => {
-        setLoginData({ email: loginData.email, password: e.target.value });
+    
+    const handleChange = (e: React.ChangeEvent<HTMLInputElement>,title:string) => {
+        if(title='email') {
+            setLoginData({ ...loginData, email: e.target.value });
+        } else if(title='password') {
+            setLoginData({ ...loginData, password: e.target.value });
+        } else {
+            return null;
+        }
     };
 
     return (
@@ -77,7 +79,7 @@ const LoginContent: React.VFC<Props> = ({
                             type="text"
                             className="border rounded-lg px-3 py-2 mt-1 mb-5 text-sm w-full"
                             value={loginData.email}
-                            onChange={(e) => handleChangeEmail(e)}
+                            onChange={(e) => handleChange(e,'email')}
                         />
                         <label className="font-semibold text-sm text-gray-600 pb-1 block">
                             Password
@@ -87,7 +89,7 @@ const LoginContent: React.VFC<Props> = ({
                                 placeholder="Password"
                                 type={isRevealPassword ? "text" : "password"}
                                 className="border rounded-lg px-3 py-2 mt-1 mb-5 text-sm w-11/12"
-                                onChange={(e) => handleChangePassword(e)}
+                                onChange={(e) => handleChange(e,'password')}
                             />
                             <span onClick={togglePassword}>
                                 {isRevealPassword ? (
