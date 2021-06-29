@@ -3079,27 +3079,24 @@ var styled_components_1 = __importDefault(__webpack_require__(/*! styled-compone
 
 
 var ColoredTag = function ColoredTag(_a) {
-  var red = _a.red,
-      blue = _a.blue,
-      yellow = _a.yellow,
-      green = _a.green,
+  var selected_color = _a.selected_color,
       i = _a.i;
 
   if (i === 0) {
-    return red ? react_1["default"].createElement(_TagColor, {
-      red: red
+    return selected_color.red ? react_1["default"].createElement(_TagColor, {
+      red: selected_color.red
     }) : null;
   } else if (i === 1) {
-    return blue ? react_1["default"].createElement(_TagColor, {
-      blue: blue
+    return selected_color.blue ? react_1["default"].createElement(_TagColor, {
+      blue: selected_color.blue
     }) : null;
   } else if (i === 2) {
-    return yellow ? react_1["default"].createElement(_TagColor, {
-      yellow: yellow
+    return selected_color.yellow ? react_1["default"].createElement(_TagColor, {
+      yellow: selected_color.yellow
     }) : null;
   } else if (i === 3) {
-    return green ? react_1["default"].createElement(_TagColor, {
-      green: green
+    return selected_color.green ? react_1["default"].createElement(_TagColor, {
+      green: selected_color.green
     }) : null;
   } else {
     return null;
@@ -3594,28 +3591,16 @@ var ColoredTags = function ColoredTags(_a) {
     return react_1["default"].createElement("div", null, "\uFF0B");
   } else {
     return react_1["default"].createElement(_ColoredTags, null, react_1["default"].createElement(ColoredTag_1["default"], {
-      red: selected_color.red,
-      blue: selected_color.blue,
-      yellow: selected_color.yellow,
-      green: selected_color.green,
+      selected_color: selected_color,
       i: 0
     }), react_1["default"].createElement(ColoredTag_1["default"], {
-      red: selected_color.red,
-      blue: selected_color.blue,
-      yellow: selected_color.yellow,
-      green: selected_color.green,
+      selected_color: selected_color,
       i: 1
     }), react_1["default"].createElement(ColoredTag_1["default"], {
-      red: selected_color.red,
-      blue: selected_color.blue,
-      yellow: selected_color.yellow,
-      green: selected_color.green,
+      selected_color: selected_color,
       i: 2
     }), react_1["default"].createElement(ColoredTag_1["default"], {
-      red: selected_color.red,
-      blue: selected_color.blue,
-      yellow: selected_color.yellow,
-      green: selected_color.green,
+      selected_color: selected_color,
       i: 3
     }));
   }

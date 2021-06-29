@@ -16,31 +16,19 @@ const ColoredTags: React.VFC<Props> = ({ selected_color }: Props) => {
         return (
             <_ColoredTags>
                 <ColoredTag
-                    red={selected_color.red}
-                    blue={selected_color.blue}
-                    yellow={selected_color.yellow}
-                    green={selected_color.green}
+                    selected_color={selected_color}
                     i={0}
                 />
                 <ColoredTag
-                    red={selected_color.red}
-                    blue={selected_color.blue}
-                    yellow={selected_color.yellow}
-                    green={selected_color.green}
+                    selected_color={selected_color}
                     i={1}
                 />
                 <ColoredTag
-                    red={selected_color.red}
-                    blue={selected_color.blue}
-                    yellow={selected_color.yellow}
-                    green={selected_color.green}
+                    selected_color={selected_color}
                     i={2}
                 />
                 <ColoredTag
-                    red={selected_color.red}
-                    blue={selected_color.blue}
-                    yellow={selected_color.yellow}
-                    green={selected_color.green}
+                    selected_color={selected_color}
                     i={3}
                 />
             </_ColoredTags>
