@@ -6053,7 +6053,6 @@ var TodoContent = function TodoContent(_a) {
             console.log({
               postData: postData
             });
-            console.log(tasks);
             return [4
             /*yield*/
             , axios_1["default"].post("api/tasks", postData)];
@@ -6590,12 +6589,10 @@ var Modal = function Modal(_a) {
               console.log(res.data);
               setTagID(res.data.id);
               setHasDonePostTag(true);
-              task = __assign(__assign({}, task), {
-                red: res.data.checked_red,
-                blue: res.data.checked_blue,
-                yellow: res.data.checked_yellow,
-                green: res.data.checked_green
-              });
+              task.red = res.data.checked_red;
+              task.blue = res.data.checked_blue;
+              task.yellow = res.data.checked_yellow;
+              task.green = res.data.checked_green;
             } catch (err) {
               console.log(err);
             }
