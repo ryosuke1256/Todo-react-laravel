@@ -4871,14 +4871,14 @@ var customMedia_1 = __importDefault(__webpack_require__(/*! ../../style/customMe
 var WelcomeImage_1 = __importDefault(__webpack_require__(/*! ../lv1/WelcomeImage */ "./resources/ts/components/lv1/WelcomeImage.tsx"));
 
 var WelcomeContent = function WelcomeContent() {
-  return react_1["default"].createElement(_WelcomeContent, null, react_1["default"].createElement(WelcomeImage_1["default"], null), react_1["default"].createElement(_WelcomeTitle, null, "\u30BF\u30B9\u30AF\u3092\u5165\u529B\u3057\u3066\u8FFD\u52A0\u3092\u30AF\u30EA\u30C3\u30AF\u3067\u59CB\u3081\u3088\u3046\u2B50\uFE0E"));
+  return react_1["default"].createElement(_WelcomeContent, null, react_1["default"].createElement(WelcomeImage_1["default"], null), react_1["default"].createElement(_Title, null, "\u30BF\u30B9\u30AF\u3092\u5165\u529B\u3057\u3066\u8FFD\u52A0\u3092\u30AF\u30EA\u30C3\u30AF\u3067\u59CB\u3081\u3088\u3046\u2B50\uFE0E"));
 };
 
 exports.default = WelcomeContent;
 
 var _WelcomeContent = styled_components_1["default"].div(templateObject_1 || (templateObject_1 = __makeTemplateObject(["\n    padding-top: 60px;\n    text-align: center;\n"], ["\n    padding-top: 60px;\n    text-align: center;\n"])));
 
-var _WelcomeTitle = styled_components_1["default"].div(templateObject_5 || (templateObject_5 = __makeTemplateObject(["\n    font-size: 1.4rem;\n    padding-top: 30px;\n    color: #5287ec;\n    opacity: 0.9;\n    ", "\n    ", " \n    ", "\n"], ["\n    font-size: 1.4rem;\n    padding-top: 30px;\n    color: #5287ec;\n    opacity: 0.9;\n    ", "\n    ", " \n    ", "\n"])), customMedia_1["default"].lessThan("mobile")(templateObject_2 || (templateObject_2 = __makeTemplateObject(["\n        font-size:1.2rem;\n    "], ["\n        font-size:1.2rem;\n    "]))), customMedia_1["default"].between("mobile", "tablet")(templateObject_3 || (templateObject_3 = __makeTemplateObject(["\n\n    "], ["\n\n    "]))), customMedia_1["default"].greaterThan("tablet")(templateObject_4 || (templateObject_4 = __makeTemplateObject(["\n\n    "], ["\n\n    "]))));
+var _Title = styled_components_1["default"].div(templateObject_5 || (templateObject_5 = __makeTemplateObject(["\n    font-size: 1.4rem;\n    padding-top: 30px;\n    color: #5287ec;\n    opacity: 0.9;\n    ", "\n    ", " \n    ", "\n"], ["\n    font-size: 1.4rem;\n    padding-top: 30px;\n    color: #5287ec;\n    opacity: 0.9;\n    ", "\n    ", " \n    ", "\n"])), customMedia_1["default"].lessThan("mobile")(templateObject_2 || (templateObject_2 = __makeTemplateObject(["\n        font-size:1.2rem;\n    "], ["\n        font-size:1.2rem;\n    "]))), customMedia_1["default"].between("mobile", "tablet")(templateObject_3 || (templateObject_3 = __makeTemplateObject(["\n\n    "], ["\n\n    "]))), customMedia_1["default"].greaterThan("tablet")(templateObject_4 || (templateObject_4 = __makeTemplateObject(["\n\n    "], ["\n\n    "]))));
 
 var templateObject_1, templateObject_2, templateObject_3, templateObject_4, templateObject_5;
 
