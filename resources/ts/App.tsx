@@ -6,7 +6,7 @@ import axios from "axios";
 
 const App: React.VFC = () => {
     const [is_authenticated, setIs_authenticated] = useState<boolean>(false);
-    const [userID, setUserID] = useState("");
+    const [userID, setUserID] = useState<number>();
     const [is_began, setIs_began] = useState(false);
 
     useEffect(() => {
@@ -48,7 +48,10 @@ const App: React.VFC = () => {
     return (
         <>
             <Router>
-                <Header setIs_authenticated={setIs_authenticated} />
+                <Header 
+                    setIs_authenticated={setIs_authenticated}
+                    userID={userID}
+                />
                 <Switch>
                     <Route path="/register">
                         <RegisterContent 

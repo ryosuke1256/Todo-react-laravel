@@ -2899,7 +2899,7 @@ var App = function App() {
       is_authenticated = _a[0],
       setIs_authenticated = _a[1];
 
-  var _b = react_1.useState(""),
+  var _b = react_1.useState(),
       userID = _b[0],
       setUserID = _b[1];
 
@@ -2960,7 +2960,8 @@ var App = function App() {
   };
 
   return react_1["default"].createElement(react_1["default"].Fragment, null, react_1["default"].createElement(react_router_dom_1.BrowserRouter, null, react_1["default"].createElement(Header_1["default"], {
-    setIs_authenticated: setIs_authenticated
+    setIs_authenticated: setIs_authenticated,
+    userID: userID
   }), react_1["default"].createElement(react_router_dom_1.Switch, null, react_1["default"].createElement(react_router_dom_1.Route, {
     path: "/register"
   }, react_1["default"].createElement(_index_1.RegisterContent, {
@@ -3798,7 +3799,8 @@ var axios_1 = __importDefault(__webpack_require__(/*! axios */ "./node_modules/a
 var customMedia_1 = __importDefault(__webpack_require__(/*! ../../style/customMedia */ "./resources/ts/style/customMedia.tsx"));
 
 var Header = function Header(_a) {
-  var setIs_authenticated = _a.setIs_authenticated;
+  var setIs_authenticated = _a.setIs_authenticated,
+      userID = _a.userID;
 
   var logout = function logout() {
     return __awaiter(void 0, void 0, void 0, function () {
@@ -3839,9 +3841,9 @@ var Header = function Header(_a) {
       display: "inline-block",
       paddingBottom: "8px"
     }
-  }), react_1["default"].createElement(_Title, null, "Todo"))), react_1["default"].createElement(_Logout, {
+  }), react_1["default"].createElement(_Title, null, "Todo"))), userID ? react_1["default"].createElement(_Logout, {
     onClick: logout
-  }, "\u30ED\u30B0\u30A2\u30A6\u30C8"));
+  }, "\u30ED\u30B0\u30A2\u30A6\u30C8") : null);
 };
 
 exports.default = Header;

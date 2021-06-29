@@ -6,9 +6,10 @@ import customMedia from "../../style/customMedia";
 
 type Props = {
     setIs_authenticated: (param: boolean) => void;
+    userID: number | undefined;
 };
 
-const Header: React.VFC<Props> = ({ setIs_authenticated }: Props) => {
+const Header: React.VFC<Props> = ({ setIs_authenticated, userID }: Props) => {
     const logout = async () => {
         await axios
             .post("/logout")
@@ -37,7 +38,8 @@ const Header: React.VFC<Props> = ({ setIs_authenticated }: Props) => {
                     <_Title>Todo</_Title>
                 </_TapableRange>
             </Link>
-            <_Logout onClick={logout}>ログアウト</_Logout>
+            {userID? <_Logout onClick={logout}>ログアウト</_Logout>:null}
+            
         </_Header>
     );
 };
