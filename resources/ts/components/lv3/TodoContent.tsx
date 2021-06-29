@@ -8,10 +8,9 @@ import customMedia from "../../style/customMedia";
 
 type Props = {
     userID: string;
-    setUserID: (param: string) => void;
 };
 
-const TodoContent: React.VFC<Props> = ({ userID, setUserID }: Props) => {
+const TodoContent: React.VFC<Props> = ({ userID}: Props) => {
     const [tasks, setTasks] = useState<any>([]);
     const [change, setChange] = useState(0); //render走らせる用
     const [tasksEditActive, setTasksEditActive] = useState(false);
@@ -38,7 +37,6 @@ const TodoContent: React.VFC<Props> = ({ userID, setUserID }: Props) => {
         try {
             tasks.unshift(res.data);
             setChange(change + 1);
-            // setTasks([...tasks, res.data]);
         } catch (err) {
             console.log(err);
         }

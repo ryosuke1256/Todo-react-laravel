@@ -8,7 +8,6 @@ type Props = {
 };
 
 const ColoredTags: React.VFC<Props> = ({ selected_color }: Props) => {
-    //prettier-ignore
     if (selected_color.red === false &&selected_color.blue === false &&selected_color.yellow === false &&selected_color.green === false
         || selected_color.red === undefined &&selected_color.blue === undefined &&selected_color.yellow === undefined &&selected_color.green === undefined) {
         return <div>＋</div>;
@@ -16,31 +15,19 @@ const ColoredTags: React.VFC<Props> = ({ selected_color }: Props) => {
         return (
             <_ColoredTags>
                 <ColoredTag
-                    red={selected_color.red}
-                    blue={selected_color.blue}
-                    yellow={selected_color.yellow}
-                    green={selected_color.green}
+                    selected_color={selected_color}
                     i={0}
                 />
                 <ColoredTag
-                    red={selected_color.red}
-                    blue={selected_color.blue}
-                    yellow={selected_color.yellow}
-                    green={selected_color.green}
+                    selected_color={selected_color}
                     i={1}
                 />
                 <ColoredTag
-                    red={selected_color.red}
-                    blue={selected_color.blue}
-                    yellow={selected_color.yellow}
-                    green={selected_color.green}
+                    selected_color={selected_color}
                     i={2}
                 />
                 <ColoredTag
-                    red={selected_color.red}
-                    blue={selected_color.blue}
-                    yellow={selected_color.yellow}
-                    green={selected_color.green}
+                    selected_color={selected_color}
                     i={3}
                 />
             </_ColoredTags>

@@ -2947,8 +2947,7 @@ var App = function App() {
     if (is_began) {
       if (is_authenticated) {
         return react_1["default"].createElement(_index_1.TodoContent, {
-          userID: userID,
-          setUserID: setUserID
+          userID: userID
         });
       } else if (is_authenticated === false) {
         return react_1["default"].createElement(_index_1.TopPageContent, null);
@@ -3079,27 +3078,24 @@ var styled_components_1 = __importDefault(__webpack_require__(/*! styled-compone
 
 
 var ColoredTag = function ColoredTag(_a) {
-  var red = _a.red,
-      blue = _a.blue,
-      yellow = _a.yellow,
-      green = _a.green,
+  var selected_color = _a.selected_color,
       i = _a.i;
 
   if (i === 0) {
-    return red ? react_1["default"].createElement(_TagColor, {
-      red: red
+    return selected_color.red ? react_1["default"].createElement(_TagColor, {
+      red: selected_color.red
     }) : null;
   } else if (i === 1) {
-    return blue ? react_1["default"].createElement(_TagColor, {
-      blue: blue
+    return selected_color.blue ? react_1["default"].createElement(_TagColor, {
+      blue: selected_color.blue
     }) : null;
   } else if (i === 2) {
-    return yellow ? react_1["default"].createElement(_TagColor, {
-      yellow: yellow
+    return selected_color.yellow ? react_1["default"].createElement(_TagColor, {
+      yellow: selected_color.yellow
     }) : null;
   } else if (i === 3) {
-    return green ? react_1["default"].createElement(_TagColor, {
-      green: green
+    return selected_color.green ? react_1["default"].createElement(_TagColor, {
+      green: selected_color.green
     }) : null;
   } else {
     return null;
@@ -3588,34 +3584,22 @@ var ColoredTag_1 = __importDefault(__webpack_require__(/*! ../lv1/ColoredTag */ 
 var styled_components_1 = __importDefault(__webpack_require__(/*! styled-components */ "./node_modules/styled-components/dist/styled-components.browser.esm.js"));
 
 var ColoredTags = function ColoredTags(_a) {
-  var selected_color = _a.selected_color; //prettier-ignore
+  var selected_color = _a.selected_color;
 
   if (selected_color.red === false && selected_color.blue === false && selected_color.yellow === false && selected_color.green === false || selected_color.red === undefined && selected_color.blue === undefined && selected_color.yellow === undefined && selected_color.green === undefined) {
     return react_1["default"].createElement("div", null, "\uFF0B");
   } else {
     return react_1["default"].createElement(_ColoredTags, null, react_1["default"].createElement(ColoredTag_1["default"], {
-      red: selected_color.red,
-      blue: selected_color.blue,
-      yellow: selected_color.yellow,
-      green: selected_color.green,
+      selected_color: selected_color,
       i: 0
     }), react_1["default"].createElement(ColoredTag_1["default"], {
-      red: selected_color.red,
-      blue: selected_color.blue,
-      yellow: selected_color.yellow,
-      green: selected_color.green,
+      selected_color: selected_color,
       i: 1
     }), react_1["default"].createElement(ColoredTag_1["default"], {
-      red: selected_color.red,
-      blue: selected_color.blue,
-      yellow: selected_color.yellow,
-      green: selected_color.green,
+      selected_color: selected_color,
       i: 2
     }), react_1["default"].createElement(ColoredTag_1["default"], {
-      red: selected_color.red,
-      blue: selected_color.blue,
-      yellow: selected_color.yellow,
-      green: selected_color.green,
+      selected_color: selected_color,
       i: 3
     }));
   }
@@ -3823,7 +3807,7 @@ var Header = function Header(_a) {
           case 0:
             return [4
             /*yield*/
-            , axios_1["default"].post("/logout").then(function (res) {
+            , axios_1["default"].post("/logout").then(function () {
               setIs_authenticated(false);
             })["catch"](function (err) {
               console.log(err);
@@ -4184,10 +4168,12 @@ var TaskCard = function TaskCard(_a) {
                 yellow: res.data.checked_yellow,
                 green: res.data.checked_green
               });
-              task.red = res.data.checked_red;
-              task.blue = res.data.checked_blue;
-              task.yellow = res.data.checked_yellow;
-              task.green = res.data.checked_green;
+              task = {
+                red: res.data.checked_red,
+                blue: res.data.checked_blue,
+                yellow: res.data.checked_yellow,
+                green: res.data.checked_green
+              };
             } catch (err) {
               console.log(err);
             }
@@ -4216,9 +4202,7 @@ var TaskCard = function TaskCard(_a) {
             try {
               setTasks(tasks.filter(function (task) {
                 return task.id !== res.data.id;
-              })); // tasks.splice(i, 1);
-              // setTasks(tasks);
-              // setChange(change + 1);
+              }));
             } catch (err) {
               console.log(err);
             }
@@ -4245,7 +4229,6 @@ var TaskCard = function TaskCard(_a) {
             return [4
             /*yield*/
             , axios_1["default"].patch("api/tasks/" + id, data).then(function () {
-              //tasksのis_doneも変更しないといけない
               tasks[i].is_done = is_done;
               setIs_done(is_done);
             })["catch"](function (err) {
@@ -4462,6 +4445,22 @@ var templateObject_1;
 
 "use strict";
 
+
+var __assign = this && this.__assign || function () {
+  __assign = Object.assign || function (t) {
+    for (var s, i = 1, n = arguments.length; i < n; i++) {
+      s = arguments[i];
+
+      for (var p in s) {
+        if (Object.prototype.hasOwnProperty.call(s, p)) t[p] = s[p];
+      }
+    }
+
+    return t;
+  };
+
+  return __assign.apply(this, arguments);
+};
 
 var __createBinding = this && this.__createBinding || (Object.create ? function (o, m, k, k2) {
   if (k2 === undefined) k2 = k;
@@ -4741,18 +4740,18 @@ var LoginContent = function LoginContent(_a) {
     });
   };
 
-  var handleChangeEmail = function handleChangeEmail(e) {
-    setLoginData({
-      email: e.target.value,
-      password: loginData.password
-    });
-  };
-
-  var handleChangePassword = function handleChangePassword(e) {
-    setLoginData({
-      email: loginData.email,
-      password: e.target.value
-    });
+  var handleChange = function handleChange(e, title) {
+    if (title = 'email') {
+      setLoginData(__assign(__assign({}, loginData), {
+        email: e.target.value
+      }));
+    } else if (title = 'password') {
+      setLoginData(__assign(__assign({}, loginData), {
+        password: e.target.value
+      }));
+    } else {
+      return null;
+    }
   };
 
   return react_1["default"].createElement("div", {
@@ -4773,7 +4772,7 @@ var LoginContent = function LoginContent(_a) {
     className: "border rounded-lg px-3 py-2 mt-1 mb-5 text-sm w-full",
     value: loginData.email,
     onChange: function onChange(e) {
-      return handleChangeEmail(e);
+      return handleChange(e, 'email');
     }
   }), react_1["default"].createElement("label", {
     className: "font-semibold text-sm text-gray-600 pb-1 block"
@@ -4784,7 +4783,7 @@ var LoginContent = function LoginContent(_a) {
     type: isRevealPassword ? "text" : "password",
     className: "border rounded-lg px-3 py-2 mt-1 mb-5 text-sm w-11/12",
     onChange: function onChange(e) {
-      return handleChangePassword(e);
+      return handleChange(e, 'password');
     }
   }), react_1["default"].createElement("span", {
     onClick: togglePassword
@@ -5538,8 +5537,7 @@ var styled_components_1 = __importDefault(__webpack_require__(/*! styled-compone
 var customMedia_1 = __importDefault(__webpack_require__(/*! ../../style/customMedia */ "./resources/ts/style/customMedia.tsx"));
 
 var TodoContent = function TodoContent(_a) {
-  var userID = _a.userID,
-      setUserID = _a.setUserID;
+  var userID = _a.userID;
 
   var _b = react_1.useState([]),
       tasks = _b[0],
@@ -5612,7 +5610,7 @@ var TodoContent = function TodoContent(_a) {
 
             try {
               tasks.unshift(res.data);
-              setChange(change + 1); // setTasks([...tasks, res.data]);
+              setChange(change + 1);
             } catch (err) {
               console.log(err);
             }
@@ -5782,6 +5780,22 @@ var __makeTemplateObject = this && this.__makeTemplateObject || function (cooked
   return cooked;
 };
 
+var __assign = this && this.__assign || function () {
+  __assign = Object.assign || function (t) {
+    for (var s, i = 1, n = arguments.length; i < n; i++) {
+      s = arguments[i];
+
+      for (var p in s) {
+        if (Object.prototype.hasOwnProperty.call(s, p)) t[p] = s[p];
+      }
+    }
+
+    return t;
+  };
+
+  return __assign.apply(this, arguments);
+};
+
 var __createBinding = this && this.__createBinding || (Object.create ? function (o, m, k, k2) {
   if (k2 === undefined) k2 = k;
   Object.defineProperty(o, k2, {
@@ -5830,8 +5844,7 @@ var react_1 = __importStar(__webpack_require__(/*! react */ "./node_modules/reac
 
 var styled_components_1 = __importDefault(__webpack_require__(/*! styled-components */ "./node_modules/styled-components/dist/styled-components.browser.esm.js"));
 
-var CheckMark_1 = __webpack_require__(/*! ./CheckMark */ "./resources/ts/components/modal/lv1/CheckMark.tsx"); //prettier-ignore
-
+var CheckMark_1 = __webpack_require__(/*! ./CheckMark */ "./resources/ts/components/modal/lv1/CheckMark.tsx");
 
 var TagColorModal = function TagColorModal(_a) {
   var backgroundColor = _a.backgroundColor,
@@ -5851,33 +5864,21 @@ var TagColorModal = function TagColorModal(_a) {
       });
 
       if (i === 0) {
-        setSelected_color({
-          red: !selected_color.red,
-          blue: selected_color.blue,
-          yellow: selected_color.yellow,
-          green: selected_color.green
-        });
+        setSelected_color(__assign(__assign({}, selected_color), {
+          red: !selected_color.red
+        }));
       } else if (i === 1) {
-        setSelected_color({
-          red: selected_color.red,
-          blue: !selected_color.blue,
-          yellow: selected_color.yellow,
-          green: selected_color.green
-        });
+        setSelected_color(__assign(__assign({}, selected_color), {
+          blue: !selected_color.blue
+        }));
       } else if (i === 2) {
-        setSelected_color({
-          red: selected_color.red,
-          blue: selected_color.blue,
-          yellow: !selected_color.yellow,
-          green: selected_color.green
-        });
+        setSelected_color(__assign(__assign({}, selected_color), {
+          yellow: !selected_color.yellow
+        }));
       } else if (i === 3) {
-        setSelected_color({
-          red: selected_color.red,
-          blue: selected_color.blue,
-          yellow: selected_color.yellow,
+        setSelected_color(__assign(__assign({}, selected_color), {
           green: !selected_color.green
-        });
+        }));
       }
     },
     is_selected: is_selected,
@@ -5914,6 +5915,22 @@ var __makeTemplateObject = this && this.__makeTemplateObject || function (cooked
   }
 
   return cooked;
+};
+
+var __assign = this && this.__assign || function () {
+  __assign = Object.assign || function (t) {
+    for (var s, i = 1, n = arguments.length; i < n; i++) {
+      s = arguments[i];
+
+      for (var p in s) {
+        if (Object.prototype.hasOwnProperty.call(s, p)) t[p] = s[p];
+      }
+    }
+
+    return t;
+  };
+
+  return __assign.apply(this, arguments);
 };
 
 var __awaiter = this && this.__awaiter || function (thisArg, _arguments, P, generator) {
@@ -6114,11 +6131,13 @@ var Modal = function Modal(_a) {
 
             try {
               setTagID(res.data.id);
-              task.red = res.data.checked_red;
-              task.blue = res.data.checked_blue;
-              task.yellow = res.data.checked_yellow;
-              task.green = res.data.checked_green;
               setHasDonePostTag(true);
+              task = __assign(__assign({}, task), {
+                red: res.data.checked_red,
+                blue: res.data.checked_blue,
+                yellow: res.data.checked_yellow,
+                green: res.data.checked_green
+              });
             } catch (err) {
               console.log(err);
             }
@@ -6152,10 +6171,12 @@ var Modal = function Modal(_a) {
             res = _a.sent();
 
             try {
-              task.red = res.data.checked_red;
-              task.blue = res.data.checked_blue;
-              task.yellow = res.data.checked_yellow;
-              task.green = res.data.checked_green;
+              task = __assign(__assign({}, task), {
+                red: res.data.checked_red,
+                blue: res.data.checked_blue,
+                yellow: res.data.checked_yellow,
+                green: res.data.checked_green
+              });
             } catch (err) {
               console.log(err);
             }

@@ -1,24 +1,22 @@
 import React from "react";
 import styled from "styled-components";
+import { Color } from "../../type/Color";
 
 type Props = {
-    red: boolean;
-    blue: boolean;
-    yellow: boolean;
-    green: boolean;
+    selected_color: Color;
     i: 0 | 1 | 2 | 3;
 };
 
 //prettier-ignore
-const ColoredTag: React.VFC<Props> = ({ red, blue, yellow, green, i }: Props) => {
+const ColoredTag: React.VFC<Props> = ({ selected_color, i }: Props) => {
     if (i === 0) {
-        return red ? <_TagColor red={red} /> : null;
+        return selected_color.red ? <_TagColor red={selected_color.red} /> : null;
     } else if (i === 1) {
-        return blue ? <_TagColor blue={blue} /> : null;
+        return selected_color.blue ? <_TagColor blue={selected_color.blue} /> : null;
     } else if (i === 2) {
-        return yellow ? <_TagColor yellow={yellow} /> : null;
+        return selected_color.yellow ? <_TagColor yellow={selected_color.yellow} /> : null;
     } else if (i === 3) {
-        return green ? <_TagColor green={green} /> : null;
+        return selected_color.green ? <_TagColor green={selected_color.green} /> : null;
     } else {
         return null;
     }
