@@ -2903,9 +2903,13 @@ var App = function App() {
       userID = _b[0],
       setUserID = _b[1];
 
-  var _c = react_1.useState(false),
-      is_began = _c[0],
-      setIs_began = _c[1];
+  var _c = react_1.useState(''),
+      userName = _c[0],
+      setUserName = _c[1];
+
+  var _d = react_1.useState(false),
+      is_began = _d[0],
+      setIs_began = _d[1];
 
   react_1.useEffect(function () {
     getUser();
@@ -2920,13 +2924,14 @@ var App = function App() {
             /*yield*/
             , axios_1["default"].get("api/users").then(function (res) {
               if (res.data) {
+                setUserName(res.data.name);
                 setIs_authenticated(true);
               } else {
                 setIs_authenticated(false);
               }
 
               setIs_began(true);
-              setUserID(res.data);
+              setUserID(res.data.id);
             })["catch"](function (err) {
               console.log(err);
               setIs_began(true);
@@ -2962,7 +2967,8 @@ var App = function App() {
   return react_1["default"].createElement(react_1["default"].Fragment, null, react_1["default"].createElement(react_router_dom_1.BrowserRouter, null, react_1["default"].createElement(Header_1["default"], {
     setIs_authenticated: setIs_authenticated,
     is_authenticated: is_authenticated,
-    setUserID: setUserID
+    setUserID: setUserID,
+    userName: userName
   }), react_1["default"].createElement(react_router_dom_1.Switch, null, react_1["default"].createElement(react_router_dom_1.Route, {
     path: "/register"
   }, react_1["default"].createElement(_index_1.RegisterContent, {
@@ -3668,6 +3674,40 @@ var __makeTemplateObject = this && this.__makeTemplateObject || function (cooked
   return cooked;
 };
 
+var __createBinding = this && this.__createBinding || (Object.create ? function (o, m, k, k2) {
+  if (k2 === undefined) k2 = k;
+  Object.defineProperty(o, k2, {
+    enumerable: true,
+    get: function get() {
+      return m[k];
+    }
+  });
+} : function (o, m, k, k2) {
+  if (k2 === undefined) k2 = k;
+  o[k2] = m[k];
+});
+
+var __setModuleDefault = this && this.__setModuleDefault || (Object.create ? function (o, v) {
+  Object.defineProperty(o, "default", {
+    enumerable: true,
+    value: v
+  });
+} : function (o, v) {
+  o["default"] = v;
+});
+
+var __importStar = this && this.__importStar || function (mod) {
+  if (mod && mod.__esModule) return mod;
+  var result = {};
+  if (mod != null) for (var k in mod) {
+    if (k !== "default" && Object.prototype.hasOwnProperty.call(mod, k)) __createBinding(result, mod, k);
+  }
+
+  __setModuleDefault(result, mod);
+
+  return result;
+};
+
 var __awaiter = this && this.__awaiter || function (thisArg, _arguments, P, generator) {
   function adopt(value) {
     return value instanceof P ? value : new P(function (resolve) {
@@ -3821,7 +3861,7 @@ Object.defineProperty(exports, "__esModule", ({
   value: true
 }));
 
-var react_1 = __importDefault(__webpack_require__(/*! react */ "./node_modules/react/index.js"));
+var react_1 = __importStar(__webpack_require__(/*! react */ "./node_modules/react/index.js"));
 
 var styled_components_1 = __importDefault(__webpack_require__(/*! styled-components */ "./node_modules/styled-components/dist/styled-components.browser.esm.js"));
 
@@ -3834,7 +3874,12 @@ var customMedia_1 = __importDefault(__webpack_require__(/*! ../../style/customMe
 var Header = function Header(_a) {
   var setIs_authenticated = _a.setIs_authenticated,
       setUserID = _a.setUserID,
-      is_authenticated = _a.is_authenticated;
+      is_authenticated = _a.is_authenticated,
+      userName = _a.userName;
+
+  var _b = react_1.useState(false),
+      is_show = _b[0],
+      setIs_show = _b[1];
 
   var logout = function logout() {
     return __awaiter(void 0, void 0, void 0, function () {
@@ -3846,6 +3891,7 @@ var Header = function Header(_a) {
             , axios_1["default"].post("/logout").then(function () {
               setIs_authenticated(false);
               setUserID(null);
+              setIs_show(false);
             })["catch"](function (err) {
               console.log(err);
             })];
@@ -3876,9 +3922,16 @@ var Header = function Header(_a) {
       display: "inline-block",
       paddingBottom: "8px"
     }
-  }), react_1["default"].createElement(_Title, null, "Todo"))), is_authenticated ? react_1["default"].createElement(_Logout, {
+  }), react_1["default"].createElement(_Title, null, "Todo"))), is_authenticated ? react_1["default"].createElement(_userName, {
+    onClick: function onClick(e) {
+      e.preventDefault();
+      setIs_show(function (prevState) {
+        return !prevState;
+      });
+    }
+  }, userName, "\u25BC", is_show ? react_1["default"].createElement(_List, {
     onClick: logout
-  }, "\u30ED\u30B0\u30A2\u30A6\u30C8") : null);
+  }, react_1["default"].createElement(_Logout, null, "\u30ED\u30B0\u30A2\u30A6\u30C8")) : null) : null);
 };
 
 exports.default = Header;
@@ -3889,9 +3942,13 @@ var _TapableRange = styled_components_1["default"].div(templateObject_5 || (temp
 
 var _Title = styled_components_1["default"].div(templateObject_6 || (templateObject_6 = __makeTemplateObject(["\n    display: inline-block;\n    color: #212529;\n    padding: 0.45rem 1rem;\n    font-size: 1.3rem;\n"], ["\n    display: inline-block;\n    color: #212529;\n    padding: 0.45rem 1rem;\n    font-size: 1.3rem;\n"])));
 
-var _Logout = styled_components_1["default"].div(templateObject_7 || (templateObject_7 = __makeTemplateObject(["\n    color: #5fb7ff;\n    line-height: 52px;\n    cursor: pointer;\n"], ["\n    color: #5fb7ff;\n    line-height: 52px;\n    cursor: pointer;\n"])));
+var _userName = styled_components_1["default"].div(templateObject_7 || (templateObject_7 = __makeTemplateObject(["\n    line-height: 44px;\n    color:#00000080;\n    cursor:pointer;\n"], ["\n    line-height: 44px;\n    color:#00000080;\n    cursor:pointer;\n"])));
 
-var templateObject_1, templateObject_2, templateObject_3, templateObject_4, templateObject_5, templateObject_6, templateObject_7;
+var _List = styled_components_1["default"].div(templateObject_8 || (templateObject_8 = __makeTemplateObject(["\n    display: table;\n    text-align: center;\n    position: absolute;\n    top:50px;\n    right:100px;\n    height:50px;\n    width:150px;\n    background-color: white;\n    border:1px solid #bbbbbb;\n    border-radius: 4px;\n    color: #5c5c5c;\n    cursor: pointer;\n"], ["\n    display: table;\n    text-align: center;\n    position: absolute;\n    top:50px;\n    right:100px;\n    height:50px;\n    width:150px;\n    background-color: white;\n    border:1px solid #bbbbbb;\n    border-radius: 4px;\n    color: #5c5c5c;\n    cursor: pointer;\n"])));
+
+var _Logout = styled_components_1["default"].div(templateObject_9 || (templateObject_9 = __makeTemplateObject(["\n    display: table-cell;\n    vertical-align: middle;\n"], ["\n    display: table-cell;\n    vertical-align: middle;\n"])));
+
+var templateObject_1, templateObject_2, templateObject_3, templateObject_4, templateObject_5, templateObject_6, templateObject_7, templateObject_8, templateObject_9;
 
 /***/ }),
 
