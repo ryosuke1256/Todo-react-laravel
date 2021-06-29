@@ -108,4 +108,7 @@ const _List = styled.div`
 const _Logout = styled.div`
     display: table-cell;
     vertical-align: middle;
+    &:hover {
+        opacity: 0.6;
+    }
 `;

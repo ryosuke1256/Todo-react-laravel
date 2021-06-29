@@ -3948,7 +3948,7 @@ var _userName = styled_components_1["default"].div(templateObject_7 || (template
 
 var _List = styled_components_1["default"].div(templateObject_8 || (templateObject_8 = __makeTemplateObject(["\n    display: table;\n    text-align: center;\n    position: absolute;\n    top:50px;\n    right:100px;\n    height:50px;\n    width:150px;\n    background-color: white;\n    border:1px solid #bbbbbb;\n    border-radius: 4px;\n    color: #5c5c5c;\n    cursor: pointer;\n"], ["\n    display: table;\n    text-align: center;\n    position: absolute;\n    top:50px;\n    right:100px;\n    height:50px;\n    width:150px;\n    background-color: white;\n    border:1px solid #bbbbbb;\n    border-radius: 4px;\n    color: #5c5c5c;\n    cursor: pointer;\n"])));
 
-var _Logout = styled_components_1["default"].div(templateObject_9 || (templateObject_9 = __makeTemplateObject(["\n    display: table-cell;\n    vertical-align: middle;\n"], ["\n    display: table-cell;\n    vertical-align: middle;\n"])));
+var _Logout = styled_components_1["default"].div(templateObject_9 || (templateObject_9 = __makeTemplateObject(["\n    display: table-cell;\n    vertical-align: middle;\n    &:hover {\n        opacity: 0.6;\n    }\n"], ["\n    display: table-cell;\n    vertical-align: middle;\n    &:hover {\n        opacity: 0.6;\n    }\n"])));
 
 var templateObject_1, templateObject_2, templateObject_3, templateObject_4, templateObject_5, templateObject_6, templateObject_7, templateObject_8, templateObject_9;
 
