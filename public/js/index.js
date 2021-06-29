@@ -3609,7 +3609,7 @@ var ColoredTags = function ColoredTags(_a) {
 
 exports.default = ColoredTags;
 
-var _ColoredTags = styled_components_1["default"].div(templateObject_1 || (templateObject_1 = __makeTemplateObject(["\n    display: flex;\n    height: 10px;\n"], ["\n    display: flex;\n    height: 10px;\n"])));
+var _ColoredTags = styled_components_1["default"].div(templateObject_1 || (templateObject_1 = __makeTemplateObject(["\n    display: flex;\n    flex-wrap:wrap;\n    height: 10px;\n"], ["\n    display: flex;\n    flex-wrap:wrap;\n    height: 10px;\n"])));
 
 var templateObject_1;
 
@@ -3851,7 +3851,7 @@ var Header = function Header(_a) {
 
 exports.default = Header;
 
-var _Header = styled_components_1["default"].div(templateObject_4 || (templateObject_4 = __makeTemplateObject(["\n    display: flex;\n    position: fixed;\n    z-index: 1000;\n    height: 60px;\n    width: 100vw;\n    padding: 8px 120px;\n    background-color: #fff;\n    box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075);\n    ", "\n    ", "\n    ", "\n"], ["\n    display: flex;\n    position: fixed;\n    z-index: 1000;\n    height: 60px;\n    width: 100vw;\n    padding: 8px 120px;\n    background-color: #fff;\n    box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075);\n    ", "\n    ", "\n    ", "\n"])), customMedia_1["default"].lessThan("mobile")(templateObject_1 || (templateObject_1 = __makeTemplateObject(["\n        padding: 8px 60px;\n    "], ["\n        padding: 8px 60px;\n    "]))), customMedia_1["default"].between("mobile", "tablet")(templateObject_2 || (templateObject_2 = __makeTemplateObject(["\n        padding: 8px 80px;\n\n    "], ["\n        padding: 8px 80px;\n\n    "]))), customMedia_1["default"].greaterThan("tablet")(templateObject_3 || (templateObject_3 = __makeTemplateObject(["\n    \n    "], ["\n    \n    "]))));
+var _Header = styled_components_1["default"].div(templateObject_4 || (templateObject_4 = __makeTemplateObject(["\n    display: flex;\n    position: fixed;\n    z-index: 1000;\n    height: 60px;\n    width: 100vw;\n    padding: 8px 120px;\n    background-color: #fff;\n    box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075);\n    ", "\n    ", "\n    ", "\n"], ["\n    display: flex;\n    position: fixed;\n    z-index: 1000;\n    height: 60px;\n    width: 100vw;\n    padding: 8px 120px;\n    background-color: #fff;\n    box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075);\n    ", "\n    ", "\n    ", "\n"])), customMedia_1["default"].lessThan("mobile")(templateObject_1 || (templateObject_1 = __makeTemplateObject(["\n        padding: 8px 40px;\n    "], ["\n        padding: 8px 40px;\n    "]))), customMedia_1["default"].between("mobile", "tablet")(templateObject_2 || (templateObject_2 = __makeTemplateObject(["\n        padding: 8px 80px;\n\n    "], ["\n        padding: 8px 80px;\n\n    "]))), customMedia_1["default"].greaterThan("tablet")(templateObject_3 || (templateObject_3 = __makeTemplateObject(["\n    \n    "], ["\n    \n    "]))));
 
 var _TapableRange = styled_components_1["default"].div(templateObject_5 || (templateObject_5 = __makeTemplateObject([""], [""])));
 
@@ -5897,7 +5897,7 @@ var TagColorModal = function TagColorModal(_a) {
 
 exports.default = TagColorModal;
 
-var _TagColor = styled_components_1["default"].div(templateObject_1 || (templateObject_1 = __makeTemplateObject(["\n    height: 20px;\n    width: 80px;\n    margin-top: 30px;\n    margin-right: 30px;\n    background-color: ", ";\n    border-radius: 30px;\n"], ["\n    height: 20px;\n    width: 80px;\n    margin-top: 30px;\n    margin-right: 30px;\n    background-color: ", ";\n    border-radius: 30px;\n"])), function (props) {
+var _TagColor = styled_components_1["default"].div(templateObject_1 || (templateObject_1 = __makeTemplateObject(["\n    height: 20px;\n    width: 80px;\n    margin-top: 30px;\n    margin-right: 20px;\n    background-color: ", ";\n    border-radius: 30px;\n"], ["\n    height: 20px;\n    width: 80px;\n    margin-top: 30px;\n    margin-right: 20px;\n    background-color: ", ";\n    border-radius: 30px;\n"])), function (props) {
   return props.backgroundColor;
 });
 
@@ -6200,7 +6200,8 @@ var Modal = function Modal(_a) {
 
   return react_1["default"].createElement(_BlackBackground, null, react_1["default"].createElement(_Modal, null, react_1["default"].createElement("div", {
     style: {
-      fontSize: "1.3rem"
+      fontSize: "1.3rem",
+      display: "inline-block"
     }
   }, "\u30BF\u30B0\u306E\u8272\u3092\u9078\u629E\u3059\u308B"), react_1["default"].createElement(_TagColors, null, react_1["default"].createElement(ColoredTag_Modal_1["default"], {
     backgroundColor: "rgba(255, 65, 51)",
@@ -6249,9 +6250,9 @@ exports.default = Modal;
 
 var _BlackBackground = styled_components_1["default"].div(templateObject_1 || (templateObject_1 = __makeTemplateObject(["\n    position: fixed;\n    left: 0;\n    top: 0;\n    width: 100%;\n    height: 100%;\n    background-color: rgba(116, 116, 116, 0.74);\n    z-index: 500;\n    cursor: pointer;\n"], ["\n    position: fixed;\n    left: 0;\n    top: 0;\n    width: 100%;\n    height: 100%;\n    background-color: rgba(116, 116, 116, 0.74);\n    z-index: 500;\n    cursor: pointer;\n"])));
 
-var _Modal = styled_components_1["default"].div(templateObject_5 || (templateObject_5 = __makeTemplateObject(["\n    position: fixed;\n    left: 50%;\n    top: 50%;\n    transform: translate(-50%, -50%);\n    height: 500px;\n    width: 500px;\n    padding: 50px;\n    background-color: #fff;\n    z-index: 1000;\n    border-radius: 30px;\n    ", "\n    ", "\n    ", "\n"], ["\n    position: fixed;\n    left: 50%;\n    top: 50%;\n    transform: translate(-50%, -50%);\n    height: 500px;\n    width: 500px;\n    padding: 50px;\n    background-color: #fff;\n    z-index: 1000;\n    border-radius: 30px;\n    ", "\n    ", "\n    ", "\n"])), customMedia_1["default"].lessThan("mobile")(templateObject_2 || (templateObject_2 = __makeTemplateObject(["\n        height:60vh;\n        width:95vw;\n    "], ["\n        height:60vh;\n        width:95vw;\n    "]))), customMedia_1["default"].between("mobile", "tablet")(templateObject_3 || (templateObject_3 = __makeTemplateObject(["\n        height:60vh;\n        width:80vw;\n    "], ["\n        height:60vh;\n        width:80vw;\n    "]))), customMedia_1["default"].greaterThan("tablet")(templateObject_4 || (templateObject_4 = __makeTemplateObject(["\n    \n    "], ["\n    \n    "]))));
+var _Modal = styled_components_1["default"].div(templateObject_5 || (templateObject_5 = __makeTemplateObject(["\n    position: fixed;\n    left: 50%;\n    top: 50%;\n    transform: translate(-50%, -50%);\n    height: 500px;\n    width: 500px;\n    max-height:500px;\n    max-width:500px;\n    padding: 50px;\n    background-color: #fff;\n    z-index: 1000;\n    border-radius: 30px;\n    text-align: center;\n    ", "\n    ", "\n    ", "\n"], ["\n    position: fixed;\n    left: 50%;\n    top: 50%;\n    transform: translate(-50%, -50%);\n    height: 500px;\n    width: 500px;\n    max-height:500px;\n    max-width:500px;\n    padding: 50px;\n    background-color: #fff;\n    z-index: 1000;\n    border-radius: 30px;\n    text-align: center;\n    ", "\n    ", "\n    ", "\n"])), customMedia_1["default"].lessThan("mobile")(templateObject_2 || (templateObject_2 = __makeTemplateObject(["\n        height:70vh;\n        width:95vw;\n        padding: 40px;\n    "], ["\n        height:70vh;\n        width:95vw;\n        padding: 40px;\n    "]))), customMedia_1["default"].between("mobile", "tablet")(templateObject_3 || (templateObject_3 = __makeTemplateObject(["\n        height:70vh;\n        width:83vw;\n    "], ["\n        height:70vh;\n        width:83vw;\n    "]))), customMedia_1["default"].greaterThan("tablet")(templateObject_4 || (templateObject_4 = __makeTemplateObject(["\n    \n    "], ["\n    \n    "]))));
 
-var _TagColors = styled_components_1["default"].div(templateObject_6 || (templateObject_6 = __makeTemplateObject(["\n    display: flex;\n    flex-wrap: wrap;\n"], ["\n    display: flex;\n    flex-wrap: wrap;\n"])));
+var _TagColors = styled_components_1["default"].div(templateObject_6 || (templateObject_6 = __makeTemplateObject(["\n    display: flex;\n    flex-wrap: wrap;\n    justify-content:space-between;\n"], ["\n    display: flex;\n    flex-wrap: wrap;\n    justify-content:space-between;\n"])));
 
 var _CloseButton = styled_components_1["default"].div(templateObject_7 || (templateObject_7 = __makeTemplateObject(["\n    display: inline-block;\n    margin-top: 40px;\n    padding: 10px;\n    border-radius: 10px;\n    background-color: #d6d6d6;\n"], ["\n    display: inline-block;\n    margin-top: 40px;\n    padding: 10px;\n    border-radius: 10px;\n    background-color: #d6d6d6;\n"])));
 

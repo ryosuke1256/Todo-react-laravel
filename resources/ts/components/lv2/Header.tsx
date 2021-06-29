@@ -57,7 +57,7 @@ const _Header = styled.div`
     background-color: #fff;
     box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075);
     ${customMedia.lessThan("mobile")`
-        padding: 8px 60px;
+        padding: 8px 40px;
     `}
     ${customMedia.between("mobile", "tablet")`
         padding: 8px 80px;

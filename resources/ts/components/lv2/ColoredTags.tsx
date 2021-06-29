@@ -39,5 +39,6 @@ export default ColoredTags;
 
 const _ColoredTags = styled.div`
     display: flex;
+    flex-wrap:wrap;
     height: 10px;
 `;
