@@ -4485,43 +4485,47 @@ var TaskCard = function TaskCard(_a) {
       id = _a.id,
       i = _a.i;
 
-  var _b = react_1.useState(task.title),
-      title = _b[0],
-      setTitle = _b[1];
+  var _b = react_1.useState(task),
+      todo = _b[0],
+      setTodo = _b[1];
 
-  var _c = react_1.useState(task.is_done),
-      is_done = _c[0],
-      setIs_done = _c[1];
+  var _c = react_1.useState(task.title),
+      title = _c[0],
+      setTitle = _c[1];
 
-  var _d = react_1.useState(false),
-      editActive = _d[0],
-      setEditActive = _d[1];
+  var _d = react_1.useState(task.is_done),
+      is_done = _d[0],
+      setIs_done = _d[1];
 
   var _e = react_1.useState(false),
-      hasModalOpened = _e[0],
-      setHasModalOpened = _e[1];
+      editActive = _e[0],
+      setEditActive = _e[1];
 
-  var _f = react_1.useState({
+  var _f = react_1.useState(false),
+      hasModalOpened = _f[0],
+      setHasModalOpened = _f[1];
+
+  var _g = react_1.useState({
     red: false,
     blue: false,
     yellow: false,
     green: false
   }),
-      selected_color = _f[0],
-      setSelected_color = _f[1]; //prettier-ignore
+      selected_color = _g[0],
+      setSelected_color = _g[1]; //prettier-ignore
 
 
-  var _g = react_1.useState(null),
-      tagID = _g[0],
-      setTagID = _g[1];
+  var _h = react_1.useState(null),
+      tagID = _h[0],
+      setTagID = _h[1];
 
-  var _h = react_1.useState(false),
-      hasDonePostTag = _h[0],
-      setHasDonePostTag = _h[1];
+  var _j = react_1.useState(false),
+      hasDonePostTag = _j[0],
+      setHasDonePostTag = _j[1];
 
-  var _j = react_1.useState("編集"),
-      editButtonTitle = _j[0],
-      setEditButtonTitle = _j[1];
+  var _k = react_1.useState("編集"),
+      editButtonTitle = _k[0],
+      setEditButtonTitle = _k[1];
 
   react_1.useEffect(function () {
     getTags();
@@ -6373,22 +6377,6 @@ var __makeTemplateObject = this && this.__makeTemplateObject || function (cooked
   return cooked;
 };
 
-var __assign = this && this.__assign || function () {
-  __assign = Object.assign || function (t) {
-    for (var s, i = 1, n = arguments.length; i < n; i++) {
-      s = arguments[i];
-
-      for (var p in s) {
-        if (Object.prototype.hasOwnProperty.call(s, p)) t[p] = s[p];
-      }
-    }
-
-    return t;
-  };
-
-  return __assign.apply(this, arguments);
-};
-
 var __awaiter = this && this.__awaiter || function (thisArg, _arguments, P, generator) {
   function adopt(value) {
     return value instanceof P ? value : new P(function (resolve) {
@@ -6626,12 +6614,10 @@ var Modal = function Modal(_a) {
             res = _a.sent();
 
             try {
-              task = __assign(__assign({}, task), {
-                red: res.data.checked_red,
-                blue: res.data.checked_blue,
-                yellow: res.data.checked_yellow,
-                green: res.data.checked_green
-              });
+              task.red = res.data.checked_red;
+              task.blue = res.data.checked_blue;
+              task.yellow = res.data.checked_yellow;
+              task.green = res.data.checked_green;
             } catch (err) {
               console.log(err);
             }
