@@ -2903,7 +2903,7 @@ var App = function App() {
       userID = _b[0],
       setUserID = _b[1];
 
-  var _c = react_1.useState(''),
+  var _c = react_1.useState(""),
       userName = _c[0],
       setUserName = _c[1];
 
@@ -2949,16 +2949,12 @@ var App = function App() {
   };
 
   var GetTopPageContent = function GetTopPageContent() {
-    if (is_began) {
-      if (is_authenticated) {
-        return react_1["default"].createElement(_index_1.TodoContent, {
-          userID: userID
-        });
-      } else if (is_authenticated === false) {
-        return react_1["default"].createElement(_index_1.TopPageContent, null);
-      } else {
-        return null;
-      }
+    if (is_began && is_authenticated) {
+      return react_1["default"].createElement(_index_1.TodoContent, {
+        userID: userID
+      });
+    } else if (is_began && !is_authenticated) {
+      return react_1["default"].createElement(_index_1.TopPageContent, null);
     } else {
       return null;
     }
@@ -3905,6 +3901,22 @@ var __makeTemplateObject = this && this.__makeTemplateObject || function (cooked
   return cooked;
 };
 
+var __assign = this && this.__assign || function () {
+  __assign = Object.assign || function (t) {
+    for (var s, i = 1, n = arguments.length; i < n; i++) {
+      s = arguments[i];
+
+      for (var p in s) {
+        if (Object.prototype.hasOwnProperty.call(s, p)) t[p] = s[p];
+      }
+    }
+
+    return t;
+  };
+
+  return __assign.apply(this, arguments);
+};
+
 var __importDefault = this && this.__importDefault || function (mod) {
   return mod && mod.__esModule ? mod : {
     "default": mod
@@ -3919,12 +3931,15 @@ var react_1 = __importDefault(__webpack_require__(/*! react */ "./node_modules/r
 
 var ColoredTag_1 = __importDefault(__webpack_require__(/*! ../lv1/ColoredTag */ "./resources/ts/components/lv1/ColoredTag.tsx"));
 
-var styled_components_1 = __importDefault(__webpack_require__(/*! styled-components */ "./node_modules/styled-components/dist/styled-components.browser.esm.js"));
+var styled_components_1 = __importDefault(__webpack_require__(/*! styled-components */ "./node_modules/styled-components/dist/styled-components.browser.esm.js")); //prettier-ignore
+
 
 var ColoredTags = function ColoredTags(_a) {
   var selected_color = _a.selected_color;
 
-  if (selected_color.red === false && selected_color.blue === false && selected_color.yellow === false && selected_color.green === false || selected_color.red === undefined && selected_color.blue === undefined && selected_color.yellow === undefined && selected_color.green === undefined) {
+  var obj = __assign({}, selected_color);
+
+  if (obj.red === false && obj.blue === false && obj.yellow === false && obj.green === false || obj.red === undefined && obj.blue === undefined && obj.yellow === undefined && obj.green === undefined) {
     return react_1["default"].createElement(_Add, null, "\uFF0B");
   } else {
     return react_1["default"].createElement(_ColoredTags, null, react_1["default"].createElement(ColoredTag_1["default"], {
@@ -4273,6 +4288,22 @@ var __makeTemplateObject = this && this.__makeTemplateObject || function (cooked
   return cooked;
 };
 
+var __assign = this && this.__assign || function () {
+  __assign = Object.assign || function (t) {
+    for (var s, i = 1, n = arguments.length; i < n; i++) {
+      s = arguments[i];
+
+      for (var p in s) {
+        if (Object.prototype.hasOwnProperty.call(s, p)) t[p] = s[p];
+      }
+    }
+
+    return t;
+  };
+
+  return __assign.apply(this, arguments);
+};
+
 var __createBinding = this && this.__createBinding || (Object.create ? function (o, m, k, k2) {
   if (k2 === undefined) k2 = k;
   Object.defineProperty(o, k2, {
@@ -4485,47 +4516,43 @@ var TaskCard = function TaskCard(_a) {
       id = _a.id,
       i = _a.i;
 
-  var _b = react_1.useState(task),
-      todo = _b[0],
-      setTodo = _b[1];
+  var _b = react_1.useState(task.title),
+      title = _b[0],
+      setTitle = _b[1];
 
-  var _c = react_1.useState(task.title),
-      title = _c[0],
-      setTitle = _c[1];
+  var _c = react_1.useState(task.is_done),
+      is_done = _c[0],
+      setIs_done = _c[1];
 
-  var _d = react_1.useState(task.is_done),
-      is_done = _d[0],
-      setIs_done = _d[1];
+  var _d = react_1.useState(false),
+      editActive = _d[0],
+      setEditActive = _d[1];
 
   var _e = react_1.useState(false),
-      editActive = _e[0],
-      setEditActive = _e[1];
+      hasModalOpened = _e[0],
+      setHasModalOpened = _e[1];
 
-  var _f = react_1.useState(false),
-      hasModalOpened = _f[0],
-      setHasModalOpened = _f[1];
-
-  var _g = react_1.useState({
+  var _f = react_1.useState({
     red: false,
     blue: false,
     yellow: false,
     green: false
   }),
-      selected_color = _g[0],
-      setSelected_color = _g[1]; //prettier-ignore
+      selected_color = _f[0],
+      setSelected_color = _f[1]; //prettier-ignore
 
 
-  var _h = react_1.useState(null),
-      tagID = _h[0],
-      setTagID = _h[1];
+  var _g = react_1.useState(null),
+      tagID = _g[0],
+      setTagID = _g[1];
 
-  var _j = react_1.useState(false),
-      hasDonePostTag = _j[0],
-      setHasDonePostTag = _j[1];
+  var _h = react_1.useState(false),
+      hasDonePostTag = _h[0],
+      setHasDonePostTag = _h[1];
 
-  var _k = react_1.useState("編集"),
-      editButtonTitle = _k[0],
-      setEditButtonTitle = _k[1];
+  var _j = react_1.useState("編集"),
+      editButtonTitle = _j[0],
+      setEditButtonTitle = _j[1];
 
   react_1.useEffect(function () {
     getTags();
@@ -4543,32 +4570,51 @@ var TaskCard = function TaskCard(_a) {
 
   var getTags = function getTags() {
     return __awaiter(void 0, void 0, void 0, function () {
-      var res;
+      var res, obj, obj;
       return __generator(this, function (_a) {
         switch (_a.label) {
           case 0:
             return [4
             /*yield*/
-            , axios_1["default"].get("api/tags/tasks/" + task.id)];
+            , axios_1["default"].get("api/tags/tasks/" + tasks[i].id)];
 
           case 1:
             res = _a.sent();
 
             try {
-              setTagID(res.data.id);
-              setSelected_color({
-                red: res.data.checked_red,
-                blue: res.data.checked_blue,
-                yellow: res.data.checked_yellow,
-                green: res.data.checked_green
-              });
-              task.red = res.data.checked_red;
-              task.blue = res.data.checked_blue;
-              task.yellow = res.data.checked_yellow;
-              task.green = res.data.checked_green;
-
-              if (res.data.id) {
-                setHasDonePostTag(true);
+              if (!(res.data.id === undefined)) {
+                obj = tasks;
+                obj.splice(i, 1, __assign(__assign({}, task), {
+                  hasDonePostTag: true,
+                  red: res.data.checked_red,
+                  blue: res.data.checked_blue,
+                  yellow: res.data.checked_yellow,
+                  green: res.data.checked_green
+                }));
+                setTasks(obj);
+                setTagID(res.data.id);
+                setSelected_color({
+                  red: res.data.checked_red,
+                  blue: res.data.checked_blue,
+                  yellow: res.data.checked_yellow,
+                  green: res.data.checked_green
+                });
+              } else {
+                obj = tasks;
+                obj.splice(i, 1, __assign(__assign({}, task), {
+                  red: res.data.checked_red,
+                  blue: res.data.checked_blue,
+                  yellow: res.data.checked_yellow,
+                  green: res.data.checked_green
+                }));
+                setTasks(obj);
+                setTagID(res.data.id);
+                setSelected_color({
+                  red: res.data.checked_red,
+                  blue: res.data.checked_blue,
+                  yellow: res.data.checked_yellow,
+                  green: res.data.checked_green
+                });
               }
             } catch (err) {
               console.log(err);
@@ -4655,6 +4701,7 @@ var TaskCard = function TaskCard(_a) {
             return [4
             /*yield*/
             , axios_1["default"].patch("api/tasks/" + id, data).then(function () {
+              tasks[i].title = title;
               setTitle(title);
             })["catch"](function (err) {
               console.log(err);
@@ -4710,9 +4757,10 @@ var TaskCard = function TaskCard(_a) {
     taskID: task.id,
     tagID: tagID,
     setTagID: setTagID,
+    tasks: tasks,
+    setTasks: setTasks,
     task: task,
-    hasDonePostTag: hasDonePostTag,
-    setHasDonePostTag: setHasDonePostTag
+    i: i
   }));
 };
 
@@ -5119,8 +5167,7 @@ var LoginContent = function LoginContent(_a) {
     password: ""
   }),
       loginData = _b[0],
-      setLoginData = _b[1]; //prettier-ignore
-
+      setLoginData = _b[1];
 
   var _c = react_1.useState(false),
       isRevealPassword = _c[0],
@@ -5192,11 +5239,11 @@ var LoginContent = function LoginContent(_a) {
   };
 
   var handleChange = function handleChange(e, title) {
-    if (title === 'email') {
+    if (title === "email") {
       setLoginData(__assign(__assign({}, loginData), {
         email: e.target.value
       }));
-    } else if (title === 'password') {
+    } else if (title === "password") {
       setLoginData(__assign(__assign({}, loginData), {
         password: e.target.value
       }));
@@ -5223,7 +5270,7 @@ var LoginContent = function LoginContent(_a) {
     className: "border rounded-lg px-3 py-2 mt-1 mb-5 text-sm w-full",
     value: loginData.email,
     onChange: function onChange(e) {
-      return handleChange(e, 'email');
+      return handleChange(e, "email");
     }
   }), react_1["default"].createElement("label", {
     className: "font-semibold text-sm text-gray-600 pb-1 block"
@@ -5234,7 +5281,7 @@ var LoginContent = function LoginContent(_a) {
     type: isRevealPassword ? "text" : "password",
     className: "border rounded-lg px-3 py-2 mt-1 mb-5 text-sm w-11/12",
     onChange: function onChange(e) {
-      return handleChange(e, 'password');
+      return handleChange(e, "password");
     }
   }), react_1["default"].createElement("span", {
     onClick: togglePassword
@@ -5996,8 +6043,7 @@ var TodoContent = function TodoContent(_a) {
 
   var _c = react_1.useState(0),
       change = _c[0],
-      setChange = _c[1]; //render走らせる用
-
+      setChange = _c[1];
 
   var _d = react_1.useState(false),
       tasksEditActive = _d[0],
@@ -6026,7 +6072,6 @@ var TodoContent = function TodoContent(_a) {
 
           case 1:
             Data = _a.sent();
-            console.log(Data);
 
             try {
               setTasks(Data.data.map(function (data) {
@@ -6050,7 +6095,7 @@ var TodoContent = function TodoContent(_a) {
 
   var postTask = function postTask(postData) {
     return __awaiter(void 0, void 0, void 0, function () {
-      var res;
+      var res, obj;
       return __generator(this, function (_a) {
         switch (_a.label) {
           case 0:
@@ -6065,7 +6110,9 @@ var TodoContent = function TodoContent(_a) {
             res = _a.sent();
 
             try {
-              tasks.unshift(res.data);
+              obj = tasks;
+              obj.unshift(res.data);
+              setTasks(obj);
               setChange(change + 1);
             } catch (err) {
               console.log(err);
@@ -6083,7 +6130,7 @@ var TodoContent = function TodoContent(_a) {
   return react_1["default"].createElement(react_1["default"].Fragment, null, react_1["default"].createElement(_Wrapper, null, react_1["default"].createElement(exports._TodoContent, null, react_1["default"].createElement(_index_1.TextForm, {
     postTask: postTask,
     userID: userID
-  }), tasks.length === 0 && is_began === true ? react_1["default"].createElement(_index_1.WelcomeContent, null) : react_1["default"].createElement(exports._TaskCards, null, tasks.map(function (task, key) {
+  }), tasks.length === 0 && is_began === true ? react_1["default"].createElement(_index_1.WelcomeContent, null) : react_1["default"].createElement(exports._TaskCards, null, console.log(tasks), tasks.map(function (task, key) {
     i++;
     return react_1["default"].createElement(_index_1.TaskCard, {
       task: task,
@@ -6377,6 +6424,22 @@ var __makeTemplateObject = this && this.__makeTemplateObject || function (cooked
   return cooked;
 };
 
+var __assign = this && this.__assign || function () {
+  __assign = Object.assign || function (t) {
+    for (var s, i = 1, n = arguments.length; i < n; i++) {
+      s = arguments[i];
+
+      for (var p in s) {
+        if (Object.prototype.hasOwnProperty.call(s, p)) t[p] = s[p];
+      }
+    }
+
+    return t;
+  };
+
+  return __assign.apply(this, arguments);
+};
+
 var __awaiter = this && this.__awaiter || function (thisArg, _arguments, P, generator) {
   function adopt(value) {
     return value instanceof P ? value : new P(function (resolve) {
@@ -6547,40 +6610,44 @@ var Modal = function Modal(_a) {
       setHasModalOpened = _a.setHasModalOpened,
       setSelected_color = _a.setSelected_color,
       taskID = _a.taskID,
-      setTagID = _a.setTagID,
       tagID = _a.tagID,
+      setTagID = _a.setTagID,
+      tasks = _a.tasks,
       task = _a.task,
-      hasDonePostTag = _a.hasDonePostTag,
-      setHasDonePostTag = _a.setHasDonePostTag;
+      setTasks = _a.setTasks,
+      i = _a.i;
 
   if (!hasModalOpened) {
     return null;
   }
 
-  var postTag = function postTag(postData) {
+  var postTag = function postTag(postTagData) {
     return __awaiter(void 0, void 0, void 0, function () {
-      var res;
+      var res, obj;
       return __generator(this, function (_a) {
         switch (_a.label) {
           case 0:
             console.log({
-              postData: postData
+              postTagData: postTagData
             });
             return [4
             /*yield*/
-            , axios_1["default"].post('api/tags', postData)];
+            , axios_1["default"].post('api/tags', postTagData)];
 
           case 1:
             res = _a.sent();
 
             try {
-              console.log(res.data);
+              obj = tasks;
+              obj.splice(i, 1, __assign(__assign({}, task), {
+                hasDonePostTag: true,
+                red: selected_color.red,
+                blue: selected_color.blue,
+                yellow: selected_color.yellow,
+                green: selected_color.green
+              }));
+              setTasks(obj);
               setTagID(res.data.id);
-              setHasDonePostTag(true);
-              task.red = res.data.checked_red;
-              task.blue = res.data.checked_blue;
-              task.yellow = res.data.checked_yellow;
-              task.green = res.data.checked_green;
             } catch (err) {
               console.log(err);
             }
@@ -6593,16 +6660,27 @@ var Modal = function Modal(_a) {
     });
   };
 
-  var changeTag = function changeTag(patchData) {
+  var changeTag = function changeTag(selected_color) {
     return __awaiter(void 0, void 0, void 0, function () {
-      var res;
+      var patchData, colors, res, obj;
       return __generator(this, function (_a) {
         switch (_a.label) {
           case 0:
-            patchData.checked_red === undefined ? patchData.checked_red = false : patchData.checked_red;
-            patchData.checked_blue === undefined ? patchData.checked_blue = false : patchData.checked_blue;
-            patchData.checked_yellow === undefined ? patchData.checked_yellow = false : patchData.checked_yellow;
-            patchData.checked_green === undefined ? patchData.checked_green = false : patchData.checked_green;
+            patchData = {
+              checked_red: selected_color.red,
+              checked_blue: selected_color.blue,
+              checked_yellow: selected_color.yellow,
+              checked_green: selected_color.green
+            };
+
+            for (i = 0; i < 4; i++) {
+              colors = [patchData.checked_red, patchData.checked_blue, patchData.checked_yellow, patchData.checked_green];
+              colors.map(function (color) {
+                color === undefined ? color = false : color;
+              });
+            }
+
+            ;
             console.log({
               patchData: patchData
             });
@@ -6614,10 +6692,14 @@ var Modal = function Modal(_a) {
             res = _a.sent();
 
             try {
-              task.red = res.data.checked_red;
-              task.blue = res.data.checked_blue;
-              task.yellow = res.data.checked_yellow;
-              task.green = res.data.checked_green;
+              obj = tasks;
+              obj.splice(i, 1, __assign(__assign({}, task), {
+                red: res.data.checked_red,
+                blue: res.data.checked_blue,
+                yellow: res.data.checked_yellow,
+                green: res.data.checked_green
+              }));
+              setTasks(obj);
             } catch (err) {
               console.log(err);
             }
@@ -6662,12 +6744,8 @@ var Modal = function Modal(_a) {
   })), react_1["default"].createElement(_CloseButton, {
     onClick: function onClick() {
       setHasModalOpened(false);
-      hasDonePostTag ? changeTag({
-        checked_red: selected_color.red,
-        checked_blue: selected_color.blue,
-        checked_yellow: selected_color.yellow,
-        checked_green: selected_color.green
-      }) : postTag({
+      console.log(tasks[i]);
+      tasks[i].hasDonePostTag ? changeTag(selected_color) : postTag({
         task_id: taskID,
         checked_red: selected_color.red,
         checked_blue: selected_color.blue,

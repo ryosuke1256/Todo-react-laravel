@@ -9,55 +9,59 @@ import customMedia from "../../../style/customMedia";
 
 type Props = {
     hasModalOpened: boolean;
-    setHasModalOpened: (param: boolean) => void;
     selected_color: Color;
+    setHasModalOpened: (param: boolean) => void;
     setSelected_color: (prevState: any) => boolean | void;
     taskID?: number;
     tagID: number | null;
-    setTagID: any;
+    setTagID: (param: any) => void;
+    tasks: [TaskAndColor];
     task: TaskAndColor;
-    hasDonePostTag: boolean;
-    setHasDonePostTag: (param: boolean) => void;
+    setTasks: (param: {}) => void;
+    i: number;
 };
 
 //prettier-ignore
-const Modal: React.VFC<Props> = ({hasModalOpened,selected_color,setHasModalOpened,setSelected_color,taskID,setTagID,tagID,task,hasDonePostTag,setHasDonePostTag}: Props) => {
+const Modal: React.VFC<Props> = ({hasModalOpened,selected_color,setHasModalOpened,setSelected_color,taskID,tagID,setTagID,tasks,task,setTasks,i}: Props) => {
     if (!hasModalOpened) {
         return null;
 }
 
-    const postTag = async (postData:TagAPI) => {
-        console.log({postData});
-        const res = await axios.post('api/tags',postData);
+    const postTag = async (postTagData:TagAPI) :Promise<void> => {
+        console.log({postTagData});
+        const res = await axios.post('api/tags',postTagData);
         try {
-            console.log(res.data);
+            const obj = tasks;
+            obj.splice(i,1,{...task, ...{hasDonePostTag:true,red:selected_color.red,blue:selected_color.blue,yellow:selected_color.yellow,green:selected_color.green}});
+            setTasks(obj);
             setTagID(res.data.id);
-            setHasDonePostTag(true);
-            task.red = res.data.checked_red;
-            task.blue = res.data.checked_blue;
-            task.yellow = res.data.checked_yellow;
-            task.green = res.data.checked_green;
         } catch (err) {
             console.log(err);
         }
     }
 
-    const changeTag = async (patchData:TagAPI) => {
-        patchData.checked_red===undefined?patchData.checked_red=false:patchData.checked_red;
-        patchData.checked_blue===undefined?patchData.checked_blue=false:patchData.checked_blue;
-        patchData.checked_yellow===undefined?patchData.checked_yellow=false:patchData.checked_yellow;
-        patchData.checked_green===undefined?patchData.checked_green=false:patchData.checked_green;
+    const changeTag = async (selected_color:Color): Promise<void> => {
+        const patchData = {
+            checked_red:selected_color.red,
+            checked_blue:selected_color.blue,
+            checked_yellow:selected_color.yellow,
+            checked_green:selected_color.green,
+        }
+        for ( i=0; i<4; i++ ) {
+            const colors = [patchData.checked_red,patchData.checked_blue,patchData.checked_yellow,patchData.checked_green];
+            colors.map((color) => {
+                color===undefined?color=false:color;
+            });
+        };
         console.log({patchData});
         const res = await axios.patch(`api/tags/${tagID}`, patchData);
         try {
-            task.red = res.data.checked_red;
-            task.blue = res.data.checked_blue;
-            task.yellow = res.data.checked_yellow;
-            task.green = res.data.checked_green;
+            const obj = tasks;
+            obj.splice(i,1,{...task, ...{red:res.data.checked_red,blue:res.data.checked_blue,yellow:res.data.checked_yellow,green:res.data.checked_green}});
+            setTasks(obj);
         } catch (err) {
             console.log(err);
         }
-        
     }
 
     return (
@@ -97,14 +101,8 @@ const Modal: React.VFC<Props> = ({hasModalOpened,selected_color,setHasModalOpene
                 <_CloseButton
                     onClick={() => {
                         setHasModalOpened(false);
-                        hasDonePostTag?
-                        changeTag({
-                            checked_red:selected_color.red,
-                            checked_blue:selected_color.blue,
-                            checked_yellow:selected_color.yellow,
-                            checked_green:selected_color.green
-                            
-                        }): 
+                        console.log(tasks[i])
+                        tasks[i].hasDonePostTag? changeTag(selected_color): 
                         postTag({
                             task_id:taskID,
                             checked_red:selected_color.red,

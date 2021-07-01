@@ -6,15 +6,15 @@ import axios from "axios";
 
 const App: React.VFC = () => {
     const [is_authenticated, setIs_authenticated] = useState<boolean>(false);
-    const [userID, setUserID] = useState<number| null>(null);
-    const [userName, setUserName] = useState<string>('');
+    const [userID, setUserID] = useState<number | null>(null);
+    const [userName, setUserName] = useState<string>("");
     const [is_began, setIs_began] = useState(false);
 
     useEffect(() => {
         getUser();
     }, []);
 
-    const getUser = async () => {
+    const getUser = async (): Promise<void> => {
         await axios
             .get("api/users")
             .then((res) => {
@@ -34,14 +34,10 @@ const App: React.VFC = () => {
     };
 
     const GetTopPageContent = (): JSX.Element | null => {
-        if (is_began) {
-            if (is_authenticated) {
-                return <TodoContent userID={userID} />;
-            } else if (is_authenticated === false) {
-                return <TopPageContent />;
-            } else {
-                return null;
-            }
+        if (is_began && is_authenticated) {
+            return <TodoContent userID={userID} />;
+        } else if (is_began && !is_authenticated) {
+            return <TopPageContent />;
         } else {
             return null;
         }
@@ -50,7 +46,7 @@ const App: React.VFC = () => {
     return (
         <>
             <Router>
-                <Header 
+                <Header
                     setIs_authenticated={setIs_authenticated}
                     is_authenticated={is_authenticated}
                     setUserID={setUserID}
@@ -58,7 +54,7 @@ const App: React.VFC = () => {
                 />
                 <Switch>
                     <Route path="/register">
-                        <RegisterContent 
+                        <RegisterContent
                             setIs_authenticated={setIs_authenticated}
                             setUserID={setUserID}
                         />

@@ -7,16 +7,12 @@ type Props = {
     selected_color: Color;
 };
 
+//prettier-ignore
 const ColoredTags: React.VFC<Props> = ({ selected_color }: Props) => {
+    const obj = { ...selected_color };
     if (
-        (selected_color.red === false &&
-            selected_color.blue === false &&
-            selected_color.yellow === false &&
-            selected_color.green === false) ||
-        (selected_color.red === undefined &&
-            selected_color.blue === undefined &&
-            selected_color.yellow === undefined &&
-            selected_color.green === undefined)
+        (obj.red === false && obj.blue === false && obj.yellow === false && obj.green === false) 
+        || (obj.red === undefined && obj.blue === undefined && obj.yellow === undefined && obj.green === undefined)
     ) {
         return <_Add>＋</_Add>;
     } else {

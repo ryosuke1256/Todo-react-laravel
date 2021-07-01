@@ -12,7 +12,7 @@ type Props = {
 
 const TodoContent: React.VFC<Props> = ({ userID }: Props) => {
     const [tasks, setTasks] = useState<any>([]);
-    const [change, setChange] = useState(0); //render走らせる用
+    const [change, setChange] = useState(0);
     const [tasksEditActive, setTasksEditActive] = useState(false);
     const [is_began, setIs_began] = useState(false);
 
@@ -20,10 +20,9 @@ const TodoContent: React.VFC<Props> = ({ userID }: Props) => {
         getTasks();
     }, [userID]);
 
-    const getTasks = async () => {
+    const getTasks = async (): Promise<void> => {
         if (!(userID === "")) {
             const Data = await axios.get(`api/tasks/users/${userID}`);
-            console.log(Data);
             try {
                 setTasks(Data.data.map((data: {}) => data));
                 setIs_began(true);
@@ -33,11 +32,13 @@ const TodoContent: React.VFC<Props> = ({ userID }: Props) => {
         }
     };
 
-    const postTask = async (postData: TaskAPI) => {
+    const postTask = async (postData: TaskAPI): Promise<void> => {
         console.log({ postData });
         const res = await axios.post("api/tasks", postData);
         try {
-            tasks.unshift(res.data);
+            const obj = tasks;
+            obj.unshift(res.data);
+            setTasks(obj);
             setChange(change + 1);
         } catch (err) {
             console.log(err);
@@ -55,6 +56,7 @@ const TodoContent: React.VFC<Props> = ({ userID }: Props) => {
                         <WelcomeContent />
                     ) : (
                         <_TaskCards>
+                            {console.log(tasks)}
                             {tasks.map((task: TaskAndColor, key: number) => {
                                 i++;
                                 return (
