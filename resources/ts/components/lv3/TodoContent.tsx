@@ -56,7 +56,6 @@ const TodoContent: React.VFC<Props> = ({ userID }: Props) => {
                         <WelcomeContent />
                     ) : (
                         <_TaskCards>
-                            {console.log(tasks)}
                             {tasks.map((task: TaskAndColor, key: number) => {
                                 i++;
                                 return (

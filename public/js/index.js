@@ -4546,13 +4546,9 @@ var TaskCard = function TaskCard(_a) {
       tagID = _g[0],
       setTagID = _g[1];
 
-  var _h = react_1.useState(false),
-      hasDonePostTag = _h[0],
-      setHasDonePostTag = _h[1];
-
-  var _j = react_1.useState("編集"),
-      editButtonTitle = _j[0],
-      setEditButtonTitle = _j[1];
+  var _h = react_1.useState("編集"),
+      editButtonTitle = _h[0],
+      setEditButtonTitle = _h[1];
 
   react_1.useEffect(function () {
     getTags();
@@ -6130,7 +6126,7 @@ var TodoContent = function TodoContent(_a) {
   return react_1["default"].createElement(react_1["default"].Fragment, null, react_1["default"].createElement(_Wrapper, null, react_1["default"].createElement(exports._TodoContent, null, react_1["default"].createElement(_index_1.TextForm, {
     postTask: postTask,
     userID: userID
-  }), tasks.length === 0 && is_began === true ? react_1["default"].createElement(_index_1.WelcomeContent, null) : react_1["default"].createElement(exports._TaskCards, null, console.log(tasks), tasks.map(function (task, key) {
+  }), tasks.length === 0 && is_began === true ? react_1["default"].createElement(_index_1.WelcomeContent, null) : react_1["default"].createElement(exports._TaskCards, null, tasks.map(function (task, key) {
     i++;
     return react_1["default"].createElement(_index_1.TaskCard, {
       task: task,

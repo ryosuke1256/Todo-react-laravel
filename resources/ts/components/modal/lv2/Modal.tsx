@@ -47,7 +47,7 @@ const Modal: React.VFC<Props> = ({hasModalOpened,selected_color,setHasModalOpene
             checked_yellow:selected_color.yellow,
             checked_green:selected_color.green,
         }
-        for ( i=0; i<4; i++ ) {
+        for (i = 0; i < 4; i++ ) {
             const colors = [patchData.checked_red,patchData.checked_blue,patchData.checked_yellow,patchData.checked_green];
             colors.map((color) => {
                 color===undefined?color=false:color;

@@ -26,7 +26,6 @@ const TaskCard: React.VFC<Props> = ({task,tasks,setTasks,tasksEditActive,setTask
     const [hasModalOpened, setHasModalOpened] = useState(false);
     const [selected_color, setSelected_color] = useState<any>({red:false,blue:false,yellow:false,green:false}); //prettier-ignore
     const [tagID,setTagID] = useState(null);
-    const [hasDonePostTag,setHasDonePostTag] = useState(false);
     const [editButtonTitle, setEditButtonTitle] = useState("編集");
 
     useEffect(()=>{
