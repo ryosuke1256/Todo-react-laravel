@@ -12,7 +12,10 @@ const LoginContent: React.VFC<Props> = ({
     setIs_authenticated,
     setUserID,
 }: Props) => {
-    const [loginData, setLoginData] = useState<any>({ email: "",password: "" }); //prettier-ignore
+    const [loginData, setLoginData] = useState({
+        email: "",
+        password: "",
+    });
     const [isRevealPassword, setIsRevealPassword] = useState(false);
 
     const history = useHistory();
@@ -52,11 +55,14 @@ const LoginContent: React.VFC<Props> = ({
     const togglePassword = () => {
         setIsRevealPassword((prevState) => !prevState);
     };
-    
-    const handleChange = (e: React.ChangeEvent<HTMLInputElement> ,title:string) => {
-        if(title === 'email') {
+
+    const handleChange = (
+        e: React.ChangeEvent<HTMLInputElement>,
+        title: string
+    ) => {
+        if (title === "email") {
             setLoginData({ ...loginData, email: e.target.value });
-        } else if(title === 'password') {
+        } else if (title === "password") {
             setLoginData({ ...loginData, password: e.target.value });
         } else {
             return null;
@@ -79,7 +85,7 @@ const LoginContent: React.VFC<Props> = ({
                             type="text"
                             className="border rounded-lg px-3 py-2 mt-1 mb-5 text-sm w-full"
                             value={loginData.email}
-                            onChange={(e) => handleChange(e,'email')}
+                            onChange={(e) => handleChange(e, "email")}
                         />
                         <label className="font-semibold text-sm text-gray-600 pb-1 block">
                             Password
@@ -89,7 +95,7 @@ const LoginContent: React.VFC<Props> = ({
                                 placeholder="Password"
                                 type={isRevealPassword ? "text" : "password"}
                                 className="border rounded-lg px-3 py-2 mt-1 mb-5 text-sm w-11/12"
-                                onChange={(e) => handleChange(e,'password')}
+                                onChange={(e) => handleChange(e, "password")}
                             />
                             <span onClick={togglePassword}>
                                 {isRevealPassword ? (

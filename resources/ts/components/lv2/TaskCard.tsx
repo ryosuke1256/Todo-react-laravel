@@ -9,8 +9,8 @@ import { TaskAndColor } from "../../type/TaskAndColor";
 import customMedia from "../../style/customMedia";
 
 type Props = {
-    task: TaskAndColor;
     tasks: [TaskAndColor];
+    task: TaskAndColor;
     setTasks: (param: {}) => void;
     tasksEditActive: boolean;
     setTasksEditActive: (param: boolean) => void;
@@ -20,14 +20,12 @@ type Props = {
 
 //prettier-ignore
 const TaskCard: React.VFC<Props> = ({task,tasks,setTasks,tasksEditActive,setTasksEditActive,id,i,}: Props) => {
-    const [todo, setTodo] = useState(task);
     const [title, setTitle] = useState(task.title);
     const [is_done, setIs_done] = useState(task.is_done);
     const [editActive, setEditActive] = useState(false);
     const [hasModalOpened, setHasModalOpened] = useState(false);
-    const [selected_color, setSelected_color] = useState({red:false,blue:false,yellow:false,green:false}); //prettier-ignore
+    const [selected_color, setSelected_color] = useState<any>({red:false,blue:false,yellow:false,green:false}); //prettier-ignore
     const [tagID,setTagID] = useState(null);
-    const [hasDonePostTag,setHasDonePostTag] = useState(false);
     const [editButtonTitle, setEditButtonTitle] = useState("編集");
 
     useEffect(()=>{
@@ -37,27 +35,31 @@ const TaskCard: React.VFC<Props> = ({task,tasks,setTasks,tasksEditActive,setTask
     useEffect(() => {
         setTitle(task.title);
         setIs_done(task.is_done);
-        setSelected_color({red:task.red,blue:task.blue,yellow:task.yellow,green:task.green})
-    }, [task]);
+        setSelected_color({red:task.red,blue:task.blue,yellow:task.yellow,green:task.green});
+    }, [task]); 
 
-    const getTags = async () => {
-        const res = await axios.get(`api/tags/tasks/${task.id}`);
+    const getTags = async (): Promise<void> => {
+        const res = await axios.get(`api/tags/tasks/${tasks[i].id}`);
         try {
+            if(!(res.data.id === undefined)) {
+                const obj = tasks;
+                obj.splice(i,1,{...task, ...{hasDonePostTag:true,red:res.data.checked_red,blue:res.data.checked_blue,yellow:res.data.checked_yellow,green:res.data.checked_green}});
+                setTasks(obj);
                 setTagID(res.data.id);
                 setSelected_color({red:res.data.checked_red,blue:res.data.checked_blue,yellow:res.data.checked_yellow,green:res.data.checked_green});
-                task.red = res.data.checked_red;
-                task.blue = res.data.checked_blue;
-                task.yellow = res.data.checked_yellow;
-                task.green = res.data.checked_green;
-                if(res.data.id) {
-                    setHasDonePostTag(true);
-                }
+            } else {
+                const obj = tasks;
+                obj.splice(i,1,{...task, ...{red:res.data.checked_red,blue:res.data.checked_blue,yellow:res.data.checked_yellow,green:res.data.checked_green}});
+                setTasks(obj);
+                setTagID(res.data.id);
+                setSelected_color({red:res.data.checked_red,blue:res.data.checked_blue,yellow:res.data.checked_yellow,green:res.data.checked_green});
+            }
         } catch (err) {
             console.log(err);
         }
     };
 
-    const deleteTask = async () => {
+    const deleteTask = async (): Promise<void> => {
         const res = await axios.delete(`api/tasks/${id}`);
         try {
             setTasks(tasks.filter((task) => task.id !== res.data.id));
@@ -66,7 +68,7 @@ const TaskCard: React.VFC<Props> = ({task,tasks,setTasks,tasksEditActive,setTask
         }
     };
 
-    const checkTask = async (is_done: 0 | 1) => {
+    const checkTask = async (is_done: 0 | 1): Promise<void> => {
         is_done === 0 ? (is_done = 1) : (is_done = 0);
         const data: TaskAPI = {
             title: title,
@@ -83,7 +85,7 @@ const TaskCard: React.VFC<Props> = ({task,tasks,setTasks,tasksEditActive,setTask
             });
     };
 
-    const editTask = async (title: string) => {
+    const editTask = async (title: string): Promise<void> => {
         const data: TaskAPI = {
             title: title,
             is_done: is_done,
@@ -91,6 +93,7 @@ const TaskCard: React.VFC<Props> = ({task,tasks,setTasks,tasksEditActive,setTask
         await axios
             .patch(`api/tasks/${id}`, data)
             .then(() => {
+                tasks[i].title= title;
                 setTitle(title);
             })
             .catch((err) => {
@@ -143,9 +146,10 @@ const TaskCard: React.VFC<Props> = ({task,tasks,setTasks,tasksEditActive,setTask
                 taskID={task.id}
                 tagID={tagID}
                 setTagID={setTagID}
+                tasks={tasks}
+                setTasks={setTasks}
                 task={task}
-                hasDonePostTag={hasDonePostTag}
-                setHasDonePostTag={setHasDonePostTag}
+                i={i}
             />
         </>
     );
