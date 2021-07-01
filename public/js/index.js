@@ -4260,9 +4260,9 @@ var _TapableRange = styled_components_1["default"].div(templateObject_5 || (temp
 
 var _Title = styled_components_1["default"].div(templateObject_6 || (templateObject_6 = __makeTemplateObject(["\n    display: inline-block;\n    color: #212529;\n    padding: 0.45rem 1rem;\n    font-size: 1.3rem;\n"], ["\n    display: inline-block;\n    color: #212529;\n    padding: 0.45rem 1rem;\n    font-size: 1.3rem;\n"])));
 
-var _userName = styled_components_1["default"].div(templateObject_7 || (templateObject_7 = __makeTemplateObject(["\n    line-height: 44px;\n    color:#00000080;\n    cursor:pointer;\n"], ["\n    line-height: 44px;\n    color:#00000080;\n    cursor:pointer;\n"])));
+var _userName = styled_components_1["default"].div(templateObject_7 || (templateObject_7 = __makeTemplateObject(["\n    line-height: 44px;\n    color: #00000080;\n    cursor: pointer;\n"], ["\n    line-height: 44px;\n    color: #00000080;\n    cursor: pointer;\n"])));
 
-var _List = styled_components_1["default"].div(templateObject_8 || (templateObject_8 = __makeTemplateObject(["\n    display: table;\n    text-align: center;\n    position: absolute;\n    top:50px;\n    right:100px;\n    height:50px;\n    width:150px;\n    background-color: white;\n    border:1px solid #bbbbbb;\n    border-radius: 4px;\n    color: #5c5c5c;\n    cursor: pointer;\n"], ["\n    display: table;\n    text-align: center;\n    position: absolute;\n    top:50px;\n    right:100px;\n    height:50px;\n    width:150px;\n    background-color: white;\n    border:1px solid #bbbbbb;\n    border-radius: 4px;\n    color: #5c5c5c;\n    cursor: pointer;\n"])));
+var _List = styled_components_1["default"].div(templateObject_8 || (templateObject_8 = __makeTemplateObject(["\n    display: table;\n    text-align: center;\n    position: absolute;\n    top: 50px;\n    right: 100px;\n    height: 50px;\n    width: 150px;\n    background-color: white;\n    border: 1px solid #bbbbbb;\n    border-radius: 4px;\n    color: #5c5c5c;\n    cursor: pointer;\n"], ["\n    display: table;\n    text-align: center;\n    position: absolute;\n    top: 50px;\n    right: 100px;\n    height: 50px;\n    width: 150px;\n    background-color: white;\n    border: 1px solid #bbbbbb;\n    border-radius: 4px;\n    color: #5c5c5c;\n    cursor: pointer;\n"])));
 
 var _Logout = styled_components_1["default"].div(templateObject_9 || (templateObject_9 = __makeTemplateObject(["\n    display: table-cell;\n    vertical-align: middle;\n    &:hover {\n        opacity: 0.6;\n    }\n"], ["\n    display: table-cell;\n    vertical-align: middle;\n    &:hover {\n        opacity: 0.6;\n    }\n"])));
 
@@ -5215,6 +5215,7 @@ var LoginContent = function LoginContent(_a) {
               console.log(res.data.result);
               history.push("/");
               setUserID(res.data.user.id);
+              getUser();
               setIs_authenticated(true);
             })["catch"](function (err) {
               console.log(err);
@@ -5256,7 +5257,7 @@ var LoginContent = function LoginContent(_a) {
   }, react_1["default"].createElement("div", {
     className: "xs:p-0 mx-auto md:w-full md:max-w-md"
   }, react_1["default"].createElement("main", {
-    className: "bg-white shadow w-full rounded-lg divide-y divide-gray-200 px-12 py-8"
+    className: "bg-white shadow w-full rounded-xl divide-y divide-gray-200 px-12 py-8"
   }, react_1["default"].createElement("h1", {
     className: "font-bold text-center text-2xl mb-5"
   }, "\u30ED\u30B0\u30A4\u30F3"), react_1["default"].createElement("div", {
@@ -5275,7 +5276,6 @@ var LoginContent = function LoginContent(_a) {
       if (e.key === "Enter") {
         e.preventDefault();
         onSubmit();
-        getUser();
       }
     }
   }), react_1["default"].createElement("label", {
@@ -5293,7 +5293,6 @@ var LoginContent = function LoginContent(_a) {
       if (e.key === "Enter") {
         e.preventDefault();
         onSubmit();
-        getUser();
       }
     }
   }), react_1["default"].createElement("span", {
@@ -5307,7 +5306,6 @@ var LoginContent = function LoginContent(_a) {
     className: "transition duration-200 bg-blue-400 hover:bg-blue-300 focus:bg-blue-700 focus:shadow-sm focus:ring-4 focus:ring-blue-500 focus:ring-opacity-50 text-white w-full py-2.5 rounded-lg text-sm shadow-sm hover:shadow-md font-semibold text-center inline-block",
     onClick: function onClick() {
       onSubmit();
-      getUser();
     }
   }, react_1["default"].createElement("span", {
     className: "inline-block mr-2"
@@ -5675,6 +5673,7 @@ var RegisterContent = function RegisterContent(_a) {
             , axios_1["default"].post("/login", loginData).then(function (res) {
               console.log("ログインに成功しました");
               history.push("/");
+              getUser();
               setUserID(res.data.user.id);
               setIs_authenticated(true);
             })["catch"](function (err) {
@@ -5733,7 +5732,7 @@ var RegisterContent = function RegisterContent(_a) {
   }, react_1["default"].createElement("div", {
     className: "xs:p-0 mx-auto md:w-full md:max-w-md"
   }, react_1["default"].createElement("main", {
-    className: "bg-white px-12 py-8 rounded-lg shadow-md text-black w-full"
+    className: "bg-white px-12 py-8 rounded-xl shadow-md text-black w-full"
   }, react_1["default"].createElement("h1", {
     className: "mb-8 font-bold text-2xl text-center"
   }, "\u30B5\u30A4\u30F3\u30A2\u30C3\u30D7"), react_1["default"].createElement("input", {
@@ -5793,7 +5792,6 @@ var RegisterContent = function RegisterContent(_a) {
     className: "w-full text-center py-3 rounded-lg bg-blue-400 hover:bg-blue-300 text-white hover:bg-green-dark focus:outline-none my-1",
     onClick: function onClick() {
       register();
-      getUser();
     }
   }, "\u65B0\u898F\u767B\u9332")), react_1["default"].createElement("div", {
     className: "text-grey-dark pt-6 pb-7"

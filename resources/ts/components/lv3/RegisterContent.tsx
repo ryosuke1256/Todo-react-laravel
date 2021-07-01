@@ -56,6 +56,7 @@ const RegisterContent: React.VFC<Props> = ({
             .then((res) => {
                 console.log("ログインに成功しました");
                 history.push("/");
+                getUser();
                 setUserID(res.data.user.id);
                 setIs_authenticated(true);
             })
@@ -94,7 +95,7 @@ const RegisterContent: React.VFC<Props> = ({
     return (
         <div className="min-h-screen bg-gray-100 flex flex-col justify-center sm:py-12">
             <div className="xs:p-0 mx-auto md:w-full md:max-w-md">
-                <main className="bg-white px-12 py-8 rounded-lg shadow-md text-black w-full">
+                <main className="bg-white px-12 py-8 rounded-xl shadow-md text-black w-full">
                     <h1 className="mb-8 font-bold text-2xl text-center">
                         サインアップ
                     </h1>
@@ -149,7 +150,6 @@ const RegisterContent: React.VFC<Props> = ({
                         className="w-full text-center py-3 rounded-lg bg-blue-400 hover:bg-blue-300 text-white hover:bg-green-dark focus:outline-none my-1"
                         onClick={() => {
                             register();
-                            getUser();
                         }}
                     >
                         新規登録

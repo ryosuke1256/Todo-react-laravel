@@ -46,6 +46,7 @@ const LoginContent: React.VFC<Props> = ({
                 console.log(res.data.result);
                 history.push("/");
                 setUserID(res.data.user.id);
+                getUser();
                 setIs_authenticated(true);
             })
             .catch((err) => {
@@ -73,7 +74,7 @@ const LoginContent: React.VFC<Props> = ({
     return (
         <div className="min-h-screen bg-gray-100 flex flex-col justify-center sm:py-12">
             <div className="xs:p-0 mx-auto md:w-full md:max-w-md">
-                <main className="bg-white shadow w-full rounded-lg divide-y divide-gray-200 px-12 py-8">
+                <main className="bg-white shadow w-full rounded-xl divide-y divide-gray-200 px-12 py-8">
                     <h1 className="font-bold text-center text-2xl mb-5">
                         ログイン
                     </h1>
@@ -91,7 +92,6 @@ const LoginContent: React.VFC<Props> = ({
                                 if (e.key === "Enter") {
                                     e.preventDefault();
                                     onSubmit();
-                                    getUser();
                                 }
                             }}
                         />
@@ -108,7 +108,6 @@ const LoginContent: React.VFC<Props> = ({
                                     if (e.key === "Enter") {
                                         e.preventDefault();
                                         onSubmit();
-                                        getUser();
                                     }
                                 }}
                             />
@@ -125,7 +124,6 @@ const LoginContent: React.VFC<Props> = ({
                             className="transition duration-200 bg-blue-400 hover:bg-blue-300 focus:bg-blue-700 focus:shadow-sm focus:ring-4 focus:ring-blue-500 focus:ring-opacity-50 text-white w-full py-2.5 rounded-lg text-sm shadow-sm hover:shadow-md font-semibold text-center inline-block"
                             onClick={() => {
                                 onSubmit();
-                                getUser();
                             }}
                         >
                             <span className="inline-block mr-2">ログイン</span>
