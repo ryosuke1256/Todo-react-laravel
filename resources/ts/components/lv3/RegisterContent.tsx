@@ -7,7 +7,10 @@ type Props = {
     setUserID: (param: string) => void;
 };
 
-const RegisterContent: React.VFC<Props> = ({setIs_authenticated,setUserID}:Props) => {
+const RegisterContent: React.VFC<Props> = ({
+    setIs_authenticated,
+    setUserID,
+}: Props) => {
     const [registerData, setRegisterData] = useState({
         name: "",
         email: "",
@@ -16,7 +19,7 @@ const RegisterContent: React.VFC<Props> = ({setIs_authenticated,setUserID}:Props
     });
     const [isRevealPassword, setIsRevealPassword] = useState(false);
     const [isRevealConfirmPassword, setIsRevealConfirmPassword] = useState(false); // prettier-ignore
-    
+
     const history = useHistory();
 
     const register = async () => {
@@ -26,9 +29,12 @@ const RegisterContent: React.VFC<Props> = ({setIs_authenticated,setUserID}:Props
                 .post("/register", registerData)
                 .then((res) => {
                     console.log(res.data.result);
-                    if(res.data.result === true) {
-                        console.log('ユーザ登録に成功しました');
-                        login({email:registerData.email,password:registerData.password});
+                    if (res.data.result === true) {
+                        console.log("ユーザ登録に成功しました");
+                        login({
+                            email: registerData.email,
+                            password: registerData.password,
+                        });
                     }
                 })
                 .catch((err) => {
@@ -38,8 +44,8 @@ const RegisterContent: React.VFC<Props> = ({setIs_authenticated,setUserID}:Props
             console.log("確認のパスワードが一致しません");
         }
     };
-    
-    const login = async (loginData)=> {
+
+    const login = async (loginData) => {
         console.log(loginData);
         await axios
             .post("/login", loginData)
@@ -52,21 +58,24 @@ const RegisterContent: React.VFC<Props> = ({setIs_authenticated,setUserID}:Props
             .catch((err) => {
                 console.log(err);
             });
-    }
+    };
 
-    const handleChange = (e:React.ChangeEvent<HTMLInputElement>,title:string) => {
-        if(title === 'name') {
+    const handleChange = (
+        e: React.ChangeEvent<HTMLInputElement>,
+        title: string
+    ) => {
+        if (title === "name") {
             setRegisterData({ ...registerData, name: e.target.value });
-        } else if(title === 'email') {
+        } else if (title === "email") {
             setRegisterData({ ...registerData, email: e.target.value });
-        }  else if(title === 'password') {
+        } else if (title === "password") {
             setRegisterData({ ...registerData, password: e.target.value });
-        } else if(title ===  'confirmPassword') {
+        } else if (title === "confirmPassword") {
             setRegisterData({ ...registerData, password_confirmation: e.target.value }); //prettier-ignore
         } else {
             return null;
         }
-    }
+    };
 
     const togglePassword = (password: string) => {
         if (password === "Password") {
@@ -79,24 +88,25 @@ const RegisterContent: React.VFC<Props> = ({setIs_authenticated,setUserID}:Props
     };
 
     return (
-        <div className="bg-grey-lighter min-h-screen flex flex-col">
+        <div className="min-h-screen bg-gray-100 flex flex-col justify-center sm:py-12">
             <div className="container max-w-lg mx-auto flex-1 flex flex-col items-center justify-center px-2 w-10/12">
-                <div className="bg-white px-12 py-8 rounded shadow-md text-black w-full">
-                    <h1 className="mb-8 text-3xl text-center">Sign up</h1>
+                <div className="bg-white px-12 py-8 rounded-lg shadow-md text-black w-full">
+                    <h1 className="mb-8 font-bold text-2xl text-center">
+                        サインアップ
+                    </h1>
                     <input
                         type="text"
                         className="block border border-grey-light w-full p-3 rounded mb-4"
                         name="fullname"
                         placeholder="Full Name"
-                        onChange={(e) => handleChange(e,'name')}
+                        onChange={(e) => handleChange(e, "name")}
                     />
-
                     <input
                         type="text"
                         className="block border border-grey-light w-full p-3 rounded mb-4"
                         name="email"
                         placeholder="Email"
-                        onChange={(e) => handleChange(e,'email')}
+                        onChange={(e) => handleChange(e, "email")}
                     />
                     <div className="w-full">
                         <input
@@ -104,7 +114,7 @@ const RegisterContent: React.VFC<Props> = ({setIs_authenticated,setUserID}:Props
                             className="border border-grey-light w-10/12 p-3 rounded mb-4"
                             name="password"
                             placeholder="Password"
-                            onChange={(e) => handleChange(e,'password')}
+                            onChange={(e) => handleChange(e, "password")}
                         />
                         <span onClick={() => togglePassword("Password")}>
                             {isRevealPassword ? (
@@ -120,7 +130,7 @@ const RegisterContent: React.VFC<Props> = ({setIs_authenticated,setUserID}:Props
                             className="border border-grey-light w-10/12 p-3 rounded mb-4"
                             name="confirm_password"
                             placeholder="Confirm Password"
-                            onChange={(e) => handleChange(e,"confirmPassword")}
+                            onChange={(e) => handleChange(e, "confirmPassword")}
                         />
                         <span onClick={() => togglePassword("ConfirmPassword")}>
                             {isRevealConfirmPassword ? (
@@ -132,43 +142,47 @@ const RegisterContent: React.VFC<Props> = ({setIs_authenticated,setUserID}:Props
                     </div>
                     <button
                         type="submit"
-                        className="w-full text-center py-3 rounded-lg bg-blue-500 hover:bg-blue-600 text-white hover:bg-green-dark focus:outline-none my-1"
+                        className="w-full text-center py-3 rounded-lg bg-blue-400 hover:bg-blue-300 text-white hover:bg-green-dark focus:outline-none my-1"
                         onClick={register}
                     >
-                        Create Account
+                        新規登録
                     </button>
                 </div>
 
                 <div className="text-grey-dark pt-6 pb-7">
-                    Already have an account?
+                    すでにアカウントをお持ちですか？
                     <Link
                         className="no-underline border-b border-blue text-blue"
                         to="/login"
                     >
-                        Log in
+                        ログイン
                     </Link>
                     .
                 </div>
-                <button className="transition duration-200 px-5 py-4 pt-4 cursor-pointer font-normal text-sm rounded-lg text-gray-500 hover:bg-gray-200 focus:outline-none focus:bg-gray-300 focus:ring-2 focus:ring-gray-400 focus:ring-opacity-50 ring-inset">
-                    <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        fill="none"
-                        viewBox="0 0 24 24"
-                        stroke="currentColor"
-                        className="w-4 h-4 inline-block align-text-top"
+                <div className="w-full text-center sm:text-left whitespace-nowrap">
+                    <Link
+                        to="/"
+                        className="w-10 transition duration-200 mx-5 px-5 py-4 cursor-pointer font-normal text-sm rounded-lg text-gray-500 hover:bg-gray-200 focus:outline-none focus:bg-gray-300 focus:ring-2 focus:ring-gray-400 focus:ring-opacity-50 ring-inset"
                     >
-                        <path
-                            strokeLinecap="round"
-                            strokeLinejoin="round"
-                            strokeWidth="2"
-                            d="M10 19l-7-7m0 0l7-7m-7 7h18"
-                        />
-                    </svg>
-                    <Link to="/">
-                        Back to your-app.com
+                        <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            fill="none"
+                            viewBox="0 0 24 24"
+                            stroke="currentColor"
+                            className="w-4 h-4 inline-block align-text-top"
+                        >
+                            <path
+                                strokeLinecap="round"
+                                strokeLinejoin="round"
+                                strokeWidth="2"
+                                d="M10 19l-7-7m0 0l7-7m-7 7h18"
+                            />
+                        </svg>
+                        戻る
                     </Link>
-                </button>
+                </div>
             </div>
+            );
         </div>
     );
 };

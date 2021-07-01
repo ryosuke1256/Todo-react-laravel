@@ -24,7 +24,7 @@ const LoginContent: React.VFC<Props> = ({
         initCSRF();
     }, []);
 
-    const initCSRF = async () => {
+    const initCSRF = async (): Promise<void> => {
         console.log("initCSRF");
         await axios
             .get("/sanctum/csrf-cookie")
@@ -36,13 +36,12 @@ const LoginContent: React.VFC<Props> = ({
             });
     };
 
-    const onSubmit = async () => {
+    const onSubmit = async (): Promise<void> => {
         console.log(loginData);
         await axios
             .post("/login", loginData)
             .then((res) => {
                 console.log(res.data.result);
-                console.log("ログインに成功しました");
                 history.push("/");
                 setUserID(res.data.user.id);
                 setIs_authenticated(true);
@@ -52,7 +51,7 @@ const LoginContent: React.VFC<Props> = ({
             });
     };
 
-    const togglePassword = () => {
+    const togglePassword = (): void => {
         setIsRevealPassword((prevState) => !prevState);
     };
 
@@ -72,13 +71,13 @@ const LoginContent: React.VFC<Props> = ({
     return (
         <div className="min-h-screen bg-gray-100 flex flex-col justify-center sm:py-12">
             <div className="xs:p-0 mx-auto md:w-full md:max-w-md">
-                <div className="bg-white shadow w-full rounded-lg divide-y divide-gray-200">
-                    <h1 className="font-bold text-center text-2xl py-3 mb-5">
-                        Login
+                <main className="bg-white shadow w-full rounded-lg divide-y divide-gray-200 px-12 py-8">
+                    <h1 className="font-bold text-center text-2xl mb-5">
+                        ログイン
                     </h1>
                     <div className="px-5 py-7">
                         <label className="font-semibold text-sm text-gray-600 pb-1 block">
-                            E-mail
+                            メールアドレス
                         </label>
                         <input
                             placeholder="E-mail"
@@ -88,7 +87,7 @@ const LoginContent: React.VFC<Props> = ({
                             onChange={(e) => handleChange(e, "email")}
                         />
                         <label className="font-semibold text-sm text-gray-600 pb-1 block">
-                            Password
+                            パスワード
                         </label>
                         <div className="w-full">
                             <input
@@ -107,27 +106,13 @@ const LoginContent: React.VFC<Props> = ({
                         </div>
                         <button
                             type="button"
-                            className="transition duration-200 bg-blue-500 hover:bg-blue-600 focus:bg-blue-700 focus:shadow-sm focus:ring-4 focus:ring-blue-500 focus:ring-opacity-50 text-white w-full py-2.5 rounded-lg text-sm shadow-sm hover:shadow-md font-semibold text-center inline-block"
+                            className="transition duration-200 bg-blue-400 hover:bg-blue-300 focus:bg-blue-700 focus:shadow-sm focus:ring-4 focus:ring-blue-500 focus:ring-opacity-50 text-white w-full py-2.5 rounded-lg text-sm shadow-sm hover:shadow-md font-semibold text-center inline-block"
                             onClick={onSubmit}
                         >
-                            <span className="inline-block mr-2">Login</span>
-                            <svg
-                                xmlns="http://www.w3.org/2000/svg"
-                                fill="none"
-                                viewBox="0 0 24 24"
-                                stroke="currentColor"
-                                className="w-4 h-4 inline-block"
-                            >
-                                <path
-                                    strokeLinecap="round"
-                                    strokeLinejoin="round"
-                                    strokeWidth="2"
-                                    d="M17 8l4 4m0 0l-4 4m4-4H3"
-                                />
-                            </svg>
+                            <span className="inline-block mr-2">ログイン</span>
                         </button>
                     </div>
-                    <div className="py-5">
+                    <div className="pt-5">
                         <div className="grid grid-cols-2 gap-1">
                             <div className="text-center sm:text-left whitespace-nowrap">
                                 <button className="transition duration-200 mx-5 px-5 py-4 cursor-pointer font-normal text-sm rounded-lg text-gray-500 hover:bg-gray-100 focus:outline-none focus:bg-gray-200 focus:ring-2 focus:ring-gray-400 focus:ring-opacity-50 ring-inset">
@@ -173,11 +158,14 @@ const LoginContent: React.VFC<Props> = ({
                             </div>
                         </div>
                     </div>
-                </div>
-                <div className="py-5">
+                </main>
+                <div className="pt-5">
                     <div className="grid grid-cols-2 gap-1">
                         <div className="text-center sm:text-left whitespace-nowrap">
-                            <button className="transition duration-200 mx-5 px-5 py-4 cursor-pointer font-normal text-sm rounded-lg text-gray-500 hover:bg-gray-200 focus:outline-none focus:bg-gray-300 focus:ring-2 focus:ring-gray-400 focus:ring-opacity-50 ring-inset">
+                            <Link
+                                to="/"
+                                className="w-10 transition duration-200 mx-5 px-5 py-4 cursor-pointer font-normal text-sm rounded-lg text-gray-500 hover:bg-gray-200 focus:outline-none focus:bg-gray-300 focus:ring-2 focus:ring-gray-400 focus:ring-opacity-50 ring-inset"
+                            >
                                 <svg
                                     xmlns="http://www.w3.org/2000/svg"
                                     fill="none"
@@ -192,10 +180,8 @@ const LoginContent: React.VFC<Props> = ({
                                         d="M10 19l-7-7m0 0l7-7m-7 7h18"
                                     />
                                 </svg>
-                                <Link to="/" className="ml-1">
-                                    Back to your-app.com
-                                </Link>
-                            </button>
+                                戻る
+                            </Link>
                         </div>
                     </div>
                 </div>

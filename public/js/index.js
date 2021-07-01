@@ -5210,7 +5210,6 @@ var LoginContent = function LoginContent(_a) {
             /*yield*/
             , axios_1["default"].post("/login", loginData).then(function (res) {
               console.log(res.data.result);
-              console.log("ログインに成功しました");
               history.push("/");
               setUserID(res.data.user.id);
               setIs_authenticated(true);
@@ -5253,15 +5252,15 @@ var LoginContent = function LoginContent(_a) {
     className: "min-h-screen bg-gray-100 flex flex-col justify-center sm:py-12"
   }, react_1["default"].createElement("div", {
     className: "xs:p-0 mx-auto md:w-full md:max-w-md"
-  }, react_1["default"].createElement("div", {
-    className: "bg-white shadow w-full rounded-lg divide-y divide-gray-200"
+  }, react_1["default"].createElement("main", {
+    className: "bg-white shadow w-full rounded-lg divide-y divide-gray-200 px-12 py-8"
   }, react_1["default"].createElement("h1", {
-    className: "font-bold text-center text-2xl py-3 mb-5"
-  }, "Login"), react_1["default"].createElement("div", {
+    className: "font-bold text-center text-2xl mb-5"
+  }, "\u30ED\u30B0\u30A4\u30F3"), react_1["default"].createElement("div", {
     className: "px-5 py-7"
   }, react_1["default"].createElement("label", {
     className: "font-semibold text-sm text-gray-600 pb-1 block"
-  }, "E-mail"), react_1["default"].createElement("input", {
+  }, "\u30E1\u30FC\u30EB\u30A2\u30C9\u30EC\u30B9"), react_1["default"].createElement("input", {
     placeholder: "E-mail",
     type: "text",
     className: "border rounded-lg px-3 py-2 mt-1 mb-5 text-sm w-full",
@@ -5271,7 +5270,7 @@ var LoginContent = function LoginContent(_a) {
     }
   }), react_1["default"].createElement("label", {
     className: "font-semibold text-sm text-gray-600 pb-1 block"
-  }, "Password"), react_1["default"].createElement("div", {
+  }, "\u30D1\u30B9\u30EF\u30FC\u30C9"), react_1["default"].createElement("div", {
     className: "w-full"
   }, react_1["default"].createElement("input", {
     placeholder: "Password",
@@ -5288,23 +5287,12 @@ var LoginContent = function LoginContent(_a) {
     className: "far fa-eye-slash pl-2 text-gray-600"
   }))), react_1["default"].createElement("button", {
     type: "button",
-    className: "transition duration-200 bg-blue-500 hover:bg-blue-600 focus:bg-blue-700 focus:shadow-sm focus:ring-4 focus:ring-blue-500 focus:ring-opacity-50 text-white w-full py-2.5 rounded-lg text-sm shadow-sm hover:shadow-md font-semibold text-center inline-block",
+    className: "transition duration-200 bg-blue-400 hover:bg-blue-300 focus:bg-blue-700 focus:shadow-sm focus:ring-4 focus:ring-blue-500 focus:ring-opacity-50 text-white w-full py-2.5 rounded-lg text-sm shadow-sm hover:shadow-md font-semibold text-center inline-block",
     onClick: onSubmit
   }, react_1["default"].createElement("span", {
     className: "inline-block mr-2"
-  }, "Login"), react_1["default"].createElement("svg", {
-    xmlns: "http://www.w3.org/2000/svg",
-    fill: "none",
-    viewBox: "0 0 24 24",
-    stroke: "currentColor",
-    className: "w-4 h-4 inline-block"
-  }, react_1["default"].createElement("path", {
-    strokeLinecap: "round",
-    strokeLinejoin: "round",
-    strokeWidth: "2",
-    d: "M17 8l4 4m0 0l-4 4m4-4H3"
-  })))), react_1["default"].createElement("div", {
-    className: "py-5"
+  }, "\u30ED\u30B0\u30A4\u30F3"))), react_1["default"].createElement("div", {
+    className: "pt-5"
   }, react_1["default"].createElement("div", {
     className: "grid grid-cols-2 gap-1"
   }, react_1["default"].createElement("div", {
@@ -5342,13 +5330,14 @@ var LoginContent = function LoginContent(_a) {
   })), react_1["default"].createElement("span", {
     className: "inline-block ml-1"
   }, "Help")))))), react_1["default"].createElement("div", {
-    className: "py-5"
+    className: "pt-5"
   }, react_1["default"].createElement("div", {
     className: "grid grid-cols-2 gap-1"
   }, react_1["default"].createElement("div", {
     className: "text-center sm:text-left whitespace-nowrap"
-  }, react_1["default"].createElement("button", {
-    className: "transition duration-200 mx-5 px-5 py-4 cursor-pointer font-normal text-sm rounded-lg text-gray-500 hover:bg-gray-200 focus:outline-none focus:bg-gray-300 focus:ring-2 focus:ring-gray-400 focus:ring-opacity-50 ring-inset"
+  }, react_1["default"].createElement(react_router_dom_1.Link, {
+    to: "/",
+    className: "w-10 transition duration-200 mx-5 px-5 py-4 cursor-pointer font-normal text-sm rounded-lg text-gray-500 hover:bg-gray-200 focus:outline-none focus:bg-gray-300 focus:ring-2 focus:ring-gray-400 focus:ring-opacity-50 ring-inset"
   }, react_1["default"].createElement("svg", {
     xmlns: "http://www.w3.org/2000/svg",
     fill: "none",
@@ -5360,10 +5349,7 @@ var LoginContent = function LoginContent(_a) {
     strokeLinejoin: "round",
     strokeWidth: "2",
     d: "M10 19l-7-7m0 0l7-7m-7 7h18"
-  })), react_1["default"].createElement(react_router_dom_1.Link, {
-    to: "/",
-    className: "ml-1"
-  }, "Back to your-app.com")))))));
+  })), "\u623B\u308B"))))));
 };
 
 exports.default = LoginContent;
@@ -5627,7 +5613,7 @@ var RegisterContent = function RegisterContent(_a) {
               console.log(res.data.result);
 
               if (res.data.result === true) {
-                console.log('ユーザ登録に成功しました');
+                console.log("ユーザ登録に成功しました");
                 login({
                   email: registerData.email,
                   password: registerData.password
@@ -5686,19 +5672,19 @@ var RegisterContent = function RegisterContent(_a) {
   };
 
   var handleChange = function handleChange(e, title) {
-    if (title === 'name') {
+    if (title === "name") {
       setRegisterData(__assign(__assign({}, registerData), {
         name: e.target.value
       }));
-    } else if (title === 'email') {
+    } else if (title === "email") {
       setRegisterData(__assign(__assign({}, registerData), {
         email: e.target.value
       }));
-    } else if (title === 'password') {
+    } else if (title === "password") {
       setRegisterData(__assign(__assign({}, registerData), {
         password: e.target.value
       }));
-    } else if (title === 'confirmPassword') {
+    } else if (title === "confirmPassword") {
       setRegisterData(__assign(__assign({}, registerData), {
         password_confirmation: e.target.value
       })); //prettier-ignore
@@ -5722,20 +5708,20 @@ var RegisterContent = function RegisterContent(_a) {
   };
 
   return react_1["default"].createElement("div", {
-    className: "bg-grey-lighter min-h-screen flex flex-col"
+    className: "min-h-screen bg-gray-100 flex flex-col justify-center sm:py-12"
   }, react_1["default"].createElement("div", {
     className: "container max-w-lg mx-auto flex-1 flex flex-col items-center justify-center px-2 w-10/12"
   }, react_1["default"].createElement("div", {
-    className: "bg-white px-12 py-8 rounded shadow-md text-black w-full"
+    className: "bg-white px-12 py-8 rounded-lg shadow-md text-black w-full"
   }, react_1["default"].createElement("h1", {
-    className: "mb-8 text-3xl text-center"
-  }, "Sign up"), react_1["default"].createElement("input", {
+    className: "mb-8 font-bold text-2xl text-center"
+  }, "\u30B5\u30A4\u30F3\u30A2\u30C3\u30D7"), react_1["default"].createElement("input", {
     type: "text",
     className: "block border border-grey-light w-full p-3 rounded mb-4",
     name: "fullname",
     placeholder: "Full Name",
     onChange: function onChange(e) {
-      return handleChange(e, 'name');
+      return handleChange(e, "name");
     }
   }), react_1["default"].createElement("input", {
     type: "text",
@@ -5743,7 +5729,7 @@ var RegisterContent = function RegisterContent(_a) {
     name: "email",
     placeholder: "Email",
     onChange: function onChange(e) {
-      return handleChange(e, 'email');
+      return handleChange(e, "email");
     }
   }), react_1["default"].createElement("div", {
     className: "w-full"
@@ -5753,7 +5739,7 @@ var RegisterContent = function RegisterContent(_a) {
     name: "password",
     placeholder: "Password",
     onChange: function onChange(e) {
-      return handleChange(e, 'password');
+      return handleChange(e, "password");
     }
   }), react_1["default"].createElement("span", {
     onClick: function onClick() {
@@ -5783,15 +5769,18 @@ var RegisterContent = function RegisterContent(_a) {
     className: "far fa-eye-slash pl-2 text-gray-600"
   }))), react_1["default"].createElement("button", {
     type: "submit",
-    className: "w-full text-center py-3 rounded-lg bg-blue-500 hover:bg-blue-600 text-white hover:bg-green-dark focus:outline-none my-1",
+    className: "w-full text-center py-3 rounded-lg bg-blue-400 hover:bg-blue-300 text-white hover:bg-green-dark focus:outline-none my-1",
     onClick: register
-  }, "Create Account")), react_1["default"].createElement("div", {
+  }, "\u65B0\u898F\u767B\u9332")), react_1["default"].createElement("div", {
     className: "text-grey-dark pt-6 pb-7"
-  }, "Already have an account?", react_1["default"].createElement(react_router_dom_1.Link, {
+  }, "\u3059\u3067\u306B\u30A2\u30AB\u30A6\u30F3\u30C8\u3092\u304A\u6301\u3061\u3067\u3059\u304B\uFF1F", react_1["default"].createElement(react_router_dom_1.Link, {
     className: "no-underline border-b border-blue text-blue",
     to: "/login"
-  }, "Log in"), "."), react_1["default"].createElement("button", {
-    className: "transition duration-200 px-5 py-4 pt-4 cursor-pointer font-normal text-sm rounded-lg text-gray-500 hover:bg-gray-200 focus:outline-none focus:bg-gray-300 focus:ring-2 focus:ring-gray-400 focus:ring-opacity-50 ring-inset"
+  }, "\u30ED\u30B0\u30A4\u30F3"), "."), react_1["default"].createElement("div", {
+    className: "w-full text-center sm:text-left whitespace-nowrap"
+  }, react_1["default"].createElement(react_router_dom_1.Link, {
+    to: "/",
+    className: "w-10 transition duration-200 mx-5 px-5 py-4 cursor-pointer font-normal text-sm rounded-lg text-gray-500 hover:bg-gray-200 focus:outline-none focus:bg-gray-300 focus:ring-2 focus:ring-gray-400 focus:ring-opacity-50 ring-inset"
   }, react_1["default"].createElement("svg", {
     xmlns: "http://www.w3.org/2000/svg",
     fill: "none",
@@ -5803,9 +5792,7 @@ var RegisterContent = function RegisterContent(_a) {
     strokeLinejoin: "round",
     strokeWidth: "2",
     d: "M10 19l-7-7m0 0l7-7m-7 7h18"
-  })), react_1["default"].createElement(react_router_dom_1.Link, {
-    to: "/"
-  }, "Back to your-app.com"))));
+  })), "\u623B\u308B"))), ");");
 };
 
 exports.default = RegisterContent;
