@@ -5318,7 +5318,7 @@ var LoginContent = function LoginContent(_a) {
   }, react_1["default"].createElement("div", {
     className: "text-center sm:text-left whitespace-nowrap"
   }, react_1["default"].createElement("button", {
-    className: "transition duration-200 mx-5 px-5 py-4 cursor-pointer font-normal text-sm rounded-lg text-gray-500 hover:bg-gray-100 focus:outline-none focus:bg-gray-200 focus:ring-2 focus:ring-gray-400 focus:ring-opacity-50 ring-inset"
+    className: "transition duration-200 mx-5 px-5 pt-4 cursor-pointer font-normal text-sm rounded-lg text-gray-500 hover:bg-gray-100 focus:outline-none focus:bg-gray-200 focus:ring-2 focus:ring-gray-400 focus:ring-opacity-50 ring-inset"
   }, react_1["default"].createElement("svg", {
     xmlns: "http://www.w3.org/2000/svg",
     fill: "none",
@@ -5335,7 +5335,7 @@ var LoginContent = function LoginContent(_a) {
   }, "Forgot Password"))), react_1["default"].createElement("div", {
     className: "text-center sm:text-right  whitespace-nowrap"
   }, react_1["default"].createElement("button", {
-    className: "transition duration-200 mx-5 px-5 py-4 cursor-pointer font-normal text-sm rounded-lg text-gray-500 hover:bg-gray-100 focus:outline-none focus:bg-gray-200 focus:ring-2 focus:ring-gray-400 focus:ring-opacity-50 ring-inset"
+    className: "transition duration-200 mx-5 px-5 pt-4 cursor-pointer font-normal text-sm rounded-lg text-gray-500 hover:bg-gray-100 focus:outline-none focus:bg-gray-200 focus:ring-2 focus:ring-gray-400 focus:ring-opacity-50 ring-inset"
   }, react_1["default"].createElement("svg", {
     xmlns: "http://www.w3.org/2000/svg",
     fill: "none",
@@ -5738,7 +5738,7 @@ var RegisterContent = function RegisterContent(_a) {
     className: "mb-8 font-bold text-2xl text-center"
   }, "\u30B5\u30A4\u30F3\u30A2\u30C3\u30D7"), react_1["default"].createElement("input", {
     type: "text",
-    className: "block border border-grey-light w-full p-3 rounded mb-4",
+    className: "block border border-grey-light w-full p-3 rounded-lg mb-4",
     name: "fullname",
     placeholder: "Full Name",
     onChange: function onChange(e) {
@@ -5746,7 +5746,7 @@ var RegisterContent = function RegisterContent(_a) {
     }
   }), react_1["default"].createElement("input", {
     type: "text",
-    className: "block border border-grey-light w-full p-3 rounded mb-4",
+    className: "block border border-grey-light w-full p-3 rounded-lg mb-4",
     name: "email",
     placeholder: "Email",
     onChange: function onChange(e) {
@@ -5756,7 +5756,7 @@ var RegisterContent = function RegisterContent(_a) {
     className: "w-full"
   }, react_1["default"].createElement("input", {
     type: isRevealPassword ? "text" : "password",
-    className: "border border-grey-light w-10/12 p-3 rounded mb-4",
+    className: "border border-grey-light w-10/12 p-3 rounded-lg mb-4",
     name: "password",
     placeholder: "Password",
     onChange: function onChange(e) {
@@ -5774,7 +5774,7 @@ var RegisterContent = function RegisterContent(_a) {
     className: "w-full"
   }, react_1["default"].createElement("input", {
     type: isRevealConfirmPassword ? "text" : "password",
-    className: "border border-grey-light w-10/12 p-3 rounded mb-4",
+    className: "border border-grey-light w-10/12 p-3 rounded-lg mb-4",
     name: "confirm_password",
     placeholder: "Confirm Password",
     onChange: function onChange(e) {

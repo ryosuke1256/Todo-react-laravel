@@ -98,14 +98,14 @@ const RegisterContent: React.VFC<Props> = ({
                     </h1>
                     <input
                         type="text"
-                        className="block border border-grey-light w-full p-3 rounded mb-4"
+                        className="block border border-grey-light w-full p-3 rounded-lg mb-4"
                         name="fullname"
                         placeholder="Full Name"
                         onChange={(e) => handleChange(e, "name")}
                     />
                     <input
                         type="text"
-                        className="block border border-grey-light w-full p-3 rounded mb-4"
+                        className="block border border-grey-light w-full p-3 rounded-lg mb-4"
                         name="email"
                         placeholder="Email"
                         onChange={(e) => handleChange(e, "email")}
@@ -113,7 +113,7 @@ const RegisterContent: React.VFC<Props> = ({
                     <div className="w-full">
                         <input
                             type={isRevealPassword ? "text" : "password"}
-                            className="border border-grey-light w-10/12 p-3 rounded mb-4"
+                            className="border border-grey-light w-10/12 p-3 rounded-lg mb-4"
                             name="password"
                             placeholder="Password"
                             onChange={(e) => handleChange(e, "password")}
@@ -129,7 +129,7 @@ const RegisterContent: React.VFC<Props> = ({
                     <div className="w-full">
                         <input
                             type={isRevealConfirmPassword ? "text" : "password"}
-                            className="border border-grey-light w-10/12 p-3 rounded mb-4"
+                            className="border border-grey-light w-10/12 p-3 rounded-lg mb-4"
                             name="confirm_password"
                             placeholder="Confirm Password"
                             onChange={(e) => handleChange(e, "confirmPassword")}
