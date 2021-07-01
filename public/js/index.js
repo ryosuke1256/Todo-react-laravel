@@ -5731,8 +5731,8 @@ var RegisterContent = function RegisterContent(_a) {
   return react_1["default"].createElement("div", {
     className: "min-h-screen bg-gray-100 flex flex-col justify-center sm:py-12"
   }, react_1["default"].createElement("div", {
-    className: "container max-w-lg mx-auto flex-1 flex flex-col items-center justify-center px-2 w-10/12"
-  }, react_1["default"].createElement("div", {
+    className: "xs:p-0 mx-auto md:w-full md:max-w-md"
+  }, react_1["default"].createElement("main", {
     className: "bg-white px-12 py-8 rounded-lg shadow-md text-black w-full"
   }, react_1["default"].createElement("h1", {
     className: "mb-8 font-bold text-2xl text-center"

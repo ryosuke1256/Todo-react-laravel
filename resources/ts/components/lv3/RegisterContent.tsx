@@ -8,6 +8,8 @@ type Props = {
     getUser: () => Promise<void>;
 };
 
+type LoginData = { email: string; password: string };
+
 const RegisterContent: React.VFC<Props> = ({
     setIs_authenticated,
     setUserID,
@@ -24,7 +26,7 @@ const RegisterContent: React.VFC<Props> = ({
 
     const history = useHistory();
 
-    const register = async () => {
+    const register = async (): Promise<void> => {
         console.log(registerData);
         if (registerData.password_confirmation === registerData.password) {
             await axios
@@ -47,7 +49,7 @@ const RegisterContent: React.VFC<Props> = ({
         }
     };
 
-    const login = async (loginData) => {
+    const login = async (loginData: LoginData): Promise<void> => {
         console.log(loginData);
         await axios
             .post("/login", loginData)
@@ -91,8 +93,8 @@ const RegisterContent: React.VFC<Props> = ({
 
     return (
         <div className="min-h-screen bg-gray-100 flex flex-col justify-center sm:py-12">
-            <div className="container max-w-lg mx-auto flex-1 flex flex-col items-center justify-center px-2 w-10/12">
-                <div className="bg-white px-12 py-8 rounded-lg shadow-md text-black w-full">
+            <div className="xs:p-0 mx-auto md:w-full md:max-w-md">
+                <main className="bg-white px-12 py-8 rounded-lg shadow-md text-black w-full">
                     <h1 className="mb-8 font-bold text-2xl text-center">
                         サインアップ
                     </h1>
@@ -152,7 +154,7 @@ const RegisterContent: React.VFC<Props> = ({
                     >
                         新規登録
                     </button>
-                </div>
+                </main>
 
                 <div className="text-grey-dark pt-6 pb-7">
                     すでにアカウントをお持ちですか？
