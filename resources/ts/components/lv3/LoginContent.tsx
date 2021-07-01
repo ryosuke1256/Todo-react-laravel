@@ -6,11 +6,13 @@ import("../../../js/bootstrap");
 type Props = {
     setIs_authenticated: (param: boolean) => void;
     setUserID: (param: string) => void;
+    getUser: () => Promise<void>;
 };
 
 const LoginContent: React.VFC<Props> = ({
     setIs_authenticated,
     setUserID,
+    getUser,
 }: Props) => {
     const [loginData, setLoginData] = useState({
         email: "",
@@ -85,6 +87,13 @@ const LoginContent: React.VFC<Props> = ({
                             className="border rounded-lg px-3 py-2 mt-1 mb-5 text-sm w-full"
                             value={loginData.email}
                             onChange={(e) => handleChange(e, "email")}
+                            onKeyPress={(e) => {
+                                if (e.key === "Enter") {
+                                    e.preventDefault();
+                                    onSubmit();
+                                    getUser();
+                                }
+                            }}
                         />
                         <label className="font-semibold text-sm text-gray-600 pb-1 block">
                             パスワード
@@ -95,6 +104,13 @@ const LoginContent: React.VFC<Props> = ({
                                 type={isRevealPassword ? "text" : "password"}
                                 className="border rounded-lg px-3 py-2 mt-1 mb-5 text-sm w-11/12"
                                 onChange={(e) => handleChange(e, "password")}
+                                onKeyPress={(e) => {
+                                    if (e.key === "Enter") {
+                                        e.preventDefault();
+                                        onSubmit();
+                                        getUser();
+                                    }
+                                }}
                             />
                             <span onClick={togglePassword}>
                                 {isRevealPassword ? (
@@ -107,7 +123,10 @@ const LoginContent: React.VFC<Props> = ({
                         <button
                             type="button"
                             className="transition duration-200 bg-blue-400 hover:bg-blue-300 focus:bg-blue-700 focus:shadow-sm focus:ring-4 focus:ring-blue-500 focus:ring-opacity-50 text-white w-full py-2.5 rounded-lg text-sm shadow-sm hover:shadow-md font-semibold text-center inline-block"
-                            onClick={onSubmit}
+                            onClick={() => {
+                                onSubmit();
+                                getUser();
+                            }}
                         >
                             <span className="inline-block mr-2">ログイン</span>
                         </button>

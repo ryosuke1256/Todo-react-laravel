@@ -2969,12 +2969,14 @@ var App = function App() {
     path: "/register"
   }, react_1["default"].createElement(_index_1.RegisterContent, {
     setIs_authenticated: setIs_authenticated,
-    setUserID: setUserID
+    setUserID: setUserID,
+    getUser: getUser
   })), react_1["default"].createElement(react_router_dom_1.Route, {
     path: "/login"
   }, react_1["default"].createElement(_index_1.LoginContent, {
     setIs_authenticated: setIs_authenticated,
-    setUserID: setUserID
+    setUserID: setUserID,
+    getUser: getUser
   })), react_1["default"].createElement(react_router_dom_1.Route, {
     path: "/"
   }, react_1["default"].createElement(GetTopPageContent, null)))));
@@ -5157,7 +5159,8 @@ Promise.resolve().then(function () {
 
 var LoginContent = function LoginContent(_a) {
   var setIs_authenticated = _a.setIs_authenticated,
-      setUserID = _a.setUserID;
+      setUserID = _a.setUserID,
+      getUser = _a.getUser;
 
   var _b = react_1.useState({
     email: "",
@@ -5267,6 +5270,13 @@ var LoginContent = function LoginContent(_a) {
     value: loginData.email,
     onChange: function onChange(e) {
       return handleChange(e, "email");
+    },
+    onKeyPress: function onKeyPress(e) {
+      if (e.key === "Enter") {
+        e.preventDefault();
+        onSubmit();
+        getUser();
+      }
     }
   }), react_1["default"].createElement("label", {
     className: "font-semibold text-sm text-gray-600 pb-1 block"
@@ -5278,6 +5288,13 @@ var LoginContent = function LoginContent(_a) {
     className: "border rounded-lg px-3 py-2 mt-1 mb-5 text-sm w-11/12",
     onChange: function onChange(e) {
       return handleChange(e, "password");
+    },
+    onKeyPress: function onKeyPress(e) {
+      if (e.key === "Enter") {
+        e.preventDefault();
+        onSubmit();
+        getUser();
+      }
     }
   }), react_1["default"].createElement("span", {
     onClick: togglePassword
@@ -5288,7 +5305,10 @@ var LoginContent = function LoginContent(_a) {
   }))), react_1["default"].createElement("button", {
     type: "button",
     className: "transition duration-200 bg-blue-400 hover:bg-blue-300 focus:bg-blue-700 focus:shadow-sm focus:ring-4 focus:ring-blue-500 focus:ring-opacity-50 text-white w-full py-2.5 rounded-lg text-sm shadow-sm hover:shadow-md font-semibold text-center inline-block",
-    onClick: onSubmit
+    onClick: function onClick() {
+      onSubmit();
+      getUser();
+    }
   }, react_1["default"].createElement("span", {
     className: "inline-block mr-2"
   }, "\u30ED\u30B0\u30A4\u30F3"))), react_1["default"].createElement("div", {
@@ -5576,7 +5596,8 @@ var axios_1 = __importDefault(__webpack_require__(/*! axios */ "./node_modules/a
 
 var RegisterContent = function RegisterContent(_a) {
   var setIs_authenticated = _a.setIs_authenticated,
-      setUserID = _a.setUserID;
+      setUserID = _a.setUserID,
+      getUser = _a.getUser;
 
   var _b = react_1.useState({
     name: "",
@@ -5770,7 +5791,10 @@ var RegisterContent = function RegisterContent(_a) {
   }))), react_1["default"].createElement("button", {
     type: "submit",
     className: "w-full text-center py-3 rounded-lg bg-blue-400 hover:bg-blue-300 text-white hover:bg-green-dark focus:outline-none my-1",
-    onClick: register
+    onClick: function onClick() {
+      register();
+      getUser();
+    }
   }, "\u65B0\u898F\u767B\u9332")), react_1["default"].createElement("div", {
     className: "text-grey-dark pt-6 pb-7"
   }, "\u3059\u3067\u306B\u30A2\u30AB\u30A6\u30F3\u30C8\u3092\u304A\u6301\u3061\u3067\u3059\u304B\uFF1F", react_1["default"].createElement(react_router_dom_1.Link, {

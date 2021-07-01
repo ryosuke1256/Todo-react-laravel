@@ -5,11 +5,13 @@ import axios from "axios";
 type Props = {
     setIs_authenticated: (param: boolean) => void;
     setUserID: (param: string) => void;
+    getUser: () => Promise<void>;
 };
 
 const RegisterContent: React.VFC<Props> = ({
     setIs_authenticated,
     setUserID,
+    getUser,
 }: Props) => {
     const [registerData, setRegisterData] = useState({
         name: "",
@@ -143,7 +145,10 @@ const RegisterContent: React.VFC<Props> = ({
                     <button
                         type="submit"
                         className="w-full text-center py-3 rounded-lg bg-blue-400 hover:bg-blue-300 text-white hover:bg-green-dark focus:outline-none my-1"
-                        onClick={register}
+                        onClick={() => {
+                            register();
+                            getUser();
+                        }}
                     >
                         新規登録
                     </button>
