@@ -32,7 +32,10 @@ const TaskTitle: React.VFC<Props> = ({
                 type="text"
                 value={title}
                 onChange={(e) => handleChange(e)}
-                style={{ flexGrow: 1 }}
+                style={{
+                    flexGrow: 1,
+                    outline: "1px solid rgba(179, 179, 179,0.7)",
+                }}
                 onKeyPress={(e) => {
                     if (e.key === "Enter") {
                         e.preventDefault();

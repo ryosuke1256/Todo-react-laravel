@@ -3551,7 +3551,8 @@ var TaskTitle = function TaskTitle(_a) {
         return handleChange(e);
       },
       style: {
-        flexGrow: 1
+        flexGrow: 1,
+        outline: "1px solid rgba(179, 179, 179,0.7)"
       },
       onKeyPress: function onKeyPress(e) {
         if (e.key === "Enter") {
