@@ -2924,14 +2924,14 @@ var App = function App() {
             /*yield*/
             , axios_1["default"].get("api/users").then(function (res) {
               if (res.data) {
-                setUserName(res.data.name);
                 setIs_authenticated(true);
+                setUserName(res.data.name);
+                setUserID(res.data.id);
               } else {
                 setIs_authenticated(false);
               }
 
               setIs_began(true);
-              setUserID(res.data.id);
             })["catch"](function (err) {
               console.log(err);
               setIs_began(true);
@@ -5780,15 +5780,17 @@ var RegisterContent = function RegisterContent(_a) {
     className: "px-5 pt-7"
   }, react_1["default"].createElement("h1", {
     className: "font-semibold text-sm text-gray-600 pb-1 block"
-  }, "\u304A\u540D\u524D"), react_1["default"].createElement("input", {
+  }, "\u540D\u524D"), react_1["default"].createElement("input", {
     type: "text",
-    className: "border rounded-lg border-grey-light px-3 py-2 mt-1 mb-5 text-sm w-full  block",
+    className: "border rounded-lg border-grey-light px-3 py-2 mt-1 text-sm w-full  block",
     name: "fullname",
     placeholder: "Full Name",
     onChange: function onChange(e) {
       return handleChange(e, "name");
     }
-  }), react_1["default"].createElement("h1", {
+  }), react_1["default"].createElement("div", {
+    className: "text-gray-300 text-xs pt-1 pb-4"
+  }, "\u2714\uFE0E 1\u6587\u5B57\u4EE5\u4E0A255\u5B57\u672A\u6E80"), react_1["default"].createElement("h1", {
     className: "font-semibold text-sm text-gray-600 pb-1 block"
   }, "\u30E1\u30FC\u30EB\u30A2\u30C9\u30EC\u30B9"), react_1["default"].createElement("input", {
     type: "text",
@@ -5804,7 +5806,7 @@ var RegisterContent = function RegisterContent(_a) {
     className: "font-semibold text-sm text-gray-600 pb-1 block"
   }, "\u30D1\u30B9\u30EF\u30FC\u30C9"), react_1["default"].createElement("input", {
     type: isRevealPassword ? "text" : "password",
-    className: "border border-grey-light w-10/12 px-3 py-2 mt-1 mb-4 text-sm rounded-lg ",
+    className: "border border-grey-light w-10/12 px-3 py-2 mt-1 text-sm rounded-lg ",
     name: "password",
     placeholder: "Password",
     onChange: function onChange(e) {
@@ -5819,6 +5821,8 @@ var RegisterContent = function RegisterContent(_a) {
   }) : react_1["default"].createElement("i", {
     className: "far fa-eye-slash pl-2 text-gray-600"
   }))), react_1["default"].createElement("div", {
+    className: "text-gray-300 text-xs pt-1 pb-2"
+  }, "\u2714\uFE0E 8\u6587\u5B57\u4EE5\u4E0A"), react_1["default"].createElement("div", {
     className: "w-full"
   }, react_1["default"].createElement("h1", {
     className: "font-semibold text-sm text-gray-600 pb-1 block"

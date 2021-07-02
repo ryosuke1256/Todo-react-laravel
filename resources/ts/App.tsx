@@ -19,13 +19,13 @@ const App: React.VFC = () => {
             .get("api/users")
             .then((res) => {
                 if (res.data) {
-                    setUserName(res.data.name);
                     setIs_authenticated(true);
+                    setUserName(res.data.name);
+                    setUserID(res.data.id);
                 } else {
                     setIs_authenticated(false);
                 }
                 setIs_began(true);
-                setUserID(res.data.id);
             })
             .catch((err) => {
                 console.log(err);

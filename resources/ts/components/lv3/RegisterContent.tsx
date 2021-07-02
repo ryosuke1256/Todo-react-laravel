@@ -101,15 +101,18 @@ const RegisterContent: React.VFC<Props> = ({
                     </title>
                     <div className="px-5 pt-7">
                         <h1 className="font-semibold text-sm text-gray-600 pb-1 block">
-                            お名前
+                            名前
                         </h1>
                         <input
                             type="text"
-                            className="border rounded-lg border-grey-light px-3 py-2 mt-1 mb-5 text-sm w-full  block"
+                            className="border rounded-lg border-grey-light px-3 py-2 mt-1 text-sm w-full  block"
                             name="fullname"
                             placeholder="Full Name"
                             onChange={(e) => handleChange(e, "name")}
                         />
+                        <div className="text-gray-300 text-xs pt-1 pb-4">
+                            ✔︎ 1文字以上255字未満
+                        </div>
                         <h1 className="font-semibold text-sm text-gray-600 pb-1 block">
                             メールアドレス
                         </h1>
@@ -126,7 +129,7 @@ const RegisterContent: React.VFC<Props> = ({
                             </h1>
                             <input
                                 type={isRevealPassword ? "text" : "password"}
-                                className="border border-grey-light w-10/12 px-3 py-2 mt-1 mb-4 text-sm rounded-lg "
+                                className="border border-grey-light w-10/12 px-3 py-2 mt-1 text-sm rounded-lg "
                                 name="password"
                                 placeholder="Password"
                                 onChange={(e) => handleChange(e, "password")}
@@ -138,6 +141,9 @@ const RegisterContent: React.VFC<Props> = ({
                                     <i className="far fa-eye-slash pl-2 text-gray-600" />
                                 )}
                             </span>
+                        </div>
+                        <div className="text-gray-300 text-xs pt-1 pb-2">
+                            ✔︎ 8文字以上
                         </div>
                         <div className="w-full">
                             <h1 className="font-semibold text-sm text-gray-600 pb-1 block">
