@@ -111,7 +111,7 @@ const RegisterContent: React.VFC<Props> = ({
                             onChange={(e) => handleChange(e, "name")}
                         />
                         <div className="text-gray-300 text-xs pt-1 pb-4">
-                            ✔︎ 1文字以上255字未満
+                            ✔︎ 1文字以上255字以下
                         </div>
                         <h1 className="font-semibold text-sm text-gray-600 pb-1 block">
                             メールアドレス

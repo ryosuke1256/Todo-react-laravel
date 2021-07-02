@@ -5795,7 +5795,7 @@ var RegisterContent = function RegisterContent(_a) {
     }
   }), react_1["default"].createElement("div", {
     className: "text-gray-300 text-xs pt-1 pb-4"
-  }, "\u2714\uFE0E 1\u6587\u5B57\u4EE5\u4E0A255\u5B57\u672A\u6E80"), react_1["default"].createElement("h1", {
+  }, "\u2714\uFE0E 1\u6587\u5B57\u4EE5\u4E0A255\u5B57\u4EE5\u4E0B"), react_1["default"].createElement("h1", {
     className: "font-semibold text-sm text-gray-600 pb-1 block"
   }, "\u30E1\u30FC\u30EB\u30A2\u30C9\u30EC\u30B9"), react_1["default"].createElement("input", {
     type: "text",
