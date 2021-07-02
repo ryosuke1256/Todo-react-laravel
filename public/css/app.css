@@ -31900,6 +31900,12 @@ body {
   opacity: 0.65;
 }
 
+.fa-plus-circle {
+  color: rgb(55, 165, 255);
+  opacity: 0.4;
+  cursor: pointer;
+}
+
 @media (min-width: 640px) {
   .sm\:container {
     width: 100%;

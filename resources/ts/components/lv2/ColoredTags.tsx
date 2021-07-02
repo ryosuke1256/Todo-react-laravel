@@ -14,7 +14,9 @@ const ColoredTags: React.VFC<Props> = ({ selected_color }: Props) => {
         (obj.red === false && obj.blue === false && obj.yellow === false && obj.green === false) 
         || (obj.red === undefined && obj.blue === undefined && obj.yellow === undefined && obj.green === undefined)
     ) {
-        return <_Add>＋</_Add>;
+        return (
+            <i className="fas fa-plus-circle fa-lg"></i>
+        );
     } else {
         return (
             <_ColoredTags>
@@ -33,9 +35,5 @@ const _ColoredTags = styled.div`
     display: flex;
     flex-wrap: wrap;
     height: 10px;
-    cursor: pointer;
-`;
-
-const _Add = styled.div`
     cursor: pointer;
 `;

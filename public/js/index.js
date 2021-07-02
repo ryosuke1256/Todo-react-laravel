@@ -3984,7 +3984,9 @@ var ColoredTags = function ColoredTags(_a) {
   var obj = __assign({}, selected_color);
 
   if (obj.red === false && obj.blue === false && obj.yellow === false && obj.green === false || obj.red === undefined && obj.blue === undefined && obj.yellow === undefined && obj.green === undefined) {
-    return react_1["default"].createElement(_Add, null, "\uFF0B");
+    return react_1["default"].createElement("i", {
+      className: "fas fa-plus-circle fa-lg"
+    });
   } else {
     return react_1["default"].createElement(_ColoredTags, null, react_1["default"].createElement(ColoredTag_1["default"], {
       selected_color: selected_color,
@@ -4006,9 +4008,7 @@ exports.default = ColoredTags;
 
 var _ColoredTags = styled_components_1["default"].div(templateObject_1 || (templateObject_1 = __makeTemplateObject(["\n    display: flex;\n    flex-wrap: wrap;\n    height: 10px;\n    cursor: pointer;\n"], ["\n    display: flex;\n    flex-wrap: wrap;\n    height: 10px;\n    cursor: pointer;\n"])));
 
-var _Add = styled_components_1["default"].div(templateObject_2 || (templateObject_2 = __makeTemplateObject(["\n    cursor: pointer;\n"], ["\n    cursor: pointer;\n"])));
-
-var templateObject_1, templateObject_2;
+var templateObject_1;
 
 /***/ }),
 
