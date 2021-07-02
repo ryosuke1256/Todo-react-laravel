@@ -5301,7 +5301,7 @@ var LoginContent = function LoginContent(_a) {
   return react_1["default"].createElement("div", {
     className: "min-h-screen bg-gray-100 flex flex-col justify-center sm:py-12"
   }, react_1["default"].createElement("div", {
-    className: "xs:p-0 mx-auto md:w-full md:max-w-md"
+    className: "xs:p-0 mx-auto w-10/12 md:w-full md:max-w-md"
   }, react_1["default"].createElement("main", {
     className: "bg-white shadow w-full rounded-xl divide-y divide-gray-200 px-12 py-8"
   }, react_1["default"].createElement("title", {
@@ -5776,9 +5776,9 @@ var RegisterContent = function RegisterContent(_a) {
   return react_1["default"].createElement("div", {
     className: "min-h-screen bg-gray-100 flex flex-col justify-center sm:py-12"
   }, react_1["default"].createElement("div", {
-    className: "xs:p-0 mx-auto md:w-full md:max-w-xl"
+    className: "xs:p-0 mx-auto w-11/12  md:w-full max-w-xl"
   }, react_1["default"].createElement("main", {
-    className: "bg-white shadow w-full rounded-xl divide-y divide-gray-200 px-12 py-9"
+    className: "bg-white shadow w-full rounded-xl divide-y divide-gray-200 px-4 py-9 md:px-12 md:py-9"
   }, react_1["default"].createElement("title", {
     className: "block font-bold text-center text-2xl pb-5 "
   }, "\u30B5\u30A4\u30F3\u30A2\u30C3\u30D7"), react_1["default"].createElement("div", {
