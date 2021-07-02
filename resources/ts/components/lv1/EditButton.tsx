@@ -1,6 +1,6 @@
 import React from "react";
 import { EditIcon } from "./_index";
-import { _Button } from "../../style/_Button";
+import { Button } from "./Button";
 import MediaQuery from "react-responsive";
 
 type Props = {
@@ -46,12 +46,12 @@ const EditButton: React.VFC<Props> = ({
                     <EditIcon changeTaskTitle={changeTaskTitle} />
                 </MediaQuery>
                 <MediaQuery query="(min-width: 599px)">
-                    <_Button
+                    <Button
                         onClick={() => changeTaskTitle()}
                         backgroundColor="#3bc2e4"
                     >
                         {editButtonTitle}
-                    </_Button>
+                    </Button>
                 </MediaQuery>
             </div>
         </>

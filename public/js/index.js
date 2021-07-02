@@ -2884,15 +2884,15 @@ Object.defineProperty(exports, "__esModule", ({
 
 var react_1 = __importStar(__webpack_require__(/*! react */ "./node_modules/react/index.js"));
 
-var Header_1 = __importDefault(__webpack_require__(/*! ./components/lv2/Header */ "./resources/ts/components/lv2/Header.tsx"));
-
-var _index_1 = __webpack_require__(/*! ./components/lv3/_index */ "./resources/ts/components/lv3/_index.js"); //prettier-ignore
-
+var axios_1 = __importDefault(__webpack_require__(/*! axios */ "./node_modules/axios/index.js"));
 
 var react_router_dom_1 = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/esm/react-router-dom.js"); //prettier-ignore
 
 
-var axios_1 = __importDefault(__webpack_require__(/*! axios */ "./node_modules/axios/index.js"));
+var Header_1 = __importDefault(__webpack_require__(/*! ./components/lv2/Header */ "./resources/ts/components/lv2/Header.tsx"));
+
+var _index_1 = __webpack_require__(/*! ./components/lv3/_index */ "./resources/ts/components/lv3/_index.js"); //prettier-ignore
+
 
 var App = function App() {
   var _a = react_1.useState(false),
@@ -2983,6 +2983,47 @@ var App = function App() {
 };
 
 exports.default = App;
+
+/***/ }),
+
+/***/ "./resources/ts/components/lv1/Button.tsx":
+/*!************************************************!*\
+  !*** ./resources/ts/components/lv1/Button.tsx ***!
+  \************************************************/
+/***/ (function(__unused_webpack_module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var __makeTemplateObject = this && this.__makeTemplateObject || function (cooked, raw) {
+  if (Object.defineProperty) {
+    Object.defineProperty(cooked, "raw", {
+      value: raw
+    });
+  } else {
+    cooked.raw = raw;
+  }
+
+  return cooked;
+};
+
+var __importDefault = this && this.__importDefault || function (mod) {
+  return mod && mod.__esModule ? mod : {
+    "default": mod
+  };
+};
+
+Object.defineProperty(exports, "__esModule", ({
+  value: true
+}));
+exports.Button = void 0;
+
+var styled_components_1 = __importDefault(__webpack_require__(/*! styled-components */ "./node_modules/styled-components/dist/styled-components.browser.esm.js"));
+
+exports.Button = styled_components_1["default"].div(templateObject_1 || (templateObject_1 = __makeTemplateObject(["\n    display: inline-block;\n    text-align: center;\n    border: 1px solid #2eb9db;\n    background-color: ", ";\n    opacity: 0.7;\n    color: white;\n    padding: 6px 10px;\n    margin-top: 7px;\n    border-radius: 8px;\n    margin-right: 12px;\n    cursor: pointer;\n    &:hover {\n        opacity: 0.6;\n    }\n"], ["\n    display: inline-block;\n    text-align: center;\n    border: 1px solid #2eb9db;\n    background-color: ", ";\n    opacity: 0.7;\n    color: white;\n    padding: 6px 10px;\n    margin-top: 7px;\n    border-radius: 8px;\n    margin-right: 12px;\n    cursor: pointer;\n    &:hover {\n        opacity: 0.6;\n    }\n"])), function (props) {
+  return props.backgroundColor;
+});
+var templateObject_1;
 
 /***/ }),
 
@@ -3145,7 +3186,7 @@ Object.defineProperty(exports, "__esModule", ({
 
 var react_1 = __importDefault(__webpack_require__(/*! react */ "./node_modules/react/index.js"));
 
-var _Button_1 = __webpack_require__(/*! ../../style/_Button */ "./resources/ts/style/_Button.tsx");
+var Button_1 = __webpack_require__(/*! ./Button */ "./resources/ts/components/lv1/Button.tsx");
 
 var _index_1 = __webpack_require__(/*! ./_index */ "./resources/ts/components/lv1/_index.js");
 
@@ -3165,7 +3206,7 @@ var DeleteButton = function DeleteButton(_a) {
     setIs_done: setIs_done
   }))), react_1["default"].createElement(react_responsive_1["default"], {
     query: "(min-width: 599px)"
-  }, react_1["default"].createElement(_Button_1._Button, {
+  }, react_1["default"].createElement(Button_1.Button, {
     onClick: function onClick() {
       deleteTask();
       setIs_done(0);
@@ -3257,7 +3298,7 @@ var react_1 = __importDefault(__webpack_require__(/*! react */ "./node_modules/r
 
 var _index_1 = __webpack_require__(/*! ./_index */ "./resources/ts/components/lv1/_index.js");
 
-var _Button_1 = __webpack_require__(/*! ../../style/_Button */ "./resources/ts/style/_Button.tsx");
+var Button_1 = __webpack_require__(/*! ./Button */ "./resources/ts/components/lv1/Button.tsx");
 
 var react_responsive_1 = __importDefault(__webpack_require__(/*! react-responsive */ "./node_modules/react-responsive/dist/react-responsive.js"));
 
@@ -3295,7 +3336,7 @@ var EditButton = function EditButton(_a) {
     changeTaskTitle: changeTaskTitle
   })), react_1["default"].createElement(react_responsive_1["default"], {
     query: "(min-width: 599px)"
-  }, react_1["default"].createElement(_Button_1._Button, {
+  }, react_1["default"].createElement(Button_1.Button, {
     onClick: function onClick() {
       return changeTaskTitle();
     },
@@ -6044,11 +6085,11 @@ var react_1 = __importStar(__webpack_require__(/*! react */ "./node_modules/reac
 
 var axios_1 = __importDefault(__webpack_require__(/*! axios */ "./node_modules/axios/index.js"));
 
-var _index_1 = __webpack_require__(/*! ../lv2/_index */ "./resources/ts/components/lv2/_index.js");
-
 var styled_components_1 = __importDefault(__webpack_require__(/*! styled-components */ "./node_modules/styled-components/dist/styled-components.browser.esm.js"));
 
 var customMedia_1 = __importDefault(__webpack_require__(/*! ../../style/customMedia */ "./resources/ts/style/customMedia.tsx"));
+
+var _index_1 = __webpack_require__(/*! ../lv2/_index */ "./resources/ts/components/lv2/_index.js");
 
 var TodoContent = function TodoContent(_a) {
   var userID = _a.userID;
@@ -6812,47 +6853,6 @@ var react_dom_1 = __importDefault(__webpack_require__(/*! react-dom */ "./node_m
 var App_1 = __importDefault(__webpack_require__(/*! ./App */ "./resources/ts/App.tsx"));
 
 react_dom_1["default"].render(react_1["default"].createElement(App_1["default"], null), document.getElementById("app"));
-
-/***/ }),
-
-/***/ "./resources/ts/style/_Button.tsx":
-/*!****************************************!*\
-  !*** ./resources/ts/style/_Button.tsx ***!
-  \****************************************/
-/***/ (function(__unused_webpack_module, exports, __webpack_require__) {
-
-"use strict";
-
-
-var __makeTemplateObject = this && this.__makeTemplateObject || function (cooked, raw) {
-  if (Object.defineProperty) {
-    Object.defineProperty(cooked, "raw", {
-      value: raw
-    });
-  } else {
-    cooked.raw = raw;
-  }
-
-  return cooked;
-};
-
-var __importDefault = this && this.__importDefault || function (mod) {
-  return mod && mod.__esModule ? mod : {
-    "default": mod
-  };
-};
-
-Object.defineProperty(exports, "__esModule", ({
-  value: true
-}));
-exports._Button = void 0;
-
-var styled_components_1 = __importDefault(__webpack_require__(/*! styled-components */ "./node_modules/styled-components/dist/styled-components.browser.esm.js"));
-
-exports._Button = styled_components_1["default"].div(templateObject_1 || (templateObject_1 = __makeTemplateObject(["\n    display: inline-block;\n    text-align: center;\n    border: 1px solid #2eb9db;\n    background-color: ", ";\n    opacity: 0.7;\n    color: white;\n    padding: 6px 10px;\n    margin-top:7px;\n    border-radius: 8px;\n    margin-right: 12px;\n    cursor: pointer;\n    &:hover {\n        opacity: 0.6;\n    }\n"], ["\n    display: inline-block;\n    text-align: center;\n    border: 1px solid #2eb9db;\n    background-color: ", ";\n    opacity: 0.7;\n    color: white;\n    padding: 6px 10px;\n    margin-top:7px;\n    border-radius: 8px;\n    margin-right: 12px;\n    cursor: pointer;\n    &:hover {\n        opacity: 0.6;\n    }\n"])), function (props) {
-  return props.backgroundColor;
-});
-var templateObject_1;
 
 /***/ }),
 

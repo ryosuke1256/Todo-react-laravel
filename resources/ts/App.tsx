@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from "react";
+import axios from "axios";
+import { BrowserRouter as Router, Switch, Route, Redirect } from "react-router-dom"; //prettier-ignore
 import Header from "./components/lv2/Header";
 import {LoginContent,RegisterContent,TodoContent,TopPageContent} from "./components/lv3/_index"; //prettier-ignore
-import { BrowserRouter as Router, Switch, Route, Redirect } from "react-router-dom"; //prettier-ignore
-import axios from "axios";
 
 const App: React.VFC = () => {
     const [is_authenticated, setIs_authenticated] = useState<boolean>(false);

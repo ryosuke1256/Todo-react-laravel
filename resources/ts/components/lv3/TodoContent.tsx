@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-import { TaskCard, TextForm, WelcomeContent } from "../lv2/_index";
-import { TaskAPI } from "../../type/api/TaskAPI";
-import { TaskAndColor } from "../../type/TaskAndColor";
 import styled from "styled-components";
 import customMedia from "../../style/customMedia";
+import { TaskAndColor } from "../../type/TaskAndColor";
+import { TaskAPI } from "../../type/api/TaskAPI";
+import { TaskCard, TextForm, WelcomeContent } from "../lv2/_index";
 
 type Props = {
     userID: string;

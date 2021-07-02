@@ -1,5 +1,5 @@
 import React from "react";
-import { _Button } from "../../style/_Button";
+import { Button } from "./Button";
 import { DeleteIcon } from "./_index";
 import MediaQuery from "react-responsive";
 
@@ -20,7 +20,7 @@ const DeleteButton: React.VFC<Props> = ({ deleteTask, setIs_done }: Props) => {
                 </div>
             </MediaQuery>
             <MediaQuery query="(min-width: 599px)">
-                <_Button
+                <Button
                     onClick={() => {
                         deleteTask();
                         setIs_done(0);
@@ -29,7 +29,7 @@ const DeleteButton: React.VFC<Props> = ({ deleteTask, setIs_done }: Props) => {
                     style={{ border: "1px solid #db5e5e" }}
                 >
                     削除
-                </_Button>
+                </Button>
             </MediaQuery>
         </>
     );
