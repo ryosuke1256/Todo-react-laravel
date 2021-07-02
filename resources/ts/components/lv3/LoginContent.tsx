@@ -74,8 +74,8 @@ const LoginContent: React.VFC<Props> = ({
     return (
         <div className="min-h-screen bg-gray-100 flex flex-col justify-center sm:py-12">
             <div className="xs:p-0 mx-auto md:w-full md:max-w-md">
-                <main className="bg-white shadow w-full rounded-xl divide-y divide-gray-200  px-12 py-8">
-                    <title className="block font-bold text-center text-2xl mb-5">
+                <main className="bg-white shadow w-full rounded-xl divide-y divide-gray-200 px-12 py-8">
+                    <title className="block font-bold text-center text-2xl pb-5">
                         ログイン
                     </title>
                     <div className="px-5 py-7">

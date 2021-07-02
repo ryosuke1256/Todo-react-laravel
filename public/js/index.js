@@ -5257,9 +5257,9 @@ var LoginContent = function LoginContent(_a) {
   }, react_1["default"].createElement("div", {
     className: "xs:p-0 mx-auto md:w-full md:max-w-md"
   }, react_1["default"].createElement("main", {
-    className: "bg-white shadow w-full rounded-xl divide-y divide-gray-200  px-12 py-8"
+    className: "bg-white shadow w-full rounded-xl divide-y divide-gray-200 px-12 py-8"
   }, react_1["default"].createElement("title", {
-    className: "block font-bold text-center text-2xl mb-5"
+    className: "block font-bold text-center text-2xl pb-5"
   }, "\u30ED\u30B0\u30A4\u30F3"), react_1["default"].createElement("div", {
     className: "px-5 py-7"
   }, react_1["default"].createElement("h1", {
@@ -5732,10 +5732,12 @@ var RegisterContent = function RegisterContent(_a) {
   }, react_1["default"].createElement("div", {
     className: "xs:p-0 mx-auto md:w-full md:max-w-md"
   }, react_1["default"].createElement("main", {
-    className: "bg-white shadow w-full rounded-xl px-12 py-8"
+    className: "bg-white shadow w-full rounded-xl divide-y divide-gray-200 px-12 py-8"
   }, react_1["default"].createElement("title", {
-    className: "block font-bold text-center text-2xl pb-8 "
-  }, "\u30B5\u30A4\u30F3\u30A2\u30C3\u30D7"), react_1["default"].createElement("h1", {
+    className: "block font-bold text-center text-2xl pb-5 "
+  }, "\u30B5\u30A4\u30F3\u30A2\u30C3\u30D7"), react_1["default"].createElement("div", {
+    className: "px-5 pt-7"
+  }, react_1["default"].createElement("h1", {
     className: "font-semibold text-sm text-gray-600 pb-1 block"
   }, "\u304A\u540D\u524D"), react_1["default"].createElement("input", {
     type: "text",
@@ -5801,7 +5803,7 @@ var RegisterContent = function RegisterContent(_a) {
     onClick: function onClick() {
       register();
     }
-  }, "\u65B0\u898F\u767B\u9332")), react_1["default"].createElement("aside", {
+  }, "\u65B0\u898F\u767B\u9332"))), react_1["default"].createElement("aside", {
     className: "text-grey-dark pt-6 pb-7"
   }, "\u3059\u3067\u306B\u30A2\u30AB\u30A6\u30F3\u30C8\u3092\u304A\u6301\u3061\u3067\u3059\u304B\uFF1F", react_1["default"].createElement(react_router_dom_1.Link, {
     className: "no-underline border-b border-blue text-blue",

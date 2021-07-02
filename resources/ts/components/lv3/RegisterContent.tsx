@@ -95,77 +95,89 @@ const RegisterContent: React.VFC<Props> = ({
     return (
         <div className="min-h-screen bg-gray-100 flex flex-col justify-center sm:py-12">
             <div className="xs:p-0 mx-auto md:w-full md:max-w-md">
-                <main className="bg-white shadow w-full rounded-xl px-12 py-8">
-                    <title className="block font-bold text-center text-2xl pb-8 ">
+                <main className="bg-white shadow w-full rounded-xl divide-y divide-gray-200 px-12 py-8">
+                    <title className="block font-bold text-center text-2xl pb-5 ">
                         サインアップ
                     </title>
-                    <h1 className="font-semibold text-sm text-gray-600 pb-1 block">
-                        お名前
-                    </h1>
-                    <input
-                        type="text"
-                        className="border rounded-lg border-grey-light px-3 py-2 mt-1 mb-5 text-sm w-full  block"
-                        name="fullname"
-                        placeholder="Full Name"
-                        onChange={(e) => handleChange(e, "name")}
-                    />
-                    <h1 className="font-semibold text-sm text-gray-600 pb-1 block">
-                        メールアドレス
-                    </h1>
-                    <input
-                        type="text"
-                        className="border rounded-lg border-grey-light px-3 py-2 mb-4 text-sm w-full block "
-                        name="email"
-                        placeholder="Email"
-                        onChange={(e) => handleChange(e, "email")}
-                    />
-                    <div className="w-full">
+                    <div className="px-5 pt-7">
                         <h1 className="font-semibold text-sm text-gray-600 pb-1 block">
-                            パスワード
+                            お名前
                         </h1>
                         <input
-                            type={isRevealPassword ? "text" : "password"}
-                            className="border border-grey-light w-10/12 px-3 py-2 mt-1 mb-4 text-sm rounded-lg "
-                            name="password"
-                            placeholder="Password"
-                            onChange={(e) => handleChange(e, "password")}
+                            type="text"
+                            className="border rounded-lg border-grey-light px-3 py-2 mt-1 mb-5 text-sm w-full  block"
+                            name="fullname"
+                            placeholder="Full Name"
+                            onChange={(e) => handleChange(e, "name")}
                         />
-                        <span onClick={() => togglePassword("Password")}>
-                            {isRevealPassword ? (
-                                <i className="far fa-eye pl-2 text-gray-600" />
-                            ) : (
-                                <i className="far fa-eye-slash pl-2 text-gray-600" />
-                            )}
-                        </span>
-                    </div>
-                    <div className="w-full">
                         <h1 className="font-semibold text-sm text-gray-600 pb-1 block">
-                            確認パスワード
+                            メールアドレス
                         </h1>
                         <input
-                            type={isRevealConfirmPassword ? "text" : "password"}
-                            className="border border-grey-light w-10/12 px-3 py-2 text-sm rounded-lg mb-4"
-                            name="confirm_password"
-                            placeholder="Confirm Password"
-                            onChange={(e) => handleChange(e, "confirmPassword")}
+                            type="text"
+                            className="border rounded-lg border-grey-light px-3 py-2 mb-4 text-sm w-full block "
+                            name="email"
+                            placeholder="Email"
+                            onChange={(e) => handleChange(e, "email")}
                         />
-                        <span onClick={() => togglePassword("ConfirmPassword")}>
-                            {isRevealConfirmPassword ? (
-                                <i className="far fa-eye pl-2 text-gray-600" />
-                            ) : (
-                                <i className="far fa-eye-slash pl-2 text-gray-600" />
-                            )}
-                        </span>
+                        <div className="w-full">
+                            <h1 className="font-semibold text-sm text-gray-600 pb-1 block">
+                                パスワード
+                            </h1>
+                            <input
+                                type={isRevealPassword ? "text" : "password"}
+                                className="border border-grey-light w-10/12 px-3 py-2 mt-1 mb-4 text-sm rounded-lg "
+                                name="password"
+                                placeholder="Password"
+                                onChange={(e) => handleChange(e, "password")}
+                            />
+                            <span onClick={() => togglePassword("Password")}>
+                                {isRevealPassword ? (
+                                    <i className="far fa-eye pl-2 text-gray-600" />
+                                ) : (
+                                    <i className="far fa-eye-slash pl-2 text-gray-600" />
+                                )}
+                            </span>
+                        </div>
+                        <div className="w-full">
+                            <h1 className="font-semibold text-sm text-gray-600 pb-1 block">
+                                確認パスワード
+                            </h1>
+                            <input
+                                type={
+                                    isRevealConfirmPassword
+                                        ? "text"
+                                        : "password"
+                                }
+                                className="border border-grey-light w-10/12 px-3 py-2 text-sm rounded-lg mb-4"
+                                name="confirm_password"
+                                placeholder="Confirm Password"
+                                onChange={(e) =>
+                                    handleChange(e, "confirmPassword")
+                                }
+                            />
+                            <span
+                                onClick={() =>
+                                    togglePassword("ConfirmPassword")
+                                }
+                            >
+                                {isRevealConfirmPassword ? (
+                                    <i className="far fa-eye pl-2 text-gray-600" />
+                                ) : (
+                                    <i className="far fa-eye-slash pl-2 text-gray-600" />
+                                )}
+                            </span>
+                        </div>
+                        <button
+                            type="submit"
+                            className="w-full text-center py-3 rounded-lg bg-blue-400 hover:bg-blue-300 text-white hover:bg-green-dark focus:outline-none my-1"
+                            onClick={() => {
+                                register();
+                            }}
+                        >
+                            新規登録
+                        </button>
                     </div>
-                    <button
-                        type="submit"
-                        className="w-full text-center py-3 rounded-lg bg-blue-400 hover:bg-blue-300 text-white hover:bg-green-dark focus:outline-none my-1"
-                        onClick={() => {
-                            register();
-                        }}
-                    >
-                        新規登録
-                    </button>
                 </main>
                 <aside className="text-grey-dark pt-6 pb-7">
                     すでにアカウントをお持ちですか？
