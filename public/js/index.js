@@ -4597,15 +4597,20 @@ var TaskCard = function TaskCard(_a) {
   react_1.useEffect(function () {
     getTags();
   }, []);
+  var mounted = react_1.useRef(false);
   react_1.useEffect(function () {
-    setTitle(task.title);
-    setIs_done(task.is_done);
-    setSelected_color({
-      red: task.red,
-      blue: task.blue,
-      yellow: task.yellow,
-      green: task.green
-    });
+    if (mounted.current) {
+      setTitle(task.title);
+      setIs_done(task.is_done);
+      setSelected_color({
+        red: task.red,
+        blue: task.blue,
+        yellow: task.yellow,
+        green: task.green
+      });
+    } else {
+      mounted.current = true;
+    }
   }, [task]);
 
   var getTags = function getTags() {

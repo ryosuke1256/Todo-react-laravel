@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useRef } from "react";
 import styled from "styled-components";
 import axios from "axios";
 import { ColoredTags } from "./_index";
@@ -32,10 +32,16 @@ const TaskCard: React.VFC<Props> = ({task,tasks,setTasks,tasksEditActive,setTask
         getTags();
     },[])
 
+    const mounted = useRef(false);
+
     useEffect(() => {
-        setTitle(task.title);
-        setIs_done(task.is_done);
-        setSelected_color({red:task.red,blue:task.blue,yellow:task.yellow,green:task.green});
+        if(mounted.current) {
+            setTitle(task.title);
+            setIs_done(task.is_done);
+            setSelected_color({red:task.red,blue:task.blue,yellow:task.yellow,green:task.green});
+        } else {
+            mounted.current = true;
+        }
     }, [task]); 
 
     const getTags = async (): Promise<void> => {

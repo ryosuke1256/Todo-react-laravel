@@ -19,7 +19,7 @@ const Header: React.VFC<Props> = ({
 }: Props) => {
     const [is_show, setIs_show] = useState(false);
 
-    const logout = async () => {
+    const logout = async (): Promise<void> => {
         await axios
             .post("/logout")
             .then(() => {
