@@ -74,14 +74,14 @@ const LoginContent: React.VFC<Props> = ({
     return (
         <div className="min-h-screen bg-gray-100 flex flex-col justify-center sm:py-12">
             <div className="xs:p-0 mx-auto md:w-full md:max-w-md">
-                <main className="bg-white shadow w-full rounded-xl divide-y divide-gray-200 px-12 py-8">
-                    <h1 className="font-bold text-center text-2xl mb-5">
+                <main className="bg-white shadow w-full rounded-xl divide-y divide-gray-200  px-12 py-8">
+                    <title className="block font-bold text-center text-2xl mb-5">
                         ログイン
-                    </h1>
+                    </title>
                     <div className="px-5 py-7">
-                        <label className="font-semibold text-sm text-gray-600 pb-1 block">
+                        <h1 className="font-semibold text-sm text-gray-600 pb-1 block">
                             メールアドレス
-                        </label>
+                        </h1>
                         <input
                             placeholder="E-mail"
                             type="text"
@@ -95,9 +95,9 @@ const LoginContent: React.VFC<Props> = ({
                                 }
                             }}
                         />
-                        <label className="font-semibold text-sm text-gray-600 pb-1 block">
+                        <h1 className="font-semibold text-sm text-gray-600 pb-1 block">
                             パスワード
-                        </label>
+                        </h1>
                         <div className="w-full">
                             <input
                                 placeholder="Password"
@@ -176,7 +176,7 @@ const LoginContent: React.VFC<Props> = ({
                         </div>
                     </div>
                 </main>
-                <div className="pt-5">
+                <aside className="pt-5">
                     <div className="grid grid-cols-2 gap-1">
                         <div className="text-center sm:text-left whitespace-nowrap">
                             <Link
@@ -201,7 +201,7 @@ const LoginContent: React.VFC<Props> = ({
                             </Link>
                         </div>
                     </div>
-                </div>
+                </aside>
             </div>
         </div>
     );

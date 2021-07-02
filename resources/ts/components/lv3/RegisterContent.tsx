@@ -95,28 +95,37 @@ const RegisterContent: React.VFC<Props> = ({
     return (
         <div className="min-h-screen bg-gray-100 flex flex-col justify-center sm:py-12">
             <div className="xs:p-0 mx-auto md:w-full md:max-w-md">
-                <main className="bg-white px-12 py-8 rounded-xl shadow-md text-black w-full">
-                    <h1 className="mb-8 font-bold text-2xl text-center">
+                <main className="bg-white shadow w-full rounded-xl px-12 py-8">
+                    <title className="block font-bold text-center text-2xl pb-8 ">
                         サインアップ
+                    </title>
+                    <h1 className="font-semibold text-sm text-gray-600 pb-1 block">
+                        お名前
                     </h1>
                     <input
                         type="text"
-                        className="block border border-grey-light w-full p-3 rounded-lg mb-4"
+                        className="border rounded-lg border-grey-light px-3 py-2 mt-1 mb-5 text-sm w-full  block"
                         name="fullname"
                         placeholder="Full Name"
                         onChange={(e) => handleChange(e, "name")}
                     />
+                    <h1 className="font-semibold text-sm text-gray-600 pb-1 block">
+                        メールアドレス
+                    </h1>
                     <input
                         type="text"
-                        className="block border border-grey-light w-full p-3 rounded-lg mb-4"
+                        className="border rounded-lg border-grey-light px-3 py-2 mb-4 text-sm w-full block "
                         name="email"
                         placeholder="Email"
                         onChange={(e) => handleChange(e, "email")}
                     />
                     <div className="w-full">
+                        <h1 className="font-semibold text-sm text-gray-600 pb-1 block">
+                            パスワード
+                        </h1>
                         <input
                             type={isRevealPassword ? "text" : "password"}
-                            className="border border-grey-light w-10/12 p-3 rounded-lg mb-4"
+                            className="border border-grey-light w-10/12 px-3 py-2 mt-1 mb-4 text-sm rounded-lg "
                             name="password"
                             placeholder="Password"
                             onChange={(e) => handleChange(e, "password")}
@@ -130,9 +139,12 @@ const RegisterContent: React.VFC<Props> = ({
                         </span>
                     </div>
                     <div className="w-full">
+                        <h1 className="font-semibold text-sm text-gray-600 pb-1 block">
+                            確認パスワード
+                        </h1>
                         <input
                             type={isRevealConfirmPassword ? "text" : "password"}
-                            className="border border-grey-light w-10/12 p-3 rounded-lg mb-4"
+                            className="border border-grey-light w-10/12 px-3 py-2 text-sm rounded-lg mb-4"
                             name="confirm_password"
                             placeholder="Confirm Password"
                             onChange={(e) => handleChange(e, "confirmPassword")}
@@ -155,8 +167,7 @@ const RegisterContent: React.VFC<Props> = ({
                         新規登録
                     </button>
                 </main>
-
-                <div className="text-grey-dark pt-6 pb-7">
+                <aside className="text-grey-dark pt-6 pb-7">
                     すでにアカウントをお持ちですか？
                     <Link
                         className="no-underline border-b border-blue text-blue"
@@ -165,8 +176,8 @@ const RegisterContent: React.VFC<Props> = ({
                         ログイン
                     </Link>
                     .
-                </div>
-                <div className="w-full text-center sm:text-left whitespace-nowrap">
+                </aside>
+                <aside className="w-full text-center sm:text-left whitespace-nowrap">
                     <Link
                         to="/"
                         className="w-10 transition duration-200 mx-5 px-5 py-4 cursor-pointer font-normal text-sm rounded-lg text-gray-500 hover:bg-gray-200 focus:outline-none focus:bg-gray-300 focus:ring-2 focus:ring-gray-400 focus:ring-opacity-50 ring-inset"
@@ -187,7 +198,7 @@ const RegisterContent: React.VFC<Props> = ({
                         </svg>
                         戻る
                     </Link>
-                </div>
+                </aside>
             </div>
             );
         </div>

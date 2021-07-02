@@ -5257,12 +5257,12 @@ var LoginContent = function LoginContent(_a) {
   }, react_1["default"].createElement("div", {
     className: "xs:p-0 mx-auto md:w-full md:max-w-md"
   }, react_1["default"].createElement("main", {
-    className: "bg-white shadow w-full rounded-xl divide-y divide-gray-200 px-12 py-8"
-  }, react_1["default"].createElement("h1", {
-    className: "font-bold text-center text-2xl mb-5"
+    className: "bg-white shadow w-full rounded-xl divide-y divide-gray-200  px-12 py-8"
+  }, react_1["default"].createElement("title", {
+    className: "block font-bold text-center text-2xl mb-5"
   }, "\u30ED\u30B0\u30A4\u30F3"), react_1["default"].createElement("div", {
     className: "px-5 py-7"
-  }, react_1["default"].createElement("label", {
+  }, react_1["default"].createElement("h1", {
     className: "font-semibold text-sm text-gray-600 pb-1 block"
   }, "\u30E1\u30FC\u30EB\u30A2\u30C9\u30EC\u30B9"), react_1["default"].createElement("input", {
     placeholder: "E-mail",
@@ -5278,7 +5278,7 @@ var LoginContent = function LoginContent(_a) {
         onSubmit();
       }
     }
-  }), react_1["default"].createElement("label", {
+  }), react_1["default"].createElement("h1", {
     className: "font-semibold text-sm text-gray-600 pb-1 block"
   }, "\u30D1\u30B9\u30EF\u30FC\u30C9"), react_1["default"].createElement("div", {
     className: "w-full"
@@ -5347,7 +5347,7 @@ var LoginContent = function LoginContent(_a) {
     d: "M18.364 5.636l-3.536 3.536m0 5.656l3.536 3.536M9.172 9.172L5.636 5.636m3.536 9.192l-3.536 3.536M21 12a9 9 0 11-18 0 9 9 0 0118 0zm-5 0a4 4 0 11-8 0 4 4 0 018 0z"
   })), react_1["default"].createElement("span", {
     className: "inline-block ml-1"
-  }, "Help")))))), react_1["default"].createElement("div", {
+  }, "Help")))))), react_1["default"].createElement("aside", {
     className: "pt-5"
   }, react_1["default"].createElement("div", {
     className: "grid grid-cols-2 gap-1"
@@ -5732,20 +5732,24 @@ var RegisterContent = function RegisterContent(_a) {
   }, react_1["default"].createElement("div", {
     className: "xs:p-0 mx-auto md:w-full md:max-w-md"
   }, react_1["default"].createElement("main", {
-    className: "bg-white px-12 py-8 rounded-xl shadow-md text-black w-full"
-  }, react_1["default"].createElement("h1", {
-    className: "mb-8 font-bold text-2xl text-center"
-  }, "\u30B5\u30A4\u30F3\u30A2\u30C3\u30D7"), react_1["default"].createElement("input", {
+    className: "bg-white shadow w-full rounded-xl px-12 py-8"
+  }, react_1["default"].createElement("title", {
+    className: "block font-bold text-center text-2xl pb-8 "
+  }, "\u30B5\u30A4\u30F3\u30A2\u30C3\u30D7"), react_1["default"].createElement("h1", {
+    className: "font-semibold text-sm text-gray-600 pb-1 block"
+  }, "\u304A\u540D\u524D"), react_1["default"].createElement("input", {
     type: "text",
-    className: "block border border-grey-light w-full p-3 rounded-lg mb-4",
+    className: "border rounded-lg border-grey-light px-3 py-2 mt-1 mb-5 text-sm w-full  block",
     name: "fullname",
     placeholder: "Full Name",
     onChange: function onChange(e) {
       return handleChange(e, "name");
     }
-  }), react_1["default"].createElement("input", {
+  }), react_1["default"].createElement("h1", {
+    className: "font-semibold text-sm text-gray-600 pb-1 block"
+  }, "\u30E1\u30FC\u30EB\u30A2\u30C9\u30EC\u30B9"), react_1["default"].createElement("input", {
     type: "text",
-    className: "block border border-grey-light w-full p-3 rounded-lg mb-4",
+    className: "border rounded-lg border-grey-light px-3 py-2 mb-4 text-sm w-full block ",
     name: "email",
     placeholder: "Email",
     onChange: function onChange(e) {
@@ -5753,9 +5757,11 @@ var RegisterContent = function RegisterContent(_a) {
     }
   }), react_1["default"].createElement("div", {
     className: "w-full"
-  }, react_1["default"].createElement("input", {
+  }, react_1["default"].createElement("h1", {
+    className: "font-semibold text-sm text-gray-600 pb-1 block"
+  }, "\u30D1\u30B9\u30EF\u30FC\u30C9"), react_1["default"].createElement("input", {
     type: isRevealPassword ? "text" : "password",
-    className: "border border-grey-light w-10/12 p-3 rounded-lg mb-4",
+    className: "border border-grey-light w-10/12 px-3 py-2 mt-1 mb-4 text-sm rounded-lg ",
     name: "password",
     placeholder: "Password",
     onChange: function onChange(e) {
@@ -5771,9 +5777,11 @@ var RegisterContent = function RegisterContent(_a) {
     className: "far fa-eye-slash pl-2 text-gray-600"
   }))), react_1["default"].createElement("div", {
     className: "w-full"
-  }, react_1["default"].createElement("input", {
+  }, react_1["default"].createElement("h1", {
+    className: "font-semibold text-sm text-gray-600 pb-1 block"
+  }, "\u78BA\u8A8D\u30D1\u30B9\u30EF\u30FC\u30C9"), react_1["default"].createElement("input", {
     type: isRevealConfirmPassword ? "text" : "password",
-    className: "border border-grey-light w-10/12 p-3 rounded-lg mb-4",
+    className: "border border-grey-light w-10/12 px-3 py-2 text-sm rounded-lg mb-4",
     name: "confirm_password",
     placeholder: "Confirm Password",
     onChange: function onChange(e) {
@@ -5793,12 +5801,12 @@ var RegisterContent = function RegisterContent(_a) {
     onClick: function onClick() {
       register();
     }
-  }, "\u65B0\u898F\u767B\u9332")), react_1["default"].createElement("div", {
+  }, "\u65B0\u898F\u767B\u9332")), react_1["default"].createElement("aside", {
     className: "text-grey-dark pt-6 pb-7"
   }, "\u3059\u3067\u306B\u30A2\u30AB\u30A6\u30F3\u30C8\u3092\u304A\u6301\u3061\u3067\u3059\u304B\uFF1F", react_1["default"].createElement(react_router_dom_1.Link, {
     className: "no-underline border-b border-blue text-blue",
     to: "/login"
-  }, "\u30ED\u30B0\u30A4\u30F3"), "."), react_1["default"].createElement("div", {
+  }, "\u30ED\u30B0\u30A4\u30F3"), "."), react_1["default"].createElement("aside", {
     className: "w-full text-center sm:text-left whitespace-nowrap"
   }, react_1["default"].createElement(react_router_dom_1.Link, {
     to: "/",
