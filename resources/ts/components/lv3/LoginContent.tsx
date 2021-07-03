@@ -12,7 +12,6 @@ type Props = {
 
 type LoginData = {
     email: string;
-    emailFormat: string;
     password: string;
 };
 
@@ -21,10 +20,6 @@ const LoginContent: React.VFC<Props> = ({
     setUserID,
     getUser,
 }: Props) => {
-    const [loginData, setLoginData] = useState({
-        email: "",
-        password: "",
-    });
     const [isRevealPassword, setIsRevealPassword] = useState(false);
     const [errorMessage, setErrorMessage] = useState("");
 

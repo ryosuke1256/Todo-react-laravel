@@ -5210,26 +5210,19 @@ var LoginContent = function LoginContent(_a) {
       setUserID = _a.setUserID,
       getUser = _a.getUser;
 
-  var _b = react_1.useState({
-    email: "",
-    password: ""
-  }),
-      loginData = _b[0],
-      setLoginData = _b[1];
+  var _b = react_1.useState(false),
+      isRevealPassword = _b[0],
+      setIsRevealPassword = _b[1];
 
-  var _c = react_1.useState(false),
-      isRevealPassword = _c[0],
-      setIsRevealPassword = _c[1];
+  var _c = react_1.useState(""),
+      errorMessage = _c[0],
+      setErrorMessage = _c[1];
 
-  var _d = react_1.useState(""),
-      errorMessage = _d[0],
-      setErrorMessage = _d[1];
-
-  var _e = react_hook_form_1.useForm(),
-      register = _e.register,
-      handleSubmit = _e.handleSubmit,
-      errors = _e.formState.errors,
-      watch = _e.watch; // console.log(watch());
+  var _d = react_hook_form_1.useForm(),
+      register = _d.register,
+      handleSubmit = _d.handleSubmit,
+      errors = _d.formState.errors,
+      watch = _d.watch; // console.log(watch());
 
 
   var history = react_router_dom_1.useHistory();
