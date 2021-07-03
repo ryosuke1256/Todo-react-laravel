@@ -5324,11 +5324,11 @@ var LoginContent = function LoginContent(_a) {
     type: "text",
     placeholder: "E-mail",
     className: "border rounded-lg px-3 py-2 mt-1 text-sm w-full"
-  })), errors.email && react_1["default"].createElement("p", {
+  })), errors.email && errors.email.type === "required" && react_1["default"].createElement("p", {
     className: "pt-1 text-red-400 text-xs opacity-90"
-  }, "\u30E1\u30FC\u30EB\u30A2\u30C9\u30EC\u30B9\u306E\u5F62\u5F0F\u304C\u4E0D\u6B63\u3067\u3059\u3002\u30E1\u30FC\u30EB\u30A2\u30C9\u30EC\u30B9\u306F\u5FC5\u9808\u3067\u3059"), errors.email && react_1["default"].createElement("p", {
+  }, "\u30E1\u30FC\u30EB\u30A2\u30C9\u30EC\u30B9\u306F\u5FC5\u9808\u3067\u3059"), errors.email && errors.email.type === "pattern" && react_1["default"].createElement("p", {
     className: "pt-1 text-red-400 text-xs opacity-90"
-  }, errors.email.message)), react_1["default"].createElement("div", {
+  }, "\u30E1\u30FC\u30EB\u30A2\u30C9\u30EC\u30B9\u306E\u5F62\u5F0F\u304C\u4E0D\u6B63\u3067\u3059")), react_1["default"].createElement("div", {
     className: "pb-5"
   }, react_1["default"].createElement("h1", {
     className: "font-semibold text-sm text-gray-600 pb-1 block"

@@ -12,6 +12,7 @@ type Props = {
 
 type LoginData = {
     email: string;
+    emailFormat: string;
     password: string;
 };
 
@@ -20,7 +21,7 @@ const LoginContent: React.VFC<Props> = ({
     setUserID,
     getUser,
 }: Props) => {
-    const [loginData, setLoginData] = useState<LoginData>({
+    const [loginData, setLoginData] = useState({
         email: "",
         password: "",
     });
@@ -103,16 +104,18 @@ const LoginContent: React.VFC<Props> = ({
                                 placeholder="E-mail"
                                 className="border rounded-lg px-3 py-2 mt-1 text-sm w-full"
                             />
-                            {errors.email && (
-                                <p className="pt-1 text-red-400 text-xs opacity-90">
-                                    メールアドレスの形式が不正です。メールアドレスは必須です
-                                </p>
-                            )}
-                            {errors.email && (
-                                <p className="pt-1 text-red-400 text-xs opacity-90">
-                                    {errors.email.message}
-                                </p>
-                            )}
+                            {errors.email &&
+                                errors.email.type === "required" && (
+                                    <p className="pt-1 text-red-400 text-xs opacity-90">
+                                        メールアドレスは必須です
+                                    </p>
+                                )}
+                            {errors.email &&
+                                errors.email.type === "pattern" && (
+                                    <p className="pt-1 text-red-400 text-xs opacity-90">
+                                        メールアドレスの形式が不正です
+                                    </p>
+                                )}
                         </div>
                         <div className="pb-5">
                             <h1 className="font-semibold text-sm text-gray-600 pb-1 block">
