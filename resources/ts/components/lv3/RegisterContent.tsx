@@ -94,8 +94,8 @@ const RegisterContent: React.VFC<Props> = ({
 
     return (
         <div className="min-h-screen bg-gray-100 flex flex-col justify-center sm:py-12">
-            <div className="xs:p-0 mx-auto md:w-full md:max-w-md">
-                <main className="bg-white shadow w-full rounded-xl divide-y divide-gray-200 px-12 py-8">
+            <div className="pt-20 xs:p-0 mx-auto w-11/12  md:w-full max-w-xl">
+                <main className="bg-white shadow w-full rounded-xl divide-y divide-gray-200 px-4 py-9 md:px-12 md:py-9">
                     <title className="block font-bold text-center text-2xl pb-5 ">
                         サインアップ
                     </title>
@@ -111,7 +111,7 @@ const RegisterContent: React.VFC<Props> = ({
                             onChange={(e) => handleChange(e, "name")}
                         />
                         <div className="text-gray-300 text-xs pt-1 pb-4">
-                            ✔︎ 1文字以上255字未満
+                            ✔︎ 1文字以上255字以下
                         </div>
                         <h1 className="font-semibold text-sm text-gray-600 pb-1 block">
                             メールアドレス
@@ -155,7 +155,7 @@ const RegisterContent: React.VFC<Props> = ({
                                         ? "text"
                                         : "password"
                                 }
-                                className="border border-grey-light w-10/12 px-3 py-2 text-sm rounded-lg mb-4"
+                                className="border border-grey-light w-10/12 px-3 py-2 text-sm rounded-lg mb-8"
                                 name="confirm_password"
                                 placeholder="Confirm Password"
                                 onChange={(e) =>
@@ -176,7 +176,7 @@ const RegisterContent: React.VFC<Props> = ({
                         </div>
                         <button
                             type="submit"
-                            className="w-full text-center py-3 rounded-lg bg-blue-400 hover:bg-blue-300 text-white hover:bg-green-dark focus:outline-none my-1"
+                            className="w-full text-center py-3 rounded-lg bg-blue-400 hover:bg-blue-300 text-white hover:bg-green-dark focus:outline-none"
                             onClick={() => {
                                 register();
                             }}

@@ -5295,11 +5295,16 @@ var LoginContent = function LoginContent(_a) {
   return react_1["default"].createElement("div", {
     className: "min-h-screen bg-gray-100 flex flex-col justify-center sm:py-12"
   }, react_1["default"].createElement("div", {
+<<<<<<< HEAD
     className: "xs:p-0 mx-auto md:w-full md:max-w-md"
   }, react_1["default"].createElement("form", {
     action: "/login",
     method: "post",
     onSubmit: handleSubmit(onSubmit),
+=======
+    className: "pt-20 xs:p-0 mx-auto w-10/12 md:w-full md:max-w-md"
+  }, react_1["default"].createElement("main", {
+>>>>>>> ad6efdbec3bb65a7351e2c954c5434a0320661dd
     className: "bg-white shadow w-full rounded-xl divide-y divide-gray-200 px-12 py-8"
   }, react_1["default"].createElement("title", {
     className: "block font-bold text-center text-2xl pb-5"
@@ -5768,9 +5773,9 @@ var RegisterContent = function RegisterContent(_a) {
   return react_1["default"].createElement("div", {
     className: "min-h-screen bg-gray-100 flex flex-col justify-center sm:py-12"
   }, react_1["default"].createElement("div", {
-    className: "xs:p-0 mx-auto md:w-full md:max-w-md"
+    className: "pt-20 xs:p-0 mx-auto w-11/12  md:w-full max-w-xl"
   }, react_1["default"].createElement("main", {
-    className: "bg-white shadow w-full rounded-xl divide-y divide-gray-200 px-12 py-8"
+    className: "bg-white shadow w-full rounded-xl divide-y divide-gray-200 px-4 py-9 md:px-12 md:py-9"
   }, react_1["default"].createElement("title", {
     className: "block font-bold text-center text-2xl pb-5 "
   }, "\u30B5\u30A4\u30F3\u30A2\u30C3\u30D7"), react_1["default"].createElement("div", {
@@ -5787,7 +5792,7 @@ var RegisterContent = function RegisterContent(_a) {
     }
   }), react_1["default"].createElement("div", {
     className: "text-gray-300 text-xs pt-1 pb-4"
-  }, "\u2714\uFE0E 1\u6587\u5B57\u4EE5\u4E0A255\u5B57\u672A\u6E80"), react_1["default"].createElement("h1", {
+  }, "\u2714\uFE0E 1\u6587\u5B57\u4EE5\u4E0A255\u5B57\u4EE5\u4E0B"), react_1["default"].createElement("h1", {
     className: "font-semibold text-sm text-gray-600 pb-1 block"
   }, "\u30E1\u30FC\u30EB\u30A2\u30C9\u30EC\u30B9"), react_1["default"].createElement("input", {
     type: "text",
@@ -5825,7 +5830,7 @@ var RegisterContent = function RegisterContent(_a) {
     className: "font-semibold text-sm text-gray-600 pb-1 block"
   }, "\u78BA\u8A8D\u30D1\u30B9\u30EF\u30FC\u30C9"), react_1["default"].createElement("input", {
     type: isRevealConfirmPassword ? "text" : "password",
-    className: "border border-grey-light w-10/12 px-3 py-2 text-sm rounded-lg mb-4",
+    className: "border border-grey-light w-10/12 px-3 py-2 text-sm rounded-lg mb-8",
     name: "confirm_password",
     placeholder: "Confirm Password",
     onChange: function onChange(e) {
@@ -5841,7 +5846,7 @@ var RegisterContent = function RegisterContent(_a) {
     className: "far fa-eye-slash pl-2 text-gray-600"
   }))), react_1["default"].createElement("button", {
     type: "submit",
-    className: "w-full text-center py-3 rounded-lg bg-blue-400 hover:bg-blue-300 text-white hover:bg-green-dark focus:outline-none my-1",
+    className: "w-full text-center py-3 rounded-lg bg-blue-400 hover:bg-blue-300 text-white hover:bg-green-dark focus:outline-none",
     onClick: function onClick() {
       register();
     }
