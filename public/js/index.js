@@ -5295,16 +5295,11 @@ var LoginContent = function LoginContent(_a) {
   return react_1["default"].createElement("div", {
     className: "min-h-screen bg-gray-100 flex flex-col justify-center sm:py-12"
   }, react_1["default"].createElement("div", {
-<<<<<<< HEAD
     className: "xs:p-0 mx-auto md:w-full md:max-w-md"
   }, react_1["default"].createElement("form", {
     action: "/login",
     method: "post",
     onSubmit: handleSubmit(onSubmit),
-=======
-    className: "pt-20 xs:p-0 mx-auto w-10/12 md:w-full md:max-w-md"
-  }, react_1["default"].createElement("main", {
->>>>>>> ad6efdbec3bb65a7351e2c954c5434a0320661dd
     className: "bg-white shadow w-full rounded-xl divide-y divide-gray-200 px-12 py-8"
   }, react_1["default"].createElement("title", {
     className: "block font-bold text-center text-2xl pb-5"
