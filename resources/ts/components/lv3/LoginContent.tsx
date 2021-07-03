@@ -34,7 +34,7 @@ const LoginContent: React.VFC<Props> = ({
         watch,
     } = useForm<LoginData>();
 
-    console.log(watch());
+    // console.log(watch());
 
     const history = useHistory();
 
@@ -55,8 +55,6 @@ const LoginContent: React.VFC<Props> = ({
     };
 
     const onSubmit = async (loginData): Promise<void> => {
-        console.log("a");
-
         console.log(loginData);
         await axios
             .post("/login", loginData)

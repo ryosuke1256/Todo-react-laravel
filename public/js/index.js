@@ -5229,9 +5229,9 @@ var LoginContent = function LoginContent(_a) {
       register = _e.register,
       handleSubmit = _e.handleSubmit,
       errors = _e.formState.errors,
-      watch = _e.watch;
+      watch = _e.watch; // console.log(watch());
 
-  console.log(watch());
+
   var history = react_router_dom_1.useHistory();
   react_1.useEffect(function () {
     initCSRF();
@@ -5267,7 +5267,6 @@ var LoginContent = function LoginContent(_a) {
       return __generator(this, function (_a) {
         switch (_a.label) {
           case 0:
-            console.log("a");
             console.log(loginData);
             return [4
             /*yield*/
