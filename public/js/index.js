@@ -5782,8 +5782,6 @@ var RegisterContent = function RegisterContent(_a) {
   }, react_1["default"].createElement("div", {
     className: "pt-20 xs:p-0 mx-auto w-11/12  md:w-full max-w-xl"
   }, react_1["default"].createElement("form", {
-    action: "register",
-    method: "post",
     onSubmit: handleSubmit(onSubmit),
     className: "bg-white shadow w-full rounded-xl divide-y divide-gray-200 px-4 py-9 md:px-12 md:py-9"
   }, react_1["default"].createElement("title", {
@@ -5841,15 +5839,14 @@ var RegisterContent = function RegisterContent(_a) {
     className: "w-full"
   }, react_1["default"].createElement("h1", {
     className: "font-semibold text-sm text-gray-600 pb-1 block"
-  }, "\u78BA\u8A8D\u30D1\u30B9\u30EF\u30FC\u30C9"), react_1["default"].createElement("input", {
+  }, "\u78BA\u8A8D\u30D1\u30B9\u30EF\u30FC\u30C9"), react_1["default"].createElement("input", __assign({}, register("confirmPassword", {
+    required: true,
+    minLength: 8
+  }), {
     type: isRevealConfirmPassword ? "text" : "password",
-    className: "border border-grey-light w-10/12 px-3 py-2 text-sm rounded-lg mb-8",
-    name: "confirm_password",
     placeholder: "Confirm Password",
-    onChange: function onChange(e) {
-      return handleChange(e, "confirmPassword");
-    }
-  }), react_1["default"].createElement("span", {
+    className: "border border-grey-light w-10/12 px-3 py-2 text-sm rounded-lg"
+  })), react_1["default"].createElement("span", {
     onClick: function onClick() {
       return togglePassword("ConfirmPassword");
     }
@@ -5857,10 +5854,12 @@ var RegisterContent = function RegisterContent(_a) {
     className: "far fa-eye pl-2 text-gray-600"
   }) : react_1["default"].createElement("i", {
     className: "far fa-eye-slash pl-2 text-gray-600"
-  }))), react_1["default"].createElement("input", {
+  })), errors.confirmPassword && react_1["default"].createElement("p", {
+    className: "pt-1 text-red-400 text-xs opacity-90"
+  }, "\u78BA\u8A8D\u306E\u30D1\u30B9\u30EF\u30FC\u30C9\u306F\u5FC5\u9808\u3067\u3059")), react_1["default"].createElement("input", {
     type: "submit",
     value: "\u30ED\u30B0\u30A4\u30F3",
-    className: "transition duration-200 bg-blue-400 hover:bg-blue-300 focus:bg-blue-700 focus:shadow-sm focus:ring-4 focus:ring-blue-500 focus:ring-opacity-50 text-white w-full py-2.5 rounded-lg text-sm shadow-sm hover:shadow-md font-semibold text-center inline-block"
+    className: "mt-3 transition duration-200 bg-blue-400 hover:bg-blue-300 focus:bg-blue-700 focus:shadow-sm focus:ring-4 focus:ring-blue-500 focus:ring-opacity-50 text-white w-full py-2.5 rounded-lg text-sm shadow-sm hover:shadow-md font-semibold text-center inline-block"
   }))), react_1["default"].createElement("aside", {
     className: "text-grey-dark pt-6 pb-7"
   }, "\u3059\u3067\u306B\u30A2\u30AB\u30A6\u30F3\u30C8\u3092\u304A\u6301\u3061\u3067\u3059\u304B\uFF1F", react_1["default"].createElement(react_router_dom_1.Link, {

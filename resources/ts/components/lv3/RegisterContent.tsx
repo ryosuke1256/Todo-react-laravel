@@ -11,7 +11,12 @@ type Props = {
 
 type LoginData = { email: string; password: string };
 
-type RegisterData = { name: string; email: string; password: string };
+type RegisterData = {
+    name: string;
+    email: string;
+    password: string;
+    confirmPassword: string;
+};
 
 const RegisterContent: React.VFC<Props> = ({
     setIs_authenticated,
@@ -107,8 +112,6 @@ const RegisterContent: React.VFC<Props> = ({
         <div className="min-h-screen bg-gray-100 flex flex-col justify-center sm:py-12">
             <div className="pt-20 xs:p-0 mx-auto w-11/12  md:w-full max-w-xl">
                 <form
-                    action="register"
-                    method="post"
                     onSubmit={handleSubmit(onSubmit)}
                     className="bg-white shadow w-full rounded-xl divide-y divide-gray-200 px-4 py-9 md:px-12 md:py-9"
                 >
@@ -193,17 +196,17 @@ const RegisterContent: React.VFC<Props> = ({
                                 確認パスワード
                             </h1>
                             <input
+                                {...register("confirmPassword", {
+                                    required: true,
+                                    minLength: 8,
+                                })}
                                 type={
                                     isRevealConfirmPassword
                                         ? "text"
                                         : "password"
                                 }
-                                className="border border-grey-light w-10/12 px-3 py-2 text-sm rounded-lg mb-8"
-                                name="confirm_password"
                                 placeholder="Confirm Password"
-                                onChange={(e) =>
-                                    handleChange(e, "confirmPassword")
-                                }
+                                className="border border-grey-light w-10/12 px-3 py-2 text-sm rounded-lg"
                             />
                             <span
                                 onClick={() =>
@@ -216,11 +219,16 @@ const RegisterContent: React.VFC<Props> = ({
                                     <i className="far fa-eye-slash pl-2 text-gray-600" />
                                 )}
                             </span>
+                            {errors.confirmPassword && (
+                                <p className="pt-1 text-red-400 text-xs opacity-90">
+                                    確認のパスワードは必須です
+                                </p>
+                            )}
                         </div>
                         <input
                             type="submit"
                             value="ログイン"
-                            className="transition duration-200 bg-blue-400 hover:bg-blue-300 focus:bg-blue-700 focus:shadow-sm focus:ring-4 focus:ring-blue-500 focus:ring-opacity-50 text-white w-full py-2.5 rounded-lg text-sm shadow-sm hover:shadow-md font-semibold text-center inline-block"
+                            className="mt-3 transition duration-200 bg-blue-400 hover:bg-blue-300 focus:bg-blue-700 focus:shadow-sm focus:ring-4 focus:ring-blue-500 focus:ring-opacity-50 text-white w-full py-2.5 rounded-lg text-sm shadow-sm hover:shadow-md font-semibold text-center inline-block"
                         />
                     </div>
                 </form>
