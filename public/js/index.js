@@ -5716,7 +5716,7 @@ var RegisterContent = function RegisterContent(_a) {
   }, react_1["default"].createElement("title", {
     className: "block font-bold text-center text-2xl pb-5 "
   }, "\u30B5\u30A4\u30F3\u30A2\u30C3\u30D7"), react_1["default"].createElement("div", {
-    className: "px-5 pt-7"
+    className: "px-5 py-7"
   }, react_1["default"].createElement("h1", {
     className: "font-semibold text-sm text-gray-600 pb-1 block"
   }, "\u540D\u524D"), react_1["default"].createElement("input", __assign({}, register("name", {
@@ -5796,8 +5796,10 @@ var RegisterContent = function RegisterContent(_a) {
   }, errorMessage)), react_1["default"].createElement("input", {
     type: "submit",
     value: "\u30ED\u30B0\u30A4\u30F3",
-    className: "mt-3 transition duration-200 bg-blue-400 hover:bg-blue-300 focus:bg-blue-700 focus:shadow-sm focus:ring-4 focus:ring-blue-500 focus:ring-opacity-50 text-white w-full py-2.5 rounded-lg text-sm shadow-sm hover:shadow-md font-semibold text-center inline-block"
-  }))), react_1["default"].createElement("aside", {
+    className: "mt-5 transition duration-200 bg-blue-400 hover:bg-blue-300 focus:bg-blue-700 focus:shadow-sm focus:ring-4 focus:ring-blue-500 focus:ring-opacity-50 text-white w-full py-2.5 rounded-lg text-sm shadow-sm hover:shadow-md font-semibold text-center inline-block"
+  })), react_1["default"].createElement("div", {
+    className: "pt-4"
+  })), react_1["default"].createElement("aside", {
     className: "text-grey-dark pt-6 pb-7"
   }, "\u3059\u3067\u306B\u30A2\u30AB\u30A6\u30F3\u30C8\u3092\u304A\u6301\u3061\u3067\u3059\u304B\uFF1F", react_1["default"].createElement(react_router_dom_1.Link, {
     className: "no-underline border-b border-blue text-blue",
