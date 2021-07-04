@@ -5730,7 +5730,7 @@ var RegisterContent = function RegisterContent(_a) {
   }, "\u2714\uFE0E 1\u6587\u5B57\u4EE5\u4E0A255\u5B57\u4EE5\u4E0B"), errors.name && errors.name.type === "required" && react_1["default"].createElement("p", {
     className: "pt-1 text-red-400 text-xs opacity-90"
   }, "\u540D\u524D\u306F\u5FC5\u9808\u3067\u3059"), react_1["default"].createElement("h1", {
-    className: "font-semibold text-sm text-gray-600 pb-1 block"
+    className: "font-semibold text-sm text-gray-600 pt-3 pb-1 block"
   }, "\u30E1\u30FC\u30EB\u30A2\u30C9\u30EC\u30B9"), react_1["default"].createElement("input", __assign({}, register("email", {
     required: true,
     min: -2,
@@ -5746,7 +5746,7 @@ var RegisterContent = function RegisterContent(_a) {
   }, "\u30E1\u30FC\u30EB\u30A2\u30C9\u30EC\u30B9\u306E\u5F62\u5F0F\u304C\u4E0D\u6B63\u3067\u3059"), react_1["default"].createElement("div", {
     className: "w-full"
   }, react_1["default"].createElement("h1", {
-    className: "font-semibold text-sm text-gray-600 pb-1 block"
+    className: "font-semibold text-sm text-gray-600 pt-3 pb-1 block"
   }, "\u30D1\u30B9\u30EF\u30FC\u30C9"), react_1["default"].createElement("input", __assign({}, register("password", {
     required: true,
     minLength: 8
@@ -5771,7 +5771,7 @@ var RegisterContent = function RegisterContent(_a) {
   }, "\u30D1\u30B9\u30EF\u30FC\u30C9\u306F8\u6587\u5B57\u4EE5\u4E0A\u306B\u3057\u3066\u304F\u3060\u3055\u3044")), react_1["default"].createElement("div", {
     className: "w-full"
   }, react_1["default"].createElement("h1", {
-    className: "font-semibold text-sm text-gray-600 pb-1 block"
+    className: "font-semibold text-sm text-gray-600 pt-3 pb-1 block"
   }, "\u78BA\u8A8D\u30D1\u30B9\u30EF\u30FC\u30C9"), react_1["default"].createElement("input", __assign({}, register("password_confirmation", {
     required: true,
     minLength: 8

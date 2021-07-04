@@ -114,7 +114,7 @@ const RegisterContent: React.VFC<Props> = ({
                                 名前は必須です
                             </p>
                         )}
-                        <h1 className="font-semibold text-sm text-gray-600 pb-1 block">
+                        <h1 className="font-semibold text-sm text-gray-600 pt-3 pb-1 block">
                             メールアドレス
                         </h1>
                         <input
@@ -138,7 +138,7 @@ const RegisterContent: React.VFC<Props> = ({
                             </p>
                         )}
                         <div className="w-full">
-                            <h1 className="font-semibold text-sm text-gray-600 pb-1 block">
+                            <h1 className="font-semibold text-sm text-gray-600 pt-3 pb-1 block">
                                 パスワード
                             </h1>
                             <input
@@ -174,7 +174,7 @@ const RegisterContent: React.VFC<Props> = ({
                                 )}
                         </div>
                         <div className="w-full">
-                            <h1 className="font-semibold text-sm text-gray-600 pb-1 block">
+                            <h1 className="font-semibold text-sm text-gray-600 pt-3 pb-1 block">
                                 確認パスワード
                             </h1>
                             <input
