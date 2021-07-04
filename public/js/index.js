@@ -5323,13 +5323,14 @@ var LoginContent = function LoginContent(_a) {
     className: "font-semibold text-sm text-gray-600 pb-1 block"
   }, "\u30D1\u30B9\u30EF\u30FC\u30C9"), react_1["default"].createElement("div", {
     className: "w-full"
-  }, react_1["default"].createElement("input", __assign({}, register("password", {
-    required: true
-  }), {
-    placeholder: "Password",
+  }, react_1["default"].createElement("input", __assign({
     type: isRevealPassword ? "text" : "password",
-    className: "border rounded-lg px-3 py-2 mt-1 text-sm w-11/12"
-  })), react_1["default"].createElement("span", {
+    autoComplete: "off",
+    placeholder: "Password",
+    className: "border rounded-lg px-3 py-2 mt-1 z-50 text-sm w-11/12"
+  }, register("password", {
+    required: true
+  }))), react_1["default"].createElement("span", {
     onClick: togglePassword
   }, isRevealPassword ? react_1["default"].createElement("i", {
     className: "far fa-eye pl-2 text-gray-600"

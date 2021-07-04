@@ -113,14 +113,15 @@ const LoginContent: React.VFC<Props> = ({
                             </h1>
                             <div className="w-full">
                                 <input
-                                    {...register("password", {
-                                        required: true,
-                                    })}
-                                    placeholder="Password"
                                     type={
                                         isRevealPassword ? "text" : "password"
                                     }
-                                    className="border rounded-lg px-3 py-2 mt-1 text-sm w-11/12"
+                                    autoComplete="off"
+                                    placeholder="Password"
+                                    className="border rounded-lg px-3 py-2 mt-1 z-50 text-sm w-11/12"
+                                    {...register("password", {
+                                        required: true,
+                                    })}
                                 />
                                 <span onClick={togglePassword}>
                                     {isRevealPassword ? (
