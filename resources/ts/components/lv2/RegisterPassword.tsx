@@ -10,6 +10,7 @@ type Props = {
 const RegisterPassword: React.VFC<Props> = ({ register, category }: Props) => {
     const [isRevealPassword, setIsRevealPassword] = useState(false);
     const [isRevealConfirmPassword, setIsRevealConfirmPassword] = useState(false); //prettier-ignore
+    let placeholder = "";
 
     const togglePassword = () => {
         if (category === "password") {
@@ -23,8 +24,10 @@ const RegisterPassword: React.VFC<Props> = ({ register, category }: Props) => {
 
     const IsRevealPassword = (): boolean | undefined => {
         if (category === "password") {
+            placeholder = "Password";
             return isRevealPassword;
         } else if (category === "password_confirmation") {
+            placeholder = "Confirm Password";
             return isRevealConfirmPassword;
         } else {
             return;
@@ -36,7 +39,7 @@ const RegisterPassword: React.VFC<Props> = ({ register, category }: Props) => {
             <input
                 type={IsRevealPassword() ? "text" : "password"}
                 autoComplete="off"
-                placeholder="Password"
+                placeholder={placeholder}
                 className="border rounded-lg px-3 py-2 mt-1 z-50 text-sm w-11/12"
                 {...register(category, {
                     required: true,

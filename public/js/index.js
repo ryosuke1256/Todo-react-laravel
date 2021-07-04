@@ -4487,6 +4487,8 @@ var RegisterPassword = function RegisterPassword(_a) {
       setIsRevealConfirmPassword = _c[1]; //prettier-ignore
 
 
+  var placeholder = "";
+
   var togglePassword = function togglePassword() {
     if (category === "password") {
       setIsRevealPassword(function (prevState) {
@@ -4503,8 +4505,10 @@ var RegisterPassword = function RegisterPassword(_a) {
 
   var IsRevealPassword = function IsRevealPassword() {
     if (category === "password") {
+      placeholder = "Password";
       return isRevealPassword;
     } else if (category === "password_confirmation") {
+      placeholder = "Confirm Password";
       return isRevealConfirmPassword;
     } else {
       return;
@@ -4514,7 +4518,7 @@ var RegisterPassword = function RegisterPassword(_a) {
   return react_1["default"].createElement(react_1["default"].Fragment, null, react_1["default"].createElement("input", __assign({
     type: IsRevealPassword() ? "text" : "password",
     autoComplete: "off",
-    placeholder: "Password",
+    placeholder: placeholder,
     className: "border rounded-lg px-3 py-2 mt-1 z-50 text-sm w-11/12"
   }, register(category, {
     required: true,
