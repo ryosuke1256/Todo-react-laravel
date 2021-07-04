@@ -27,10 +27,7 @@ const LoginContent: React.VFC<Props> = ({
         register,
         handleSubmit,
         formState: { errors },
-        watch,
     } = useForm<LoginData>();
-
-    // console.log(watch());
 
     const history = useHistory();
 
@@ -76,8 +73,6 @@ const LoginContent: React.VFC<Props> = ({
         <div className="min-h-screen bg-gray-100 flex flex-col justify-center sm:py-12">
             <div className="xs:p-0 mx-auto md:w-full md:max-w-md">
                 <form
-                    action="/login"
-                    method="post"
                     onSubmit={handleSubmit(onSubmit)}
                     className="bg-white shadow w-full rounded-xl divide-y divide-gray-200 px-12 py-8"
                 >
@@ -118,14 +113,15 @@ const LoginContent: React.VFC<Props> = ({
                             </h1>
                             <div className="w-full">
                                 <input
-                                    {...register("password", {
-                                        required: true,
-                                    })}
-                                    placeholder="Password"
                                     type={
                                         isRevealPassword ? "text" : "password"
                                     }
-                                    className="border rounded-lg px-3 py-2 mt-1 text-sm w-11/12"
+                                    autoComplete="off"
+                                    placeholder="Password"
+                                    className="border rounded-lg px-3 py-2 mt-1 z-50 text-sm w-11/12"
+                                    {...register("password", {
+                                        required: true,
+                                    })}
                                 />
                                 <span onClick={togglePassword}>
                                     {isRevealPassword ? (

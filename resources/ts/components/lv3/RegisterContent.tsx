@@ -1,6 +1,7 @@
 import React, { useState } from "react";
-import { Link, useHistory } from "react-router-dom";
 import axios from "axios";
+import { Link, useHistory } from "react-router-dom";
+import { useForm } from "react-hook-form";
 
 type Props = {
     setIs_authenticated: (param: boolean) => void;
@@ -10,29 +11,37 @@ type Props = {
 
 type LoginData = { email: string; password: string };
 
+type RegisterData = {
+    name: string;
+    email: string;
+    password: string;
+    password_confirmation: string;
+};
+
 const RegisterContent: React.VFC<Props> = ({
     setIs_authenticated,
     setUserID,
     getUser,
 }: Props) => {
-    const [registerData, setRegisterData] = useState({
-        name: "",
-        email: "",
-        password: "",
-        password_confirmation: "",
-    });
     const [isRevealPassword, setIsRevealPassword] = useState(false);
-    const [isRevealConfirmPassword, setIsRevealConfirmPassword] = useState(false); // prettier-ignore
+    const [isRevealConfirmPassword, setIsRevealConfirmPassword] = useState(false); //prettier-ignore
+    const [errorMessage, setErrorMessage] = useState("");
+
+    const {
+        register,
+        handleSubmit,
+        formState: { errors },
+        watch,
+    } = useForm<RegisterData>();
 
     const history = useHistory();
 
-    const register = async (): Promise<void> => {
-        console.log(registerData);
-        if (registerData.password_confirmation === registerData.password) {
+    const onSubmit = async (registerData: RegisterData): Promise<void> => {
+        console.log({ registerData });
+        if (watch().password === watch().password_confirmation) {
             await axios
                 .post("/register", registerData)
                 .then((res) => {
-                    console.log(res.data.result);
                     if (res.data.result === true) {
                         console.log("ユーザ登録に成功しました");
                         login({
@@ -45,7 +54,7 @@ const RegisterContent: React.VFC<Props> = ({
                     console.log(err);
                 });
         } else {
-            console.log("確認のパスワードが一致しません");
+            setErrorMessage("確認のパスワードが一致しません");
         }
     };
 
@@ -65,23 +74,6 @@ const RegisterContent: React.VFC<Props> = ({
             });
     };
 
-    const handleChange = (
-        e: React.ChangeEvent<HTMLInputElement>,
-        title: string
-    ) => {
-        if (title === "name") {
-            setRegisterData({ ...registerData, name: e.target.value });
-        } else if (title === "email") {
-            setRegisterData({ ...registerData, email: e.target.value });
-        } else if (title === "password") {
-            setRegisterData({ ...registerData, password: e.target.value });
-        } else if (title === "confirmPassword") {
-            setRegisterData({ ...registerData, password_confirmation: e.target.value }); //prettier-ignore
-        } else {
-            return null;
-        }
-    };
-
     const togglePassword = (password: string) => {
         if (password === "Password") {
             setIsRevealPassword((prevState) => !prevState);
@@ -95,7 +87,10 @@ const RegisterContent: React.VFC<Props> = ({
     return (
         <div className="min-h-screen bg-gray-100 flex flex-col justify-center sm:py-12">
             <div className="pt-20 xs:p-0 mx-auto w-11/12  md:w-full max-w-xl">
-                <main className="bg-white shadow w-full rounded-xl divide-y divide-gray-200 px-4 py-9 md:px-12 md:py-9">
+                <form
+                    onSubmit={handleSubmit(onSubmit)}
+                    className="bg-white shadow w-full rounded-xl divide-y divide-gray-200 px-4 py-9 md:px-12 md:py-9"
+                >
                     <title className="block font-bold text-center text-2xl pb-5 ">
                         サインアップ
                     </title>
@@ -104,35 +99,56 @@ const RegisterContent: React.VFC<Props> = ({
                             名前
                         </h1>
                         <input
+                            {...register("name", {
+                                required: true,
+                            })}
                             type="text"
-                            className="border rounded-lg border-grey-light px-3 py-2 mt-1 text-sm w-full  block"
-                            name="fullname"
                             placeholder="Full Name"
-                            onChange={(e) => handleChange(e, "name")}
+                            className="border rounded-lg border-grey-light px-3 py-2 mt-1 text-sm w-full  block"
                         />
-                        <div className="text-gray-300 text-xs pt-1 pb-4">
+                        <div className="text-gray-300 text-xs pt-1">
                             ✔︎ 1文字以上255字以下
                         </div>
+                        {errors.name && errors.name.type === "required" && (
+                            <p className="pt-1 text-red-400 text-xs opacity-90">
+                                名前は必須です
+                            </p>
+                        )}
                         <h1 className="font-semibold text-sm text-gray-600 pb-1 block">
                             メールアドレス
                         </h1>
                         <input
+                            {...register("email", {
+                                required: true,
+                                min: -2,
+                                pattern: /^\S+@\S+$/i,
+                            })}
                             type="text"
-                            className="border rounded-lg border-grey-light px-3 py-2 mb-4 text-sm w-full block "
-                            name="email"
                             placeholder="Email"
-                            onChange={(e) => handleChange(e, "email")}
+                            className="border rounded-lg border-grey-light px-3 py-2 text-sm w-full block "
                         />
+                        {errors.email && errors.email.type === "required" && (
+                            <p className="pt-1 text-red-400 text-xs opacity-90">
+                                メールアドレスは必須です
+                            </p>
+                        )}
+                        {errors.email && errors.email.type === "pattern" && (
+                            <p className="pt-1 text-red-400 text-xs opacity-90">
+                                メールアドレスの形式が不正です
+                            </p>
+                        )}
                         <div className="w-full">
                             <h1 className="font-semibold text-sm text-gray-600 pb-1 block">
                                 パスワード
                             </h1>
                             <input
+                                {...register("password", {
+                                    required: true,
+                                    minLength: 8,
+                                })}
+                                placeholder="Password"
                                 type={isRevealPassword ? "text" : "password"}
                                 className="border border-grey-light w-10/12 px-3 py-2 mt-1 text-sm rounded-lg "
-                                name="password"
-                                placeholder="Password"
-                                onChange={(e) => handleChange(e, "password")}
                             />
                             <span onClick={() => togglePassword("Password")}>
                                 {isRevealPassword ? (
@@ -141,26 +157,38 @@ const RegisterContent: React.VFC<Props> = ({
                                     <i className="far fa-eye-slash pl-2 text-gray-600" />
                                 )}
                             </span>
-                        </div>
-                        <div className="text-gray-300 text-xs pt-1 pb-2">
-                            ✔︎ 8文字以上
+                            <div className="text-gray-300 text-xs pt-1">
+                                ✔︎ 8文字以上
+                            </div>
+                            {errors.password &&
+                                errors.password.type === "required" && (
+                                    <p className="pt-1 text-red-400 text-xs opacity-90">
+                                        パスワードは必須です
+                                    </p>
+                                )}
+                            {errors.password &&
+                                errors.password.type === "minLength" && (
+                                    <p className="pt-1 text-red-400 text-xs opacity-90">
+                                        パスワードは8文字以上にしてください
+                                    </p>
+                                )}
                         </div>
                         <div className="w-full">
                             <h1 className="font-semibold text-sm text-gray-600 pb-1 block">
                                 確認パスワード
                             </h1>
                             <input
+                                {...register("password_confirmation", {
+                                    required: true,
+                                    minLength: 8,
+                                })}
                                 type={
                                     isRevealConfirmPassword
                                         ? "text"
                                         : "password"
                                 }
-                                className="border border-grey-light w-10/12 px-3 py-2 text-sm rounded-lg mb-8"
-                                name="confirm_password"
                                 placeholder="Confirm Password"
-                                onChange={(e) =>
-                                    handleChange(e, "confirmPassword")
-                                }
+                                className="border border-grey-light w-10/12 px-3 py-2 text-sm rounded-lg"
                             />
                             <span
                                 onClick={() =>
@@ -173,18 +201,31 @@ const RegisterContent: React.VFC<Props> = ({
                                     <i className="far fa-eye-slash pl-2 text-gray-600" />
                                 )}
                             </span>
+                            {errors.password_confirmation &&
+                                errors.password_confirmation.type ===
+                                    "required" && (
+                                    <p className="pt-1 text-red-400 text-xs opacity-90">
+                                        確認のパスワードは必須です
+                                    </p>
+                                )}
+                            {errors.password_confirmation &&
+                                errors.password_confirmation.type ===
+                                    "minLength" && (
+                                    <p className="pt-1 text-red-400 text-xs opacity-90">
+                                        パスワードは8文字以上にしてください
+                                    </p>
+                                )}
+                            <p className="pt-1 text-red-400 text-xs opacity-90">
+                                {errorMessage}
+                            </p>
                         </div>
-                        <button
+                        <input
                             type="submit"
-                            className="w-full text-center py-3 rounded-lg bg-blue-400 hover:bg-blue-300 text-white hover:bg-green-dark focus:outline-none"
-                            onClick={() => {
-                                register();
-                            }}
-                        >
-                            新規登録
-                        </button>
+                            value="ログイン"
+                            className="mt-3 transition duration-200 bg-blue-400 hover:bg-blue-300 focus:bg-blue-700 focus:shadow-sm focus:ring-4 focus:ring-blue-500 focus:ring-opacity-50 text-white w-full py-2.5 rounded-lg text-sm shadow-sm hover:shadow-md font-semibold text-center inline-block"
+                        />
                     </div>
-                </main>
+                </form>
                 <aside className="text-grey-dark pt-6 pb-7">
                     すでにアカウントをお持ちですか？
                     <Link

@@ -5221,9 +5221,7 @@ var LoginContent = function LoginContent(_a) {
   var _d = react_hook_form_1.useForm(),
       register = _d.register,
       handleSubmit = _d.handleSubmit,
-      errors = _d.formState.errors,
-      watch = _d.watch; // console.log(watch());
-
+      errors = _d.formState.errors;
 
   var history = react_router_dom_1.useHistory();
   react_1.useEffect(function () {
@@ -5297,8 +5295,6 @@ var LoginContent = function LoginContent(_a) {
   }, react_1["default"].createElement("div", {
     className: "xs:p-0 mx-auto md:w-full md:max-w-md"
   }, react_1["default"].createElement("form", {
-    action: "/login",
-    method: "post",
     onSubmit: handleSubmit(onSubmit),
     className: "bg-white shadow w-full rounded-xl divide-y divide-gray-200 px-12 py-8"
   }, react_1["default"].createElement("title", {
@@ -5327,13 +5323,14 @@ var LoginContent = function LoginContent(_a) {
     className: "font-semibold text-sm text-gray-600 pb-1 block"
   }, "\u30D1\u30B9\u30EF\u30FC\u30C9"), react_1["default"].createElement("div", {
     className: "w-full"
-  }, react_1["default"].createElement("input", __assign({}, register("password", {
-    required: true
-  }), {
-    placeholder: "Password",
+  }, react_1["default"].createElement("input", __assign({
     type: isRevealPassword ? "text" : "password",
-    className: "border rounded-lg px-3 py-2 mt-1 text-sm w-11/12"
-  })), react_1["default"].createElement("span", {
+    autoComplete: "off",
+    placeholder: "Password",
+    className: "border rounded-lg px-3 py-2 mt-1 z-50 text-sm w-11/12"
+  }, register("password", {
+    required: true
+  }))), react_1["default"].createElement("span", {
     onClick: togglePassword
   }, isRevealPassword ? react_1["default"].createElement("i", {
     className: "far fa-eye pl-2 text-gray-600"
@@ -5626,49 +5623,52 @@ Object.defineProperty(exports, "__esModule", ({
 
 var react_1 = __importStar(__webpack_require__(/*! react */ "./node_modules/react/index.js"));
 
+var axios_1 = __importDefault(__webpack_require__(/*! axios */ "./node_modules/axios/index.js"));
+
 var react_router_dom_1 = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/esm/react-router-dom.js");
 
-var axios_1 = __importDefault(__webpack_require__(/*! axios */ "./node_modules/axios/index.js"));
+var react_hook_form_1 = __webpack_require__(/*! react-hook-form */ "./node_modules/react-hook-form/dist/index.cjs.js");
 
 var RegisterContent = function RegisterContent(_a) {
   var setIs_authenticated = _a.setIs_authenticated,
       setUserID = _a.setUserID,
       getUser = _a.getUser;
 
-  var _b = react_1.useState({
-    name: "",
-    email: "",
-    password: "",
-    password_confirmation: ""
-  }),
-      registerData = _b[0],
-      setRegisterData = _b[1];
+  var _b = react_1.useState(false),
+      isRevealPassword = _b[0],
+      setIsRevealPassword = _b[1];
 
   var _c = react_1.useState(false),
-      isRevealPassword = _c[0],
-      setIsRevealPassword = _c[1];
+      isRevealConfirmPassword = _c[0],
+      setIsRevealConfirmPassword = _c[1]; //prettier-ignore
 
-  var _d = react_1.useState(false),
-      isRevealConfirmPassword = _d[0],
-      setIsRevealConfirmPassword = _d[1]; // prettier-ignore
 
+  var _d = react_1.useState(""),
+      errorMessage = _d[0],
+      setErrorMessage = _d[1];
+
+  var _e = react_hook_form_1.useForm(),
+      register = _e.register,
+      handleSubmit = _e.handleSubmit,
+      errors = _e.formState.errors,
+      watch = _e.watch;
 
   var history = react_router_dom_1.useHistory();
 
-  var register = function register() {
+  var onSubmit = function onSubmit(registerData) {
     return __awaiter(void 0, void 0, void 0, function () {
       return __generator(this, function (_a) {
         switch (_a.label) {
           case 0:
-            console.log(registerData);
-            if (!(registerData.password_confirmation === registerData.password)) return [3
+            console.log({
+              registerData: registerData
+            });
+            if (!(watch().password === watch().password_confirmation)) return [3
             /*break*/
             , 2];
             return [4
             /*yield*/
             , axios_1["default"].post("/register", registerData).then(function (res) {
-              console.log(res.data.result);
-
               if (res.data.result === true) {
                 console.log("ユーザ登録に成功しました");
                 login({
@@ -5688,7 +5688,7 @@ var RegisterContent = function RegisterContent(_a) {
             , 3];
 
           case 2:
-            console.log("確認のパスワードが一致しません");
+            setErrorMessage("確認のパスワードが一致しません");
             _a.label = 3;
 
           case 3:
@@ -5729,28 +5729,6 @@ var RegisterContent = function RegisterContent(_a) {
     });
   };
 
-  var handleChange = function handleChange(e, title) {
-    if (title === "name") {
-      setRegisterData(__assign(__assign({}, registerData), {
-        name: e.target.value
-      }));
-    } else if (title === "email") {
-      setRegisterData(__assign(__assign({}, registerData), {
-        email: e.target.value
-      }));
-    } else if (title === "password") {
-      setRegisterData(__assign(__assign({}, registerData), {
-        password: e.target.value
-      }));
-    } else if (title === "confirmPassword") {
-      setRegisterData(__assign(__assign({}, registerData), {
-        password_confirmation: e.target.value
-      })); //prettier-ignore
-    } else {
-      return null;
-    }
-  };
-
   var togglePassword = function togglePassword(password) {
     if (password === "Password") {
       setIsRevealPassword(function (prevState) {
@@ -5769,7 +5747,8 @@ var RegisterContent = function RegisterContent(_a) {
     className: "min-h-screen bg-gray-100 flex flex-col justify-center sm:py-12"
   }, react_1["default"].createElement("div", {
     className: "pt-20 xs:p-0 mx-auto w-11/12  md:w-full max-w-xl"
-  }, react_1["default"].createElement("main", {
+  }, react_1["default"].createElement("form", {
+    onSubmit: handleSubmit(onSubmit),
     className: "bg-white shadow w-full rounded-xl divide-y divide-gray-200 px-4 py-9 md:px-12 md:py-9"
   }, react_1["default"].createElement("title", {
     className: "block font-bold text-center text-2xl pb-5 "
@@ -5777,39 +5756,42 @@ var RegisterContent = function RegisterContent(_a) {
     className: "px-5 pt-7"
   }, react_1["default"].createElement("h1", {
     className: "font-semibold text-sm text-gray-600 pb-1 block"
-  }, "\u540D\u524D"), react_1["default"].createElement("input", {
+  }, "\u540D\u524D"), react_1["default"].createElement("input", __assign({}, register("name", {
+    required: true
+  }), {
     type: "text",
-    className: "border rounded-lg border-grey-light px-3 py-2 mt-1 text-sm w-full  block",
-    name: "fullname",
     placeholder: "Full Name",
-    onChange: function onChange(e) {
-      return handleChange(e, "name");
-    }
-  }), react_1["default"].createElement("div", {
-    className: "text-gray-300 text-xs pt-1 pb-4"
-  }, "\u2714\uFE0E 1\u6587\u5B57\u4EE5\u4E0A255\u5B57\u4EE5\u4E0B"), react_1["default"].createElement("h1", {
+    className: "border rounded-lg border-grey-light px-3 py-2 mt-1 text-sm w-full  block"
+  })), react_1["default"].createElement("div", {
+    className: "text-gray-300 text-xs pt-1"
+  }, "\u2714\uFE0E 1\u6587\u5B57\u4EE5\u4E0A255\u5B57\u4EE5\u4E0B"), errors.name && errors.name.type === "required" && react_1["default"].createElement("p", {
+    className: "pt-1 text-red-400 text-xs opacity-90"
+  }, "\u540D\u524D\u306F\u5FC5\u9808\u3067\u3059"), react_1["default"].createElement("h1", {
     className: "font-semibold text-sm text-gray-600 pb-1 block"
-  }, "\u30E1\u30FC\u30EB\u30A2\u30C9\u30EC\u30B9"), react_1["default"].createElement("input", {
+  }, "\u30E1\u30FC\u30EB\u30A2\u30C9\u30EC\u30B9"), react_1["default"].createElement("input", __assign({}, register("email", {
+    required: true,
+    min: -2,
+    pattern: /^\S+@\S+$/i
+  }), {
     type: "text",
-    className: "border rounded-lg border-grey-light px-3 py-2 mb-4 text-sm w-full block ",
-    name: "email",
     placeholder: "Email",
-    onChange: function onChange(e) {
-      return handleChange(e, "email");
-    }
-  }), react_1["default"].createElement("div", {
+    className: "border rounded-lg border-grey-light px-3 py-2 text-sm w-full block "
+  })), errors.email && errors.email.type === "required" && react_1["default"].createElement("p", {
+    className: "pt-1 text-red-400 text-xs opacity-90"
+  }, "\u30E1\u30FC\u30EB\u30A2\u30C9\u30EC\u30B9\u306F\u5FC5\u9808\u3067\u3059"), errors.email && errors.email.type === "pattern" && react_1["default"].createElement("p", {
+    className: "pt-1 text-red-400 text-xs opacity-90"
+  }, "\u30E1\u30FC\u30EB\u30A2\u30C9\u30EC\u30B9\u306E\u5F62\u5F0F\u304C\u4E0D\u6B63\u3067\u3059"), react_1["default"].createElement("div", {
     className: "w-full"
   }, react_1["default"].createElement("h1", {
     className: "font-semibold text-sm text-gray-600 pb-1 block"
-  }, "\u30D1\u30B9\u30EF\u30FC\u30C9"), react_1["default"].createElement("input", {
-    type: isRevealPassword ? "text" : "password",
-    className: "border border-grey-light w-10/12 px-3 py-2 mt-1 text-sm rounded-lg ",
-    name: "password",
+  }, "\u30D1\u30B9\u30EF\u30FC\u30C9"), react_1["default"].createElement("input", __assign({}, register("password", {
+    required: true,
+    minLength: 8
+  }), {
     placeholder: "Password",
-    onChange: function onChange(e) {
-      return handleChange(e, "password");
-    }
-  }), react_1["default"].createElement("span", {
+    type: isRevealPassword ? "text" : "password",
+    className: "border border-grey-light w-10/12 px-3 py-2 mt-1 text-sm rounded-lg "
+  })), react_1["default"].createElement("span", {
     onClick: function onClick() {
       return togglePassword("Password");
     }
@@ -5817,21 +5799,24 @@ var RegisterContent = function RegisterContent(_a) {
     className: "far fa-eye pl-2 text-gray-600"
   }) : react_1["default"].createElement("i", {
     className: "far fa-eye-slash pl-2 text-gray-600"
-  }))), react_1["default"].createElement("div", {
-    className: "text-gray-300 text-xs pt-1 pb-2"
-  }, "\u2714\uFE0E 8\u6587\u5B57\u4EE5\u4E0A"), react_1["default"].createElement("div", {
+  })), react_1["default"].createElement("div", {
+    className: "text-gray-300 text-xs pt-1"
+  }, "\u2714\uFE0E 8\u6587\u5B57\u4EE5\u4E0A"), errors.password && errors.password.type === "required" && react_1["default"].createElement("p", {
+    className: "pt-1 text-red-400 text-xs opacity-90"
+  }, "\u30D1\u30B9\u30EF\u30FC\u30C9\u306F\u5FC5\u9808\u3067\u3059"), errors.password && errors.password.type === "minLength" && react_1["default"].createElement("p", {
+    className: "pt-1 text-red-400 text-xs opacity-90"
+  }, "\u30D1\u30B9\u30EF\u30FC\u30C9\u306F8\u6587\u5B57\u4EE5\u4E0A\u306B\u3057\u3066\u304F\u3060\u3055\u3044")), react_1["default"].createElement("div", {
     className: "w-full"
   }, react_1["default"].createElement("h1", {
     className: "font-semibold text-sm text-gray-600 pb-1 block"
-  }, "\u78BA\u8A8D\u30D1\u30B9\u30EF\u30FC\u30C9"), react_1["default"].createElement("input", {
+  }, "\u78BA\u8A8D\u30D1\u30B9\u30EF\u30FC\u30C9"), react_1["default"].createElement("input", __assign({}, register("password_confirmation", {
+    required: true,
+    minLength: 8
+  }), {
     type: isRevealConfirmPassword ? "text" : "password",
-    className: "border border-grey-light w-10/12 px-3 py-2 text-sm rounded-lg mb-8",
-    name: "confirm_password",
     placeholder: "Confirm Password",
-    onChange: function onChange(e) {
-      return handleChange(e, "confirmPassword");
-    }
-  }), react_1["default"].createElement("span", {
+    className: "border border-grey-light w-10/12 px-3 py-2 text-sm rounded-lg"
+  })), react_1["default"].createElement("span", {
     onClick: function onClick() {
       return togglePassword("ConfirmPassword");
     }
@@ -5839,13 +5824,17 @@ var RegisterContent = function RegisterContent(_a) {
     className: "far fa-eye pl-2 text-gray-600"
   }) : react_1["default"].createElement("i", {
     className: "far fa-eye-slash pl-2 text-gray-600"
-  }))), react_1["default"].createElement("button", {
+  })), errors.password_confirmation && errors.password_confirmation.type === "required" && react_1["default"].createElement("p", {
+    className: "pt-1 text-red-400 text-xs opacity-90"
+  }, "\u78BA\u8A8D\u306E\u30D1\u30B9\u30EF\u30FC\u30C9\u306F\u5FC5\u9808\u3067\u3059"), errors.password_confirmation && errors.password_confirmation.type === "minLength" && react_1["default"].createElement("p", {
+    className: "pt-1 text-red-400 text-xs opacity-90"
+  }, "\u30D1\u30B9\u30EF\u30FC\u30C9\u306F8\u6587\u5B57\u4EE5\u4E0A\u306B\u3057\u3066\u304F\u3060\u3055\u3044"), react_1["default"].createElement("p", {
+    className: "pt-1 text-red-400 text-xs opacity-90"
+  }, errorMessage)), react_1["default"].createElement("input", {
     type: "submit",
-    className: "w-full text-center py-3 rounded-lg bg-blue-400 hover:bg-blue-300 text-white hover:bg-green-dark focus:outline-none",
-    onClick: function onClick() {
-      register();
-    }
-  }, "\u65B0\u898F\u767B\u9332"))), react_1["default"].createElement("aside", {
+    value: "\u30ED\u30B0\u30A4\u30F3",
+    className: "mt-3 transition duration-200 bg-blue-400 hover:bg-blue-300 focus:bg-blue-700 focus:shadow-sm focus:ring-4 focus:ring-blue-500 focus:ring-opacity-50 text-white w-full py-2.5 rounded-lg text-sm shadow-sm hover:shadow-md font-semibold text-center inline-block"
+  }))), react_1["default"].createElement("aside", {
     className: "text-grey-dark pt-6 pb-7"
   }, "\u3059\u3067\u306B\u30A2\u30AB\u30A6\u30F3\u30C8\u3092\u304A\u6301\u3061\u3067\u3059\u304B\uFF1F", react_1["default"].createElement(react_router_dom_1.Link, {
     className: "no-underline border-b border-blue text-blue",
