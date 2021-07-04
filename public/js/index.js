@@ -5268,7 +5268,6 @@ var LoginContent = function LoginContent(_a) {
               getUser();
               setIs_authenticated(true);
             })["catch"](function (err) {
-              console.log("error");
               setErrorMessage("メールアドレスまたはパスワードが異なります");
               console.log(err);
             })];
@@ -5345,44 +5344,8 @@ var LoginContent = function LoginContent(_a) {
     value: "\u30ED\u30B0\u30A4\u30F3",
     className: "transition duration-200 bg-blue-400 hover:bg-blue-300 focus:bg-blue-700 focus:shadow-sm focus:ring-4 focus:ring-blue-500 focus:ring-opacity-50 text-white w-full py-2.5 rounded-lg text-sm shadow-sm hover:shadow-md font-semibold text-center inline-block"
   })), react_1["default"].createElement("div", {
-    className: "pt-5"
-  }, react_1["default"].createElement("div", {
-    className: "grid grid-cols-2 gap-1"
-  }, react_1["default"].createElement("div", {
-    className: "text-center sm:text-left whitespace-nowrap"
-  }, react_1["default"].createElement("button", {
-    className: "transition duration-200 mx-5 px-5 pt-4 cursor-pointer font-normal text-sm rounded-lg text-gray-500 hover:bg-gray-100 focus:outline-none focus:bg-gray-200 focus:ring-2 focus:ring-gray-400 focus:ring-opacity-50 ring-inset"
-  }, react_1["default"].createElement("svg", {
-    xmlns: "http://www.w3.org/2000/svg",
-    fill: "none",
-    viewBox: "0 0 24 24",
-    stroke: "currentColor",
-    className: "w-4 h-4 inline-block align-text-top"
-  }, react_1["default"].createElement("path", {
-    strokeLinecap: "round",
-    strokeLinejoin: "round",
-    strokeWidth: "2",
-    d: "M8 11V7a4 4 0 118 0m-4 8v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2z"
-  })), react_1["default"].createElement("span", {
-    className: "inline-block ml-1"
-  }, "Forgot Password"))), react_1["default"].createElement("div", {
-    className: "text-center sm:text-right  whitespace-nowrap"
-  }, react_1["default"].createElement("button", {
-    className: "transition duration-200 mx-5 px-5 pt-4 cursor-pointer font-normal text-sm rounded-lg text-gray-500 hover:bg-gray-100 focus:outline-none focus:bg-gray-200 focus:ring-2 focus:ring-gray-400 focus:ring-opacity-50 ring-inset"
-  }, react_1["default"].createElement("svg", {
-    xmlns: "http://www.w3.org/2000/svg",
-    fill: "none",
-    viewBox: "0 0 24 24",
-    stroke: "currentColor",
-    className: "w-4 h-4 inline-block align-text-bottom\t"
-  }, react_1["default"].createElement("path", {
-    strokeLinecap: "round",
-    strokeLinejoin: "round",
-    strokeWidth: "2",
-    d: "M18.364 5.636l-3.536 3.536m0 5.656l3.536 3.536M9.172 9.172L5.636 5.636m3.536 9.192l-3.536 3.536M21 12a9 9 0 11-18 0 9 9 0 0118 0zm-5 0a4 4 0 11-8 0 4 4 0 018 0z"
-  })), react_1["default"].createElement("span", {
-    className: "inline-block ml-1"
-  }, "Help")))))), react_1["default"].createElement("aside", {
+    className: "pt-4"
+  })), react_1["default"].createElement("aside", {
     className: "pt-5"
   }, react_1["default"].createElement("div", {
     className: "grid grid-cols-2 gap-1"
