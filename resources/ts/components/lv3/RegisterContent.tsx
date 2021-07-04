@@ -38,28 +38,23 @@ const RegisterContent: React.VFC<Props> = ({
 
     const onSubmit = async (registerData: RegisterData): Promise<void> => {
         console.log({ registerData });
-
-        if (!(watch().password === watch().password_confirmation)) {
-            setErrorMessage("確認のパスワードが一致しません");
+        if (watch().password === watch().password_confirmation) {
+            await axios
+                .post("/register", registerData)
+                .then((res) => {
+                    if (res.data.result === true) {
+                        console.log("ユーザ登録に成功しました");
+                        login({
+                            email: registerData.email,
+                            password: registerData.password,
+                        });
+                    }
+                })
+                .catch((err) => {
+                    console.log(err);
+                });
         } else {
-            if (registerData.password_confirmation === registerData.password) {
-                await axios
-                    .post("/register", registerData)
-                    .then((res) => {
-                        if (res.data.result === true) {
-                            console.log("ユーザ登録に成功しました");
-                            login({
-                                email: registerData.email,
-                                password: registerData.password,
-                            });
-                        }
-                    })
-                    .catch((err) => {
-                        console.log(err);
-                    });
-            } else {
-                console.log("確認のパスワードが一致しません");
-            }
+            setErrorMessage("確認のパスワードが一致しません");
         }
     };
 

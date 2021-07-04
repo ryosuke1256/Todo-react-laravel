@@ -27,10 +27,7 @@ const LoginContent: React.VFC<Props> = ({
         register,
         handleSubmit,
         formState: { errors },
-        watch,
     } = useForm<LoginData>();
-
-    // console.log(watch());
 
     const history = useHistory();
 

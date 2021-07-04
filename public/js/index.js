@@ -5221,9 +5221,7 @@ var LoginContent = function LoginContent(_a) {
   var _d = react_hook_form_1.useForm(),
       register = _d.register,
       handleSubmit = _d.handleSubmit,
-      errors = _d.formState.errors,
-      watch = _d.watch; // console.log(watch());
-
+      errors = _d.formState.errors;
 
   var history = react_router_dom_1.useHistory();
   react_1.useEffect(function () {
@@ -5664,18 +5662,9 @@ var RegisterContent = function RegisterContent(_a) {
             console.log({
               registerData: registerData
             });
-            if (!!(watch().password === watch().password_confirmation)) return [3
+            if (!(watch().password === watch().password_confirmation)) return [3
             /*break*/
-            , 1];
-            setErrorMessage("確認のパスワードが一致しません");
-            return [3
-            /*break*/
-            , 4];
-
-          case 1:
-            if (!(registerData.password_confirmation === registerData.password)) return [3
-            /*break*/
-            , 3];
+            , 2];
             return [4
             /*yield*/
             , axios_1["default"].post("/register", registerData).then(function (res) {
@@ -5690,18 +5679,18 @@ var RegisterContent = function RegisterContent(_a) {
               console.log(err);
             })];
 
-          case 2:
+          case 1:
             _a.sent();
 
             return [3
             /*break*/
-            , 4];
+            , 3];
+
+          case 2:
+            setErrorMessage("確認のパスワードが一致しません");
+            _a.label = 3;
 
           case 3:
-            console.log("確認のパスワードが一致しません");
-            _a.label = 4;
-
-          case 4:
             return [2
             /*return*/
             ];
