@@ -5672,10 +5672,19 @@ var RegisterContent = function RegisterContent(_a) {
       return __generator(this, function (_a) {
         switch (_a.label) {
           case 0:
+            if (!!(watch().password === watch().confirmPassword)) return [3
+            /*break*/
+            , 1];
+            setErrorMessage("確認のパスワードが一致しません");
+            return [3
+            /*break*/
+            , 4];
+
+          case 1:
             console.log(registerData);
             if (!(registerData.password_confirmation === registerData.password)) return [3
             /*break*/
-            , 2];
+            , 3];
             return [4
             /*yield*/
             , axios_1["default"].post("/register", registerData).then(function (res) {
@@ -5692,18 +5701,18 @@ var RegisterContent = function RegisterContent(_a) {
               console.log(err);
             })];
 
-          case 1:
+          case 2:
             _a.sent();
 
             return [3
             /*break*/
-            , 3];
-
-          case 2:
-            console.log("確認のパスワードが一致しません");
-            _a.label = 3;
+            , 4];
 
           case 3:
+            console.log("確認のパスワードが一致しません");
+            _a.label = 4;
+
+          case 4:
             return [2
             /*return*/
             ];
@@ -5803,14 +5812,18 @@ var RegisterContent = function RegisterContent(_a) {
   }, "\u540D\u524D\u306F\u5FC5\u9808\u3067\u3059"), react_1["default"].createElement("h1", {
     className: "font-semibold text-sm text-gray-600 pb-1 block"
   }, "\u30E1\u30FC\u30EB\u30A2\u30C9\u30EC\u30B9"), react_1["default"].createElement("input", __assign({}, register("email", {
-    required: true
+    required: true,
+    min: -2,
+    pattern: /^\S+@\S+$/i
   }), {
     type: "text",
     placeholder: "Email",
     className: "border rounded-lg border-grey-light px-3 py-2 text-sm w-full block "
   })), errors.email && errors.email.type === "required" && react_1["default"].createElement("p", {
     className: "pt-1 text-red-400 text-xs opacity-90"
-  }, "\u30E1\u30FC\u30EB\u30A2\u30C9\u30EC\u30B9\u306F\u5FC5\u9808\u3067\u3059"), react_1["default"].createElement("div", {
+  }, "\u30E1\u30FC\u30EB\u30A2\u30C9\u30EC\u30B9\u306F\u5FC5\u9808\u3067\u3059"), errors.email && errors.email.type === "pattern" && react_1["default"].createElement("p", {
+    className: "pt-1 text-red-400 text-xs opacity-90"
+  }, "\u30E1\u30FC\u30EB\u30A2\u30C9\u30EC\u30B9\u306E\u5F62\u5F0F\u304C\u4E0D\u6B63\u3067\u3059"), react_1["default"].createElement("div", {
     className: "w-full"
   }, react_1["default"].createElement("h1", {
     className: "font-semibold text-sm text-gray-600 pb-1 block"
@@ -5854,9 +5867,13 @@ var RegisterContent = function RegisterContent(_a) {
     className: "far fa-eye pl-2 text-gray-600"
   }) : react_1["default"].createElement("i", {
     className: "far fa-eye-slash pl-2 text-gray-600"
-  })), errors.confirmPassword && react_1["default"].createElement("p", {
+  })), errors.confirmPassword && errors.confirmPassword.type === "required" && react_1["default"].createElement("p", {
     className: "pt-1 text-red-400 text-xs opacity-90"
-  }, "\u78BA\u8A8D\u306E\u30D1\u30B9\u30EF\u30FC\u30C9\u306F\u5FC5\u9808\u3067\u3059")), react_1["default"].createElement("input", {
+  }, "\u78BA\u8A8D\u306E\u30D1\u30B9\u30EF\u30FC\u30C9\u306F\u5FC5\u9808\u3067\u3059"), errors.confirmPassword && errors.confirmPassword.type === "minLength" && react_1["default"].createElement("p", {
+    className: "pt-1 text-red-400 text-xs opacity-90"
+  }, "\u30D1\u30B9\u30EF\u30FC\u30C9\u306F8\u6587\u5B57\u4EE5\u4E0A\u306B\u3057\u3066\u304F\u3060\u3055\u3044"), react_1["default"].createElement("p", {
+    className: "pt-1 text-red-400 text-xs opacity-90"
+  }, errorMessage)), react_1["default"].createElement("input", {
     type: "submit",
     value: "\u30ED\u30B0\u30A4\u30F3",
     className: "mt-3 transition duration-200 bg-blue-400 hover:bg-blue-300 focus:bg-blue-700 focus:shadow-sm focus:ring-4 focus:ring-blue-500 focus:ring-opacity-50 text-white w-full py-2.5 rounded-lg text-sm shadow-sm hover:shadow-md font-semibold text-center inline-block"

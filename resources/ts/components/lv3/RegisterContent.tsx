@@ -43,25 +43,29 @@ const RegisterContent: React.VFC<Props> = ({
     const history = useHistory();
 
     const onSubmit = async (registerData): Promise<void> => {
-        console.log(registerData);
-        if (registerData.password_confirmation === registerData.password) {
-            await axios
-                .post("/register", registerData)
-                .then((res) => {
-                    console.log(res.data.result);
-                    if (res.data.result === true) {
-                        console.log("ユーザ登録に成功しました");
-                        login({
-                            email: registerData.email,
-                            password: registerData.password,
-                        });
-                    }
-                })
-                .catch((err) => {
-                    console.log(err);
-                });
+        if (!(watch().password === watch().confirmPassword)) {
+            setErrorMessage("確認のパスワードが一致しません");
         } else {
-            console.log("確認のパスワードが一致しません");
+            console.log(registerData);
+            if (registerData.password_confirmation === registerData.password) {
+                await axios
+                    .post("/register", registerData)
+                    .then((res) => {
+                        console.log(res.data.result);
+                        if (res.data.result === true) {
+                            console.log("ユーザ登録に成功しました");
+                            login({
+                                email: registerData.email,
+                                password: registerData.password,
+                            });
+                        }
+                    })
+                    .catch((err) => {
+                        console.log(err);
+                    });
+            } else {
+                console.log("確認のパスワードが一致しません");
+            }
         }
     };
 
@@ -144,6 +148,8 @@ const RegisterContent: React.VFC<Props> = ({
                         <input
                             {...register("email", {
                                 required: true,
+                                min: -2,
+                                pattern: /^\S+@\S+$/i,
                             })}
                             type="text"
                             placeholder="Email"
@@ -152,6 +158,11 @@ const RegisterContent: React.VFC<Props> = ({
                         {errors.email && errors.email.type === "required" && (
                             <p className="pt-1 text-red-400 text-xs opacity-90">
                                 メールアドレスは必須です
+                            </p>
+                        )}
+                        {errors.email && errors.email.type === "pattern" && (
+                            <p className="pt-1 text-red-400 text-xs opacity-90">
+                                メールアドレスの形式が不正です
                             </p>
                         )}
                         <div className="w-full">
@@ -190,7 +201,6 @@ const RegisterContent: React.VFC<Props> = ({
                                     </p>
                                 )}
                         </div>
-
                         <div className="w-full">
                             <h1 className="font-semibold text-sm text-gray-600 pb-1 block">
                                 確認パスワード
@@ -219,11 +229,21 @@ const RegisterContent: React.VFC<Props> = ({
                                     <i className="far fa-eye-slash pl-2 text-gray-600" />
                                 )}
                             </span>
-                            {errors.confirmPassword && (
-                                <p className="pt-1 text-red-400 text-xs opacity-90">
-                                    確認のパスワードは必須です
-                                </p>
-                            )}
+                            {errors.confirmPassword &&
+                                errors.confirmPassword.type === "required" && (
+                                    <p className="pt-1 text-red-400 text-xs opacity-90">
+                                        確認のパスワードは必須です
+                                    </p>
+                                )}
+                            {errors.confirmPassword &&
+                                errors.confirmPassword.type === "minLength" && (
+                                    <p className="pt-1 text-red-400 text-xs opacity-90">
+                                        パスワードは8文字以上にしてください
+                                    </p>
+                                )}
+                            <p className="pt-1 text-red-400 text-xs opacity-90">
+                                {errorMessage}
+                            </p>
                         </div>
                         <input
                             type="submit"
