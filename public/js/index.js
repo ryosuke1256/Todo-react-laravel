@@ -5297,8 +5297,6 @@ var LoginContent = function LoginContent(_a) {
   }, react_1["default"].createElement("div", {
     className: "xs:p-0 mx-auto md:w-full md:max-w-md"
   }, react_1["default"].createElement("form", {
-    action: "/login",
-    method: "post",
     onSubmit: handleSubmit(onSubmit),
     className: "bg-white shadow w-full rounded-xl divide-y divide-gray-200 px-12 py-8"
   }, react_1["default"].createElement("title", {
@@ -5637,33 +5635,24 @@ var RegisterContent = function RegisterContent(_a) {
       setUserID = _a.setUserID,
       getUser = _a.getUser;
 
-  var _b = react_1.useState({
-    name: "",
-    email: "",
-    password: "",
-    password_confirmation: ""
-  }),
-      registerData = _b[0],
-      setRegisterData = _b[1];
+  var _b = react_1.useState(false),
+      isRevealPassword = _b[0],
+      setIsRevealPassword = _b[1];
 
   var _c = react_1.useState(false),
-      isRevealPassword = _c[0],
-      setIsRevealPassword = _c[1];
-
-  var _d = react_1.useState(false),
-      isRevealConfirmPassword = _d[0],
-      setIsRevealConfirmPassword = _d[1]; //prettier-ignore
+      isRevealConfirmPassword = _c[0],
+      setIsRevealConfirmPassword = _c[1]; //prettier-ignore
 
 
-  var _e = react_1.useState(""),
-      errorMessage = _e[0],
-      setErrorMessage = _e[1];
+  var _d = react_1.useState(""),
+      errorMessage = _d[0],
+      setErrorMessage = _d[1];
 
-  var _f = react_hook_form_1.useForm(),
-      register = _f.register,
-      handleSubmit = _f.handleSubmit,
-      errors = _f.formState.errors,
-      watch = _f.watch;
+  var _e = react_hook_form_1.useForm(),
+      register = _e.register,
+      handleSubmit = _e.handleSubmit,
+      errors = _e.formState.errors,
+      watch = _e.watch;
 
   var history = react_router_dom_1.useHistory();
 
@@ -5672,7 +5661,10 @@ var RegisterContent = function RegisterContent(_a) {
       return __generator(this, function (_a) {
         switch (_a.label) {
           case 0:
-            if (!!(watch().password === watch().confirmPassword)) return [3
+            console.log({
+              registerData: registerData
+            });
+            if (!!(watch().password === watch().password_confirmation)) return [3
             /*break*/
             , 1];
             setErrorMessage("確認のパスワードが一致しません");
@@ -5681,15 +5673,12 @@ var RegisterContent = function RegisterContent(_a) {
             , 4];
 
           case 1:
-            console.log(registerData);
             if (!(registerData.password_confirmation === registerData.password)) return [3
             /*break*/
             , 3];
             return [4
             /*yield*/
             , axios_1["default"].post("/register", registerData).then(function (res) {
-              console.log(res.data.result);
-
               if (res.data.result === true) {
                 console.log("ユーザ登録に成功しました");
                 login({
@@ -5748,28 +5737,6 @@ var RegisterContent = function RegisterContent(_a) {
         }
       });
     });
-  };
-
-  var handleChange = function handleChange(e, title) {
-    if (title === "name") {
-      setRegisterData(__assign(__assign({}, registerData), {
-        name: e.target.value
-      }));
-    } else if (title === "email") {
-      setRegisterData(__assign(__assign({}, registerData), {
-        email: e.target.value
-      }));
-    } else if (title === "password") {
-      setRegisterData(__assign(__assign({}, registerData), {
-        password: e.target.value
-      }));
-    } else if (title === "confirmPassword") {
-      setRegisterData(__assign(__assign({}, registerData), {
-        password_confirmation: e.target.value
-      })); //prettier-ignore
-    } else {
-      return null;
-    }
   };
 
   var togglePassword = function togglePassword(password) {
@@ -5852,7 +5819,7 @@ var RegisterContent = function RegisterContent(_a) {
     className: "w-full"
   }, react_1["default"].createElement("h1", {
     className: "font-semibold text-sm text-gray-600 pb-1 block"
-  }, "\u78BA\u8A8D\u30D1\u30B9\u30EF\u30FC\u30C9"), react_1["default"].createElement("input", __assign({}, register("confirmPassword", {
+  }, "\u78BA\u8A8D\u30D1\u30B9\u30EF\u30FC\u30C9"), react_1["default"].createElement("input", __assign({}, register("password_confirmation", {
     required: true,
     minLength: 8
   }), {
@@ -5867,9 +5834,9 @@ var RegisterContent = function RegisterContent(_a) {
     className: "far fa-eye pl-2 text-gray-600"
   }) : react_1["default"].createElement("i", {
     className: "far fa-eye-slash pl-2 text-gray-600"
-  })), errors.confirmPassword && errors.confirmPassword.type === "required" && react_1["default"].createElement("p", {
+  })), errors.password_confirmation && errors.password_confirmation.type === "required" && react_1["default"].createElement("p", {
     className: "pt-1 text-red-400 text-xs opacity-90"
-  }, "\u78BA\u8A8D\u306E\u30D1\u30B9\u30EF\u30FC\u30C9\u306F\u5FC5\u9808\u3067\u3059"), errors.confirmPassword && errors.confirmPassword.type === "minLength" && react_1["default"].createElement("p", {
+  }, "\u78BA\u8A8D\u306E\u30D1\u30B9\u30EF\u30FC\u30C9\u306F\u5FC5\u9808\u3067\u3059"), errors.password_confirmation && errors.password_confirmation.type === "minLength" && react_1["default"].createElement("p", {
     className: "pt-1 text-red-400 text-xs opacity-90"
   }, "\u30D1\u30B9\u30EF\u30FC\u30C9\u306F8\u6587\u5B57\u4EE5\u4E0A\u306B\u3057\u3066\u304F\u3060\u3055\u3044"), react_1["default"].createElement("p", {
     className: "pt-1 text-red-400 text-xs opacity-90"

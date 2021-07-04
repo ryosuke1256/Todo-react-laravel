@@ -15,7 +15,7 @@ type RegisterData = {
     name: string;
     email: string;
     password: string;
-    confirmPassword: string;
+    password_confirmation: string;
 };
 
 const RegisterContent: React.VFC<Props> = ({
@@ -23,12 +23,6 @@ const RegisterContent: React.VFC<Props> = ({
     setUserID,
     getUser,
 }: Props) => {
-    const [registerData, setRegisterData] = useState({
-        name: "",
-        email: "",
-        password: "",
-        password_confirmation: "",
-    });
     const [isRevealPassword, setIsRevealPassword] = useState(false);
     const [isRevealConfirmPassword, setIsRevealConfirmPassword] = useState(false); //prettier-ignore
     const [errorMessage, setErrorMessage] = useState("");
@@ -42,16 +36,16 @@ const RegisterContent: React.VFC<Props> = ({
 
     const history = useHistory();
 
-    const onSubmit = async (registerData): Promise<void> => {
-        if (!(watch().password === watch().confirmPassword)) {
+    const onSubmit = async (registerData: RegisterData): Promise<void> => {
+        console.log({ registerData });
+
+        if (!(watch().password === watch().password_confirmation)) {
             setErrorMessage("確認のパスワードが一致しません");
         } else {
-            console.log(registerData);
             if (registerData.password_confirmation === registerData.password) {
                 await axios
                     .post("/register", registerData)
                     .then((res) => {
-                        console.log(res.data.result);
                         if (res.data.result === true) {
                             console.log("ユーザ登録に成功しました");
                             login({
@@ -83,23 +77,6 @@ const RegisterContent: React.VFC<Props> = ({
             .catch((err) => {
                 console.log(err);
             });
-    };
-
-    const handleChange = (
-        e: React.ChangeEvent<HTMLInputElement>,
-        title: string
-    ) => {
-        if (title === "name") {
-            setRegisterData({ ...registerData, name: e.target.value });
-        } else if (title === "email") {
-            setRegisterData({ ...registerData, email: e.target.value });
-        } else if (title === "password") {
-            setRegisterData({ ...registerData, password: e.target.value });
-        } else if (title === "confirmPassword") {
-            setRegisterData({ ...registerData, password_confirmation: e.target.value }); //prettier-ignore
-        } else {
-            return null;
-        }
     };
 
     const togglePassword = (password: string) => {
@@ -206,7 +183,7 @@ const RegisterContent: React.VFC<Props> = ({
                                 確認パスワード
                             </h1>
                             <input
-                                {...register("confirmPassword", {
+                                {...register("password_confirmation", {
                                     required: true,
                                     minLength: 8,
                                 })}
@@ -229,14 +206,16 @@ const RegisterContent: React.VFC<Props> = ({
                                     <i className="far fa-eye-slash pl-2 text-gray-600" />
                                 )}
                             </span>
-                            {errors.confirmPassword &&
-                                errors.confirmPassword.type === "required" && (
+                            {errors.password_confirmation &&
+                                errors.password_confirmation.type ===
+                                    "required" && (
                                     <p className="pt-1 text-red-400 text-xs opacity-90">
                                         確認のパスワードは必須です
                                     </p>
                                 )}
-                            {errors.confirmPassword &&
-                                errors.confirmPassword.type === "minLength" && (
+                            {errors.password_confirmation &&
+                                errors.password_confirmation.type ===
+                                    "minLength" && (
                                     <p className="pt-1 text-red-400 text-xs opacity-90">
                                         パスワードは8文字以上にしてください
                                     </p>
