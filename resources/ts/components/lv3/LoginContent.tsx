@@ -3,6 +3,7 @@ import axios from "axios";
 import { Link, useHistory } from "react-router-dom";
 import("../../../js/bootstrap");
 import { useForm } from "react-hook-form";
+import PasswordInputField from "../lv2/LoginPassword";
 
 type Props = {
     setIs_authenticated: (param: boolean) => void;
@@ -20,7 +21,6 @@ const LoginContent: React.VFC<Props> = ({
     setUserID,
     getUser,
 }: Props) => {
-    const [isRevealPassword, setIsRevealPassword] = useState(false);
     const [errorMessage, setErrorMessage] = useState("");
 
     const {
@@ -62,10 +62,6 @@ const LoginContent: React.VFC<Props> = ({
                 setErrorMessage("メールアドレスまたはパスワードが異なります");
                 console.log(err);
             });
-    };
-
-    const togglePassword = (): void => {
-        setIsRevealPassword((prevState) => !prevState);
     };
 
     return (
@@ -111,24 +107,7 @@ const LoginContent: React.VFC<Props> = ({
                                 パスワード
                             </h1>
                             <div className="w-full">
-                                <input
-                                    type={
-                                        isRevealPassword ? "text" : "password"
-                                    }
-                                    autoComplete="off"
-                                    placeholder="Password"
-                                    className="border rounded-lg px-3 py-2 mt-1 z-50 text-sm w-11/12"
-                                    {...register("password", {
-                                        required: true,
-                                    })}
-                                />
-                                <span onClick={togglePassword}>
-                                    {isRevealPassword ? (
-                                        <i className="far fa-eye pl-2 text-gray-600" />
-                                    ) : (
-                                        <i className="far fa-eye-slash pl-2 text-gray-600" />
-                                    )}
-                                </span>
+                                <PasswordInputField register={register} />
                                 {errors.password && (
                                     <p className="pt-1 text-red-400 text-xs opacity-90">
                                         パスワードは必須です

@@ -4311,6 +4311,227 @@ var templateObject_1, templateObject_2, templateObject_3, templateObject_4, temp
 
 /***/ }),
 
+/***/ "./resources/ts/components/lv2/LoginPassword.tsx":
+/*!*******************************************************!*\
+  !*** ./resources/ts/components/lv2/LoginPassword.tsx ***!
+  \*******************************************************/
+/***/ (function(__unused_webpack_module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var __assign = this && this.__assign || function () {
+  __assign = Object.assign || function (t) {
+    for (var s, i = 1, n = arguments.length; i < n; i++) {
+      s = arguments[i];
+
+      for (var p in s) {
+        if (Object.prototype.hasOwnProperty.call(s, p)) t[p] = s[p];
+      }
+    }
+
+    return t;
+  };
+
+  return __assign.apply(this, arguments);
+};
+
+var __createBinding = this && this.__createBinding || (Object.create ? function (o, m, k, k2) {
+  if (k2 === undefined) k2 = k;
+  Object.defineProperty(o, k2, {
+    enumerable: true,
+    get: function get() {
+      return m[k];
+    }
+  });
+} : function (o, m, k, k2) {
+  if (k2 === undefined) k2 = k;
+  o[k2] = m[k];
+});
+
+var __setModuleDefault = this && this.__setModuleDefault || (Object.create ? function (o, v) {
+  Object.defineProperty(o, "default", {
+    enumerable: true,
+    value: v
+  });
+} : function (o, v) {
+  o["default"] = v;
+});
+
+var __importStar = this && this.__importStar || function (mod) {
+  if (mod && mod.__esModule) return mod;
+  var result = {};
+  if (mod != null) for (var k in mod) {
+    if (k !== "default" && Object.prototype.hasOwnProperty.call(mod, k)) __createBinding(result, mod, k);
+  }
+
+  __setModuleDefault(result, mod);
+
+  return result;
+};
+
+Object.defineProperty(exports, "__esModule", ({
+  value: true
+}));
+
+var react_1 = __importStar(__webpack_require__(/*! react */ "./node_modules/react/index.js"));
+
+var LoginPassword = function LoginPassword(_a) {
+  var register = _a.register;
+
+  var _b = react_1.useState(false),
+      isRevealPassword = _b[0],
+      setIsRevealPassword = _b[1];
+
+  var togglePassword = function togglePassword() {
+    setIsRevealPassword(function (prevState) {
+      return !prevState;
+    });
+  };
+
+  return react_1["default"].createElement(react_1["default"].Fragment, null, react_1["default"].createElement("input", __assign({
+    type: isRevealPassword ? "text" : "password",
+    autoComplete: "off",
+    placeholder: "Password",
+    className: "border rounded-lg px-3 py-2 mt-1 z-50 text-sm w-11/12"
+  }, register("password", {
+    required: true
+  }))), react_1["default"].createElement("span", {
+    onClick: togglePassword
+  }, isRevealPassword ? react_1["default"].createElement("i", {
+    className: "far fa-eye pl-2 text-gray-600"
+  }) : react_1["default"].createElement("i", {
+    className: "far fa-eye-slash pl-2 text-gray-600"
+  })));
+};
+
+exports.default = LoginPassword;
+
+/***/ }),
+
+/***/ "./resources/ts/components/lv2/RegisterPassword.tsx":
+/*!**********************************************************!*\
+  !*** ./resources/ts/components/lv2/RegisterPassword.tsx ***!
+  \**********************************************************/
+/***/ (function(__unused_webpack_module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var __assign = this && this.__assign || function () {
+  __assign = Object.assign || function (t) {
+    for (var s, i = 1, n = arguments.length; i < n; i++) {
+      s = arguments[i];
+
+      for (var p in s) {
+        if (Object.prototype.hasOwnProperty.call(s, p)) t[p] = s[p];
+      }
+    }
+
+    return t;
+  };
+
+  return __assign.apply(this, arguments);
+};
+
+var __createBinding = this && this.__createBinding || (Object.create ? function (o, m, k, k2) {
+  if (k2 === undefined) k2 = k;
+  Object.defineProperty(o, k2, {
+    enumerable: true,
+    get: function get() {
+      return m[k];
+    }
+  });
+} : function (o, m, k, k2) {
+  if (k2 === undefined) k2 = k;
+  o[k2] = m[k];
+});
+
+var __setModuleDefault = this && this.__setModuleDefault || (Object.create ? function (o, v) {
+  Object.defineProperty(o, "default", {
+    enumerable: true,
+    value: v
+  });
+} : function (o, v) {
+  o["default"] = v;
+});
+
+var __importStar = this && this.__importStar || function (mod) {
+  if (mod && mod.__esModule) return mod;
+  var result = {};
+  if (mod != null) for (var k in mod) {
+    if (k !== "default" && Object.prototype.hasOwnProperty.call(mod, k)) __createBinding(result, mod, k);
+  }
+
+  __setModuleDefault(result, mod);
+
+  return result;
+};
+
+Object.defineProperty(exports, "__esModule", ({
+  value: true
+}));
+
+var react_1 = __importStar(__webpack_require__(/*! react */ "./node_modules/react/index.js"));
+
+var RegisterPassword = function RegisterPassword(_a) {
+  var register = _a.register,
+      category = _a.category;
+
+  var _b = react_1.useState(false),
+      isRevealPassword = _b[0],
+      setIsRevealPassword = _b[1];
+
+  var _c = react_1.useState(false),
+      isRevealConfirmPassword = _c[0],
+      setIsRevealConfirmPassword = _c[1]; //prettier-ignore
+
+
+  var togglePassword = function togglePassword() {
+    if (category === "password") {
+      setIsRevealPassword(function (prevState) {
+        return !prevState;
+      });
+    } else if (category === "password_confirmation") {
+      setIsRevealConfirmPassword(function (prevState) {
+        return !prevState;
+      });
+    } else {
+      return null;
+    }
+  };
+
+  var IsRevealPassword = function IsRevealPassword() {
+    if (category === "password") {
+      return isRevealPassword;
+    } else if (category === "password_confirmation") {
+      return isRevealConfirmPassword;
+    } else {
+      return;
+    }
+  };
+
+  return react_1["default"].createElement(react_1["default"].Fragment, null, react_1["default"].createElement("input", __assign({
+    type: IsRevealPassword() ? "text" : "password",
+    autoComplete: "off",
+    placeholder: "Password",
+    className: "border rounded-lg px-3 py-2 mt-1 z-50 text-sm w-11/12"
+  }, register(category, {
+    required: true,
+    minLength: 8
+  }))), react_1["default"].createElement("span", {
+    onClick: togglePassword
+  }, IsRevealPassword() ? react_1["default"].createElement("i", {
+    className: "far fa-eye pl-2 text-gray-600"
+  }) : react_1["default"].createElement("i", {
+    className: "far fa-eye-slash pl-2 text-gray-600"
+  })));
+};
+
+exports.default = RegisterPassword;
+
+/***/ }),
+
 /***/ "./resources/ts/components/lv2/TaskCard.tsx":
 /*!**************************************************!*\
   !*** ./resources/ts/components/lv2/TaskCard.tsx ***!
@@ -5205,23 +5426,21 @@ Promise.resolve().then(function () {
 
 var react_hook_form_1 = __webpack_require__(/*! react-hook-form */ "./node_modules/react-hook-form/dist/index.cjs.js");
 
+var LoginPassword_1 = __importDefault(__webpack_require__(/*! ../lv2/LoginPassword */ "./resources/ts/components/lv2/LoginPassword.tsx"));
+
 var LoginContent = function LoginContent(_a) {
   var setIs_authenticated = _a.setIs_authenticated,
       setUserID = _a.setUserID,
       getUser = _a.getUser;
 
-  var _b = react_1.useState(false),
-      isRevealPassword = _b[0],
-      setIsRevealPassword = _b[1];
+  var _b = react_1.useState(""),
+      errorMessage = _b[0],
+      setErrorMessage = _b[1];
 
-  var _c = react_1.useState(""),
-      errorMessage = _c[0],
-      setErrorMessage = _c[1];
-
-  var _d = react_hook_form_1.useForm(),
-      register = _d.register,
-      handleSubmit = _d.handleSubmit,
-      errors = _d.formState.errors;
+  var _c = react_hook_form_1.useForm(),
+      register = _c.register,
+      handleSubmit = _c.handleSubmit,
+      errors = _c.formState.errors;
 
   var history = react_router_dom_1.useHistory();
   react_1.useEffect(function () {
@@ -5283,12 +5502,6 @@ var LoginContent = function LoginContent(_a) {
     });
   };
 
-  var togglePassword = function togglePassword() {
-    setIsRevealPassword(function (prevState) {
-      return !prevState;
-    });
-  };
-
   return react_1["default"].createElement("div", {
     className: "min-h-screen bg-gray-100 flex flex-col justify-center sm:py-12"
   }, react_1["default"].createElement("div", {
@@ -5322,20 +5535,9 @@ var LoginContent = function LoginContent(_a) {
     className: "font-semibold text-sm text-gray-600 pb-1 block"
   }, "\u30D1\u30B9\u30EF\u30FC\u30C9"), react_1["default"].createElement("div", {
     className: "w-full"
-  }, react_1["default"].createElement("input", __assign({
-    type: isRevealPassword ? "text" : "password",
-    autoComplete: "off",
-    placeholder: "Password",
-    className: "border rounded-lg px-3 py-2 mt-1 z-50 text-sm w-11/12"
-  }, register("password", {
-    required: true
-  }))), react_1["default"].createElement("span", {
-    onClick: togglePassword
-  }, isRevealPassword ? react_1["default"].createElement("i", {
-    className: "far fa-eye pl-2 text-gray-600"
-  }) : react_1["default"].createElement("i", {
-    className: "far fa-eye-slash pl-2 text-gray-600"
-  })), errors.password && react_1["default"].createElement("p", {
+  }, react_1["default"].createElement(LoginPassword_1["default"], {
+    register: register
+  }), errors.password && react_1["default"].createElement("p", {
     className: "pt-1 text-red-400 text-xs opacity-90"
   }, "\u30D1\u30B9\u30EF\u30FC\u30C9\u306F\u5FC5\u9808\u3067\u3059"))), react_1["default"].createElement("p", {
     className: "pb-2 text-red-400 text-xs opacity-90"
@@ -5592,29 +5794,22 @@ var react_router_dom_1 = __webpack_require__(/*! react-router-dom */ "./node_mod
 
 var react_hook_form_1 = __webpack_require__(/*! react-hook-form */ "./node_modules/react-hook-form/dist/index.cjs.js");
 
+var RegisterPassword_1 = __importDefault(__webpack_require__(/*! ../lv2/RegisterPassword */ "./resources/ts/components/lv2/RegisterPassword.tsx"));
+
 var RegisterContent = function RegisterContent(_a) {
   var setIs_authenticated = _a.setIs_authenticated,
       setUserID = _a.setUserID,
       getUser = _a.getUser;
 
-  var _b = react_1.useState(false),
-      isRevealPassword = _b[0],
-      setIsRevealPassword = _b[1];
+  var _b = react_1.useState(""),
+      errorMessage = _b[0],
+      setErrorMessage = _b[1];
 
-  var _c = react_1.useState(false),
-      isRevealConfirmPassword = _c[0],
-      setIsRevealConfirmPassword = _c[1]; //prettier-ignore
-
-
-  var _d = react_1.useState(""),
-      errorMessage = _d[0],
-      setErrorMessage = _d[1];
-
-  var _e = react_hook_form_1.useForm(),
-      register = _e.register,
-      handleSubmit = _e.handleSubmit,
-      errors = _e.formState.errors,
-      watch = _e.watch;
+  var _c = react_hook_form_1.useForm(),
+      register = _c.register,
+      handleSubmit = _c.handleSubmit,
+      errors = _c.formState.errors,
+      watch = _c.watch;
 
   var history = react_router_dom_1.useHistory();
 
@@ -5692,20 +5887,6 @@ var RegisterContent = function RegisterContent(_a) {
     });
   };
 
-  var togglePassword = function togglePassword(password) {
-    if (password === "Password") {
-      setIsRevealPassword(function (prevState) {
-        return !prevState;
-      });
-    } else if (password === "ConfirmPassword") {
-      setIsRevealConfirmPassword(function (prevState) {
-        return !prevState;
-      });
-    } else {
-      return null;
-    }
-  };
-
   return react_1["default"].createElement("div", {
     className: "min-h-screen bg-gray-100 flex flex-col justify-center sm:py-12"
   }, react_1["default"].createElement("div", {
@@ -5747,22 +5928,10 @@ var RegisterContent = function RegisterContent(_a) {
     className: "w-full"
   }, react_1["default"].createElement("h1", {
     className: "font-semibold text-sm text-gray-600 pt-3 pb-1 block"
-  }, "\u30D1\u30B9\u30EF\u30FC\u30C9"), react_1["default"].createElement("input", __assign({}, register("password", {
-    required: true,
-    minLength: 8
-  }), {
-    placeholder: "Password",
-    type: isRevealPassword ? "text" : "password",
-    className: "border border-grey-light w-10/12 px-3 py-2 mt-1 text-sm rounded-lg "
-  })), react_1["default"].createElement("span", {
-    onClick: function onClick() {
-      return togglePassword("Password");
-    }
-  }, isRevealPassword ? react_1["default"].createElement("i", {
-    className: "far fa-eye pl-2 text-gray-600"
-  }) : react_1["default"].createElement("i", {
-    className: "far fa-eye-slash pl-2 text-gray-600"
-  })), react_1["default"].createElement("div", {
+  }, "\u30D1\u30B9\u30EF\u30FC\u30C9"), react_1["default"].createElement(RegisterPassword_1["default"], {
+    register: register,
+    category: "password"
+  }), react_1["default"].createElement("div", {
     className: "text-gray-300 text-xs pt-1"
   }, "\u2714\uFE0E 8\u6587\u5B57\u4EE5\u4E0A"), errors.password && errors.password.type === "required" && react_1["default"].createElement("p", {
     className: "pt-1 text-red-400 text-xs opacity-90"
@@ -5772,22 +5941,10 @@ var RegisterContent = function RegisterContent(_a) {
     className: "w-full"
   }, react_1["default"].createElement("h1", {
     className: "font-semibold text-sm text-gray-600 pt-3 pb-1 block"
-  }, "\u78BA\u8A8D\u30D1\u30B9\u30EF\u30FC\u30C9"), react_1["default"].createElement("input", __assign({}, register("password_confirmation", {
-    required: true,
-    minLength: 8
-  }), {
-    type: isRevealConfirmPassword ? "text" : "password",
-    placeholder: "Confirm Password",
-    className: "border border-grey-light w-10/12 px-3 py-2 text-sm rounded-lg"
-  })), react_1["default"].createElement("span", {
-    onClick: function onClick() {
-      return togglePassword("ConfirmPassword");
-    }
-  }, isRevealConfirmPassword ? react_1["default"].createElement("i", {
-    className: "far fa-eye pl-2 text-gray-600"
-  }) : react_1["default"].createElement("i", {
-    className: "far fa-eye-slash pl-2 text-gray-600"
-  })), errors.password_confirmation && errors.password_confirmation.type === "required" && react_1["default"].createElement("p", {
+  }, "\u78BA\u8A8D\u30D1\u30B9\u30EF\u30FC\u30C9"), react_1["default"].createElement(RegisterPassword_1["default"], {
+    register: register,
+    category: "password_confirmation"
+  }), errors.password_confirmation && errors.password_confirmation.type === "required" && react_1["default"].createElement("p", {
     className: "pt-1 text-red-400 text-xs opacity-90"
   }, "\u78BA\u8A8D\u306E\u30D1\u30B9\u30EF\u30FC\u30C9\u306F\u5FC5\u9808\u3067\u3059"), errors.password_confirmation && errors.password_confirmation.type === "minLength" && react_1["default"].createElement("p", {
     className: "pt-1 text-red-400 text-xs opacity-90"

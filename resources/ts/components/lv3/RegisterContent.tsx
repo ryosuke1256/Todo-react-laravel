@@ -2,6 +2,9 @@ import React, { useState } from "react";
 import axios from "axios";
 import { Link, useHistory } from "react-router-dom";
 import { useForm } from "react-hook-form";
+import RegisterPassword from "../lv2/RegisterPassword";
+import { RegisterData } from "../../type/api/RegisterData";
+import { LoginData } from "../../type/api/LoginData";
 
 type Props = {
     setIs_authenticated: (param: boolean) => void;
@@ -9,22 +12,11 @@ type Props = {
     getUser: () => Promise<void>;
 };
 
-type LoginData = { email: string; password: string };
-
-type RegisterData = {
-    name: string;
-    email: string;
-    password: string;
-    password_confirmation: string;
-};
-
 const RegisterContent: React.VFC<Props> = ({
     setIs_authenticated,
     setUserID,
     getUser,
 }: Props) => {
-    const [isRevealPassword, setIsRevealPassword] = useState(false);
-    const [isRevealConfirmPassword, setIsRevealConfirmPassword] = useState(false); //prettier-ignore
     const [errorMessage, setErrorMessage] = useState("");
 
     const {
@@ -72,16 +64,6 @@ const RegisterContent: React.VFC<Props> = ({
             .catch((err) => {
                 console.log(err);
             });
-    };
-
-    const togglePassword = (password: string) => {
-        if (password === "Password") {
-            setIsRevealPassword((prevState) => !prevState);
-        } else if (password === "ConfirmPassword") {
-            setIsRevealConfirmPassword((prevState) => !prevState);
-        } else {
-            return null;
-        }
     };
 
     return (
@@ -141,22 +123,10 @@ const RegisterContent: React.VFC<Props> = ({
                             <h1 className="font-semibold text-sm text-gray-600 pt-3 pb-1 block">
                                 パスワード
                             </h1>
-                            <input
-                                {...register("password", {
-                                    required: true,
-                                    minLength: 8,
-                                })}
-                                placeholder="Password"
-                                type={isRevealPassword ? "text" : "password"}
-                                className="border border-grey-light w-10/12 px-3 py-2 mt-1 text-sm rounded-lg "
+                            <RegisterPassword
+                                register={register}
+                                category={"password"}
                             />
-                            <span onClick={() => togglePassword("Password")}>
-                                {isRevealPassword ? (
-                                    <i className="far fa-eye pl-2 text-gray-600" />
-                                ) : (
-                                    <i className="far fa-eye-slash pl-2 text-gray-600" />
-                                )}
-                            </span>
                             <div className="text-gray-300 text-xs pt-1">
                                 ✔︎ 8文字以上
                             </div>
@@ -177,30 +147,10 @@ const RegisterContent: React.VFC<Props> = ({
                             <h1 className="font-semibold text-sm text-gray-600 pt-3 pb-1 block">
                                 確認パスワード
                             </h1>
-                            <input
-                                {...register("password_confirmation", {
-                                    required: true,
-                                    minLength: 8,
-                                })}
-                                type={
-                                    isRevealConfirmPassword
-                                        ? "text"
-                                        : "password"
-                                }
-                                placeholder="Confirm Password"
-                                className="border border-grey-light w-10/12 px-3 py-2 text-sm rounded-lg"
+                            <RegisterPassword
+                                register={register}
+                                category={"password_confirmation"}
                             />
-                            <span
-                                onClick={() =>
-                                    togglePassword("ConfirmPassword")
-                                }
-                            >
-                                {isRevealConfirmPassword ? (
-                                    <i className="far fa-eye pl-2 text-gray-600" />
-                                ) : (
-                                    <i className="far fa-eye-slash pl-2 text-gray-600" />
-                                )}
-                            </span>
                             {errors.password_confirmation &&
                                 errors.password_confirmation.type ===
                                     "required" && (
