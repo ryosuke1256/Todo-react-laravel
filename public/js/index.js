@@ -4281,7 +4281,7 @@ var Header = function Header(_a) {
       display: "inline-block",
       paddingBottom: "8px"
     }
-  }), react_1["default"].createElement(_Title, null, "Todo"))), is_authenticated ? react_1["default"].createElement(_userName, {
+  }), react_1["default"].createElement(_Title, null, "\u30CF\u30D4\u30BF\u30B9"))), is_authenticated ? react_1["default"].createElement(_userName, {
     onClick: function onClick(e) {
       e.preventDefault();
       setIs_show(function (prevState) {
@@ -4299,7 +4299,7 @@ var _Header = styled_components_1["default"].div(templateObject_4 || (templateOb
 
 var _TapableRange = styled_components_1["default"].div(templateObject_5 || (templateObject_5 = __makeTemplateObject([""], [""])));
 
-var _Title = styled_components_1["default"].div(templateObject_6 || (templateObject_6 = __makeTemplateObject(["\n    display: inline-block;\n    color: #212529;\n    padding: 0.45rem 1rem;\n    font-size: 1.3rem;\n"], ["\n    display: inline-block;\n    color: #212529;\n    padding: 0.45rem 1rem;\n    font-size: 1.3rem;\n"])));
+var _Title = styled_components_1["default"].div(templateObject_6 || (templateObject_6 = __makeTemplateObject(["\n    display: inline-block;\n    color: #414346;\n    padding: 0.45rem 1rem;\n    font-size: 1.3rem;\n    font-family: \"arial unicode ms\";\n    opacity: 0.8;\n"], ["\n    display: inline-block;\n    color: #414346;\n    padding: 0.45rem 1rem;\n    font-size: 1.3rem;\n    font-family: \"arial unicode ms\";\n    opacity: 0.8;\n"])));
 
 var _userName = styled_components_1["default"].div(templateObject_7 || (templateObject_7 = __makeTemplateObject(["\n    line-height: 44px;\n    color: #00000080;\n    cursor: pointer;\n"], ["\n    line-height: 44px;\n    color: #00000080;\n    cursor: pointer;\n"])));
 
@@ -6355,45 +6355,59 @@ var TopPageContent = function TopPageContent() {
   return react_1["default"].createElement(react_1["default"].Fragment, null, react_1["default"].createElement("div", {
     className: "bg-white h-full w-screen text-center relative"
   }, react_1["default"].createElement("aside", null, react_1["default"].createElement("img", {
-    className: "invisible lg:visible absolute top-0 left-0 bg-cover",
-    src: "/images/background.jpg"
+    className: "invisible lg:visible absolute top-0 left-0 w-full bg-auto ",
+    style: {
+      height: "600px"
+    },
+    src: "/images/background3.jpg"
   }), react_1["default"].createElement("img", {
-    className: "visible lg:invisible absolute top-0 left-0 bg-cover",
-    src: "/images/background2.jpg"
+    className: "visible lg:invisible absolute top-0 left-0 w-full bg-auto",
+    style: {
+      height: "600px"
+    },
+    src: "/images/background3.jpg"
   })), react_1["default"].createElement("div", {
-    className: "absolute top-0 left-0 w-full h-full"
+    className: "bg-white absolute top-0 left-0 w-full h-full"
   }, react_1["default"].createElement("main", {
-    className: "w-11/12 sm:w-10/12 lg:w-8/12 xl:w-6-12 max-w-5xl inline-block pt-32 sm:pt-40"
+    className: "w-11/12 sm:w-10/12 lg:w-8/12 xl:w-6-12 max-w-5xl inline-block pt-24 sm:pt-28"
   }, react_1["default"].createElement("title", {
-    className: "inline-block text-2xl xl:text-3xl"
+    className: "inline-block text-3xl xl:text-4xl text-gray-700 font-semibold block"
   }, react_1["default"].createElement("span", {
+    className: "sm:inline-block pt-3 underLine"
+  }, "\u30CF\u30D4\u30BF\u30B9\u306F\u30B7\u30F3\u30D7\u30EB\u3067\u4F7F\u3044\u3084\u3059\u304F\u3092\u610F\u8B58\u3057\u3066"), react_1["default"].createElement("span", {
     className: "block sm:inline-block pt-3 underLine"
-  }, "Todo\u30A2\u30D7\u30EA\u4F5C\u3063\u3066\u307F\u305F\u3088\uFF01"), react_1["default"].createElement("span", {
-    className: "block sm:inline-block pt-3 underLine"
-  }, "\u4F1A\u54E1\u767B\u9332\u3057\u3066\u4F7F\u3063\u3066\u307F\u3066\u306D\uFF01")), react_1["default"].createElement("article", {
-    className: " flex flex-col sm:flex-row "
+  }, "\u4F5C\u6210\u3057\u305F\u300C\u30BF\u30B9\u30AF\u7BA1\u7406\u30C4\u30FC\u30EB\u300D\u3067\u3059")), react_1["default"].createElement("article", {
+    className: " flex flex-col md:flex-row pt-36"
   }, react_1["default"].createElement("section", {
-    className: "w-10/12 lg:w-8/12 xl:5/12 sm:pl-1 lg:pl-16 xl:pl-36"
+    className: "w-10/12 lg:w-8/12 xl:5/12 sm:pl-1 lg:pl-16 xl:pl-36 bg-opacity-10"
   }, react_1["default"].createElement("h1", {
-    className: "text-lg sm:text-xl pt-20 sm:pt-24 lg:pt-32 pb-5"
-  }, "\u30BF\u30B9\u30AF\u7BA1\u7406\u30C4\u30FC\u30EB\u3092\u4F7F\u3063\u3066\u751F\u7523\u6027\u3092\u4E0A\u3052\u3088\u3046"), react_1["default"].createElement(react_router_dom_1.Link, {
+    className: "text-yellow-800 text-2xl sm:text-3xl pt-12 pb-5 font-medium"
+  }, "\u30CF\u30D4\u30BF\u30B9\u3092\u4F7F\u3063\u3066\u751F\u7523\u6027\u3092\u4E0A\u3052\u3088\u3046!"), react_1["default"].createElement(react_router_dom_1.Link, {
     to: "/login",
     className: "button hover"
   }, "\u30ED\u30B0\u30A4\u30F3"), react_1["default"].createElement(react_router_dom_1.Link, {
     to: "/register",
     className: "button hover"
-  }, "\u65B0\u898F\u767B\u9332")), react_1["default"].createElement("section", {
-    className: "w-full"
+  }, "\u65B0\u898F\u767B\u9332")))), react_1["default"].createElement("article", {
+    className: "w-full bg-opacity-20 py-32"
+  }, react_1["default"].createElement("div", {
+    className: "w-10/12 inline-block"
+  }, react_1["default"].createElement("title", {
+    className: "inline-block text-3xl text-blue-400 textShadow"
+  }, "ABOUT."), react_1["default"].createElement("div", {
+    className: "flex flex-col lg:flex-row"
   }, react_1["default"].createElement("img", {
-    className: "inline-block w-96 sm:w-80 lg:w-96",
-    width: "400px",
-    height: "400px",
-    src: "/images/todo.png"
-  }))), react_1["default"].createElement("article", null, react_1["default"].createElement("img", {
-    className: "invisible sm:visible inline-block ",
-    src: "/images/image.png",
-    width: "800px"
-  }))))));
+    className: "w-full lg:w-1/2 invisible sm:visible inline-block pt-12",
+    src: "/images/image3.png"
+  }), react_1["default"].createElement("section", {
+    className: "w-full lg:w-1/2 lg:w-full inline-block pt-12 pl-24"
+  }, react_1["default"].createElement("div", {
+    className: "bg-blue-50 p-7 rounded-3xl"
+  }, react_1["default"].createElement("h1", {
+    className: "inline-block text-2xl underLineYellow"
+  }, "\u30CF\u30D4\u30BF\u30B9\u3068\u306F\uFF1F"), react_1["default"].createElement("p", {
+    className: "py-6 text-lg"
+  }, "\u30CF\u30C3\u30D4\u30FC\xD7\u30BF\u30B9\u30AF\u7BA1\u7406\u3002\u30E6\u30FC\u30B6\u30FC\u304C\u4ECA\u56DE\u4F5C\u6210\u3057\u305F\u30BF\u30B9\u30AF\u7BA1\u7406\u30C4\u30FC\u30EB(\u30CF\u30D4\u30BF\u30B9)\u3092\u4F7F\u3063\u3066\u30CF\u30C3\u30D4\u30FC\u306B\u306A\u308C\u3070\u3044\u3044\u306A\u3068\u601D\u3063\u3066\u540D\u524D\u3092\u3064\u3051\u307E\u3057\u305F\u3002\u57FA\u672C\u7684\u306A\u30BF\u30B9\u30AF\u306E\u8FFD\u52A0\u3001\u7DE8\u96C6\u3001\u524A\u9664\u306B\u52A0\u3048\u30C1\u30A7\u30C3\u30AF\u3092\u3064\u3051\u3066\u6253\u3061\u6D88\u3057\u7DDA\u3092\u3064\u3051\u305F\u72B6\u614B\u306B\u3059\u308B\u3053\u3068\u3082\u3067\u304D\u307E\u3059\u3002 \u4E00\u756A\u306E\u62BC\u3057\u30DD\u30A4\u30F3\u30C8\u306F\u30BF\u30B0\u306B\uFF14\u7A2E\u985E\u306E\u8D64\u3001\u9752\u3001\u7DD1\u3001\u9EC4\u306E\u30BF\u30B0\u3092\u3064\u3051\u308B\u3053\u3068\u304C\u3067\u304D\u308B\u3068\u3053\u308D\u3067\u3059")))))))));
 };
 
 exports.default = TopPageContent;

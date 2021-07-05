@@ -46,7 +46,7 @@ const Header: React.VFC<Props> = ({
                             paddingBottom: "8px",
                         }}
                     />
-                    <_Title>Todo</_Title>
+                    <_Title>ハピタス</_Title>
                 </_TapableRange>
             </Link>
             {is_authenticated ? (
@@ -95,9 +95,11 @@ const _TapableRange = styled.div``;
 
 const _Title = styled.div`
     display: inline-block;
-    color: #212529;
+    color: #414346;
     padding: 0.45rem 1rem;
     font-size: 1.3rem;
+    font-family: "arial unicode ms";
+    opacity: 0.8;
 `;
 
 const _userName = styled.div`
