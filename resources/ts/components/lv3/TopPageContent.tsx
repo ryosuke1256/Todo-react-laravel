@@ -12,18 +12,18 @@ const TopPageContent: React.VFC = () => {
                     />
                 </aside>
                 <div className="bg-white absolute top-0 left-0 w-full h-full">
-                    <main className="w-11/12 sm:w-10/12 lg:w-8/12 xl:w-6-12 max-w-5xl inline-block pt-24 sm:pt-28">
-                        <title className="inline-block text-3xl xl:text-4xl text-gray-700 font-semibold block">
+                    <main className="w-11/12 sm:w-10/12 lg:w-8/12 xl:w-6-12 max-w-5xl inline-block pt-28">
+                        <title className="inline-block text-2xl md:text-3xl xl:text-4xl text-gray-700 font-semibold block">
                             <span className="sm:inline-block pt-3 underLine">
-                                ハピタスはシンプルで使いやすくを意識して
+                                ハピタスはシンプルで使いやすくを意識して作成した
                             </span>
-                            <span className="block sm:inline-block pt-3 underLine">
-                                作成した「タスク管理ツール」です
+                            <span className="inline-block sm:pt-3 underLine">
+                                「タスク管理ツール」です
                             </span>
                         </title>
-                        <article className=" flex flex-col md:flex-row pt-9 sm:pt-36">
+                        <article className=" flex flex-col md:flex-row pt-11 sm:pt-36">
                             <section className="w-10/12 lg:w-8/12 xl:5/12 sm:pl-1 lg:pl-16 xl:pl-36 bg-opacity-10">
-                                <h1 className="text-yellow-800 text-2xl sm:text-3xl pt-12 pb-5 font-medium">
+                                <h1 className="text-yellow-800 text-2xl sm:text-3xl pt-4 sm:pt-12 pb-5 font-medium">
                                     ハピタスを使って生産性を上げよう!
                                 </h1>
                                 <Link to="/login" className="button hover">
@@ -35,8 +35,8 @@ const TopPageContent: React.VFC = () => {
                             </section>
                         </article>
                     </main>
-                    <article className="w-full bg-opacity-20 py-16 sm:py-32">
-                        <div className="w-10/12 inline-block">
+                    <article className="w-full bg-opacity-20 pt-36 sm:py-32 pb-20 sm:pb-24">
+                        <div className="w-11/12 sm:w-10/12 inline-block">
                             <title className="inline-block text-3xl text-blue-400 textShadow">
                                 ABOUT.
                             </title>

@@ -13,7 +13,7 @@ module.exports = {
             },
             height: {
                 pc: "600px",
-                sp: "500px",
+                sp: "480px",
             },
         },
     },
