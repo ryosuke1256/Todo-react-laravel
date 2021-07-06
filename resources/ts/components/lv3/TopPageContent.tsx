@@ -21,9 +21,9 @@ const TopPageContent: React.VFC = () => {
                                 作成した「タスク管理ツール」です
                             </span>
                         </title>
-                        <article className="flex flex-col w-full md:flex-row pt-16 sm:pt-32 md:pt-40">
+                        <article className="flex flex-col w-full md:flex-row pt-20 sm:pt-24 md:pt-40">
                             <section className="flex-nowrap w-full bg-opacity-10">
-                                <h1 className="text-yellow-800 text-2xl sm:text-3xl pb-5 font-medium">
+                                <h1 className="text-yellow-800 text-xl sm:text-2xl md:text-3xl pb-5 font-medium">
                                     ハピタスを使って生産性を上げよう!
                                 </h1>
                                 <Link to="/login" className="button hover">
@@ -35,7 +35,6 @@ const TopPageContent: React.VFC = () => {
                             </section>
                         </article>
                     </main>
-                    {/* <article className="w-full bg-opacity-20 pt-44 sm:pt-44 md:pt-44 pb-20 sm:pb-24"> */}
                     <article className="absolute top-520 md:top-650 left-0 w-full bg-opacity-20">
                         <div className="w-11/12 2xl:w-10/12 inline-block">
                             <title className="inline-block text-3xl text-blue-400 textShadow">

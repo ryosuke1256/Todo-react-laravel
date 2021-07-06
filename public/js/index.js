@@ -6371,11 +6371,11 @@ var TopPageContent = function TopPageContent() {
   }, "\u30CF\u30D4\u30BF\u30B9\u306F\u30B7\u30F3\u30D7\u30EB\u3067\u4F7F\u3044\u3084\u3059\u304F\u3092\u610F\u8B58\u3057\u3066"), react_1["default"].createElement("span", {
     className: "xl:inline-block sm:pt-3 underLine"
   }, "\u4F5C\u6210\u3057\u305F\u300C\u30BF\u30B9\u30AF\u7BA1\u7406\u30C4\u30FC\u30EB\u300D\u3067\u3059")), react_1["default"].createElement("article", {
-    className: "flex flex-col w-full md:flex-row pt-16 sm:pt-32 md:pt-40"
+    className: "flex flex-col w-full md:flex-row pt-20 sm:pt-24 md:pt-40"
   }, react_1["default"].createElement("section", {
     className: "flex-nowrap w-full bg-opacity-10"
   }, react_1["default"].createElement("h1", {
-    className: "text-yellow-800 text-2xl sm:text-3xl pb-5 font-medium"
+    className: "text-yellow-800 text-xl sm:text-2xl md:text-3xl pb-5 font-medium"
   }, "\u30CF\u30D4\u30BF\u30B9\u3092\u4F7F\u3063\u3066\u751F\u7523\u6027\u3092\u4E0A\u3052\u3088\u3046!"), react_1["default"].createElement(react_router_dom_1.Link, {
     to: "/login",
     className: "button hover"
