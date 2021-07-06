@@ -6383,9 +6383,9 @@ var TopPageContent = function TopPageContent() {
     to: "/register",
     className: "button hover"
   }, "\u65B0\u898F\u767B\u9332")))), react_1["default"].createElement("article", {
-    className: "absolute top-520 md:top-650 left-0 w-full bg-opacity-20"
+    className: "absolute top-520 md:top-650 left-0 w-full pb-12 bg-opacity-20"
   }, react_1["default"].createElement("div", {
-    className: "w-11/12 2xl:w-10/12 inline-block"
+    className: "w-11/12 2xl:w-10/12  inline-block"
   }, react_1["default"].createElement("title", {
     className: "inline-block text-3xl text-blue-400 textShadow"
   }, "ABOUT."), react_1["default"].createElement("div", {

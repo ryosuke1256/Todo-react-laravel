@@ -35,8 +35,8 @@ const TopPageContent: React.VFC = () => {
                             </section>
                         </article>
                     </main>
-                    <article className="absolute top-520 md:top-650 left-0 w-full bg-opacity-20">
-                        <div className="w-11/12 2xl:w-10/12 inline-block">
+                    <article className="absolute top-520 md:top-650 left-0 w-full pb-12 bg-opacity-20">
+                        <div className="w-11/12 2xl:w-10/12  inline-block">
                             <title className="inline-block text-3xl text-blue-400 textShadow">
                                 ABOUT.
                             </title>
