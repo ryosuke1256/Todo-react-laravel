@@ -7,12 +7,7 @@ const TopPageContent: React.VFC = () => {
             <div className="bg-white h-full w-screen text-center relative">
                 <aside>
                     <img
-                        className="invisible lg:visible absolute top-0 left-0 w-full bg-auto "
-                        style={{ height: "600px" }}
-                        src="/images/background3.jpg"
-                    />
-                    <img
-                        className="visible lg:invisible absolute top-0 left-0 w-full bg-auto"
+                        className="absolute top-0 left-0 w-full bg-auto "
                         style={{ height: "600px" }}
                         src="/images/background3.jpg"
                     />
@@ -48,10 +43,10 @@ const TopPageContent: React.VFC = () => {
                             </title>
                             <div className="flex flex-col lg:flex-row">
                                 <img
-                                    className="w-full lg:w-1/2 invisible sm:visible inline-block pt-12"
+                                    className="w-full lg:w-1/2 hidden sm:inline-block pt-12"
                                     src="/images/image3.png"
                                 />
-                                <section className="w-full lg:w-1/2 lg:w-full inline-block pt-12 pl-24">
+                                <section className="w-full lg:w-1/2 inline-block pt-6 sm:pt-12 sm:pl-24">
                                     <div className="bg-blue-50 p-7 rounded-3xl">
                                         <h1 className="inline-block text-2xl underLineYellow">
                                             ハピタスとは？

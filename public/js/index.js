@@ -6358,13 +6358,7 @@ var TopPageContent = function TopPageContent() {
   return react_1["default"].createElement(react_1["default"].Fragment, null, react_1["default"].createElement("div", {
     className: "bg-white h-full w-screen text-center relative"
   }, react_1["default"].createElement("aside", null, react_1["default"].createElement("img", {
-    className: "invisible lg:visible absolute top-0 left-0 w-full bg-auto ",
-    style: {
-      height: "600px"
-    },
-    src: "/images/background3.jpg"
-  }), react_1["default"].createElement("img", {
-    className: "visible lg:invisible absolute top-0 left-0 w-full bg-auto",
+    className: "absolute top-0 left-0 w-full bg-auto ",
     style: {
       height: "600px"
     },
@@ -6400,10 +6394,10 @@ var TopPageContent = function TopPageContent() {
   }, "ABOUT."), react_1["default"].createElement("div", {
     className: "flex flex-col lg:flex-row"
   }, react_1["default"].createElement("img", {
-    className: "w-full lg:w-1/2 invisible sm:visible inline-block pt-12",
+    className: "w-full lg:w-1/2 hidden sm:inline-block pt-12",
     src: "/images/image3.png"
   }), react_1["default"].createElement("section", {
-    className: "w-full lg:w-1/2 lg:w-full inline-block pt-12 pl-24"
+    className: "w-full lg:w-1/2 inline-block pt-6 sm:pt-12 sm:pl-24"
   }, react_1["default"].createElement("div", {
     className: "bg-blue-50 p-7 rounded-3xl"
   }, react_1["default"].createElement("h1", {
