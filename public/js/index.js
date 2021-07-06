@@ -6358,7 +6358,7 @@ var TopPageContent = function TopPageContent() {
   return react_1["default"].createElement(react_1["default"].Fragment, null, react_1["default"].createElement("div", {
     className: "bg-white h-full w-screen text-center relative"
   }, react_1["default"].createElement("aside", null, react_1["default"].createElement("img", {
-    className: "absolute top-0 left-0 w-full bg-auto h-sp sm:h-pc",
+    className: "absolute top-0 left-0 w-full bg-auto h-sp md:h-pc",
     src: "/images/background3.jpg"
   })), react_1["default"].createElement("div", {
     className: "bg-white absolute top-0 left-0 w-full h-full"
@@ -6371,11 +6371,11 @@ var TopPageContent = function TopPageContent() {
   }, "\u30CF\u30D4\u30BF\u30B9\u306F\u30B7\u30F3\u30D7\u30EB\u3067\u4F7F\u3044\u3084\u3059\u304F\u3092\u610F\u8B58\u3057\u3066"), react_1["default"].createElement("span", {
     className: "xl:inline-block sm:pt-3 underLine"
   }, "\u4F5C\u6210\u3057\u305F\u300C\u30BF\u30B9\u30AF\u7BA1\u7406\u30C4\u30FC\u30EB\u300D\u3067\u3059")), react_1["default"].createElement("article", {
-    className: "flex flex-col w-full md:flex-row pt-12 sm:pt-28 md:pt-36"
+    className: "flex flex-col w-full md:flex-row pt-16 sm:pt-32 md:pt-40"
   }, react_1["default"].createElement("section", {
     className: "flex-nowrap w-full bg-opacity-10"
   }, react_1["default"].createElement("h1", {
-    className: "text-yellow-800 text-2xl sm:text-3xl pt-4 sm:pt-12 pb-5 font-medium"
+    className: "text-yellow-800 text-2xl sm:text-3xl pb-5 font-medium"
   }, "\u30CF\u30D4\u30BF\u30B9\u3092\u4F7F\u3063\u3066\u751F\u7523\u6027\u3092\u4E0A\u3052\u3088\u3046!"), react_1["default"].createElement(react_router_dom_1.Link, {
     to: "/login",
     className: "button hover"
@@ -6383,7 +6383,7 @@ var TopPageContent = function TopPageContent() {
     to: "/register",
     className: "button hover"
   }, "\u65B0\u898F\u767B\u9332")))), react_1["default"].createElement("article", {
-    className: "w-full bg-opacity-20 pt-40 sm:pt-40 md:pt-32 pb-20 sm:pb-24"
+    className: "absolute top-520 md:top-650 left-0 w-full bg-opacity-20"
   }, react_1["default"].createElement("div", {
     className: "w-11/12 2xl:w-10/12 inline-block"
   }, react_1["default"].createElement("title", {

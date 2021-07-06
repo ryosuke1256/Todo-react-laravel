@@ -15,6 +15,10 @@ module.exports = {
                 pc: "600px",
                 sp: "480px",
             },
+            inset: {
+                520: "520px",
+                650: "650px",
+            },
         },
     },
     variants: {
