@@ -6186,6 +6186,14 @@ var __generator = this && this.__generator || function (thisArg, body) {
   }
 };
 
+var __spreadArray = this && this.__spreadArray || function (to, from) {
+  for (var i = 0, il = from.length, j = to.length; i < il; i++, j++) {
+    to[j] = from[i];
+  }
+
+  return to;
+};
+
 var __importDefault = this && this.__importDefault || function (mod) {
   return mod && mod.__esModule ? mod : {
     "default": mod
@@ -6214,17 +6222,13 @@ var TodoContent = function TodoContent(_a) {
       tasks = _b[0],
       setTasks = _b[1];
 
-  var _c = react_1.useState(0),
-      change = _c[0],
-      setChange = _c[1];
+  var _c = react_1.useState(false),
+      tasksEditActive = _c[0],
+      setTasksEditActive = _c[1];
 
   var _d = react_1.useState(false),
-      tasksEditActive = _d[0],
-      setTasksEditActive = _d[1];
-
-  var _e = react_1.useState(false),
-      is_began = _e[0],
-      setIs_began = _e[1];
+      is_began = _d[0],
+      setIs_began = _d[1];
 
   react_1.useEffect(function () {
     getTasks();
@@ -6283,10 +6287,9 @@ var TodoContent = function TodoContent(_a) {
             res = _a.sent();
 
             try {
-              obj = tasks;
+              obj = __spreadArray([], tasks);
               obj.unshift(res.data);
               setTasks(obj);
-              setChange(change + 1);
             } catch (err) {
               console.log(err);
             }

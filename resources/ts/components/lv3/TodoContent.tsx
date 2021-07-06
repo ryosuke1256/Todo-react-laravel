@@ -12,7 +12,6 @@ type Props = {
 
 const TodoContent: React.VFC<Props> = ({ userID }: Props) => {
     const [tasks, setTasks] = useState<any>([]);
-    const [change, setChange] = useState(0);
     const [tasksEditActive, setTasksEditActive] = useState(false);
     const [is_began, setIs_began] = useState(false);
 
@@ -36,10 +35,9 @@ const TodoContent: React.VFC<Props> = ({ userID }: Props) => {
         console.log({ postData });
         const res = await axios.post("api/tasks", postData);
         try {
-            const obj = tasks;
+            const obj = [...tasks];
             obj.unshift(res.data);
             setTasks(obj);
-            setChange(change + 1);
         } catch (err) {
             console.log(err);
         }
