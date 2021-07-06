@@ -4393,7 +4393,7 @@ var LoginPassword = function LoginPassword(_a) {
     type: isRevealPassword ? "text" : "password",
     autoComplete: "off",
     placeholder: "Password",
-    className: "border rounded-lg px-3 py-2 mt-1 z-50 text-sm w-11/12"
+    className: "border rounded-lg px-3 py-2 mt-1 z-50 text-sm w-10/12 sm:w-11/12"
   }, register("password", {
     required: true
   }))), react_1["default"].createElement("span", {
@@ -4519,7 +4519,7 @@ var RegisterPassword = function RegisterPassword(_a) {
     type: IsRevealPassword() ? "text" : "password",
     autoComplete: "off",
     placeholder: placeholder,
-    className: "border rounded-lg px-3 py-2 mt-1 z-50 text-sm w-11/12"
+    className: "border rounded-lg px-3 py-2 mt-1 z-50 text-sm w-10/12 sm:w-11/12"
   }, register(category, {
     required: true,
     minLength: 8
@@ -5509,10 +5509,10 @@ var LoginContent = function LoginContent(_a) {
   return react_1["default"].createElement("div", {
     className: "min-h-screen bg-gray-100 flex flex-col justify-center sm:py-12"
   }, react_1["default"].createElement("div", {
-    className: "pt-20 xs:p-0 mx-auto w-full max-w-md"
+    className: "pt-20 xs:p-0 mx-auto w-11/12 sm:w-full max-w-md"
   }, react_1["default"].createElement("form", {
     onSubmit: handleSubmit(onSubmit),
-    className: "bg-white shadow w-full rounded-xl divide-y divide-gray-200 px-12 py-8"
+    className: "bg-white shadow w-full rounded-xl divide-y divide-gray-200 px-1 sm:px-6 md:px-12 py-8"
   }, react_1["default"].createElement("title", {
     className: "block font-bold text-center text-2xl pb-5"
   }, "\u30ED\u30B0\u30A4\u30F3"), react_1["default"].createElement("div", {
@@ -5894,10 +5894,10 @@ var RegisterContent = function RegisterContent(_a) {
   return react_1["default"].createElement("div", {
     className: "min-h-screen bg-gray-100 flex flex-col justify-center sm:py-12"
   }, react_1["default"].createElement("div", {
-    className: "pt-20 xs:p-0 mx-auto w-full max-w-xl"
+    className: "pt-20 xs:p-0 mx-auto w-11/12 sm:w-full max-w-xl"
   }, react_1["default"].createElement("form", {
     onSubmit: handleSubmit(onSubmit),
-    className: "bg-white shadow w-full rounded-xl divide-y divide-gray-200 px-12 py-9"
+    className: "bg-white shadow w-full rounded-xl divide-y divide-gray-200 px-1 sm:px-6 md:px-12 py-9"
   }, react_1["default"].createElement("title", {
     className: "block font-bold text-center text-2xl pb-5 "
   }, "\u30B5\u30A4\u30F3\u30A2\u30C3\u30D7"), react_1["default"].createElement("div", {
