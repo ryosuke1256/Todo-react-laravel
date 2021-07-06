@@ -68,10 +68,10 @@ const RegisterContent: React.VFC<Props> = ({
 
     return (
         <div className="min-h-screen bg-gray-100 flex flex-col justify-center sm:py-12">
-            <div className="pt-20 xs:p-0 mx-auto w-11/12  md:w-full max-w-xl">
+            <div className="pt-20 xs:p-0 mx-auto w-full max-w-xl">
                 <form
                     onSubmit={handleSubmit(onSubmit)}
-                    className="bg-white shadow w-full rounded-xl divide-y divide-gray-200 px-4 py-9 md:px-12 md:py-9"
+                    className="bg-white shadow w-full rounded-xl divide-y divide-gray-200 px-12 py-9"
                 >
                     <title className="block font-bold text-center text-2xl pb-5 ">
                         サインアップ
