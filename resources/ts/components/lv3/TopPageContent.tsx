@@ -12,16 +12,19 @@ const TopPageContent: React.VFC = () => {
                     />
                 </aside>
                 <div className="bg-white absolute top-0 left-0 w-full h-full">
-                    <main className="w-11/12 sm:w-11/12 lg:w-9/12 max-w-5xl inline-block pt-28">
-                        <title className="inline-block text-2xl md:text-3xl xl:text-4xl text-gray-700 font-semibold block">
+                    <main className="w-full max-w-5xl inline-block pt-28 lg:pt-32">
+                        <title className="w-11/12 sm:w-10/12 lg:w-9/12 xl:w-full inline-block text-2xl md:text-3xl xl:text-4xl text-gray-700 font-semibold block">
+                            {/* <span className="pt-3 underLine">
+                                ハピタスはシンプルで使いやすくを意識して作成した「タスク管理ツール」です
+                            </span> */}
                             <span className="sm:inline-block pt-3 underLine">
                                 ハピタスはシンプルで使いやすくを意識して
                             </span>
-                            <span className="inline-block sm:pt-3 underLine">
+                            <span className="xl:inline-block sm:pt-3 underLine">
                                 作成した「タスク管理ツール」です
                             </span>
                         </title>
-                        <article className="flex flex-col w-full md:flex-row pt-24 sm:pt-28 md:pt-36">
+                        <article className="flex flex-col w-full md:flex-row pt-12 sm:pt-28 md:pt-36">
                             <section className="flex-nowrap w-full bg-opacity-10">
                                 <h1 className="text-yellow-800 text-2xl sm:text-3xl pt-4 sm:pt-12 pb-5 font-medium">
                                     ハピタスを使って生産性を上げよう!
@@ -35,7 +38,7 @@ const TopPageContent: React.VFC = () => {
                             </section>
                         </article>
                     </main>
-                    <article className="w-full bg-opacity-20 pt-36 sm:pt-40 md:pt-32 pb-20 sm:pb-24">
+                    <article className="w-full bg-opacity-20 pt-40 sm:pt-40 md:pt-32 pb-20 sm:pb-24">
                         <div className="w-11/12 2xl:w-10/12 inline-block">
                             <title className="inline-block text-3xl text-blue-400 textShadow">
                                 ABOUT.
