@@ -6363,14 +6363,14 @@ var TopPageContent = function TopPageContent() {
   })), react_1["default"].createElement("div", {
     className: "bg-white absolute top-0 left-0 w-full h-full"
   }, react_1["default"].createElement("main", {
-    className: "w-11/12 sm:w-10/12 lg:w-8/12 xl:w-6-12 max-w-5xl inline-block pt-28"
+    className: "w-11/12 sm:w-11/12 lg:w-9/12 max-w-5xl inline-block pt-28"
   }, react_1["default"].createElement("title", {
     className: "inline-block text-2xl md:text-3xl xl:text-4xl text-gray-700 font-semibold block"
   }, react_1["default"].createElement("span", {
     className: "sm:inline-block pt-3 underLine"
-  }, "\u30CF\u30D4\u30BF\u30B9\u306F\u30B7\u30F3\u30D7\u30EB\u3067\u4F7F\u3044\u3084\u3059\u304F\u3092\u610F\u8B58\u3057\u3066\u4F5C\u6210\u3057\u305F"), react_1["default"].createElement("span", {
+  }, "\u30CF\u30D4\u30BF\u30B9\u306F\u30B7\u30F3\u30D7\u30EB\u3067\u4F7F\u3044\u3084\u3059\u304F\u3092\u610F\u8B58\u3057\u3066"), react_1["default"].createElement("span", {
     className: "inline-block sm:pt-3 underLine"
-  }, "\u300C\u30BF\u30B9\u30AF\u7BA1\u7406\u30C4\u30FC\u30EB\u300D\u3067\u3059")), react_1["default"].createElement("article", {
+  }, "\u4F5C\u6210\u3057\u305F\u300C\u30BF\u30B9\u30AF\u7BA1\u7406\u30C4\u30FC\u30EB\u300D\u3067\u3059")), react_1["default"].createElement("article", {
     className: "flex flex-col w-full md:flex-row pt-24 sm:pt-28 md:pt-36"
   }, react_1["default"].createElement("section", {
     className: "flex-nowrap w-full bg-opacity-10"
@@ -6383,7 +6383,7 @@ var TopPageContent = function TopPageContent() {
     to: "/register",
     className: "button hover"
   }, "\u65B0\u898F\u767B\u9332")))), react_1["default"].createElement("article", {
-    className: "w-full bg-opacity-20 pt-36 md:pt-32 pb-20 sm:pb-24"
+    className: "w-full bg-opacity-20 pt-36 sm:pt-40 md:pt-32 pb-20 sm:pb-24"
   }, react_1["default"].createElement("div", {
     className: "w-11/12 2xl:w-10/12 inline-block"
   }, react_1["default"].createElement("title", {
