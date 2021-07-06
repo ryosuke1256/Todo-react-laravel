@@ -6358,10 +6358,7 @@ var TopPageContent = function TopPageContent() {
   return react_1["default"].createElement(react_1["default"].Fragment, null, react_1["default"].createElement("div", {
     className: "bg-white h-full w-screen text-center relative"
   }, react_1["default"].createElement("aside", null, react_1["default"].createElement("img", {
-    className: "absolute top-0 left-0 w-full bg-auto ",
-    style: {
-      height: "600px"
-    },
+    className: "absolute top-0 left-0 w-full bg-auto h-sp sm:h-pc",
     src: "/images/background3.jpg"
   })), react_1["default"].createElement("div", {
     className: "bg-white absolute top-0 left-0 w-full h-full"
@@ -6374,7 +6371,7 @@ var TopPageContent = function TopPageContent() {
   }, "\u30CF\u30D4\u30BF\u30B9\u306F\u30B7\u30F3\u30D7\u30EB\u3067\u4F7F\u3044\u3084\u3059\u304F\u3092\u610F\u8B58\u3057\u3066"), react_1["default"].createElement("span", {
     className: "block sm:inline-block pt-3 underLine"
   }, "\u4F5C\u6210\u3057\u305F\u300C\u30BF\u30B9\u30AF\u7BA1\u7406\u30C4\u30FC\u30EB\u300D\u3067\u3059")), react_1["default"].createElement("article", {
-    className: " flex flex-col md:flex-row pt-36"
+    className: " flex flex-col md:flex-row pt-9 sm:pt-36"
   }, react_1["default"].createElement("section", {
     className: "w-10/12 lg:w-8/12 xl:5/12 sm:pl-1 lg:pl-16 xl:pl-36 bg-opacity-10"
   }, react_1["default"].createElement("h1", {
@@ -6386,7 +6383,7 @@ var TopPageContent = function TopPageContent() {
     to: "/register",
     className: "button hover"
   }, "\u65B0\u898F\u767B\u9332")))), react_1["default"].createElement("article", {
-    className: "w-full bg-opacity-20 py-32"
+    className: "w-full bg-opacity-20 py-16 sm:py-32"
   }, react_1["default"].createElement("div", {
     className: "w-10/12 inline-block"
   }, react_1["default"].createElement("title", {

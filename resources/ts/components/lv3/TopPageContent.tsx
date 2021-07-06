@@ -7,8 +7,7 @@ const TopPageContent: React.VFC = () => {
             <div className="bg-white h-full w-screen text-center relative">
                 <aside>
                     <img
-                        className="absolute top-0 left-0 w-full bg-auto "
-                        style={{ height: "600px" }}
+                        className="absolute top-0 left-0 w-full bg-auto h-sp sm:h-pc"
                         src="/images/background3.jpg"
                     />
                 </aside>
@@ -22,7 +21,7 @@ const TopPageContent: React.VFC = () => {
                                 作成した「タスク管理ツール」です
                             </span>
                         </title>
-                        <article className=" flex flex-col md:flex-row pt-36">
+                        <article className=" flex flex-col md:flex-row pt-9 sm:pt-36">
                             <section className="w-10/12 lg:w-8/12 xl:5/12 sm:pl-1 lg:pl-16 xl:pl-36 bg-opacity-10">
                                 <h1 className="text-yellow-800 text-2xl sm:text-3xl pt-12 pb-5 font-medium">
                                     ハピタスを使って生産性を上げよう!
@@ -36,7 +35,7 @@ const TopPageContent: React.VFC = () => {
                             </section>
                         </article>
                     </main>
-                    <article className="w-full bg-opacity-20 py-32">
+                    <article className="w-full bg-opacity-20 py-16 sm:py-32">
                         <div className="w-10/12 inline-block">
                             <title className="inline-block text-3xl text-blue-400 textShadow">
                                 ABOUT.

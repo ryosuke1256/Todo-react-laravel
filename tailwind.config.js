@@ -11,6 +11,10 @@ module.exports = {
             margin: {
                 '16.5': "68px", //prettier-ignore
             },
+            height: {
+                pc: "600px",
+                sp: "500px",
+            },
         },
     },
     variants: {
