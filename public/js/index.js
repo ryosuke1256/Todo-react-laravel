@@ -4281,7 +4281,7 @@ var Header = function Header(_a) {
       display: "inline-block",
       paddingBottom: "8px"
     }
-  }), react_1["default"].createElement(_Title, null, "\u30CF\u30D4\u30BF\u30B9"))), is_authenticated ? react_1["default"].createElement(_userName, {
+  }), react_1["default"].createElement(_Title, null, "\u306F\u3074\u305F\u3059"))), is_authenticated ? react_1["default"].createElement(_userName, {
     onClick: function onClick(e) {
       e.preventDefault();
       setIs_show(function (prevState) {
@@ -6368,7 +6368,7 @@ var TopPageContent = function TopPageContent() {
     className: "w-11/12 sm:w-10/12 lg:w-9/12 xl:w-full inline-block text-2xl md:text-3xl xl:text-4xl text-gray-700 font-semibold block"
   }, react_1["default"].createElement("span", {
     className: "sm:inline-block pt-3 underLine"
-  }, "\u30CF\u30D4\u30BF\u30B9\u306F\u30B7\u30F3\u30D7\u30EB\u3067\u4F7F\u3044\u3084\u3059\u304F\u3092\u610F\u8B58\u3057\u3066"), react_1["default"].createElement("span", {
+  }, "\u300C\u306F\u3074\u305F\u3059\u300D\u306F\u30B7\u30F3\u30D7\u30EB\u3067\u4F7F\u3044\u3084\u3059\u304F\u3092\u610F\u8B58\u3057\u3066"), react_1["default"].createElement("span", {
     className: "xl:inline-block sm:pt-3 underLine"
   }, "\u4F5C\u6210\u3057\u305F\u300C\u30BF\u30B9\u30AF\u7BA1\u7406\u30C4\u30FC\u30EB\u300D\u3067\u3059")), react_1["default"].createElement("article", {
     className: "flex flex-col w-full md:flex-row pt-20 sm:pt-24 md:pt-40"
@@ -6376,7 +6376,7 @@ var TopPageContent = function TopPageContent() {
     className: "flex-nowrap w-full bg-opacity-10"
   }, react_1["default"].createElement("h1", {
     className: "text-yellow-800 text-xl sm:text-2xl md:text-3xl pb-5 font-medium"
-  }, "\u30CF\u30D4\u30BF\u30B9\u3092\u4F7F\u3063\u3066\u751F\u7523\u6027\u3092\u4E0A\u3052\u3088\u3046!"), react_1["default"].createElement(react_router_dom_1.Link, {
+  }, "\u306F\u3074\u305F\u3059\u3092\u4F7F\u3063\u3066\u751F\u7523\u6027\u3092\u4E0A\u3052\u3088\u3046!"), react_1["default"].createElement(react_router_dom_1.Link, {
     to: "/login",
     className: "button hover"
   }, "\u30ED\u30B0\u30A4\u30F3"), react_1["default"].createElement(react_router_dom_1.Link, {
@@ -6392,16 +6392,16 @@ var TopPageContent = function TopPageContent() {
     className: "flex flex-col lg:flex-row sm:px-12 md:px-32 lg:px-0"
   }, react_1["default"].createElement("img", {
     className: "w-full lg:w-1/2 hidden sm:inline-block pt-12",
-    src: "/images/image3.png"
+    src: "/images/image.png"
   }), react_1["default"].createElement("section", {
     className: "w-full lg:w-1/2 inline-block pt-6 sm:pt-12 lg:pl-6 xl:pl-8 2xl:pl-16"
   }, react_1["default"].createElement("div", {
     className: "bg-blue-50 p-7 rounded-3xl"
   }, react_1["default"].createElement("h1", {
     className: "inline-block text-2xl underLineYellow"
-  }, "\u30CF\u30D4\u30BF\u30B9\u3068\u306F\uFF1F"), react_1["default"].createElement("p", {
+  }, "\u306F\u3074\u305F\u3059\u3068\u306F\uFF1F"), react_1["default"].createElement("p", {
     className: "py-6 text-lg"
-  }, "\u30CF\u30C3\u30D4\u30FC\xD7\u30BF\u30B9\u30AF\u7BA1\u7406\u3002\u30E6\u30FC\u30B6\u30FC\u304C\u4ECA\u56DE\u4F5C\u6210\u3057\u305F\u30BF\u30B9\u30AF\u7BA1\u7406\u30C4\u30FC\u30EB(\u30CF\u30D4\u30BF\u30B9)\u3092\u4F7F\u3063\u3066\u30CF\u30C3\u30D4\u30FC\u306B\u306A\u308C\u3070\u3044\u3044\u306A\u3068\u601D\u3063\u3066\u540D\u524D\u3092\u3064\u3051\u307E\u3057\u305F\u3002\u57FA\u672C\u7684\u306A\u30BF\u30B9\u30AF\u306E\u8FFD\u52A0\u3001\u7DE8\u96C6\u3001\u524A\u9664\u306B\u52A0\u3048\u30C1\u30A7\u30C3\u30AF\u3092\u3064\u3051\u3066\u6253\u3061\u6D88\u3057\u7DDA\u3092\u3064\u3051\u305F\u72B6\u614B\u306B\u3059\u308B\u3053\u3068\u3082\u3067\u304D\u307E\u3059\u3002 \u4E00\u756A\u306E\u62BC\u3057\u30DD\u30A4\u30F3\u30C8\u306F\u30BF\u30B9\u30AF\u306B\uFF14\u7A2E\u985E\u306E\u30BF\u30B0\uFF08\u8D64\u3001\u9752\u3001\u7DD1\u3001\u9EC4\uFF09\u306E\u30BF\u30B0\u3092\u3064\u3051\u308B\u3053\u3068\u304C\u3067\u304D\u308B\u3068\u3053\u308D\u3067\u3059")))))))));
+  }, "\u306F\u3063\u3074\u30FC\xD7\u30BF\u30B9\u30AF\u7BA1\u7406\u3002\u30E6\u30FC\u30B6\u30FC\u304C\u4ECA\u56DE\u4F5C\u6210\u3057\u305F\u30BF\u30B9\u30AF\u7BA1\u7406\u30C4\u30FC\u30EB(\u306F\u3074\u305F\u3059)\u3092\u4F7F\u3063\u3066\u30CF\u30C3\u30D4\u30FC\u306B\u306A\u308C\u3070\u3044\u3044\u306A\u3068\u601D\u3063\u3066\u540D\u524D\u3092\u3064\u3051\u307E\u3057\u305F\u3002\u57FA\u672C\u7684\u306A\u30BF\u30B9\u30AF\u306E\u8FFD\u52A0\u3001\u7DE8\u96C6\u3001\u524A\u9664\u306B\u52A0\u3048\u30C1\u30A7\u30C3\u30AF\u3092\u3064\u3051\u3066\u6253\u3061\u6D88\u3057\u7DDA\u3092\u3064\u3051\u305F\u72B6\u614B\u306B\u3059\u308B\u3053\u3068\u3082\u3067\u304D\u307E\u3059\u3002 \u4E00\u756A\u306E\u62BC\u3057\u30DD\u30A4\u30F3\u30C8\u306F\u30BF\u30B9\u30AF\u306B\uFF14\u7A2E\u985E\u306E\u30BF\u30B0\uFF08\u8D64\u3001\u9752\u3001\u7DD1\u3001\u9EC4\uFF09\u306E\u30BF\u30B0\u3092\u3064\u3051\u308B\u3053\u3068\u304C\u3067\u304D\u308B\u3068\u3053\u308D\u3067\u3059")))))))));
 };
 
 exports.default = TopPageContent;

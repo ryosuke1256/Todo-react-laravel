@@ -46,7 +46,7 @@ const Header: React.VFC<Props> = ({
                             paddingBottom: "8px",
                         }}
                     />
-                    <_Title>ハピタス</_Title>
+                    <_Title>はぴたす</_Title>
                 </_TapableRange>
             </Link>
             {is_authenticated ? (

@@ -15,7 +15,7 @@ const TopPageContent: React.VFC = () => {
                     <main className="w-full max-w-5xl inline-block pt-28 lg:pt-32">
                         <title className="w-11/12 sm:w-10/12 lg:w-9/12 xl:w-full inline-block text-2xl md:text-3xl xl:text-4xl text-gray-700 font-semibold block">
                             <span className="sm:inline-block pt-3 underLine">
-                                ハピタスはシンプルで使いやすくを意識して
+                                「はぴたす」はシンプルで使いやすくを意識して
                             </span>
                             <span className="xl:inline-block sm:pt-3 underLine">
                                 作成した「タスク管理ツール」です
@@ -24,7 +24,7 @@ const TopPageContent: React.VFC = () => {
                         <article className="flex flex-col w-full md:flex-row pt-20 sm:pt-24 md:pt-40">
                             <section className="flex-nowrap w-full bg-opacity-10">
                                 <h1 className="text-yellow-800 text-xl sm:text-2xl md:text-3xl pb-5 font-medium">
-                                    ハピタスを使って生産性を上げよう!
+                                    はぴたすを使って生産性を上げよう!
                                 </h1>
                                 <Link to="/login" className="button hover">
                                     ログイン
@@ -43,15 +43,15 @@ const TopPageContent: React.VFC = () => {
                             <div className="flex flex-col lg:flex-row sm:px-12 md:px-32 lg:px-0">
                                 <img
                                     className="w-full lg:w-1/2 hidden sm:inline-block pt-12"
-                                    src="/images/image3.png"
+                                    src="/images/image.png"
                                 />
                                 <section className="w-full lg:w-1/2 inline-block pt-6 sm:pt-12 lg:pl-6 xl:pl-8 2xl:pl-16">
                                     <div className="bg-blue-50 p-7 rounded-3xl">
                                         <h1 className="inline-block text-2xl underLineYellow">
-                                            ハピタスとは？
+                                            はぴたすとは？
                                         </h1>
                                         <p className="py-6 text-lg">
-                                            ハッピー×タスク管理。ユーザーが今回作成したタスク管理ツール(ハピタス)を使ってハッピーになればいいなと思って名前をつけました。基本的なタスクの追加、編集、削除に加えチェックをつけて打ち消し線をつけた状態にすることもできます。
+                                            はっぴー×タスク管理。ユーザーが今回作成したタスク管理ツール(はぴたす)を使ってハッピーになればいいなと思って名前をつけました。基本的なタスクの追加、編集、削除に加えチェックをつけて打ち消し線をつけた状態にすることもできます。
                                             一番の押しポイントはタスクに４種類のタグ（赤、青、緑、黄）のタグをつけることができるところです
                                         </p>
                                     </div>
