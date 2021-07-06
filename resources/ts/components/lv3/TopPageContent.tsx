@@ -21,8 +21,8 @@ const TopPageContent: React.VFC = () => {
                                 「タスク管理ツール」です
                             </span>
                         </title>
-                        <article className=" flex flex-col md:flex-row pt-11 sm:pt-36">
-                            <section className="w-10/12 lg:w-8/12 xl:5/12 sm:pl-1 lg:pl-16 xl:pl-36 bg-opacity-10">
+                        <article className="flex flex-col w-full md:flex-row pt-24 sm:pt-28 md:pt-36">
+                            <section className="flex-nowrap w-full bg-opacity-10">
                                 <h1 className="text-yellow-800 text-2xl sm:text-3xl pt-4 sm:pt-12 pb-5 font-medium">
                                     ハピタスを使って生産性を上げよう!
                                 </h1>
@@ -35,17 +35,17 @@ const TopPageContent: React.VFC = () => {
                             </section>
                         </article>
                     </main>
-                    <article className="w-full bg-opacity-20 pt-36 sm:py-32 pb-20 sm:pb-24">
-                        <div className="w-11/12 sm:w-10/12 inline-block">
+                    <article className="w-full bg-opacity-20 pt-36 md:pt-32 pb-20 sm:pb-24">
+                        <div className="w-11/12 2xl:w-10/12 inline-block">
                             <title className="inline-block text-3xl text-blue-400 textShadow">
                                 ABOUT.
                             </title>
-                            <div className="flex flex-col lg:flex-row">
+                            <div className="flex flex-col lg:flex-row sm:px-12 md:px-32 lg:px-0">
                                 <img
                                     className="w-full lg:w-1/2 hidden sm:inline-block pt-12"
                                     src="/images/image3.png"
                                 />
-                                <section className="w-full lg:w-1/2 inline-block pt-6 sm:pt-12 sm:pl-24">
+                                <section className="w-full lg:w-1/2 inline-block pt-6 sm:pt-12 lg:pl-6 xl:pl-8 2xl:pl-16">
                                     <div className="bg-blue-50 p-7 rounded-3xl">
                                         <h1 className="inline-block text-2xl underLineYellow">
                                             ハピタスとは？

@@ -6371,9 +6371,9 @@ var TopPageContent = function TopPageContent() {
   }, "\u30CF\u30D4\u30BF\u30B9\u306F\u30B7\u30F3\u30D7\u30EB\u3067\u4F7F\u3044\u3084\u3059\u304F\u3092\u610F\u8B58\u3057\u3066\u4F5C\u6210\u3057\u305F"), react_1["default"].createElement("span", {
     className: "inline-block sm:pt-3 underLine"
   }, "\u300C\u30BF\u30B9\u30AF\u7BA1\u7406\u30C4\u30FC\u30EB\u300D\u3067\u3059")), react_1["default"].createElement("article", {
-    className: " flex flex-col md:flex-row pt-11 sm:pt-36"
+    className: "flex flex-col w-full md:flex-row pt-24 sm:pt-28 md:pt-36"
   }, react_1["default"].createElement("section", {
-    className: "w-10/12 lg:w-8/12 xl:5/12 sm:pl-1 lg:pl-16 xl:pl-36 bg-opacity-10"
+    className: "flex-nowrap w-full bg-opacity-10"
   }, react_1["default"].createElement("h1", {
     className: "text-yellow-800 text-2xl sm:text-3xl pt-4 sm:pt-12 pb-5 font-medium"
   }, "\u30CF\u30D4\u30BF\u30B9\u3092\u4F7F\u3063\u3066\u751F\u7523\u6027\u3092\u4E0A\u3052\u3088\u3046!"), react_1["default"].createElement(react_router_dom_1.Link, {
@@ -6383,18 +6383,18 @@ var TopPageContent = function TopPageContent() {
     to: "/register",
     className: "button hover"
   }, "\u65B0\u898F\u767B\u9332")))), react_1["default"].createElement("article", {
-    className: "w-full bg-opacity-20 pt-36 sm:py-32 pb-20 sm:pb-24"
+    className: "w-full bg-opacity-20 pt-36 md:pt-32 pb-20 sm:pb-24"
   }, react_1["default"].createElement("div", {
-    className: "w-11/12 sm:w-10/12 inline-block"
+    className: "w-11/12 2xl:w-10/12 inline-block"
   }, react_1["default"].createElement("title", {
     className: "inline-block text-3xl text-blue-400 textShadow"
   }, "ABOUT."), react_1["default"].createElement("div", {
-    className: "flex flex-col lg:flex-row"
+    className: "flex flex-col lg:flex-row sm:px-12 md:px-32 lg:px-0"
   }, react_1["default"].createElement("img", {
     className: "w-full lg:w-1/2 hidden sm:inline-block pt-12",
     src: "/images/image3.png"
   }), react_1["default"].createElement("section", {
-    className: "w-full lg:w-1/2 inline-block pt-6 sm:pt-12 sm:pl-24"
+    className: "w-full lg:w-1/2 inline-block pt-6 sm:pt-12 lg:pl-6 xl:pl-8 2xl:pl-16"
   }, react_1["default"].createElement("div", {
     className: "bg-blue-50 p-7 rounded-3xl"
   }, react_1["default"].createElement("h1", {
