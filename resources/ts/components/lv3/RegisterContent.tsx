@@ -41,9 +41,13 @@ const RegisterContent: React.VFC<Props> = ({
                             password: registerData.password,
                         });
                     }
+                    console.log(res.data);
                 })
                 .catch((err) => {
-                    console.log(err);
+                    const emailErrRes = err.response.data.errors.email[0];
+                    if (emailErrRes === "validation.unique") {
+                        setErrorMessage("メールアドレスが既に使われています");
+                    }
                 });
         } else {
             setErrorMessage("確認のパスワードが一致しません");
@@ -62,7 +66,7 @@ const RegisterContent: React.VFC<Props> = ({
                 setIs_authenticated(true);
             })
             .catch((err) => {
-                console.log(err);
+                console.error(err);
             });
     };
 

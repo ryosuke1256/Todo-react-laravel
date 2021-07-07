@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
+use App\Http\Requests\RegisterRequest;
 
 class RegisterController extends Controller
 {
@@ -25,12 +26,7 @@ class RegisterController extends Controller
      * @param  \App\Http\Requests\Request $request
      * @return \App\Models\User
      */
-    public function register(Request $request) {
-        $credentials = $request->validate([
-            'name' => ['required', 'string', 'max:255'],
-            'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
-            'password' => ['required', 'string', 'min:8','confirmed'],
-        ]);
+    public function register(RegisterRequest $request) {
         User::create([
             'name' =>  $request->name,
             'email' => $request->email,

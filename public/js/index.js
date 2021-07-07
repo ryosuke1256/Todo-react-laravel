@@ -5838,8 +5838,14 @@ var RegisterContent = function RegisterContent(_a) {
                   password: registerData.password
                 });
               }
+
+              console.log(res.data);
             })["catch"](function (err) {
-              console.log(err);
+              var emailErrRes = err.response.data.errors.email[0];
+
+              if (emailErrRes === "validation.unique") {
+                setErrorMessage("メールアドレスが既に使われています");
+              }
             })];
 
           case 1:
@@ -5877,7 +5883,7 @@ var RegisterContent = function RegisterContent(_a) {
               setUserID(res.data.user.id);
               setIs_authenticated(true);
             })["catch"](function (err) {
-              console.log(err);
+              console.error(err);
             })];
 
           case 1:
