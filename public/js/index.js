@@ -5905,7 +5905,8 @@ var RegisterContent = function RegisterContent(_a) {
   }, react_1["default"].createElement("h1", {
     className: "font-semibold text-sm text-gray-600 pb-1 block"
   }, "\u540D\u524D"), react_1["default"].createElement("input", __assign({}, register("name", {
-    required: true
+    required: true,
+    maxLength: 255
   }), {
     type: "text",
     placeholder: "Full Name",
@@ -5914,11 +5915,13 @@ var RegisterContent = function RegisterContent(_a) {
     className: "text-gray-300 text-xs pt-1"
   }, "\u2714\uFE0E 1\u6587\u5B57\u4EE5\u4E0A255\u5B57\u4EE5\u4E0B"), errors.name && errors.name.type === "required" && react_1["default"].createElement("p", {
     className: "pt-1 text-red-400 text-xs opacity-90"
-  }, "\u540D\u524D\u306F\u5FC5\u9808\u3067\u3059"), react_1["default"].createElement("h1", {
+  }, "\u540D\u524D\u306F\u5FC5\u9808\u3067\u3059"), errors.name && errors.name.type === "maxLength" && react_1["default"].createElement("p", {
+    className: "pt-1 text-red-400 text-xs opacity-90"
+  }, "\u540D\u524D\u306F255\u6587\u5B57\u4EE5\u4E0B\u306B\u3057\u3066\u304F\u3060\u3055\u3044"), react_1["default"].createElement("h1", {
     className: "font-semibold text-sm text-gray-600 pt-3 pb-1 block"
   }, "\u30E1\u30FC\u30EB\u30A2\u30C9\u30EC\u30B9"), react_1["default"].createElement("input", __assign({}, register("email", {
     required: true,
-    min: -2,
+    maxLength: 255,
     pattern: /^\S+@\S+$/i
   }), {
     type: "text",
@@ -5926,7 +5929,9 @@ var RegisterContent = function RegisterContent(_a) {
     className: "border rounded-lg border-grey-light px-3 py-2 text-sm w-full block "
   })), errors.email && errors.email.type === "required" && react_1["default"].createElement("p", {
     className: "pt-1 text-red-400 text-xs opacity-90"
-  }, "\u30E1\u30FC\u30EB\u30A2\u30C9\u30EC\u30B9\u306F\u5FC5\u9808\u3067\u3059"), errors.email && errors.email.type === "pattern" && react_1["default"].createElement("p", {
+  }, "\u30E1\u30FC\u30EB\u30A2\u30C9\u30EC\u30B9\u306F\u5FC5\u9808\u3067\u3059"), errors.email && errors.email.type === "maxLength" && react_1["default"].createElement("p", {
+    className: "pt-1 text-red-400 text-xs opacity-90"
+  }, "\u30E1\u30FC\u30EB\u30A2\u30C9\u30EC\u30B9\u306F255\u6587\u5B57\u4EE5\u4E0B\u306B\u3057\u3066\u304F\u3060\u3055\u3044"), errors.email && errors.email.type === "pattern" && react_1["default"].createElement("p", {
     className: "pt-1 text-red-400 text-xs opacity-90"
   }, "\u30E1\u30FC\u30EB\u30A2\u30C9\u30EC\u30B9\u306E\u5F62\u5F0F\u304C\u4E0D\u6B63\u3067\u3059"), react_1["default"].createElement("div", {
     className: "w-full"

@@ -83,6 +83,7 @@ const RegisterContent: React.VFC<Props> = ({
                         <input
                             {...register("name", {
                                 required: true,
+                                maxLength: 255,
                             })}
                             type="text"
                             placeholder="Full Name"
@@ -96,13 +97,18 @@ const RegisterContent: React.VFC<Props> = ({
                                 名前は必須です
                             </p>
                         )}
+                        {errors.name && errors.name.type === "maxLength" && (
+                            <p className="pt-1 text-red-400 text-xs opacity-90">
+                                名前は255文字以下にしてください
+                            </p>
+                        )}
                         <h1 className="font-semibold text-sm text-gray-600 pt-3 pb-1 block">
                             メールアドレス
                         </h1>
                         <input
                             {...register("email", {
                                 required: true,
-                                min: -2,
+                                maxLength: 255,
                                 pattern: /^\S+@\S+$/i,
                             })}
                             type="text"
@@ -112,6 +118,11 @@ const RegisterContent: React.VFC<Props> = ({
                         {errors.email && errors.email.type === "required" && (
                             <p className="pt-1 text-red-400 text-xs opacity-90">
                                 メールアドレスは必須です
+                            </p>
+                        )}
+                        {errors.email && errors.email.type === "maxLength" && (
+                            <p className="pt-1 text-red-400 text-xs opacity-90">
+                                メールアドレスは255文字以下にしてください
                             </p>
                         )}
                         {errors.email && errors.email.type === "pattern" && (
