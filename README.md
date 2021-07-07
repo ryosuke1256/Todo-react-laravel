@@ -1,6 +1,6 @@
 ## 概要
 
--   Todo アプリを React と Laravel で作ってみた(SPA)
+-   Todo アプリ「はぴたす」を React と Larave で SPA で作ってみました。タスクに赤、青、黄、緑のタグをつけれるのでタスク毎の重要度の差を表現できます！
 
 ## 機能一覧
 
@@ -20,7 +20,7 @@
 -   React
 
 ※ styled components,tailwindcss  
-※ Laravel Mix（同一オリジン）  
+※ Laravel Mix（同一オリジン）
 
 ## バックエンド
 
