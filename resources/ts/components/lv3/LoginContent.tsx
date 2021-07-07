@@ -74,7 +74,7 @@ const LoginContent: React.VFC<Props> = ({
                     <title className="block font-bold text-center text-2xl pb-5">
                         ログイン
                     </title>
-                    <div className="px-5 py-7">
+                    <main className="px-3 py-4 sm:px-5 sm:py-7">
                         <div className="pb-5">
                             <h1 className="font-semibold text-sm text-gray-600 pb-1 block">
                                 メールアドレス
@@ -123,7 +123,7 @@ const LoginContent: React.VFC<Props> = ({
                             value="ログイン"
                             className="transition duration-200 bg-blue-400 hover:bg-blue-300 focus:bg-blue-700 focus:shadow-sm focus:ring-4 focus:ring-blue-500 focus:ring-opacity-50 text-white w-full py-2.5 rounded-lg text-sm shadow-sm hover:shadow-md font-semibold text-center inline-block cursor-pointer"
                         />
-                    </div>
+                    </main>
                     <div className="pt-4"></div>
                 </form>
                 <aside className="pt-5">

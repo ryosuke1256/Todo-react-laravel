@@ -5515,8 +5515,8 @@ var LoginContent = function LoginContent(_a) {
     className: "bg-white shadow w-full rounded-xl divide-y divide-gray-200 px-1 sm:px-6 md:px-12 py-8"
   }, react_1["default"].createElement("title", {
     className: "block font-bold text-center text-2xl pb-5"
-  }, "\u30ED\u30B0\u30A4\u30F3"), react_1["default"].createElement("div", {
-    className: "px-5 py-7"
+  }, "\u30ED\u30B0\u30A4\u30F3"), react_1["default"].createElement("main", {
+    className: "px-3 py-4 sm:px-5 sm:py-7"
   }, react_1["default"].createElement("div", {
     className: "pb-5"
   }, react_1["default"].createElement("h1", {
@@ -5905,7 +5905,7 @@ var RegisterContent = function RegisterContent(_a) {
   }, react_1["default"].createElement("title", {
     className: "block font-bold text-center text-2xl pb-5 "
   }, "\u30B5\u30A4\u30F3\u30A2\u30C3\u30D7"), react_1["default"].createElement("main", {
-    className: "px-5 py-7"
+    className: "px-3 py-4 sm:px-5 sm:py-7"
   }, react_1["default"].createElement("h1", {
     className: "font-semibold text-sm text-gray-600 pb-1 block"
   }, "\u540D\u524D"), react_1["default"].createElement("input", __assign({}, register("name", {

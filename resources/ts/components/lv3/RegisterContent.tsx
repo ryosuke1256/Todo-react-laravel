@@ -79,7 +79,7 @@ const RegisterContent: React.VFC<Props> = ({
                     <title className="block font-bold text-center text-2xl pb-5 ">
                         サインアップ
                     </title>
-                    <main className="px-5 py-7">
+                    <main className="px-3 py-4 sm:px-5 sm:py-7">
                         <h1 className="font-semibold text-sm text-gray-600 pb-1 block">
                             名前
                         </h1>
