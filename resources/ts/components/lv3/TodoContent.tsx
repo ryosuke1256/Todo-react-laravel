@@ -17,7 +17,7 @@ const TodoContent: React.VFC<Props> = ({ userID }: Props) => {
 
     useEffect(() => {
         getTasks();
-    }, [userID]);
+    }, []);
 
     const getTasks = async (): Promise<void> => {
         if (!(userID === "")) {

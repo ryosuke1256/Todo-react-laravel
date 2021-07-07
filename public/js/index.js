@@ -6236,7 +6236,7 @@ var TodoContent = function TodoContent(_a) {
 
   react_1.useEffect(function () {
     getTasks();
-  }, [userID]);
+  }, []);
 
   var getTasks = function getTasks() {
     return __awaiter(void 0, void 0, void 0, function () {
