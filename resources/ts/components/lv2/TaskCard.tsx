@@ -25,7 +25,7 @@ const TaskCard: React.VFC<Props> = ({task,tasks,setTasks,tasksEditActive,setTask
     const [editActive, setEditActive] = useState(false);
     const [hasModalOpened, setHasModalOpened] = useState(false);
     const [selected_color, setSelected_color] = useState<any>({red:false,blue:false,yellow:false,green:false}); //prettier-ignore
-    const [tagID,setTagID] = useState(null);
+    const [tagID,setTagID] = useState<number|null>(null);
     const [editButtonTitle, setEditButtonTitle] = useState("編集");
 
     useEffect(()=>{
@@ -34,11 +34,15 @@ const TaskCard: React.VFC<Props> = ({task,tasks,setTasks,tasksEditActive,setTask
 
     const mounted = useRef(false);
 
+console.log(tagID,i);
+
     useEffect(() => {
         if(mounted.current) {
             setTitle(task.title);
             setIs_done(task.is_done);
             setSelected_color({red:task.red,blue:task.blue,yellow:task.yellow,green:task.green});
+            // !tagID && setTagID(task.tagID);
+            setTagID(task.tagID);
         } else {
             mounted.current = true;
         }
@@ -49,13 +53,13 @@ const TaskCard: React.VFC<Props> = ({task,tasks,setTasks,tasksEditActive,setTask
         try {
             if(!(res.data.id === undefined)) {
                 const obj = tasks;
-                obj.splice(i,1,{...task, ...{hasDonePostTag:true,red:res.data.checked_red,blue:res.data.checked_blue,yellow:res.data.checked_yellow,green:res.data.checked_green}});
+                obj.splice(i,1,{...task, ...{hasDonePostTag:true,tagID:res.data.id,red:res.data.checked_red,blue:res.data.checked_blue,yellow:res.data.checked_yellow,green:res.data.checked_green}});
                 setTasks(obj);
                 setTagID(res.data.id);
                 setSelected_color({red:res.data.checked_red,blue:res.data.checked_blue,yellow:res.data.checked_yellow,green:res.data.checked_green});
             } else {
                 const obj = tasks;
-                obj.splice(i,1,{...task, ...{red:res.data.checked_red,blue:res.data.checked_blue,yellow:res.data.checked_yellow,green:res.data.checked_green}});
+                obj.splice(i,1,{...task, ...{tagID:res.data.id,red:res.data.checked_red,blue:res.data.checked_blue,yellow:res.data.checked_yellow,green:res.data.checked_green}});
                 setTasks(obj);
                 setTagID(res.data.id);
                 setSelected_color({red:res.data.checked_red,blue:res.data.checked_blue,yellow:res.data.checked_yellow,green:res.data.checked_green});

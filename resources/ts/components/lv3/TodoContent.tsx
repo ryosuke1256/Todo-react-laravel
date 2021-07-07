@@ -37,6 +37,8 @@ const TodoContent: React.VFC<Props> = ({ userID }: Props) => {
         try {
             const obj = [...tasks];
             obj.unshift(res.data);
+            console.log(obj);
+
             setTasks(obj);
         } catch (err) {
             console.error(err);

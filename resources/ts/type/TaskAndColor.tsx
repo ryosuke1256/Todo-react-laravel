@@ -10,4 +10,5 @@ export type TaskAndColor = {
     yellow?: boolean;
     green?: boolean;
     hasDonePostTag: boolean;
+    tagID: number;
 };

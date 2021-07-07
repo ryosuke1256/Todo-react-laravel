@@ -32,7 +32,7 @@ const Modal: React.VFC<Props> = ({hasModalOpened,selected_color,setHasModalOpene
         const res = await axios.post('api/tags',postTagData);
         try {
             const obj = tasks;
-            obj.splice(i,1,{...task, ...{hasDonePostTag:true,red:selected_color.red,blue:selected_color.blue,yellow:selected_color.yellow,green:selected_color.green}});
+            obj.splice(i,1,{...task, ...{hasDonePostTag:true,tagID:res.data.id,red:selected_color.red,blue:selected_color.blue,yellow:selected_color.yellow,green:selected_color.green}});
             setTasks(obj);
             setTagID(res.data.id);
         } catch (err) {

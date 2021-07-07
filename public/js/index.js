@@ -4823,6 +4823,7 @@ var TaskCard = function TaskCard(_a) {
     getTags();
   }, []);
   var mounted = react_1.useRef(false);
+  console.log(tagID, i);
   react_1.useEffect(function () {
     if (mounted.current) {
       setTitle(task.title);
@@ -4832,7 +4833,9 @@ var TaskCard = function TaskCard(_a) {
         blue: task.blue,
         yellow: task.yellow,
         green: task.green
-      });
+      }); // !tagID && setTagID(task.tagID);
+
+      setTagID(task.tagID);
     } else {
       mounted.current = true;
     }
@@ -4856,6 +4859,7 @@ var TaskCard = function TaskCard(_a) {
                 obj = tasks;
                 obj.splice(i, 1, __assign(__assign({}, task), {
                   hasDonePostTag: true,
+                  tagID: res.data.id,
                   red: res.data.checked_red,
                   blue: res.data.checked_blue,
                   yellow: res.data.checked_yellow,
@@ -4872,6 +4876,7 @@ var TaskCard = function TaskCard(_a) {
               } else {
                 obj = tasks;
                 obj.splice(i, 1, __assign(__assign({}, task), {
+                  tagID: res.data.id,
                   red: res.data.checked_red,
                   blue: res.data.checked_blue,
                   yellow: res.data.checked_yellow,
@@ -6290,6 +6295,7 @@ var TodoContent = function TodoContent(_a) {
             try {
               obj = __spreadArray([], tasks);
               obj.unshift(res.data);
+              console.log(obj);
               setTasks(obj);
             } catch (err) {
               console.error(err);
@@ -6820,6 +6826,7 @@ var Modal = function Modal(_a) {
               obj = tasks;
               obj.splice(i, 1, __assign(__assign({}, task), {
                 hasDonePostTag: true,
+                tagID: res.data.id,
                 red: selected_color.red,
                 blue: selected_color.blue,
                 yellow: selected_color.yellow,
