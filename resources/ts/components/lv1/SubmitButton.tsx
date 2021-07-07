@@ -1,5 +1,6 @@
 import React from "react";
 import { TaskAPI } from "../../type/api/TaskAPI";
+import styled from "styled-components";
 
 type Props = {
     text: string;
@@ -21,19 +22,30 @@ const SubmitButton: React.VFC<Props> = ({
     };
 
     return (
-        <button
+        <_SubmitButton
             onClick={() => {
                 postTask(data);
                 setText("");
             }}
-            style={{
-                border: "1px solid",
-                padding: "7px",
-            }}
         >
             追加
-        </button>
+        </_SubmitButton>
     );
 };
 
 export default SubmitButton;
+
+const _SubmitButton = styled.div`
+    display: inline-block;
+    color: white;
+    border-radius: 8px;
+    padding: 6px;
+    margin-left: 7px;
+    background-color: #5287ec;
+    border: 1px solid #4b81e6;
+    opacity: 0.9;
+    cursor: pointer;
+    &:hover {
+        opacity: 0.7;
+    }
+`;

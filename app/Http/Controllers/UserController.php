@@ -22,7 +22,7 @@ class UserController extends Controller
      */
     public function index()
     {
-        return Auth::id();
+        return Auth::user();
     }
 
 }

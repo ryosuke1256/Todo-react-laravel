@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useRef } from "react";
 import styled from "styled-components";
 import axios from "axios";
 import { ColoredTags } from "./_index";
@@ -9,8 +9,8 @@ import { TaskAndColor } from "../../type/TaskAndColor";
 import customMedia from "../../style/customMedia";
 
 type Props = {
-    task: TaskAndColor;
     tasks: [TaskAndColor];
+    task: TaskAndColor;
     setTasks: (param: {}) => void;
     tasksEditActive: boolean;
     setTasksEditActive: (param: boolean) => void;
@@ -20,55 +20,62 @@ type Props = {
 
 //prettier-ignore
 const TaskCard: React.VFC<Props> = ({task,tasks,setTasks,tasksEditActive,setTasksEditActive,id,i,}: Props) => {
-    const [todo, setTodo] = useState(task);
     const [title, setTitle] = useState(task.title);
-    const [is_done, setIs_done] = useState<0 | 1>(task.is_done);
+    const [is_done, setIs_done] = useState(task.is_done);
     const [editActive, setEditActive] = useState(false);
     const [hasModalOpened, setHasModalOpened] = useState(false);
-    const [selected_color, setSelected_color] = useState({red:false,blue:false,yellow:false,green:false}); //prettier-ignore
-    const [tagID,setTagID] = useState(null);
-    const [hasDonePostTag,setHasDonePostTag] = useState(false);
+    const [selected_color, setSelected_color] = useState<any>({red:false,blue:false,yellow:false,green:false}); //prettier-ignore
+    const [tagID,setTagID] = useState<number|null>(null);
+    const [editButtonTitle, setEditButtonTitle] = useState("編集");
 
     useEffect(()=>{
         getTags();
     },[])
 
-    useEffect(() => {
-        setTitle(task.title);
-        setIs_done(task.is_done);
-        setSelected_color({red:task.red,blue:task.blue,yellow:task.yellow,green:task.green})
-    }, [task]);
+    const mounted = useRef(false);
 
-    const getTags = async () => {
-        const res = await axios.get(`api/tags/tasks/${task.id}`);
+    useEffect(() => {
+        if(mounted.current) {
+            setTitle(task.title);
+            setIs_done(task.is_done);
+            setSelected_color({red:task.red,blue:task.blue,yellow:task.yellow,green:task.green});
+            setTagID(task.tagID);
+        } else {
+            mounted.current = true;
+        }
+    }, [task]); 
+
+    const getTags = async (): Promise<void> => {
+        const res = await axios.get(`api/tags/tasks/${tasks[i].id}`);
         try {
-                if (res.data) {
-                    setHasDonePostTag(true);
-                    setTagID(res.data.id);
-                    setSelected_color({red:res.data.checked_red,blue:res.data.checked_blue,yellow:res.data.checked_yellow,green:res.data.checked_green});
-                    task.red = res.data.checked_red;
-                    task.blue = res.data.checked_blue;
-                    task.yellow = res.data.checked_yellow;
-                    task.green = res.data.checked_green;
-                }
+            if(!(res.data.id === undefined)) {
+                const obj = tasks;
+                obj.splice(i,1,{...task, ...{hasDonePostTag:true,tagID:res.data.id,red:res.data.checked_red,blue:res.data.checked_blue,yellow:res.data.checked_yellow,green:res.data.checked_green}});
+                setTasks(obj);
+                setTagID(res.data.id);
+                setSelected_color({red:res.data.checked_red,blue:res.data.checked_blue,yellow:res.data.checked_yellow,green:res.data.checked_green});
+            } else {
+                const obj = tasks;
+                obj.splice(i,1,{...task, ...{tagID:res.data.id,red:res.data.checked_red,blue:res.data.checked_blue,yellow:res.data.checked_yellow,green:res.data.checked_green}});
+                setTasks(obj);
+                setTagID(res.data.id);
+                setSelected_color({red:res.data.checked_red,blue:res.data.checked_blue,yellow:res.data.checked_yellow,green:res.data.checked_green});
+            }
         } catch (err) {
             console.log(err);
         }
     };
 
-    const deleteTask = async () => {
+    const deleteTask = async (): Promise<void> => {
         const res = await axios.delete(`api/tasks/${id}`);
         try {
             setTasks(tasks.filter((task) => task.id !== res.data.id));
-            // tasks.splice(i, 1);
-            // setTasks(tasks);
-            // setChange(change + 1);
         } catch (err) {
             console.log(err);
         }
     };
 
-    const checkTask = async (is_done: 0 | 1) => {
+    const checkTask = async (is_done: 0 | 1): Promise<void> => {
         is_done === 0 ? (is_done = 1) : (is_done = 0);
         const data: TaskAPI = {
             title: title,
@@ -77,7 +84,6 @@ const TaskCard: React.VFC<Props> = ({task,tasks,setTasks,tasksEditActive,setTask
         await axios
             .patch(`api/tasks/${id}`, data)
             .then(() => {
-                //tasksのis_doneも変更しないといけない
                 tasks[i].is_done = is_done;
                 setIs_done(is_done);
             })
@@ -86,7 +92,7 @@ const TaskCard: React.VFC<Props> = ({task,tasks,setTasks,tasksEditActive,setTask
             });
     };
 
-    const editTask = async (title: string) => {
+    const editTask = async (title: string): Promise<void> => {
         const data: TaskAPI = {
             title: title,
             is_done: is_done,
@@ -94,6 +100,7 @@ const TaskCard: React.VFC<Props> = ({task,tasks,setTasks,tasksEditActive,setTask
         await axios
             .patch(`api/tasks/${id}`, data)
             .then(() => {
+                tasks[i].title= title;
                 setTitle(title);
             })
             .catch((err) => {
@@ -111,6 +118,11 @@ const TaskCard: React.VFC<Props> = ({task,tasks,setTasks,tasksEditActive,setTask
                         editActive={editActive}
                         title={title}
                         setTitle={setTitle}
+                        editTask={editTask}
+                        setEditActive={setEditActive}
+                        tasksEditActive={tasksEditActive}
+                        setTasksEditActive={setTasksEditActive}
+                        setEditButtonTitle={setEditButtonTitle}
                     />
                     <EditButton
                         editTask={editTask}
@@ -119,6 +131,8 @@ const TaskCard: React.VFC<Props> = ({task,tasks,setTasks,tasksEditActive,setTask
                         tasksEditActive={tasksEditActive}
                         setTasksEditActive={setTasksEditActive}
                         title={title}
+                        editButtonTitle={editButtonTitle}
+                        setEditButtonTitle={setEditButtonTitle}
                     />
                     <DeleteButton
                         deleteTask={deleteTask}
@@ -139,9 +153,10 @@ const TaskCard: React.VFC<Props> = ({task,tasks,setTasks,tasksEditActive,setTask
                 taskID={task.id}
                 tagID={tagID}
                 setTagID={setTagID}
+                tasks={tasks}
+                setTasks={setTasks}
                 task={task}
-                hasDonePostTag={hasDonePostTag}
-                setHasDonePostTag={setHasDonePostTag}
+                i={i}
             />
         </>
     );
@@ -150,13 +165,17 @@ const TaskCard: React.VFC<Props> = ({task,tasks,setTasks,tasksEditActive,setTask
 export default TaskCard;
 
 const _TaskCard = styled.div`
-    border: 1px solid #c4cfd6;
-    padding: 10px;
+    border: 1px solid #d4e0e7;
+    padding: 10px 10px 8px 10px;
     border-bottom: 0px;
     border-radius: 6px;
     background-color: rgb(254, 254, 254);
     ${customMedia.lessThan("mobile")`
         padding:13px;
+        border-top: 1px solid #deeaf1;
+        border-bottom: 1px solid #deeaf1;
+        border-right: 0px;
+        border-left: 0px;
     `}
     ${customMedia.between("mobile", "tablet")`
 

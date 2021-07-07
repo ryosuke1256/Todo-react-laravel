@@ -18,4 +18,7 @@ class Task extends Model
     public function user() {
         return $this->belongsTo('App/Models/User');
     }
+    public function tag() {
+        return $this->hasOne('App/Models/Tag');
+    }
 }

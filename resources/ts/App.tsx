@@ -1,79 +1,77 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-import { _TaskCards } from "./components/lv3/TaskCards";
-import { TaskCard, TextForm } from "./components/lv2/_index";
-import { TaskAPI } from "./type/api/TaskAPI";
-import { TaskAndColor } from "./type/TaskAndColor";
+import { BrowserRouter as Router, Switch, Route, Redirect } from "react-router-dom"; //prettier-ignore
+import Header from "./components/lv2/Header";
+import {LoginContent,RegisterContent,TodoContent,TopPageContent} from "./components/lv3/_index"; //prettier-ignore
 
 const App: React.VFC = () => {
-    const [tasks, setTasks] = useState<any>([]);
-    const [userID, setUserID] = useState();
-    const [change, setChange] = useState(0); //render走らせる用
-    const [tasksEditActive, setTasksEditActive] = useState(false);
+    const [is_authenticated, setIs_authenticated] = useState<boolean>(false);
+    const [userID, setUserID] = useState<number | null>(null);
+    const [userName, setUserName] = useState<string>("");
+    const [is_began, setIs_began] = useState(false);
+
     useEffect(() => {
         getUser();
     }, []);
 
-    useEffect(() => {
-        getTasks();
-    }, [userID]);
-
-    const getUser = async () => {
+    const getUser = async (): Promise<void> => {
         await axios
             .get("api/users")
             .then((res) => {
-                setUserID(res.data);
+                if (res.data) {
+                    setIs_authenticated(true);
+                    setUserName(res.data.name);
+                    setUserID(res.data.id);
+                } else {
+                    setIs_authenticated(false);
+                }
+                setIs_began(true);
             })
             .catch((err) => {
                 console.log(err);
+                setIs_began(true);
             });
     };
 
-    const getTasks = async () => {
-        if (!(userID === undefined)) {
-            const Data = await axios.get(`api/tasks/users/${userID}`);
-            try {
-                setTasks(Data.data.map((data: {}) => data));
-            } catch (err) {
-                console.log(err);
-            }
+    const GetTopPageContent = (): JSX.Element | null => {
+        if (is_began && is_authenticated) {
+            return <TodoContent userID={userID} />;
+        } else if (is_began && !is_authenticated) {
+            return <TopPageContent />;
+        } else {
+            return null;
         }
     };
-
-    const postTask = async (postData: TaskAPI) => {
-        console.log({ postData });
-        const res = await axios.post("api/tasks", postData);
-        try {
-            tasks.unshift(res.data);
-            setChange(change + 1);
-            // setTasks([...tasks, res.data]);
-        } catch (err) {
-            console.log(err);
-        }
-    };
-
-    let i: number = -1;
 
     return (
         <>
-            <TextForm postTask={postTask} userID={userID} />
-            <_TaskCards>
-                {tasks.map((task: TaskAndColor, key: number) => {
-                    i++;
-                    return (
-                        <TaskCard
-                            task={task}
-                            setTasks={setTasks}
-                            tasks={tasks}
-                            tasksEditActive={tasksEditActive}
-                            setTasksEditActive={setTasksEditActive}
-                            id={task.id}
-                            i={i}
-                            key={key}
+            <Router>
+                <Header
+                    setIs_authenticated={setIs_authenticated}
+                    is_authenticated={is_authenticated}
+                    setUserID={setUserID}
+                    userName={userName}
+                />
+                <Switch>
+                    <Route path="/register">
+                        <RegisterContent
+                            setIs_authenticated={setIs_authenticated}
+                            setUserID={setUserID}
+                            getUser={getUser}
                         />
-                    );
-                })}
-            </_TaskCards>
+                    </Route>
+                    <Route path="/login">
+                        <LoginContent
+                            setIs_authenticated={setIs_authenticated}
+                            setUserID={setUserID}
+                            getUser={getUser}
+                        />
+                    </Route>
+                    <Route path="/">
+                        <GetTopPageContent />
+                    </Route>
+                </Switch>
+            </Router>
         </>
     );
 };
