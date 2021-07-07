@@ -28,7 +28,7 @@ const Modal: React.VFC<Props> = ({hasModalOpened,selected_color,setHasModalOpene
 }
 
     const postTag = async (postTagData:TagAPI) :Promise<void> => {
-        // console.log({postTagData});
+        console.log({postTagData});
         const res = await axios.post('api/tags',postTagData);
         try {
             const obj = tasks;
@@ -40,20 +40,20 @@ const Modal: React.VFC<Props> = ({hasModalOpened,selected_color,setHasModalOpene
         }
     }
 
-    const changeTag = async (selected_color:Color): Promise<void> => {
+    const changeUndefined = (color:boolean|undefined) => {
+        color == undefined ? color = false : undefined;
+        return color;
+    }
+
+    const changeTag = async (colors:Color): Promise<void> => {
+        const checked =  {...colors,...{red:changeUndefined(colors.red),blue:changeUndefined(colors.blue),yellow:changeUndefined(colors.yellow),green:changeUndefined(colors.green)}}
         const patchData = {
-            checked_red:selected_color.red,
-            checked_blue:selected_color.blue,
-            checked_yellow:selected_color.yellow,
-            checked_green:selected_color.green,
+            checked_red:checked.red,
+            checked_blue:checked.blue,
+            checked_yellow:checked.yellow,
+            checked_green:checked.green,
         }
-        for (i = 0; i < 4; i++ ) {
-            const colors = [patchData.checked_red,patchData.checked_blue,patchData.checked_yellow,patchData.checked_green];
-            colors.map((color) => {
-                color===undefined?color=false:color;
-            });
-        };
-        // console.log({patchData});
+        console.log({patchData});
         const res = await axios.patch(`api/tags/${tagID}`, patchData);
         try {
             const obj = tasks;

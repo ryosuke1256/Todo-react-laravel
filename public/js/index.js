@@ -6809,6 +6809,9 @@ var Modal = function Modal(_a) {
       return __generator(this, function (_a) {
         switch (_a.label) {
           case 0:
+            console.log({
+              postTagData: postTagData
+            });
             return [4
             /*yield*/
             , axios_1["default"].post('api/tags', postTagData)];
@@ -6839,27 +6842,32 @@ var Modal = function Modal(_a) {
     });
   };
 
-  var changeTag = function changeTag(selected_color) {
+  var changeUndefined = function changeUndefined(color) {
+    color == undefined ? color = false : undefined;
+    return color;
+  };
+
+  var changeTag = function changeTag(colors) {
     return __awaiter(void 0, void 0, void 0, function () {
-      var patchData, colors, res, obj;
+      var checked, patchData, res, obj;
       return __generator(this, function (_a) {
         switch (_a.label) {
           case 0:
+            checked = __assign(__assign({}, colors), {
+              red: changeUndefined(colors.red),
+              blue: changeUndefined(colors.blue),
+              yellow: changeUndefined(colors.yellow),
+              green: changeUndefined(colors.green)
+            });
             patchData = {
-              checked_red: selected_color.red,
-              checked_blue: selected_color.blue,
-              checked_yellow: selected_color.yellow,
-              checked_green: selected_color.green
+              checked_red: checked.red,
+              checked_blue: checked.blue,
+              checked_yellow: checked.yellow,
+              checked_green: checked.green
             };
-
-            for (i = 0; i < 4; i++) {
-              colors = [patchData.checked_red, patchData.checked_blue, patchData.checked_yellow, patchData.checked_green];
-              colors.map(function (color) {
-                color === undefined ? color = false : color;
-              });
-            }
-
-            ;
+            console.log({
+              patchData: patchData
+            });
             return [4
             /*yield*/
             , axios_1["default"].patch("api/tags/" + tagID, patchData)];
