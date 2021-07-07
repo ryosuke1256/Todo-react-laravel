@@ -4823,7 +4823,6 @@ var TaskCard = function TaskCard(_a) {
     getTags();
   }, []);
   var mounted = react_1.useRef(false);
-  console.log(tagID, i);
   react_1.useEffect(function () {
     if (mounted.current) {
       setTitle(task.title);

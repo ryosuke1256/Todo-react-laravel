@@ -34,8 +34,6 @@ const TaskCard: React.VFC<Props> = ({task,tasks,setTasks,tasksEditActive,setTask
 
     const mounted = useRef(false);
 
-console.log(tagID,i);
-
     useEffect(() => {
         if(mounted.current) {
             setTitle(task.title);
