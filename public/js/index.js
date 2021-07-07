@@ -6846,21 +6846,21 @@ var Modal = function Modal(_a) {
 
   var changeTag = function changeTag(colors) {
     return __awaiter(void 0, void 0, void 0, function () {
-      var checked, patchData, res, obj;
+      var changedColors, patchData, res, obj;
       return __generator(this, function (_a) {
         switch (_a.label) {
           case 0:
-            checked = __assign(__assign({}, colors), {
+            changedColors = __assign(__assign({}, colors), {
               red: changeUndefined(colors.red),
               blue: changeUndefined(colors.blue),
               yellow: changeUndefined(colors.yellow),
               green: changeUndefined(colors.green)
             });
             patchData = {
-              checked_red: checked.red,
-              checked_blue: checked.blue,
-              checked_yellow: checked.yellow,
-              checked_green: checked.green
+              checked_red: changedColors.red,
+              checked_blue: changedColors.blue,
+              checked_yellow: changedColors.yellow,
+              checked_green: changedColors.green
             };
             return [4
             /*yield*/

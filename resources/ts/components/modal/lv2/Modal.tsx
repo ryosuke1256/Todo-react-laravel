@@ -46,12 +46,12 @@ const Modal: React.VFC<Props> = ({hasModalOpened,selected_color,setHasModalOpene
     }
 
     const changeTag = async (colors:Color): Promise<void> => {
-        const checked =  {...colors,...{red:changeUndefined(colors.red),blue:changeUndefined(colors.blue),yellow:changeUndefined(colors.yellow),green:changeUndefined(colors.green)}}
+        const changedColors =  {...colors,...{red:changeUndefined(colors.red),blue:changeUndefined(colors.blue),yellow:changeUndefined(colors.yellow),green:changeUndefined(colors.green)}};
         const patchData = {
-            checked_red:checked.red,
-            checked_blue:checked.blue,
-            checked_yellow:checked.yellow,
-            checked_green:checked.green,
+            checked_red:changedColors.red,
+            checked_blue:changedColors.blue,
+            checked_yellow:changedColors.yellow,
+            checked_green:changedColors.green,
         }
         // console.log({patchData});
         const res = await axios.patch(`api/tags/${tagID}`, patchData);
