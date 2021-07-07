@@ -6809,9 +6809,6 @@ var Modal = function Modal(_a) {
       return __generator(this, function (_a) {
         switch (_a.label) {
           case 0:
-            console.log({
-              postTagData: postTagData
-            });
             return [4
             /*yield*/
             , axios_1["default"].post('api/tags', postTagData)];
@@ -6865,9 +6862,6 @@ var Modal = function Modal(_a) {
               checked_yellow: checked.yellow,
               checked_green: checked.green
             };
-            console.log({
-              patchData: patchData
-            });
             return [4
             /*yield*/
             , axios_1["default"].patch("api/tags/" + tagID, patchData)];

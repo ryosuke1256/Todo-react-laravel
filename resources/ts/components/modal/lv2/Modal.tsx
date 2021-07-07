@@ -28,7 +28,7 @@ const Modal: React.VFC<Props> = ({hasModalOpened,selected_color,setHasModalOpene
 }
 
     const postTag = async (postTagData:TagAPI) :Promise<void> => {
-        console.log({postTagData});
+        // console.log({postTagData});
         const res = await axios.post('api/tags',postTagData);
         try {
             const obj = tasks;
@@ -53,7 +53,7 @@ const Modal: React.VFC<Props> = ({hasModalOpened,selected_color,setHasModalOpene
             checked_yellow:checked.yellow,
             checked_green:checked.green,
         }
-        console.log({patchData});
+        // console.log({patchData});
         const res = await axios.patch(`api/tags/${tagID}`, patchData);
         try {
             const obj = tasks;
