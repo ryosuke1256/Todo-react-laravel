@@ -27,7 +27,7 @@ const Modal: React.VFC<Props> = ({hasModalOpened,selected_color,setHasModalOpene
         return null;
 }
 
-    const postTag = async (postTagData:TagAPI) :Promise<void> => {
+    const postTag = async (postTagData:TagAPI): Promise<void> => {
         // console.log({postTagData});
         const res = await axios.post('api/tags',postTagData);
         try {
@@ -40,7 +40,7 @@ const Modal: React.VFC<Props> = ({hasModalOpened,selected_color,setHasModalOpene
         }
     }
 
-    const changeUndefined = (color:boolean|undefined):boolean => {
+    const changeUndefined = (color:boolean|undefined): boolean => {
         color == undefined ? color = false : undefined;
         return color;
     }
