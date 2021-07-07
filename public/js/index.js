@@ -5838,8 +5838,6 @@ var RegisterContent = function RegisterContent(_a) {
                   password: registerData.password
                 });
               }
-
-              console.log(res.data);
             })["catch"](function (err) {
               var emailErrRes = err.response.data.errors.email[0];
 
@@ -5906,7 +5904,7 @@ var RegisterContent = function RegisterContent(_a) {
     className: "bg-white shadow w-full rounded-xl divide-y divide-gray-200 px-1 sm:px-6 md:px-12 py-9"
   }, react_1["default"].createElement("title", {
     className: "block font-bold text-center text-2xl pb-5 "
-  }, "\u30B5\u30A4\u30F3\u30A2\u30C3\u30D7"), react_1["default"].createElement("div", {
+  }, "\u30B5\u30A4\u30F3\u30A2\u30C3\u30D7"), react_1["default"].createElement("main", {
     className: "px-5 py-7"
   }, react_1["default"].createElement("h1", {
     className: "font-semibold text-sm text-gray-600 pb-1 block"
