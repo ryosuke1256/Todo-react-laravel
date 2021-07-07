@@ -28,7 +28,7 @@ const Header: React.VFC<Props> = ({
                 setIs_show(false);
             })
             .catch((err) => {
-                console.log(err);
+                console.error(err);
             });
     };
 

@@ -37,14 +37,13 @@ export default SubmitButton;
 
 const _SubmitButton = styled.div`
     display: inline-block;
-    /* color: #4d5772; */
     color: white;
     border-radius: 8px;
     padding: 6px;
-    margin-left:7px;
-    background-color:#5287EC;
+    margin-left: 7px;
+    background-color: #5287ec;
     border: 1px solid #4b81e6;
-    opacity:0.9;
+    opacity: 0.9;
     cursor: pointer;
     &:hover {
         opacity: 0.7;

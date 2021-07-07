@@ -28,7 +28,7 @@ const Modal: React.VFC<Props> = ({hasModalOpened,selected_color,setHasModalOpene
 }
 
     const postTag = async (postTagData:TagAPI) :Promise<void> => {
-        console.log({postTagData});
+        // console.log({postTagData});
         const res = await axios.post('api/tags',postTagData);
         try {
             const obj = tasks;
@@ -36,7 +36,7 @@ const Modal: React.VFC<Props> = ({hasModalOpened,selected_color,setHasModalOpene
             setTasks(obj);
             setTagID(res.data.id);
         } catch (err) {
-            console.log(err);
+            console.error(err);
         }
     }
 
@@ -53,14 +53,14 @@ const Modal: React.VFC<Props> = ({hasModalOpened,selected_color,setHasModalOpene
                 color===undefined?color=false:color;
             });
         };
-        console.log({patchData});
+        // console.log({patchData});
         const res = await axios.patch(`api/tags/${tagID}`, patchData);
         try {
             const obj = tasks;
             obj.splice(i,1,{...task, ...{red:res.data.checked_red,blue:res.data.checked_blue,yellow:res.data.checked_yellow,green:res.data.checked_green}});
             setTasks(obj);
         } catch (err) {
-            console.log(err);
+            console.error(err);
         }
     }
 
@@ -101,7 +101,6 @@ const Modal: React.VFC<Props> = ({hasModalOpened,selected_color,setHasModalOpene
                 <_CloseButton
                     onClick={() => {
                         setHasModalOpened(false);
-                        console.log(tasks[i])
                         tasks[i].hasDonePostTag? changeTag(selected_color): 
                         postTag({
                             task_id:taskID,

@@ -26,20 +26,20 @@ const TodoContent: React.VFC<Props> = ({ userID }: Props) => {
                 setTasks(Data.data.map((data: {}) => data));
                 setIs_began(true);
             } catch (err) {
-                console.log(err);
+                console.error(err);
             }
         }
     };
 
     const postTask = async (postData: TaskAPI): Promise<void> => {
-        console.log({ postData });
+        // console.log({ postData });
         const res = await axios.post("api/tasks", postData);
         try {
             const obj = [...tasks];
             obj.unshift(res.data);
             setTasks(obj);
         } catch (err) {
-            console.log(err);
+            console.error(err);
         }
     };
 

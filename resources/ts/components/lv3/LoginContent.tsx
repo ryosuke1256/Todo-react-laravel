@@ -36,23 +36,21 @@ const LoginContent: React.VFC<Props> = ({
     }, []);
 
     const initCSRF = async (): Promise<void> => {
-        console.log("initCSRF");
         await axios
             .get("/sanctum/csrf-cookie")
             .then((res) => {
                 console.log(res.data);
             })
             .catch((err) => {
-                console.log(err);
+                console.error(err);
             });
     };
 
     const onSubmit = async (loginData: LoginData): Promise<void> => {
-        console.log(loginData);
+        // console.log({loginData});
         await axios
             .post("/login", loginData)
             .then((res) => {
-                console.log(res.data.result);
                 history.push("/");
                 setUserID(res.data.user.id);
                 getUser();
@@ -60,7 +58,7 @@ const LoginContent: React.VFC<Props> = ({
             })
             .catch((err) => {
                 setErrorMessage("メールアドレスまたはパスワードが異なります");
-                console.log(err);
+                console.error(err);
             });
     };
 

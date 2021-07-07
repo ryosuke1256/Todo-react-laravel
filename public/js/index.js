@@ -3529,7 +3529,7 @@ var SubmitButton = function SubmitButton(_a) {
 
 exports.default = SubmitButton;
 
-var _SubmitButton = styled_components_1["default"].div(templateObject_1 || (templateObject_1 = __makeTemplateObject(["\n    display: inline-block;\n    /* color: #4d5772; */\n    color: white;\n    border-radius: 8px;\n    padding: 6px;\n    margin-left:7px;\n    background-color:#5287EC;\n    border: 1px solid #4b81e6;\n    opacity:0.9;\n    cursor: pointer;\n    &:hover {\n        opacity: 0.7;\n    }\n"], ["\n    display: inline-block;\n    /* color: #4d5772; */\n    color: white;\n    border-radius: 8px;\n    padding: 6px;\n    margin-left:7px;\n    background-color:#5287EC;\n    border: 1px solid #4b81e6;\n    opacity:0.9;\n    cursor: pointer;\n    &:hover {\n        opacity: 0.7;\n    }\n"])));
+var _SubmitButton = styled_components_1["default"].div(templateObject_1 || (templateObject_1 = __makeTemplateObject(["\n    display: inline-block;\n    color: white;\n    border-radius: 8px;\n    padding: 6px;\n    margin-left: 7px;\n    background-color: #5287ec;\n    border: 1px solid #4b81e6;\n    opacity: 0.9;\n    cursor: pointer;\n    &:hover {\n        opacity: 0.7;\n    }\n"], ["\n    display: inline-block;\n    color: white;\n    border-radius: 8px;\n    padding: 6px;\n    margin-left: 7px;\n    background-color: #5287ec;\n    border: 1px solid #4b81e6;\n    opacity: 0.9;\n    cursor: pointer;\n    &:hover {\n        opacity: 0.7;\n    }\n"])));
 
 var templateObject_1;
 
@@ -4252,7 +4252,7 @@ var Header = function Header(_a) {
               setUserID(null);
               setIs_show(false);
             })["catch"](function (err) {
-              console.log(err);
+              console.error(err);
             })];
 
           case 1:
@@ -5456,13 +5456,12 @@ var LoginContent = function LoginContent(_a) {
       return __generator(this, function (_a) {
         switch (_a.label) {
           case 0:
-            console.log("initCSRF");
             return [4
             /*yield*/
             , axios_1["default"].get("/sanctum/csrf-cookie").then(function (res) {
               console.log(res.data);
             })["catch"](function (err) {
-              console.log(err);
+              console.error(err);
             })];
 
           case 1:
@@ -5481,21 +5480,21 @@ var LoginContent = function LoginContent(_a) {
       return __generator(this, function (_a) {
         switch (_a.label) {
           case 0:
-            console.log(loginData);
+            // console.log({loginData});
             return [4
             /*yield*/
             , axios_1["default"].post("/login", loginData).then(function (res) {
-              console.log(res.data.result);
               history.push("/");
               setUserID(res.data.user.id);
               getUser();
               setIs_authenticated(true);
             })["catch"](function (err) {
               setErrorMessage("メールアドレスまたはパスワードが異なります");
-              console.log(err);
+              console.error(err);
             })];
 
           case 1:
+            // console.log({loginData});
             _a.sent();
 
             return [2
@@ -5822,9 +5821,6 @@ var RegisterContent = function RegisterContent(_a) {
       return __generator(this, function (_a) {
         switch (_a.label) {
           case 0:
-            console.log({
-              registerData: registerData
-            });
             if (!(watch().password === watch().password_confirmation)) return [3
             /*break*/
             , 2];
@@ -5832,7 +5828,6 @@ var RegisterContent = function RegisterContent(_a) {
             /*yield*/
             , axios_1["default"].post("/register", registerData).then(function (res) {
               if (res.data.result === true) {
-                console.log("ユーザ登録に成功しました");
                 login({
                   email: registerData.email,
                   password: registerData.password
@@ -5871,11 +5866,10 @@ var RegisterContent = function RegisterContent(_a) {
       return __generator(this, function (_a) {
         switch (_a.label) {
           case 0:
-            console.log(loginData);
+            // console.log({loginData});
             return [4
             /*yield*/
             , axios_1["default"].post("/login", loginData).then(function (res) {
-              console.log("ログインに成功しました");
               history.push("/");
               getUser();
               setUserID(res.data.user.id);
@@ -5885,6 +5879,7 @@ var RegisterContent = function RegisterContent(_a) {
             })];
 
           case 1:
+            // console.log({loginData});
             _a.sent();
 
             return [2
@@ -6265,7 +6260,7 @@ var TodoContent = function TodoContent(_a) {
               }));
               setIs_began(true);
             } catch (err) {
-              console.log(err);
+              console.error(err);
             }
 
             _a.label = 2;
@@ -6285,9 +6280,6 @@ var TodoContent = function TodoContent(_a) {
       return __generator(this, function (_a) {
         switch (_a.label) {
           case 0:
-            console.log({
-              postData: postData
-            });
             return [4
             /*yield*/
             , axios_1["default"].post("api/tasks", postData)];
@@ -6300,7 +6292,7 @@ var TodoContent = function TodoContent(_a) {
               obj.unshift(res.data);
               setTasks(obj);
             } catch (err) {
-              console.log(err);
+              console.error(err);
             }
 
             return [2
@@ -6817,9 +6809,6 @@ var Modal = function Modal(_a) {
       return __generator(this, function (_a) {
         switch (_a.label) {
           case 0:
-            console.log({
-              postTagData: postTagData
-            });
             return [4
             /*yield*/
             , axios_1["default"].post('api/tags', postTagData)];
@@ -6839,7 +6828,7 @@ var Modal = function Modal(_a) {
               setTasks(obj);
               setTagID(res.data.id);
             } catch (err) {
-              console.log(err);
+              console.error(err);
             }
 
             return [2
@@ -6871,9 +6860,6 @@ var Modal = function Modal(_a) {
             }
 
             ;
-            console.log({
-              patchData: patchData
-            });
             return [4
             /*yield*/
             , axios_1["default"].patch("api/tags/" + tagID, patchData)];
@@ -6891,7 +6877,7 @@ var Modal = function Modal(_a) {
               }));
               setTasks(obj);
             } catch (err) {
-              console.log(err);
+              console.error(err);
             }
 
             return [2
@@ -6934,7 +6920,6 @@ var Modal = function Modal(_a) {
   })), react_1["default"].createElement(_CloseButton, {
     onClick: function onClick() {
       setHasModalOpened(false);
-      console.log(tasks[i]);
       tasks[i].hasDonePostTag ? changeTag(selected_color) : postTag({
         task_id: taskID,
         checked_red: selected_color.red,

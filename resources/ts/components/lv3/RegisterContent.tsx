@@ -29,13 +29,12 @@ const RegisterContent: React.VFC<Props> = ({
     const history = useHistory();
 
     const onSubmit = async (registerData: RegisterData): Promise<void> => {
-        console.log({ registerData });
+        // console.log({ registerData });
         if (watch().password === watch().password_confirmation) {
             await axios
                 .post("/register", registerData)
                 .then((res) => {
                     if (res.data.result === true) {
-                        console.log("ユーザ登録に成功しました");
                         login({
                             email: registerData.email,
                             password: registerData.password,
@@ -56,11 +55,10 @@ const RegisterContent: React.VFC<Props> = ({
     };
 
     const login = async (loginData: LoginData): Promise<void> => {
-        console.log(loginData);
+        // console.log({loginData});
         await axios
             .post("/login", loginData)
             .then((res) => {
-                console.log("ログインに成功しました");
                 history.push("/");
                 getUser();
                 setUserID(res.data.user.id);
