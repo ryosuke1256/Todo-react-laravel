@@ -4841,7 +4841,7 @@ var TaskCard = function TaskCard(_a) {
 
   var getTags = function getTags() {
     return __awaiter(void 0, void 0, void 0, function () {
-      var res, obj, obj;
+      var res, obj;
       return __generator(this, function (_a) {
         switch (_a.label) {
           case 0:
@@ -4853,8 +4853,9 @@ var TaskCard = function TaskCard(_a) {
             res = _a.sent();
 
             try {
+              obj = tasks;
+
               if (!(res.data.id === undefined)) {
-                obj = tasks;
                 obj.splice(i, 1, __assign(__assign({}, task), {
                   hasDonePostTag: true,
                   tagID: res.data.id,
@@ -4863,16 +4864,7 @@ var TaskCard = function TaskCard(_a) {
                   yellow: res.data.checked_yellow,
                   green: res.data.checked_green
                 }));
-                setTasks(obj);
-                setTagID(res.data.id);
-                setSelected_color({
-                  red: res.data.checked_red,
-                  blue: res.data.checked_blue,
-                  yellow: res.data.checked_yellow,
-                  green: res.data.checked_green
-                });
               } else {
-                obj = tasks;
                 obj.splice(i, 1, __assign(__assign({}, task), {
                   tagID: res.data.id,
                   red: res.data.checked_red,
@@ -4880,15 +4872,16 @@ var TaskCard = function TaskCard(_a) {
                   yellow: res.data.checked_yellow,
                   green: res.data.checked_green
                 }));
-                setTasks(obj);
-                setTagID(res.data.id);
-                setSelected_color({
-                  red: res.data.checked_red,
-                  blue: res.data.checked_blue,
-                  yellow: res.data.checked_yellow,
-                  green: res.data.checked_green
-                });
               }
+
+              setTasks(obj);
+              setTagID(res.data.id);
+              setSelected_color({
+                red: res.data.checked_red,
+                blue: res.data.checked_blue,
+                yellow: res.data.checked_yellow,
+                green: res.data.checked_green
+              });
             } catch (err) {
               console.log(err);
             }

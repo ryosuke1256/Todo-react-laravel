@@ -48,19 +48,15 @@ const TaskCard: React.VFC<Props> = ({task,tasks,setTasks,tasksEditActive,setTask
     const getTags = async (): Promise<void> => {
         const res = await axios.get(`api/tags/tasks/${tasks[i].id}`);
         try {
+            const obj = tasks;
             if(!(res.data.id === undefined)) {
-                const obj = tasks;
                 obj.splice(i,1,{...task, ...{hasDonePostTag:true,tagID:res.data.id,red:res.data.checked_red,blue:res.data.checked_blue,yellow:res.data.checked_yellow,green:res.data.checked_green}});
-                setTasks(obj);
-                setTagID(res.data.id);
-                setSelected_color({red:res.data.checked_red,blue:res.data.checked_blue,yellow:res.data.checked_yellow,green:res.data.checked_green});
             } else {
-                const obj = tasks;
                 obj.splice(i,1,{...task, ...{tagID:res.data.id,red:res.data.checked_red,blue:res.data.checked_blue,yellow:res.data.checked_yellow,green:res.data.checked_green}});
-                setTasks(obj);
-                setTagID(res.data.id);
-                setSelected_color({red:res.data.checked_red,blue:res.data.checked_blue,yellow:res.data.checked_yellow,green:res.data.checked_green});
             }
+            setTasks(obj);
+            setTagID(res.data.id);
+            setSelected_color({red:res.data.checked_red,blue:res.data.checked_blue,yellow:res.data.checked_yellow,green:res.data.checked_green});
         } catch (err) {
             console.log(err);
         }
