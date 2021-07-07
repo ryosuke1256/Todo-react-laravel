@@ -4832,8 +4832,7 @@ var TaskCard = function TaskCard(_a) {
         blue: task.blue,
         yellow: task.yellow,
         green: task.green
-      }); // !tagID && setTagID(task.tagID);
-
+      });
       setTagID(task.tagID);
     } else {
       mounted.current = true;

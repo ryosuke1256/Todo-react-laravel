@@ -39,7 +39,6 @@ const TaskCard: React.VFC<Props> = ({task,tasks,setTasks,tasksEditActive,setTask
             setTitle(task.title);
             setIs_done(task.is_done);
             setSelected_color({red:task.red,blue:task.blue,yellow:task.yellow,green:task.green});
-            // !tagID && setTagID(task.tagID);
             setTagID(task.tagID);
         } else {
             mounted.current = true;
