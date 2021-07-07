@@ -40,7 +40,7 @@ const Modal: React.VFC<Props> = ({hasModalOpened,selected_color,setHasModalOpene
         }
     }
 
-    const changeUndefined = (color:boolean|undefined) => {
+    const changeUndefined = (color:boolean|undefined):boolean => {
         color == undefined ? color = false : undefined;
         return color;
     }
