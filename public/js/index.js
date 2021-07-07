@@ -5842,7 +5842,7 @@ var RegisterContent = function RegisterContent(_a) {
               var emailErrRes = err.response.data.errors.email[0];
 
               if (emailErrRes === "validation.unique") {
-                setErrorMessage("メールアドレスが既に使われています");
+                setErrorMessage("このメールアドレスは既に使用されています");
               }
             })];
 
