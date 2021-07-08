@@ -12,7 +12,7 @@
     <link rel="apple-touch-icon" href="icon/apple-touch-icon.png" sizes="180x180" />
     <link rel="icon" type="image/png" href="icon/android-touch-icon.png" />
     
-    <meta name='description' content='シンプルなTodoアプリです' >
+    <meta name='description' content='「はぴたす」は使いやすくを意識して作成したタスク管理アプリです！' >
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
@@ -27,7 +27,8 @@
 
     <!-- Styles -->
     <link rel="stylesheet" href="{{ asset(mix('css/app.css'),$is_production) }}">
-
+    
+    <!-- Font Awesome-->
     <script src="https://kit.fontawesome.com/41ccc374d2.js" crossorigin="anonymous"></script>
 </head>
 <body>

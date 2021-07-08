@@ -6286,7 +6286,6 @@ var TodoContent = function TodoContent(_a) {
             try {
               obj = __spreadArray([], tasks);
               obj.unshift(res.data);
-              console.log(obj);
               setTasks(obj);
             } catch (err) {
               console.error(err);
