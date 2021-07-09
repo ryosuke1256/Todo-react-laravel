@@ -31,15 +31,11 @@ const LoginContent: React.VFC<Props> = ({
 
     const history = useHistory();
 
-    useEffect(() => {
-        initCSRF();
-    }, []);
-
-    const initCSRF = async (): Promise<void> => {
+    const initCSRF = async (loginData: LoginData): Promise<void> => {
         await axios
             .get("/sanctum/csrf-cookie")
             .then((res) => {
-                console.log(res.data);
+                onSubmit(loginData);
             })
             .catch((err) => {
                 console.error(err);
@@ -66,7 +62,7 @@ const LoginContent: React.VFC<Props> = ({
         <div className="min-h-screen bg-gray-100 flex flex-col justify-center sm:py-12">
             <div className="pt-20 xs:p-0 mx-auto w-11/12 sm:w-full max-w-md">
                 <form
-                    onSubmit={handleSubmit(onSubmit)}
+                    onSubmit={handleSubmit(initCSRF)}
                     className="bg-white shadow w-full rounded-xl divide-y divide-gray-200 px-1 sm:px-6 md:px-12 py-8"
                 >
                     <title className="block font-bold text-center text-2xl pb-5">
