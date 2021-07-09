@@ -4841,7 +4841,7 @@ var TaskCard = function TaskCard(_a) {
 
   var getTags = function getTags() {
     return __awaiter(void 0, void 0, void 0, function () {
-      var res, obj, obj;
+      var res, obj;
       return __generator(this, function (_a) {
         switch (_a.label) {
           case 0:
@@ -4853,8 +4853,9 @@ var TaskCard = function TaskCard(_a) {
             res = _a.sent();
 
             try {
+              obj = tasks;
+
               if (!(res.data.id === undefined)) {
-                obj = tasks;
                 obj.splice(i, 1, __assign(__assign({}, task), {
                   hasDonePostTag: true,
                   tagID: res.data.id,
@@ -4863,16 +4864,7 @@ var TaskCard = function TaskCard(_a) {
                   yellow: res.data.checked_yellow,
                   green: res.data.checked_green
                 }));
-                setTasks(obj);
-                setTagID(res.data.id);
-                setSelected_color({
-                  red: res.data.checked_red,
-                  blue: res.data.checked_blue,
-                  yellow: res.data.checked_yellow,
-                  green: res.data.checked_green
-                });
               } else {
-                obj = tasks;
                 obj.splice(i, 1, __assign(__assign({}, task), {
                   tagID: res.data.id,
                   red: res.data.checked_red,
@@ -4880,15 +4872,16 @@ var TaskCard = function TaskCard(_a) {
                   yellow: res.data.checked_yellow,
                   green: res.data.checked_green
                 }));
-                setTasks(obj);
-                setTagID(res.data.id);
-                setSelected_color({
-                  red: res.data.checked_red,
-                  blue: res.data.checked_blue,
-                  yellow: res.data.checked_yellow,
-                  green: res.data.checked_green
-                });
               }
+
+              setTasks(obj);
+              setTagID(res.data.id);
+              setSelected_color({
+                red: res.data.checked_red,
+                blue: res.data.checked_blue,
+                yellow: res.data.checked_yellow,
+                green: res.data.checked_green
+              });
             } catch (err) {
               console.log(err);
             }
@@ -5450,11 +5443,8 @@ var LoginContent = function LoginContent(_a) {
       errors = _c.formState.errors;
 
   var history = react_router_dom_1.useHistory();
-  react_1.useEffect(function () {
-    initCSRF();
-  }, []);
 
-  var initCSRF = function initCSRF() {
+  var initCSRF = function initCSRF(loginData) {
     return __awaiter(void 0, void 0, void 0, function () {
       return __generator(this, function (_a) {
         switch (_a.label) {
@@ -5462,7 +5452,7 @@ var LoginContent = function LoginContent(_a) {
             return [4
             /*yield*/
             , axios_1["default"].get("/sanctum/csrf-cookie").then(function (res) {
-              console.log(res.data);
+              onSubmit(loginData);
             })["catch"](function (err) {
               console.error(err);
             })];
@@ -5513,7 +5503,7 @@ var LoginContent = function LoginContent(_a) {
   }, react_1["default"].createElement("div", {
     className: "pt-20 xs:p-0 mx-auto w-11/12 sm:w-full max-w-md"
   }, react_1["default"].createElement("form", {
-    onSubmit: handleSubmit(onSubmit),
+    onSubmit: handleSubmit(initCSRF),
     className: "bg-white shadow w-full rounded-xl divide-y divide-gray-200 px-1 sm:px-6 md:px-12 py-8"
   }, react_1["default"].createElement("title", {
     className: "block font-bold text-center text-2xl pb-5"
@@ -6293,7 +6283,6 @@ var TodoContent = function TodoContent(_a) {
             try {
               obj = __spreadArray([], tasks);
               obj.unshift(res.data);
-              console.log(obj);
               setTasks(obj);
             } catch (err) {
               console.error(err);
