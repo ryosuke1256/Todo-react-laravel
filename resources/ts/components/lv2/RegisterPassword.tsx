@@ -40,7 +40,7 @@ const RegisterPassword: React.VFC<Props> = ({ register, category }: Props) => {
                 type={IsRevealPassword() ? "text" : "password"}
                 autoComplete="off"
                 placeholder={placeholder}
-                className="border rounded-lg px-3 py-2 mt-1 z-50 text-sm w-10/12 sm:w-11/12"
+                className="border rounded-lg px-3 py-2 mt-1 z-50 w-10/12 sm:w-11/12"
                 {...register(category, {
                     required: true,
                     minLength: 8,
