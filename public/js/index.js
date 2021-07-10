@@ -4519,7 +4519,7 @@ var RegisterPassword = function RegisterPassword(_a) {
     type: IsRevealPassword() ? "text" : "password",
     autoComplete: "off",
     placeholder: placeholder,
-    className: "border rounded-lg px-3 py-2 mt-1 z-50 text-sm w-10/12 sm:w-11/12"
+    className: "border rounded-lg px-3 py-2 mt-1 z-50 w-10/12 sm:w-11/12"
   }, register(category, {
     required: true,
     minLength: 8
@@ -5504,15 +5504,15 @@ var LoginContent = function LoginContent(_a) {
     className: "pt-20 xs:p-0 mx-auto w-11/12 sm:w-full max-w-md"
   }, react_1["default"].createElement("form", {
     onSubmit: handleSubmit(initCSRF),
-    className: "bg-white shadow w-full rounded-xl divide-y divide-gray-200 px-1 sm:px-6 md:px-12 py-8"
+    className: "bg-white shadow w-full rounded-xl divide-y divide-gray-200 px-6 md:px-12 py-8"
   }, react_1["default"].createElement("title", {
-    className: "block font-bold text-center text-2xl pb-5"
+    className: "block font-bold text-center text-2xl sm:text-3xl pb-3"
   }, "\u30ED\u30B0\u30A4\u30F3"), react_1["default"].createElement("main", {
-    className: "px-3 py-4 sm:px-5 sm:py-7"
+    className: "py-5 sm:py-7"
   }, react_1["default"].createElement("div", {
     className: "pb-5"
   }, react_1["default"].createElement("h1", {
-    className: "font-semibold text-sm text-gray-600 pb-1 block"
+    className: "font-semibold text-gray-600 pb-1 block"
   }, "\u30E1\u30FC\u30EB\u30A2\u30C9\u30EC\u30B9"), react_1["default"].createElement("input", __assign({}, register("email", {
     required: true,
     min: -2,
@@ -5520,7 +5520,7 @@ var LoginContent = function LoginContent(_a) {
   }), {
     type: "text",
     placeholder: "E-mail",
-    className: "border rounded-lg px-3 py-2 mt-1 text-sm w-full"
+    className: "border rounded-lg px-3 py-2 mt-1 w-full"
   })), errors.email && errors.email.type === "required" && react_1["default"].createElement("p", {
     className: "pt-1 text-red-400 text-xs opacity-90"
   }, "\u30E1\u30FC\u30EB\u30A2\u30C9\u30EC\u30B9\u306F\u5FC5\u9808\u3067\u3059"), errors.email && errors.email.type === "pattern" && react_1["default"].createElement("p", {
@@ -5528,13 +5528,13 @@ var LoginContent = function LoginContent(_a) {
   }, "\u30E1\u30FC\u30EB\u30A2\u30C9\u30EC\u30B9\u306E\u5F62\u5F0F\u304C\u4E0D\u6B63\u3067\u3059")), react_1["default"].createElement("div", {
     className: "pb-5"
   }, react_1["default"].createElement("h1", {
-    className: "font-semibold text-sm text-gray-600 pb-1 block"
+    className: "font-semibold text-gray-600 pb-1 block"
   }, "\u30D1\u30B9\u30EF\u30FC\u30C9"), react_1["default"].createElement("div", {
     className: "w-full"
   }, react_1["default"].createElement(LoginPassword_1["default"], {
     register: register
   }), errors.password && react_1["default"].createElement("p", {
-    className: "pt-1 text-red-400 text-xs opacity-90"
+    className: "pt-1 text-red-400 opacity-90"
   }, "\u30D1\u30B9\u30EF\u30FC\u30C9\u306F\u5FC5\u9808\u3067\u3059"))), react_1["default"].createElement("p", {
     className: "pb-2 text-red-400 text-xs opacity-90"
   }, errorMessage), react_1["default"].createElement("input", {
@@ -5889,11 +5889,11 @@ var RegisterContent = function RegisterContent(_a) {
     className: "pt-20 xs:p-0 mx-auto w-11/12 sm:w-full max-w-xl"
   }, react_1["default"].createElement("form", {
     onSubmit: handleSubmit(onSubmit),
-    className: "bg-white shadow w-full rounded-xl divide-y divide-gray-200 px-1 sm:px-6 md:px-12 py-9"
+    className: "bg-white shadow w-full rounded-xl divide-y divide-gray-200 px-4 sm:px-12 md:px-16 py-3 sm:py-9 md:py-12"
   }, react_1["default"].createElement("title", {
-    className: "block font-bold text-center text-2xl pb-5 "
-  }, "\u30B5\u30A4\u30F3\u30A2\u30C3\u30D7"), react_1["default"].createElement("main", {
-    className: "px-3 py-4 sm:px-5 sm:py-7"
+    className: "block font-bold text-center text-xl sm:text-3xl pb-2 "
+  }, "\u65B0\u898F\u767B\u9332"), react_1["default"].createElement("main", {
+    className: "py-2 sm:py-7"
   }, react_1["default"].createElement("h1", {
     className: "font-semibold text-sm text-gray-600 pb-1 block"
   }, "\u540D\u524D"), react_1["default"].createElement("input", __assign({}, register("name", {
@@ -5902,7 +5902,7 @@ var RegisterContent = function RegisterContent(_a) {
   }), {
     type: "text",
     placeholder: "Full Name",
-    className: "border rounded-lg border-grey-light px-3 py-2 mt-1 text-sm w-full  block"
+    className: "border rounded-lg border-grey-light px-3 py-2 mt-1 w-full  block"
   })), react_1["default"].createElement("div", {
     className: "text-gray-300 text-xs pt-1"
   }, "\u2714\uFE0E 1\u6587\u5B57\u4EE5\u4E0A255\u5B57\u4EE5\u4E0B"), errors.name && errors.name.type === "required" && react_1["default"].createElement("p", {
@@ -5910,7 +5910,7 @@ var RegisterContent = function RegisterContent(_a) {
   }, "\u540D\u524D\u306F\u5FC5\u9808\u3067\u3059"), errors.name && errors.name.type === "maxLength" && react_1["default"].createElement("p", {
     className: "pt-1 text-red-400 text-xs opacity-90"
   }, "\u540D\u524D\u306F255\u6587\u5B57\u4EE5\u4E0B\u306B\u3057\u3066\u304F\u3060\u3055\u3044"), react_1["default"].createElement("h1", {
-    className: "font-semibold text-sm text-gray-600 pt-3 pb-1 block"
+    className: "font-semibold text-sm text-gray-600 pt-1 sm:pt-3 pb-1 block"
   }, "\u30E1\u30FC\u30EB\u30A2\u30C9\u30EC\u30B9"), react_1["default"].createElement("input", __assign({}, register("email", {
     required: true,
     maxLength: 255,
@@ -5918,7 +5918,7 @@ var RegisterContent = function RegisterContent(_a) {
   }), {
     type: "text",
     placeholder: "Email",
-    className: "border rounded-lg border-grey-light px-3 py-2 text-sm w-full block "
+    className: "border rounded-lg border-grey-light px-3 py-2 w-full block "
   })), errors.email && errors.email.type === "required" && react_1["default"].createElement("p", {
     className: "pt-1 text-red-400 text-xs opacity-90"
   }, "\u30E1\u30FC\u30EB\u30A2\u30C9\u30EC\u30B9\u306F\u5FC5\u9808\u3067\u3059"), errors.email && errors.email.type === "maxLength" && react_1["default"].createElement("p", {
@@ -5928,7 +5928,7 @@ var RegisterContent = function RegisterContent(_a) {
   }, "\u30E1\u30FC\u30EB\u30A2\u30C9\u30EC\u30B9\u306E\u5F62\u5F0F\u304C\u4E0D\u6B63\u3067\u3059"), react_1["default"].createElement("div", {
     className: "w-full"
   }, react_1["default"].createElement("h1", {
-    className: "font-semibold text-sm text-gray-600 pt-3 pb-1 block"
+    className: "font-semibold text-sm text-gray-600 pt-1 sm:pt-3 pb-1 block"
   }, "\u30D1\u30B9\u30EF\u30FC\u30C9"), react_1["default"].createElement(RegisterPassword_1["default"], {
     register: register,
     category: "password"
@@ -5941,7 +5941,7 @@ var RegisterContent = function RegisterContent(_a) {
   }, "\u30D1\u30B9\u30EF\u30FC\u30C9\u306F8\u6587\u5B57\u4EE5\u4E0A\u306B\u3057\u3066\u304F\u3060\u3055\u3044")), react_1["default"].createElement("div", {
     className: "w-full"
   }, react_1["default"].createElement("h1", {
-    className: "font-semibold text-sm text-gray-600 pt-3 pb-1 block"
+    className: "font-semibold text-sm text-gray-600 pt-1 sm:pt-3 pb-1 block"
   }, "\u78BA\u8A8D\u30D1\u30B9\u30EF\u30FC\u30C9"), react_1["default"].createElement(RegisterPassword_1["default"], {
     register: register,
     category: "password_confirmation"
@@ -5953,12 +5953,12 @@ var RegisterContent = function RegisterContent(_a) {
     className: "pt-1 text-red-400 text-xs opacity-90"
   }, errorMessage)), react_1["default"].createElement("input", {
     type: "submit",
-    value: "\u30ED\u30B0\u30A4\u30F3",
-    className: "mt-5 transition duration-200 bg-blue-400 hover:bg-blue-300 focus:bg-blue-700 focus:shadow-sm focus:ring-4 focus:ring-blue-500 focus:ring-opacity-50 text-white w-full py-2.5 rounded-lg text-sm shadow-sm hover:shadow-md font-semibold text-center inline-block cursor-pointer"
+    value: "\u65B0\u898F\u767B\u9332",
+    className: "mt-3 sm:mt-5 transition duration-200 bg-blue-400 hover:bg-blue-300 focus:bg-blue-700 focus:shadow-sm focus:ring-4 focus:ring-blue-500 focus:ring-opacity-50 text-white w-full py-2.5 rounded-lg text-sm shadow-sm hover:shadow-md font-semibold text-center inline-block cursor-pointer"
   })), react_1["default"].createElement("div", {
-    className: "pt-4"
+    className: "pt-1 sm:pt-4"
   })), react_1["default"].createElement("aside", {
-    className: "text-grey-dark pt-6 pb-7"
+    className: "text-grey-dark pt-3 pb-1 sm:pt-6 sm:pb-7"
   }, "\u3059\u3067\u306B\u30A2\u30AB\u30A6\u30F3\u30C8\u3092\u304A\u6301\u3061\u3067\u3059\u304B\uFF1F", react_1["default"].createElement(react_router_dom_1.Link, {
     className: "no-underline border-b border-blue text-blue",
     to: "/login"
@@ -6359,7 +6359,7 @@ var TopPageContent = function TopPageContent() {
   }, react_1["default"].createElement("main", {
     className: "w-full max-w-5xl inline-block pt-28 lg:pt-32"
   }, react_1["default"].createElement("title", {
-    className: "w-11/12 sm:w-10/12 lg:w-9/12 xl:w-full inline-block text-2xl md:text-3xl xl:text-4xl text-gray-700 font-semibold block"
+    className: "w-11/12 lg:w-9/12 xl:w-full inline-block text-2xl md:text-3xl xl:text-4xl text-gray-700 font-semibold block"
   }, react_1["default"].createElement("span", {
     className: "sm:inline-block pt-3 underLine"
   }, "\u300C\u306F\u3074\u305F\u3059\u300D\u306F\u30B7\u30F3\u30D7\u30EB\u3067\u4F7F\u3044\u3084\u3059\u304F\u3092\u610F\u8B58\u3057\u3066"), react_1["default"].createElement("span", {
@@ -6370,7 +6370,7 @@ var TopPageContent = function TopPageContent() {
     className: "flex-nowrap w-full bg-opacity-10"
   }, react_1["default"].createElement("h1", {
     className: "text-yellow-800 text-xl sm:text-2xl md:text-3xl pb-5 font-medium"
-  }, "\u306F\u3074\u305F\u3059\u3092\u4F7F\u3063\u3066\u751F\u7523\u6027\u3092\u4E0A\u3052\u3088\u3046!"), react_1["default"].createElement(react_router_dom_1.Link, {
+  }, "\u30BF\u30B9\u30AF\u7BA1\u7406\u3057\u3066\u751F\u7523\u6027\u3092\u4E0A\u3052\u3088\u3046!"), react_1["default"].createElement(react_router_dom_1.Link, {
     to: "/login",
     className: "button hover"
   }, "\u30ED\u30B0\u30A4\u30F3"), react_1["default"].createElement(react_router_dom_1.Link, {
