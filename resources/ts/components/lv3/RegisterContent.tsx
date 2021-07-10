@@ -224,7 +224,6 @@ const RegisterContent: React.VFC<Props> = ({
                     </Link>
                 </aside>
             </div>
-            );
         </div>
     );
 };
