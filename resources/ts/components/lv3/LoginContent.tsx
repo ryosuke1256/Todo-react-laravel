@@ -63,14 +63,14 @@ const LoginContent: React.VFC<Props> = ({
             <div className="pt-20 xs:p-0 mx-auto w-11/12 sm:w-full max-w-md">
                 <form
                     onSubmit={handleSubmit(initCSRF)}
-                    className="bg-white shadow w-full rounded-xl divide-y divide-gray-200 px-1 sm:px-6 md:px-12 py-8"
+                    className="bg-white shadow w-full rounded-xl divide-y divide-gray-200 px-6 md:px-12 py-8"
                 >
-                    <title className="block font-bold text-center text-2xl pb-5">
+                    <title className="block font-bold text-center text-2xl sm:text-3xl pb-3">
                         ログイン
                     </title>
-                    <main className="px-3 py-4 sm:px-5 sm:py-7">
+                    <main className="py-5 sm:py-7">
                         <div className="pb-5">
-                            <h1 className="font-semibold text-sm text-gray-600 pb-1 block">
+                            <h1 className="font-semibold text-gray-600 pb-1 block">
                                 メールアドレス
                             </h1>
                             <input
@@ -81,7 +81,7 @@ const LoginContent: React.VFC<Props> = ({
                                 })}
                                 type="text"
                                 placeholder="E-mail"
-                                className="border rounded-lg px-3 py-2 mt-1 text-sm w-full"
+                                className="border rounded-lg px-3 py-2 mt-1 w-full"
                             />
                             {errors.email &&
                                 errors.email.type === "required" && (
@@ -97,13 +97,13 @@ const LoginContent: React.VFC<Props> = ({
                                 )}
                         </div>
                         <div className="pb-5">
-                            <h1 className="font-semibold text-sm text-gray-600 pb-1 block">
+                            <h1 className="font-semibold text-gray-600 pb-1 block">
                                 パスワード
                             </h1>
                             <div className="w-full">
                                 <PasswordInputField register={register} />
                                 {errors.password && (
-                                    <p className="pt-1 text-red-400 text-xs opacity-90">
+                                    <p className="pt-1 text-red-400 opacity-90">
                                         パスワードは必須です
                                     </p>
                                 )}
