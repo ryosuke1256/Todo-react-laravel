@@ -13,7 +13,7 @@ const TopPageContent: React.VFC = () => {
                 </aside>
                 <div className="bg-white absolute top-0 left-0 w-full h-full">
                     <main className="w-full max-w-5xl inline-block pt-28 lg:pt-32">
-                        <title className="w-11/12 sm:w-10/12 lg:w-9/12 xl:w-full inline-block text-2xl md:text-3xl xl:text-4xl text-gray-700 font-semibold block">
+                        <title className="w-11/12 lg:w-9/12 xl:w-full inline-block text-2xl md:text-3xl xl:text-4xl text-gray-700 font-semibold block">
                             <span className="sm:inline-block pt-3 underLine">
                                 「はぴたす」はシンプルで使いやすくを意識して
                             </span>
@@ -24,7 +24,7 @@ const TopPageContent: React.VFC = () => {
                         <article className="flex flex-col w-full md:flex-row pt-20 sm:pt-24 md:pt-40">
                             <section className="flex-nowrap w-full bg-opacity-10">
                                 <h1 className="text-yellow-800 text-xl sm:text-2xl md:text-3xl pb-5 font-medium">
-                                    はぴたすを使って生産性を上げよう!
+                                    タスク管理して生産性を上げよう!
                                 </h1>
                                 <Link to="/login" className="button hover">
                                     ログイン
