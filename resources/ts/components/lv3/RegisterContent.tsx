@@ -74,12 +74,12 @@ const RegisterContent: React.VFC<Props> = ({
             <div className="pt-20 xs:p-0 mx-auto w-11/12 sm:w-full max-w-xl">
                 <form
                     onSubmit={handleSubmit(onSubmit)}
-                    className="bg-white shadow w-full rounded-xl divide-y divide-gray-200 px-1 sm:px-6 md:px-12 py-9"
+                    className="bg-white shadow w-full rounded-xl divide-y divide-gray-200 px-4 sm:px-12 md:px-16 py-3 sm:py-9 md:py-12"
                 >
-                    <title className="block font-bold text-center text-2xl pb-5 ">
-                        サインアップ
+                    <title className="block font-bold text-center text-xl sm:text-3xl pb-2 ">
+                        新規登録
                     </title>
-                    <main className="px-3 py-4 sm:px-5 sm:py-7">
+                    <main className="py-2 sm:py-7">
                         <h1 className="font-semibold text-sm text-gray-600 pb-1 block">
                             名前
                         </h1>
@@ -90,7 +90,7 @@ const RegisterContent: React.VFC<Props> = ({
                             })}
                             type="text"
                             placeholder="Full Name"
-                            className="border rounded-lg border-grey-light px-3 py-2 mt-1 text-sm w-full  block"
+                            className="border rounded-lg border-grey-light px-3 py-2 mt-1 w-full  block"
                         />
                         <div className="text-gray-300 text-xs pt-1">
                             ✔︎ 1文字以上255字以下
@@ -105,7 +105,7 @@ const RegisterContent: React.VFC<Props> = ({
                                 名前は255文字以下にしてください
                             </p>
                         )}
-                        <h1 className="font-semibold text-sm text-gray-600 pt-3 pb-1 block">
+                        <h1 className="font-semibold text-sm text-gray-600 pt-1 sm:pt-3 pb-1 block">
                             メールアドレス
                         </h1>
                         <input
@@ -116,7 +116,7 @@ const RegisterContent: React.VFC<Props> = ({
                             })}
                             type="text"
                             placeholder="Email"
-                            className="border rounded-lg border-grey-light px-3 py-2 text-sm w-full block "
+                            className="border rounded-lg border-grey-light px-3 py-2 w-full block "
                         />
                         {errors.email && errors.email.type === "required" && (
                             <p className="pt-1 text-red-400 text-xs opacity-90">
@@ -134,7 +134,7 @@ const RegisterContent: React.VFC<Props> = ({
                             </p>
                         )}
                         <div className="w-full">
-                            <h1 className="font-semibold text-sm text-gray-600 pt-3 pb-1 block">
+                            <h1 className="font-semibold text-sm text-gray-600 pt-1 sm:pt-3 pb-1 block">
                                 パスワード
                             </h1>
                             <RegisterPassword
@@ -158,7 +158,7 @@ const RegisterContent: React.VFC<Props> = ({
                                 )}
                         </div>
                         <div className="w-full">
-                            <h1 className="font-semibold text-sm text-gray-600 pt-3 pb-1 block">
+                            <h1 className="font-semibold text-sm text-gray-600 pt-1 sm:pt-3 pb-1 block">
                                 確認パスワード
                             </h1>
                             <RegisterPassword
@@ -185,13 +185,13 @@ const RegisterContent: React.VFC<Props> = ({
                         </div>
                         <input
                             type="submit"
-                            value="ログイン"
-                            className="mt-5 transition duration-200 bg-blue-400 hover:bg-blue-300 focus:bg-blue-700 focus:shadow-sm focus:ring-4 focus:ring-blue-500 focus:ring-opacity-50 text-white w-full py-2.5 rounded-lg text-sm shadow-sm hover:shadow-md font-semibold text-center inline-block cursor-pointer"
+                            value="新規登録"
+                            className="mt-3 sm:mt-5 transition duration-200 bg-blue-400 hover:bg-blue-300 focus:bg-blue-700 focus:shadow-sm focus:ring-4 focus:ring-blue-500 focus:ring-opacity-50 text-white w-full py-2.5 rounded-lg text-sm shadow-sm hover:shadow-md font-semibold text-center inline-block cursor-pointer"
                         />
                     </main>
-                    <div className="pt-4"></div>
+                    <div className="pt-1 sm:pt-4"></div>
                 </form>
-                <aside className="text-grey-dark pt-6 pb-7">
+                <aside className="text-grey-dark pt-3 pb-1 sm:pt-6 sm:pb-7">
                     すでにアカウントをお持ちですか？
                     <Link
                         className="no-underline border-b border-blue text-blue"
