@@ -85,13 +85,13 @@ const LoginContent: React.VFC<Props> = ({
                             />
                             {errors.email &&
                                 errors.email.type === "required" && (
-                                    <p className="pt-1 text-red-400 text-xs opacity-90">
+                                    <p className="pt-1 text-red-400 text-sm opacity-90">
                                         メールアドレスは必須です
                                     </p>
                                 )}
                             {errors.email &&
                                 errors.email.type === "pattern" && (
-                                    <p className="pt-1 text-red-400 text-xs opacity-90">
+                                    <p className="pt-1 text-red-400 text-sm opacity-90">
                                         メールアドレスの形式が不正です
                                     </p>
                                 )}
@@ -103,7 +103,7 @@ const LoginContent: React.VFC<Props> = ({
                             <div className="w-full">
                                 <PasswordInputField register={register} />
                                 {errors.password && (
-                                    <p className="pt-1 text-red-400 opacity-90">
+                                    <p className="pt-1 text-red-400 text-sm opacity-90">
                                         パスワードは必須です
                                     </p>
                                 )}

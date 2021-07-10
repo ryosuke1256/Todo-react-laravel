@@ -5522,9 +5522,9 @@ var LoginContent = function LoginContent(_a) {
     placeholder: "E-mail",
     className: "border rounded-lg px-3 py-2 mt-1 w-full"
   })), errors.email && errors.email.type === "required" && react_1["default"].createElement("p", {
-    className: "pt-1 text-red-400 text-xs opacity-90"
+    className: "pt-1 text-red-400 text-sm opacity-90"
   }, "\u30E1\u30FC\u30EB\u30A2\u30C9\u30EC\u30B9\u306F\u5FC5\u9808\u3067\u3059"), errors.email && errors.email.type === "pattern" && react_1["default"].createElement("p", {
-    className: "pt-1 text-red-400 text-xs opacity-90"
+    className: "pt-1 text-red-400 text-sm opacity-90"
   }, "\u30E1\u30FC\u30EB\u30A2\u30C9\u30EC\u30B9\u306E\u5F62\u5F0F\u304C\u4E0D\u6B63\u3067\u3059")), react_1["default"].createElement("div", {
     className: "pb-5"
   }, react_1["default"].createElement("h1", {
@@ -5534,7 +5534,7 @@ var LoginContent = function LoginContent(_a) {
   }, react_1["default"].createElement(LoginPassword_1["default"], {
     register: register
   }), errors.password && react_1["default"].createElement("p", {
-    className: "pt-1 text-red-400 opacity-90"
+    className: "pt-1 text-red-400 text-sm opacity-90"
   }, "\u30D1\u30B9\u30EF\u30FC\u30C9\u306F\u5FC5\u9808\u3067\u3059"))), react_1["default"].createElement("p", {
     className: "pb-2 text-red-400 text-xs opacity-90"
   }, errorMessage), react_1["default"].createElement("input", {
