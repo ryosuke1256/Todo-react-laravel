@@ -4393,7 +4393,7 @@ var LoginPassword = function LoginPassword(_a) {
     type: isRevealPassword ? "text" : "password",
     autoComplete: "off",
     placeholder: "Password",
-    className: "border rounded-lg px-3 py-2 mt-1 z-50 text-sm w-10/12 sm:w-11/12"
+    className: "border rounded-lg px-3 py-2 mt-1 z-50 w-10/12 sm:w-11/12"
   }, register("password", {
     required: true
   }))), react_1["default"].createElement("span", {
