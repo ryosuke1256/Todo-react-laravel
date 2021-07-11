@@ -5113,7 +5113,7 @@ var _index_1 = __webpack_require__(/*! ../lv1/_index */ "./resources/ts/componen
 
 var customMedia_1 = __importDefault(__webpack_require__(/*! ../../style/customMedia */ "./resources/ts/style/customMedia.tsx"));
 
-var TextForm = function TextForm(_a) {
+var TextForm = react_1["default"].memo(function (_a) {
   var postTask = _a.postTask,
       userID = _a.userID;
 
@@ -5139,11 +5139,10 @@ var TextForm = function TextForm(_a) {
     setText: setText,
     userID: userID
   }));
-};
-
+});
 exports.default = TextForm;
 
-var _TextForm = styled_components_1["default"].div(templateObject_4 || (templateObject_4 = __makeTemplateObject([" \n    ", "\n    ", " \n    ", "\n    \n"], [" \n    ", "\n    ", " \n    ", "\n    \n"])), customMedia_1["default"].lessThan("mobile")(templateObject_1 || (templateObject_1 = __makeTemplateObject(["\n        padding-left:20px;\n    "], ["\n        padding-left:20px;\n    "]))), customMedia_1["default"].between("mobile", "tablet")(templateObject_2 || (templateObject_2 = __makeTemplateObject(["\n\n    "], ["\n\n    "]))), customMedia_1["default"].greaterThan("tablet")(templateObject_3 || (templateObject_3 = __makeTemplateObject(["\n\n    "], ["\n\n    "]))));
+var _TextForm = styled_components_1["default"].div(templateObject_4 || (templateObject_4 = __makeTemplateObject(["\n    ", "\n    ", " \n    ", "\n"], ["\n    ", "\n    ", " \n    ", "\n"])), customMedia_1["default"].lessThan("mobile")(templateObject_1 || (templateObject_1 = __makeTemplateObject(["\n        padding-left:20px;\n    "], ["\n        padding-left:20px;\n    "]))), customMedia_1["default"].between("mobile", "tablet")(templateObject_2 || (templateObject_2 = __makeTemplateObject(["\n\n    "], ["\n\n    "]))), customMedia_1["default"].greaterThan("tablet")(templateObject_3 || (templateObject_3 = __makeTemplateObject(["\n\n    "], ["\n\n    "]))));
 
 var templateObject_1, templateObject_2, templateObject_3, templateObject_4;
 
@@ -6267,7 +6266,7 @@ var TodoContent = function TodoContent(_a) {
     });
   };
 
-  var postTask = function postTask(postData) {
+  var postTask = react_1.useCallback(function (postData) {
     return __awaiter(void 0, void 0, void 0, function () {
       var res, obj;
       return __generator(this, function (_a) {
@@ -6294,8 +6293,7 @@ var TodoContent = function TodoContent(_a) {
         }
       });
     });
-  };
-
+  }, [tasks]);
   var i = -1;
   return react_1["default"].createElement(react_1["default"].Fragment, null, react_1["default"].createElement(_Wrapper, null, react_1["default"].createElement(exports._TodoContent, null, react_1["default"].createElement(_index_1.TextForm, {
     postTask: postTask,

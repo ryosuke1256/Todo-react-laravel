@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useCallback } from "react";
 import axios from "axios";
 import styled from "styled-components";
 import customMedia from "../../style/customMedia";
@@ -31,17 +31,20 @@ const TodoContent: React.VFC<Props> = ({ userID }: Props) => {
         }
     };
 
-    const postTask = async (postData: TaskAPI): Promise<void> => {
-        // console.log({ postData });
-        const res = await axios.post("api/tasks", postData);
-        try {
-            const obj = [...tasks];
-            obj.unshift(res.data);
-            setTasks(obj);
-        } catch (err) {
-            console.error(err);
-        }
-    };
+    const postTask = useCallback(
+        async (postData: TaskAPI): Promise<void> => {
+            // console.log({ postData });
+            const res = await axios.post("api/tasks", postData);
+            try {
+                const obj = [...tasks];
+                obj.unshift(res.data);
+                setTasks(obj);
+            } catch (err) {
+                console.error(err);
+            }
+        },
+        [tasks]
+    );
 
     let i: number = -1;
 
