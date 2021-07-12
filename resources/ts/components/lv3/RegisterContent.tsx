@@ -199,7 +199,6 @@ const RegisterContent: React.VFC<Props> = ({
                     >
                         ログイン
                     </Link>
-                    .
                 </aside>
                 <aside className="w-full text-center sm:text-left whitespace-nowrap">
                     <Link
