@@ -1,8 +1,8 @@
 import React from "react";
 import styled from "styled-components";
 import TagColor_Modal from "../lv1/ColoredTag_Modal";
-import { Color } from "../../../type/Color";
 import axios from "axios";
+import { Color } from "../../../type/Color";
 import { TagAPI } from "../../../type/api/TagAPI";
 import { TaskAndColor } from "../../../type/TaskAndColor";
 import customMedia from "../../../style/customMedia";
@@ -11,13 +11,13 @@ type Props = {
     hasModalOpened: boolean;
     selected_color: Color;
     setHasModalOpened: (param: boolean) => void;
-    setSelected_color: (prevState: any) => boolean | void;
+    setSelected_color: (param: Color) => void;
     taskID?: number;
     tagID: number | null;
-    setTagID: (param: any) => void;
+    setTagID: (param: number) => void;
     tasks: [TaskAndColor];
     task: TaskAndColor;
-    setTasks: (param: {}) => void;
+    setTasks: (param: object) => void;
     i: number;
 };
 

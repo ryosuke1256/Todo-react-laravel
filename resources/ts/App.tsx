@@ -6,8 +6,8 @@ import {LoginContent,RegisterContent,TodoContent,TopPageContent} from "./compone
 
 const App: React.VFC = () => {
     const [is_authenticated, setIs_authenticated] = useState<boolean>(false);
-    const [userID, setUserID] = useState<number | null>(null);
-    const [userName, setUserName] = useState<string>("");
+    const [userID, setUserID] = useState<Readonly<number | null>>(null);
+    const [userName, setUserName] = useState<Readonly<string>>("");
     const [is_began, setIs_began] = useState(false);
 
     useEffect(() => {

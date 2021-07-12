@@ -1,4 +1,4 @@
-import React, { useReducer, useContext } from "react";
+import React, { useContext } from "react";
 import { TasksEditActiveContext } from "../lv3/TodoContent";
 import { EditIcon } from "./_index";
 import { Button } from "./Button";
@@ -7,7 +7,7 @@ import MediaQuery from "react-responsive";
 type Props = {
     editTask: (title: string) => Promise<void>;
     editActive: boolean;
-    setEditActive: (prevState: any) => void;
+    setEditActive: (param: (prev: boolean) => boolean) => void;
     title: string;
     editButtonTitle: string;
     setEditButtonTitle: (param: string) => void;
@@ -23,12 +23,12 @@ const EditButton: React.VFC<Props> = ({
 }: Props) => {
     const tasksEditContext = useContext(TasksEditActiveContext);
 
-    const changeTaskTitle = () => {
+    const changeTaskTitle = (): null | undefined => {
         if (!editActive && tasksEditContext.tasksEditState) {
             return null;
         } else {
             setEditButtonTitle("変更");
-            setEditActive((prevState) => !prevState);
+            setEditActive((prev: boolean) => !prev);
             tasksEditContext.tasksEditDispatch("active");
             if (editActive) {
                 editTask(title);
