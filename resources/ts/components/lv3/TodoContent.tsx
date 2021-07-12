@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useCallback } from "react";
+import React, { useState, useEffect, useCallback, useReducer } from "react";
 import axios from "axios";
 import styled from "styled-components";
 import customMedia from "../../style/customMedia";
@@ -6,14 +6,27 @@ import { TaskAndColor } from "../../type/TaskAndColor";
 import { TaskAPI } from "../../type/api/TaskAPI";
 import { TaskCard, TextForm, WelcomeContent } from "../lv2/_index";
 
+export const TasksEditActiveContext = React.createContext<any>(false);
+const initialState = false;
+const reducer = (state: boolean, action) => {
+    switch (action) {
+        case "active":
+            return true;
+        case "deactivate":
+            return false;
+        default:
+            return state;
+    }
+};
+
 type Props = {
     userID: string;
 };
 
 const TodoContent: React.VFC<Props> = ({ userID }: Props) => {
     const [tasks, setTasks] = useState<any>([]);
-    const [tasksEditActive, setTasksEditActive] = useState(false);
     const [is_began, setIs_began] = useState(false);
+    const [tasksEditActive, dispatch] = useReducer(reducer, initialState);
 
     useEffect(() => {
         getTasks();
@@ -50,32 +63,46 @@ const TodoContent: React.VFC<Props> = ({ userID }: Props) => {
 
     return (
         <>
-            <_Wrapper>
-                <_TodoContent>
-                    <TextForm postTask={postTask} userID={userID} />
-                    {tasks.length === 0 && is_began === true ? (
-                        <WelcomeContent />
-                    ) : (
-                        <_TaskCards>
-                            {tasks.map((task: TaskAndColor, key: number) => {
-                                i++;
-                                return (
-                                    <TaskCard
-                                        task={task}
-                                        setTasks={setTasks}
-                                        tasks={tasks}
-                                        tasksEditActive={tasksEditActive}
-                                        setTasksEditActive={setTasksEditActive}
-                                        id={task.id}
-                                        i={i}
-                                        key={key}
-                                    />
-                                );
-                            })}
-                        </_TaskCards>
-                    )}
-                </_TodoContent>
-            </_Wrapper>
+            <TasksEditActiveContext.Provider
+                value={{
+                    tasksEditState: tasksEditActive,
+                    tasksEditDispatch: dispatch,
+                }}
+            >
+                <_Wrapper>
+                    <_TodoContent>
+                        <TextForm
+                            postTask={postTask}
+                            userID={userID}
+                            dispatch={dispatch}
+                        />
+                        {tasks.length === 0 && is_began === true ? (
+                            <WelcomeContent />
+                        ) : (
+                            <_TaskCards>
+                                {tasks.map(
+                                    (task: TaskAndColor, key: number) => {
+                                        i++;
+                                        return (
+                                            <TaskCard
+                                                task={task}
+                                                setTasks={setTasks}
+                                                tasks={tasks}
+                                                tasksEditActive={
+                                                    tasksEditActive
+                                                }
+                                                id={task.id}
+                                                i={i}
+                                                key={key}
+                                            />
+                                        );
+                                    }
+                                )}
+                            </_TaskCards>
+                        )}
+                    </_TodoContent>
+                </_Wrapper>
+            </TasksEditActiveContext.Provider>
         </>
     );
 };

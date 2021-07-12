@@ -12,14 +12,12 @@ type Props = {
     tasks: [TaskAndColor];
     task: TaskAndColor;
     setTasks: (param: {}) => void;
-    tasksEditActive: boolean;
-    setTasksEditActive: (param: boolean) => void;
     id: number;
     i: number;
 };
 
 //prettier-ignore
-const TaskCard: React.VFC<Props> = ({task,tasks,setTasks,tasksEditActive,setTasksEditActive,id,i,}: Props) => {
+const TaskCard: React.VFC<Props> = React.memo(({task,tasks,setTasks,id,i,}: Props) => {
     const [title, setTitle] = useState(task.title);
     const [is_done, setIs_done] = useState(task.is_done);
     const [editActive, setEditActive] = useState(false);
@@ -106,6 +104,7 @@ const TaskCard: React.VFC<Props> = ({task,tasks,setTasks,tasksEditActive,setTask
 
     return (
         <>
+
             <_TaskCard>
                 <_Wrapper>
                     <CheckBox is_done={is_done} checkTask={checkTask} />
@@ -116,16 +115,12 @@ const TaskCard: React.VFC<Props> = ({task,tasks,setTasks,tasksEditActive,setTask
                         setTitle={setTitle}
                         editTask={editTask}
                         setEditActive={setEditActive}
-                        tasksEditActive={tasksEditActive}
-                        setTasksEditActive={setTasksEditActive}
                         setEditButtonTitle={setEditButtonTitle}
                     />
                     <EditButton
                         editTask={editTask}
                         editActive={editActive}
                         setEditActive={setEditActive}
-                        tasksEditActive={tasksEditActive}
-                        setTasksEditActive={setTasksEditActive}
                         title={title}
                         editButtonTitle={editButtonTitle}
                         setEditButtonTitle={setEditButtonTitle}
@@ -156,7 +151,7 @@ const TaskCard: React.VFC<Props> = ({task,tasks,setTasks,tasksEditActive,setTask
             />
         </>
     );
-};
+});
 
 export default TaskCard;
 
