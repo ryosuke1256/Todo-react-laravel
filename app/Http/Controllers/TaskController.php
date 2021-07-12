@@ -20,7 +20,7 @@ class TaskController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\JsonResponse
      */
-    public function index($id) 
+    public function index(int $id): object
     {
         $user = Auth::user();
         $task = $user->task;
@@ -34,7 +34,7 @@ class TaskController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\JsonResponse
      */
-    public function store(Request $request)
+    public function store(Request $request): object
     {
         $task = Task::create($request->all());
         return $task 
@@ -50,7 +50,7 @@ class TaskController extends Controller
      * @param  \App\Models\Task  $task
      * @return \Illuminate\Http\JsonResponse
      */
-    public function update(Request $request, Task $task)
+    public function update(Request $request, Task $task): object
     {
         $task->title = $request->title;
         $task->is_done = $request->is_done;
@@ -66,7 +66,7 @@ class TaskController extends Controller
      * @param  \App\Models\Task  $task
      * @return \Illuminate\Http\JsonResponse
      */
-    public function destroy(Task $task)
+    public function destroy(Task $task): object
     {
         return $task->delete() 
         ? response()->json($task)
