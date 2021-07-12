@@ -8,7 +8,7 @@ type Props = {
 };
 
 //prettier-ignore
-const ColoredTags: React.VFC<Props> = ({ selected_color }: Props) => {
+const ColoredTags: React.VFC<Props> = React.memo(({ selected_color }: Props) => {
     const obj = { ...selected_color };
     if (
         (obj.red === false && obj.blue === false && obj.yellow === false && obj.green === false) 
@@ -27,7 +27,7 @@ const ColoredTags: React.VFC<Props> = ({ selected_color }: Props) => {
             </_ColoredTags>
         );
     }
-};
+});
 
 export default ColoredTags;
 

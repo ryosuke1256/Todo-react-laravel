@@ -1,5 +1,6 @@
-import React from "react";
+import React, { useContext } from "react";
 import styled from "styled-components";
+import { TasksEditActiveContext } from "../lv3/TodoContent";
 
 type Props = {
     is_done: 0 | 1;
@@ -8,7 +9,6 @@ type Props = {
     setTitle: (param: () => string) => void;
     editTask: (title: string) => Promise<void>;
     setEditActive: (param: boolean) => void;
-    setTasksEditActive: (param: boolean) => void;
     setEditButtonTitle: (param: string) => void;
 };
 
@@ -19,9 +19,10 @@ const TaskTitle: React.VFC<Props> = ({
     setTitle,
     editTask,
     setEditActive,
-    setTasksEditActive,
     setEditButtonTitle,
 }: Props) => {
+    const tasksEditContext = useContext(TasksEditActiveContext);
+
     const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
         setTitle(() => e.target.value);
     };
@@ -42,7 +43,7 @@ const TaskTitle: React.VFC<Props> = ({
                         editTask(title);
                         setEditActive(!editActive);
                         setEditButtonTitle("編集");
-                        setTasksEditActive(false);
+                        tasksEditContext.tasksEditDispatch("deactivate");
                     }
                 }}
             />

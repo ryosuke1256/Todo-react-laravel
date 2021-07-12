@@ -3284,6 +3284,40 @@ exports.default = DeleteIcon;
 "use strict";
 
 
+var __createBinding = this && this.__createBinding || (Object.create ? function (o, m, k, k2) {
+  if (k2 === undefined) k2 = k;
+  Object.defineProperty(o, k2, {
+    enumerable: true,
+    get: function get() {
+      return m[k];
+    }
+  });
+} : function (o, m, k, k2) {
+  if (k2 === undefined) k2 = k;
+  o[k2] = m[k];
+});
+
+var __setModuleDefault = this && this.__setModuleDefault || (Object.create ? function (o, v) {
+  Object.defineProperty(o, "default", {
+    enumerable: true,
+    value: v
+  });
+} : function (o, v) {
+  o["default"] = v;
+});
+
+var __importStar = this && this.__importStar || function (mod) {
+  if (mod && mod.__esModule) return mod;
+  var result = {};
+  if (mod != null) for (var k in mod) {
+    if (k !== "default" && Object.prototype.hasOwnProperty.call(mod, k)) __createBinding(result, mod, k);
+  }
+
+  __setModuleDefault(result, mod);
+
+  return result;
+};
+
 var __importDefault = this && this.__importDefault || function (mod) {
   return mod && mod.__esModule ? mod : {
     "default": mod
@@ -3294,7 +3328,9 @@ Object.defineProperty(exports, "__esModule", ({
   value: true
 }));
 
-var react_1 = __importDefault(__webpack_require__(/*! react */ "./node_modules/react/index.js"));
+var react_1 = __importStar(__webpack_require__(/*! react */ "./node_modules/react/index.js"));
+
+var TodoContent_1 = __webpack_require__(/*! ../lv3/TodoContent */ "./resources/ts/components/lv3/TodoContent.tsx");
 
 var _index_1 = __webpack_require__(/*! ./_index */ "./resources/ts/components/lv1/_index.js");
 
@@ -3306,31 +3342,30 @@ var EditButton = function EditButton(_a) {
   var editTask = _a.editTask,
       editActive = _a.editActive,
       setEditActive = _a.setEditActive,
-      tasksEditActive = _a.tasksEditActive,
-      setTasksEditActive = _a.setTasksEditActive,
       title = _a.title,
       editButtonTitle = _a.editButtonTitle,
       setEditButtonTitle = _a.setEditButtonTitle;
+  var tasksEditContext = react_1.useContext(TodoContent_1.TasksEditActiveContext);
 
   var changeTaskTitle = function changeTaskTitle() {
-    if (!editActive && tasksEditActive) {
+    if (!editActive && tasksEditContext.tasksEditState) {
       return null;
     } else {
       setEditButtonTitle("変更");
       setEditActive(function (prevState) {
         return !prevState;
       });
-      setTasksEditActive(true);
+      tasksEditContext.tasksEditDispatch("active");
 
       if (editActive) {
         editTask(title);
         setEditButtonTitle("編集");
-        setTasksEditActive(false);
+        tasksEditContext.tasksEditDispatch("deactivate");
       }
     }
   };
 
-  return react_1["default"].createElement(react_1["default"].Fragment, null, react_1["default"].createElement("div", null, react_1["default"].createElement(react_responsive_1["default"], {
+  return react_1["default"].createElement(react_1["default"].Fragment, null, react_1["default"].createElement(react_responsive_1["default"], {
     query: "(max-width: 599px)"
   }, react_1["default"].createElement(_index_1.EditIcon, {
     changeTaskTitle: changeTaskTitle
@@ -3341,7 +3376,7 @@ var EditButton = function EditButton(_a) {
       return changeTaskTitle();
     },
     backgroundColor: "#3bc2e4"
-  }, editButtonTitle))));
+  }, editButtonTitle)));
 };
 
 exports.default = EditButton;
@@ -3556,6 +3591,40 @@ var __makeTemplateObject = this && this.__makeTemplateObject || function (cooked
   return cooked;
 };
 
+var __createBinding = this && this.__createBinding || (Object.create ? function (o, m, k, k2) {
+  if (k2 === undefined) k2 = k;
+  Object.defineProperty(o, k2, {
+    enumerable: true,
+    get: function get() {
+      return m[k];
+    }
+  });
+} : function (o, m, k, k2) {
+  if (k2 === undefined) k2 = k;
+  o[k2] = m[k];
+});
+
+var __setModuleDefault = this && this.__setModuleDefault || (Object.create ? function (o, v) {
+  Object.defineProperty(o, "default", {
+    enumerable: true,
+    value: v
+  });
+} : function (o, v) {
+  o["default"] = v;
+});
+
+var __importStar = this && this.__importStar || function (mod) {
+  if (mod && mod.__esModule) return mod;
+  var result = {};
+  if (mod != null) for (var k in mod) {
+    if (k !== "default" && Object.prototype.hasOwnProperty.call(mod, k)) __createBinding(result, mod, k);
+  }
+
+  __setModuleDefault(result, mod);
+
+  return result;
+};
+
 var __importDefault = this && this.__importDefault || function (mod) {
   return mod && mod.__esModule ? mod : {
     "default": mod
@@ -3566,9 +3635,11 @@ Object.defineProperty(exports, "__esModule", ({
   value: true
 }));
 
-var react_1 = __importDefault(__webpack_require__(/*! react */ "./node_modules/react/index.js"));
+var react_1 = __importStar(__webpack_require__(/*! react */ "./node_modules/react/index.js"));
 
 var styled_components_1 = __importDefault(__webpack_require__(/*! styled-components */ "./node_modules/styled-components/dist/styled-components.browser.esm.js"));
+
+var TodoContent_1 = __webpack_require__(/*! ../lv3/TodoContent */ "./resources/ts/components/lv3/TodoContent.tsx");
 
 var TaskTitle = function TaskTitle(_a) {
   var is_done = _a.is_done,
@@ -3577,8 +3648,8 @@ var TaskTitle = function TaskTitle(_a) {
       setTitle = _a.setTitle,
       editTask = _a.editTask,
       setEditActive = _a.setEditActive,
-      setTasksEditActive = _a.setTasksEditActive,
       setEditButtonTitle = _a.setEditButtonTitle;
+  var tasksEditContext = react_1.useContext(TodoContent_1.TasksEditActiveContext);
 
   var handleChange = function handleChange(e) {
     setTitle(function () {
@@ -3603,7 +3674,7 @@ var TaskTitle = function TaskTitle(_a) {
           editTask(title);
           setEditActive(!editActive);
           setEditButtonTitle("編集");
-          setTasksEditActive(false);
+          tasksEditContext.tasksEditDispatch("deactivate");
         }
       }
     });
@@ -3978,7 +4049,7 @@ var ColoredTag_1 = __importDefault(__webpack_require__(/*! ../lv1/ColoredTag */ 
 var styled_components_1 = __importDefault(__webpack_require__(/*! styled-components */ "./node_modules/styled-components/dist/styled-components.browser.esm.js")); //prettier-ignore
 
 
-var ColoredTags = function ColoredTags(_a) {
+var ColoredTags = react_1["default"].memo(function (_a) {
   var selected_color = _a.selected_color;
 
   var obj = __assign({}, selected_color);
@@ -4002,8 +4073,7 @@ var ColoredTags = function ColoredTags(_a) {
       i: 3
     }));
   }
-};
-
+});
 exports.default = ColoredTags;
 
 var _ColoredTags = styled_components_1["default"].div(templateObject_1 || (templateObject_1 = __makeTemplateObject(["\n    display: flex;\n    flex-wrap: wrap;\n    height: 10px;\n    cursor: pointer;\n"], ["\n    display: flex;\n    flex-wrap: wrap;\n    height: 10px;\n    cursor: pointer;\n"])));
@@ -4776,12 +4846,10 @@ var _index_2 = __webpack_require__(/*! ../lv1/_index */ "./resources/ts/componen
 var customMedia_1 = __importDefault(__webpack_require__(/*! ../../style/customMedia */ "./resources/ts/style/customMedia.tsx")); //prettier-ignore
 
 
-var TaskCard = function TaskCard(_a) {
+var TaskCard = react_1["default"].memo(function (_a) {
   var task = _a.task,
       tasks = _a.tasks,
       setTasks = _a.setTasks,
-      tasksEditActive = _a.tasksEditActive,
-      setTasksEditActive = _a.setTasksEditActive,
       id = _a.id,
       i = _a.i;
 
@@ -4994,15 +5062,11 @@ var TaskCard = function TaskCard(_a) {
     setTitle: setTitle,
     editTask: editTask,
     setEditActive: setEditActive,
-    tasksEditActive: tasksEditActive,
-    setTasksEditActive: setTasksEditActive,
     setEditButtonTitle: setEditButtonTitle
   }), react_1["default"].createElement(_index_2.EditButton, {
     editTask: editTask,
     editActive: editActive,
     setEditActive: setEditActive,
-    tasksEditActive: tasksEditActive,
-    setTasksEditActive: setTasksEditActive,
     title: title,
     editButtonTitle: editButtonTitle,
     setEditButtonTitle: setEditButtonTitle
@@ -5028,8 +5092,7 @@ var TaskCard = function TaskCard(_a) {
     task: task,
     i: i
   }));
-};
-
+});
 exports.default = TaskCard;
 
 var _TaskCard = styled_components_1["default"].div(templateObject_4 || (templateObject_4 = __makeTemplateObject(["\n    border: 1px solid #d4e0e7;\n    padding: 10px 10px 8px 10px;\n    border-bottom: 0px;\n    border-radius: 6px;\n    background-color: rgb(254, 254, 254);\n    ", "\n    ", "\n    ", "\n"], ["\n    border: 1px solid #d4e0e7;\n    padding: 10px 10px 8px 10px;\n    border-bottom: 0px;\n    border-radius: 6px;\n    background-color: rgb(254, 254, 254);\n    ", "\n    ", "\n    ", "\n"])), customMedia_1["default"].lessThan("mobile")(templateObject_1 || (templateObject_1 = __makeTemplateObject(["\n        padding:13px;\n        border-top: 1px solid #deeaf1;\n        border-bottom: 1px solid #deeaf1;\n        border-right: 0px;\n        border-left: 0px;\n    "], ["\n        padding:13px;\n        border-top: 1px solid #deeaf1;\n        border-bottom: 1px solid #deeaf1;\n        border-right: 0px;\n        border-left: 0px;\n    "]))), customMedia_1["default"].between("mobile", "tablet")(templateObject_2 || (templateObject_2 = __makeTemplateObject(["\n\n    "], ["\n\n    "]))), customMedia_1["default"].greaterThan("tablet")(templateObject_3 || (templateObject_3 = __makeTemplateObject(["\n    \n    "], ["\n    \n    "]))));
@@ -6199,7 +6262,7 @@ var __importDefault = this && this.__importDefault || function (mod) {
 Object.defineProperty(exports, "__esModule", ({
   value: true
 }));
-exports._TodoContent = exports._TaskCards = void 0;
+exports._TodoContent = exports._TaskCards = exports.TasksEditActiveContext = void 0;
 
 var react_1 = __importStar(__webpack_require__(/*! react */ "./node_modules/react/index.js"));
 
@@ -6211,6 +6274,22 @@ var customMedia_1 = __importDefault(__webpack_require__(/*! ../../style/customMe
 
 var _index_1 = __webpack_require__(/*! ../lv2/_index */ "./resources/ts/components/lv2/_index.js");
 
+exports.TasksEditActiveContext = react_1["default"].createContext(false);
+var initialState = false;
+
+var reducer = function reducer(state, action) {
+  switch (action) {
+    case "active":
+      return true;
+
+    case "deactivate":
+      return false;
+
+    default:
+      return state;
+  }
+};
+
 var TodoContent = function TodoContent(_a) {
   var userID = _a.userID;
 
@@ -6219,12 +6298,12 @@ var TodoContent = function TodoContent(_a) {
       setTasks = _b[1];
 
   var _c = react_1.useState(false),
-      tasksEditActive = _c[0],
-      setTasksEditActive = _c[1];
+      is_began = _c[0],
+      setIs_began = _c[1];
 
-  var _d = react_1.useState(false),
-      is_began = _d[0],
-      setIs_began = _d[1];
+  var _d = react_1.useReducer(reducer, initialState),
+      tasksEditActive = _d[0],
+      dispatch = _d[1];
 
   react_1.useEffect(function () {
     getTasks();
@@ -6295,9 +6374,15 @@ var TodoContent = function TodoContent(_a) {
     });
   }, [tasks]);
   var i = -1;
-  return react_1["default"].createElement(react_1["default"].Fragment, null, react_1["default"].createElement(_Wrapper, null, react_1["default"].createElement(exports._TodoContent, null, react_1["default"].createElement(_index_1.TextForm, {
+  return react_1["default"].createElement(react_1["default"].Fragment, null, react_1["default"].createElement(exports.TasksEditActiveContext.Provider, {
+    value: {
+      tasksEditState: tasksEditActive,
+      tasksEditDispatch: dispatch
+    }
+  }, react_1["default"].createElement(_Wrapper, null, react_1["default"].createElement(exports._TodoContent, null, react_1["default"].createElement(_index_1.TextForm, {
     postTask: postTask,
-    userID: userID
+    userID: userID,
+    dispatch: dispatch
   }), tasks.length === 0 && is_began === true ? react_1["default"].createElement(_index_1.WelcomeContent, null) : react_1["default"].createElement(exports._TaskCards, null, tasks.map(function (task, key) {
     i++;
     return react_1["default"].createElement(_index_1.TaskCard, {
@@ -6305,12 +6390,11 @@ var TodoContent = function TodoContent(_a) {
       setTasks: setTasks,
       tasks: tasks,
       tasksEditActive: tasksEditActive,
-      setTasksEditActive: setTasksEditActive,
       id: task.id,
       i: i,
       key: key
     });
-  })))));
+  }))))));
 };
 
 exports.default = TodoContent;
