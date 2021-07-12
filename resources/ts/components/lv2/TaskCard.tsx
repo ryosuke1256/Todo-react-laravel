@@ -6,12 +6,13 @@ import Modal from "../modal/lv2/Modal";
 import { EditButton, DeleteButton, CheckBox, TaskTitle } from "../lv1/_index"; //prettier-ignore
 import { TaskAPI } from "../../type/api/TaskAPI";
 import { TaskAndColor } from "../../type/TaskAndColor";
+import { Color } from "../../type/Color";
 import customMedia from "../../style/customMedia";
 
 type Props = {
     tasks: [TaskAndColor];
     task: TaskAndColor;
-    setTasks: (param: {}) => void;
+    setTasks: (param: object) => void;
     id: number;
     i: number;
 };
@@ -22,7 +23,7 @@ const TaskCard: React.VFC<Props> = React.memo(({task,tasks,setTasks,id,i,}: Prop
     const [is_done, setIs_done] = useState(task.is_done);
     const [editActive, setEditActive] = useState(false);
     const [hasModalOpened, setHasModalOpened] = useState(false);
-    const [selected_color, setSelected_color] = useState<any>({red:false,blue:false,yellow:false,green:false}); //prettier-ignore
+    const [selected_color, setSelected_color] = useState<Color>({red:false,blue:false,yellow:false,green:false}); //prettier-ignore
     const [tagID,setTagID] = useState<number|null>(null);
     const [editButtonTitle, setEditButtonTitle] = useState("編集");
 

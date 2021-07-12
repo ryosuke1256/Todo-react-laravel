@@ -14,7 +14,7 @@ class TagController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\JsonResponse
      */
-    public function index($id)
+    public function index(?int $id): ?object
     {
         $tag = Tag::where('task_id',$id)->first();
         return $tag;
@@ -27,7 +27,7 @@ class TagController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\JsonResponse
      */
-    public function store(Request $request)
+    public function store(Request $request): object
     {
         $tag = Tag::create($request->all());
         return $tag
@@ -43,7 +43,7 @@ class TagController extends Controller
      * @param  \App\Models\Tag $tag
      * @return \Illuminate\Http\JsonResponse
      */
-    public function update(Request $request, Tag $tag)
+    public function update(Request $request, Tag $tag): object
     {
         $tag->checked_red = $request->checked_red;
         $tag->checked_blue = $request->checked_blue;

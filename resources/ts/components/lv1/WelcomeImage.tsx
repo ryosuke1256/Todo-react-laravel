@@ -2,7 +2,7 @@ import React from "react";
 import styled from "styled-components";
 import customMedia from "../../style/customMedia";
 
-const WelcomeImage = () => {
+const WelcomeImage: React.VFC = () => {
     return (
         <_WelcomeImage
             id="ae81c40f-6eb7-45b1-b509-6cf6baf1840d"

@@ -7,8 +7,9 @@ import { TaskAPI } from "../../type/api/TaskAPI";
 import { TaskCard, TextForm, WelcomeContent } from "../lv2/_index";
 
 export const TasksEditActiveContext = React.createContext<any>(false);
+
 const initialState = false;
-const reducer = (state: boolean, action) => {
+const reducer = (state: boolean, action: "active" | "deactivate"): boolean => {
     switch (action) {
         case "active":
             return true;
@@ -20,11 +21,11 @@ const reducer = (state: boolean, action) => {
 };
 
 type Props = {
-    userID: string;
+    userID: Readonly<string>;
 };
 
 const TodoContent: React.VFC<Props> = ({ userID }: Props) => {
-    const [tasks, setTasks] = useState<any>([]);
+    const [tasks, setTasks] = useState<TaskAndColor[]>([]);
     const [is_began, setIs_began] = useState(false);
     const [tasksEditActive, dispatch] = useReducer(reducer, initialState);
 

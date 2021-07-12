@@ -3352,8 +3352,8 @@ var EditButton = function EditButton(_a) {
       return null;
     } else {
       setEditButtonTitle("変更");
-      setEditActive(function (prevState) {
-        return !prevState;
+      setEditActive(function (prev) {
+        return !prev;
       });
       tasksEditContext.tasksEditDispatch("active");
 
@@ -6024,7 +6024,7 @@ var RegisterContent = function RegisterContent(_a) {
   }, "\u3059\u3067\u306B\u30A2\u30AB\u30A6\u30F3\u30C8\u3092\u304A\u6301\u3061\u3067\u3059\u304B\uFF1F", react_1["default"].createElement(react_router_dom_1.Link, {
     className: "no-underline border-b border-blue text-blue",
     to: "/login"
-  }, "\u30ED\u30B0\u30A4\u30F3"), "."), react_1["default"].createElement("aside", {
+  }, "\u30ED\u30B0\u30A4\u30F3")), react_1["default"].createElement("aside", {
     className: "w-full text-center sm:text-left whitespace-nowrap"
   }, react_1["default"].createElement(react_router_dom_1.Link, {
     to: "/",
