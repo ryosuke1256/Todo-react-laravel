@@ -24,8 +24,8 @@ const TodoContent: React.VFC<Props> = ({ userID }: Props) => {
     const getTasks = async (): Promise<void> => {
         if (userID !== null) {
             try {
-                const Data = await axios.get(`api/tasks/users/${userID}`);
-                setTasks(Data.data.map((data: TaskAndColor) => data));
+                const res = await axios.get(`api/tasks/users/${userID}`);
+                setTasks(res.data);
                 setIs_began(true);
             } catch (err) {
                 console.error(err);
@@ -38,9 +38,9 @@ const TodoContent: React.VFC<Props> = ({ userID }: Props) => {
             // console.log({ postData });
             try {
                 const res = await axios.post("api/tasks", postData);
-                const obj = [...tasks];
-                obj.unshift(res.data);
-                setTasks(obj);
+                const todos = [...tasks];
+                todos.unshift(res.data);
+                setTasks(todos);
             } catch (err) {
                 console.error(err);
             }

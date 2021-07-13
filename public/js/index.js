@@ -6495,7 +6495,7 @@ var TodoContent = function TodoContent(_a) {
 
   var getTasks = function getTasks() {
     return __awaiter(void 0, void 0, void 0, function () {
-      var Data, err_1;
+      var res, err_1;
       return __generator(this, function (_a) {
         switch (_a.label) {
           case 0:
@@ -6512,10 +6512,8 @@ var TodoContent = function TodoContent(_a) {
             , axios_1["default"].get("api/tasks/users/" + userID)];
 
           case 2:
-            Data = _a.sent();
-            setTasks(Data.data.map(function (data) {
-              return data;
-            }));
+            res = _a.sent();
+            setTasks(res.data);
             setIs_began(true);
             return [3
             /*break*/
@@ -6539,7 +6537,7 @@ var TodoContent = function TodoContent(_a) {
 
   var postTask = react_1.useCallback(function (postData) {
     return __awaiter(void 0, void 0, void 0, function () {
-      var res, obj, err_2;
+      var res, todos, err_2;
       return __generator(this, function (_a) {
         switch (_a.label) {
           case 0:
@@ -6551,9 +6549,9 @@ var TodoContent = function TodoContent(_a) {
 
           case 1:
             res = _a.sent();
-            obj = __spreadArray([], tasks);
-            obj.unshift(res.data);
-            setTasks(obj);
+            todos = __spreadArray([], tasks);
+            todos.unshift(res.data);
+            setTasks(todos);
             return [3
             /*break*/
             , 3];
