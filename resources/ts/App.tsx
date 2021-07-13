@@ -28,7 +28,7 @@ const App: React.VFC = () => {
                 setIs_began(true);
             })
             .catch((err) => {
-                console.log(err);
+                console.error(err);
                 setIs_began(true);
             });
     };
