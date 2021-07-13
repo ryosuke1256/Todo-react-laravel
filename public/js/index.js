@@ -2933,7 +2933,7 @@ var App = function App() {
 
               setIs_began(true);
             })["catch"](function (err) {
-              console.log(err);
+              console.error(err);
               setIs_began(true);
             })];
 
@@ -6911,33 +6911,41 @@ var Modal = function Modal(_a) {
 
   var postTag = function postTag(postTagData) {
     return __awaiter(void 0, void 0, void 0, function () {
-      var res, obj;
+      var res, obj, err_1;
       return __generator(this, function (_a) {
         switch (_a.label) {
           case 0:
+            _a.trys.push([0, 2,, 3]);
+
             return [4
             /*yield*/
             , axios_1["default"].post('api/tags', postTagData)];
 
           case 1:
             res = _a.sent();
+            obj = tasks;
+            obj.splice(i, 1, __assign(__assign({}, task), {
+              hasDonePostTag: true,
+              tagID: res.data.id,
+              red: selected_color.red,
+              blue: selected_color.blue,
+              yellow: selected_color.yellow,
+              green: selected_color.green
+            }));
+            setTasks(obj);
+            setTagID(res.data.id);
+            return [3
+            /*break*/
+            , 3];
 
-            try {
-              obj = tasks;
-              obj.splice(i, 1, __assign(__assign({}, task), {
-                hasDonePostTag: true,
-                tagID: res.data.id,
-                red: selected_color.red,
-                blue: selected_color.blue,
-                yellow: selected_color.yellow,
-                green: selected_color.green
-              }));
-              setTasks(obj);
-              setTagID(res.data.id);
-            } catch (err) {
-              console.error(err);
-            }
+          case 2:
+            err_1 = _a.sent();
+            console.error(err_1);
+            return [3
+            /*break*/
+            , 3];
 
+          case 3:
             return [2
             /*return*/
             ];
@@ -6953,7 +6961,7 @@ var Modal = function Modal(_a) {
 
   var changeTag = function changeTag(colors) {
     return __awaiter(void 0, void 0, void 0, function () {
-      var changedColors, patchData, res, obj;
+      var changedColors, patchData, res, obj, err_2;
       return __generator(this, function (_a) {
         switch (_a.label) {
           case 0:
@@ -6969,26 +6977,37 @@ var Modal = function Modal(_a) {
               checked_yellow: changedColors.yellow,
               checked_green: changedColors.green
             };
+            _a.label = 1;
+
+          case 1:
+            _a.trys.push([1, 3,, 4]);
+
             return [4
             /*yield*/
             , axios_1["default"].patch("api/tags/" + tagID, patchData)];
 
-          case 1:
+          case 2:
             res = _a.sent();
+            obj = tasks;
+            obj.splice(i, 1, __assign(__assign({}, task), {
+              red: res.data.checked_red,
+              blue: res.data.checked_blue,
+              yellow: res.data.checked_yellow,
+              green: res.data.checked_green
+            }));
+            setTasks(obj);
+            return [3
+            /*break*/
+            , 4];
 
-            try {
-              obj = tasks;
-              obj.splice(i, 1, __assign(__assign({}, task), {
-                red: res.data.checked_red,
-                blue: res.data.checked_blue,
-                yellow: res.data.checked_yellow,
-                green: res.data.checked_green
-              }));
-              setTasks(obj);
-            } catch (err) {
-              console.error(err);
-            }
+          case 3:
+            err_2 = _a.sent();
+            console.error(err_2);
+            return [3
+            /*break*/
+            , 4];
 
+          case 4:
             return [2
             /*return*/
             ];

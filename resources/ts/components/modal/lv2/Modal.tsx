@@ -29,8 +29,8 @@ const Modal: React.VFC<Props> = ({hasModalOpened,selected_color,setHasModalOpene
 
     const postTag = async (postTagData:TagAPI): Promise<void> => {
         // console.log({postTagData});
-        const res = await axios.post('api/tags',postTagData);
         try {
+            const res = await axios.post('api/tags',postTagData);
             const obj = tasks;
             obj.splice(i,1,{...task, ...{hasDonePostTag:true,tagID:res.data.id,red:selected_color.red,blue:selected_color.blue,yellow:selected_color.yellow,green:selected_color.green}});
             setTasks(obj);
@@ -54,8 +54,8 @@ const Modal: React.VFC<Props> = ({hasModalOpened,selected_color,setHasModalOpene
             checked_green:changedColors.green,
         }
         // console.log({patchData});
-        const res = await axios.patch(`api/tags/${tagID}`, patchData);
         try {
+            const res = await axios.patch(`api/tags/${tagID}`, patchData);
             const obj = tasks;
             obj.splice(i,1,{...task, ...{red:res.data.checked_red,blue:res.data.checked_blue,yellow:res.data.checked_yellow,green:res.data.checked_green}});
             setTasks(obj);
