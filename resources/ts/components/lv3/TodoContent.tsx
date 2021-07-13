@@ -5,20 +5,8 @@ import customMedia from "../../style/customMedia";
 import { TaskAndColor } from "../../type/TaskAndColor";
 import { TaskAPI } from "../../type/api/TaskAPI";
 import { TaskCard, TextForm, WelcomeContent } from "../lv2/_index";
-
+import { reducer } from "../../reducer/reducer";
 export const TasksEditActiveContext = React.createContext<any>(false);
-
-const initialState = false;
-const reducer = (state: boolean, action: "active" | "deactivate"): boolean => {
-    switch (action) {
-        case "active":
-            return true;
-        case "deactivate":
-            return false;
-        default:
-            return state;
-    }
-};
 
 type Props = {
     userID: Readonly<number | null>;
@@ -27,7 +15,7 @@ type Props = {
 const TodoContent: React.VFC<Props> = ({ userID }: Props) => {
     const [tasks, setTasks] = useState<TaskAndColor[]>([]);
     const [is_began, setIs_began] = useState(false);
-    const [tasksEditActive, dispatch] = useReducer(reducer, initialState);
+    const [tasksEditActive, dispatch] = useReducer(reducer, false);
 
     useEffect(() => {
         getTasks();

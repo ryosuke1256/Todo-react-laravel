@@ -6469,21 +6469,9 @@ var customMedia_1 = __importDefault(__webpack_require__(/*! ../../style/customMe
 
 var _index_1 = __webpack_require__(/*! ../lv2/_index */ "./resources/ts/components/lv2/_index.tsx");
 
+var reducer_1 = __webpack_require__(/*! ../../reducer/reducer */ "./resources/ts/reducer/reducer.tsx");
+
 exports.TasksEditActiveContext = react_1["default"].createContext(false);
-var initialState = false;
-
-var reducer = function reducer(state, action) {
-  switch (action) {
-    case "active":
-      return true;
-
-    case "deactivate":
-      return false;
-
-    default:
-      return state;
-  }
-};
 
 var TodoContent = function TodoContent(_a) {
   var userID = _a.userID;
@@ -6496,7 +6484,7 @@ var TodoContent = function TodoContent(_a) {
       is_began = _c[0],
       setIs_began = _c[1];
 
-  var _d = react_1.useReducer(reducer, initialState),
+  var _d = react_1.useReducer(reducer_1.reducer, false),
       tasksEditActive = _d[0],
       dispatch = _d[1];
 
@@ -7337,6 +7325,37 @@ var react_dom_1 = __importDefault(__webpack_require__(/*! react-dom */ "./node_m
 var App_1 = __importDefault(__webpack_require__(/*! ./App */ "./resources/ts/App.tsx"));
 
 react_dom_1["default"].render(react_1["default"].createElement(App_1["default"], null), document.getElementById("app"));
+
+/***/ }),
+
+/***/ "./resources/ts/reducer/reducer.tsx":
+/*!******************************************!*\
+  !*** ./resources/ts/reducer/reducer.tsx ***!
+  \******************************************/
+/***/ ((__unused_webpack_module, exports) => {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", ({
+  value: true
+}));
+exports.reducer = void 0;
+
+var reducer = function reducer(state, action) {
+  switch (action) {
+    case "active":
+      return true;
+
+    case "deactivate":
+      return false;
+
+    default:
+      return state;
+  }
+};
+
+exports.reducer = reducer;
 
 /***/ }),
 
