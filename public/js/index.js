@@ -4951,7 +4951,7 @@ var TaskCard = react_1["default"].memo(function (_a) {
                 green: res.data.checked_green
               });
             } catch (err) {
-              console.log(err);
+              console.error(err);
             }
 
             return [2
@@ -4980,7 +4980,7 @@ var TaskCard = react_1["default"].memo(function (_a) {
                 return task.id !== res.data.id;
               }));
             } catch (err) {
-              console.log(err);
+              console.error(err);
             }
 
             return [2
@@ -5008,7 +5008,7 @@ var TaskCard = react_1["default"].memo(function (_a) {
               tasks[i].is_done = is_done;
               setIs_done(is_done);
             })["catch"](function (err) {
-              console.log(err);
+              console.error(err);
             })];
 
           case 1:
@@ -5038,7 +5038,7 @@ var TaskCard = react_1["default"].memo(function (_a) {
               tasks[i].title = title;
               setTitle(title);
             })["catch"](function (err) {
-              console.log(err);
+              console.error(err);
             })];
 
           case 1:
@@ -6387,9 +6387,8 @@ var TodoContent = function TodoContent(_a) {
     i++;
     return react_1["default"].createElement(_index_1.TaskCard, {
       task: task,
-      setTasks: setTasks,
       tasks: tasks,
-      tasksEditActive: tasksEditActive,
+      setTasks: setTasks,
       id: task.id,
       i: i,
       key: key

@@ -87,11 +87,8 @@ const TodoContent: React.VFC<Props> = ({ userID }: Props) => {
                                         return (
                                             <TaskCard
                                                 task={task}
-                                                setTasks={setTasks}
                                                 tasks={tasks}
-                                                tasksEditActive={
-                                                    tasksEditActive
-                                                }
+                                                setTasks={setTasks}
                                                 id={task.id}
                                                 i={i}
                                                 key={key}

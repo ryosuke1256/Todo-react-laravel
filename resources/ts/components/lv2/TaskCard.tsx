@@ -10,8 +10,8 @@ import { Color } from "../../type/Color";
 import customMedia from "../../style/customMedia";
 
 type Props = {
-    tasks: [TaskAndColor];
     task: TaskAndColor;
+    tasks: [TaskAndColor];
     setTasks: (param: object) => void;
     id: number;
     i: number;
@@ -57,7 +57,7 @@ const TaskCard: React.VFC<Props> = React.memo(({task,tasks,setTasks,id,i,}: Prop
             setTagID(res.data.id);
             setSelected_color({red:res.data.checked_red,blue:res.data.checked_blue,yellow:res.data.checked_yellow,green:res.data.checked_green});
         } catch (err) {
-            console.log(err);
+            console.error(err);
         }
     };
 
@@ -66,7 +66,7 @@ const TaskCard: React.VFC<Props> = React.memo(({task,tasks,setTasks,id,i,}: Prop
         try {
             setTasks(tasks.filter((task) => task.id !== res.data.id));
         } catch (err) {
-            console.log(err);
+            console.error(err);
         }
     };
 
@@ -83,7 +83,7 @@ const TaskCard: React.VFC<Props> = React.memo(({task,tasks,setTasks,id,i,}: Prop
                 setIs_done(is_done);
             })
             .catch((err) => {
-                console.log(err);
+                console.error(err);
             });
     };
 
@@ -99,7 +99,7 @@ const TaskCard: React.VFC<Props> = React.memo(({task,tasks,setTasks,id,i,}: Prop
                 setTitle(title);
             })
             .catch((err) => {
-                console.log(err);
+                console.error(err);
             });
     };
 
