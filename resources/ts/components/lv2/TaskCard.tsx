@@ -4,7 +4,6 @@ import axios from "axios";
 import { ColoredTags } from "./_index";
 import Modal from "../modal/lv2/Modal";
 import { EditButton, DeleteButton, CheckBox, TaskTitle } from "../lv1/_index"; //prettier-ignore
-import { TaskAPI } from "../../type/api/TaskAPI";
 import { TaskAndColor } from "../../type/TaskAndColor";
 import { Color } from "../../type/Color";
 import customMedia from "../../style/customMedia";
