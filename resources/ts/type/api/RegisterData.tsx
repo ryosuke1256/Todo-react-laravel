@@ -1,6 +1,6 @@
 export type RegisterData = {
-    name: string;
-    email: string;
-    password: string;
-    password_confirmation: string;
+    readonly name: string;
+    readonly email: string;
+    readonly password: string;
+    readonly password_confirmation: string;
 };
