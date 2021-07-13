@@ -107,11 +107,11 @@ const TodoContent: React.VFC<Props> = ({ userID }: Props) => {
 
 export default TodoContent;
 
-export const _TaskCards = styled.div`
+const _TaskCards = styled.div`
     padding-top: 20px;
 `;
 
-export const _TodoContent = styled.div`
+const _TodoContent = styled.div`
     max-width: 820px;
     margin: 0 auto;
     padding-top: 105px;

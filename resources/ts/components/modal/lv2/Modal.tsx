@@ -92,8 +92,8 @@ const Modal: React.VFC<Props> = ({hasModalOpened,selected_color,setHasModalOpene
                     />
                     <TagColor_Modal
                         backgroundColor={"rgba(48, 255, 69)"}
-                        setSelected_color={setSelected_color}
                         selected_color={selected_color}
+                        setSelected_color={setSelected_color}
                         initChecked={selected_color.green}
                         i={3}
                     />

@@ -6278,7 +6278,7 @@ var __importDefault = this && this.__importDefault || function (mod) {
 Object.defineProperty(exports, "__esModule", ({
   value: true
 }));
-exports._TodoContent = exports._TaskCards = exports.TasksEditActiveContext = void 0;
+exports.TasksEditActiveContext = void 0;
 
 var react_1 = __importStar(__webpack_require__(/*! react */ "./node_modules/react/index.js"));
 
@@ -6411,11 +6411,11 @@ var TodoContent = function TodoContent(_a) {
       tasksEditState: tasksEditActive,
       tasksEditDispatch: dispatch
     }
-  }, react_1["default"].createElement(_Wrapper, null, react_1["default"].createElement(exports._TodoContent, null, react_1["default"].createElement(_index_1.TextForm, {
+  }, react_1["default"].createElement(_Wrapper, null, react_1["default"].createElement(_TodoContent, null, react_1["default"].createElement(_index_1.TextForm, {
     postTask: postTask,
     userID: userID,
     dispatch: dispatch
-  }), tasks.length === 0 && is_began === true ? react_1["default"].createElement(_index_1.WelcomeContent, null) : react_1["default"].createElement(exports._TaskCards, null, tasks.map(function (task, key) {
+  }), tasks.length === 0 && is_began === true ? react_1["default"].createElement(_index_1.WelcomeContent, null) : react_1["default"].createElement(_TaskCards, null, tasks.map(function (task, key) {
     i++;
     return react_1["default"].createElement(_index_1.TaskCard, {
       task: task,
@@ -6429,8 +6429,10 @@ var TodoContent = function TodoContent(_a) {
 };
 
 exports.default = TodoContent;
-exports._TaskCards = styled_components_1["default"].div(templateObject_1 || (templateObject_1 = __makeTemplateObject(["\n    padding-top: 20px;\n"], ["\n    padding-top: 20px;\n"])));
-exports._TodoContent = styled_components_1["default"].div(templateObject_5 || (templateObject_5 = __makeTemplateObject(["\n    max-width: 820px;\n    margin: 0 auto;\n    padding-top: 105px;\n    ", "\n    ", " \n    ", "\n"], ["\n    max-width: 820px;\n    margin: 0 auto;\n    padding-top: 105px;\n    ", "\n    ", " \n    ", "\n"])), customMedia_1["default"].lessThan("mobile")(templateObject_2 || (templateObject_2 = __makeTemplateObject(["\n    width: 99vw;\n    max-width:500px;\n    "], ["\n    width: 99vw;\n    max-width:500px;\n    "]))), customMedia_1["default"].between("mobile", "tablet")(templateObject_3 || (templateObject_3 = __makeTemplateObject(["\n    width: 84vw;\n    max-width: 710px;\n    "], ["\n    width: 84vw;\n    max-width: 710px;\n    "]))), customMedia_1["default"].greaterThan("tablet")(templateObject_4 || (templateObject_4 = __makeTemplateObject(["\n    width: 70vw;\n    "], ["\n    width: 70vw;\n    "]))));
+
+var _TaskCards = styled_components_1["default"].div(templateObject_1 || (templateObject_1 = __makeTemplateObject(["\n    padding-top: 20px;\n"], ["\n    padding-top: 20px;\n"])));
+
+var _TodoContent = styled_components_1["default"].div(templateObject_5 || (templateObject_5 = __makeTemplateObject(["\n    max-width: 820px;\n    margin: 0 auto;\n    padding-top: 105px;\n    ", "\n    ", " \n    ", "\n"], ["\n    max-width: 820px;\n    margin: 0 auto;\n    padding-top: 105px;\n    ", "\n    ", " \n    ", "\n"])), customMedia_1["default"].lessThan("mobile")(templateObject_2 || (templateObject_2 = __makeTemplateObject(["\n    width: 99vw;\n    max-width:500px;\n    "], ["\n    width: 99vw;\n    max-width:500px;\n    "]))), customMedia_1["default"].between("mobile", "tablet")(templateObject_3 || (templateObject_3 = __makeTemplateObject(["\n    width: 84vw;\n    max-width: 710px;\n    "], ["\n    width: 84vw;\n    max-width: 710px;\n    "]))), customMedia_1["default"].greaterThan("tablet")(templateObject_4 || (templateObject_4 = __makeTemplateObject(["\n    width: 70vw;\n    "], ["\n    width: 70vw;\n    "]))));
 
 var _Wrapper = styled_components_1["default"].div(templateObject_6 || (templateObject_6 = __makeTemplateObject(["\n    height: 100vh;\n    width: 100vw;\n    background-color: #f9fbfe;\n"], ["\n    height: 100vh;\n    width: 100vw;\n    background-color: #f9fbfe;\n"])));
 
@@ -7041,8 +7043,8 @@ var Modal = function Modal(_a) {
     i: 2
   }), react_1["default"].createElement(ColoredTag_Modal_1["default"], {
     backgroundColor: "rgba(48, 255, 69)",
-    setSelected_color: setSelected_color,
     selected_color: selected_color,
+    setSelected_color: setSelected_color,
     initChecked: selected_color.green,
     i: 3
   })), react_1["default"].createElement(_CloseButton, {
