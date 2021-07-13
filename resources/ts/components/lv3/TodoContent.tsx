@@ -9,7 +9,7 @@ import { reducer } from "../../reducer/reducer";
 export const TasksEditActiveContext = React.createContext<any>(false);
 
 type Props = {
-    userID: Readonly<number | null>;
+    userID: number | null;
 };
 
 const TodoContent: React.VFC<Props> = ({ userID }: Props) => {
@@ -34,7 +34,7 @@ const TodoContent: React.VFC<Props> = ({ userID }: Props) => {
     };
 
     const postTask = useCallback(
-        async (postData: TaskAPI): Promise<void> => {
+        async (postData: Readonly<TaskAPI>): Promise<void> => {
             // console.log({ postData });
             try {
                 const res = await axios.post("api/tasks", postData);

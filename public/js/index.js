@@ -2899,17 +2899,16 @@ var App = function App() {
       is_authenticated = _a[0],
       setIs_authenticated = _a[1];
 
-  var _b = react_1.useState(null),
-      userID = _b[0],
-      setUserID = _b[1];
+  var _b = react_1.useState({
+    userID: null,
+    userName: ""
+  }),
+      userData = _b[0],
+      setUserData = _b[1];
 
-  var _c = react_1.useState(""),
-      userName = _c[0],
-      setUserName = _c[1];
-
-  var _d = react_1.useState(false),
-      is_began = _d[0],
-      setIs_began = _d[1];
+  var _c = react_1.useState(false),
+      is_began = _c[0],
+      setIs_began = _c[1];
 
   react_1.useEffect(function () {
     getUser();
@@ -2925,8 +2924,10 @@ var App = function App() {
             , axios_1["default"].get("api/users").then(function (res) {
               if (res.data) {
                 setIs_authenticated(true);
-                setUserName(res.data.name);
-                setUserID(res.data.id);
+                setUserData({
+                  userID: res.data.id,
+                  userName: res.data.name
+                });
               } else {
                 setIs_authenticated(false);
               }
@@ -2951,7 +2952,7 @@ var App = function App() {
   var GetTopPageContent = function GetTopPageContent() {
     if (is_began && is_authenticated) {
       return react_1["default"].createElement(_index_1.TodoContent, {
-        userID: userID
+        userID: userData.userID
       });
     } else if (is_began && !is_authenticated) {
       return react_1["default"].createElement(_index_1.TopPageContent, null);
@@ -2963,19 +2964,17 @@ var App = function App() {
   return react_1["default"].createElement(react_1["default"].Fragment, null, react_1["default"].createElement(react_router_dom_1.BrowserRouter, null, react_1["default"].createElement(Header_1["default"], {
     setIs_authenticated: setIs_authenticated,
     is_authenticated: is_authenticated,
-    setUserID: setUserID,
-    userName: userName
+    setUserData: setUserData,
+    userName: userData.userName
   }), react_1["default"].createElement(react_router_dom_1.Switch, null, react_1["default"].createElement(react_router_dom_1.Route, {
     path: "/register"
   }, react_1["default"].createElement(_index_1.RegisterContent, {
     setIs_authenticated: setIs_authenticated,
-    setUserID: setUserID,
     getUser: getUser
   })), react_1["default"].createElement(react_router_dom_1.Route, {
     path: "/login"
   }, react_1["default"].createElement(_index_1.LoginContent, {
     setIs_authenticated: setIs_authenticated,
-    setUserID: setUserID,
     getUser: getUser
   })), react_1["default"].createElement(react_router_dom_1.Route, {
     path: "/"
@@ -4415,7 +4414,7 @@ var customMedia_1 = __importDefault(__webpack_require__(/*! ../../style/customMe
 
 var Header = function Header(_a) {
   var setIs_authenticated = _a.setIs_authenticated,
-      setUserID = _a.setUserID,
+      setUserData = _a.setUserData,
       is_authenticated = _a.is_authenticated,
       userName = _a.userName;
 
@@ -4432,7 +4431,10 @@ var Header = function Header(_a) {
             /*yield*/
             , axios_1["default"].post("/logout").then(function () {
               setIs_authenticated(false);
-              setUserID(null);
+              setUserData({
+                userID: null,
+                userName: ""
+              });
               setIs_show(false);
             })["catch"](function (err) {
               console.error(err);
@@ -5688,7 +5690,6 @@ var LoginPassword_1 = __importDefault(__webpack_require__(/*! ../lv2/LoginPasswo
 
 var LoginContent = function LoginContent(_a) {
   var setIs_authenticated = _a.setIs_authenticated,
-      setUserID = _a.setUserID,
       getUser = _a.getUser;
 
   var _b = react_1.useState(""),
@@ -5736,7 +5737,6 @@ var LoginContent = function LoginContent(_a) {
             /*yield*/
             , axios_1["default"].post("/login", loginData).then(function (res) {
               history.push("/");
-              setUserID(res.data.user.id);
               getUser();
               setIs_authenticated(true);
             })["catch"](function (err) {
@@ -6052,7 +6052,6 @@ var RegisterPassword_1 = __importDefault(__webpack_require__(/*! ../lv2/Register
 
 var RegisterContent = function RegisterContent(_a) {
   var setIs_authenticated = _a.setIs_authenticated,
-      setUserID = _a.setUserID,
       getUser = _a.getUser;
 
   var _b = react_1.useState(""),
@@ -6123,7 +6122,6 @@ var RegisterContent = function RegisterContent(_a) {
             , axios_1["default"].post("/login", loginData).then(function (res) {
               history.push("/");
               getUser();
-              setUserID(res.data.user.id);
               setIs_authenticated(true);
             })["catch"](function (err) {
               console.error(err);

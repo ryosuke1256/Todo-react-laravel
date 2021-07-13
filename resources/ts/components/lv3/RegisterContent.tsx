@@ -8,13 +8,11 @@ import { LoginData } from "../../type/api/LoginData";
 
 type Props = {
     setIs_authenticated: (param: boolean) => void;
-    setUserID: (param: number) => void;
     getUser: () => Promise<void>;
 };
 
 const RegisterContent: React.VFC<Props> = ({
     setIs_authenticated,
-    setUserID,
     getUser,
 }: Props) => {
     const [errorMessage, setErrorMessage] = useState("");
@@ -61,7 +59,6 @@ const RegisterContent: React.VFC<Props> = ({
             .then((res) => {
                 history.push("/");
                 getUser();
-                setUserID(res.data.user.id);
                 setIs_authenticated(true);
             })
             .catch((err) => {
