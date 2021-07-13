@@ -22,7 +22,7 @@ const TodoContent: React.VFC<Props> = ({ userID }: Props) => {
     }, []);
 
     const getTasks = async (): Promise<void> => {
-        if (!(userID === null)) {
+        if (userID !== null) {
             try {
                 const Data = await axios.get(`api/tasks/users/${userID}`);
                 setTasks(Data.data.map((data: TaskAndColor) => data));

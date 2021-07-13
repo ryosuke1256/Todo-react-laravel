@@ -3348,20 +3348,21 @@ var EditButton = function EditButton(_a) {
   var tasksEditContext = react_1.useContext(TodoContent_1.TasksEditActiveContext);
 
   var changeTaskTitle = function changeTaskTitle() {
-    if (!editActive && tasksEditContext.tasksEditState) {
-      return null;
-    } else {
-      setEditButtonTitle("変更");
+    if (!editActive && !tasksEditContext.tasksEditState) {
       setEditActive(function (prev) {
         return !prev;
       });
+      setEditButtonTitle("変更");
       tasksEditContext.tasksEditDispatch("active");
-
-      if (editActive) {
-        editTask(title);
-        setEditButtonTitle("編集");
-        tasksEditContext.tasksEditDispatch("deactivate");
-      }
+    } else if (editActive && tasksEditContext.tasksEditState) {
+      editTask(title);
+      setEditActive(function (prev) {
+        return !prev;
+      });
+      setEditButtonTitle("編集");
+      tasksEditContext.tasksEditDispatch("deactivate");
+    } else {
+      return;
     }
   };
 
@@ -6498,7 +6499,7 @@ var TodoContent = function TodoContent(_a) {
       return __generator(this, function (_a) {
         switch (_a.label) {
           case 0:
-            if (!!(userID === null)) return [3
+            if (!(userID !== null)) return [3
             /*break*/
             , 4];
             _a.label = 1;
