@@ -45,8 +45,8 @@ const TaskCard: React.VFC<Props> = React.memo(({task,tasks,setTasks,id,i,}: Prop
     }, [task]); 
 
     const getTags = async (): Promise<void> => {
-        const res = await axios.get(`api/tags/tasks/${tasks[i].id}`);
         try {
+            const res = await axios.get(`api/tags/tasks/${tasks[i].id}`);
             const obj = tasks;
             if(!(res.data.id === undefined)) {
                 obj.splice(i,1,{...task, ...{hasDonePostTag:true,tagID:res.data.id,red:res.data.checked_red,blue:res.data.checked_blue,yellow:res.data.checked_yellow,green:res.data.checked_green}});
@@ -62,8 +62,8 @@ const TaskCard: React.VFC<Props> = React.memo(({task,tasks,setTasks,id,i,}: Prop
     };
 
     const deleteTask = async (): Promise<void> => {
-        const res = await axios.delete(`api/tasks/${id}`);
         try {
+            const res = await axios.delete(`api/tasks/${id}`);
             setTasks(tasks.filter((task) => task.id !== res.data.id));
         } catch (err) {
             console.error(err);

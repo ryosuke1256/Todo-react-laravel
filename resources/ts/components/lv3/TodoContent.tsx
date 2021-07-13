@@ -35,8 +35,8 @@ const TodoContent: React.VFC<Props> = ({ userID }: Props) => {
 
     const getTasks = async (): Promise<void> => {
         if (!(userID === "")) {
-            const Data = await axios.get(`api/tasks/users/${userID}`);
             try {
+                const Data = await axios.get(`api/tasks/users/${userID}`);
                 setTasks(Data.data.map((data: {}) => data));
                 setIs_began(true);
             } catch (err) {
@@ -48,8 +48,8 @@ const TodoContent: React.VFC<Props> = ({ userID }: Props) => {
     const postTask = useCallback(
         async (postData: TaskAPI): Promise<void> => {
             // console.log({ postData });
-            const res = await axios.post("api/tasks", postData);
             try {
+                const res = await axios.post("api/tasks", postData);
                 const obj = [...tasks];
                 obj.unshift(res.data);
                 setTasks(obj);

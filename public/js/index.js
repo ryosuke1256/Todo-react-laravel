@@ -4909,51 +4909,59 @@ var TaskCard = react_1["default"].memo(function (_a) {
 
   var getTags = function getTags() {
     return __awaiter(void 0, void 0, void 0, function () {
-      var res, obj;
+      var res, obj, err_1;
       return __generator(this, function (_a) {
         switch (_a.label) {
           case 0:
+            _a.trys.push([0, 2,, 3]);
+
             return [4
             /*yield*/
             , axios_1["default"].get("api/tags/tasks/" + tasks[i].id)];
 
           case 1:
             res = _a.sent();
+            obj = tasks;
 
-            try {
-              obj = tasks;
-
-              if (!(res.data.id === undefined)) {
-                obj.splice(i, 1, __assign(__assign({}, task), {
-                  hasDonePostTag: true,
-                  tagID: res.data.id,
-                  red: res.data.checked_red,
-                  blue: res.data.checked_blue,
-                  yellow: res.data.checked_yellow,
-                  green: res.data.checked_green
-                }));
-              } else {
-                obj.splice(i, 1, __assign(__assign({}, task), {
-                  tagID: res.data.id,
-                  red: res.data.checked_red,
-                  blue: res.data.checked_blue,
-                  yellow: res.data.checked_yellow,
-                  green: res.data.checked_green
-                }));
-              }
-
-              setTasks(obj);
-              setTagID(res.data.id);
-              setSelected_color({
+            if (!(res.data.id === undefined)) {
+              obj.splice(i, 1, __assign(__assign({}, task), {
+                hasDonePostTag: true,
+                tagID: res.data.id,
                 red: res.data.checked_red,
                 blue: res.data.checked_blue,
                 yellow: res.data.checked_yellow,
                 green: res.data.checked_green
-              });
-            } catch (err) {
-              console.error(err);
+              }));
+            } else {
+              obj.splice(i, 1, __assign(__assign({}, task), {
+                tagID: res.data.id,
+                red: res.data.checked_red,
+                blue: res.data.checked_blue,
+                yellow: res.data.checked_yellow,
+                green: res.data.checked_green
+              }));
             }
 
+            setTasks(obj);
+            setTagID(res.data.id);
+            setSelected_color({
+              red: res.data.checked_red,
+              blue: res.data.checked_blue,
+              yellow: res.data.checked_yellow,
+              green: res.data.checked_green
+            });
+            return [3
+            /*break*/
+            , 3];
+
+          case 2:
+            err_1 = _a.sent();
+            console.error(err_1);
+            return [3
+            /*break*/
+            , 3];
+
+          case 3:
             return [2
             /*return*/
             ];
@@ -4964,25 +4972,33 @@ var TaskCard = react_1["default"].memo(function (_a) {
 
   var deleteTask = function deleteTask() {
     return __awaiter(void 0, void 0, void 0, function () {
-      var res;
+      var res_1, err_2;
       return __generator(this, function (_a) {
         switch (_a.label) {
           case 0:
+            _a.trys.push([0, 2,, 3]);
+
             return [4
             /*yield*/
             , axios_1["default"]["delete"]("api/tasks/" + id)];
 
           case 1:
-            res = _a.sent();
+            res_1 = _a.sent();
+            setTasks(tasks.filter(function (task) {
+              return task.id !== res_1.data.id;
+            }));
+            return [3
+            /*break*/
+            , 3];
 
-            try {
-              setTasks(tasks.filter(function (task) {
-                return task.id !== res.data.id;
-              }));
-            } catch (err) {
-              console.error(err);
-            }
+          case 2:
+            err_2 = _a.sent();
+            console.error(err_2);
+            return [3
+            /*break*/
+            , 3];
 
+          case 3:
             return [2
             /*return*/
             ];
@@ -6311,32 +6327,40 @@ var TodoContent = function TodoContent(_a) {
 
   var getTasks = function getTasks() {
     return __awaiter(void 0, void 0, void 0, function () {
-      var Data;
+      var Data, err_1;
       return __generator(this, function (_a) {
         switch (_a.label) {
           case 0:
             if (!!(userID === "")) return [3
             /*break*/
-            , 2];
+            , 4];
+            _a.label = 1;
+
+          case 1:
+            _a.trys.push([1, 3,, 4]);
+
             return [4
             /*yield*/
             , axios_1["default"].get("api/tasks/users/" + userID)];
 
-          case 1:
-            Data = _a.sent();
-
-            try {
-              setTasks(Data.data.map(function (data) {
-                return data;
-              }));
-              setIs_began(true);
-            } catch (err) {
-              console.error(err);
-            }
-
-            _a.label = 2;
-
           case 2:
+            Data = _a.sent();
+            setTasks(Data.data.map(function (data) {
+              return data;
+            }));
+            setIs_began(true);
+            return [3
+            /*break*/
+            , 4];
+
+          case 3:
+            err_1 = _a.sent();
+            console.error(err_1);
+            return [3
+            /*break*/
+            , 4];
+
+          case 4:
             return [2
             /*return*/
             ];
@@ -6347,25 +6371,33 @@ var TodoContent = function TodoContent(_a) {
 
   var postTask = react_1.useCallback(function (postData) {
     return __awaiter(void 0, void 0, void 0, function () {
-      var res, obj;
+      var res, obj, err_2;
       return __generator(this, function (_a) {
         switch (_a.label) {
           case 0:
+            _a.trys.push([0, 2,, 3]);
+
             return [4
             /*yield*/
             , axios_1["default"].post("api/tasks", postData)];
 
           case 1:
             res = _a.sent();
+            obj = __spreadArray([], tasks);
+            obj.unshift(res.data);
+            setTasks(obj);
+            return [3
+            /*break*/
+            , 3];
 
-            try {
-              obj = __spreadArray([], tasks);
-              obj.unshift(res.data);
-              setTasks(obj);
-            } catch (err) {
-              console.error(err);
-            }
+          case 2:
+            err_2 = _a.sent();
+            console.error(err_2);
+            return [3
+            /*break*/
+            , 3];
 
+          case 3:
             return [2
             /*return*/
             ];
