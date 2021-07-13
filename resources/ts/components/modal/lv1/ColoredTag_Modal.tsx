@@ -58,7 +58,10 @@ const TagColorModal: React.VFC<Props> = ({
 
 export default TagColorModal;
 
-const _TagColor = styled.div<{ is_selected; backgroundColor: string }>`
+const _TagColor = styled.div<{
+    is_selected: boolean | undefined;
+    backgroundColor: string;
+}>`
     height: 20px;
     width: 80px;
     margin-top: 30px;

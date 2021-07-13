@@ -6,7 +6,7 @@ type Props = {
     text: string;
     postTask: (postData: TaskAPI) => void;
     setText: (param: string) => void;
-    userID?: number;
+    userID: number | null;
 };
 
 const SubmitButton: React.VFC<Props> = ({

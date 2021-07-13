@@ -8,7 +8,7 @@ import { LoginData } from "../../type/api/LoginData";
 
 type Props = {
     setIs_authenticated: (param: boolean) => void;
-    setUserID: (param: string) => void;
+    setUserID: (param: number) => void;
     getUser: () => Promise<void>;
 };
 

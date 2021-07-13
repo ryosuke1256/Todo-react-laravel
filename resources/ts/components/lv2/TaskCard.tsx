@@ -11,8 +11,8 @@ import customMedia from "../../style/customMedia";
 
 type Props = {
     task: TaskAndColor;
-    tasks: [TaskAndColor];
-    setTasks: (param: object) => void;
+    tasks: TaskAndColor[];
+    setTasks: (param: TaskAndColor[]) => void;
     id: number;
     i: number;
 };
@@ -47,13 +47,13 @@ const TaskCard: React.VFC<Props> = React.memo(({task,tasks,setTasks,id,i,}: Prop
     const getTags = async (): Promise<void> => {
         try {
             const res = await axios.get(`api/tags/tasks/${tasks[i].id}`);
-            const obj = tasks;
+            const todos = tasks;
             if(!(res.data.id === undefined)) {
-                obj.splice(i,1,{...task, ...{hasDonePostTag:true,tagID:res.data.id,red:res.data.checked_red,blue:res.data.checked_blue,yellow:res.data.checked_yellow,green:res.data.checked_green}});
+                todos.splice(i,1,{...task, ...{hasDonePostTag:true,tagID:res.data.id,red:res.data.checked_red,blue:res.data.checked_blue,yellow:res.data.checked_yellow,green:res.data.checked_green}});
             } else {
-                obj.splice(i,1,{...task, ...{tagID:res.data.id,red:res.data.checked_red,blue:res.data.checked_blue,yellow:res.data.checked_yellow,green:res.data.checked_green}});
+                todos.splice(i,1,{...task, ...{tagID:res.data.id,red:res.data.checked_red,blue:res.data.checked_blue,yellow:res.data.checked_yellow,green:res.data.checked_green}});
             }
-            setTasks(obj);
+            setTasks(todos);
             setTagID(res.data.id);
             setSelected_color({red:res.data.checked_red,blue:res.data.checked_blue,yellow:res.data.checked_yellow,green:res.data.checked_green});
         } catch (err) {
@@ -72,7 +72,7 @@ const TaskCard: React.VFC<Props> = React.memo(({task,tasks,setTasks,id,i,}: Prop
 
     const checkTask = async (is_done: 0 | 1): Promise<void> => {
         is_done === 0 ? (is_done = 1) : (is_done = 0);
-        const data: TaskAPI = {
+        const data = {
             title: title,
             is_done: is_done,
         };
@@ -88,7 +88,7 @@ const TaskCard: React.VFC<Props> = React.memo(({task,tasks,setTasks,id,i,}: Prop
     };
 
     const editTask = async (title: string): Promise<void> => {
-        const data: TaskAPI = {
+        const data = {
             title: title,
             is_done: is_done,
         };

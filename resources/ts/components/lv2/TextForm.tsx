@@ -6,7 +6,7 @@ import customMedia from "../../style/customMedia";
 
 type Props = {
     postTask: (postTask: TaskAPI) => void;
-    userID?: number;
+    userID: number | null;
 };
 
 const TextForm: React.VFC<Props> = React.memo(({ postTask, userID }: Props) => {

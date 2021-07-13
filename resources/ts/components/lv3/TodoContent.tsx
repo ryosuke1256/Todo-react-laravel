@@ -21,7 +21,7 @@ const reducer = (state: boolean, action: "active" | "deactivate"): boolean => {
 };
 
 type Props = {
-    userID: Readonly<string>;
+    userID: Readonly<number | null>;
 };
 
 const TodoContent: React.VFC<Props> = ({ userID }: Props) => {
@@ -34,10 +34,10 @@ const TodoContent: React.VFC<Props> = ({ userID }: Props) => {
     }, []);
 
     const getTasks = async (): Promise<void> => {
-        if (!(userID === "")) {
+        if (!(userID === null)) {
             try {
                 const Data = await axios.get(`api/tasks/users/${userID}`);
-                setTasks(Data.data.map((data: {}) => data));
+                setTasks(Data.data.map((data: TaskAndColor) => data));
                 setIs_began(true);
             } catch (err) {
                 console.error(err);
@@ -72,11 +72,7 @@ const TodoContent: React.VFC<Props> = ({ userID }: Props) => {
             >
                 <_Wrapper>
                     <_TodoContent>
-                        <TextForm
-                            postTask={postTask}
-                            userID={userID}
-                            dispatch={dispatch}
-                        />
+                        <TextForm postTask={postTask} userID={userID} />
                         {tasks.length === 0 && is_began === true ? (
                             <WelcomeContent />
                         ) : (

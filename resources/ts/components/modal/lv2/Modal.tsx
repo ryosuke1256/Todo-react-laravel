@@ -15,9 +15,9 @@ type Props = {
     taskID?: number;
     tagID: number | null;
     setTagID: (param: number) => void;
-    tasks: [TaskAndColor];
+    tasks: TaskAndColor[];
     task: TaskAndColor;
-    setTasks: (param: object) => void;
+    setTasks: (param: TaskAndColor[]) => void;
     i: number;
 };
 

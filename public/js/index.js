@@ -2891,7 +2891,7 @@ var react_router_dom_1 = __webpack_require__(/*! react-router-dom */ "./node_mod
 
 var Header_1 = __importDefault(__webpack_require__(/*! ./components/lv2/Header */ "./resources/ts/components/lv2/Header.tsx"));
 
-var _index_1 = __webpack_require__(/*! ./components/lv3/_index */ "./resources/ts/components/lv3/_index.js"); //prettier-ignore
+var _index_1 = __webpack_require__(/*! ./components/lv3/_index */ "./resources/ts/components/lv3/_index.tsx"); //prettier-ignore
 
 
 var App = function App() {
@@ -3188,7 +3188,7 @@ var react_1 = __importDefault(__webpack_require__(/*! react */ "./node_modules/r
 
 var Button_1 = __webpack_require__(/*! ./Button */ "./resources/ts/components/lv1/Button.tsx");
 
-var _index_1 = __webpack_require__(/*! ./_index */ "./resources/ts/components/lv1/_index.js");
+var _index_1 = __webpack_require__(/*! ./_index */ "./resources/ts/components/lv1/_index.tsx");
 
 var react_responsive_1 = __importDefault(__webpack_require__(/*! react-responsive */ "./node_modules/react-responsive/dist/react-responsive.js"));
 
@@ -3332,7 +3332,7 @@ var react_1 = __importStar(__webpack_require__(/*! react */ "./node_modules/reac
 
 var TodoContent_1 = __webpack_require__(/*! ../lv3/TodoContent */ "./resources/ts/components/lv3/TodoContent.tsx");
 
-var _index_1 = __webpack_require__(/*! ./_index */ "./resources/ts/components/lv1/_index.js");
+var _index_1 = __webpack_require__(/*! ./_index */ "./resources/ts/components/lv1/_index.tsx");
 
 var Button_1 = __webpack_require__(/*! ./Button */ "./resources/ts/components/lv1/Button.tsx");
 
@@ -3992,6 +3992,118 @@ exports.default = WelcomeImage;
 var _WelcomeImage = styled_components_1["default"].svg(templateObject_4 || (templateObject_4 = __makeTemplateObject(["\n    display: inline-block;\n    ", "\n    ", " \n    ", "\n"], ["\n    display: inline-block;\n    ", "\n    ", " \n    ", "\n"])), customMedia_1["default"].lessThan("mobile")(templateObject_1 || (templateObject_1 = __makeTemplateObject(["\n        width: 300px;\n        height: 300px;\n    "], ["\n        width: 300px;\n        height: 300px;\n    "]))), customMedia_1["default"].between("mobile", "tablet")(templateObject_2 || (templateObject_2 = __makeTemplateObject(["\n    "], ["\n    "]))), customMedia_1["default"].greaterThan("tablet")(templateObject_3 || (templateObject_3 = __makeTemplateObject(["\n    "], ["\n    "]))));
 
 var templateObject_1, templateObject_2, templateObject_3, templateObject_4;
+
+/***/ }),
+
+/***/ "./resources/ts/components/lv1/_index.tsx":
+/*!************************************************!*\
+  !*** ./resources/ts/components/lv1/_index.tsx ***!
+  \************************************************/
+/***/ (function(__unused_webpack_module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var __importDefault = this && this.__importDefault || function (mod) {
+  return mod && mod.__esModule ? mod : {
+    "default": mod
+  };
+};
+
+Object.defineProperty(exports, "__esModule", ({
+  value: true
+}));
+exports.WelcomeImage = exports.ColoredTag = exports.TaskTitle = exports.SubmitButton = exports.InputText = exports.EditIcon = exports.EditButton = exports.DeleteIcon = exports.DeleteButton = exports.CheckBox = void 0;
+
+var CheckBox_1 = __webpack_require__(/*! ./CheckBox */ "./resources/ts/components/lv1/CheckBox.tsx");
+
+Object.defineProperty(exports, "CheckBox", ({
+  enumerable: true,
+  get: function get() {
+    return __importDefault(CheckBox_1)["default"];
+  }
+}));
+
+var DeleteButton_1 = __webpack_require__(/*! ./DeleteButton */ "./resources/ts/components/lv1/DeleteButton.tsx");
+
+Object.defineProperty(exports, "DeleteButton", ({
+  enumerable: true,
+  get: function get() {
+    return __importDefault(DeleteButton_1)["default"];
+  }
+}));
+
+var DeleteIcon_1 = __webpack_require__(/*! ./DeleteIcon */ "./resources/ts/components/lv1/DeleteIcon.tsx");
+
+Object.defineProperty(exports, "DeleteIcon", ({
+  enumerable: true,
+  get: function get() {
+    return __importDefault(DeleteIcon_1)["default"];
+  }
+}));
+
+var EditButton_1 = __webpack_require__(/*! ./EditButton */ "./resources/ts/components/lv1/EditButton.tsx");
+
+Object.defineProperty(exports, "EditButton", ({
+  enumerable: true,
+  get: function get() {
+    return __importDefault(EditButton_1)["default"];
+  }
+}));
+
+var EditIcon_1 = __webpack_require__(/*! ./EditIcon */ "./resources/ts/components/lv1/EditIcon.tsx");
+
+Object.defineProperty(exports, "EditIcon", ({
+  enumerable: true,
+  get: function get() {
+    return __importDefault(EditIcon_1)["default"];
+  }
+}));
+
+var InputText_1 = __webpack_require__(/*! ./InputText */ "./resources/ts/components/lv1/InputText.tsx");
+
+Object.defineProperty(exports, "InputText", ({
+  enumerable: true,
+  get: function get() {
+    return __importDefault(InputText_1)["default"];
+  }
+}));
+
+var SubmitButton_1 = __webpack_require__(/*! ./SubmitButton */ "./resources/ts/components/lv1/SubmitButton.tsx");
+
+Object.defineProperty(exports, "SubmitButton", ({
+  enumerable: true,
+  get: function get() {
+    return __importDefault(SubmitButton_1)["default"];
+  }
+}));
+
+var TaskTitle_1 = __webpack_require__(/*! ./TaskTitle */ "./resources/ts/components/lv1/TaskTitle.tsx");
+
+Object.defineProperty(exports, "TaskTitle", ({
+  enumerable: true,
+  get: function get() {
+    return __importDefault(TaskTitle_1)["default"];
+  }
+}));
+
+var ColoredTag_1 = __webpack_require__(/*! ./ColoredTag */ "./resources/ts/components/lv1/ColoredTag.tsx");
+
+Object.defineProperty(exports, "ColoredTag", ({
+  enumerable: true,
+  get: function get() {
+    return __importDefault(ColoredTag_1)["default"];
+  }
+}));
+
+var WelcomeImage_1 = __webpack_require__(/*! ./WelcomeImage */ "./resources/ts/components/lv1/WelcomeImage.tsx");
+
+Object.defineProperty(exports, "WelcomeImage", ({
+  enumerable: true,
+  get: function get() {
+    return __importDefault(WelcomeImage_1)["default"];
+  }
+}));
 
 /***/ }),
 
@@ -4836,11 +4948,11 @@ var styled_components_1 = __importDefault(__webpack_require__(/*! styled-compone
 
 var axios_1 = __importDefault(__webpack_require__(/*! axios */ "./node_modules/axios/index.js"));
 
-var _index_1 = __webpack_require__(/*! ./_index */ "./resources/ts/components/lv2/_index.js");
+var _index_1 = __webpack_require__(/*! ./_index */ "./resources/ts/components/lv2/_index.tsx");
 
 var Modal_1 = __importDefault(__webpack_require__(/*! ../modal/lv2/Modal */ "./resources/ts/components/modal/lv2/Modal.tsx"));
 
-var _index_2 = __webpack_require__(/*! ../lv1/_index */ "./resources/ts/components/lv1/_index.js"); //prettier-ignore
+var _index_2 = __webpack_require__(/*! ../lv1/_index */ "./resources/ts/components/lv1/_index.tsx"); //prettier-ignore
 
 
 var customMedia_1 = __importDefault(__webpack_require__(/*! ../../style/customMedia */ "./resources/ts/style/customMedia.tsx")); //prettier-ignore
@@ -4909,7 +5021,7 @@ var TaskCard = react_1["default"].memo(function (_a) {
 
   var getTags = function getTags() {
     return __awaiter(void 0, void 0, void 0, function () {
-      var res, obj, err_1;
+      var res, todos, err_1;
       return __generator(this, function (_a) {
         switch (_a.label) {
           case 0:
@@ -4921,10 +5033,10 @@ var TaskCard = react_1["default"].memo(function (_a) {
 
           case 1:
             res = _a.sent();
-            obj = tasks;
+            todos = tasks;
 
             if (!(res.data.id === undefined)) {
-              obj.splice(i, 1, __assign(__assign({}, task), {
+              todos.splice(i, 1, __assign(__assign({}, task), {
                 hasDonePostTag: true,
                 tagID: res.data.id,
                 red: res.data.checked_red,
@@ -4933,7 +5045,7 @@ var TaskCard = react_1["default"].memo(function (_a) {
                 green: res.data.checked_green
               }));
             } else {
-              obj.splice(i, 1, __assign(__assign({}, task), {
+              todos.splice(i, 1, __assign(__assign({}, task), {
                 tagID: res.data.id,
                 red: res.data.checked_red,
                 blue: res.data.checked_blue,
@@ -4942,7 +5054,7 @@ var TaskCard = react_1["default"].memo(function (_a) {
               }));
             }
 
-            setTasks(obj);
+            setTasks(todos);
             setTagID(res.data.id);
             setSelected_color({
               red: res.data.checked_red,
@@ -5188,7 +5300,7 @@ var react_1 = __importStar(__webpack_require__(/*! react */ "./node_modules/reac
 
 var styled_components_1 = __importDefault(__webpack_require__(/*! styled-components */ "./node_modules/styled-components/dist/styled-components.browser.esm.js"));
 
-var _index_1 = __webpack_require__(/*! ../lv1/_index */ "./resources/ts/components/lv1/_index.js");
+var _index_1 = __webpack_require__(/*! ../lv1/_index */ "./resources/ts/components/lv1/_index.tsx");
 
 var customMedia_1 = __importDefault(__webpack_require__(/*! ../../style/customMedia */ "./resources/ts/style/customMedia.tsx"));
 
@@ -5277,6 +5389,73 @@ var _WelcomeContent = styled_components_1["default"].div(templateObject_1 || (te
 var _Title = styled_components_1["default"].div(templateObject_5 || (templateObject_5 = __makeTemplateObject(["\n    font-size: 1.4rem;\n    padding-top: 30px;\n    color: #5287ec;\n    opacity: 0.9;\n    ", "\n    ", " \n    ", "\n"], ["\n    font-size: 1.4rem;\n    padding-top: 30px;\n    color: #5287ec;\n    opacity: 0.9;\n    ", "\n    ", " \n    ", "\n"])), customMedia_1["default"].lessThan("mobile")(templateObject_2 || (templateObject_2 = __makeTemplateObject(["\n        font-size:1.2rem;\n    "], ["\n        font-size:1.2rem;\n    "]))), customMedia_1["default"].between("mobile", "tablet")(templateObject_3 || (templateObject_3 = __makeTemplateObject(["\n\n    "], ["\n\n    "]))), customMedia_1["default"].greaterThan("tablet")(templateObject_4 || (templateObject_4 = __makeTemplateObject(["\n\n    "], ["\n\n    "]))));
 
 var templateObject_1, templateObject_2, templateObject_3, templateObject_4, templateObject_5;
+
+/***/ }),
+
+/***/ "./resources/ts/components/lv2/_index.tsx":
+/*!************************************************!*\
+  !*** ./resources/ts/components/lv2/_index.tsx ***!
+  \************************************************/
+/***/ (function(__unused_webpack_module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var __importDefault = this && this.__importDefault || function (mod) {
+  return mod && mod.__esModule ? mod : {
+    "default": mod
+  };
+};
+
+Object.defineProperty(exports, "__esModule", ({
+  value: true
+}));
+exports.WelcomeContent = exports.TextForm = exports.ColoredTags = exports.TaskCard = exports.Header = void 0;
+
+var Header_1 = __webpack_require__(/*! ./Header */ "./resources/ts/components/lv2/Header.tsx");
+
+Object.defineProperty(exports, "Header", ({
+  enumerable: true,
+  get: function get() {
+    return __importDefault(Header_1)["default"];
+  }
+}));
+
+var TaskCard_1 = __webpack_require__(/*! ./TaskCard */ "./resources/ts/components/lv2/TaskCard.tsx");
+
+Object.defineProperty(exports, "TaskCard", ({
+  enumerable: true,
+  get: function get() {
+    return __importDefault(TaskCard_1)["default"];
+  }
+}));
+
+var ColoredTags_1 = __webpack_require__(/*! ./ColoredTags */ "./resources/ts/components/lv2/ColoredTags.tsx");
+
+Object.defineProperty(exports, "ColoredTags", ({
+  enumerable: true,
+  get: function get() {
+    return __importDefault(ColoredTags_1)["default"];
+  }
+}));
+
+var TextForm_1 = __webpack_require__(/*! ./TextForm */ "./resources/ts/components/lv2/TextForm.tsx");
+
+Object.defineProperty(exports, "TextForm", ({
+  enumerable: true,
+  get: function get() {
+    return __importDefault(TextForm_1)["default"];
+  }
+}));
+
+var WelcomeContent_1 = __webpack_require__(/*! ./WelcomeContent */ "./resources/ts/components/lv2/WelcomeContent.tsx");
+
+Object.defineProperty(exports, "WelcomeContent", ({
+  enumerable: true,
+  get: function get() {
+    return __importDefault(WelcomeContent_1)["default"];
+  }
+}));
 
 /***/ }),
 
@@ -6288,7 +6467,7 @@ var styled_components_1 = __importDefault(__webpack_require__(/*! styled-compone
 
 var customMedia_1 = __importDefault(__webpack_require__(/*! ../../style/customMedia */ "./resources/ts/style/customMedia.tsx"));
 
-var _index_1 = __webpack_require__(/*! ../lv2/_index */ "./resources/ts/components/lv2/_index.js");
+var _index_1 = __webpack_require__(/*! ../lv2/_index */ "./resources/ts/components/lv2/_index.tsx");
 
 exports.TasksEditActiveContext = react_1["default"].createContext(false);
 var initialState = false;
@@ -6331,7 +6510,7 @@ var TodoContent = function TodoContent(_a) {
       return __generator(this, function (_a) {
         switch (_a.label) {
           case 0:
-            if (!!(userID === "")) return [3
+            if (!!(userID === null)) return [3
             /*break*/
             , 4];
             _a.label = 1;
@@ -6413,8 +6592,7 @@ var TodoContent = function TodoContent(_a) {
     }
   }, react_1["default"].createElement(_Wrapper, null, react_1["default"].createElement(_TodoContent, null, react_1["default"].createElement(_index_1.TextForm, {
     postTask: postTask,
-    userID: userID,
-    dispatch: dispatch
+    userID: userID
   }), tasks.length === 0 && is_began === true ? react_1["default"].createElement(_index_1.WelcomeContent, null) : react_1["default"].createElement(_TaskCards, null, tasks.map(function (task, key) {
     i++;
     return react_1["default"].createElement(_index_1.TaskCard, {
@@ -6514,6 +6692,64 @@ var TopPageContent = function TopPageContent() {
 };
 
 exports.default = TopPageContent;
+
+/***/ }),
+
+/***/ "./resources/ts/components/lv3/_index.tsx":
+/*!************************************************!*\
+  !*** ./resources/ts/components/lv3/_index.tsx ***!
+  \************************************************/
+/***/ (function(__unused_webpack_module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var __importDefault = this && this.__importDefault || function (mod) {
+  return mod && mod.__esModule ? mod : {
+    "default": mod
+  };
+};
+
+Object.defineProperty(exports, "__esModule", ({
+  value: true
+}));
+exports.TopPageContent = exports.TodoContent = exports.RegisterContent = exports.LoginContent = void 0;
+
+var LoginContent_1 = __webpack_require__(/*! ./LoginContent */ "./resources/ts/components/lv3/LoginContent.tsx");
+
+Object.defineProperty(exports, "LoginContent", ({
+  enumerable: true,
+  get: function get() {
+    return __importDefault(LoginContent_1)["default"];
+  }
+}));
+
+var RegisterContent_1 = __webpack_require__(/*! ./RegisterContent */ "./resources/ts/components/lv3/RegisterContent.tsx");
+
+Object.defineProperty(exports, "RegisterContent", ({
+  enumerable: true,
+  get: function get() {
+    return __importDefault(RegisterContent_1)["default"];
+  }
+}));
+
+var TodoContent_1 = __webpack_require__(/*! ./TodoContent */ "./resources/ts/components/lv3/TodoContent.tsx");
+
+Object.defineProperty(exports, "TodoContent", ({
+  enumerable: true,
+  get: function get() {
+    return __importDefault(TodoContent_1)["default"];
+  }
+}));
+
+var TopPageContent_1 = __webpack_require__(/*! ./TopPageContent */ "./resources/ts/components/lv3/TopPageContent.tsx");
+
+Object.defineProperty(exports, "TopPageContent", ({
+  enumerable: true,
+  get: function get() {
+    return __importDefault(TopPageContent_1)["default"];
+  }
+}));
 
 /***/ }),
 
@@ -7171,121 +7407,6 @@ axios.defaults.withCredentials = true;
 //     cluster: process.env.MIX_PUSHER_APP_CLUSTER,
 //     forceTLS: true
 // });
-
-/***/ }),
-
-/***/ "./resources/ts/components/lv1/_index.js":
-/*!***********************************************!*\
-  !*** ./resources/ts/components/lv1/_index.js ***!
-  \***********************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "CheckBox": () => (/* reexport default from dynamic */ _CheckBox__WEBPACK_IMPORTED_MODULE_0___default.a),
-/* harmony export */   "DeleteButton": () => (/* reexport default from dynamic */ _DeleteButton__WEBPACK_IMPORTED_MODULE_1___default.a),
-/* harmony export */   "DeleteIcon": () => (/* reexport default from dynamic */ _DeleteIcon__WEBPACK_IMPORTED_MODULE_2___default.a),
-/* harmony export */   "EditButton": () => (/* reexport default from dynamic */ _EditButton__WEBPACK_IMPORTED_MODULE_3___default.a),
-/* harmony export */   "EditIcon": () => (/* reexport default from dynamic */ _EditIcon__WEBPACK_IMPORTED_MODULE_4___default.a),
-/* harmony export */   "InputText": () => (/* reexport default from dynamic */ _InputText__WEBPACK_IMPORTED_MODULE_5___default.a),
-/* harmony export */   "SubmitButton": () => (/* reexport default from dynamic */ _SubmitButton__WEBPACK_IMPORTED_MODULE_6___default.a),
-/* harmony export */   "TaskTitle": () => (/* reexport default from dynamic */ _TaskTitle__WEBPACK_IMPORTED_MODULE_7___default.a),
-/* harmony export */   "ColoredTag": () => (/* reexport default from dynamic */ _ColoredTag__WEBPACK_IMPORTED_MODULE_8___default.a),
-/* harmony export */   "WelcomeImage": () => (/* reexport default from dynamic */ _WelcomeImage__WEBPACK_IMPORTED_MODULE_9___default.a)
-/* harmony export */ });
-/* harmony import */ var _CheckBox__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./CheckBox */ "./resources/ts/components/lv1/CheckBox.tsx");
-/* harmony import */ var _CheckBox__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_CheckBox__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _DeleteButton__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./DeleteButton */ "./resources/ts/components/lv1/DeleteButton.tsx");
-/* harmony import */ var _DeleteButton__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_DeleteButton__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var _DeleteIcon__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./DeleteIcon */ "./resources/ts/components/lv1/DeleteIcon.tsx");
-/* harmony import */ var _DeleteIcon__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_DeleteIcon__WEBPACK_IMPORTED_MODULE_2__);
-/* harmony import */ var _EditButton__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./EditButton */ "./resources/ts/components/lv1/EditButton.tsx");
-/* harmony import */ var _EditButton__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_EditButton__WEBPACK_IMPORTED_MODULE_3__);
-/* harmony import */ var _EditIcon__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./EditIcon */ "./resources/ts/components/lv1/EditIcon.tsx");
-/* harmony import */ var _EditIcon__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(_EditIcon__WEBPACK_IMPORTED_MODULE_4__);
-/* harmony import */ var _InputText__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./InputText */ "./resources/ts/components/lv1/InputText.tsx");
-/* harmony import */ var _InputText__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(_InputText__WEBPACK_IMPORTED_MODULE_5__);
-/* harmony import */ var _SubmitButton__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./SubmitButton */ "./resources/ts/components/lv1/SubmitButton.tsx");
-/* harmony import */ var _SubmitButton__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(_SubmitButton__WEBPACK_IMPORTED_MODULE_6__);
-/* harmony import */ var _TaskTitle__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./TaskTitle */ "./resources/ts/components/lv1/TaskTitle.tsx");
-/* harmony import */ var _TaskTitle__WEBPACK_IMPORTED_MODULE_7___default = /*#__PURE__*/__webpack_require__.n(_TaskTitle__WEBPACK_IMPORTED_MODULE_7__);
-/* harmony import */ var _ColoredTag__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./ColoredTag */ "./resources/ts/components/lv1/ColoredTag.tsx");
-/* harmony import */ var _ColoredTag__WEBPACK_IMPORTED_MODULE_8___default = /*#__PURE__*/__webpack_require__.n(_ColoredTag__WEBPACK_IMPORTED_MODULE_8__);
-/* harmony import */ var _WelcomeImage__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./WelcomeImage */ "./resources/ts/components/lv1/WelcomeImage.tsx");
-/* harmony import */ var _WelcomeImage__WEBPACK_IMPORTED_MODULE_9___default = /*#__PURE__*/__webpack_require__.n(_WelcomeImage__WEBPACK_IMPORTED_MODULE_9__);
-
-
-
-
-
-
-
-
-
-
-
-/***/ }),
-
-/***/ "./resources/ts/components/lv2/_index.js":
-/*!***********************************************!*\
-  !*** ./resources/ts/components/lv2/_index.js ***!
-  \***********************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "Header": () => (/* reexport default from dynamic */ _Header__WEBPACK_IMPORTED_MODULE_0___default.a),
-/* harmony export */   "TaskCard": () => (/* reexport default from dynamic */ _TaskCard__WEBPACK_IMPORTED_MODULE_1___default.a),
-/* harmony export */   "ColoredTags": () => (/* reexport default from dynamic */ _ColoredTags__WEBPACK_IMPORTED_MODULE_2___default.a),
-/* harmony export */   "TextForm": () => (/* reexport default from dynamic */ _TextForm__WEBPACK_IMPORTED_MODULE_3___default.a),
-/* harmony export */   "WelcomeContent": () => (/* reexport default from dynamic */ _WelcomeContent__WEBPACK_IMPORTED_MODULE_4___default.a)
-/* harmony export */ });
-/* harmony import */ var _Header__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Header */ "./resources/ts/components/lv2/Header.tsx");
-/* harmony import */ var _Header__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_Header__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _TaskCard__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./TaskCard */ "./resources/ts/components/lv2/TaskCard.tsx");
-/* harmony import */ var _TaskCard__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_TaskCard__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var _ColoredTags__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./ColoredTags */ "./resources/ts/components/lv2/ColoredTags.tsx");
-/* harmony import */ var _ColoredTags__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_ColoredTags__WEBPACK_IMPORTED_MODULE_2__);
-/* harmony import */ var _TextForm__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./TextForm */ "./resources/ts/components/lv2/TextForm.tsx");
-/* harmony import */ var _TextForm__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_TextForm__WEBPACK_IMPORTED_MODULE_3__);
-/* harmony import */ var _WelcomeContent__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./WelcomeContent */ "./resources/ts/components/lv2/WelcomeContent.tsx");
-/* harmony import */ var _WelcomeContent__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(_WelcomeContent__WEBPACK_IMPORTED_MODULE_4__);
-
-
-
-
-
-
-/***/ }),
-
-/***/ "./resources/ts/components/lv3/_index.js":
-/*!***********************************************!*\
-  !*** ./resources/ts/components/lv3/_index.js ***!
-  \***********************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "LoginContent": () => (/* reexport default from dynamic */ _LoginContent__WEBPACK_IMPORTED_MODULE_0___default.a),
-/* harmony export */   "RegisterContent": () => (/* reexport default from dynamic */ _RegisterContent__WEBPACK_IMPORTED_MODULE_1___default.a),
-/* harmony export */   "TodoContent": () => (/* reexport default from dynamic */ _TodoContent__WEBPACK_IMPORTED_MODULE_2___default.a),
-/* harmony export */   "TopPageContent": () => (/* reexport default from dynamic */ _TopPageContent__WEBPACK_IMPORTED_MODULE_3___default.a)
-/* harmony export */ });
-/* harmony import */ var _LoginContent__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./LoginContent */ "./resources/ts/components/lv3/LoginContent.tsx");
-/* harmony import */ var _LoginContent__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_LoginContent__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _RegisterContent__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./RegisterContent */ "./resources/ts/components/lv3/RegisterContent.tsx");
-/* harmony import */ var _RegisterContent__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_RegisterContent__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var _TodoContent__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./TodoContent */ "./resources/ts/components/lv3/TodoContent.tsx");
-/* harmony import */ var _TodoContent__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_TodoContent__WEBPACK_IMPORTED_MODULE_2__);
-/* harmony import */ var _TopPageContent__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./TopPageContent */ "./resources/ts/components/lv3/TopPageContent.tsx");
-/* harmony import */ var _TopPageContent__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_TopPageContent__WEBPACK_IMPORTED_MODULE_3__);
-
-
-
-
 
 /***/ }),
 
