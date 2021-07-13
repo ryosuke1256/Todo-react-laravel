@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useCallback, useReducer } from "react";
 import axios from "axios";
 import styled from "styled-components";
 import customMedia from "../../style/customMedia";
@@ -6,24 +6,38 @@ import { TaskAndColor } from "../../type/TaskAndColor";
 import { TaskAPI } from "../../type/api/TaskAPI";
 import { TaskCard, TextForm, WelcomeContent } from "../lv2/_index";
 
+export const TasksEditActiveContext = React.createContext<any>(false);
+
+const initialState = false;
+const reducer = (state: boolean, action: "active" | "deactivate"): boolean => {
+    switch (action) {
+        case "active":
+            return true;
+        case "deactivate":
+            return false;
+        default:
+            return state;
+    }
+};
+
 type Props = {
-    userID: string;
+    userID: Readonly<number | null>;
 };
 
 const TodoContent: React.VFC<Props> = ({ userID }: Props) => {
-    const [tasks, setTasks] = useState<any>([]);
-    const [tasksEditActive, setTasksEditActive] = useState(false);
+    const [tasks, setTasks] = useState<TaskAndColor[]>([]);
     const [is_began, setIs_began] = useState(false);
+    const [tasksEditActive, dispatch] = useReducer(reducer, initialState);
 
     useEffect(() => {
         getTasks();
     }, []);
 
     const getTasks = async (): Promise<void> => {
-        if (!(userID === "")) {
-            const Data = await axios.get(`api/tasks/users/${userID}`);
+        if (!(userID === null)) {
             try {
-                setTasks(Data.data.map((data: {}) => data));
+                const Data = await axios.get(`api/tasks/users/${userID}`);
+                setTasks(Data.data.map((data: TaskAndColor) => data));
                 setIs_began(true);
             } catch (err) {
                 console.error(err);
@@ -31,59 +45,69 @@ const TodoContent: React.VFC<Props> = ({ userID }: Props) => {
         }
     };
 
-    const postTask = async (postData: TaskAPI): Promise<void> => {
-        // console.log({ postData });
-        const res = await axios.post("api/tasks", postData);
-        try {
-            const obj = [...tasks];
-            obj.unshift(res.data);
-            setTasks(obj);
-        } catch (err) {
-            console.error(err);
-        }
-    };
+    const postTask = useCallback(
+        async (postData: TaskAPI): Promise<void> => {
+            // console.log({ postData });
+            try {
+                const res = await axios.post("api/tasks", postData);
+                const obj = [...tasks];
+                obj.unshift(res.data);
+                setTasks(obj);
+            } catch (err) {
+                console.error(err);
+            }
+        },
+        [tasks]
+    );
 
     let i: number = -1;
 
     return (
         <>
-            <_Wrapper>
-                <_TodoContent>
-                    <TextForm postTask={postTask} userID={userID} />
-                    {tasks.length === 0 && is_began === true ? (
-                        <WelcomeContent />
-                    ) : (
-                        <_TaskCards>
-                            {tasks.map((task: TaskAndColor, key: number) => {
-                                i++;
-                                return (
-                                    <TaskCard
-                                        task={task}
-                                        setTasks={setTasks}
-                                        tasks={tasks}
-                                        tasksEditActive={tasksEditActive}
-                                        setTasksEditActive={setTasksEditActive}
-                                        id={task.id}
-                                        i={i}
-                                        key={key}
-                                    />
-                                );
-                            })}
-                        </_TaskCards>
-                    )}
-                </_TodoContent>
-            </_Wrapper>
+            <TasksEditActiveContext.Provider
+                value={{
+                    tasksEditState: tasksEditActive,
+                    tasksEditDispatch: dispatch,
+                }}
+            >
+                <_Wrapper>
+                    <_TodoContent>
+                        <TextForm postTask={postTask} userID={userID} />
+                        {tasks.length === 0 && is_began === true ? (
+                            <WelcomeContent />
+                        ) : (
+                            <_TaskCards>
+                                {tasks.map(
+                                    (task: TaskAndColor, key: number) => {
+                                        i++;
+                                        return (
+                                            <TaskCard
+                                                task={task}
+                                                tasks={tasks}
+                                                setTasks={setTasks}
+                                                id={task.id}
+                                                i={i}
+                                                key={key}
+                                            />
+                                        );
+                                    }
+                                )}
+                            </_TaskCards>
+                        )}
+                    </_TodoContent>
+                </_Wrapper>
+            </TasksEditActiveContext.Provider>
         </>
     );
 };
 
 export default TodoContent;
 
-export const _TaskCards = styled.div`
+const _TaskCards = styled.div`
     padding-top: 20px;
 `;
 
-export const _TodoContent = styled.div`
+const _TodoContent = styled.div`
     max-width: 820px;
     margin: 0 auto;
     padding-top: 105px;

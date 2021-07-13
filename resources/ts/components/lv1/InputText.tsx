@@ -7,7 +7,7 @@ type Props = {
     handleChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
     postTask: (postData: TaskAPI) => void;
     setText: (param: string) => void;
-    userID?: number;
+    userID: number | null;
 };
 
 const InputText: React.VFC<Props> = ({

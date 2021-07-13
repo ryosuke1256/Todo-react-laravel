@@ -6,10 +6,10 @@ import customMedia from "../../style/customMedia";
 
 type Props = {
     postTask: (postTask: TaskAPI) => void;
-    userID?: number;
+    userID: number | null;
 };
 
-const TextForm: React.VFC<Props> = ({ postTask, userID }: Props) => {
+const TextForm: React.VFC<Props> = React.memo(({ postTask, userID }: Props) => {
     const [text, setText] = useState("");
 
     const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -33,10 +33,10 @@ const TextForm: React.VFC<Props> = ({ postTask, userID }: Props) => {
             />
         </_TextForm>
     );
-};
+});
 export default TextForm;
 
-const _TextForm = styled.div` 
+const _TextForm = styled.div`
     ${customMedia.lessThan("mobile")`
         padding-left:20px;
     `}
@@ -46,5 +46,4 @@ const _TextForm = styled.div`
     ${customMedia.greaterThan("tablet")`
 
     `}
-    
 `;

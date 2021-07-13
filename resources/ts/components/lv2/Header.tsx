@@ -34,7 +34,7 @@ const Header: React.VFC<Props> = ({
 
     return (
         <_Header>
-            <Link to="/" style={{ textDecoration: "none", flexGrow: "1" }}>
+            <Link to="/" style={{ textDecoration: "none", flexGrow: 1 }}>
                 <_TapableRange>
                     <img
                         src="./images/whale.png"

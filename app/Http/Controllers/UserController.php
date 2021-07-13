@@ -20,7 +20,7 @@ class UserController extends Controller
      *
      * @return \App\User|null
      */
-    public function index()
+    public function index(): ?object 
     {
         return Auth::user();
     }

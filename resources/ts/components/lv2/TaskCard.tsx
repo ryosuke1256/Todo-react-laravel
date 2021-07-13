@@ -4,27 +4,25 @@ import axios from "axios";
 import { ColoredTags } from "./_index";
 import Modal from "../modal/lv2/Modal";
 import { EditButton, DeleteButton, CheckBox, TaskTitle } from "../lv1/_index"; //prettier-ignore
-import { TaskAPI } from "../../type/api/TaskAPI";
 import { TaskAndColor } from "../../type/TaskAndColor";
+import { Color } from "../../type/Color";
 import customMedia from "../../style/customMedia";
 
 type Props = {
-    tasks: [TaskAndColor];
     task: TaskAndColor;
-    setTasks: (param: {}) => void;
-    tasksEditActive: boolean;
-    setTasksEditActive: (param: boolean) => void;
+    tasks: TaskAndColor[];
+    setTasks: (param: TaskAndColor[]) => void;
     id: number;
     i: number;
 };
 
 //prettier-ignore
-const TaskCard: React.VFC<Props> = ({task,tasks,setTasks,tasksEditActive,setTasksEditActive,id,i,}: Props) => {
+const TaskCard: React.VFC<Props> = React.memo(({task,tasks,setTasks,id,i,}: Props) => {
     const [title, setTitle] = useState(task.title);
     const [is_done, setIs_done] = useState(task.is_done);
     const [editActive, setEditActive] = useState(false);
     const [hasModalOpened, setHasModalOpened] = useState(false);
-    const [selected_color, setSelected_color] = useState<any>({red:false,blue:false,yellow:false,green:false}); //prettier-ignore
+    const [selected_color, setSelected_color] = useState<Color>({red:false,blue:false,yellow:false,green:false}); //prettier-ignore
     const [tagID,setTagID] = useState<number|null>(null);
     const [editButtonTitle, setEditButtonTitle] = useState("編集");
 
@@ -46,34 +44,34 @@ const TaskCard: React.VFC<Props> = ({task,tasks,setTasks,tasksEditActive,setTask
     }, [task]); 
 
     const getTags = async (): Promise<void> => {
-        const res = await axios.get(`api/tags/tasks/${tasks[i].id}`);
         try {
-            const obj = tasks;
+            const res = await axios.get(`api/tags/tasks/${tasks[i].id}`);
+            const todos = tasks;
             if(!(res.data.id === undefined)) {
-                obj.splice(i,1,{...task, ...{hasDonePostTag:true,tagID:res.data.id,red:res.data.checked_red,blue:res.data.checked_blue,yellow:res.data.checked_yellow,green:res.data.checked_green}});
+                todos.splice(i,1,{...task, ...{hasDonePostTag:true,tagID:res.data.id,red:res.data.checked_red,blue:res.data.checked_blue,yellow:res.data.checked_yellow,green:res.data.checked_green}});
             } else {
-                obj.splice(i,1,{...task, ...{tagID:res.data.id,red:res.data.checked_red,blue:res.data.checked_blue,yellow:res.data.checked_yellow,green:res.data.checked_green}});
+                todos.splice(i,1,{...task, ...{tagID:res.data.id,red:res.data.checked_red,blue:res.data.checked_blue,yellow:res.data.checked_yellow,green:res.data.checked_green}});
             }
-            setTasks(obj);
+            setTasks(todos);
             setTagID(res.data.id);
             setSelected_color({red:res.data.checked_red,blue:res.data.checked_blue,yellow:res.data.checked_yellow,green:res.data.checked_green});
         } catch (err) {
-            console.log(err);
+            console.error(err);
         }
     };
 
     const deleteTask = async (): Promise<void> => {
-        const res = await axios.delete(`api/tasks/${id}`);
         try {
+            const res = await axios.delete(`api/tasks/${id}`);
             setTasks(tasks.filter((task) => task.id !== res.data.id));
         } catch (err) {
-            console.log(err);
+            console.error(err);
         }
     };
 
     const checkTask = async (is_done: 0 | 1): Promise<void> => {
         is_done === 0 ? (is_done = 1) : (is_done = 0);
-        const data: TaskAPI = {
+        const data = {
             title: title,
             is_done: is_done,
         };
@@ -84,12 +82,12 @@ const TaskCard: React.VFC<Props> = ({task,tasks,setTasks,tasksEditActive,setTask
                 setIs_done(is_done);
             })
             .catch((err) => {
-                console.log(err);
+                console.error(err);
             });
     };
 
     const editTask = async (title: string): Promise<void> => {
-        const data: TaskAPI = {
+        const data = {
             title: title,
             is_done: is_done,
         };
@@ -100,12 +98,13 @@ const TaskCard: React.VFC<Props> = ({task,tasks,setTasks,tasksEditActive,setTask
                 setTitle(title);
             })
             .catch((err) => {
-                console.log(err);
+                console.error(err);
             });
     };
 
     return (
         <>
+
             <_TaskCard>
                 <_Wrapper>
                     <CheckBox is_done={is_done} checkTask={checkTask} />
@@ -116,16 +115,12 @@ const TaskCard: React.VFC<Props> = ({task,tasks,setTasks,tasksEditActive,setTask
                         setTitle={setTitle}
                         editTask={editTask}
                         setEditActive={setEditActive}
-                        tasksEditActive={tasksEditActive}
-                        setTasksEditActive={setTasksEditActive}
                         setEditButtonTitle={setEditButtonTitle}
                     />
                     <EditButton
                         editTask={editTask}
                         editActive={editActive}
                         setEditActive={setEditActive}
-                        tasksEditActive={tasksEditActive}
-                        setTasksEditActive={setTasksEditActive}
                         title={title}
                         editButtonTitle={editButtonTitle}
                         setEditButtonTitle={setEditButtonTitle}
@@ -156,7 +151,7 @@ const TaskCard: React.VFC<Props> = ({task,tasks,setTasks,tasksEditActive,setTask
             />
         </>
     );
-};
+});
 
 export default TaskCard;
 

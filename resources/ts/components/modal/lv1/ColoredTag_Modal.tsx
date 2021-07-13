@@ -6,12 +6,18 @@ import { Color } from "../../../type/Color";
 type Props = {
     backgroundColor: string;
     selected_color: Color;
-    setSelected_color: (prevState: any) => boolean | void;
+    setSelected_color: (param: Color) => void;
     initChecked?: boolean;
     i: 0 | 1 | 2 | 3;
 };
 
-const TagColorModal: React.VFC<Props> = ({backgroundColor,selected_color,setSelected_color,initChecked,i,}: Props) => {
+const TagColorModal: React.VFC<Props> = ({
+    backgroundColor,
+    selected_color,
+    setSelected_color,
+    initChecked,
+    i,
+}: Props) => {
     const [is_selected, setIs_Selected] = useState(initChecked);
 
     return (
@@ -20,13 +26,25 @@ const TagColorModal: React.VFC<Props> = ({backgroundColor,selected_color,setSele
                 onClick={() => {
                     setIs_Selected((prevState) => !prevState);
                     if (i === 0) {
-                        setSelected_color({...selected_color,red:!selected_color.red});
+                        setSelected_color({
+                            ...selected_color,
+                            red: !selected_color.red,
+                        });
                     } else if (i === 1) {
-                        setSelected_color({...selected_color,blue:!selected_color.blue});
+                        setSelected_color({
+                            ...selected_color,
+                            blue: !selected_color.blue,
+                        });
                     } else if (i === 2) {
-                        setSelected_color({...selected_color,yellow:!selected_color.yellow});
+                        setSelected_color({
+                            ...selected_color,
+                            yellow: !selected_color.yellow,
+                        });
                     } else if (i === 3) {
-                        setSelected_color({...selected_color,green:!selected_color.green});
+                        setSelected_color({
+                            ...selected_color,
+                            green: !selected_color.green,
+                        });
                     }
                 }}
                 is_selected={is_selected}
@@ -40,7 +58,10 @@ const TagColorModal: React.VFC<Props> = ({backgroundColor,selected_color,setSele
 
 export default TagColorModal;
 
-const _TagColor = styled.div<{ is_selected; backgroundColor: string }>`
+const _TagColor = styled.div<{
+    is_selected: boolean | undefined;
+    backgroundColor: string;
+}>`
     height: 20px;
     width: 80px;
     margin-top: 30px;

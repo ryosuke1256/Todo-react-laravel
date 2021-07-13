@@ -2891,7 +2891,7 @@ var react_router_dom_1 = __webpack_require__(/*! react-router-dom */ "./node_mod
 
 var Header_1 = __importDefault(__webpack_require__(/*! ./components/lv2/Header */ "./resources/ts/components/lv2/Header.tsx"));
 
-var _index_1 = __webpack_require__(/*! ./components/lv3/_index */ "./resources/ts/components/lv3/_index.js"); //prettier-ignore
+var _index_1 = __webpack_require__(/*! ./components/lv3/_index */ "./resources/ts/components/lv3/_index.tsx"); //prettier-ignore
 
 
 var App = function App() {
@@ -2933,7 +2933,7 @@ var App = function App() {
 
               setIs_began(true);
             })["catch"](function (err) {
-              console.log(err);
+              console.error(err);
               setIs_began(true);
             })];
 
@@ -3188,7 +3188,7 @@ var react_1 = __importDefault(__webpack_require__(/*! react */ "./node_modules/r
 
 var Button_1 = __webpack_require__(/*! ./Button */ "./resources/ts/components/lv1/Button.tsx");
 
-var _index_1 = __webpack_require__(/*! ./_index */ "./resources/ts/components/lv1/_index.js");
+var _index_1 = __webpack_require__(/*! ./_index */ "./resources/ts/components/lv1/_index.tsx");
 
 var react_responsive_1 = __importDefault(__webpack_require__(/*! react-responsive */ "./node_modules/react-responsive/dist/react-responsive.js"));
 
@@ -3284,6 +3284,40 @@ exports.default = DeleteIcon;
 "use strict";
 
 
+var __createBinding = this && this.__createBinding || (Object.create ? function (o, m, k, k2) {
+  if (k2 === undefined) k2 = k;
+  Object.defineProperty(o, k2, {
+    enumerable: true,
+    get: function get() {
+      return m[k];
+    }
+  });
+} : function (o, m, k, k2) {
+  if (k2 === undefined) k2 = k;
+  o[k2] = m[k];
+});
+
+var __setModuleDefault = this && this.__setModuleDefault || (Object.create ? function (o, v) {
+  Object.defineProperty(o, "default", {
+    enumerable: true,
+    value: v
+  });
+} : function (o, v) {
+  o["default"] = v;
+});
+
+var __importStar = this && this.__importStar || function (mod) {
+  if (mod && mod.__esModule) return mod;
+  var result = {};
+  if (mod != null) for (var k in mod) {
+    if (k !== "default" && Object.prototype.hasOwnProperty.call(mod, k)) __createBinding(result, mod, k);
+  }
+
+  __setModuleDefault(result, mod);
+
+  return result;
+};
+
 var __importDefault = this && this.__importDefault || function (mod) {
   return mod && mod.__esModule ? mod : {
     "default": mod
@@ -3294,9 +3328,11 @@ Object.defineProperty(exports, "__esModule", ({
   value: true
 }));
 
-var react_1 = __importDefault(__webpack_require__(/*! react */ "./node_modules/react/index.js"));
+var react_1 = __importStar(__webpack_require__(/*! react */ "./node_modules/react/index.js"));
 
-var _index_1 = __webpack_require__(/*! ./_index */ "./resources/ts/components/lv1/_index.js");
+var TodoContent_1 = __webpack_require__(/*! ../lv3/TodoContent */ "./resources/ts/components/lv3/TodoContent.tsx");
+
+var _index_1 = __webpack_require__(/*! ./_index */ "./resources/ts/components/lv1/_index.tsx");
 
 var Button_1 = __webpack_require__(/*! ./Button */ "./resources/ts/components/lv1/Button.tsx");
 
@@ -3306,31 +3342,30 @@ var EditButton = function EditButton(_a) {
   var editTask = _a.editTask,
       editActive = _a.editActive,
       setEditActive = _a.setEditActive,
-      tasksEditActive = _a.tasksEditActive,
-      setTasksEditActive = _a.setTasksEditActive,
       title = _a.title,
       editButtonTitle = _a.editButtonTitle,
       setEditButtonTitle = _a.setEditButtonTitle;
+  var tasksEditContext = react_1.useContext(TodoContent_1.TasksEditActiveContext);
 
   var changeTaskTitle = function changeTaskTitle() {
-    if (!editActive && tasksEditActive) {
+    if (!editActive && tasksEditContext.tasksEditState) {
       return null;
     } else {
       setEditButtonTitle("変更");
-      setEditActive(function (prevState) {
-        return !prevState;
+      setEditActive(function (prev) {
+        return !prev;
       });
-      setTasksEditActive(true);
+      tasksEditContext.tasksEditDispatch("active");
 
       if (editActive) {
         editTask(title);
         setEditButtonTitle("編集");
-        setTasksEditActive(false);
+        tasksEditContext.tasksEditDispatch("deactivate");
       }
     }
   };
 
-  return react_1["default"].createElement(react_1["default"].Fragment, null, react_1["default"].createElement("div", null, react_1["default"].createElement(react_responsive_1["default"], {
+  return react_1["default"].createElement(react_1["default"].Fragment, null, react_1["default"].createElement(react_responsive_1["default"], {
     query: "(max-width: 599px)"
   }, react_1["default"].createElement(_index_1.EditIcon, {
     changeTaskTitle: changeTaskTitle
@@ -3341,7 +3376,7 @@ var EditButton = function EditButton(_a) {
       return changeTaskTitle();
     },
     backgroundColor: "#3bc2e4"
-  }, editButtonTitle))));
+  }, editButtonTitle)));
 };
 
 exports.default = EditButton;
@@ -3556,6 +3591,40 @@ var __makeTemplateObject = this && this.__makeTemplateObject || function (cooked
   return cooked;
 };
 
+var __createBinding = this && this.__createBinding || (Object.create ? function (o, m, k, k2) {
+  if (k2 === undefined) k2 = k;
+  Object.defineProperty(o, k2, {
+    enumerable: true,
+    get: function get() {
+      return m[k];
+    }
+  });
+} : function (o, m, k, k2) {
+  if (k2 === undefined) k2 = k;
+  o[k2] = m[k];
+});
+
+var __setModuleDefault = this && this.__setModuleDefault || (Object.create ? function (o, v) {
+  Object.defineProperty(o, "default", {
+    enumerable: true,
+    value: v
+  });
+} : function (o, v) {
+  o["default"] = v;
+});
+
+var __importStar = this && this.__importStar || function (mod) {
+  if (mod && mod.__esModule) return mod;
+  var result = {};
+  if (mod != null) for (var k in mod) {
+    if (k !== "default" && Object.prototype.hasOwnProperty.call(mod, k)) __createBinding(result, mod, k);
+  }
+
+  __setModuleDefault(result, mod);
+
+  return result;
+};
+
 var __importDefault = this && this.__importDefault || function (mod) {
   return mod && mod.__esModule ? mod : {
     "default": mod
@@ -3566,9 +3635,11 @@ Object.defineProperty(exports, "__esModule", ({
   value: true
 }));
 
-var react_1 = __importDefault(__webpack_require__(/*! react */ "./node_modules/react/index.js"));
+var react_1 = __importStar(__webpack_require__(/*! react */ "./node_modules/react/index.js"));
 
 var styled_components_1 = __importDefault(__webpack_require__(/*! styled-components */ "./node_modules/styled-components/dist/styled-components.browser.esm.js"));
+
+var TodoContent_1 = __webpack_require__(/*! ../lv3/TodoContent */ "./resources/ts/components/lv3/TodoContent.tsx");
 
 var TaskTitle = function TaskTitle(_a) {
   var is_done = _a.is_done,
@@ -3577,8 +3648,8 @@ var TaskTitle = function TaskTitle(_a) {
       setTitle = _a.setTitle,
       editTask = _a.editTask,
       setEditActive = _a.setEditActive,
-      setTasksEditActive = _a.setTasksEditActive,
       setEditButtonTitle = _a.setEditButtonTitle;
+  var tasksEditContext = react_1.useContext(TodoContent_1.TasksEditActiveContext);
 
   var handleChange = function handleChange(e) {
     setTitle(function () {
@@ -3603,7 +3674,7 @@ var TaskTitle = function TaskTitle(_a) {
           editTask(title);
           setEditActive(!editActive);
           setEditButtonTitle("編集");
-          setTasksEditActive(false);
+          tasksEditContext.tasksEditDispatch("deactivate");
         }
       }
     });
@@ -3924,6 +3995,118 @@ var templateObject_1, templateObject_2, templateObject_3, templateObject_4;
 
 /***/ }),
 
+/***/ "./resources/ts/components/lv1/_index.tsx":
+/*!************************************************!*\
+  !*** ./resources/ts/components/lv1/_index.tsx ***!
+  \************************************************/
+/***/ (function(__unused_webpack_module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var __importDefault = this && this.__importDefault || function (mod) {
+  return mod && mod.__esModule ? mod : {
+    "default": mod
+  };
+};
+
+Object.defineProperty(exports, "__esModule", ({
+  value: true
+}));
+exports.WelcomeImage = exports.ColoredTag = exports.TaskTitle = exports.SubmitButton = exports.InputText = exports.EditIcon = exports.EditButton = exports.DeleteIcon = exports.DeleteButton = exports.CheckBox = void 0;
+
+var CheckBox_1 = __webpack_require__(/*! ./CheckBox */ "./resources/ts/components/lv1/CheckBox.tsx");
+
+Object.defineProperty(exports, "CheckBox", ({
+  enumerable: true,
+  get: function get() {
+    return __importDefault(CheckBox_1)["default"];
+  }
+}));
+
+var DeleteButton_1 = __webpack_require__(/*! ./DeleteButton */ "./resources/ts/components/lv1/DeleteButton.tsx");
+
+Object.defineProperty(exports, "DeleteButton", ({
+  enumerable: true,
+  get: function get() {
+    return __importDefault(DeleteButton_1)["default"];
+  }
+}));
+
+var DeleteIcon_1 = __webpack_require__(/*! ./DeleteIcon */ "./resources/ts/components/lv1/DeleteIcon.tsx");
+
+Object.defineProperty(exports, "DeleteIcon", ({
+  enumerable: true,
+  get: function get() {
+    return __importDefault(DeleteIcon_1)["default"];
+  }
+}));
+
+var EditButton_1 = __webpack_require__(/*! ./EditButton */ "./resources/ts/components/lv1/EditButton.tsx");
+
+Object.defineProperty(exports, "EditButton", ({
+  enumerable: true,
+  get: function get() {
+    return __importDefault(EditButton_1)["default"];
+  }
+}));
+
+var EditIcon_1 = __webpack_require__(/*! ./EditIcon */ "./resources/ts/components/lv1/EditIcon.tsx");
+
+Object.defineProperty(exports, "EditIcon", ({
+  enumerable: true,
+  get: function get() {
+    return __importDefault(EditIcon_1)["default"];
+  }
+}));
+
+var InputText_1 = __webpack_require__(/*! ./InputText */ "./resources/ts/components/lv1/InputText.tsx");
+
+Object.defineProperty(exports, "InputText", ({
+  enumerable: true,
+  get: function get() {
+    return __importDefault(InputText_1)["default"];
+  }
+}));
+
+var SubmitButton_1 = __webpack_require__(/*! ./SubmitButton */ "./resources/ts/components/lv1/SubmitButton.tsx");
+
+Object.defineProperty(exports, "SubmitButton", ({
+  enumerable: true,
+  get: function get() {
+    return __importDefault(SubmitButton_1)["default"];
+  }
+}));
+
+var TaskTitle_1 = __webpack_require__(/*! ./TaskTitle */ "./resources/ts/components/lv1/TaskTitle.tsx");
+
+Object.defineProperty(exports, "TaskTitle", ({
+  enumerable: true,
+  get: function get() {
+    return __importDefault(TaskTitle_1)["default"];
+  }
+}));
+
+var ColoredTag_1 = __webpack_require__(/*! ./ColoredTag */ "./resources/ts/components/lv1/ColoredTag.tsx");
+
+Object.defineProperty(exports, "ColoredTag", ({
+  enumerable: true,
+  get: function get() {
+    return __importDefault(ColoredTag_1)["default"];
+  }
+}));
+
+var WelcomeImage_1 = __webpack_require__(/*! ./WelcomeImage */ "./resources/ts/components/lv1/WelcomeImage.tsx");
+
+Object.defineProperty(exports, "WelcomeImage", ({
+  enumerable: true,
+  get: function get() {
+    return __importDefault(WelcomeImage_1)["default"];
+  }
+}));
+
+/***/ }),
+
 /***/ "./resources/ts/components/lv2/ColoredTags.tsx":
 /*!*****************************************************!*\
   !*** ./resources/ts/components/lv2/ColoredTags.tsx ***!
@@ -3978,7 +4161,7 @@ var ColoredTag_1 = __importDefault(__webpack_require__(/*! ../lv1/ColoredTag */ 
 var styled_components_1 = __importDefault(__webpack_require__(/*! styled-components */ "./node_modules/styled-components/dist/styled-components.browser.esm.js")); //prettier-ignore
 
 
-var ColoredTags = function ColoredTags(_a) {
+var ColoredTags = react_1["default"].memo(function (_a) {
   var selected_color = _a.selected_color;
 
   var obj = __assign({}, selected_color);
@@ -4002,8 +4185,7 @@ var ColoredTags = function ColoredTags(_a) {
       i: 3
     }));
   }
-};
-
+});
 exports.default = ColoredTags;
 
 var _ColoredTags = styled_components_1["default"].div(templateObject_1 || (templateObject_1 = __makeTemplateObject(["\n    display: flex;\n    flex-wrap: wrap;\n    height: 10px;\n    cursor: pointer;\n"], ["\n    display: flex;\n    flex-wrap: wrap;\n    height: 10px;\n    cursor: pointer;\n"])));
@@ -4270,7 +4452,7 @@ var Header = function Header(_a) {
     to: "/",
     style: {
       textDecoration: "none",
-      flexGrow: "1"
+      flexGrow: 1
     }
   }, react_1["default"].createElement(_TapableRange, null, react_1["default"].createElement("img", {
     src: "./images/whale.png",
@@ -4766,22 +4948,20 @@ var styled_components_1 = __importDefault(__webpack_require__(/*! styled-compone
 
 var axios_1 = __importDefault(__webpack_require__(/*! axios */ "./node_modules/axios/index.js"));
 
-var _index_1 = __webpack_require__(/*! ./_index */ "./resources/ts/components/lv2/_index.js");
+var _index_1 = __webpack_require__(/*! ./_index */ "./resources/ts/components/lv2/_index.tsx");
 
 var Modal_1 = __importDefault(__webpack_require__(/*! ../modal/lv2/Modal */ "./resources/ts/components/modal/lv2/Modal.tsx"));
 
-var _index_2 = __webpack_require__(/*! ../lv1/_index */ "./resources/ts/components/lv1/_index.js"); //prettier-ignore
+var _index_2 = __webpack_require__(/*! ../lv1/_index */ "./resources/ts/components/lv1/_index.tsx"); //prettier-ignore
 
 
 var customMedia_1 = __importDefault(__webpack_require__(/*! ../../style/customMedia */ "./resources/ts/style/customMedia.tsx")); //prettier-ignore
 
 
-var TaskCard = function TaskCard(_a) {
+var TaskCard = react_1["default"].memo(function (_a) {
   var task = _a.task,
       tasks = _a.tasks,
       setTasks = _a.setTasks,
-      tasksEditActive = _a.tasksEditActive,
-      setTasksEditActive = _a.setTasksEditActive,
       id = _a.id,
       i = _a.i;
 
@@ -4841,51 +5021,59 @@ var TaskCard = function TaskCard(_a) {
 
   var getTags = function getTags() {
     return __awaiter(void 0, void 0, void 0, function () {
-      var res, obj;
+      var res, todos, err_1;
       return __generator(this, function (_a) {
         switch (_a.label) {
           case 0:
+            _a.trys.push([0, 2,, 3]);
+
             return [4
             /*yield*/
             , axios_1["default"].get("api/tags/tasks/" + tasks[i].id)];
 
           case 1:
             res = _a.sent();
+            todos = tasks;
 
-            try {
-              obj = tasks;
-
-              if (!(res.data.id === undefined)) {
-                obj.splice(i, 1, __assign(__assign({}, task), {
-                  hasDonePostTag: true,
-                  tagID: res.data.id,
-                  red: res.data.checked_red,
-                  blue: res.data.checked_blue,
-                  yellow: res.data.checked_yellow,
-                  green: res.data.checked_green
-                }));
-              } else {
-                obj.splice(i, 1, __assign(__assign({}, task), {
-                  tagID: res.data.id,
-                  red: res.data.checked_red,
-                  blue: res.data.checked_blue,
-                  yellow: res.data.checked_yellow,
-                  green: res.data.checked_green
-                }));
-              }
-
-              setTasks(obj);
-              setTagID(res.data.id);
-              setSelected_color({
+            if (!(res.data.id === undefined)) {
+              todos.splice(i, 1, __assign(__assign({}, task), {
+                hasDonePostTag: true,
+                tagID: res.data.id,
                 red: res.data.checked_red,
                 blue: res.data.checked_blue,
                 yellow: res.data.checked_yellow,
                 green: res.data.checked_green
-              });
-            } catch (err) {
-              console.log(err);
+              }));
+            } else {
+              todos.splice(i, 1, __assign(__assign({}, task), {
+                tagID: res.data.id,
+                red: res.data.checked_red,
+                blue: res.data.checked_blue,
+                yellow: res.data.checked_yellow,
+                green: res.data.checked_green
+              }));
             }
 
+            setTasks(todos);
+            setTagID(res.data.id);
+            setSelected_color({
+              red: res.data.checked_red,
+              blue: res.data.checked_blue,
+              yellow: res.data.checked_yellow,
+              green: res.data.checked_green
+            });
+            return [3
+            /*break*/
+            , 3];
+
+          case 2:
+            err_1 = _a.sent();
+            console.error(err_1);
+            return [3
+            /*break*/
+            , 3];
+
+          case 3:
             return [2
             /*return*/
             ];
@@ -4896,25 +5084,33 @@ var TaskCard = function TaskCard(_a) {
 
   var deleteTask = function deleteTask() {
     return __awaiter(void 0, void 0, void 0, function () {
-      var res;
+      var res_1, err_2;
       return __generator(this, function (_a) {
         switch (_a.label) {
           case 0:
+            _a.trys.push([0, 2,, 3]);
+
             return [4
             /*yield*/
             , axios_1["default"]["delete"]("api/tasks/" + id)];
 
           case 1:
-            res = _a.sent();
+            res_1 = _a.sent();
+            setTasks(tasks.filter(function (task) {
+              return task.id !== res_1.data.id;
+            }));
+            return [3
+            /*break*/
+            , 3];
 
-            try {
-              setTasks(tasks.filter(function (task) {
-                return task.id !== res.data.id;
-              }));
-            } catch (err) {
-              console.log(err);
-            }
+          case 2:
+            err_2 = _a.sent();
+            console.error(err_2);
+            return [3
+            /*break*/
+            , 3];
 
+          case 3:
             return [2
             /*return*/
             ];
@@ -4940,7 +5136,7 @@ var TaskCard = function TaskCard(_a) {
               tasks[i].is_done = is_done;
               setIs_done(is_done);
             })["catch"](function (err) {
-              console.log(err);
+              console.error(err);
             })];
 
           case 1:
@@ -4970,7 +5166,7 @@ var TaskCard = function TaskCard(_a) {
               tasks[i].title = title;
               setTitle(title);
             })["catch"](function (err) {
-              console.log(err);
+              console.error(err);
             })];
 
           case 1:
@@ -4994,15 +5190,11 @@ var TaskCard = function TaskCard(_a) {
     setTitle: setTitle,
     editTask: editTask,
     setEditActive: setEditActive,
-    tasksEditActive: tasksEditActive,
-    setTasksEditActive: setTasksEditActive,
     setEditButtonTitle: setEditButtonTitle
   }), react_1["default"].createElement(_index_2.EditButton, {
     editTask: editTask,
     editActive: editActive,
     setEditActive: setEditActive,
-    tasksEditActive: tasksEditActive,
-    setTasksEditActive: setTasksEditActive,
     title: title,
     editButtonTitle: editButtonTitle,
     setEditButtonTitle: setEditButtonTitle
@@ -5028,8 +5220,7 @@ var TaskCard = function TaskCard(_a) {
     task: task,
     i: i
   }));
-};
-
+});
 exports.default = TaskCard;
 
 var _TaskCard = styled_components_1["default"].div(templateObject_4 || (templateObject_4 = __makeTemplateObject(["\n    border: 1px solid #d4e0e7;\n    padding: 10px 10px 8px 10px;\n    border-bottom: 0px;\n    border-radius: 6px;\n    background-color: rgb(254, 254, 254);\n    ", "\n    ", "\n    ", "\n"], ["\n    border: 1px solid #d4e0e7;\n    padding: 10px 10px 8px 10px;\n    border-bottom: 0px;\n    border-radius: 6px;\n    background-color: rgb(254, 254, 254);\n    ", "\n    ", "\n    ", "\n"])), customMedia_1["default"].lessThan("mobile")(templateObject_1 || (templateObject_1 = __makeTemplateObject(["\n        padding:13px;\n        border-top: 1px solid #deeaf1;\n        border-bottom: 1px solid #deeaf1;\n        border-right: 0px;\n        border-left: 0px;\n    "], ["\n        padding:13px;\n        border-top: 1px solid #deeaf1;\n        border-bottom: 1px solid #deeaf1;\n        border-right: 0px;\n        border-left: 0px;\n    "]))), customMedia_1["default"].between("mobile", "tablet")(templateObject_2 || (templateObject_2 = __makeTemplateObject(["\n\n    "], ["\n\n    "]))), customMedia_1["default"].greaterThan("tablet")(templateObject_3 || (templateObject_3 = __makeTemplateObject(["\n    \n    "], ["\n    \n    "]))));
@@ -5109,11 +5300,11 @@ var react_1 = __importStar(__webpack_require__(/*! react */ "./node_modules/reac
 
 var styled_components_1 = __importDefault(__webpack_require__(/*! styled-components */ "./node_modules/styled-components/dist/styled-components.browser.esm.js"));
 
-var _index_1 = __webpack_require__(/*! ../lv1/_index */ "./resources/ts/components/lv1/_index.js");
+var _index_1 = __webpack_require__(/*! ../lv1/_index */ "./resources/ts/components/lv1/_index.tsx");
 
 var customMedia_1 = __importDefault(__webpack_require__(/*! ../../style/customMedia */ "./resources/ts/style/customMedia.tsx"));
 
-var TextForm = function TextForm(_a) {
+var TextForm = react_1["default"].memo(function (_a) {
   var postTask = _a.postTask,
       userID = _a.userID;
 
@@ -5139,11 +5330,10 @@ var TextForm = function TextForm(_a) {
     setText: setText,
     userID: userID
   }));
-};
-
+});
 exports.default = TextForm;
 
-var _TextForm = styled_components_1["default"].div(templateObject_4 || (templateObject_4 = __makeTemplateObject([" \n    ", "\n    ", " \n    ", "\n    \n"], [" \n    ", "\n    ", " \n    ", "\n    \n"])), customMedia_1["default"].lessThan("mobile")(templateObject_1 || (templateObject_1 = __makeTemplateObject(["\n        padding-left:20px;\n    "], ["\n        padding-left:20px;\n    "]))), customMedia_1["default"].between("mobile", "tablet")(templateObject_2 || (templateObject_2 = __makeTemplateObject(["\n\n    "], ["\n\n    "]))), customMedia_1["default"].greaterThan("tablet")(templateObject_3 || (templateObject_3 = __makeTemplateObject(["\n\n    "], ["\n\n    "]))));
+var _TextForm = styled_components_1["default"].div(templateObject_4 || (templateObject_4 = __makeTemplateObject(["\n    ", "\n    ", " \n    ", "\n"], ["\n    ", "\n    ", " \n    ", "\n"])), customMedia_1["default"].lessThan("mobile")(templateObject_1 || (templateObject_1 = __makeTemplateObject(["\n        padding-left:20px;\n    "], ["\n        padding-left:20px;\n    "]))), customMedia_1["default"].between("mobile", "tablet")(templateObject_2 || (templateObject_2 = __makeTemplateObject(["\n\n    "], ["\n\n    "]))), customMedia_1["default"].greaterThan("tablet")(templateObject_3 || (templateObject_3 = __makeTemplateObject(["\n\n    "], ["\n\n    "]))));
 
 var templateObject_1, templateObject_2, templateObject_3, templateObject_4;
 
@@ -5199,6 +5389,73 @@ var _WelcomeContent = styled_components_1["default"].div(templateObject_1 || (te
 var _Title = styled_components_1["default"].div(templateObject_5 || (templateObject_5 = __makeTemplateObject(["\n    font-size: 1.4rem;\n    padding-top: 30px;\n    color: #5287ec;\n    opacity: 0.9;\n    ", "\n    ", " \n    ", "\n"], ["\n    font-size: 1.4rem;\n    padding-top: 30px;\n    color: #5287ec;\n    opacity: 0.9;\n    ", "\n    ", " \n    ", "\n"])), customMedia_1["default"].lessThan("mobile")(templateObject_2 || (templateObject_2 = __makeTemplateObject(["\n        font-size:1.2rem;\n    "], ["\n        font-size:1.2rem;\n    "]))), customMedia_1["default"].between("mobile", "tablet")(templateObject_3 || (templateObject_3 = __makeTemplateObject(["\n\n    "], ["\n\n    "]))), customMedia_1["default"].greaterThan("tablet")(templateObject_4 || (templateObject_4 = __makeTemplateObject(["\n\n    "], ["\n\n    "]))));
 
 var templateObject_1, templateObject_2, templateObject_3, templateObject_4, templateObject_5;
+
+/***/ }),
+
+/***/ "./resources/ts/components/lv2/_index.tsx":
+/*!************************************************!*\
+  !*** ./resources/ts/components/lv2/_index.tsx ***!
+  \************************************************/
+/***/ (function(__unused_webpack_module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var __importDefault = this && this.__importDefault || function (mod) {
+  return mod && mod.__esModule ? mod : {
+    "default": mod
+  };
+};
+
+Object.defineProperty(exports, "__esModule", ({
+  value: true
+}));
+exports.WelcomeContent = exports.TextForm = exports.ColoredTags = exports.TaskCard = exports.Header = void 0;
+
+var Header_1 = __webpack_require__(/*! ./Header */ "./resources/ts/components/lv2/Header.tsx");
+
+Object.defineProperty(exports, "Header", ({
+  enumerable: true,
+  get: function get() {
+    return __importDefault(Header_1)["default"];
+  }
+}));
+
+var TaskCard_1 = __webpack_require__(/*! ./TaskCard */ "./resources/ts/components/lv2/TaskCard.tsx");
+
+Object.defineProperty(exports, "TaskCard", ({
+  enumerable: true,
+  get: function get() {
+    return __importDefault(TaskCard_1)["default"];
+  }
+}));
+
+var ColoredTags_1 = __webpack_require__(/*! ./ColoredTags */ "./resources/ts/components/lv2/ColoredTags.tsx");
+
+Object.defineProperty(exports, "ColoredTags", ({
+  enumerable: true,
+  get: function get() {
+    return __importDefault(ColoredTags_1)["default"];
+  }
+}));
+
+var TextForm_1 = __webpack_require__(/*! ./TextForm */ "./resources/ts/components/lv2/TextForm.tsx");
+
+Object.defineProperty(exports, "TextForm", ({
+  enumerable: true,
+  get: function get() {
+    return __importDefault(TextForm_1)["default"];
+  }
+}));
+
+var WelcomeContent_1 = __webpack_require__(/*! ./WelcomeContent */ "./resources/ts/components/lv2/WelcomeContent.tsx");
+
+Object.defineProperty(exports, "WelcomeContent", ({
+  enumerable: true,
+  get: function get() {
+    return __importDefault(WelcomeContent_1)["default"];
+  }
+}));
 
 /***/ }),
 
@@ -5962,7 +6219,7 @@ var RegisterContent = function RegisterContent(_a) {
   }, "\u3059\u3067\u306B\u30A2\u30AB\u30A6\u30F3\u30C8\u3092\u304A\u6301\u3061\u3067\u3059\u304B\uFF1F", react_1["default"].createElement(react_router_dom_1.Link, {
     className: "no-underline border-b border-blue text-blue",
     to: "/login"
-  }, "\u30ED\u30B0\u30A4\u30F3"), "."), react_1["default"].createElement("aside", {
+  }, "\u30ED\u30B0\u30A4\u30F3")), react_1["default"].createElement("aside", {
     className: "w-full text-center sm:text-left whitespace-nowrap"
   }, react_1["default"].createElement(react_router_dom_1.Link, {
     to: "/",
@@ -6200,7 +6457,7 @@ var __importDefault = this && this.__importDefault || function (mod) {
 Object.defineProperty(exports, "__esModule", ({
   value: true
 }));
-exports._TodoContent = exports._TaskCards = void 0;
+exports.TasksEditActiveContext = void 0;
 
 var react_1 = __importStar(__webpack_require__(/*! react */ "./node_modules/react/index.js"));
 
@@ -6210,7 +6467,23 @@ var styled_components_1 = __importDefault(__webpack_require__(/*! styled-compone
 
 var customMedia_1 = __importDefault(__webpack_require__(/*! ../../style/customMedia */ "./resources/ts/style/customMedia.tsx"));
 
-var _index_1 = __webpack_require__(/*! ../lv2/_index */ "./resources/ts/components/lv2/_index.js");
+var _index_1 = __webpack_require__(/*! ../lv2/_index */ "./resources/ts/components/lv2/_index.tsx");
+
+exports.TasksEditActiveContext = react_1["default"].createContext(false);
+var initialState = false;
+
+var reducer = function reducer(state, action) {
+  switch (action) {
+    case "active":
+      return true;
+
+    case "deactivate":
+      return false;
+
+    default:
+      return state;
+  }
+};
 
 var TodoContent = function TodoContent(_a) {
   var userID = _a.userID;
@@ -6220,12 +6493,12 @@ var TodoContent = function TodoContent(_a) {
       setTasks = _b[1];
 
   var _c = react_1.useState(false),
-      tasksEditActive = _c[0],
-      setTasksEditActive = _c[1];
+      is_began = _c[0],
+      setIs_began = _c[1];
 
-  var _d = react_1.useState(false),
-      is_began = _d[0],
-      setIs_began = _d[1];
+  var _d = react_1.useReducer(reducer, initialState),
+      tasksEditActive = _d[0],
+      dispatch = _d[1];
 
   react_1.useEffect(function () {
     getTasks();
@@ -6233,32 +6506,40 @@ var TodoContent = function TodoContent(_a) {
 
   var getTasks = function getTasks() {
     return __awaiter(void 0, void 0, void 0, function () {
-      var Data;
+      var Data, err_1;
       return __generator(this, function (_a) {
         switch (_a.label) {
           case 0:
-            if (!!(userID === "")) return [3
+            if (!!(userID === null)) return [3
             /*break*/
-            , 2];
+            , 4];
+            _a.label = 1;
+
+          case 1:
+            _a.trys.push([1, 3,, 4]);
+
             return [4
             /*yield*/
             , axios_1["default"].get("api/tasks/users/" + userID)];
 
-          case 1:
-            Data = _a.sent();
-
-            try {
-              setTasks(Data.data.map(function (data) {
-                return data;
-              }));
-              setIs_began(true);
-            } catch (err) {
-              console.error(err);
-            }
-
-            _a.label = 2;
-
           case 2:
+            Data = _a.sent();
+            setTasks(Data.data.map(function (data) {
+              return data;
+            }));
+            setIs_began(true);
+            return [3
+            /*break*/
+            , 4];
+
+          case 3:
+            err_1 = _a.sent();
+            console.error(err_1);
+            return [3
+            /*break*/
+            , 4];
+
+          case 4:
             return [2
             /*return*/
             ];
@@ -6267,57 +6548,69 @@ var TodoContent = function TodoContent(_a) {
     });
   };
 
-  var postTask = function postTask(postData) {
+  var postTask = react_1.useCallback(function (postData) {
     return __awaiter(void 0, void 0, void 0, function () {
-      var res, obj;
+      var res, obj, err_2;
       return __generator(this, function (_a) {
         switch (_a.label) {
           case 0:
+            _a.trys.push([0, 2,, 3]);
+
             return [4
             /*yield*/
             , axios_1["default"].post("api/tasks", postData)];
 
           case 1:
             res = _a.sent();
+            obj = __spreadArray([], tasks);
+            obj.unshift(res.data);
+            setTasks(obj);
+            return [3
+            /*break*/
+            , 3];
 
-            try {
-              obj = __spreadArray([], tasks);
-              obj.unshift(res.data);
-              setTasks(obj);
-            } catch (err) {
-              console.error(err);
-            }
+          case 2:
+            err_2 = _a.sent();
+            console.error(err_2);
+            return [3
+            /*break*/
+            , 3];
 
+          case 3:
             return [2
             /*return*/
             ];
         }
       });
     });
-  };
-
+  }, [tasks]);
   var i = -1;
-  return react_1["default"].createElement(react_1["default"].Fragment, null, react_1["default"].createElement(_Wrapper, null, react_1["default"].createElement(exports._TodoContent, null, react_1["default"].createElement(_index_1.TextForm, {
+  return react_1["default"].createElement(react_1["default"].Fragment, null, react_1["default"].createElement(exports.TasksEditActiveContext.Provider, {
+    value: {
+      tasksEditState: tasksEditActive,
+      tasksEditDispatch: dispatch
+    }
+  }, react_1["default"].createElement(_Wrapper, null, react_1["default"].createElement(_TodoContent, null, react_1["default"].createElement(_index_1.TextForm, {
     postTask: postTask,
     userID: userID
-  }), tasks.length === 0 && is_began === true ? react_1["default"].createElement(_index_1.WelcomeContent, null) : react_1["default"].createElement(exports._TaskCards, null, tasks.map(function (task, key) {
+  }), tasks.length === 0 && is_began === true ? react_1["default"].createElement(_index_1.WelcomeContent, null) : react_1["default"].createElement(_TaskCards, null, tasks.map(function (task, key) {
     i++;
     return react_1["default"].createElement(_index_1.TaskCard, {
       task: task,
-      setTasks: setTasks,
       tasks: tasks,
-      tasksEditActive: tasksEditActive,
-      setTasksEditActive: setTasksEditActive,
+      setTasks: setTasks,
       id: task.id,
       i: i,
       key: key
     });
-  })))));
+  }))))));
 };
 
 exports.default = TodoContent;
-exports._TaskCards = styled_components_1["default"].div(templateObject_1 || (templateObject_1 = __makeTemplateObject(["\n    padding-top: 20px;\n"], ["\n    padding-top: 20px;\n"])));
-exports._TodoContent = styled_components_1["default"].div(templateObject_5 || (templateObject_5 = __makeTemplateObject(["\n    max-width: 820px;\n    margin: 0 auto;\n    padding-top: 105px;\n    ", "\n    ", " \n    ", "\n"], ["\n    max-width: 820px;\n    margin: 0 auto;\n    padding-top: 105px;\n    ", "\n    ", " \n    ", "\n"])), customMedia_1["default"].lessThan("mobile")(templateObject_2 || (templateObject_2 = __makeTemplateObject(["\n    width: 99vw;\n    max-width:500px;\n    "], ["\n    width: 99vw;\n    max-width:500px;\n    "]))), customMedia_1["default"].between("mobile", "tablet")(templateObject_3 || (templateObject_3 = __makeTemplateObject(["\n    width: 84vw;\n    max-width: 710px;\n    "], ["\n    width: 84vw;\n    max-width: 710px;\n    "]))), customMedia_1["default"].greaterThan("tablet")(templateObject_4 || (templateObject_4 = __makeTemplateObject(["\n    width: 70vw;\n    "], ["\n    width: 70vw;\n    "]))));
+
+var _TaskCards = styled_components_1["default"].div(templateObject_1 || (templateObject_1 = __makeTemplateObject(["\n    padding-top: 20px;\n"], ["\n    padding-top: 20px;\n"])));
+
+var _TodoContent = styled_components_1["default"].div(templateObject_5 || (templateObject_5 = __makeTemplateObject(["\n    max-width: 820px;\n    margin: 0 auto;\n    padding-top: 105px;\n    ", "\n    ", " \n    ", "\n"], ["\n    max-width: 820px;\n    margin: 0 auto;\n    padding-top: 105px;\n    ", "\n    ", " \n    ", "\n"])), customMedia_1["default"].lessThan("mobile")(templateObject_2 || (templateObject_2 = __makeTemplateObject(["\n    width: 99vw;\n    max-width:500px;\n    "], ["\n    width: 99vw;\n    max-width:500px;\n    "]))), customMedia_1["default"].between("mobile", "tablet")(templateObject_3 || (templateObject_3 = __makeTemplateObject(["\n    width: 84vw;\n    max-width: 710px;\n    "], ["\n    width: 84vw;\n    max-width: 710px;\n    "]))), customMedia_1["default"].greaterThan("tablet")(templateObject_4 || (templateObject_4 = __makeTemplateObject(["\n    width: 70vw;\n    "], ["\n    width: 70vw;\n    "]))));
 
 var _Wrapper = styled_components_1["default"].div(templateObject_6 || (templateObject_6 = __makeTemplateObject(["\n    height: 100vh;\n    width: 100vw;\n    background-color: #f9fbfe;\n"], ["\n    height: 100vh;\n    width: 100vw;\n    background-color: #f9fbfe;\n"])));
 
@@ -6399,6 +6692,64 @@ var TopPageContent = function TopPageContent() {
 };
 
 exports.default = TopPageContent;
+
+/***/ }),
+
+/***/ "./resources/ts/components/lv3/_index.tsx":
+/*!************************************************!*\
+  !*** ./resources/ts/components/lv3/_index.tsx ***!
+  \************************************************/
+/***/ (function(__unused_webpack_module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var __importDefault = this && this.__importDefault || function (mod) {
+  return mod && mod.__esModule ? mod : {
+    "default": mod
+  };
+};
+
+Object.defineProperty(exports, "__esModule", ({
+  value: true
+}));
+exports.TopPageContent = exports.TodoContent = exports.RegisterContent = exports.LoginContent = void 0;
+
+var LoginContent_1 = __webpack_require__(/*! ./LoginContent */ "./resources/ts/components/lv3/LoginContent.tsx");
+
+Object.defineProperty(exports, "LoginContent", ({
+  enumerable: true,
+  get: function get() {
+    return __importDefault(LoginContent_1)["default"];
+  }
+}));
+
+var RegisterContent_1 = __webpack_require__(/*! ./RegisterContent */ "./resources/ts/components/lv3/RegisterContent.tsx");
+
+Object.defineProperty(exports, "RegisterContent", ({
+  enumerable: true,
+  get: function get() {
+    return __importDefault(RegisterContent_1)["default"];
+  }
+}));
+
+var TodoContent_1 = __webpack_require__(/*! ./TodoContent */ "./resources/ts/components/lv3/TodoContent.tsx");
+
+Object.defineProperty(exports, "TodoContent", ({
+  enumerable: true,
+  get: function get() {
+    return __importDefault(TodoContent_1)["default"];
+  }
+}));
+
+var TopPageContent_1 = __webpack_require__(/*! ./TopPageContent */ "./resources/ts/components/lv3/TopPageContent.tsx");
+
+Object.defineProperty(exports, "TopPageContent", ({
+  enumerable: true,
+  get: function get() {
+    return __importDefault(TopPageContent_1)["default"];
+  }
+}));
 
 /***/ }),
 
@@ -6798,33 +7149,41 @@ var Modal = function Modal(_a) {
 
   var postTag = function postTag(postTagData) {
     return __awaiter(void 0, void 0, void 0, function () {
-      var res, obj;
+      var res, obj, err_1;
       return __generator(this, function (_a) {
         switch (_a.label) {
           case 0:
+            _a.trys.push([0, 2,, 3]);
+
             return [4
             /*yield*/
             , axios_1["default"].post('api/tags', postTagData)];
 
           case 1:
             res = _a.sent();
+            obj = tasks;
+            obj.splice(i, 1, __assign(__assign({}, task), {
+              hasDonePostTag: true,
+              tagID: res.data.id,
+              red: selected_color.red,
+              blue: selected_color.blue,
+              yellow: selected_color.yellow,
+              green: selected_color.green
+            }));
+            setTasks(obj);
+            setTagID(res.data.id);
+            return [3
+            /*break*/
+            , 3];
 
-            try {
-              obj = tasks;
-              obj.splice(i, 1, __assign(__assign({}, task), {
-                hasDonePostTag: true,
-                tagID: res.data.id,
-                red: selected_color.red,
-                blue: selected_color.blue,
-                yellow: selected_color.yellow,
-                green: selected_color.green
-              }));
-              setTasks(obj);
-              setTagID(res.data.id);
-            } catch (err) {
-              console.error(err);
-            }
+          case 2:
+            err_1 = _a.sent();
+            console.error(err_1);
+            return [3
+            /*break*/
+            , 3];
 
+          case 3:
             return [2
             /*return*/
             ];
@@ -6840,7 +7199,7 @@ var Modal = function Modal(_a) {
 
   var changeTag = function changeTag(colors) {
     return __awaiter(void 0, void 0, void 0, function () {
-      var changedColors, patchData, res, obj;
+      var changedColors, patchData, res, obj, err_2;
       return __generator(this, function (_a) {
         switch (_a.label) {
           case 0:
@@ -6856,26 +7215,37 @@ var Modal = function Modal(_a) {
               checked_yellow: changedColors.yellow,
               checked_green: changedColors.green
             };
+            _a.label = 1;
+
+          case 1:
+            _a.trys.push([1, 3,, 4]);
+
             return [4
             /*yield*/
             , axios_1["default"].patch("api/tags/" + tagID, patchData)];
 
-          case 1:
+          case 2:
             res = _a.sent();
+            obj = tasks;
+            obj.splice(i, 1, __assign(__assign({}, task), {
+              red: res.data.checked_red,
+              blue: res.data.checked_blue,
+              yellow: res.data.checked_yellow,
+              green: res.data.checked_green
+            }));
+            setTasks(obj);
+            return [3
+            /*break*/
+            , 4];
 
-            try {
-              obj = tasks;
-              obj.splice(i, 1, __assign(__assign({}, task), {
-                red: res.data.checked_red,
-                blue: res.data.checked_blue,
-                yellow: res.data.checked_yellow,
-                green: res.data.checked_green
-              }));
-              setTasks(obj);
-            } catch (err) {
-              console.error(err);
-            }
+          case 3:
+            err_2 = _a.sent();
+            console.error(err_2);
+            return [3
+            /*break*/
+            , 4];
 
+          case 4:
             return [2
             /*return*/
             ];
@@ -6909,8 +7279,8 @@ var Modal = function Modal(_a) {
     i: 2
   }), react_1["default"].createElement(ColoredTag_Modal_1["default"], {
     backgroundColor: "rgba(48, 255, 69)",
-    setSelected_color: setSelected_color,
     selected_color: selected_color,
+    setSelected_color: setSelected_color,
     initChecked: selected_color.green,
     i: 3
   })), react_1["default"].createElement(_CloseButton, {
@@ -7037,121 +7407,6 @@ axios.defaults.withCredentials = true;
 //     cluster: process.env.MIX_PUSHER_APP_CLUSTER,
 //     forceTLS: true
 // });
-
-/***/ }),
-
-/***/ "./resources/ts/components/lv1/_index.js":
-/*!***********************************************!*\
-  !*** ./resources/ts/components/lv1/_index.js ***!
-  \***********************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "CheckBox": () => (/* reexport default from dynamic */ _CheckBox__WEBPACK_IMPORTED_MODULE_0___default.a),
-/* harmony export */   "DeleteButton": () => (/* reexport default from dynamic */ _DeleteButton__WEBPACK_IMPORTED_MODULE_1___default.a),
-/* harmony export */   "DeleteIcon": () => (/* reexport default from dynamic */ _DeleteIcon__WEBPACK_IMPORTED_MODULE_2___default.a),
-/* harmony export */   "EditButton": () => (/* reexport default from dynamic */ _EditButton__WEBPACK_IMPORTED_MODULE_3___default.a),
-/* harmony export */   "EditIcon": () => (/* reexport default from dynamic */ _EditIcon__WEBPACK_IMPORTED_MODULE_4___default.a),
-/* harmony export */   "InputText": () => (/* reexport default from dynamic */ _InputText__WEBPACK_IMPORTED_MODULE_5___default.a),
-/* harmony export */   "SubmitButton": () => (/* reexport default from dynamic */ _SubmitButton__WEBPACK_IMPORTED_MODULE_6___default.a),
-/* harmony export */   "TaskTitle": () => (/* reexport default from dynamic */ _TaskTitle__WEBPACK_IMPORTED_MODULE_7___default.a),
-/* harmony export */   "ColoredTag": () => (/* reexport default from dynamic */ _ColoredTag__WEBPACK_IMPORTED_MODULE_8___default.a),
-/* harmony export */   "WelcomeImage": () => (/* reexport default from dynamic */ _WelcomeImage__WEBPACK_IMPORTED_MODULE_9___default.a)
-/* harmony export */ });
-/* harmony import */ var _CheckBox__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./CheckBox */ "./resources/ts/components/lv1/CheckBox.tsx");
-/* harmony import */ var _CheckBox__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_CheckBox__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _DeleteButton__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./DeleteButton */ "./resources/ts/components/lv1/DeleteButton.tsx");
-/* harmony import */ var _DeleteButton__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_DeleteButton__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var _DeleteIcon__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./DeleteIcon */ "./resources/ts/components/lv1/DeleteIcon.tsx");
-/* harmony import */ var _DeleteIcon__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_DeleteIcon__WEBPACK_IMPORTED_MODULE_2__);
-/* harmony import */ var _EditButton__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./EditButton */ "./resources/ts/components/lv1/EditButton.tsx");
-/* harmony import */ var _EditButton__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_EditButton__WEBPACK_IMPORTED_MODULE_3__);
-/* harmony import */ var _EditIcon__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./EditIcon */ "./resources/ts/components/lv1/EditIcon.tsx");
-/* harmony import */ var _EditIcon__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(_EditIcon__WEBPACK_IMPORTED_MODULE_4__);
-/* harmony import */ var _InputText__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./InputText */ "./resources/ts/components/lv1/InputText.tsx");
-/* harmony import */ var _InputText__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(_InputText__WEBPACK_IMPORTED_MODULE_5__);
-/* harmony import */ var _SubmitButton__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./SubmitButton */ "./resources/ts/components/lv1/SubmitButton.tsx");
-/* harmony import */ var _SubmitButton__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(_SubmitButton__WEBPACK_IMPORTED_MODULE_6__);
-/* harmony import */ var _TaskTitle__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./TaskTitle */ "./resources/ts/components/lv1/TaskTitle.tsx");
-/* harmony import */ var _TaskTitle__WEBPACK_IMPORTED_MODULE_7___default = /*#__PURE__*/__webpack_require__.n(_TaskTitle__WEBPACK_IMPORTED_MODULE_7__);
-/* harmony import */ var _ColoredTag__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./ColoredTag */ "./resources/ts/components/lv1/ColoredTag.tsx");
-/* harmony import */ var _ColoredTag__WEBPACK_IMPORTED_MODULE_8___default = /*#__PURE__*/__webpack_require__.n(_ColoredTag__WEBPACK_IMPORTED_MODULE_8__);
-/* harmony import */ var _WelcomeImage__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./WelcomeImage */ "./resources/ts/components/lv1/WelcomeImage.tsx");
-/* harmony import */ var _WelcomeImage__WEBPACK_IMPORTED_MODULE_9___default = /*#__PURE__*/__webpack_require__.n(_WelcomeImage__WEBPACK_IMPORTED_MODULE_9__);
-
-
-
-
-
-
-
-
-
-
-
-/***/ }),
-
-/***/ "./resources/ts/components/lv2/_index.js":
-/*!***********************************************!*\
-  !*** ./resources/ts/components/lv2/_index.js ***!
-  \***********************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "Header": () => (/* reexport default from dynamic */ _Header__WEBPACK_IMPORTED_MODULE_0___default.a),
-/* harmony export */   "TaskCard": () => (/* reexport default from dynamic */ _TaskCard__WEBPACK_IMPORTED_MODULE_1___default.a),
-/* harmony export */   "ColoredTags": () => (/* reexport default from dynamic */ _ColoredTags__WEBPACK_IMPORTED_MODULE_2___default.a),
-/* harmony export */   "TextForm": () => (/* reexport default from dynamic */ _TextForm__WEBPACK_IMPORTED_MODULE_3___default.a),
-/* harmony export */   "WelcomeContent": () => (/* reexport default from dynamic */ _WelcomeContent__WEBPACK_IMPORTED_MODULE_4___default.a)
-/* harmony export */ });
-/* harmony import */ var _Header__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Header */ "./resources/ts/components/lv2/Header.tsx");
-/* harmony import */ var _Header__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_Header__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _TaskCard__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./TaskCard */ "./resources/ts/components/lv2/TaskCard.tsx");
-/* harmony import */ var _TaskCard__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_TaskCard__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var _ColoredTags__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./ColoredTags */ "./resources/ts/components/lv2/ColoredTags.tsx");
-/* harmony import */ var _ColoredTags__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_ColoredTags__WEBPACK_IMPORTED_MODULE_2__);
-/* harmony import */ var _TextForm__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./TextForm */ "./resources/ts/components/lv2/TextForm.tsx");
-/* harmony import */ var _TextForm__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_TextForm__WEBPACK_IMPORTED_MODULE_3__);
-/* harmony import */ var _WelcomeContent__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./WelcomeContent */ "./resources/ts/components/lv2/WelcomeContent.tsx");
-/* harmony import */ var _WelcomeContent__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(_WelcomeContent__WEBPACK_IMPORTED_MODULE_4__);
-
-
-
-
-
-
-/***/ }),
-
-/***/ "./resources/ts/components/lv3/_index.js":
-/*!***********************************************!*\
-  !*** ./resources/ts/components/lv3/_index.js ***!
-  \***********************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "LoginContent": () => (/* reexport default from dynamic */ _LoginContent__WEBPACK_IMPORTED_MODULE_0___default.a),
-/* harmony export */   "RegisterContent": () => (/* reexport default from dynamic */ _RegisterContent__WEBPACK_IMPORTED_MODULE_1___default.a),
-/* harmony export */   "TodoContent": () => (/* reexport default from dynamic */ _TodoContent__WEBPACK_IMPORTED_MODULE_2___default.a),
-/* harmony export */   "TopPageContent": () => (/* reexport default from dynamic */ _TopPageContent__WEBPACK_IMPORTED_MODULE_3___default.a)
-/* harmony export */ });
-/* harmony import */ var _LoginContent__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./LoginContent */ "./resources/ts/components/lv3/LoginContent.tsx");
-/* harmony import */ var _LoginContent__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_LoginContent__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _RegisterContent__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./RegisterContent */ "./resources/ts/components/lv3/RegisterContent.tsx");
-/* harmony import */ var _RegisterContent__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_RegisterContent__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var _TodoContent__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./TodoContent */ "./resources/ts/components/lv3/TodoContent.tsx");
-/* harmony import */ var _TodoContent__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_TodoContent__WEBPACK_IMPORTED_MODULE_2__);
-/* harmony import */ var _TopPageContent__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./TopPageContent */ "./resources/ts/components/lv3/TopPageContent.tsx");
-/* harmony import */ var _TopPageContent__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_TopPageContent__WEBPACK_IMPORTED_MODULE_3__);
-
-
-
-
 
 /***/ }),
 
