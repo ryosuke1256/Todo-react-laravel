@@ -5038,7 +5038,7 @@ var TaskCard = react_1["default"].memo(function (_a) {
             res = _a.sent();
             todos = tasks;
 
-            if (!(res.data.id === undefined)) {
+            if (res.data.id !== undefined) {
               todos.splice(i, 1, __assign(__assign({}, task), {
                 hasDonePostTag: true,
                 tagID: res.data.id,
@@ -7134,7 +7134,7 @@ var Modal = function Modal(_a) {
 
   var postTag = function postTag(postTagData) {
     return __awaiter(void 0, void 0, void 0, function () {
-      var res, obj, err_1;
+      var res, todos, err_1;
       return __generator(this, function (_a) {
         switch (_a.label) {
           case 0:
@@ -7146,8 +7146,8 @@ var Modal = function Modal(_a) {
 
           case 1:
             res = _a.sent();
-            obj = tasks;
-            obj.splice(i, 1, __assign(__assign({}, task), {
+            todos = tasks;
+            todos.splice(i, 1, __assign(__assign({}, task), {
               hasDonePostTag: true,
               tagID: res.data.id,
               red: selected_color.red,
@@ -7155,7 +7155,7 @@ var Modal = function Modal(_a) {
               yellow: selected_color.yellow,
               green: selected_color.green
             }));
-            setTasks(obj);
+            setTasks(todos);
             setTagID(res.data.id);
             return [3
             /*break*/
@@ -7184,7 +7184,7 @@ var Modal = function Modal(_a) {
 
   var changeTag = function changeTag(colors) {
     return __awaiter(void 0, void 0, void 0, function () {
-      var changedColors, patchData, res, obj, err_2;
+      var changedColors, patchData, res, todos, err_2;
       return __generator(this, function (_a) {
         switch (_a.label) {
           case 0:
@@ -7211,14 +7211,14 @@ var Modal = function Modal(_a) {
 
           case 2:
             res = _a.sent();
-            obj = tasks;
-            obj.splice(i, 1, __assign(__assign({}, task), {
+            todos = tasks;
+            todos.splice(i, 1, __assign(__assign({}, task), {
               red: res.data.checked_red,
               blue: res.data.checked_blue,
               yellow: res.data.checked_yellow,
               green: res.data.checked_green
             }));
-            setTasks(obj);
+            setTasks(todos);
             return [3
             /*break*/
             , 4];
