@@ -1,10 +1,10 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import axios from "axios";
 import { Link, useHistory } from "react-router-dom";
-import("../../../js/bootstrap");
 import { useForm } from "react-hook-form";
 import { LoginData } from "../../type/api/LoginData";
 import PasswordInputField from "../lv2/LoginPassword";
+require("../../../js/bootstrap");
 
 type Props = {
     setIs_authenticated: (param: boolean) => void;
