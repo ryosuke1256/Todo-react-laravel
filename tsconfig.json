@@ -26,7 +26,7 @@
 
         /* Strict Type-Checking Options */
 
-        // リファクタリングするときtrueにする
+        // 型の恩恵を受けるために基本的には以下２つtrueで書こう
         "strict": true /* Enable all strict type-checking options. */,
         "noImplicitAny": true /* Raise error on expressions and declarations with an implied 'any' type. */,
 
