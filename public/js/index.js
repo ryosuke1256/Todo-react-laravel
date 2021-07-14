@@ -5024,7 +5024,7 @@ var TaskCard = react_1["default"].memo(function (_a) {
 
   var getTags = function getTags() {
     return __awaiter(void 0, void 0, void 0, function () {
-      var res, todos, err_1;
+      var res, err_1;
       return __generator(this, function (_a) {
         switch (_a.label) {
           case 0:
@@ -5036,10 +5036,9 @@ var TaskCard = react_1["default"].memo(function (_a) {
 
           case 1:
             res = _a.sent();
-            todos = tasks;
 
             if (res.data.id !== undefined) {
-              todos.splice(i, 1, __assign(__assign({}, task), {
+              tasks.splice(i, 1, __assign(__assign({}, task), {
                 hasDonePostTag: true,
                 tagID: res.data.id,
                 red: res.data.checked_red,
@@ -5048,7 +5047,7 @@ var TaskCard = react_1["default"].memo(function (_a) {
                 green: res.data.checked_green
               }));
             } else {
-              todos.splice(i, 1, __assign(__assign({}, task), {
+              tasks.splice(i, 1, __assign(__assign({}, task), {
                 tagID: res.data.id,
                 red: res.data.checked_red,
                 blue: res.data.checked_blue,
@@ -5057,7 +5056,6 @@ var TaskCard = react_1["default"].memo(function (_a) {
               }));
             }
 
-            setTasks(todos);
             setTagID(res.data.id);
             setSelected_color({
               red: res.data.checked_red,
@@ -5680,13 +5678,11 @@ var axios_1 = __importDefault(__webpack_require__(/*! axios */ "./node_modules/a
 
 var react_router_dom_1 = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/esm/react-router-dom.js");
 
-Promise.resolve().then(function () {
-  return __importStar(__webpack_require__(/*! ../../../js/bootstrap */ "./resources/js/bootstrap.js"));
-});
-
 var react_hook_form_1 = __webpack_require__(/*! react-hook-form */ "./node_modules/react-hook-form/dist/index.cjs.js");
 
 var LoginPassword_1 = __importDefault(__webpack_require__(/*! ../lv2/LoginPassword */ "./resources/ts/components/lv2/LoginPassword.tsx"));
+
+__webpack_require__(/*! ../../../js/bootstrap */ "./resources/js/bootstrap.js");
 
 var LoginContent = function LoginContent(_a) {
   var setIs_authenticated = _a.setIs_authenticated,
@@ -7134,7 +7130,7 @@ var Modal = function Modal(_a) {
 
   var postTag = function postTag(postTagData) {
     return __awaiter(void 0, void 0, void 0, function () {
-      var res, todos, err_1;
+      var res, err_1;
       return __generator(this, function (_a) {
         switch (_a.label) {
           case 0:
@@ -7146,8 +7142,7 @@ var Modal = function Modal(_a) {
 
           case 1:
             res = _a.sent();
-            todos = tasks;
-            todos.splice(i, 1, __assign(__assign({}, task), {
+            tasks.splice(i, 1, __assign(__assign({}, task), {
               hasDonePostTag: true,
               tagID: res.data.id,
               red: selected_color.red,
@@ -7155,7 +7150,6 @@ var Modal = function Modal(_a) {
               yellow: selected_color.yellow,
               green: selected_color.green
             }));
-            setTasks(todos);
             setTagID(res.data.id);
             return [3
             /*break*/
@@ -7184,7 +7178,7 @@ var Modal = function Modal(_a) {
 
   var changeTag = function changeTag(colors) {
     return __awaiter(void 0, void 0, void 0, function () {
-      var changedColors, patchData, res, todos, err_2;
+      var changedColors, patchData, res, err_2;
       return __generator(this, function (_a) {
         switch (_a.label) {
           case 0:
@@ -7211,14 +7205,12 @@ var Modal = function Modal(_a) {
 
           case 2:
             res = _a.sent();
-            todos = tasks;
-            todos.splice(i, 1, __assign(__assign({}, task), {
+            tasks.splice(i, 1, __assign(__assign({}, task), {
               red: res.data.checked_red,
               blue: res.data.checked_blue,
               yellow: res.data.checked_yellow,
               green: res.data.checked_green
             }));
-            setTasks(todos);
             return [3
             /*break*/
             , 4];
