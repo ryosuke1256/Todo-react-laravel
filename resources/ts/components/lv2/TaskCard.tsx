@@ -46,13 +46,11 @@ const TaskCard: React.VFC<Props> = React.memo(({task,tasks,setTasks,id,i,}: Prop
     const getTags = async (): Promise<void> => {
         try {
             const res = await axios.get(`api/tags/tasks/${tasks[i].id}`);
-            const todos = tasks;
             if(res.data.id !== undefined) {
-                todos.splice(i,1,{...task, ...{hasDonePostTag:true,tagID:res.data.id,red:res.data.checked_red,blue:res.data.checked_blue,yellow:res.data.checked_yellow,green:res.data.checked_green}});
+                tasks.splice(i,1,{...task, ...{hasDonePostTag:true,tagID:res.data.id,red:res.data.checked_red,blue:res.data.checked_blue,yellow:res.data.checked_yellow,green:res.data.checked_green}});
             } else {
-                todos.splice(i,1,{...task, ...{tagID:res.data.id,red:res.data.checked_red,blue:res.data.checked_blue,yellow:res.data.checked_yellow,green:res.data.checked_green}});
+                tasks.splice(i,1,{...task, ...{tagID:res.data.id,red:res.data.checked_red,blue:res.data.checked_blue,yellow:res.data.checked_yellow,green:res.data.checked_green}});
             }
-            setTasks(todos);
             setTagID(res.data.id);
             setSelected_color({red:res.data.checked_red,blue:res.data.checked_blue,yellow:res.data.checked_yellow,green:res.data.checked_green});
         } catch (err) {
