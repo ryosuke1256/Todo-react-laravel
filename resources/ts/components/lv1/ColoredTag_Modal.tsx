@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import styled from "styled-components";
 import { CheckMark } from "./CheckMark";
-import { Color } from "../../../type/Color";
+import { Color } from "../../type/Color";
 
 type Props = {
     backgroundColor: string;
@@ -11,7 +11,7 @@ type Props = {
     i: 0 | 1 | 2 | 3;
 };
 
-const TagColorModal: React.VFC<Props> = ({
+const ColoredTag_Modal: React.VFC<Props> = ({
     backgroundColor,
     selected_color,
     setSelected_color,
@@ -56,7 +56,7 @@ const TagColorModal: React.VFC<Props> = ({
     );
 };
 
-export default TagColorModal;
+export default ColoredTag_Modal;
 
 const _TagColor = styled.div<{
     is_selected: boolean | undefined;

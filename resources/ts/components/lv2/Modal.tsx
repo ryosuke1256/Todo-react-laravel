@@ -1,11 +1,9 @@
 import React from "react";
-import styled from "styled-components";
-import TagColor_Modal from "../lv1/ColoredTag_Modal";
 import axios from "axios";
-import { Color } from "../../../type/Color";
-import { TagAPI } from "../../../type/api/TagAPI";
-import { TaskAndColor } from "../../../type/TaskAndColor";
-import customMedia from "../../../style/customMedia";
+import styled from "styled-components";
+import customMedia from "../../style/customMedia";
+import { ColoredTag_Modal } from "../lv1/_index";
+import { TagAPI, Color, TaskAndColor } from "../../type/_index";
 
 type Props = {
     hasModalOpened: boolean;
@@ -65,28 +63,28 @@ const Modal: React.VFC<Props> = ({hasModalOpened,selected_color,setHasModalOpene
             <_Modal>
                 <div style={{ fontSize: "1.3rem",display:"inline-block" }}>タグの色を選択する</div>
                 <_TagColors>
-                    <TagColor_Modal
+                    <ColoredTag_Modal
                         backgroundColor={"rgba(255, 65, 51)"}
                         selected_color={selected_color}
                         setSelected_color={setSelected_color}
                         initChecked={selected_color.red}
                         i={0}
                     />
-                    <TagColor_Modal
+                    <ColoredTag_Modal
                         backgroundColor={"rgba(51, 194, 255)"}
                         selected_color={selected_color}
                         setSelected_color={setSelected_color}
                         initChecked={selected_color.blue}
                         i={1}
                     />
-                    <TagColor_Modal
+                    <ColoredTag_Modal
                         backgroundColor={"rgba(250, 250, 0)"}
                         selected_color={selected_color}
                         setSelected_color={setSelected_color}
                         initChecked={selected_color.yellow}
                         i={2}
                     />
-                    <TagColor_Modal
+                    <ColoredTag_Modal
                         backgroundColor={"rgba(48, 255, 69)"}
                         selected_color={selected_color}
                         setSelected_color={setSelected_color}

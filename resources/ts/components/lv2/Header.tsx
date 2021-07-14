@@ -1,9 +1,9 @@
 import React, { useState } from "react";
-import styled from "styled-components";
-import { Link } from "react-router-dom";
 import axios from "axios";
-import { User } from "../../type/User";
+import styled from "styled-components";
 import customMedia from "../../style/customMedia";
+import { Link } from "react-router-dom";
+import { User } from "../../type/User";
 
 type Props = {
     setIs_authenticated: (param: boolean) => void;

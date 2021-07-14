@@ -1,7 +1,6 @@
 import React, { useContext } from "react";
 import { TasksEditActiveContext } from "../lv3/TodoContent";
-import { EditIcon } from "./_index";
-import { Button } from "./Button";
+import { EditIcon, Button } from "./_index";
 import MediaQuery from "react-responsive";
 
 type Props = {
