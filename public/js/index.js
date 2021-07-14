@@ -2889,9 +2889,9 @@ var axios_1 = __importDefault(__webpack_require__(/*! axios */ "./node_modules/a
 var react_router_dom_1 = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/esm/react-router-dom.js"); //prettier-ignore
 
 
-var Header_1 = __importDefault(__webpack_require__(/*! ./components/lv2/Header */ "./resources/ts/components/lv2/Header.tsx"));
+var _index_1 = __webpack_require__(/*! ./components/lv2/_index */ "./resources/ts/components/lv2/_index.tsx");
 
-var _index_1 = __webpack_require__(/*! ./components/lv3/_index */ "./resources/ts/components/lv3/_index.tsx"); //prettier-ignore
+var _index_2 = __webpack_require__(/*! ./components/lv3/_index */ "./resources/ts/components/lv3/_index.tsx"); //prettier-ignore
 
 
 var App = function App() {
@@ -2951,29 +2951,29 @@ var App = function App() {
 
   var GetTopPageContent = function GetTopPageContent() {
     if (is_began && is_authenticated) {
-      return react_1["default"].createElement(_index_1.TodoContent, {
+      return react_1["default"].createElement(_index_2.TodoContent, {
         userID: userData.userID
       });
     } else if (is_began && !is_authenticated) {
-      return react_1["default"].createElement(_index_1.TopPageContent, null);
+      return react_1["default"].createElement(_index_2.TopPageContent, null);
     } else {
       return null;
     }
   };
 
-  return react_1["default"].createElement(react_1["default"].Fragment, null, react_1["default"].createElement(react_router_dom_1.BrowserRouter, null, react_1["default"].createElement(Header_1["default"], {
+  return react_1["default"].createElement(react_1["default"].Fragment, null, react_1["default"].createElement(react_router_dom_1.BrowserRouter, null, react_1["default"].createElement(_index_1.Header, {
     setIs_authenticated: setIs_authenticated,
     is_authenticated: is_authenticated,
     setUserData: setUserData,
     userName: userData.userName
   }), react_1["default"].createElement(react_router_dom_1.Switch, null, react_1["default"].createElement(react_router_dom_1.Route, {
     path: "/register"
-  }, react_1["default"].createElement(_index_1.RegisterContent, {
+  }, react_1["default"].createElement(_index_2.RegisterContent, {
     setIs_authenticated: setIs_authenticated,
     getUser: getUser
   })), react_1["default"].createElement(react_router_dom_1.Route, {
     path: "/login"
-  }, react_1["default"].createElement(_index_1.LoginContent, {
+  }, react_1["default"].createElement(_index_2.LoginContent, {
     setIs_authenticated: setIs_authenticated,
     getUser: getUser
   })), react_1["default"].createElement(react_router_dom_1.Route, {
@@ -3087,6 +3087,45 @@ var templateObject_1;
 
 /***/ }),
 
+/***/ "./resources/ts/components/lv1/CheckMark.tsx":
+/*!***************************************************!*\
+  !*** ./resources/ts/components/lv1/CheckMark.tsx ***!
+  \***************************************************/
+/***/ (function(__unused_webpack_module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var __makeTemplateObject = this && this.__makeTemplateObject || function (cooked, raw) {
+  if (Object.defineProperty) {
+    Object.defineProperty(cooked, "raw", {
+      value: raw
+    });
+  } else {
+    cooked.raw = raw;
+  }
+
+  return cooked;
+};
+
+var __importDefault = this && this.__importDefault || function (mod) {
+  return mod && mod.__esModule ? mod : {
+    "default": mod
+  };
+};
+
+Object.defineProperty(exports, "__esModule", ({
+  value: true
+}));
+exports.CheckMark = void 0;
+
+var styled_components_1 = __importDefault(__webpack_require__(/*! styled-components */ "./node_modules/styled-components/dist/styled-components.browser.esm.js"));
+
+exports.CheckMark = styled_components_1["default"].div(templateObject_1 || (templateObject_1 = __makeTemplateObject(["\n    position: relative;\n    left: 40%;\n    top: 12%;\n    width: 20px;\n    height: 10px;\n    border-left: 2px solid white;\n    border-bottom: 2px solid white;\n    transform: rotate(-45deg);\n"], ["\n    position: relative;\n    left: 40%;\n    top: 12%;\n    width: 20px;\n    height: 10px;\n    border-left: 2px solid white;\n    border-bottom: 2px solid white;\n    transform: rotate(-45deg);\n"])));
+var templateObject_1;
+
+/***/ }),
+
 /***/ "./resources/ts/components/lv1/ColoredTag.tsx":
 /*!****************************************************!*\
   !*** ./resources/ts/components/lv1/ColoredTag.tsx ***!
@@ -3158,6 +3197,143 @@ var _TagColor = styled_components_1["default"].div(templateObject_1 || (template
   return props.yellow ? "rgba(250, 250, 0, 0.7)" : null;
 }, function (props) {
   return props.green ? "rgba(48, 255, 69, 0.7)" : null;
+});
+
+var templateObject_1;
+
+/***/ }),
+
+/***/ "./resources/ts/components/lv1/ColoredTag_Modal.tsx":
+/*!**********************************************************!*\
+  !*** ./resources/ts/components/lv1/ColoredTag_Modal.tsx ***!
+  \**********************************************************/
+/***/ (function(__unused_webpack_module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var __makeTemplateObject = this && this.__makeTemplateObject || function (cooked, raw) {
+  if (Object.defineProperty) {
+    Object.defineProperty(cooked, "raw", {
+      value: raw
+    });
+  } else {
+    cooked.raw = raw;
+  }
+
+  return cooked;
+};
+
+var __assign = this && this.__assign || function () {
+  __assign = Object.assign || function (t) {
+    for (var s, i = 1, n = arguments.length; i < n; i++) {
+      s = arguments[i];
+
+      for (var p in s) {
+        if (Object.prototype.hasOwnProperty.call(s, p)) t[p] = s[p];
+      }
+    }
+
+    return t;
+  };
+
+  return __assign.apply(this, arguments);
+};
+
+var __createBinding = this && this.__createBinding || (Object.create ? function (o, m, k, k2) {
+  if (k2 === undefined) k2 = k;
+  Object.defineProperty(o, k2, {
+    enumerable: true,
+    get: function get() {
+      return m[k];
+    }
+  });
+} : function (o, m, k, k2) {
+  if (k2 === undefined) k2 = k;
+  o[k2] = m[k];
+});
+
+var __setModuleDefault = this && this.__setModuleDefault || (Object.create ? function (o, v) {
+  Object.defineProperty(o, "default", {
+    enumerable: true,
+    value: v
+  });
+} : function (o, v) {
+  o["default"] = v;
+});
+
+var __importStar = this && this.__importStar || function (mod) {
+  if (mod && mod.__esModule) return mod;
+  var result = {};
+  if (mod != null) for (var k in mod) {
+    if (k !== "default" && Object.prototype.hasOwnProperty.call(mod, k)) __createBinding(result, mod, k);
+  }
+
+  __setModuleDefault(result, mod);
+
+  return result;
+};
+
+var __importDefault = this && this.__importDefault || function (mod) {
+  return mod && mod.__esModule ? mod : {
+    "default": mod
+  };
+};
+
+Object.defineProperty(exports, "__esModule", ({
+  value: true
+}));
+
+var react_1 = __importStar(__webpack_require__(/*! react */ "./node_modules/react/index.js"));
+
+var styled_components_1 = __importDefault(__webpack_require__(/*! styled-components */ "./node_modules/styled-components/dist/styled-components.browser.esm.js"));
+
+var CheckMark_1 = __webpack_require__(/*! ./CheckMark */ "./resources/ts/components/lv1/CheckMark.tsx");
+
+var ColoredTag_Modal = function ColoredTag_Modal(_a) {
+  var backgroundColor = _a.backgroundColor,
+      selected_color = _a.selected_color,
+      setSelected_color = _a.setSelected_color,
+      initChecked = _a.initChecked,
+      i = _a.i;
+
+  var _b = react_1.useState(initChecked),
+      is_selected = _b[0],
+      setIs_Selected = _b[1];
+
+  return react_1["default"].createElement(react_1["default"].Fragment, null, react_1["default"].createElement(_TagColor, {
+    onClick: function onClick() {
+      setIs_Selected(function (prevState) {
+        return !prevState;
+      });
+
+      if (i === 0) {
+        setSelected_color(__assign(__assign({}, selected_color), {
+          red: !selected_color.red
+        }));
+      } else if (i === 1) {
+        setSelected_color(__assign(__assign({}, selected_color), {
+          blue: !selected_color.blue
+        }));
+      } else if (i === 2) {
+        setSelected_color(__assign(__assign({}, selected_color), {
+          yellow: !selected_color.yellow
+        }));
+      } else if (i === 3) {
+        setSelected_color(__assign(__assign({}, selected_color), {
+          green: !selected_color.green
+        }));
+      }
+    },
+    is_selected: is_selected,
+    backgroundColor: backgroundColor
+  }, is_selected ? react_1["default"].createElement(CheckMark_1.CheckMark, null) : null));
+};
+
+exports.default = ColoredTag_Modal;
+
+var _TagColor = styled_components_1["default"].div(templateObject_1 || (templateObject_1 = __makeTemplateObject(["\n    height: 20px;\n    width: 80px;\n    margin-top: 30px;\n    margin-right: 20px;\n    background-color: ", ";\n    border-radius: 30px;\n"], ["\n    height: 20px;\n    width: 80px;\n    margin-top: 30px;\n    margin-right: 20px;\n    background-color: ", ";\n    border-radius: 30px;\n"])), function (props) {
+  return props.backgroundColor;
 });
 
 var templateObject_1;
@@ -3333,8 +3509,6 @@ var TodoContent_1 = __webpack_require__(/*! ../lv3/TodoContent */ "./resources/t
 
 var _index_1 = __webpack_require__(/*! ./_index */ "./resources/ts/components/lv1/_index.tsx");
 
-var Button_1 = __webpack_require__(/*! ./Button */ "./resources/ts/components/lv1/Button.tsx");
-
 var react_responsive_1 = __importDefault(__webpack_require__(/*! react-responsive */ "./node_modules/react-responsive/dist/react-responsive.js"));
 
 var EditButton = function EditButton(_a) {
@@ -3371,7 +3545,7 @@ var EditButton = function EditButton(_a) {
     changeTaskTitle: changeTaskTitle
   })), react_1["default"].createElement(react_responsive_1["default"], {
     query: "(min-width: 599px)"
-  }, react_1["default"].createElement(Button_1.Button, {
+  }, react_1["default"].createElement(_index_1.Button, {
     onClick: function onClick() {
       return changeTaskTitle();
     },
@@ -4013,7 +4187,16 @@ var __importDefault = this && this.__importDefault || function (mod) {
 Object.defineProperty(exports, "__esModule", ({
   value: true
 }));
-exports.WelcomeImage = exports.ColoredTag = exports.TaskTitle = exports.SubmitButton = exports.InputText = exports.EditIcon = exports.EditButton = exports.DeleteIcon = exports.DeleteButton = exports.CheckBox = void 0;
+exports.WelcomeImage = exports.TaskTitle = exports.SubmitButton = exports.InputText = exports.EditIcon = exports.EditButton = exports.DeleteIcon = exports.DeleteButton = exports.ColoredTag = exports.ColoredTag_Modal = exports.CheckMark = exports.CheckBox = exports.Button = void 0;
+
+var Button_1 = __webpack_require__(/*! ./Button */ "./resources/ts/components/lv1/Button.tsx");
+
+Object.defineProperty(exports, "Button", ({
+  enumerable: true,
+  get: function get() {
+    return Button_1.Button;
+  }
+}));
 
 var CheckBox_1 = __webpack_require__(/*! ./CheckBox */ "./resources/ts/components/lv1/CheckBox.tsx");
 
@@ -4021,6 +4204,33 @@ Object.defineProperty(exports, "CheckBox", ({
   enumerable: true,
   get: function get() {
     return __importDefault(CheckBox_1)["default"];
+  }
+}));
+
+var CheckMark_1 = __webpack_require__(/*! ./CheckMark */ "./resources/ts/components/lv1/CheckMark.tsx");
+
+Object.defineProperty(exports, "CheckMark", ({
+  enumerable: true,
+  get: function get() {
+    return CheckMark_1.CheckMark;
+  }
+}));
+
+var ColoredTag_Modal_1 = __webpack_require__(/*! ./ColoredTag_Modal */ "./resources/ts/components/lv1/ColoredTag_Modal.tsx");
+
+Object.defineProperty(exports, "ColoredTag_Modal", ({
+  enumerable: true,
+  get: function get() {
+    return __importDefault(ColoredTag_Modal_1)["default"];
+  }
+}));
+
+var ColoredTag_1 = __webpack_require__(/*! ./ColoredTag */ "./resources/ts/components/lv1/ColoredTag.tsx");
+
+Object.defineProperty(exports, "ColoredTag", ({
+  enumerable: true,
+  get: function get() {
+    return __importDefault(ColoredTag_1)["default"];
   }
 }));
 
@@ -4087,15 +4297,6 @@ Object.defineProperty(exports, "TaskTitle", ({
   }
 }));
 
-var ColoredTag_1 = __webpack_require__(/*! ./ColoredTag */ "./resources/ts/components/lv1/ColoredTag.tsx");
-
-Object.defineProperty(exports, "ColoredTag", ({
-  enumerable: true,
-  get: function get() {
-    return __importDefault(ColoredTag_1)["default"];
-  }
-}));
-
 var WelcomeImage_1 = __webpack_require__(/*! ./WelcomeImage */ "./resources/ts/components/lv1/WelcomeImage.tsx");
 
 Object.defineProperty(exports, "WelcomeImage", ({
@@ -4156,9 +4357,9 @@ Object.defineProperty(exports, "__esModule", ({
 
 var react_1 = __importDefault(__webpack_require__(/*! react */ "./node_modules/react/index.js"));
 
-var ColoredTag_1 = __importDefault(__webpack_require__(/*! ../lv1/ColoredTag */ "./resources/ts/components/lv1/ColoredTag.tsx"));
+var styled_components_1 = __importDefault(__webpack_require__(/*! styled-components */ "./node_modules/styled-components/dist/styled-components.browser.esm.js"));
 
-var styled_components_1 = __importDefault(__webpack_require__(/*! styled-components */ "./node_modules/styled-components/dist/styled-components.browser.esm.js")); //prettier-ignore
+var _index_1 = __webpack_require__(/*! ../lv1/_index */ "./resources/ts/components/lv1/_index.tsx"); //prettier-ignore
 
 
 var ColoredTags = react_1["default"].memo(function (_a) {
@@ -4171,16 +4372,16 @@ var ColoredTags = react_1["default"].memo(function (_a) {
       className: "fas fa-plus-circle fa-lg"
     });
   } else {
-    return react_1["default"].createElement(_ColoredTags, null, react_1["default"].createElement(ColoredTag_1["default"], {
+    return react_1["default"].createElement(_ColoredTags, null, react_1["default"].createElement(_index_1.ColoredTag, {
       selected_color: selected_color,
       i: 0
-    }), react_1["default"].createElement(ColoredTag_1["default"], {
+    }), react_1["default"].createElement(_index_1.ColoredTag, {
       selected_color: selected_color,
       i: 1
-    }), react_1["default"].createElement(ColoredTag_1["default"], {
+    }), react_1["default"].createElement(_index_1.ColoredTag, {
       selected_color: selected_color,
       i: 2
-    }), react_1["default"].createElement(ColoredTag_1["default"], {
+    }), react_1["default"].createElement(_index_1.ColoredTag, {
       selected_color: selected_color,
       i: 3
     }));
@@ -4404,13 +4605,13 @@ Object.defineProperty(exports, "__esModule", ({
 
 var react_1 = __importStar(__webpack_require__(/*! react */ "./node_modules/react/index.js"));
 
-var styled_components_1 = __importDefault(__webpack_require__(/*! styled-components */ "./node_modules/styled-components/dist/styled-components.browser.esm.js"));
-
-var react_router_dom_1 = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/esm/react-router-dom.js");
-
 var axios_1 = __importDefault(__webpack_require__(/*! axios */ "./node_modules/axios/index.js"));
 
+var styled_components_1 = __importDefault(__webpack_require__(/*! styled-components */ "./node_modules/styled-components/dist/styled-components.browser.esm.js"));
+
 var customMedia_1 = __importDefault(__webpack_require__(/*! ../../style/customMedia */ "./resources/ts/style/customMedia.tsx"));
+
+var react_router_dom_1 = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/esm/react-router-dom.js");
 
 var Header = function Header(_a) {
   var setIs_authenticated = _a.setIs_authenticated,
@@ -4591,6 +4792,384 @@ var LoginPassword = function LoginPassword(_a) {
 };
 
 exports.default = LoginPassword;
+
+/***/ }),
+
+/***/ "./resources/ts/components/lv2/Modal.tsx":
+/*!***********************************************!*\
+  !*** ./resources/ts/components/lv2/Modal.tsx ***!
+  \***********************************************/
+/***/ (function(__unused_webpack_module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var __makeTemplateObject = this && this.__makeTemplateObject || function (cooked, raw) {
+  if (Object.defineProperty) {
+    Object.defineProperty(cooked, "raw", {
+      value: raw
+    });
+  } else {
+    cooked.raw = raw;
+  }
+
+  return cooked;
+};
+
+var __assign = this && this.__assign || function () {
+  __assign = Object.assign || function (t) {
+    for (var s, i = 1, n = arguments.length; i < n; i++) {
+      s = arguments[i];
+
+      for (var p in s) {
+        if (Object.prototype.hasOwnProperty.call(s, p)) t[p] = s[p];
+      }
+    }
+
+    return t;
+  };
+
+  return __assign.apply(this, arguments);
+};
+
+var __awaiter = this && this.__awaiter || function (thisArg, _arguments, P, generator) {
+  function adopt(value) {
+    return value instanceof P ? value : new P(function (resolve) {
+      resolve(value);
+    });
+  }
+
+  return new (P || (P = Promise))(function (resolve, reject) {
+    function fulfilled(value) {
+      try {
+        step(generator.next(value));
+      } catch (e) {
+        reject(e);
+      }
+    }
+
+    function rejected(value) {
+      try {
+        step(generator["throw"](value));
+      } catch (e) {
+        reject(e);
+      }
+    }
+
+    function step(result) {
+      result.done ? resolve(result.value) : adopt(result.value).then(fulfilled, rejected);
+    }
+
+    step((generator = generator.apply(thisArg, _arguments || [])).next());
+  });
+};
+
+var __generator = this && this.__generator || function (thisArg, body) {
+  var _ = {
+    label: 0,
+    sent: function sent() {
+      if (t[0] & 1) throw t[1];
+      return t[1];
+    },
+    trys: [],
+    ops: []
+  },
+      f,
+      y,
+      t,
+      g;
+  return g = {
+    next: verb(0),
+    "throw": verb(1),
+    "return": verb(2)
+  }, typeof Symbol === "function" && (g[Symbol.iterator] = function () {
+    return this;
+  }), g;
+
+  function verb(n) {
+    return function (v) {
+      return step([n, v]);
+    };
+  }
+
+  function step(op) {
+    if (f) throw new TypeError("Generator is already executing.");
+
+    while (_) {
+      try {
+        if (f = 1, y && (t = op[0] & 2 ? y["return"] : op[0] ? y["throw"] || ((t = y["return"]) && t.call(y), 0) : y.next) && !(t = t.call(y, op[1])).done) return t;
+        if (y = 0, t) op = [op[0] & 2, t.value];
+
+        switch (op[0]) {
+          case 0:
+          case 1:
+            t = op;
+            break;
+
+          case 4:
+            _.label++;
+            return {
+              value: op[1],
+              done: false
+            };
+
+          case 5:
+            _.label++;
+            y = op[1];
+            op = [0];
+            continue;
+
+          case 7:
+            op = _.ops.pop();
+
+            _.trys.pop();
+
+            continue;
+
+          default:
+            if (!(t = _.trys, t = t.length > 0 && t[t.length - 1]) && (op[0] === 6 || op[0] === 2)) {
+              _ = 0;
+              continue;
+            }
+
+            if (op[0] === 3 && (!t || op[1] > t[0] && op[1] < t[3])) {
+              _.label = op[1];
+              break;
+            }
+
+            if (op[0] === 6 && _.label < t[1]) {
+              _.label = t[1];
+              t = op;
+              break;
+            }
+
+            if (t && _.label < t[2]) {
+              _.label = t[2];
+
+              _.ops.push(op);
+
+              break;
+            }
+
+            if (t[2]) _.ops.pop();
+
+            _.trys.pop();
+
+            continue;
+        }
+
+        op = body.call(thisArg, _);
+      } catch (e) {
+        op = [6, e];
+        y = 0;
+      } finally {
+        f = t = 0;
+      }
+    }
+
+    if (op[0] & 5) throw op[1];
+    return {
+      value: op[0] ? op[1] : void 0,
+      done: true
+    };
+  }
+};
+
+var __importDefault = this && this.__importDefault || function (mod) {
+  return mod && mod.__esModule ? mod : {
+    "default": mod
+  };
+};
+
+Object.defineProperty(exports, "__esModule", ({
+  value: true
+}));
+
+var react_1 = __importDefault(__webpack_require__(/*! react */ "./node_modules/react/index.js"));
+
+var axios_1 = __importDefault(__webpack_require__(/*! axios */ "./node_modules/axios/index.js"));
+
+var styled_components_1 = __importDefault(__webpack_require__(/*! styled-components */ "./node_modules/styled-components/dist/styled-components.browser.esm.js"));
+
+var customMedia_1 = __importDefault(__webpack_require__(/*! ../../style/customMedia */ "./resources/ts/style/customMedia.tsx"));
+
+var _index_1 = __webpack_require__(/*! ../lv1/_index */ "./resources/ts/components/lv1/_index.tsx"); //prettier-ignore
+
+
+var Modal = function Modal(_a) {
+  var hasModalOpened = _a.hasModalOpened,
+      selected_color = _a.selected_color,
+      setHasModalOpened = _a.setHasModalOpened,
+      setSelected_color = _a.setSelected_color,
+      taskID = _a.taskID,
+      tagID = _a.tagID,
+      setTagID = _a.setTagID,
+      tasks = _a.tasks,
+      task = _a.task,
+      setTasks = _a.setTasks,
+      i = _a.i;
+
+  if (!hasModalOpened) {
+    return null;
+  }
+
+  var postTag = function postTag(postTagData) {
+    return __awaiter(void 0, void 0, void 0, function () {
+      var res, err_1;
+      return __generator(this, function (_a) {
+        switch (_a.label) {
+          case 0:
+            _a.trys.push([0, 2,, 3]);
+
+            return [4
+            /*yield*/
+            , axios_1["default"].post('api/tags', postTagData)];
+
+          case 1:
+            res = _a.sent();
+            tasks.splice(i, 1, __assign(__assign({}, task), {
+              hasDonePostTag: true,
+              tagID: res.data.id,
+              red: selected_color.red,
+              blue: selected_color.blue,
+              yellow: selected_color.yellow,
+              green: selected_color.green
+            }));
+            setTagID(res.data.id);
+            return [3
+            /*break*/
+            , 3];
+
+          case 2:
+            err_1 = _a.sent();
+            console.error(err_1);
+            return [3
+            /*break*/
+            , 3];
+
+          case 3:
+            return [2
+            /*return*/
+            ];
+        }
+      });
+    });
+  };
+
+  var changeUndefined = function changeUndefined(color) {
+    color == undefined ? color = false : undefined;
+    return color;
+  };
+
+  var changeTag = function changeTag(colors) {
+    return __awaiter(void 0, void 0, void 0, function () {
+      var changedColors, patchData, res, err_2;
+      return __generator(this, function (_a) {
+        switch (_a.label) {
+          case 0:
+            changedColors = __assign(__assign({}, colors), {
+              red: changeUndefined(colors.red),
+              blue: changeUndefined(colors.blue),
+              yellow: changeUndefined(colors.yellow),
+              green: changeUndefined(colors.green)
+            });
+            patchData = {
+              checked_red: changedColors.red,
+              checked_blue: changedColors.blue,
+              checked_yellow: changedColors.yellow,
+              checked_green: changedColors.green
+            };
+            _a.label = 1;
+
+          case 1:
+            _a.trys.push([1, 3,, 4]);
+
+            return [4
+            /*yield*/
+            , axios_1["default"].patch("api/tags/" + tagID, patchData)];
+
+          case 2:
+            res = _a.sent();
+            tasks.splice(i, 1, __assign(__assign({}, task), {
+              red: res.data.checked_red,
+              blue: res.data.checked_blue,
+              yellow: res.data.checked_yellow,
+              green: res.data.checked_green
+            }));
+            return [3
+            /*break*/
+            , 4];
+
+          case 3:
+            err_2 = _a.sent();
+            console.error(err_2);
+            return [3
+            /*break*/
+            , 4];
+
+          case 4:
+            return [2
+            /*return*/
+            ];
+        }
+      });
+    });
+  };
+
+  return react_1["default"].createElement(_BlackBackground, null, react_1["default"].createElement(_Modal, null, react_1["default"].createElement("div", {
+    style: {
+      fontSize: "1.3rem",
+      display: "inline-block"
+    }
+  }, "\u30BF\u30B0\u306E\u8272\u3092\u9078\u629E\u3059\u308B"), react_1["default"].createElement(_TagColors, null, react_1["default"].createElement(_index_1.ColoredTag_Modal, {
+    backgroundColor: "rgba(255, 65, 51)",
+    selected_color: selected_color,
+    setSelected_color: setSelected_color,
+    initChecked: selected_color.red,
+    i: 0
+  }), react_1["default"].createElement(_index_1.ColoredTag_Modal, {
+    backgroundColor: "rgba(51, 194, 255)",
+    selected_color: selected_color,
+    setSelected_color: setSelected_color,
+    initChecked: selected_color.blue,
+    i: 1
+  }), react_1["default"].createElement(_index_1.ColoredTag_Modal, {
+    backgroundColor: "rgba(250, 250, 0)",
+    selected_color: selected_color,
+    setSelected_color: setSelected_color,
+    initChecked: selected_color.yellow,
+    i: 2
+  }), react_1["default"].createElement(_index_1.ColoredTag_Modal, {
+    backgroundColor: "rgba(48, 255, 69)",
+    selected_color: selected_color,
+    setSelected_color: setSelected_color,
+    initChecked: selected_color.green,
+    i: 3
+  })), react_1["default"].createElement(_CloseButton, {
+    onClick: function onClick() {
+      setHasModalOpened(false);
+      tasks[i].hasDonePostTag ? changeTag(selected_color) : postTag({
+        task_id: taskID,
+        checked_red: selected_color.red,
+        checked_blue: selected_color.blue,
+        checked_yellow: selected_color.yellow,
+        checked_green: selected_color.green
+      });
+    }
+  }, "\u9589\u3058\u308B")));
+};
+
+exports.default = Modal;
+
+var _BlackBackground = styled_components_1["default"].div(templateObject_1 || (templateObject_1 = __makeTemplateObject(["\n    position: fixed;\n    left: 0;\n    top: 0;\n    width: 100%;\n    height: 100%;\n    background-color: rgba(116, 116, 116, 0.74);\n    z-index: 500;\n    cursor: pointer;\n"], ["\n    position: fixed;\n    left: 0;\n    top: 0;\n    width: 100%;\n    height: 100%;\n    background-color: rgba(116, 116, 116, 0.74);\n    z-index: 500;\n    cursor: pointer;\n"])));
+
+var _Modal = styled_components_1["default"].div(templateObject_5 || (templateObject_5 = __makeTemplateObject(["\n    position: fixed;\n    left: 50%;\n    top: 50%;\n    transform: translate(-50%, -50%);\n    height: 500px;\n    width: 500px;\n    max-height: 500px;\n    max-width: 500px;\n    padding: 50px;\n    background-color: #fff;\n    z-index: 1000;\n    border-radius: 30px;\n    text-align: center;\n    ", "\n    ", "\n    ", "\n"], ["\n    position: fixed;\n    left: 50%;\n    top: 50%;\n    transform: translate(-50%, -50%);\n    height: 500px;\n    width: 500px;\n    max-height: 500px;\n    max-width: 500px;\n    padding: 50px;\n    background-color: #fff;\n    z-index: 1000;\n    border-radius: 30px;\n    text-align: center;\n    ", "\n    ", "\n    ", "\n"])), customMedia_1["default"].lessThan("mobile")(templateObject_2 || (templateObject_2 = __makeTemplateObject(["\n        height:70vh;\n        width:95vw;\n        padding: 40px;\n    "], ["\n        height:70vh;\n        width:95vw;\n        padding: 40px;\n    "]))), customMedia_1["default"].between("mobile", "tablet")(templateObject_3 || (templateObject_3 = __makeTemplateObject(["\n        height:70vh;\n        width:83vw;\n    "], ["\n        height:70vh;\n        width:83vw;\n    "]))), customMedia_1["default"].greaterThan("tablet")(templateObject_4 || (templateObject_4 = __makeTemplateObject(["\n    \n    "], ["\n    \n    "]))));
+
+var _TagColors = styled_components_1["default"].div(templateObject_6 || (templateObject_6 = __makeTemplateObject(["\n    display: flex;\n    flex-wrap: wrap;\n    justify-content: space-between;\n"], ["\n    display: flex;\n    flex-wrap: wrap;\n    justify-content: space-between;\n"])));
+
+var _CloseButton = styled_components_1["default"].div(templateObject_7 || (templateObject_7 = __makeTemplateObject(["\n    display: inline-block;\n    margin-top: 40px;\n    padding: 10px;\n    border-radius: 10px;\n    background-color: #d6d6d6;\n"], ["\n    display: inline-block;\n    margin-top: 40px;\n    padding: 10px;\n    border-radius: 10px;\n    background-color: #d6d6d6;\n"])));
+
+var templateObject_1, templateObject_2, templateObject_3, templateObject_4, templateObject_5, templateObject_6, templateObject_7;
 
 /***/ }),
 
@@ -4947,18 +5526,16 @@ Object.defineProperty(exports, "__esModule", ({
 
 var react_1 = __importStar(__webpack_require__(/*! react */ "./node_modules/react/index.js"));
 
+var axios_1 = __importDefault(__webpack_require__(/*! axios */ "./node_modules/axios/index.js"));
+
 var styled_components_1 = __importDefault(__webpack_require__(/*! styled-components */ "./node_modules/styled-components/dist/styled-components.browser.esm.js"));
 
-var axios_1 = __importDefault(__webpack_require__(/*! axios */ "./node_modules/axios/index.js"));
+var customMedia_1 = __importDefault(__webpack_require__(/*! ../../style/customMedia */ "./resources/ts/style/customMedia.tsx"));
 
 var _index_1 = __webpack_require__(/*! ./_index */ "./resources/ts/components/lv2/_index.tsx");
 
-var Modal_1 = __importDefault(__webpack_require__(/*! ../modal/lv2/Modal */ "./resources/ts/components/modal/lv2/Modal.tsx"));
-
 var _index_2 = __webpack_require__(/*! ../lv1/_index */ "./resources/ts/components/lv1/_index.tsx"); //prettier-ignore
-
-
-var customMedia_1 = __importDefault(__webpack_require__(/*! ../../style/customMedia */ "./resources/ts/style/customMedia.tsx")); //prettier-ignore
+//prettier-ignore
 
 
 var TaskCard = react_1["default"].memo(function (_a) {
@@ -5208,7 +5785,7 @@ var TaskCard = react_1["default"].memo(function (_a) {
     }
   }, react_1["default"].createElement(_index_1.ColoredTags, {
     selected_color: selected_color
-  }))), react_1["default"].createElement(Modal_1["default"], {
+  }))), react_1["default"].createElement(_index_1.Modal, {
     hasModalOpened: hasModalOpened,
     setHasModalOpened: setHasModalOpened,
     selected_color: selected_color,
@@ -5301,9 +5878,9 @@ var react_1 = __importStar(__webpack_require__(/*! react */ "./node_modules/reac
 
 var styled_components_1 = __importDefault(__webpack_require__(/*! styled-components */ "./node_modules/styled-components/dist/styled-components.browser.esm.js"));
 
-var _index_1 = __webpack_require__(/*! ../lv1/_index */ "./resources/ts/components/lv1/_index.tsx");
-
 var customMedia_1 = __importDefault(__webpack_require__(/*! ../../style/customMedia */ "./resources/ts/style/customMedia.tsx"));
+
+var _index_1 = __webpack_require__(/*! ../lv1/_index */ "./resources/ts/components/lv1/_index.tsx");
 
 var TextForm = react_1["default"].memo(function (_a) {
   var postTask = _a.postTask,
@@ -5377,10 +5954,10 @@ var styled_components_1 = __importDefault(__webpack_require__(/*! styled-compone
 
 var customMedia_1 = __importDefault(__webpack_require__(/*! ../../style/customMedia */ "./resources/ts/style/customMedia.tsx"));
 
-var WelcomeImage_1 = __importDefault(__webpack_require__(/*! ../lv1/WelcomeImage */ "./resources/ts/components/lv1/WelcomeImage.tsx"));
+var _index_1 = __webpack_require__(/*! ../lv1/_index */ "./resources/ts/components/lv1/_index.tsx");
 
 var WelcomeContent = function WelcomeContent() {
-  return react_1["default"].createElement(_WelcomeContent, null, react_1["default"].createElement(WelcomeImage_1["default"], null), react_1["default"].createElement(_Title, null, "\u30BF\u30B9\u30AF\u3092\u5165\u529B\u3057\u3066\u8FFD\u52A0\u3092\u30AF\u30EA\u30C3\u30AF\u3067\u59CB\u3081\u3088\u3046\u2B50\uFE0E"));
+  return react_1["default"].createElement(_WelcomeContent, null, react_1["default"].createElement(_index_1.WelcomeImage, null), react_1["default"].createElement(_Title, null, "\u30BF\u30B9\u30AF\u3092\u5165\u529B\u3057\u3066\u8FFD\u52A0\u3092\u30AF\u30EA\u30C3\u30AF\u3067\u59CB\u3081\u3088\u3046\u2B50\uFE0E"));
 };
 
 exports.default = WelcomeContent;
@@ -5411,7 +5988,16 @@ var __importDefault = this && this.__importDefault || function (mod) {
 Object.defineProperty(exports, "__esModule", ({
   value: true
 }));
-exports.WelcomeContent = exports.TextForm = exports.ColoredTags = exports.TaskCard = exports.Header = void 0;
+exports.WelcomeContent = exports.TextForm = exports.TaskCard = exports.RegisterPassword = exports.Modal = exports.LoginPassweord = exports.Header = exports.ColoredTags = void 0;
+
+var ColoredTags_1 = __webpack_require__(/*! ./ColoredTags */ "./resources/ts/components/lv2/ColoredTags.tsx");
+
+Object.defineProperty(exports, "ColoredTags", ({
+  enumerable: true,
+  get: function get() {
+    return __importDefault(ColoredTags_1)["default"];
+  }
+}));
 
 var Header_1 = __webpack_require__(/*! ./Header */ "./resources/ts/components/lv2/Header.tsx");
 
@@ -5422,21 +6008,39 @@ Object.defineProperty(exports, "Header", ({
   }
 }));
 
+var LoginPassword_1 = __webpack_require__(/*! ./LoginPassword */ "./resources/ts/components/lv2/LoginPassword.tsx");
+
+Object.defineProperty(exports, "LoginPassweord", ({
+  enumerable: true,
+  get: function get() {
+    return __importDefault(LoginPassword_1)["default"];
+  }
+}));
+
+var Modal_1 = __webpack_require__(/*! ./Modal */ "./resources/ts/components/lv2/Modal.tsx");
+
+Object.defineProperty(exports, "Modal", ({
+  enumerable: true,
+  get: function get() {
+    return __importDefault(Modal_1)["default"];
+  }
+}));
+
+var RegisterPassword_1 = __webpack_require__(/*! ./RegisterPassword */ "./resources/ts/components/lv2/RegisterPassword.tsx");
+
+Object.defineProperty(exports, "RegisterPassword", ({
+  enumerable: true,
+  get: function get() {
+    return __importDefault(RegisterPassword_1)["default"];
+  }
+}));
+
 var TaskCard_1 = __webpack_require__(/*! ./TaskCard */ "./resources/ts/components/lv2/TaskCard.tsx");
 
 Object.defineProperty(exports, "TaskCard", ({
   enumerable: true,
   get: function get() {
     return __importDefault(TaskCard_1)["default"];
-  }
-}));
-
-var ColoredTags_1 = __webpack_require__(/*! ./ColoredTags */ "./resources/ts/components/lv2/ColoredTags.tsx");
-
-Object.defineProperty(exports, "ColoredTags", ({
-  enumerable: true,
-  get: function get() {
-    return __importDefault(ColoredTags_1)["default"];
   }
 }));
 
@@ -6731,560 +7335,6 @@ Object.defineProperty(exports, "TopPageContent", ({
     return __importDefault(TopPageContent_1)["default"];
   }
 }));
-
-/***/ }),
-
-/***/ "./resources/ts/components/modal/lv1/CheckMark.tsx":
-/*!*********************************************************!*\
-  !*** ./resources/ts/components/modal/lv1/CheckMark.tsx ***!
-  \*********************************************************/
-/***/ (function(__unused_webpack_module, exports, __webpack_require__) {
-
-"use strict";
-
-
-var __makeTemplateObject = this && this.__makeTemplateObject || function (cooked, raw) {
-  if (Object.defineProperty) {
-    Object.defineProperty(cooked, "raw", {
-      value: raw
-    });
-  } else {
-    cooked.raw = raw;
-  }
-
-  return cooked;
-};
-
-var __importDefault = this && this.__importDefault || function (mod) {
-  return mod && mod.__esModule ? mod : {
-    "default": mod
-  };
-};
-
-Object.defineProperty(exports, "__esModule", ({
-  value: true
-}));
-exports.CheckMark = void 0;
-
-var styled_components_1 = __importDefault(__webpack_require__(/*! styled-components */ "./node_modules/styled-components/dist/styled-components.browser.esm.js"));
-
-exports.CheckMark = styled_components_1["default"].div(templateObject_1 || (templateObject_1 = __makeTemplateObject(["\n    position: relative;\n    left: 40%;\n    top: 12%;\n    width: 20px;\n    height: 10px;\n    border-left: 2px solid white;\n    border-bottom: 2px solid white;\n    transform: rotate(-45deg);\n"], ["\n    position: relative;\n    left: 40%;\n    top: 12%;\n    width: 20px;\n    height: 10px;\n    border-left: 2px solid white;\n    border-bottom: 2px solid white;\n    transform: rotate(-45deg);\n"])));
-var templateObject_1;
-
-/***/ }),
-
-/***/ "./resources/ts/components/modal/lv1/ColoredTag_Modal.tsx":
-/*!****************************************************************!*\
-  !*** ./resources/ts/components/modal/lv1/ColoredTag_Modal.tsx ***!
-  \****************************************************************/
-/***/ (function(__unused_webpack_module, exports, __webpack_require__) {
-
-"use strict";
-
-
-var __makeTemplateObject = this && this.__makeTemplateObject || function (cooked, raw) {
-  if (Object.defineProperty) {
-    Object.defineProperty(cooked, "raw", {
-      value: raw
-    });
-  } else {
-    cooked.raw = raw;
-  }
-
-  return cooked;
-};
-
-var __assign = this && this.__assign || function () {
-  __assign = Object.assign || function (t) {
-    for (var s, i = 1, n = arguments.length; i < n; i++) {
-      s = arguments[i];
-
-      for (var p in s) {
-        if (Object.prototype.hasOwnProperty.call(s, p)) t[p] = s[p];
-      }
-    }
-
-    return t;
-  };
-
-  return __assign.apply(this, arguments);
-};
-
-var __createBinding = this && this.__createBinding || (Object.create ? function (o, m, k, k2) {
-  if (k2 === undefined) k2 = k;
-  Object.defineProperty(o, k2, {
-    enumerable: true,
-    get: function get() {
-      return m[k];
-    }
-  });
-} : function (o, m, k, k2) {
-  if (k2 === undefined) k2 = k;
-  o[k2] = m[k];
-});
-
-var __setModuleDefault = this && this.__setModuleDefault || (Object.create ? function (o, v) {
-  Object.defineProperty(o, "default", {
-    enumerable: true,
-    value: v
-  });
-} : function (o, v) {
-  o["default"] = v;
-});
-
-var __importStar = this && this.__importStar || function (mod) {
-  if (mod && mod.__esModule) return mod;
-  var result = {};
-  if (mod != null) for (var k in mod) {
-    if (k !== "default" && Object.prototype.hasOwnProperty.call(mod, k)) __createBinding(result, mod, k);
-  }
-
-  __setModuleDefault(result, mod);
-
-  return result;
-};
-
-var __importDefault = this && this.__importDefault || function (mod) {
-  return mod && mod.__esModule ? mod : {
-    "default": mod
-  };
-};
-
-Object.defineProperty(exports, "__esModule", ({
-  value: true
-}));
-
-var react_1 = __importStar(__webpack_require__(/*! react */ "./node_modules/react/index.js"));
-
-var styled_components_1 = __importDefault(__webpack_require__(/*! styled-components */ "./node_modules/styled-components/dist/styled-components.browser.esm.js"));
-
-var CheckMark_1 = __webpack_require__(/*! ./CheckMark */ "./resources/ts/components/modal/lv1/CheckMark.tsx");
-
-var TagColorModal = function TagColorModal(_a) {
-  var backgroundColor = _a.backgroundColor,
-      selected_color = _a.selected_color,
-      setSelected_color = _a.setSelected_color,
-      initChecked = _a.initChecked,
-      i = _a.i;
-
-  var _b = react_1.useState(initChecked),
-      is_selected = _b[0],
-      setIs_Selected = _b[1];
-
-  return react_1["default"].createElement(react_1["default"].Fragment, null, react_1["default"].createElement(_TagColor, {
-    onClick: function onClick() {
-      setIs_Selected(function (prevState) {
-        return !prevState;
-      });
-
-      if (i === 0) {
-        setSelected_color(__assign(__assign({}, selected_color), {
-          red: !selected_color.red
-        }));
-      } else if (i === 1) {
-        setSelected_color(__assign(__assign({}, selected_color), {
-          blue: !selected_color.blue
-        }));
-      } else if (i === 2) {
-        setSelected_color(__assign(__assign({}, selected_color), {
-          yellow: !selected_color.yellow
-        }));
-      } else if (i === 3) {
-        setSelected_color(__assign(__assign({}, selected_color), {
-          green: !selected_color.green
-        }));
-      }
-    },
-    is_selected: is_selected,
-    backgroundColor: backgroundColor
-  }, is_selected ? react_1["default"].createElement(CheckMark_1.CheckMark, null) : null));
-};
-
-exports.default = TagColorModal;
-
-var _TagColor = styled_components_1["default"].div(templateObject_1 || (templateObject_1 = __makeTemplateObject(["\n    height: 20px;\n    width: 80px;\n    margin-top: 30px;\n    margin-right: 20px;\n    background-color: ", ";\n    border-radius: 30px;\n"], ["\n    height: 20px;\n    width: 80px;\n    margin-top: 30px;\n    margin-right: 20px;\n    background-color: ", ";\n    border-radius: 30px;\n"])), function (props) {
-  return props.backgroundColor;
-});
-
-var templateObject_1;
-
-/***/ }),
-
-/***/ "./resources/ts/components/modal/lv2/Modal.tsx":
-/*!*****************************************************!*\
-  !*** ./resources/ts/components/modal/lv2/Modal.tsx ***!
-  \*****************************************************/
-/***/ (function(__unused_webpack_module, exports, __webpack_require__) {
-
-"use strict";
-
-
-var __makeTemplateObject = this && this.__makeTemplateObject || function (cooked, raw) {
-  if (Object.defineProperty) {
-    Object.defineProperty(cooked, "raw", {
-      value: raw
-    });
-  } else {
-    cooked.raw = raw;
-  }
-
-  return cooked;
-};
-
-var __assign = this && this.__assign || function () {
-  __assign = Object.assign || function (t) {
-    for (var s, i = 1, n = arguments.length; i < n; i++) {
-      s = arguments[i];
-
-      for (var p in s) {
-        if (Object.prototype.hasOwnProperty.call(s, p)) t[p] = s[p];
-      }
-    }
-
-    return t;
-  };
-
-  return __assign.apply(this, arguments);
-};
-
-var __awaiter = this && this.__awaiter || function (thisArg, _arguments, P, generator) {
-  function adopt(value) {
-    return value instanceof P ? value : new P(function (resolve) {
-      resolve(value);
-    });
-  }
-
-  return new (P || (P = Promise))(function (resolve, reject) {
-    function fulfilled(value) {
-      try {
-        step(generator.next(value));
-      } catch (e) {
-        reject(e);
-      }
-    }
-
-    function rejected(value) {
-      try {
-        step(generator["throw"](value));
-      } catch (e) {
-        reject(e);
-      }
-    }
-
-    function step(result) {
-      result.done ? resolve(result.value) : adopt(result.value).then(fulfilled, rejected);
-    }
-
-    step((generator = generator.apply(thisArg, _arguments || [])).next());
-  });
-};
-
-var __generator = this && this.__generator || function (thisArg, body) {
-  var _ = {
-    label: 0,
-    sent: function sent() {
-      if (t[0] & 1) throw t[1];
-      return t[1];
-    },
-    trys: [],
-    ops: []
-  },
-      f,
-      y,
-      t,
-      g;
-  return g = {
-    next: verb(0),
-    "throw": verb(1),
-    "return": verb(2)
-  }, typeof Symbol === "function" && (g[Symbol.iterator] = function () {
-    return this;
-  }), g;
-
-  function verb(n) {
-    return function (v) {
-      return step([n, v]);
-    };
-  }
-
-  function step(op) {
-    if (f) throw new TypeError("Generator is already executing.");
-
-    while (_) {
-      try {
-        if (f = 1, y && (t = op[0] & 2 ? y["return"] : op[0] ? y["throw"] || ((t = y["return"]) && t.call(y), 0) : y.next) && !(t = t.call(y, op[1])).done) return t;
-        if (y = 0, t) op = [op[0] & 2, t.value];
-
-        switch (op[0]) {
-          case 0:
-          case 1:
-            t = op;
-            break;
-
-          case 4:
-            _.label++;
-            return {
-              value: op[1],
-              done: false
-            };
-
-          case 5:
-            _.label++;
-            y = op[1];
-            op = [0];
-            continue;
-
-          case 7:
-            op = _.ops.pop();
-
-            _.trys.pop();
-
-            continue;
-
-          default:
-            if (!(t = _.trys, t = t.length > 0 && t[t.length - 1]) && (op[0] === 6 || op[0] === 2)) {
-              _ = 0;
-              continue;
-            }
-
-            if (op[0] === 3 && (!t || op[1] > t[0] && op[1] < t[3])) {
-              _.label = op[1];
-              break;
-            }
-
-            if (op[0] === 6 && _.label < t[1]) {
-              _.label = t[1];
-              t = op;
-              break;
-            }
-
-            if (t && _.label < t[2]) {
-              _.label = t[2];
-
-              _.ops.push(op);
-
-              break;
-            }
-
-            if (t[2]) _.ops.pop();
-
-            _.trys.pop();
-
-            continue;
-        }
-
-        op = body.call(thisArg, _);
-      } catch (e) {
-        op = [6, e];
-        y = 0;
-      } finally {
-        f = t = 0;
-      }
-    }
-
-    if (op[0] & 5) throw op[1];
-    return {
-      value: op[0] ? op[1] : void 0,
-      done: true
-    };
-  }
-};
-
-var __importDefault = this && this.__importDefault || function (mod) {
-  return mod && mod.__esModule ? mod : {
-    "default": mod
-  };
-};
-
-Object.defineProperty(exports, "__esModule", ({
-  value: true
-}));
-
-var react_1 = __importDefault(__webpack_require__(/*! react */ "./node_modules/react/index.js"));
-
-var styled_components_1 = __importDefault(__webpack_require__(/*! styled-components */ "./node_modules/styled-components/dist/styled-components.browser.esm.js"));
-
-var ColoredTag_Modal_1 = __importDefault(__webpack_require__(/*! ../lv1/ColoredTag_Modal */ "./resources/ts/components/modal/lv1/ColoredTag_Modal.tsx"));
-
-var axios_1 = __importDefault(__webpack_require__(/*! axios */ "./node_modules/axios/index.js"));
-
-var customMedia_1 = __importDefault(__webpack_require__(/*! ../../../style/customMedia */ "./resources/ts/style/customMedia.tsx")); //prettier-ignore
-
-
-var Modal = function Modal(_a) {
-  var hasModalOpened = _a.hasModalOpened,
-      selected_color = _a.selected_color,
-      setHasModalOpened = _a.setHasModalOpened,
-      setSelected_color = _a.setSelected_color,
-      taskID = _a.taskID,
-      tagID = _a.tagID,
-      setTagID = _a.setTagID,
-      tasks = _a.tasks,
-      task = _a.task,
-      setTasks = _a.setTasks,
-      i = _a.i;
-
-  if (!hasModalOpened) {
-    return null;
-  }
-
-  var postTag = function postTag(postTagData) {
-    return __awaiter(void 0, void 0, void 0, function () {
-      var res, err_1;
-      return __generator(this, function (_a) {
-        switch (_a.label) {
-          case 0:
-            _a.trys.push([0, 2,, 3]);
-
-            return [4
-            /*yield*/
-            , axios_1["default"].post('api/tags', postTagData)];
-
-          case 1:
-            res = _a.sent();
-            tasks.splice(i, 1, __assign(__assign({}, task), {
-              hasDonePostTag: true,
-              tagID: res.data.id,
-              red: selected_color.red,
-              blue: selected_color.blue,
-              yellow: selected_color.yellow,
-              green: selected_color.green
-            }));
-            setTagID(res.data.id);
-            return [3
-            /*break*/
-            , 3];
-
-          case 2:
-            err_1 = _a.sent();
-            console.error(err_1);
-            return [3
-            /*break*/
-            , 3];
-
-          case 3:
-            return [2
-            /*return*/
-            ];
-        }
-      });
-    });
-  };
-
-  var changeUndefined = function changeUndefined(color) {
-    color == undefined ? color = false : undefined;
-    return color;
-  };
-
-  var changeTag = function changeTag(colors) {
-    return __awaiter(void 0, void 0, void 0, function () {
-      var changedColors, patchData, res, err_2;
-      return __generator(this, function (_a) {
-        switch (_a.label) {
-          case 0:
-            changedColors = __assign(__assign({}, colors), {
-              red: changeUndefined(colors.red),
-              blue: changeUndefined(colors.blue),
-              yellow: changeUndefined(colors.yellow),
-              green: changeUndefined(colors.green)
-            });
-            patchData = {
-              checked_red: changedColors.red,
-              checked_blue: changedColors.blue,
-              checked_yellow: changedColors.yellow,
-              checked_green: changedColors.green
-            };
-            _a.label = 1;
-
-          case 1:
-            _a.trys.push([1, 3,, 4]);
-
-            return [4
-            /*yield*/
-            , axios_1["default"].patch("api/tags/" + tagID, patchData)];
-
-          case 2:
-            res = _a.sent();
-            tasks.splice(i, 1, __assign(__assign({}, task), {
-              red: res.data.checked_red,
-              blue: res.data.checked_blue,
-              yellow: res.data.checked_yellow,
-              green: res.data.checked_green
-            }));
-            return [3
-            /*break*/
-            , 4];
-
-          case 3:
-            err_2 = _a.sent();
-            console.error(err_2);
-            return [3
-            /*break*/
-            , 4];
-
-          case 4:
-            return [2
-            /*return*/
-            ];
-        }
-      });
-    });
-  };
-
-  return react_1["default"].createElement(_BlackBackground, null, react_1["default"].createElement(_Modal, null, react_1["default"].createElement("div", {
-    style: {
-      fontSize: "1.3rem",
-      display: "inline-block"
-    }
-  }, "\u30BF\u30B0\u306E\u8272\u3092\u9078\u629E\u3059\u308B"), react_1["default"].createElement(_TagColors, null, react_1["default"].createElement(ColoredTag_Modal_1["default"], {
-    backgroundColor: "rgba(255, 65, 51)",
-    selected_color: selected_color,
-    setSelected_color: setSelected_color,
-    initChecked: selected_color.red,
-    i: 0
-  }), react_1["default"].createElement(ColoredTag_Modal_1["default"], {
-    backgroundColor: "rgba(51, 194, 255)",
-    selected_color: selected_color,
-    setSelected_color: setSelected_color,
-    initChecked: selected_color.blue,
-    i: 1
-  }), react_1["default"].createElement(ColoredTag_Modal_1["default"], {
-    backgroundColor: "rgba(250, 250, 0)",
-    selected_color: selected_color,
-    setSelected_color: setSelected_color,
-    initChecked: selected_color.yellow,
-    i: 2
-  }), react_1["default"].createElement(ColoredTag_Modal_1["default"], {
-    backgroundColor: "rgba(48, 255, 69)",
-    selected_color: selected_color,
-    setSelected_color: setSelected_color,
-    initChecked: selected_color.green,
-    i: 3
-  })), react_1["default"].createElement(_CloseButton, {
-    onClick: function onClick() {
-      setHasModalOpened(false);
-      tasks[i].hasDonePostTag ? changeTag(selected_color) : postTag({
-        task_id: taskID,
-        checked_red: selected_color.red,
-        checked_blue: selected_color.blue,
-        checked_yellow: selected_color.yellow,
-        checked_green: selected_color.green
-      });
-    }
-  }, "\u9589\u3058\u308B")));
-};
-
-exports.default = Modal;
-
-var _BlackBackground = styled_components_1["default"].div(templateObject_1 || (templateObject_1 = __makeTemplateObject(["\n    position: fixed;\n    left: 0;\n    top: 0;\n    width: 100%;\n    height: 100%;\n    background-color: rgba(116, 116, 116, 0.74);\n    z-index: 500;\n    cursor: pointer;\n"], ["\n    position: fixed;\n    left: 0;\n    top: 0;\n    width: 100%;\n    height: 100%;\n    background-color: rgba(116, 116, 116, 0.74);\n    z-index: 500;\n    cursor: pointer;\n"])));
-
-var _Modal = styled_components_1["default"].div(templateObject_5 || (templateObject_5 = __makeTemplateObject(["\n    position: fixed;\n    left: 50%;\n    top: 50%;\n    transform: translate(-50%, -50%);\n    height: 500px;\n    width: 500px;\n    max-height: 500px;\n    max-width: 500px;\n    padding: 50px;\n    background-color: #fff;\n    z-index: 1000;\n    border-radius: 30px;\n    text-align: center;\n    ", "\n    ", "\n    ", "\n"], ["\n    position: fixed;\n    left: 50%;\n    top: 50%;\n    transform: translate(-50%, -50%);\n    height: 500px;\n    width: 500px;\n    max-height: 500px;\n    max-width: 500px;\n    padding: 50px;\n    background-color: #fff;\n    z-index: 1000;\n    border-radius: 30px;\n    text-align: center;\n    ", "\n    ", "\n    ", "\n"])), customMedia_1["default"].lessThan("mobile")(templateObject_2 || (templateObject_2 = __makeTemplateObject(["\n        height:70vh;\n        width:95vw;\n        padding: 40px;\n    "], ["\n        height:70vh;\n        width:95vw;\n        padding: 40px;\n    "]))), customMedia_1["default"].between("mobile", "tablet")(templateObject_3 || (templateObject_3 = __makeTemplateObject(["\n        height:70vh;\n        width:83vw;\n    "], ["\n        height:70vh;\n        width:83vw;\n    "]))), customMedia_1["default"].greaterThan("tablet")(templateObject_4 || (templateObject_4 = __makeTemplateObject(["\n    \n    "], ["\n    \n    "]))));
-
-var _TagColors = styled_components_1["default"].div(templateObject_6 || (templateObject_6 = __makeTemplateObject(["\n    display: flex;\n    flex-wrap: wrap;\n    justify-content: space-between;\n"], ["\n    display: flex;\n    flex-wrap: wrap;\n    justify-content: space-between;\n"])));
-
-var _CloseButton = styled_components_1["default"].div(templateObject_7 || (templateObject_7 = __makeTemplateObject(["\n    display: inline-block;\n    margin-top: 40px;\n    padding: 10px;\n    border-radius: 10px;\n    background-color: #d6d6d6;\n"], ["\n    display: inline-block;\n    margin-top: 40px;\n    padding: 10px;\n    border-radius: 10px;\n    background-color: #d6d6d6;\n"])));
-
-var templateObject_1, templateObject_2, templateObject_3, templateObject_4, templateObject_5, templateObject_6, templateObject_7;
 
 /***/ }),
 
