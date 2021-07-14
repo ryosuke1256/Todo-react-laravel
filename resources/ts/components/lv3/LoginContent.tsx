@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import axios from "axios";
 import { Link, useHistory } from "react-router-dom";
 import { useForm } from "react-hook-form";
-import { LoginData } from "../../type/api/LoginData";
+import { LoginData } from "../../type/LoginData";
 import PasswordInputField from "../lv2/LoginPassword";
 require("../../../js/bootstrap");
 
