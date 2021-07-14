@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { BrowserRouter as Router, Switch, Route, Redirect } from "react-router-dom"; //prettier-ignore
-import Header from "./components/lv2/Header";
+import { Header } from "./components/lv2/_index";
 import {LoginContent,RegisterContent,TodoContent,TopPageContent} from "./components/lv3/_index"; //prettier-ignore
 
 type User = {
