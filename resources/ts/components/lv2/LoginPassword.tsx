@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { UseFormRegister } from "react-hook-form";
-import { LoginData } from "../../type/api/LoginData";
+import { LoginData } from "../../type/_index";
 
 type Props = { register: UseFormRegister<LoginData> };
 

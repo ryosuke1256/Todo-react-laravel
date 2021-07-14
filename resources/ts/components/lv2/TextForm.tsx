@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import styled from "styled-components";
-import { InputText, SubmitButton } from "../lv1/_index";
-import { TaskAPI } from "../../type/api/TaskAPI";
 import customMedia from "../../style/customMedia";
+import { InputText, SubmitButton } from "../lv1/_index";
+import { TaskAPI } from "../../type/_index";
 
 type Props = {
     postTask: (postTask: TaskAPI) => void;
