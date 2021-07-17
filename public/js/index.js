@@ -7088,10 +7088,14 @@ var TodoContent = function TodoContent(_a) {
       dispatch = _d[1];
 
   react_1.useEffect(function () {
-    getTasks();
+    var unmounted = false;
+    getTasks(unmounted);
+    return function () {
+      unmounted = true;
+    };
   }, []);
 
-  var getTasks = function getTasks() {
+  var getTasks = function getTasks(unmounted) {
     return __awaiter(void 0, void 0, void 0, function () {
       var res, err_1;
       return __generator(this, function (_a) {
@@ -7111,8 +7115,12 @@ var TodoContent = function TodoContent(_a) {
 
           case 2:
             res = _a.sent();
-            setTasks(res.data);
-            setIs_began(true);
+
+            if (!unmounted) {
+              setTasks(res.data);
+              setIs_began(true);
+            }
+
             return [3
             /*break*/
             , 4];
