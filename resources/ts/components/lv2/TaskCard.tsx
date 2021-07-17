@@ -1,12 +1,10 @@
-import React, { useEffect, useState, useRef } from "react";
-import styled from "styled-components";
+import React, { useState, useEffect, useRef } from "react";
 import axios from "axios";
-import { ColoredTags } from "./_index";
-import Modal from "../modal/lv2/Modal";
-import { EditButton, DeleteButton, CheckBox, TaskTitle } from "../lv1/_index"; //prettier-ignore
-import { TaskAndColor } from "../../type/TaskAndColor";
-import { Color } from "../../type/Color";
+import styled from "styled-components";
 import customMedia from "../../style/customMedia";
+import { ColoredTags, Modal } from "./_index";
+import { EditButton, DeleteButton, CheckBox, TaskTitle } from "../lv1/_index"; //prettier-ignore
+import { TaskAndColor, Color } from "../../type/_index";
 
 type Props = {
     task: TaskAndColor;
@@ -46,13 +44,11 @@ const TaskCard: React.VFC<Props> = React.memo(({task,tasks,setTasks,id,i,}: Prop
     const getTags = async (): Promise<void> => {
         try {
             const res = await axios.get(`api/tags/tasks/${tasks[i].id}`);
-            const todos = tasks;
-            if(!(res.data.id === undefined)) {
-                todos.splice(i,1,{...task, ...{hasDonePostTag:true,tagID:res.data.id,red:res.data.checked_red,blue:res.data.checked_blue,yellow:res.data.checked_yellow,green:res.data.checked_green}});
+            if(res.data.id !== undefined) {
+                tasks.splice(i,1,{...task, ...{hasDonePostTag:true,tagID:res.data.id,red:res.data.checked_red,blue:res.data.checked_blue,yellow:res.data.checked_yellow,green:res.data.checked_green}});
             } else {
-                todos.splice(i,1,{...task, ...{tagID:res.data.id,red:res.data.checked_red,blue:res.data.checked_blue,yellow:res.data.checked_yellow,green:res.data.checked_green}});
+                tasks.splice(i,1,{...task, ...{tagID:res.data.id,red:res.data.checked_red,blue:res.data.checked_blue,yellow:res.data.checked_yellow,green:res.data.checked_green}});
             }
-            setTasks(todos);
             setTagID(res.data.id);
             setSelected_color({red:res.data.checked_red,blue:res.data.checked_blue,yellow:res.data.checked_yellow,green:res.data.checked_green});
         } catch (err) {

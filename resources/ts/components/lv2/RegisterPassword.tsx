@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { UseFormRegister } from "react-hook-form";
-import { RegisterData } from "../../type/api/RegisterData";
+import { RegisterData } from "../../type/_index";
 
 type Props = {
     register: UseFormRegister<RegisterData>;
@@ -12,7 +12,7 @@ const RegisterPassword: React.VFC<Props> = ({ register, category }: Props) => {
     const [isRevealConfirmPassword, setIsRevealConfirmPassword] = useState(false); //prettier-ignore
     let placeholder = "";
 
-    const togglePassword = () => {
+    const togglePassword = (): null | undefined => {
         if (category === "password") {
             setIsRevealPassword((prevState) => !prevState);
         } else if (category === "password_confirmation") {

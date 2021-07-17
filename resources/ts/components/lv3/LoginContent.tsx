@@ -1,24 +1,18 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import axios from "axios";
 import { Link, useHistory } from "react-router-dom";
-import("../../../js/bootstrap");
 import { useForm } from "react-hook-form";
+import { LoginData } from "../../type/LoginData";
 import PasswordInputField from "../lv2/LoginPassword";
+require("../../../js/bootstrap");
 
 type Props = {
     setIs_authenticated: (param: boolean) => void;
-    setUserID: (param: number) => void;
     getUser: () => Promise<void>;
-};
-
-type LoginData = {
-    email: string;
-    password: string;
 };
 
 const LoginContent: React.VFC<Props> = ({
     setIs_authenticated,
-    setUserID,
     getUser,
 }: Props) => {
     const [errorMessage, setErrorMessage] = useState("");
@@ -48,7 +42,6 @@ const LoginContent: React.VFC<Props> = ({
             .post("/login", loginData)
             .then((res) => {
                 history.push("/");
-                setUserID(res.data.user.id);
                 getUser();
                 setIs_authenticated(true);
             })

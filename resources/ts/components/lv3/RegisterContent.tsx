@@ -3,18 +3,15 @@ import axios from "axios";
 import { Link, useHistory } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import RegisterPassword from "../lv2/RegisterPassword";
-import { RegisterData } from "../../type/api/RegisterData";
-import { LoginData } from "../../type/api/LoginData";
+import { RegisterData, LoginData } from "../../type/_index";
 
 type Props = {
     setIs_authenticated: (param: boolean) => void;
-    setUserID: (param: number) => void;
     getUser: () => Promise<void>;
 };
 
 const RegisterContent: React.VFC<Props> = ({
     setIs_authenticated,
-    setUserID,
     getUser,
 }: Props) => {
     const [errorMessage, setErrorMessage] = useState("");
@@ -61,7 +58,6 @@ const RegisterContent: React.VFC<Props> = ({
             .then((res) => {
                 history.push("/");
                 getUser();
-                setUserID(res.data.user.id);
                 setIs_authenticated(true);
             })
             .catch((err) => {

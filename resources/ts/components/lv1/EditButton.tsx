@@ -1,7 +1,6 @@
 import React, { useContext } from "react";
 import { TasksEditActiveContext } from "../lv3/TodoContent";
-import { EditIcon } from "./_index";
-import { Button } from "./Button";
+import { EditIcon, Button } from "./_index";
 import MediaQuery from "react-responsive";
 
 type Props = {
@@ -24,17 +23,17 @@ const EditButton: React.VFC<Props> = ({
     const tasksEditContext = useContext(TasksEditActiveContext);
 
     const changeTaskTitle = (): null | undefined => {
-        if (!editActive && tasksEditContext.tasksEditState) {
-            return null;
-        } else {
-            setEditButtonTitle("変更");
+        if (!editActive && !tasksEditContext.tasksEditState) {
             setEditActive((prev: boolean) => !prev);
+            setEditButtonTitle("変更");
             tasksEditContext.tasksEditDispatch("active");
-            if (editActive) {
-                editTask(title);
-                setEditButtonTitle("編集");
-                tasksEditContext.tasksEditDispatch("deactivate");
-            }
+        } else if (editActive && tasksEditContext.tasksEditState) {
+            editTask(title);
+            setEditActive((prev: boolean) => !prev);
+            setEditButtonTitle("編集");
+            tasksEditContext.tasksEditDispatch("deactivate");
+        } else {
+            return;
         }
     };
 

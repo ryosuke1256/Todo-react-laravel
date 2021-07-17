@@ -2,42 +2,29 @@ import React, { useState, useEffect, useCallback, useReducer } from "react";
 import axios from "axios";
 import styled from "styled-components";
 import customMedia from "../../style/customMedia";
-import { TaskAndColor } from "../../type/TaskAndColor";
-import { TaskAPI } from "../../type/api/TaskAPI";
 import { TaskCard, TextForm, WelcomeContent } from "../lv2/_index";
-
+import { TaskAndColor, TaskAPI } from "../../type/_index";
+import { reducer } from "../../reducer/reducer";
 export const TasksEditActiveContext = React.createContext<any>(false);
 
-const initialState = false;
-const reducer = (state: boolean, action: "active" | "deactivate"): boolean => {
-    switch (action) {
-        case "active":
-            return true;
-        case "deactivate":
-            return false;
-        default:
-            return state;
-    }
-};
-
 type Props = {
-    userID: Readonly<number | null>;
+    userID: number | null;
 };
 
 const TodoContent: React.VFC<Props> = ({ userID }: Props) => {
     const [tasks, setTasks] = useState<TaskAndColor[]>([]);
     const [is_began, setIs_began] = useState(false);
-    const [tasksEditActive, dispatch] = useReducer(reducer, initialState);
+    const [tasksEditActive, dispatch] = useReducer(reducer, false);
 
     useEffect(() => {
         getTasks();
     }, []);
 
     const getTasks = async (): Promise<void> => {
-        if (!(userID === null)) {
+        if (userID !== null) {
             try {
-                const Data = await axios.get(`api/tasks/users/${userID}`);
-                setTasks(Data.data.map((data: TaskAndColor) => data));
+                const res = await axios.get(`api/tasks/users/${userID}`);
+                setTasks(res.data);
                 setIs_began(true);
             } catch (err) {
                 console.error(err);
@@ -46,13 +33,13 @@ const TodoContent: React.VFC<Props> = ({ userID }: Props) => {
     };
 
     const postTask = useCallback(
-        async (postData: TaskAPI): Promise<void> => {
+        async (postData: Readonly<TaskAPI>): Promise<void> => {
             // console.log({ postData });
             try {
                 const res = await axios.post("api/tasks", postData);
-                const obj = [...tasks];
-                obj.unshift(res.data);
-                setTasks(obj);
+                const todos = [...tasks];
+                todos.unshift(res.data);
+                setTasks(todos);
             } catch (err) {
                 console.error(err);
             }

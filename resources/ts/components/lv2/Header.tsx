@@ -1,19 +1,20 @@
 import React, { useState } from "react";
-import styled from "styled-components";
-import { Link } from "react-router-dom";
 import axios from "axios";
+import styled from "styled-components";
 import customMedia from "../../style/customMedia";
+import { Link } from "react-router-dom";
+import { User } from "../../type/User";
 
 type Props = {
     setIs_authenticated: (param: boolean) => void;
-    setUserID: (param: number | null) => void;
+    setUserData: (param: User) => void;
     is_authenticated: boolean;
     userName: string;
 };
 
 const Header: React.VFC<Props> = ({
     setIs_authenticated,
-    setUserID,
+    setUserData,
     is_authenticated,
     userName,
 }: Props) => {
@@ -24,7 +25,7 @@ const Header: React.VFC<Props> = ({
             .post("/logout")
             .then(() => {
                 setIs_authenticated(false);
-                setUserID(null);
+                setUserData({ userID: null, userName: "" });
                 setIs_show(false);
             })
             .catch((err) => {
