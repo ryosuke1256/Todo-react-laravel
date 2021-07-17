@@ -17,15 +17,21 @@ const TodoContent: React.VFC<Props> = ({ userID }: Props) => {
     const [tasksEditActive, dispatch] = useReducer(reducer, false);
 
     useEffect(() => {
-        getTasks();
+        let unmounted = false;
+        getTasks(unmounted);
+        return () => {
+            unmounted = true;
+        };
     }, []);
 
-    const getTasks = async (): Promise<void> => {
+    const getTasks = async (unmounted: boolean): Promise<void> => {
         if (userID !== null) {
             try {
                 const res = await axios.get(`api/tasks/users/${userID}`);
-                setTasks(res.data);
-                setIs_began(true);
+                if (!unmounted) {
+                    setTasks(res.data);
+                    setIs_began(true);
+                }
             } catch (err) {
                 console.error(err);
             }
