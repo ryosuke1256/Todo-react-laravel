@@ -113,7 +113,7 @@ const LoginContent: React.VFC<Props> = ({
                     </main>
                     <div className="pt-4"></div>
                 </form>
-                <aside className="pt-5 w-full text-right sm:text-center">
+                <aside className="pt-5 w-full text-right">
                     <Link
                         to="/"
                         className="w-10 transition duration-200 mx-5 px-5 py-4 cursor-pointer font-normal text-sm rounded-lg text-gray-500 hover:bg-gray-200 focus:outline-none focus:bg-gray-300 focus:ring-2 focus:ring-gray-400 focus:ring-opacity-50 ring-inset"
