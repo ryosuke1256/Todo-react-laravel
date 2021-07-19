@@ -53,7 +53,7 @@ const LoginContent: React.VFC<Props> = ({
 
     return (
         <div className="min-h-screen bg-gray-100 flex flex-col justify-center sm:py-12">
-            <div className="pt-10 sm:pt-20 xs:p-0 mx-auto w-11/12 sm:w-full max-w-md">
+            <div className="pt-8 sm:pt-20 xs:p-0 mx-auto w-11/12 sm:w-full max-w-md">
                 <form
                     onSubmit={handleSubmit(initCSRF)}
                     className="bg-white shadow w-full rounded-xl divide-y divide-gray-200 px-6 md:px-12 py-8"
