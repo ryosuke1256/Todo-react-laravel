@@ -34,10 +34,11 @@ const App: React.VFC = () => {
                 } else {
                     setIs_authenticated(false);
                 }
-                setIs_began(true);
             })
             .catch((err) => {
-                console.error(err);
+                console.error(err.response.data.message);
+            })
+            .finally(() => {
                 setIs_began(true);
             });
     };
