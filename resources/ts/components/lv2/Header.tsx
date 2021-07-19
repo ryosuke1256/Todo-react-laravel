@@ -122,6 +122,15 @@ const _List = styled.div`
     border-radius: 4px;
     color: #5c5c5c;
     cursor: pointer;
+    ${customMedia.lessThan("mobile")`
+        right:30px;
+    `}
+    ${customMedia.between("mobile", "tablet")`
+
+    `}
+    ${customMedia.greaterThan("tablet")`
+    
+    `}
 `;
 
 const _Logout = styled.div`
