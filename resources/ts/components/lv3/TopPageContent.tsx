@@ -13,8 +13,8 @@ const TopPageContent: React.VFC = () => {
                 </aside>
                 <div className="bg-white absolute top-0 left-0 w-full h-full">
                     <main className="w-full max-w-5xl inline-block pt-28 lg:pt-32">
-                        <title className="w-11/12 lg:w-9/12 xl:w-full inline-block text-2xl md:text-3xl xl:text-4xl text-gray-700 font-semibold block">
-                            <span className="sm:inline-block pt-3 underLine">
+                        <title className="w-11/12 sm:w-9/12 xl:w-full inline-block text-2xl md:text-3xl xl:text-4xl text-gray-700 font-semibold block">
+                            <span className="pt-3 underLine">
                                 「はぴたす」はシンプルで使いやすくを意識して
                             </span>
                             <span className="xl:inline-block sm:pt-3 underLine">
@@ -40,7 +40,7 @@ const TopPageContent: React.VFC = () => {
                             <title className="inline-block text-3xl text-blue-400 textShadow">
                                 ABOUT.
                             </title>
-                            <div className="flex flex-col lg:flex-row sm:px-12 md:px-32 lg:px-0">
+                            <div className="flex flex-col lg:flex-row sm:px-12 md:px-20 lg:px-0">
                                 <img
                                     className="w-full lg:w-1/2 hidden sm:inline-block pt-12"
                                     src="/images/image.png"
