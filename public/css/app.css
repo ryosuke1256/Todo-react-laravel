@@ -21501,6 +21501,10 @@ video {
   padding: 5rem;
 }
 
+.p-22 {
+  padding: 88px;
+}
+
 .p-24 {
   padding: 6rem;
 }
@@ -21655,6 +21659,11 @@ video {
 .px-20 {
   padding-left: 5rem;
   padding-right: 5rem;
+}
+
+.px-22 {
+  padding-left: 88px;
+  padding-right: 88px;
 }
 
 .px-24 {
@@ -21832,6 +21841,11 @@ video {
   padding-bottom: 5rem;
 }
 
+.py-22 {
+  padding-top: 88px;
+  padding-bottom: 88px;
+}
+
 .py-24 {
   padding-top: 6rem;
   padding-bottom: 6rem;
@@ -21991,6 +22005,10 @@ video {
   padding-top: 5rem;
 }
 
+.pt-22 {
+  padding-top: 88px;
+}
+
 .pt-24 {
   padding-top: 6rem;
 }
@@ -22129,6 +22147,10 @@ video {
 
 .pr-20 {
   padding-right: 5rem;
+}
+
+.pr-22 {
+  padding-right: 88px;
 }
 
 .pr-24 {
@@ -22271,6 +22293,10 @@ video {
   padding-bottom: 5rem;
 }
 
+.pb-22 {
+  padding-bottom: 88px;
+}
+
 .pb-24 {
   padding-bottom: 6rem;
 }
@@ -22409,6 +22435,10 @@ video {
 
 .pl-20 {
   padding-left: 5rem;
+}
+
+.pl-22 {
+  padding-left: 88px;
 }
 
 .pl-24 {
@@ -53071,6 +53101,10 @@ body {
     padding: 5rem;
   }
 
+  .sm\:p-22 {
+    padding: 88px;
+  }
+
   .sm\:p-24 {
     padding: 6rem;
   }
@@ -53225,6 +53259,11 @@ body {
   .sm\:px-20 {
     padding-left: 5rem;
     padding-right: 5rem;
+  }
+
+  .sm\:px-22 {
+    padding-left: 88px;
+    padding-right: 88px;
   }
 
   .sm\:px-24 {
@@ -53402,6 +53441,11 @@ body {
     padding-bottom: 5rem;
   }
 
+  .sm\:py-22 {
+    padding-top: 88px;
+    padding-bottom: 88px;
+  }
+
   .sm\:py-24 {
     padding-top: 6rem;
     padding-bottom: 6rem;
@@ -53561,6 +53605,10 @@ body {
     padding-top: 5rem;
   }
 
+  .sm\:pt-22 {
+    padding-top: 88px;
+  }
+
   .sm\:pt-24 {
     padding-top: 6rem;
   }
@@ -53699,6 +53747,10 @@ body {
 
   .sm\:pr-20 {
     padding-right: 5rem;
+  }
+
+  .sm\:pr-22 {
+    padding-right: 88px;
   }
 
   .sm\:pr-24 {
@@ -53841,6 +53893,10 @@ body {
     padding-bottom: 5rem;
   }
 
+  .sm\:pb-22 {
+    padding-bottom: 88px;
+  }
+
   .sm\:pb-24 {
     padding-bottom: 6rem;
   }
@@ -53979,6 +54035,10 @@ body {
 
   .sm\:pl-20 {
     padding-left: 5rem;
+  }
+
+  .sm\:pl-22 {
+    padding-left: 88px;
   }
 
   .sm\:pl-24 {
@@ -84514,6 +84574,10 @@ body {
     padding: 5rem;
   }
 
+  .md\:p-22 {
+    padding: 88px;
+  }
+
   .md\:p-24 {
     padding: 6rem;
   }
@@ -84668,6 +84732,11 @@ body {
   .md\:px-20 {
     padding-left: 5rem;
     padding-right: 5rem;
+  }
+
+  .md\:px-22 {
+    padding-left: 88px;
+    padding-right: 88px;
   }
 
   .md\:px-24 {
@@ -84845,6 +84914,11 @@ body {
     padding-bottom: 5rem;
   }
 
+  .md\:py-22 {
+    padding-top: 88px;
+    padding-bottom: 88px;
+  }
+
   .md\:py-24 {
     padding-top: 6rem;
     padding-bottom: 6rem;
@@ -85004,6 +85078,10 @@ body {
     padding-top: 5rem;
   }
 
+  .md\:pt-22 {
+    padding-top: 88px;
+  }
+
   .md\:pt-24 {
     padding-top: 6rem;
   }
@@ -85142,6 +85220,10 @@ body {
 
   .md\:pr-20 {
     padding-right: 5rem;
+  }
+
+  .md\:pr-22 {
+    padding-right: 88px;
   }
 
   .md\:pr-24 {
@@ -85284,6 +85366,10 @@ body {
     padding-bottom: 5rem;
   }
 
+  .md\:pb-22 {
+    padding-bottom: 88px;
+  }
+
   .md\:pb-24 {
     padding-bottom: 6rem;
   }
@@ -85422,6 +85508,10 @@ body {
 
   .md\:pl-20 {
     padding-left: 5rem;
+  }
+
+  .md\:pl-22 {
+    padding-left: 88px;
   }
 
   .md\:pl-24 {
@@ -115957,6 +116047,10 @@ body {
     padding: 5rem;
   }
 
+  .lg\:p-22 {
+    padding: 88px;
+  }
+
   .lg\:p-24 {
     padding: 6rem;
   }
@@ -116111,6 +116205,11 @@ body {
   .lg\:px-20 {
     padding-left: 5rem;
     padding-right: 5rem;
+  }
+
+  .lg\:px-22 {
+    padding-left: 88px;
+    padding-right: 88px;
   }
 
   .lg\:px-24 {
@@ -116288,6 +116387,11 @@ body {
     padding-bottom: 5rem;
   }
 
+  .lg\:py-22 {
+    padding-top: 88px;
+    padding-bottom: 88px;
+  }
+
   .lg\:py-24 {
     padding-top: 6rem;
     padding-bottom: 6rem;
@@ -116447,6 +116551,10 @@ body {
     padding-top: 5rem;
   }
 
+  .lg\:pt-22 {
+    padding-top: 88px;
+  }
+
   .lg\:pt-24 {
     padding-top: 6rem;
   }
@@ -116585,6 +116693,10 @@ body {
 
   .lg\:pr-20 {
     padding-right: 5rem;
+  }
+
+  .lg\:pr-22 {
+    padding-right: 88px;
   }
 
   .lg\:pr-24 {
@@ -116727,6 +116839,10 @@ body {
     padding-bottom: 5rem;
   }
 
+  .lg\:pb-22 {
+    padding-bottom: 88px;
+  }
+
   .lg\:pb-24 {
     padding-bottom: 6rem;
   }
@@ -116865,6 +116981,10 @@ body {
 
   .lg\:pl-20 {
     padding-left: 5rem;
+  }
+
+  .lg\:pl-22 {
+    padding-left: 88px;
   }
 
   .lg\:pl-24 {
@@ -147400,6 +147520,10 @@ body {
     padding: 5rem;
   }
 
+  .xl\:p-22 {
+    padding: 88px;
+  }
+
   .xl\:p-24 {
     padding: 6rem;
   }
@@ -147554,6 +147678,11 @@ body {
   .xl\:px-20 {
     padding-left: 5rem;
     padding-right: 5rem;
+  }
+
+  .xl\:px-22 {
+    padding-left: 88px;
+    padding-right: 88px;
   }
 
   .xl\:px-24 {
@@ -147731,6 +147860,11 @@ body {
     padding-bottom: 5rem;
   }
 
+  .xl\:py-22 {
+    padding-top: 88px;
+    padding-bottom: 88px;
+  }
+
   .xl\:py-24 {
     padding-top: 6rem;
     padding-bottom: 6rem;
@@ -147890,6 +148024,10 @@ body {
     padding-top: 5rem;
   }
 
+  .xl\:pt-22 {
+    padding-top: 88px;
+  }
+
   .xl\:pt-24 {
     padding-top: 6rem;
   }
@@ -148028,6 +148166,10 @@ body {
 
   .xl\:pr-20 {
     padding-right: 5rem;
+  }
+
+  .xl\:pr-22 {
+    padding-right: 88px;
   }
 
   .xl\:pr-24 {
@@ -148170,6 +148312,10 @@ body {
     padding-bottom: 5rem;
   }
 
+  .xl\:pb-22 {
+    padding-bottom: 88px;
+  }
+
   .xl\:pb-24 {
     padding-bottom: 6rem;
   }
@@ -148308,6 +148454,10 @@ body {
 
   .xl\:pl-20 {
     padding-left: 5rem;
+  }
+
+  .xl\:pl-22 {
+    padding-left: 88px;
   }
 
   .xl\:pl-24 {
@@ -178843,6 +178993,10 @@ body {
     padding: 5rem;
   }
 
+  .\32xl\:p-22 {
+    padding: 88px;
+  }
+
   .\32xl\:p-24 {
     padding: 6rem;
   }
@@ -178997,6 +179151,11 @@ body {
   .\32xl\:px-20 {
     padding-left: 5rem;
     padding-right: 5rem;
+  }
+
+  .\32xl\:px-22 {
+    padding-left: 88px;
+    padding-right: 88px;
   }
 
   .\32xl\:px-24 {
@@ -179174,6 +179333,11 @@ body {
     padding-bottom: 5rem;
   }
 
+  .\32xl\:py-22 {
+    padding-top: 88px;
+    padding-bottom: 88px;
+  }
+
   .\32xl\:py-24 {
     padding-top: 6rem;
     padding-bottom: 6rem;
@@ -179333,6 +179497,10 @@ body {
     padding-top: 5rem;
   }
 
+  .\32xl\:pt-22 {
+    padding-top: 88px;
+  }
+
   .\32xl\:pt-24 {
     padding-top: 6rem;
   }
@@ -179471,6 +179639,10 @@ body {
 
   .\32xl\:pr-20 {
     padding-right: 5rem;
+  }
+
+  .\32xl\:pr-22 {
+    padding-right: 88px;
   }
 
   .\32xl\:pr-24 {
@@ -179613,6 +179785,10 @@ body {
     padding-bottom: 5rem;
   }
 
+  .\32xl\:pb-22 {
+    padding-bottom: 88px;
+  }
+
   .\32xl\:pb-24 {
     padding-bottom: 6rem;
   }
@@ -179751,6 +179927,10 @@ body {
 
   .\32xl\:pl-20 {
     padding-left: 5rem;
+  }
+
+  .\32xl\:pl-22 {
+    padding-left: 88px;
   }
 
   .\32xl\:pl-24 {

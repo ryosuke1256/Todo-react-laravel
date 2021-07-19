@@ -19,6 +19,9 @@ module.exports = {
                 520: "520px",
                 650: "650px",
             },
+            padding: {
+                22: "88px",
+            },
         },
     },
     variants: {
