@@ -6401,11 +6401,7 @@ var LoginContent = function LoginContent(_a) {
   })), react_1["default"].createElement("div", {
     className: "pt-4"
   })), react_1["default"].createElement("aside", {
-    className: "pt-5"
-  }, react_1["default"].createElement("div", {
-    className: "grid grid-cols-2 gap-1"
-  }, react_1["default"].createElement("div", {
-    className: "text-center sm:text-left whitespace-nowrap"
+    className: "pt-5 w-full text-right"
   }, react_1["default"].createElement(react_router_dom_1.Link, {
     to: "/",
     className: "w-10 transition duration-200 mx-5 px-5 py-4 cursor-pointer font-normal text-sm rounded-lg text-gray-500 hover:bg-gray-200 focus:outline-none focus:bg-gray-300 focus:ring-2 focus:ring-gray-400 focus:ring-opacity-50 ring-inset"
@@ -6420,7 +6416,7 @@ var LoginContent = function LoginContent(_a) {
     strokeLinejoin: "round",
     strokeWidth: "2",
     d: "M10 19l-7-7m0 0l7-7m-7 7h18"
-  })), "\u623B\u308B"))))));
+  })), "\u623B\u308B"))));
 };
 
 exports.default = LoginContent;
@@ -6813,15 +6809,18 @@ var RegisterContent = function RegisterContent(_a) {
   })), react_1["default"].createElement("div", {
     className: "pt-1 sm:pt-4"
   })), react_1["default"].createElement("aside", {
-    className: "text-grey-dark pt-3 pb-1 sm:pt-6 sm:pb-7"
+    className: "text-center text-grey-dark py-3 sm:py-5"
   }, "\u3059\u3067\u306B\u30A2\u30AB\u30A6\u30F3\u30C8\u3092\u304A\u6301\u3061\u3067\u3059\u304B\uFF1F", react_1["default"].createElement(react_router_dom_1.Link, {
-    className: "no-underline border-b border-blue text-blue",
     to: "/login"
-  }, "\u30ED\u30B0\u30A4\u30F3")), react_1["default"].createElement("aside", {
-    className: "w-full text-center sm:text-left whitespace-nowrap"
+  }, react_1["default"].createElement("span", {
+    className: "py-3 whitespace-nowrap"
+  }, react_1["default"].createElement("span", {
+    className: "no-underline border-b border-blue text-blue"
+  }, "\u30ED\u30B0\u30A4\u30F3")))), react_1["default"].createElement("aside", {
+    className: "w-full text-center sm:text-right"
   }, react_1["default"].createElement(react_router_dom_1.Link, {
     to: "/",
-    className: "w-10 transition duration-200 mx-5 px-5 py-4 cursor-pointer font-normal text-sm rounded-lg text-gray-500 hover:bg-gray-200 focus:outline-none focus:bg-gray-300 focus:ring-2 focus:ring-gray-400 focus:ring-opacity-50 ring-inset"
+    className: "w-10 transition duration-200 mx-5 p-4 cursor-pointer font-normal text-sm rounded-lg text-gray-500 hover:bg-gray-200 focus:outline-none focus:bg-gray-300 focus:ring-2 focus:ring-gray-400 focus:ring-opacity-50 ring-inset"
   }, react_1["default"].createElement("svg", {
     xmlns: "http://www.w3.org/2000/svg",
     fill: "none",
@@ -7244,9 +7243,9 @@ var TopPageContent = function TopPageContent() {
   }, react_1["default"].createElement("main", {
     className: "w-full max-w-5xl inline-block pt-28 lg:pt-32"
   }, react_1["default"].createElement("title", {
-    className: "w-11/12 lg:w-9/12 xl:w-full inline-block text-2xl md:text-3xl xl:text-4xl text-gray-700 font-semibold block"
+    className: "w-11/12 sm:w-9/12 xl:w-full inline-block text-2xl md:text-3xl xl:text-4xl text-gray-700 font-semibold block"
   }, react_1["default"].createElement("span", {
-    className: "sm:inline-block pt-3 underLine"
+    className: "pt-3 underLine"
   }, "\u300C\u306F\u3074\u305F\u3059\u300D\u306F\u30B7\u30F3\u30D7\u30EB\u3067\u4F7F\u3044\u3084\u3059\u304F\u3092\u610F\u8B58\u3057\u3066"), react_1["default"].createElement("span", {
     className: "xl:inline-block sm:pt-3 underLine"
   }, "\u4F5C\u6210\u3057\u305F\u300C\u30BF\u30B9\u30AF\u7BA1\u7406\u30C4\u30FC\u30EB\u300D\u3067\u3059")), react_1["default"].createElement("article", {
@@ -7268,7 +7267,7 @@ var TopPageContent = function TopPageContent() {
   }, react_1["default"].createElement("title", {
     className: "inline-block text-3xl text-blue-400 textShadow"
   }, "ABOUT."), react_1["default"].createElement("div", {
-    className: "flex flex-col lg:flex-row sm:px-12 md:px-32 lg:px-0"
+    className: "flex flex-col lg:flex-row sm:px-12 md:px-20 lg:px-0"
   }, react_1["default"].createElement("img", {
     className: "w-full lg:w-1/2 hidden sm:inline-block pt-12",
     src: "/images/image.png"

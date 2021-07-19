@@ -187,19 +187,20 @@ const RegisterContent: React.VFC<Props> = ({
                     </main>
                     <div className="pt-1 sm:pt-4"></div>
                 </form>
-                <aside className="text-grey-dark pt-3 pb-1 sm:pt-6 sm:pb-7">
+                <aside className="text-center text-grey-dark py-3 sm:py-5">
                     すでにアカウントをお持ちですか？
-                    <Link
-                        className="no-underline border-b border-blue text-blue"
-                        to="/login"
-                    >
-                        ログイン
+                    <Link to="/login">
+                        <span className="py-3 whitespace-nowrap">
+                            <span className="no-underline border-b border-blue text-blue">
+                                ログイン
+                            </span>
+                        </span>
                     </Link>
                 </aside>
-                <aside className="w-full text-center sm:text-left whitespace-nowrap">
+                <aside className="w-full text-center sm:text-right">
                     <Link
                         to="/"
-                        className="w-10 transition duration-200 mx-5 px-5 py-4 cursor-pointer font-normal text-sm rounded-lg text-gray-500 hover:bg-gray-200 focus:outline-none focus:bg-gray-300 focus:ring-2 focus:ring-gray-400 focus:ring-opacity-50 ring-inset"
+                        className="w-10 transition duration-200 mx-5 p-4 cursor-pointer font-normal text-sm rounded-lg text-gray-500 hover:bg-gray-200 focus:outline-none focus:bg-gray-300 focus:ring-2 focus:ring-gray-400 focus:ring-opacity-50 ring-inset"
                     >
                         <svg
                             xmlns="http://www.w3.org/2000/svg"
