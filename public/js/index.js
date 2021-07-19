@@ -6401,11 +6401,7 @@ var LoginContent = function LoginContent(_a) {
   })), react_1["default"].createElement("div", {
     className: "pt-4"
   })), react_1["default"].createElement("aside", {
-    className: "pt-5"
-  }, react_1["default"].createElement("div", {
-    className: "grid grid-cols-2 gap-1"
-  }, react_1["default"].createElement("div", {
-    className: "text-center sm:text-left whitespace-nowrap"
+    className: "pt-5 w-full text-right sm:text-center"
   }, react_1["default"].createElement(react_router_dom_1.Link, {
     to: "/",
     className: "w-10 transition duration-200 mx-5 px-5 py-4 cursor-pointer font-normal text-sm rounded-lg text-gray-500 hover:bg-gray-200 focus:outline-none focus:bg-gray-300 focus:ring-2 focus:ring-gray-400 focus:ring-opacity-50 ring-inset"
@@ -6420,7 +6416,7 @@ var LoginContent = function LoginContent(_a) {
     strokeLinejoin: "round",
     strokeWidth: "2",
     d: "M10 19l-7-7m0 0l7-7m-7 7h18"
-  })), "\u623B\u308B"))))));
+  })), "\u623B\u308B"))));
 };
 
 exports.default = LoginContent;
@@ -6813,15 +6809,18 @@ var RegisterContent = function RegisterContent(_a) {
   })), react_1["default"].createElement("div", {
     className: "pt-1 sm:pt-4"
   })), react_1["default"].createElement("aside", {
-    className: "text-grey-dark pt-3 pb-1 sm:pt-6 sm:pb-7"
+    className: "text-center text-grey-dark py-3 sm:pt-6 sm:pb-7"
   }, "\u3059\u3067\u306B\u30A2\u30AB\u30A6\u30F3\u30C8\u3092\u304A\u6301\u3061\u3067\u3059\u304B\uFF1F", react_1["default"].createElement(react_router_dom_1.Link, {
-    className: "no-underline border-b border-blue text-blue",
     to: "/login"
-  }, "\u30ED\u30B0\u30A4\u30F3")), react_1["default"].createElement("aside", {
-    className: "w-full text-center sm:text-left whitespace-nowrap"
+  }, react_1["default"].createElement("span", {
+    className: "px-2 py-3"
+  }, react_1["default"].createElement("span", {
+    className: "no-underline border-b border-blue text-blue"
+  }, "\u30ED\u30B0\u30A4\u30F3")))), react_1["default"].createElement("aside", {
+    className: "w-full text-right sm:text-center"
   }, react_1["default"].createElement(react_router_dom_1.Link, {
     to: "/",
-    className: "w-10 transition duration-200 mx-5 px-5 py-4 cursor-pointer font-normal text-sm rounded-lg text-gray-500 hover:bg-gray-200 focus:outline-none focus:bg-gray-300 focus:ring-2 focus:ring-gray-400 focus:ring-opacity-50 ring-inset"
+    className: "w-10 transition duration-200 mx-5 px-4 pt-3 pb-4 cursor-pointer font-normal text-sm rounded-lg text-gray-500 hover:bg-gray-200 focus:outline-none focus:bg-gray-300 focus:ring-2 focus:ring-gray-400 focus:ring-opacity-50 ring-inset"
   }, react_1["default"].createElement("svg", {
     xmlns: "http://www.w3.org/2000/svg",
     fill: "none",
