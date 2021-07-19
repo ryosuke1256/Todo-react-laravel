@@ -2931,10 +2931,9 @@ var App = function App() {
               } else {
                 setIs_authenticated(false);
               }
-
-              setIs_began(true);
             })["catch"](function (err) {
-              console.error(err);
+              console.error(err.response.data.message);
+            })["finally"](function () {
               setIs_began(true);
             })];
 
@@ -4689,11 +4688,11 @@ var _Title = styled_components_1["default"].div(templateObject_6 || (templateObj
 
 var _userName = styled_components_1["default"].div(templateObject_7 || (templateObject_7 = __makeTemplateObject(["\n    line-height: 44px;\n    color: #00000080;\n    cursor: pointer;\n"], ["\n    line-height: 44px;\n    color: #00000080;\n    cursor: pointer;\n"])));
 
-var _List = styled_components_1["default"].div(templateObject_8 || (templateObject_8 = __makeTemplateObject(["\n    display: table;\n    text-align: center;\n    position: absolute;\n    top: 50px;\n    right: 100px;\n    height: 50px;\n    width: 150px;\n    background-color: white;\n    border: 1px solid #bbbbbb;\n    border-radius: 4px;\n    color: #5c5c5c;\n    cursor: pointer;\n"], ["\n    display: table;\n    text-align: center;\n    position: absolute;\n    top: 50px;\n    right: 100px;\n    height: 50px;\n    width: 150px;\n    background-color: white;\n    border: 1px solid #bbbbbb;\n    border-radius: 4px;\n    color: #5c5c5c;\n    cursor: pointer;\n"])));
+var _List = styled_components_1["default"].div(templateObject_11 || (templateObject_11 = __makeTemplateObject(["\n    display: table;\n    text-align: center;\n    position: absolute;\n    top: 50px;\n    right: 100px;\n    height: 50px;\n    width: 150px;\n    background-color: white;\n    border: 1px solid #bbbbbb;\n    border-radius: 4px;\n    color: #5c5c5c;\n    cursor: pointer;\n    ", "\n    ", "\n    ", "\n"], ["\n    display: table;\n    text-align: center;\n    position: absolute;\n    top: 50px;\n    right: 100px;\n    height: 50px;\n    width: 150px;\n    background-color: white;\n    border: 1px solid #bbbbbb;\n    border-radius: 4px;\n    color: #5c5c5c;\n    cursor: pointer;\n    ", "\n    ", "\n    ", "\n"])), customMedia_1["default"].lessThan("mobile")(templateObject_8 || (templateObject_8 = __makeTemplateObject(["\n        right:30px;\n    "], ["\n        right:30px;\n    "]))), customMedia_1["default"].between("mobile", "tablet")(templateObject_9 || (templateObject_9 = __makeTemplateObject(["\n\n    "], ["\n\n    "]))), customMedia_1["default"].greaterThan("tablet")(templateObject_10 || (templateObject_10 = __makeTemplateObject(["\n    \n    "], ["\n    \n    "]))));
 
-var _Logout = styled_components_1["default"].div(templateObject_9 || (templateObject_9 = __makeTemplateObject(["\n    display: table-cell;\n    vertical-align: middle;\n    &:hover {\n        opacity: 0.6;\n    }\n"], ["\n    display: table-cell;\n    vertical-align: middle;\n    &:hover {\n        opacity: 0.6;\n    }\n"])));
+var _Logout = styled_components_1["default"].div(templateObject_12 || (templateObject_12 = __makeTemplateObject(["\n    display: table-cell;\n    vertical-align: middle;\n    &:hover {\n        opacity: 0.6;\n    }\n"], ["\n    display: table-cell;\n    vertical-align: middle;\n    &:hover {\n        opacity: 0.6;\n    }\n"])));
 
-var templateObject_1, templateObject_2, templateObject_3, templateObject_4, templateObject_5, templateObject_6, templateObject_7, templateObject_8, templateObject_9;
+var templateObject_1, templateObject_2, templateObject_3, templateObject_4, templateObject_5, templateObject_6, templateObject_7, templateObject_8, templateObject_9, templateObject_10, templateObject_11, templateObject_12;
 
 /***/ }),
 
@@ -6359,7 +6358,7 @@ var LoginContent = function LoginContent(_a) {
   return react_1["default"].createElement("div", {
     className: "min-h-screen bg-gray-100 flex flex-col justify-center sm:py-12"
   }, react_1["default"].createElement("div", {
-    className: "pt-20 xs:p-0 mx-auto w-11/12 sm:w-full max-w-md"
+    className: "pt-10 sm:pt-20 xs:p-0 mx-auto w-11/12 sm:w-full max-w-md"
   }, react_1["default"].createElement("form", {
     onSubmit: handleSubmit(initCSRF),
     className: "bg-white shadow w-full rounded-xl divide-y divide-gray-200 px-6 md:px-12 py-8"
@@ -6742,7 +6741,7 @@ var RegisterContent = function RegisterContent(_a) {
   return react_1["default"].createElement("div", {
     className: "min-h-screen bg-gray-100 flex flex-col justify-center sm:py-12"
   }, react_1["default"].createElement("div", {
-    className: "pt-20 xs:p-0 mx-auto w-11/12 sm:w-full max-w-xl"
+    className: "pt-14 sm:pt-20 xs:p-0 mx-auto w-11/12 sm:w-full max-w-xl"
   }, react_1["default"].createElement("form", {
     onSubmit: handleSubmit(onSubmit),
     className: "bg-white shadow w-full rounded-xl divide-y divide-gray-200 px-4 sm:px-12 md:px-16 py-3 sm:py-9 md:py-12"
