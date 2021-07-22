@@ -3074,7 +3074,7 @@ var CheckBox = function CheckBox(_a) {
     onChange: function onChange(e) {
       return handleChange(e);
     },
-    checked: is_done === 1 ? true : false
+    checked: is_done
   }));
 };
 
@@ -3298,31 +3298,35 @@ var ColoredTag_Modal = function ColoredTag_Modal(_a) {
 
   var _b = react_1.useState(initChecked),
       is_selected = _b[0],
-      setIs_Selected = _b[1];
+      setIs_Selected = _b[1]; //TODO:リファクタリング
+
+
+  var changeColor = function changeColor() {
+    if (i === 0) {
+      setSelected_color(__assign(__assign({}, selected_color), {
+        red: !selected_color.red
+      }));
+    } else if (i === 1) {
+      setSelected_color(__assign(__assign({}, selected_color), {
+        blue: !selected_color.blue
+      }));
+    } else if (i === 2) {
+      setSelected_color(__assign(__assign({}, selected_color), {
+        yellow: !selected_color.yellow
+      }));
+    } else if (i === 3) {
+      setSelected_color(__assign(__assign({}, selected_color), {
+        green: !selected_color.green
+      }));
+    }
+  };
 
   return react_1["default"].createElement(react_1["default"].Fragment, null, react_1["default"].createElement(_TagColor, {
     onClick: function onClick() {
       setIs_Selected(function (prevState) {
         return !prevState;
       });
-
-      if (i === 0) {
-        setSelected_color(__assign(__assign({}, selected_color), {
-          red: !selected_color.red
-        }));
-      } else if (i === 1) {
-        setSelected_color(__assign(__assign({}, selected_color), {
-          blue: !selected_color.blue
-        }));
-      } else if (i === 2) {
-        setSelected_color(__assign(__assign({}, selected_color), {
-          yellow: !selected_color.yellow
-        }));
-      } else if (i === 3) {
-        setSelected_color(__assign(__assign({}, selected_color), {
-          green: !selected_color.green
-        }));
-      }
+      changeColor();
     },
     is_selected: is_selected,
     backgroundColor: backgroundColor
@@ -3383,7 +3387,7 @@ var DeleteButton = function DeleteButton(_a) {
   }, react_1["default"].createElement(Button_1.Button, {
     onClick: function onClick() {
       deleteTask();
-      setIs_done(0);
+      setIs_done(false);
     },
     backgroundColor: "#da6161",
     style: {
@@ -3422,12 +3426,12 @@ var DeleteIcon = function DeleteIcon(_a) {
       setIs_done = _a.setIs_done;
   return react_1["default"].createElement("div", {
     style: {
-      paddingTop: '7px'
+      paddingTop: "7px"
     }
   }, react_1["default"].createElement("svg", {
     onClick: function onClick() {
       deleteTask();
-      setIs_done(0);
+      setIs_done(false);
     },
     "aria-hidden": "true",
     focusable: "false",
@@ -3654,7 +3658,7 @@ var InputText = function InputText(_a) {
   var data = {
     user_id: userID,
     title: text,
-    is_done: 0
+    is_done: false
   };
   return react_1["default"].createElement(_InputText, {
     name: "task",
@@ -3725,7 +3729,7 @@ var SubmitButton = function SubmitButton(_a) {
   var data = {
     user_id: userID,
     title: text,
-    is_done: 0
+    is_done: false
   };
   return react_1["default"].createElement(_SubmitButton, {
     onClick: function onClick() {
@@ -3861,9 +3865,9 @@ var TaskTitle = function TaskTitle(_a) {
 exports.default = TaskTitle;
 
 var _TaskTitle = styled_components_1["default"].div(templateObject_1 || (templateObject_1 = __makeTemplateObject(["\n    flex-grow: 1;\n    padding-left: 13px;\n    text-decoration: ", ";\n    color: ", ";\n"], ["\n    flex-grow: 1;\n    padding-left: 13px;\n    text-decoration: ", ";\n    color: ", ";\n"])), function (props) {
-  return props.is_done === 1 ? "line-through" : "none";
+  return props.is_done === true ? "line-through" : "none";
 }, function (props) {
-  return props.is_done === 1 ? "#6b6b6b" : "#212529";
+  return props.is_done === true ? "#6b6b6b" : "#212529";
 });
 
 var templateObject_1;
@@ -4992,7 +4996,9 @@ var styled_components_1 = __importDefault(__webpack_require__(/*! styled-compone
 
 var customMedia_1 = __importDefault(__webpack_require__(/*! ../../style/customMedia */ "./resources/ts/style/customMedia.tsx"));
 
-var _index_1 = __webpack_require__(/*! ../lv1/_index */ "./resources/ts/components/lv1/_index.tsx"); //prettier-ignore
+var _index_1 = __webpack_require__(/*! ../lv1/_index */ "./resources/ts/components/lv1/_index.tsx");
+
+var index_1 = __webpack_require__(/*! ../../utils/index */ "./resources/ts/utils/index.tsx"); //prettier-ignore
 
 
 var Modal = function Modal(_a) {
@@ -5055,28 +5061,17 @@ var Modal = function Modal(_a) {
     });
   };
 
-  var changeUndefined = function changeUndefined(color) {
-    color == undefined ? color = false : undefined;
-    return color;
-  };
-
   var changeTag = function changeTag(colors) {
     return __awaiter(void 0, void 0, void 0, function () {
-      var changedColors, patchData, res, err_2;
+      var patchData, res, err_2;
       return __generator(this, function (_a) {
         switch (_a.label) {
           case 0:
-            changedColors = __assign(__assign({}, colors), {
-              red: changeUndefined(colors.red),
-              blue: changeUndefined(colors.blue),
-              yellow: changeUndefined(colors.yellow),
-              green: changeUndefined(colors.green)
-            });
             patchData = {
-              checked_red: changedColors.red,
-              checked_blue: changedColors.blue,
-              checked_yellow: changedColors.yellow,
-              checked_green: changedColors.green
+              checked_red: index_1.changeUndefinedToFalse(colors.red),
+              checked_blue: index_1.changeUndefinedToFalse(colors.blue),
+              checked_yellow: index_1.changeUndefinedToFalse(colors.yellow),
+              checked_green: index_1.changeUndefinedToFalse(colors.green)
             };
             _a.label = 1;
 
@@ -5698,20 +5693,19 @@ var TaskCard = react_1["default"].memo(function (_a) {
 
   var checkTask = function checkTask(is_done) {
     return __awaiter(void 0, void 0, void 0, function () {
-      var data;
+      var patchdata;
       return __generator(this, function (_a) {
         switch (_a.label) {
           case 0:
-            is_done === 0 ? is_done = 1 : is_done = 0;
-            data = {
+            patchdata = {
               title: title,
-              is_done: is_done
+              is_done: !is_done
             };
             return [4
             /*yield*/
-            , axios_1["default"].patch("api/tasks/" + id, data).then(function () {
-              tasks[i].is_done = is_done;
-              setIs_done(is_done);
+            , axios_1["default"].patch("api/tasks/" + id, patchdata).then(function () {
+              setIs_done(!is_done);
+              tasks[i].is_done = !is_done;
             })["catch"](function (err) {
               console.error(err);
             })];
@@ -5729,17 +5723,17 @@ var TaskCard = react_1["default"].memo(function (_a) {
 
   var editTask = function editTask(title) {
     return __awaiter(void 0, void 0, void 0, function () {
-      var data;
+      var patchdata;
       return __generator(this, function (_a) {
         switch (_a.label) {
           case 0:
-            data = {
+            patchdata = {
               title: title,
               is_done: is_done
             };
             return [4
             /*yield*/
-            , axios_1["default"].patch("api/tasks/" + id, data).then(function () {
+            , axios_1["default"].patch("api/tasks/" + id, patchdata).then(function () {
               tasks[i].title = title;
               setTitle(title);
             })["catch"](function (err) {
@@ -6402,9 +6396,11 @@ var LoginContent = function LoginContent(_a) {
     className: "pt-4"
   })), react_1["default"].createElement("aside", {
     className: "pt-5 w-full text-right"
+  }, react_1["default"].createElement("div", {
+    className: "pr-4"
   }, react_1["default"].createElement(react_router_dom_1.Link, {
     to: "/",
-    className: "w-10 transition duration-200 mx-5 px-5 py-4 cursor-pointer font-normal text-sm rounded-lg text-gray-500 hover:bg-gray-200 focus:outline-none focus:bg-gray-300 focus:ring-2 focus:ring-gray-400 focus:ring-opacity-50 ring-inset"
+    className: "w-10 transition duration-200 mx-5 px-6 py-4 cursor-pointer font-normal text-sm rounded-lg text-gray-500 hover:bg-gray-200 focus:outline-none focus:bg-gray-300 focus:ring-2 focus:ring-gray-400 focus:ring-opacity-50 ring-inset"
   }, react_1["default"].createElement("svg", {
     xmlns: "http://www.w3.org/2000/svg",
     fill: "none",
@@ -6416,7 +6412,7 @@ var LoginContent = function LoginContent(_a) {
     strokeLinejoin: "round",
     strokeWidth: "2",
     d: "M10 19l-7-7m0 0l7-7m-7 7h18"
-  })), "\u623B\u308B"))));
+  })), "\u623B\u308B")))));
 };
 
 exports.default = LoginContent;
@@ -7426,6 +7422,29 @@ var customMedia = styled_media_query_1.generateMedia({
   mobile: "599px"
 });
 exports.default = customMedia;
+
+/***/ }),
+
+/***/ "./resources/ts/utils/index.tsx":
+/*!**************************************!*\
+  !*** ./resources/ts/utils/index.tsx ***!
+  \**************************************/
+/***/ ((__unused_webpack_module, exports) => {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", ({
+  value: true
+}));
+exports.changeUndefinedToFalse = void 0;
+
+var changeUndefinedToFalse = function changeUndefinedToFalse(param) {
+  param == undefined ? param = false : undefined;
+  return param;
+};
+
+exports.changeUndefinedToFalse = changeUndefinedToFalse;
 
 /***/ }),
 

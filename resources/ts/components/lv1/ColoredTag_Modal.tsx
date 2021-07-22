@@ -20,32 +20,37 @@ const ColoredTag_Modal: React.VFC<Props> = ({
 }: Props) => {
     const [is_selected, setIs_Selected] = useState(initChecked);
 
+    //TODO:リファクタリング
+    const changeColor = (): void => {
+        if (i === 0) {
+            setSelected_color({
+                ...selected_color,
+                red: !selected_color.red,
+            });
+        } else if (i === 1) {
+            setSelected_color({
+                ...selected_color,
+                blue: !selected_color.blue,
+            });
+        } else if (i === 2) {
+            setSelected_color({
+                ...selected_color,
+                yellow: !selected_color.yellow,
+            });
+        } else if (i === 3) {
+            setSelected_color({
+                ...selected_color,
+                green: !selected_color.green,
+            });
+        }
+    };
+
     return (
         <>
             <_TagColor
                 onClick={() => {
                     setIs_Selected((prevState) => !prevState);
-                    if (i === 0) {
-                        setSelected_color({
-                            ...selected_color,
-                            red: !selected_color.red,
-                        });
-                    } else if (i === 1) {
-                        setSelected_color({
-                            ...selected_color,
-                            blue: !selected_color.blue,
-                        });
-                    } else if (i === 2) {
-                        setSelected_color({
-                            ...selected_color,
-                            yellow: !selected_color.yellow,
-                        });
-                    } else if (i === 3) {
-                        setSelected_color({
-                            ...selected_color,
-                            green: !selected_color.green,
-                        });
-                    }
+                    changeColor();
                 }}
                 is_selected={is_selected}
                 backgroundColor={backgroundColor}

@@ -1,7 +1,7 @@
-export { Color } from "../type/Color";
-export { LoginData } from "../type/LoginData";
-export { RegisterData } from "../type/RegisterData";
-export { TagAPI } from "../type/TagAPI";
-export { TaskAndColor } from "../type/TaskAndColor";
-export { TaskAPI } from "../type/TaskAPI";
-export { User } from "../type/User";
+export { Color } from "./Color";
+export { LoginData } from "./LoginData";
+export { RegisterData } from "./RegisterData";
+export { TagAPI } from "./TagAPI";
+export { TaskAndColor } from "./TaskAndColor";
+export { TaskAPI } from "./TaskAPI";
+export { User } from "./User";
