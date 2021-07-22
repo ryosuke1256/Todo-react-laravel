@@ -12,7 +12,7 @@ type Props = {
 const TextForm: React.VFC<Props> = React.memo(({ postTask, userID }: Props) => {
     const [text, setText] = useState("");
 
-    const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const handleChange = (e: React.ChangeEvent<HTMLInputElement>): void => {
         setText(() => e.target.value);
     };
 

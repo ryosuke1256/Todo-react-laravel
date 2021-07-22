@@ -39,7 +39,7 @@ const TodoContent: React.VFC<Props> = ({ userID }: Props) => {
     };
 
     const postTask = useCallback(
-        async (postData: Readonly<TaskAPI>): Promise<void> => {
+        async (postData: TaskAPI): Promise<void> => {
             // console.log({ postData });
             try {
                 const res = await axios.post("api/tasks", postData);
