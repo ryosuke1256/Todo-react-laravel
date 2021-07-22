@@ -2,8 +2,8 @@ import React from "react";
 import styled from "styled-components";
 
 type Props = {
-    is_done: 0 | 1;
-    checkTask: (is_done: 0 | 1) => Promise<void>;
+    is_done: boolean;
+    checkTask: (is_done: boolean) => Promise<void>;
 };
 
 const CheckBox: React.VFC<Props> = ({ is_done, checkTask }: Props) => {
@@ -16,7 +16,7 @@ const CheckBox: React.VFC<Props> = ({ is_done, checkTask }: Props) => {
                     checkTask(is_done);
                 }}
                 onChange={(e) => handleChange(e)}
-                checked={is_done === 1 ? true : false}
+                checked={is_done}
             />
         </_CheckBox>
     );

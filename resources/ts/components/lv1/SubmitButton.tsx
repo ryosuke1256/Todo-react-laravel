@@ -18,7 +18,7 @@ const SubmitButton: React.VFC<Props> = ({
     const data: TaskAPI = {
         user_id: userID,
         title: text,
-        is_done: 0,
+        is_done: false,
     };
 
     return (
