@@ -2,7 +2,7 @@ export type TaskAndColor = {
     id: number;
     user_id?: number;
     title: string;
-    is_done: 0 | 1;
+    is_done: boolean;
     created_at: string;
     updated_at: string;
     red?: boolean;
