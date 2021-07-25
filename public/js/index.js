@@ -3909,7 +3909,7 @@ var react_1 = __importDefault(__webpack_require__(/*! react */ "./node_modules/r
 
 var styled_components_1 = __importDefault(__webpack_require__(/*! styled-components */ "./node_modules/styled-components/dist/styled-components.browser.esm.js"));
 
-var customMedia_1 = __importDefault(__webpack_require__(/*! ../../style/customMedia */ "./resources/ts/style/customMedia.tsx"));
+var customMedia_1 = __importDefault(__webpack_require__(/*! ../../styles/customMedia */ "./resources/ts/styles/customMedia.tsx"));
 
 var WelcomeImage = function WelcomeImage() {
   return react_1["default"].createElement(_WelcomeImage, {
@@ -4612,7 +4612,7 @@ var axios_1 = __importDefault(__webpack_require__(/*! axios */ "./node_modules/a
 
 var styled_components_1 = __importDefault(__webpack_require__(/*! styled-components */ "./node_modules/styled-components/dist/styled-components.browser.esm.js"));
 
-var customMedia_1 = __importDefault(__webpack_require__(/*! ../../style/customMedia */ "./resources/ts/style/customMedia.tsx"));
+var customMedia_1 = __importDefault(__webpack_require__(/*! ../../styles/customMedia */ "./resources/ts/styles/customMedia.tsx"));
 
 var react_router_dom_1 = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/esm/react-router-dom.js");
 
@@ -4994,7 +4994,7 @@ var axios_1 = __importDefault(__webpack_require__(/*! axios */ "./node_modules/a
 
 var styled_components_1 = __importDefault(__webpack_require__(/*! styled-components */ "./node_modules/styled-components/dist/styled-components.browser.esm.js"));
 
-var customMedia_1 = __importDefault(__webpack_require__(/*! ../../style/customMedia */ "./resources/ts/style/customMedia.tsx"));
+var customMedia_1 = __importDefault(__webpack_require__(/*! ../../styles/customMedia */ "./resources/ts/styles/customMedia.tsx"));
 
 var _index_1 = __webpack_require__(/*! ../lv1/_index */ "./resources/ts/components/lv1/_index.tsx");
 
@@ -5524,7 +5524,7 @@ var axios_1 = __importDefault(__webpack_require__(/*! axios */ "./node_modules/a
 
 var styled_components_1 = __importDefault(__webpack_require__(/*! styled-components */ "./node_modules/styled-components/dist/styled-components.browser.esm.js"));
 
-var customMedia_1 = __importDefault(__webpack_require__(/*! ../../style/customMedia */ "./resources/ts/style/customMedia.tsx"));
+var customMedia_1 = __importDefault(__webpack_require__(/*! ../../styles/customMedia */ "./resources/ts/styles/customMedia.tsx"));
 
 var _index_1 = __webpack_require__(/*! ./_index */ "./resources/ts/components/lv2/_index.tsx");
 
@@ -5871,7 +5871,7 @@ var react_1 = __importStar(__webpack_require__(/*! react */ "./node_modules/reac
 
 var styled_components_1 = __importDefault(__webpack_require__(/*! styled-components */ "./node_modules/styled-components/dist/styled-components.browser.esm.js"));
 
-var customMedia_1 = __importDefault(__webpack_require__(/*! ../../style/customMedia */ "./resources/ts/style/customMedia.tsx"));
+var customMedia_1 = __importDefault(__webpack_require__(/*! ../../styles/customMedia */ "./resources/ts/styles/customMedia.tsx"));
 
 var _index_1 = __webpack_require__(/*! ../lv1/_index */ "./resources/ts/components/lv1/_index.tsx");
 
@@ -5945,7 +5945,7 @@ var react_1 = __importDefault(__webpack_require__(/*! react */ "./node_modules/r
 
 var styled_components_1 = __importDefault(__webpack_require__(/*! styled-components */ "./node_modules/styled-components/dist/styled-components.browser.esm.js"));
 
-var customMedia_1 = __importDefault(__webpack_require__(/*! ../../style/customMedia */ "./resources/ts/style/customMedia.tsx"));
+var customMedia_1 = __importDefault(__webpack_require__(/*! ../../styles/customMedia */ "./resources/ts/styles/customMedia.tsx"));
 
 var _index_1 = __webpack_require__(/*! ../lv1/_index */ "./resources/ts/components/lv1/_index.tsx");
 
@@ -7058,7 +7058,7 @@ var axios_1 = __importDefault(__webpack_require__(/*! axios */ "./node_modules/a
 
 var styled_components_1 = __importDefault(__webpack_require__(/*! styled-components */ "./node_modules/styled-components/dist/styled-components.browser.esm.js"));
 
-var customMedia_1 = __importDefault(__webpack_require__(/*! ../../style/customMedia */ "./resources/ts/style/customMedia.tsx"));
+var customMedia_1 = __importDefault(__webpack_require__(/*! ../../styles/customMedia */ "./resources/ts/styles/customMedia.tsx"));
 
 var _index_1 = __webpack_require__(/*! ../lv2/_index */ "./resources/ts/components/lv2/_index.tsx");
 
@@ -7400,10 +7400,10 @@ exports.reducer = reducer;
 
 /***/ }),
 
-/***/ "./resources/ts/style/customMedia.tsx":
-/*!********************************************!*\
-  !*** ./resources/ts/style/customMedia.tsx ***!
-  \********************************************/
+/***/ "./resources/ts/styles/customMedia.tsx":
+/*!*********************************************!*\
+  !*** ./resources/ts/styles/customMedia.tsx ***!
+  \*********************************************/
 /***/ ((__unused_webpack_module, exports, __webpack_require__) => {
 
 "use strict";

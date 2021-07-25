@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { UseFormRegister } from "react-hook-form";
-import { RegisterData } from "../../type/_index";
+import { RegisterData } from "../../types/_index";
 
 type Props = {
     register: UseFormRegister<RegisterData>;

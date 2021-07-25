@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import { ColoredTag } from "../lv1/_index";
-import { Color } from "../../type/Color";
+import { Color } from "../../types/Color";
 
 type Props = {
     selected_color: Color;

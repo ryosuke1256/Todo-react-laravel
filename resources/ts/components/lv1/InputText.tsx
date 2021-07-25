@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import { TaskAPI } from "../../type/_index";
+import { TaskAPI } from "../../types/_index";
 
 type Props = {
     text: string;

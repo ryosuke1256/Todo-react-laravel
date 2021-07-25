@@ -1,9 +1,9 @@
 import React, { useState, useEffect, useCallback, useReducer } from "react";
 import axios from "axios";
 import styled from "styled-components";
-import customMedia from "../../style/customMedia";
+import customMedia from "../../styles/customMedia";
 import { TaskCard, TextForm, WelcomeContent } from "../lv2/_index";
-import { TaskAndColor, TaskAPI } from "../../type/_index";
+import { TaskAndColor, TaskAPI } from "../../types/_index";
 import { reducer } from "../../reducer/reducer";
 export const TasksEditActiveContext = React.createContext<any>(false);
 
