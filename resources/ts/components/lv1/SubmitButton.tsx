@@ -1,5 +1,6 @@
 import React from "react";
 import styled from "styled-components";
+import { COLOR } from "../../styles/index";
 import { TaskAPI } from "../../types/_index";
 
 type Props = {
@@ -41,8 +42,8 @@ const _SubmitButton = styled.div`
     border-radius: 8px;
     padding: 6px;
     margin-left: 7px;
-    background-color: #5287ec;
-    border: 1px solid #4b81e6;
+    background-color: ${COLOR.MAIN};
+    border: 1px solid ${COLOR.MAINBORDER};
     opacity: 0.9;
     cursor: pointer;
     &:hover {

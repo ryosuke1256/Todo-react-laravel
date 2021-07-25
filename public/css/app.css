@@ -32205,29 +32205,10 @@ body {
   text-shadow: 1px 1px 2px rgb(44, 130, 230);
 }
 
-.button {
-  display: inline-block;
-  font-weight: 600;
-  color: white;
-  padding: 0.85rem 1.3rem;
-  /* background-color: #3ea8ff; */
-  background-color: #fa6c34;
-  border-radius: 10px;
-  opacity: 0.95;
-  box-shadow: 0 2px #ad471f;
-  margin-left: 30px;
-}
-
 .hover:hover {
   color: white;
   text-decoration: none;
   opacity: 0.65;
-}
-
-.fa-plus-circle {
-  color: rgb(55, 165, 255);
-  opacity: 0.4;
-  cursor: pointer;
 }
 
 @media (min-width: 640px) {

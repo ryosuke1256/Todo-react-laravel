@@ -2,6 +2,7 @@ import React, { useState, useEffect, useCallback, useReducer } from "react";
 import axios from "axios";
 import styled from "styled-components";
 import customMedia from "../../styles/customMedia";
+import { COLOR } from "../../styles/index";
 import { TaskCard, TextForm, WelcomeContent } from "../lv2/_index";
 import { TaskAndColor, TaskAPI } from "../../types/_index";
 import { reducer } from "../../reducer/reducer";
@@ -120,5 +121,5 @@ const _TodoContent = styled.div`
 const _Wrapper = styled.div`
     height: 100vh;
     width: 100vw;
-    background-color: #f9fbfe;
+    background-color: ${COLOR.BASE};
 `;
