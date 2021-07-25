@@ -3020,7 +3020,7 @@ var styled_components_1 = __importDefault(__webpack_require__(/*! styled-compone
 
 var index_1 = __webpack_require__(/*! ../../styles/index */ "./resources/ts/styles/index.tsx");
 
-exports.Button = styled_components_1["default"].div(templateObject_1 || (templateObject_1 = __makeTemplateObject(["\n    display: inline-block;\n    text-align: center;\n    border: 1px solid ", ";\n    background-color: ", ";\n    opacity: 0.7;\n    color: white;\n    padding: 6px 10px;\n    margin-top: 7px;\n    border-radius: 8px;\n    margin-right: 12px;\n    cursor: pointer;\n    &:hover {\n        opacity: 0.6;\n    }\n"], ["\n    display: inline-block;\n    text-align: center;\n    border: 1px solid ", ";\n    background-color: ", ";\n    opacity: 0.7;\n    color: white;\n    padding: 6px 10px;\n    margin-top: 7px;\n    border-radius: 8px;\n    margin-right: 12px;\n    cursor: pointer;\n    &:hover {\n        opacity: 0.6;\n    }\n"])), index_1.COLOR.MAINBORDER, function (props) {
+exports.Button = styled_components_1["default"].div(templateObject_1 || (templateObject_1 = __makeTemplateObject(["\n    display: inline-block;\n    text-align: center;\n    border: 1px solid ", ";\n    background-color: ", ";\n    opacity: 0.8;\n    color: white;\n    padding: 6px 10px;\n    margin-top: 7px;\n    border-radius: 8px;\n    margin-right: 12px;\n    cursor: pointer;\n    &:hover {\n        opacity: 0.6;\n    }\n"], ["\n    display: inline-block;\n    text-align: center;\n    border: 1px solid ", ";\n    background-color: ", ";\n    opacity: 0.8;\n    color: white;\n    padding: 6px 10px;\n    margin-top: 7px;\n    border-radius: 8px;\n    margin-right: 12px;\n    cursor: pointer;\n    &:hover {\n        opacity: 0.6;\n    }\n"])), index_1.COLOR.MAINBORDER, function (props) {
   return props.backgroundColor;
 });
 var templateObject_1;
@@ -3425,6 +3425,8 @@ Object.defineProperty(exports, "__esModule", ({
 
 var react_1 = __importDefault(__webpack_require__(/*! react */ "./node_modules/react/index.js"));
 
+var index_1 = __webpack_require__(/*! ../../styles/index */ "./resources/ts/styles/index.tsx");
+
 var DeleteIcon = function DeleteIcon(_a) {
   var deleteTask = _a.deleteTask,
       setIs_done = _a.setIs_done;
@@ -3447,7 +3449,7 @@ var DeleteIcon = function DeleteIcon(_a) {
     viewBox: "0 0 448 512",
     width: "25",
     height: "25",
-    fill: "#da6161"
+    fill: index_1.COLOR.ACCENT
   }, react_1["default"].createElement("path", {
     d: "M432 32H312l-9.4-18.7A24 24 0 0 0 281.1 0H166.8a23.72 23.72 0 0 0-21.4 13.3L136 32H16A16 16 0 0 0 0 48v32a16 16 0 0 0 16 16h416a16 16 0 0 0 16-16V48a16 16 0 0 0-16-16zM53.2 467a48 48 0 0 0 47.9 45h245.8a48 48 0 0 0 47.9-45L416 128H32z"
   })));
@@ -3587,11 +3589,13 @@ Object.defineProperty(exports, "__esModule", ({
 
 var react_1 = __importDefault(__webpack_require__(/*! react */ "./node_modules/react/index.js"));
 
+var index_1 = __webpack_require__(/*! ../../styles/index */ "./resources/ts/styles/index.tsx");
+
 var EditIcon = function EditIcon(_a) {
   var changeTaskTitle = _a.changeTaskTitle;
   return react_1["default"].createElement("div", {
     style: {
-      paddingTop: '7px'
+      paddingTop: "7px"
     }
   }, react_1["default"].createElement("svg", {
     onClick: function onClick() {
@@ -3607,7 +3611,7 @@ var EditIcon = function EditIcon(_a) {
     viewBox: "0 0 512 512",
     width: "33",
     height: "33",
-    fill: "#3bc2e4",
+    fill: index_1.COLOR.MAIN,
     style: {
       paddingRight: "10px"
     }
@@ -7499,8 +7503,8 @@ Object.defineProperty(exports, "__esModule", ({
 exports.FONT = exports.COLOR = void 0;
 exports.COLOR = {
   BASE: "#f9fbfe",
-  MAIN: "rgb(110, 169, 241)",
-  MAINBORDER: "rgb(99, 165, 240)",
+  MAIN: "rgb(120, 176, 245)",
+  MAINBORDER: "rgb(110, 170, 238)",
   ACCENT: "#da6161",
   ACCENTBORDER: "#d65a5a"
 };

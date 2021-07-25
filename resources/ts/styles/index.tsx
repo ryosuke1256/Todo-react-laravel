@@ -1,7 +1,7 @@
 export const COLOR = {
     BASE: "#f9fbfe",
-    MAIN: "rgb(110, 169, 241)",
-    MAINBORDER: "rgb(99, 165, 240)",
+    MAIN: "rgb(120, 176, 245)",
+    MAINBORDER: "rgb(110, 170, 238)",
     ACCENT: "#da6161",
     ACCENTBORDER: "#d65a5a",
 };

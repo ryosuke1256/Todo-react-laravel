@@ -6,7 +6,7 @@ export const Button = styled.div<{ backgroundColor: string }>`
     text-align: center;
     border: 1px solid ${COLOR.MAINBORDER};
     background-color: ${(props) => props.backgroundColor};
-    opacity: 0.7;
+    opacity: 0.8;
     color: white;
     padding: 6px 10px;
     margin-top: 7px;
