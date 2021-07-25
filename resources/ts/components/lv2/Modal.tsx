@@ -1,9 +1,9 @@
 import React from "react";
 import axios from "axios";
 import styled from "styled-components";
-import customMedia from "../../style/customMedia";
+import customMedia from "../../styles/customMedia";
 import { ColoredTag_Modal } from "../lv1/_index";
-import { TagAPI, Color, TaskAndColor } from "../../type/_index";
+import { TagAPI, Color, TaskAndColor } from "../../types/_index";
 import { changeUndefinedToFalse as chgFalse } from "../../utils/index";
 
 type Props = {

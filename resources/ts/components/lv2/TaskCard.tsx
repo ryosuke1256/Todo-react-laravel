@@ -1,10 +1,10 @@
 import React, { useState, useEffect, useRef } from "react";
 import axios from "axios";
 import styled from "styled-components";
-import customMedia from "../../style/customMedia";
+import customMedia from "../../styles/customMedia";
 import { ColoredTags, Modal } from "./_index";
 import { EditButton, DeleteButton, CheckBox, TaskTitle } from "../lv1/_index"; //prettier-ignore
-import { TaskAPI, TaskAndColor, Color } from "../../type/_index";
+import { TaskAPI, TaskAndColor, Color } from "../../types/_index";
 
 type Props = {
     task: TaskAndColor;

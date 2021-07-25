@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import customMedia from "../../style/customMedia";
+import customMedia from "../../styles/customMedia";
 import { WelcomeImage as Image } from "../lv1/_index";
 
 const WelcomeContent: React.VFC = () => {
