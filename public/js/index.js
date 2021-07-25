@@ -7529,7 +7529,7 @@ Object.defineProperty(exports, "__esModule", ({
 exports.changeUndefinedToFalse = void 0;
 
 var changeUndefinedToFalse = function changeUndefinedToFalse(param) {
-  param == undefined ? param = false : undefined;
+  param === undefined && (param = false);
   return param;
 };
 
