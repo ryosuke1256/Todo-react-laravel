@@ -1,9 +1,10 @@
 import React, { useState, useEffect, useCallback, useReducer } from "react";
 import axios from "axios";
 import styled from "styled-components";
-import customMedia from "../../style/customMedia";
+import customMedia from "../../styles/customMedia";
+import { COLOR } from "../../styles/index";
 import { TaskCard, TextForm, WelcomeContent } from "../lv2/_index";
-import { TaskAndColor, TaskAPI } from "../../type/_index";
+import { TaskAndColor, TaskAPI } from "../../types/_index";
 import { reducer } from "../../reducer/reducer";
 export const TasksEditActiveContext = React.createContext<any>(false);
 
@@ -39,7 +40,7 @@ const TodoContent: React.VFC<Props> = ({ userID }: Props) => {
     };
 
     const postTask = useCallback(
-        async (postData: Readonly<TaskAPI>): Promise<void> => {
+        async (postData: TaskAPI): Promise<void> => {
             // console.log({ postData });
             try {
                 const res = await axios.post("api/tasks", postData);
@@ -118,7 +119,8 @@ const _TodoContent = styled.div`
 `;
 
 const _Wrapper = styled.div`
-    height: 100vh;
+    height: 100%;
     width: 100vw;
-    background-color: #f9fbfe;
+    background-color: ${COLOR.BASE};
+    padding-bottom: 7rem;
 `;

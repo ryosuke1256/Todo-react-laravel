@@ -2,10 +2,11 @@ import React from "react";
 import { Button } from "./Button";
 import { DeleteIcon } from "./_index";
 import MediaQuery from "react-responsive";
+import { COLOR } from "../../styles/index";
 
 type Props = {
     deleteTask: () => Promise<void>;
-    setIs_done: (param: 0 | 1) => void;
+    setIs_done: (param: boolean) => void;
 };
 
 const DeleteButton: React.VFC<Props> = ({ deleteTask, setIs_done }: Props) => {
@@ -23,10 +24,10 @@ const DeleteButton: React.VFC<Props> = ({ deleteTask, setIs_done }: Props) => {
                 <Button
                     onClick={() => {
                         deleteTask();
-                        setIs_done(0);
+                        setIs_done(false);
                     }}
-                    backgroundColor="#da6161"
-                    style={{ border: "1px solid #db5e5e" }}
+                    backgroundColor={COLOR.ACCENT}
+                    style={{ border: `1px solid ${COLOR.ACCENTBORDER}` }}
                 >
                     削除
                 </Button>

@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import { TaskAPI } from "../../type/_index";
+import { TaskAPI } from "../../types/_index";
 
 type Props = {
     text: string;
@@ -20,7 +20,7 @@ const InputText: React.VFC<Props> = ({
     const data: TaskAPI = {
         user_id: userID,
         title: text,
-        is_done: 0,
+        is_done: false,
     };
     return (
         <_InputText

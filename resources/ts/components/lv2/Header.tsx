@@ -1,9 +1,10 @@
 import React, { useState } from "react";
 import axios from "axios";
 import styled from "styled-components";
-import customMedia from "../../style/customMedia";
+import customMedia from "../../styles/customMedia";
+import { COLOR, FONT } from "../../styles/index";
 import { Link } from "react-router-dom";
-import { User } from "../../type/User";
+import { User } from "../../types/User";
 
 type Props = {
     setIs_authenticated: (param: boolean) => void;
@@ -78,17 +79,16 @@ const _Header = styled.div`
     height: 60px;
     width: 100vw;
     padding: 8px 120px;
-    background-color: #fff;
+    background-color: ${COLOR.MAIN};
+    opacity: 0.96;
     box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075);
     ${customMedia.lessThan("mobile")`
         padding: 8px 40px;
     `}
     ${customMedia.between("mobile", "tablet")`
         padding: 8px 80px;
-
     `}
     ${customMedia.greaterThan("tablet")`
-    
     `}
 `;
 
@@ -96,16 +96,15 @@ const _TapableRange = styled.div``;
 
 const _Title = styled.div`
     display: inline-block;
-    color: #414346;
+    color: ${COLOR.BASE};
     padding: 0.45rem 1rem;
-    font-size: 1.3rem;
+    font-size: ${FONT.LARGE}px;
     font-family: "arial unicode ms";
-    opacity: 0.8;
 `;
 
 const _userName = styled.div`
     line-height: 44px;
-    color: #00000080;
+    color: ${COLOR.BASE};
     cursor: pointer;
 `;
 

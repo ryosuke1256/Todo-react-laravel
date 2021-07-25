@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import styled from "styled-components";
-import customMedia from "../../style/customMedia";
+import customMedia from "../../styles/customMedia";
 import { InputText, SubmitButton } from "../lv1/_index";
-import { TaskAPI } from "../../type/_index";
+import { TaskAPI } from "../../types/_index";
 
 type Props = {
     postTask: (postTask: TaskAPI) => void;
@@ -12,7 +12,7 @@ type Props = {
 const TextForm: React.VFC<Props> = React.memo(({ postTask, userID }: Props) => {
     const [text, setText] = useState("");
 
-    const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const handleChange = (e: React.ChangeEvent<HTMLInputElement>): void => {
         setText(() => e.target.value);
     };
 

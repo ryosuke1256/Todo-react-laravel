@@ -1,6 +1,7 @@
 import React from "react";
 import styled from "styled-components";
-import { TaskAPI } from "../../type/_index";
+import { COLOR } from "../../styles/index";
+import { TaskAPI } from "../../types/_index";
 
 type Props = {
     text: string;
@@ -18,7 +19,7 @@ const SubmitButton: React.VFC<Props> = ({
     const data: TaskAPI = {
         user_id: userID,
         title: text,
-        is_done: 0,
+        is_done: false,
     };
 
     return (
@@ -41,8 +42,8 @@ const _SubmitButton = styled.div`
     border-radius: 8px;
     padding: 6px;
     margin-left: 7px;
-    background-color: #5287ec;
-    border: 1px solid #4b81e6;
+    background-color: ${COLOR.MAIN};
+    border: 1px solid ${COLOR.MAINBORDER};
     opacity: 0.9;
     cursor: pointer;
     &:hover {

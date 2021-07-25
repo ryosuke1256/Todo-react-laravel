@@ -1,10 +1,10 @@
 import React, { useState, useEffect, useRef } from "react";
 import axios from "axios";
 import styled from "styled-components";
-import customMedia from "../../style/customMedia";
+import customMedia from "../../styles/customMedia";
 import { ColoredTags, Modal } from "./_index";
 import { EditButton, DeleteButton, CheckBox, TaskTitle } from "../lv1/_index"; //prettier-ignore
-import { TaskAndColor, Color } from "../../type/_index";
+import { TaskAPI, TaskAndColor, Color } from "../../types/_index";
 
 type Props = {
     task: TaskAndColor;
@@ -13,6 +13,8 @@ type Props = {
     id: number;
     i: number;
 };
+
+type PatchTaskData = Pick<TaskAPI, "title" | "is_done">;
 
 //prettier-ignore
 const TaskCard: React.VFC<Props> = React.memo(({task,tasks,setTasks,id,i,}: Props) => {
@@ -65,17 +67,16 @@ const TaskCard: React.VFC<Props> = React.memo(({task,tasks,setTasks,id,i,}: Prop
         }
     };
 
-    const checkTask = async (is_done: 0 | 1): Promise<void> => {
-        is_done === 0 ? (is_done = 1) : (is_done = 0);
-        const data = {
+    const checkTask = async (is_done: boolean): Promise<void> => {
+        const patchdata:PatchTaskData = {
             title: title,
-            is_done: is_done,
+            is_done: !is_done,
         };
         await axios
-            .patch(`api/tasks/${id}`, data)
+            .patch(`api/tasks/${id}`, patchdata)
             .then(() => {
-                tasks[i].is_done = is_done;
-                setIs_done(is_done);
+                setIs_done(!is_done);
+                tasks[i].is_done = !is_done;
             })
             .catch((err) => {
                 console.error(err);
@@ -83,15 +84,16 @@ const TaskCard: React.VFC<Props> = React.memo(({task,tasks,setTasks,id,i,}: Prop
     };
 
     const editTask = async (title: string): Promise<void> => {
-        const data = {
+        const patchdata:PatchTaskData = {
             title: title,
             is_done: is_done,
         };
         await axios
-            .patch(`api/tasks/${id}`, data)
+            .patch(`api/tasks/${id}`, patchdata)
             .then(() => {
                 tasks[i].title= title;
                 setTitle(title);
+
             })
             .catch((err) => {
                 console.error(err);

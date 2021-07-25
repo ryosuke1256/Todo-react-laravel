@@ -1,9 +1,10 @@
 import React from "react";
 import axios from "axios";
 import styled from "styled-components";
-import customMedia from "../../style/customMedia";
+import customMedia from "../../styles/customMedia";
 import { ColoredTag_Modal } from "../lv1/_index";
-import { TagAPI, Color, TaskAndColor } from "../../type/_index";
+import { TagAPI, Color, TaskAndColor } from "../../types/_index";
+import { changeUndefinedToFalse as chgFalse } from "../../utils/index";
 
 type Props = {
     hasModalOpened: boolean;
@@ -18,6 +19,8 @@ type Props = {
     setTasks: (param: TaskAndColor[]) => void;
     i: number;
 };
+
+type PatchTagData = Required<Omit<TagAPI, "task_id">>;
 
 //prettier-ignore
 const Modal: React.VFC<Props> = ({hasModalOpened,selected_color,setHasModalOpened,setSelected_color,taskID,tagID,setTagID,tasks,task,setTasks,i}: Props) => {
@@ -36,19 +39,8 @@ const Modal: React.VFC<Props> = ({hasModalOpened,selected_color,setHasModalOpene
         }
     }
 
-    const changeUndefined = (color:boolean|undefined): boolean => {
-        color == undefined ? color = false : undefined;
-        return color;
-    }
-
     const changeTag = async (colors:Color): Promise<void> => {
-        const changedColors =  {...colors,...{red:changeUndefined(colors.red),blue:changeUndefined(colors.blue),yellow:changeUndefined(colors.yellow),green:changeUndefined(colors.green)}};
-        const patchData = {
-            checked_red:changedColors.red,
-            checked_blue:changedColors.blue,
-            checked_yellow:changedColors.yellow,
-            checked_green:changedColors.green,
-        }
+        const patchData:PatchTagData =  {checked_red:chgFalse(colors.red),checked_blue:chgFalse(colors.blue),checked_yellow:chgFalse(colors.yellow),checked_green:chgFalse(colors.green)};
         // console.log({patchData});
         try {
             const res = await axios.patch(`api/tags/${tagID}`, patchData);

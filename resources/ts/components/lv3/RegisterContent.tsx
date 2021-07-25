@@ -3,7 +3,7 @@ import axios from "axios";
 import { Link, useHistory } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import RegisterPassword from "../lv2/RegisterPassword";
-import { RegisterData, LoginData } from "../../type/_index";
+import { RegisterData, LoginData } from "../../types/_index";
 
 type Props = {
     setIs_authenticated: (param: boolean) => void;
