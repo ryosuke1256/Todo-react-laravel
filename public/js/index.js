@@ -7262,7 +7262,7 @@ var _TaskCards = styled_components_1["default"].div(templateObject_1 || (templat
 
 var _TodoContent = styled_components_1["default"].div(templateObject_5 || (templateObject_5 = __makeTemplateObject(["\n    max-width: 820px;\n    margin: 0 auto;\n    padding-top: 105px;\n    ", "\n    ", " \n    ", "\n"], ["\n    max-width: 820px;\n    margin: 0 auto;\n    padding-top: 105px;\n    ", "\n    ", " \n    ", "\n"])), customMedia_1["default"].lessThan("mobile")(templateObject_2 || (templateObject_2 = __makeTemplateObject(["\n    width: 99vw;\n    max-width:500px;\n    "], ["\n    width: 99vw;\n    max-width:500px;\n    "]))), customMedia_1["default"].between("mobile", "tablet")(templateObject_3 || (templateObject_3 = __makeTemplateObject(["\n    width: 84vw;\n    max-width: 710px;\n    "], ["\n    width: 84vw;\n    max-width: 710px;\n    "]))), customMedia_1["default"].greaterThan("tablet")(templateObject_4 || (templateObject_4 = __makeTemplateObject(["\n    width: 70vw;\n    "], ["\n    width: 70vw;\n    "]))));
 
-var _Wrapper = styled_components_1["default"].div(templateObject_6 || (templateObject_6 = __makeTemplateObject(["\n    height: 100vh;\n    width: 100vw;\n    background-color: ", ";\n"], ["\n    height: 100vh;\n    width: 100vw;\n    background-color: ", ";\n"])), index_1.COLOR.BASE);
+var _Wrapper = styled_components_1["default"].div(templateObject_6 || (templateObject_6 = __makeTemplateObject(["\n    height: 100%;\n    width: 100vw;\n    background-color: ", ";\n    padding-bottom: 7rem;\n"], ["\n    height: 100%;\n    width: 100vw;\n    background-color: ", ";\n    padding-bottom: 7rem;\n"])), index_1.COLOR.BASE);
 
 var templateObject_1, templateObject_2, templateObject_3, templateObject_4, templateObject_5, templateObject_6;
 

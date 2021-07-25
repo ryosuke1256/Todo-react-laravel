@@ -119,7 +119,8 @@ const _TodoContent = styled.div`
 `;
 
 const _Wrapper = styled.div`
-    height: 100vh;
+    height: 100%;
     width: 100vw;
     background-color: ${COLOR.BASE};
+    padding-bottom: 7rem;
 `;
