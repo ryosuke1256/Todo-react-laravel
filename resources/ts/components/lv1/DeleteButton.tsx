@@ -2,6 +2,7 @@ import React from "react";
 import { Button } from "./Button";
 import { DeleteIcon } from "./_index";
 import MediaQuery from "react-responsive";
+import { COLOR } from "../../styles/index";
 
 type Props = {
     deleteTask: () => Promise<void>;
@@ -25,8 +26,8 @@ const DeleteButton: React.VFC<Props> = ({ deleteTask, setIs_done }: Props) => {
                         deleteTask();
                         setIs_done(false);
                     }}
-                    backgroundColor="#da6161"
-                    style={{ border: "1px solid #db5e5e" }}
+                    backgroundColor={COLOR.ACCENT}
+                    style={{ border: `1px solid ${COLOR.ACCENTBORDER}` }}
                 >
                     削除
                 </Button>

@@ -1,5 +1,5 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { LinkButton as Button } from "../lv1/LinkButton";
 
 const TopPageContent: React.VFC = () => {
     return (
@@ -26,12 +26,12 @@ const TopPageContent: React.VFC = () => {
                                 <h1 className="text-yellow-800 text-xl sm:text-2xl md:text-3xl pb-5 font-medium">
                                     タスク管理して生産性を上げよう!
                                 </h1>
-                                <Link to="/login" className="button hover">
+                                <Button to="/login" className="button hover">
                                     ログイン
-                                </Link>
-                                <Link to="/register" className="button hover">
+                                </Button>
+                                <Button to="/register" className="button hover">
                                     新規登録
-                                </Link>
+                                </Button>
                             </section>
                         </article>
                     </main>

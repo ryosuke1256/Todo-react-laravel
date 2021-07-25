@@ -3018,7 +3018,9 @@ exports.Button = void 0;
 
 var styled_components_1 = __importDefault(__webpack_require__(/*! styled-components */ "./node_modules/styled-components/dist/styled-components.browser.esm.js"));
 
-exports.Button = styled_components_1["default"].div(templateObject_1 || (templateObject_1 = __makeTemplateObject(["\n    display: inline-block;\n    text-align: center;\n    border: 1px solid #2eb9db;\n    background-color: ", ";\n    opacity: 0.7;\n    color: white;\n    padding: 6px 10px;\n    margin-top: 7px;\n    border-radius: 8px;\n    margin-right: 12px;\n    cursor: pointer;\n    &:hover {\n        opacity: 0.6;\n    }\n"], ["\n    display: inline-block;\n    text-align: center;\n    border: 1px solid #2eb9db;\n    background-color: ", ";\n    opacity: 0.7;\n    color: white;\n    padding: 6px 10px;\n    margin-top: 7px;\n    border-radius: 8px;\n    margin-right: 12px;\n    cursor: pointer;\n    &:hover {\n        opacity: 0.6;\n    }\n"])), function (props) {
+var index_1 = __webpack_require__(/*! ../../styles/index */ "./resources/ts/styles/index.tsx");
+
+exports.Button = styled_components_1["default"].div(templateObject_1 || (templateObject_1 = __makeTemplateObject(["\n    display: inline-block;\n    text-align: center;\n    border: 1px solid ", ";\n    background-color: ", ";\n    opacity: 0.8;\n    color: white;\n    padding: 6px 10px;\n    margin-top: 7px;\n    border-radius: 8px;\n    margin-right: 12px;\n    cursor: pointer;\n    &:hover {\n        opacity: 0.6;\n    }\n"], ["\n    display: inline-block;\n    text-align: center;\n    border: 1px solid ", ";\n    background-color: ", ";\n    opacity: 0.8;\n    color: white;\n    padding: 6px 10px;\n    margin-top: 7px;\n    border-radius: 8px;\n    margin-right: 12px;\n    cursor: pointer;\n    &:hover {\n        opacity: 0.6;\n    }\n"])), index_1.COLOR.MAINBORDER, function (props) {
   return props.backgroundColor;
 });
 var templateObject_1;
@@ -3370,6 +3372,8 @@ var _index_1 = __webpack_require__(/*! ./_index */ "./resources/ts/components/lv
 
 var react_responsive_1 = __importDefault(__webpack_require__(/*! react-responsive */ "./node_modules/react-responsive/dist/react-responsive.js"));
 
+var index_1 = __webpack_require__(/*! ../../styles/index */ "./resources/ts/styles/index.tsx");
+
 var DeleteButton = function DeleteButton(_a) {
   var deleteTask = _a.deleteTask,
       setIs_done = _a.setIs_done;
@@ -3389,9 +3393,9 @@ var DeleteButton = function DeleteButton(_a) {
       deleteTask();
       setIs_done(false);
     },
-    backgroundColor: "#da6161",
+    backgroundColor: index_1.COLOR.ACCENT,
     style: {
-      border: "1px solid #db5e5e"
+      border: "1px solid " + index_1.COLOR.ACCENTBORDER
     }
   }, "\u524A\u9664")));
 };
@@ -3421,6 +3425,8 @@ Object.defineProperty(exports, "__esModule", ({
 
 var react_1 = __importDefault(__webpack_require__(/*! react */ "./node_modules/react/index.js"));
 
+var index_1 = __webpack_require__(/*! ../../styles/index */ "./resources/ts/styles/index.tsx");
+
 var DeleteIcon = function DeleteIcon(_a) {
   var deleteTask = _a.deleteTask,
       setIs_done = _a.setIs_done;
@@ -3443,7 +3449,7 @@ var DeleteIcon = function DeleteIcon(_a) {
     viewBox: "0 0 448 512",
     width: "25",
     height: "25",
-    fill: "#da6161"
+    fill: index_1.COLOR.ACCENT
   }, react_1["default"].createElement("path", {
     d: "M432 32H312l-9.4-18.7A24 24 0 0 0 281.1 0H166.8a23.72 23.72 0 0 0-21.4 13.3L136 32H16A16 16 0 0 0 0 48v32a16 16 0 0 0 16 16h416a16 16 0 0 0 16-16V48a16 16 0 0 0-16-16zM53.2 467a48 48 0 0 0 47.9 45h245.8a48 48 0 0 0 47.9-45L416 128H32z"
   })));
@@ -3514,6 +3520,8 @@ var _index_1 = __webpack_require__(/*! ./_index */ "./resources/ts/components/lv
 
 var react_responsive_1 = __importDefault(__webpack_require__(/*! react-responsive */ "./node_modules/react-responsive/dist/react-responsive.js"));
 
+var index_1 = __webpack_require__(/*! ../../styles/index */ "./resources/ts/styles/index.tsx");
+
 var EditButton = function EditButton(_a) {
   var editTask = _a.editTask,
       editActive = _a.editActive,
@@ -3552,7 +3560,7 @@ var EditButton = function EditButton(_a) {
     onClick: function onClick() {
       return changeTaskTitle();
     },
-    backgroundColor: "#3bc2e4"
+    backgroundColor: index_1.COLOR.MAIN
   }, editButtonTitle)));
 };
 
@@ -3581,11 +3589,13 @@ Object.defineProperty(exports, "__esModule", ({
 
 var react_1 = __importDefault(__webpack_require__(/*! react */ "./node_modules/react/index.js"));
 
+var index_1 = __webpack_require__(/*! ../../styles/index */ "./resources/ts/styles/index.tsx");
+
 var EditIcon = function EditIcon(_a) {
   var changeTaskTitle = _a.changeTaskTitle;
   return react_1["default"].createElement("div", {
     style: {
-      paddingTop: '7px'
+      paddingTop: "7px"
     }
   }, react_1["default"].createElement("svg", {
     onClick: function onClick() {
@@ -3601,7 +3611,7 @@ var EditIcon = function EditIcon(_a) {
     viewBox: "0 0 512 512",
     width: "33",
     height: "33",
-    fill: "#3bc2e4",
+    fill: index_1.COLOR.MAIN,
     style: {
       paddingRight: "10px"
     }
@@ -3686,6 +3696,49 @@ var templateObject_1;
 
 /***/ }),
 
+/***/ "./resources/ts/components/lv1/LinkButton.tsx":
+/*!****************************************************!*\
+  !*** ./resources/ts/components/lv1/LinkButton.tsx ***!
+  \****************************************************/
+/***/ (function(__unused_webpack_module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var __makeTemplateObject = this && this.__makeTemplateObject || function (cooked, raw) {
+  if (Object.defineProperty) {
+    Object.defineProperty(cooked, "raw", {
+      value: raw
+    });
+  } else {
+    cooked.raw = raw;
+  }
+
+  return cooked;
+};
+
+var __importDefault = this && this.__importDefault || function (mod) {
+  return mod && mod.__esModule ? mod : {
+    "default": mod
+  };
+};
+
+Object.defineProperty(exports, "__esModule", ({
+  value: true
+}));
+exports.LinkButton = void 0;
+
+var styled_components_1 = __importDefault(__webpack_require__(/*! styled-components */ "./node_modules/styled-components/dist/styled-components.browser.esm.js"));
+
+var react_router_dom_1 = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/esm/react-router-dom.js");
+
+var index_1 = __webpack_require__(/*! ../../styles/index */ "./resources/ts/styles/index.tsx");
+
+exports.LinkButton = styled_components_1["default"](react_router_dom_1.Link)(templateObject_1 || (templateObject_1 = __makeTemplateObject(["\n    background-color: ", ";\n    display: inline-block;\n    font-weight: 600;\n    color: white;\n    padding: 0.85rem 1.3rem;\n    border-radius: 10px;\n    opacity: 0.85;\n    box-shadow: 0 2px #ad471f;\n    margin-left: 30px;\n"], ["\n    background-color: ", ";\n    display: inline-block;\n    font-weight: 600;\n    color: white;\n    padding: 0.85rem 1.3rem;\n    border-radius: 10px;\n    opacity: 0.85;\n    box-shadow: 0 2px #ad471f;\n    margin-left: 30px;\n"])), index_1.COLOR.ACCENT);
+var templateObject_1;
+
+/***/ }),
+
 /***/ "./resources/ts/components/lv1/SubmitButton.tsx":
 /*!******************************************************!*\
   !*** ./resources/ts/components/lv1/SubmitButton.tsx ***!
@@ -3721,6 +3774,8 @@ var react_1 = __importDefault(__webpack_require__(/*! react */ "./node_modules/r
 
 var styled_components_1 = __importDefault(__webpack_require__(/*! styled-components */ "./node_modules/styled-components/dist/styled-components.browser.esm.js"));
 
+var index_1 = __webpack_require__(/*! ../../styles/index */ "./resources/ts/styles/index.tsx");
+
 var SubmitButton = function SubmitButton(_a) {
   var text = _a.text,
       postTask = _a.postTask,
@@ -3741,7 +3796,7 @@ var SubmitButton = function SubmitButton(_a) {
 
 exports.default = SubmitButton;
 
-var _SubmitButton = styled_components_1["default"].div(templateObject_1 || (templateObject_1 = __makeTemplateObject(["\n    display: inline-block;\n    color: white;\n    border-radius: 8px;\n    padding: 6px;\n    margin-left: 7px;\n    background-color: #5287ec;\n    border: 1px solid #4b81e6;\n    opacity: 0.9;\n    cursor: pointer;\n    &:hover {\n        opacity: 0.7;\n    }\n"], ["\n    display: inline-block;\n    color: white;\n    border-radius: 8px;\n    padding: 6px;\n    margin-left: 7px;\n    background-color: #5287ec;\n    border: 1px solid #4b81e6;\n    opacity: 0.9;\n    cursor: pointer;\n    &:hover {\n        opacity: 0.7;\n    }\n"])));
+var _SubmitButton = styled_components_1["default"].div(templateObject_1 || (templateObject_1 = __makeTemplateObject(["\n    display: inline-block;\n    color: white;\n    border-radius: 8px;\n    padding: 6px;\n    margin-left: 7px;\n    background-color: ", ";\n    border: 1px solid ", ";\n    opacity: 0.9;\n    cursor: pointer;\n    &:hover {\n        opacity: 0.7;\n    }\n"], ["\n    display: inline-block;\n    color: white;\n    border-radius: 8px;\n    padding: 6px;\n    margin-left: 7px;\n    background-color: ", ";\n    border: 1px solid ", ";\n    opacity: 0.9;\n    cursor: pointer;\n    &:hover {\n        opacity: 0.7;\n    }\n"])), index_1.COLOR.MAIN, index_1.COLOR.MAINBORDER);
 
 var templateObject_1;
 
@@ -4362,6 +4417,8 @@ var react_1 = __importDefault(__webpack_require__(/*! react */ "./node_modules/r
 
 var styled_components_1 = __importDefault(__webpack_require__(/*! styled-components */ "./node_modules/styled-components/dist/styled-components.browser.esm.js"));
 
+var index_1 = __webpack_require__(/*! ../../styles/index */ "./resources/ts/styles/index.tsx");
+
 var _index_1 = __webpack_require__(/*! ../lv1/_index */ "./resources/ts/components/lv1/_index.tsx"); //prettier-ignore
 
 
@@ -4371,7 +4428,7 @@ var ColoredTags = react_1["default"].memo(function (_a) {
   var obj = __assign({}, selected_color);
 
   if (obj.red === false && obj.blue === false && obj.yellow === false && obj.green === false || obj.red === undefined && obj.blue === undefined && obj.yellow === undefined && obj.green === undefined) {
-    return react_1["default"].createElement("i", {
+    return react_1["default"].createElement(_PlusIcon, {
       className: "fas fa-plus-circle fa-lg"
     });
   } else {
@@ -4392,9 +4449,11 @@ var ColoredTags = react_1["default"].memo(function (_a) {
 });
 exports.default = ColoredTags;
 
-var _ColoredTags = styled_components_1["default"].div(templateObject_1 || (templateObject_1 = __makeTemplateObject(["\n    display: flex;\n    flex-wrap: wrap;\n    height: 10px;\n    cursor: pointer;\n"], ["\n    display: flex;\n    flex-wrap: wrap;\n    height: 10px;\n    cursor: pointer;\n"])));
+var _PlusIcon = styled_components_1["default"].i(templateObject_1 || (templateObject_1 = __makeTemplateObject(["\n    /* color: rgb(55, 165, 255); */\n    color: ", ";\n    opacity: 0.4;\n    cursor: pointer;\n"], ["\n    /* color: rgb(55, 165, 255); */\n    color: ", ";\n    opacity: 0.4;\n    cursor: pointer;\n"])), index_1.COLOR.MAIN);
 
-var templateObject_1;
+var _ColoredTags = styled_components_1["default"].div(templateObject_2 || (templateObject_2 = __makeTemplateObject(["\n    display: flex;\n    flex-wrap: wrap;\n    height: 10px;\n    cursor: pointer;\n"], ["\n    display: flex;\n    flex-wrap: wrap;\n    height: 10px;\n    cursor: pointer;\n"])));
+
+var templateObject_1, templateObject_2;
 
 /***/ }),
 
@@ -4614,6 +4673,8 @@ var styled_components_1 = __importDefault(__webpack_require__(/*! styled-compone
 
 var customMedia_1 = __importDefault(__webpack_require__(/*! ../../styles/customMedia */ "./resources/ts/styles/customMedia.tsx"));
 
+var index_1 = __webpack_require__(/*! ../../styles/index */ "./resources/ts/styles/index.tsx");
+
 var react_router_dom_1 = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/esm/react-router-dom.js");
 
 var Header = function Header(_a) {
@@ -4684,13 +4745,13 @@ var Header = function Header(_a) {
 
 exports.default = Header;
 
-var _Header = styled_components_1["default"].div(templateObject_4 || (templateObject_4 = __makeTemplateObject(["\n    display: flex;\n    position: fixed;\n    z-index: 1000;\n    height: 60px;\n    width: 100vw;\n    padding: 8px 120px;\n    background-color: #fff;\n    box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075);\n    ", "\n    ", "\n    ", "\n"], ["\n    display: flex;\n    position: fixed;\n    z-index: 1000;\n    height: 60px;\n    width: 100vw;\n    padding: 8px 120px;\n    background-color: #fff;\n    box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075);\n    ", "\n    ", "\n    ", "\n"])), customMedia_1["default"].lessThan("mobile")(templateObject_1 || (templateObject_1 = __makeTemplateObject(["\n        padding: 8px 40px;\n    "], ["\n        padding: 8px 40px;\n    "]))), customMedia_1["default"].between("mobile", "tablet")(templateObject_2 || (templateObject_2 = __makeTemplateObject(["\n        padding: 8px 80px;\n\n    "], ["\n        padding: 8px 80px;\n\n    "]))), customMedia_1["default"].greaterThan("tablet")(templateObject_3 || (templateObject_3 = __makeTemplateObject(["\n    \n    "], ["\n    \n    "]))));
+var _Header = styled_components_1["default"].div(templateObject_4 || (templateObject_4 = __makeTemplateObject(["\n    display: flex;\n    position: fixed;\n    z-index: 1000;\n    height: 60px;\n    width: 100vw;\n    padding: 8px 120px;\n    background-color: ", ";\n    opacity: 0.96;\n    box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075);\n    ", "\n    ", "\n    ", "\n"], ["\n    display: flex;\n    position: fixed;\n    z-index: 1000;\n    height: 60px;\n    width: 100vw;\n    padding: 8px 120px;\n    background-color: ", ";\n    opacity: 0.96;\n    box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075);\n    ", "\n    ", "\n    ", "\n"])), index_1.COLOR.MAIN, customMedia_1["default"].lessThan("mobile")(templateObject_1 || (templateObject_1 = __makeTemplateObject(["\n        padding: 8px 40px;\n    "], ["\n        padding: 8px 40px;\n    "]))), customMedia_1["default"].between("mobile", "tablet")(templateObject_2 || (templateObject_2 = __makeTemplateObject(["\n        padding: 8px 80px;\n    "], ["\n        padding: 8px 80px;\n    "]))), customMedia_1["default"].greaterThan("tablet")(templateObject_3 || (templateObject_3 = __makeTemplateObject(["\n    "], ["\n    "]))));
 
 var _TapableRange = styled_components_1["default"].div(templateObject_5 || (templateObject_5 = __makeTemplateObject([""], [""])));
 
-var _Title = styled_components_1["default"].div(templateObject_6 || (templateObject_6 = __makeTemplateObject(["\n    display: inline-block;\n    color: #414346;\n    padding: 0.45rem 1rem;\n    font-size: 1.3rem;\n    font-family: \"arial unicode ms\";\n    opacity: 0.8;\n"], ["\n    display: inline-block;\n    color: #414346;\n    padding: 0.45rem 1rem;\n    font-size: 1.3rem;\n    font-family: \"arial unicode ms\";\n    opacity: 0.8;\n"])));
+var _Title = styled_components_1["default"].div(templateObject_6 || (templateObject_6 = __makeTemplateObject(["\n    display: inline-block;\n    color: ", ";\n    padding: 0.45rem 1rem;\n    font-size: ", "px;\n    font-family: \"arial unicode ms\";\n"], ["\n    display: inline-block;\n    color: ", ";\n    padding: 0.45rem 1rem;\n    font-size: ", "px;\n    font-family: \"arial unicode ms\";\n"])), index_1.COLOR.BASE, index_1.FONT.LARGE);
 
-var _userName = styled_components_1["default"].div(templateObject_7 || (templateObject_7 = __makeTemplateObject(["\n    line-height: 44px;\n    color: #00000080;\n    cursor: pointer;\n"], ["\n    line-height: 44px;\n    color: #00000080;\n    cursor: pointer;\n"])));
+var _userName = styled_components_1["default"].div(templateObject_7 || (templateObject_7 = __makeTemplateObject(["\n    line-height: 44px;\n    color: ", ";\n    cursor: pointer;\n"], ["\n    line-height: 44px;\n    color: ", ";\n    cursor: pointer;\n"])), index_1.COLOR.BASE);
 
 var _List = styled_components_1["default"].div(templateObject_11 || (templateObject_11 = __makeTemplateObject(["\n    display: table;\n    text-align: center;\n    position: absolute;\n    top: 50px;\n    right: 100px;\n    height: 50px;\n    width: 150px;\n    background-color: white;\n    border: 1px solid #bbbbbb;\n    border-radius: 4px;\n    color: #5c5c5c;\n    cursor: pointer;\n    ", "\n    ", "\n    ", "\n"], ["\n    display: table;\n    text-align: center;\n    position: absolute;\n    top: 50px;\n    right: 100px;\n    height: 50px;\n    width: 150px;\n    background-color: white;\n    border: 1px solid #bbbbbb;\n    border-radius: 4px;\n    color: #5c5c5c;\n    cursor: pointer;\n    ", "\n    ", "\n    ", "\n"])), customMedia_1["default"].lessThan("mobile")(templateObject_8 || (templateObject_8 = __makeTemplateObject(["\n        right:30px;\n    "], ["\n        right:30px;\n    "]))), customMedia_1["default"].between("mobile", "tablet")(templateObject_9 || (templateObject_9 = __makeTemplateObject(["\n\n    "], ["\n\n    "]))), customMedia_1["default"].greaterThan("tablet")(templateObject_10 || (templateObject_10 = __makeTemplateObject(["\n    \n    "], ["\n    \n    "]))));
 
@@ -7060,6 +7121,8 @@ var styled_components_1 = __importDefault(__webpack_require__(/*! styled-compone
 
 var customMedia_1 = __importDefault(__webpack_require__(/*! ../../styles/customMedia */ "./resources/ts/styles/customMedia.tsx"));
 
+var index_1 = __webpack_require__(/*! ../../styles/index */ "./resources/ts/styles/index.tsx");
+
 var _index_1 = __webpack_require__(/*! ../lv2/_index */ "./resources/ts/components/lv2/_index.tsx");
 
 var reducer_1 = __webpack_require__(/*! ../../reducer/reducer */ "./resources/ts/reducer/reducer.tsx");
@@ -7199,7 +7262,7 @@ var _TaskCards = styled_components_1["default"].div(templateObject_1 || (templat
 
 var _TodoContent = styled_components_1["default"].div(templateObject_5 || (templateObject_5 = __makeTemplateObject(["\n    max-width: 820px;\n    margin: 0 auto;\n    padding-top: 105px;\n    ", "\n    ", " \n    ", "\n"], ["\n    max-width: 820px;\n    margin: 0 auto;\n    padding-top: 105px;\n    ", "\n    ", " \n    ", "\n"])), customMedia_1["default"].lessThan("mobile")(templateObject_2 || (templateObject_2 = __makeTemplateObject(["\n    width: 99vw;\n    max-width:500px;\n    "], ["\n    width: 99vw;\n    max-width:500px;\n    "]))), customMedia_1["default"].between("mobile", "tablet")(templateObject_3 || (templateObject_3 = __makeTemplateObject(["\n    width: 84vw;\n    max-width: 710px;\n    "], ["\n    width: 84vw;\n    max-width: 710px;\n    "]))), customMedia_1["default"].greaterThan("tablet")(templateObject_4 || (templateObject_4 = __makeTemplateObject(["\n    width: 70vw;\n    "], ["\n    width: 70vw;\n    "]))));
 
-var _Wrapper = styled_components_1["default"].div(templateObject_6 || (templateObject_6 = __makeTemplateObject(["\n    height: 100vh;\n    width: 100vw;\n    background-color: #f9fbfe;\n"], ["\n    height: 100vh;\n    width: 100vw;\n    background-color: #f9fbfe;\n"])));
+var _Wrapper = styled_components_1["default"].div(templateObject_6 || (templateObject_6 = __makeTemplateObject(["\n    height: 100%;\n    width: 100vw;\n    background-color: ", ";\n    padding-bottom: 7rem;\n"], ["\n    height: 100%;\n    width: 100vw;\n    background-color: ", ";\n    padding-bottom: 7rem;\n"])), index_1.COLOR.BASE);
 
 var templateObject_1, templateObject_2, templateObject_3, templateObject_4, templateObject_5, templateObject_6;
 
@@ -7226,7 +7289,7 @@ Object.defineProperty(exports, "__esModule", ({
 
 var react_1 = __importDefault(__webpack_require__(/*! react */ "./node_modules/react/index.js"));
 
-var react_router_dom_1 = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/esm/react-router-dom.js");
+var LinkButton_1 = __webpack_require__(/*! ../lv1/LinkButton */ "./resources/ts/components/lv1/LinkButton.tsx");
 
 var TopPageContent = function TopPageContent() {
   return react_1["default"].createElement(react_1["default"].Fragment, null, react_1["default"].createElement("div", {
@@ -7250,10 +7313,10 @@ var TopPageContent = function TopPageContent() {
     className: "flex-nowrap w-full bg-opacity-10"
   }, react_1["default"].createElement("h1", {
     className: "text-yellow-800 text-xl sm:text-2xl md:text-3xl pb-5 font-medium"
-  }, "\u30BF\u30B9\u30AF\u7BA1\u7406\u3057\u3066\u751F\u7523\u6027\u3092\u4E0A\u3052\u3088\u3046!"), react_1["default"].createElement(react_router_dom_1.Link, {
+  }, "\u30BF\u30B9\u30AF\u7BA1\u7406\u3057\u3066\u751F\u7523\u6027\u3092\u4E0A\u3052\u3088\u3046!"), react_1["default"].createElement(LinkButton_1.LinkButton, {
     to: "/login",
     className: "button hover"
-  }, "\u30ED\u30B0\u30A4\u30F3"), react_1["default"].createElement(react_router_dom_1.Link, {
+  }, "\u30ED\u30B0\u30A4\u30F3"), react_1["default"].createElement(LinkButton_1.LinkButton, {
     to: "/register",
     className: "button hover"
   }, "\u65B0\u898F\u767B\u9332")))), react_1["default"].createElement("article", {
@@ -7422,6 +7485,32 @@ var customMedia = styled_media_query_1.generateMedia({
   mobile: "599px"
 });
 exports.default = customMedia;
+
+/***/ }),
+
+/***/ "./resources/ts/styles/index.tsx":
+/*!***************************************!*\
+  !*** ./resources/ts/styles/index.tsx ***!
+  \***************************************/
+/***/ ((__unused_webpack_module, exports) => {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", ({
+  value: true
+}));
+exports.FONT = exports.COLOR = void 0;
+exports.COLOR = {
+  BASE: "#f9fbfe",
+  MAIN: "rgb(120, 176, 245)",
+  MAINBORDER: "rgb(110, 170, 238)",
+  ACCENT: "#da6161",
+  ACCENTBORDER: "#d65a5a"
+};
+exports.FONT = {
+  LARGE: 20
+};
 
 /***/ }),
 

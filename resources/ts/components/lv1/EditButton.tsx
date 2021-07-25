@@ -2,6 +2,7 @@ import React, { useContext } from "react";
 import { TasksEditActiveContext } from "../lv3/TodoContent";
 import { EditIcon, Button } from "./_index";
 import MediaQuery from "react-responsive";
+import { COLOR } from "../../styles/index";
 
 type Props = {
     editTask: (title: string) => Promise<void>;
@@ -45,7 +46,7 @@ const EditButton: React.VFC<Props> = ({
             <MediaQuery query="(min-width: 599px)">
                 <Button
                     onClick={() => changeTaskTitle()}
-                    backgroundColor="#3bc2e4"
+                    backgroundColor={COLOR.MAIN}
                 >
                     {editButtonTitle}
                 </Button>

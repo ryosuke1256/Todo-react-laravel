@@ -1,11 +1,12 @@
 import styled from "styled-components";
+import { COLOR } from "../../styles/index";
 
 export const Button = styled.div<{ backgroundColor: string }>`
     display: inline-block;
     text-align: center;
-    border: 1px solid #2eb9db;
+    border: 1px solid ${COLOR.MAINBORDER};
     background-color: ${(props) => props.backgroundColor};
-    opacity: 0.7;
+    opacity: 0.8;
     color: white;
     padding: 6px 10px;
     margin-top: 7px;
