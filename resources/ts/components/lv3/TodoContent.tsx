@@ -119,6 +119,7 @@ const _TodoContent = styled.div`
 `;
 
 const _Wrapper = styled.div`
+    min-height: 100vh;
     height: 100%;
     width: 100vw;
     background-color: ${COLOR.BASE};
