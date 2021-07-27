@@ -79,7 +79,7 @@ const _Header = styled.div`
     height: 60px;
     width: 100vw;
     padding: 8px 120px;
-    background-color: ${COLOR.MAIN};
+    background-color: white;
     opacity: 0.96;
     box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075);
     ${customMedia.lessThan("mobile")`
@@ -96,7 +96,7 @@ const _TapableRange = styled.div``;
 
 const _Title = styled.div`
     display: inline-block;
-    color: ${COLOR.BASE};
+    color: ${COLOR.HEADERFONTCOLOR};
     padding: 0.45rem 1rem;
     font-size: ${FONT.LARGE}px;
     font-family: "arial unicode ms";
@@ -104,7 +104,7 @@ const _Title = styled.div`
 
 const _userName = styled.div`
     line-height: 44px;
-    color: ${COLOR.BASE};
+    color: ${COLOR.HEADERFONTCOLOR};
     cursor: pointer;
 `;
 

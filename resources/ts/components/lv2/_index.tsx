@@ -1,3 +1,4 @@
+export { default as BottomTextForm } from "./BottomTextForm";
 export { default as ColoredTags } from "./ColoredTags";
 export { default as Header } from "./Header";
 export { default as LoginPassweord } from "./LoginPassword";

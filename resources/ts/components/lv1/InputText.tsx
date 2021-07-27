@@ -8,6 +8,7 @@ type Props = {
     postTask: (postData: TaskAPI) => void;
     setText: (param: string) => void;
     userID: number | null;
+    inputElement: React.RefObject<HTMLInputElement>;
 };
 
 const InputText: React.VFC<Props> = ({
@@ -16,6 +17,7 @@ const InputText: React.VFC<Props> = ({
     postTask,
     setText,
     userID,
+    inputElement,
 }: Props) => {
     const data: TaskAPI = {
         user_id: userID,
@@ -24,6 +26,7 @@ const InputText: React.VFC<Props> = ({
     };
     return (
         <_InputText
+            ref={inputElement}
             name="task"
             type="text"
             value={text}
