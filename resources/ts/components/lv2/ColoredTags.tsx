@@ -11,6 +11,7 @@ type Props = {
 const ColoredTags: React.VFC<Props> = React.memo(
     ({ selected_color }: Props) => {
         const { red, blue, yellow, green } = selected_color;
+
         if (
             (red === false &&
                 blue === false &&
