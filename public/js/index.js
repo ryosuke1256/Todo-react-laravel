@@ -4387,22 +4387,6 @@ var __makeTemplateObject = this && this.__makeTemplateObject || function (cooked
   return cooked;
 };
 
-var __assign = this && this.__assign || function () {
-  __assign = Object.assign || function (t) {
-    for (var s, i = 1, n = arguments.length; i < n; i++) {
-      s = arguments[i];
-
-      for (var p in s) {
-        if (Object.prototype.hasOwnProperty.call(s, p)) t[p] = s[p];
-      }
-    }
-
-    return t;
-  };
-
-  return __assign.apply(this, arguments);
-};
-
 var __importDefault = this && this.__importDefault || function (mod) {
   return mod && mod.__esModule ? mod : {
     "default": mod
@@ -4419,15 +4403,16 @@ var styled_components_1 = __importDefault(__webpack_require__(/*! styled-compone
 
 var index_1 = __webpack_require__(/*! ../../styles/index */ "./resources/ts/styles/index.tsx");
 
-var _index_1 = __webpack_require__(/*! ../lv1/_index */ "./resources/ts/components/lv1/_index.tsx"); //prettier-ignore
-
+var _index_1 = __webpack_require__(/*! ../lv1/_index */ "./resources/ts/components/lv1/_index.tsx");
 
 var ColoredTags = react_1["default"].memo(function (_a) {
   var selected_color = _a.selected_color;
+  var red = selected_color.red,
+      blue = selected_color.blue,
+      yellow = selected_color.yellow,
+      green = selected_color.green;
 
-  var obj = __assign({}, selected_color);
-
-  if (obj.red === false && obj.blue === false && obj.yellow === false && obj.green === false || obj.red === undefined && obj.blue === undefined && obj.yellow === undefined && obj.green === undefined) {
+  if (red === false && blue === false && yellow === false && green === false || red === undefined && blue === undefined && yellow === undefined && green === undefined) {
     return react_1["default"].createElement(_PlusIcon, {
       className: "fas fa-plus-circle fa-lg"
     });
@@ -4449,7 +4434,7 @@ var ColoredTags = react_1["default"].memo(function (_a) {
 });
 exports.default = ColoredTags;
 
-var _PlusIcon = styled_components_1["default"].i(templateObject_1 || (templateObject_1 = __makeTemplateObject(["\n    /* color: rgb(55, 165, 255); */\n    color: ", ";\n    opacity: 0.4;\n    cursor: pointer;\n"], ["\n    /* color: rgb(55, 165, 255); */\n    color: ", ";\n    opacity: 0.4;\n    cursor: pointer;\n"])), index_1.COLOR.MAIN);
+var _PlusIcon = styled_components_1["default"].i(templateObject_1 || (templateObject_1 = __makeTemplateObject(["\n    color: ", ";\n    opacity: 0.4;\n    cursor: pointer;\n"], ["\n    color: ", ";\n    opacity: 0.4;\n    cursor: pointer;\n"])), index_1.COLOR.MAIN);
 
 var _ColoredTags = styled_components_1["default"].div(templateObject_2 || (templateObject_2 = __makeTemplateObject(["\n    display: flex;\n    flex-wrap: wrap;\n    height: 10px;\n    cursor: pointer;\n"], ["\n    display: flex;\n    flex-wrap: wrap;\n    height: 10px;\n    cursor: pointer;\n"])));
 
@@ -4745,13 +4730,13 @@ var Header = function Header(_a) {
 
 exports.default = Header;
 
-var _Header = styled_components_1["default"].div(templateObject_4 || (templateObject_4 = __makeTemplateObject(["\n    display: flex;\n    position: fixed;\n    z-index: 1000;\n    height: 60px;\n    width: 100vw;\n    padding: 8px 120px;\n    background-color: ", ";\n    opacity: 0.96;\n    box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075);\n    ", "\n    ", "\n    ", "\n"], ["\n    display: flex;\n    position: fixed;\n    z-index: 1000;\n    height: 60px;\n    width: 100vw;\n    padding: 8px 120px;\n    background-color: ", ";\n    opacity: 0.96;\n    box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075);\n    ", "\n    ", "\n    ", "\n"])), index_1.COLOR.MAIN, customMedia_1["default"].lessThan("mobile")(templateObject_1 || (templateObject_1 = __makeTemplateObject(["\n        padding: 8px 40px;\n    "], ["\n        padding: 8px 40px;\n    "]))), customMedia_1["default"].between("mobile", "tablet")(templateObject_2 || (templateObject_2 = __makeTemplateObject(["\n        padding: 8px 80px;\n    "], ["\n        padding: 8px 80px;\n    "]))), customMedia_1["default"].greaterThan("tablet")(templateObject_3 || (templateObject_3 = __makeTemplateObject(["\n    "], ["\n    "]))));
+var _Header = styled_components_1["default"].div(templateObject_4 || (templateObject_4 = __makeTemplateObject(["\n    display: flex;\n    position: fixed;\n    z-index: 1000;\n    height: 60px;\n    width: 100vw;\n    padding: 8px 120px;\n    background-color: white;\n    opacity: 0.96;\n    box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075);\n    ", "\n    ", "\n    ", "\n"], ["\n    display: flex;\n    position: fixed;\n    z-index: 1000;\n    height: 60px;\n    width: 100vw;\n    padding: 8px 120px;\n    background-color: white;\n    opacity: 0.96;\n    box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075);\n    ", "\n    ", "\n    ", "\n"])), customMedia_1["default"].lessThan("mobile")(templateObject_1 || (templateObject_1 = __makeTemplateObject(["\n        padding: 8px 40px;\n    "], ["\n        padding: 8px 40px;\n    "]))), customMedia_1["default"].between("mobile", "tablet")(templateObject_2 || (templateObject_2 = __makeTemplateObject(["\n        padding: 8px 80px;\n    "], ["\n        padding: 8px 80px;\n    "]))), customMedia_1["default"].greaterThan("tablet")(templateObject_3 || (templateObject_3 = __makeTemplateObject(["\n    "], ["\n    "]))));
 
 var _TapableRange = styled_components_1["default"].div(templateObject_5 || (templateObject_5 = __makeTemplateObject([""], [""])));
 
-var _Title = styled_components_1["default"].div(templateObject_6 || (templateObject_6 = __makeTemplateObject(["\n    display: inline-block;\n    color: ", ";\n    padding: 0.45rem 1rem;\n    font-size: ", "px;\n    font-family: \"arial unicode ms\";\n"], ["\n    display: inline-block;\n    color: ", ";\n    padding: 0.45rem 1rem;\n    font-size: ", "px;\n    font-family: \"arial unicode ms\";\n"])), index_1.COLOR.BASE, index_1.FONT.LARGE);
+var _Title = styled_components_1["default"].div(templateObject_6 || (templateObject_6 = __makeTemplateObject(["\n    display: inline-block;\n    color: ", ";\n    padding: 0.45rem 1rem;\n    font-size: ", "px;\n    font-family: \"arial unicode ms\";\n"], ["\n    display: inline-block;\n    color: ", ";\n    padding: 0.45rem 1rem;\n    font-size: ", "px;\n    font-family: \"arial unicode ms\";\n"])), index_1.COLOR.HEADERFONTCOLOR, index_1.FONT.LARGE);
 
-var _userName = styled_components_1["default"].div(templateObject_7 || (templateObject_7 = __makeTemplateObject(["\n    line-height: 44px;\n    color: ", ";\n    cursor: pointer;\n"], ["\n    line-height: 44px;\n    color: ", ";\n    cursor: pointer;\n"])), index_1.COLOR.BASE);
+var _userName = styled_components_1["default"].div(templateObject_7 || (templateObject_7 = __makeTemplateObject(["\n    line-height: 44px;\n    color: ", ";\n    cursor: pointer;\n"], ["\n    line-height: 44px;\n    color: ", ";\n    cursor: pointer;\n"])), index_1.COLOR.HEADERFONTCOLOR);
 
 var _List = styled_components_1["default"].div(templateObject_11 || (templateObject_11 = __makeTemplateObject(["\n    display: table;\n    text-align: center;\n    position: absolute;\n    top: 50px;\n    right: 100px;\n    height: 50px;\n    width: 150px;\n    background-color: white;\n    border: 1px solid #bbbbbb;\n    border-radius: 4px;\n    color: #5c5c5c;\n    cursor: pointer;\n    ", "\n    ", "\n    ", "\n"], ["\n    display: table;\n    text-align: center;\n    position: absolute;\n    top: 50px;\n    right: 100px;\n    height: 50px;\n    width: 150px;\n    background-color: white;\n    border: 1px solid #bbbbbb;\n    border-radius: 4px;\n    color: #5c5c5c;\n    cursor: pointer;\n    ", "\n    ", "\n    ", "\n"])), customMedia_1["default"].lessThan("mobile")(templateObject_8 || (templateObject_8 = __makeTemplateObject(["\n        right:30px;\n    "], ["\n        right:30px;\n    "]))), customMedia_1["default"].between("mobile", "tablet")(templateObject_9 || (templateObject_9 = __makeTemplateObject(["\n\n    "], ["\n\n    "]))), customMedia_1["default"].greaterThan("tablet")(templateObject_10 || (templateObject_10 = __makeTemplateObject(["\n    \n    "], ["\n    \n    "]))));
 
@@ -7506,7 +7491,8 @@ exports.COLOR = {
   MAIN: "rgb(120, 176, 245)",
   MAINBORDER: "rgb(110, 170, 238)",
   ACCENT: "#da6161",
-  ACCENTBORDER: "#d65a5a"
+  ACCENTBORDER: "#d65a5a",
+  HEADERFONTCOLOR: "#666d77"
 };
 exports.FONT = {
   LARGE: 20
