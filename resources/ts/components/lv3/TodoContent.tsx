@@ -2,8 +2,9 @@ import React, { useState, useEffect, useCallback, useReducer } from "react";
 import axios from "axios";
 import styled from "styled-components";
 import customMedia from "../../styles/customMedia";
+import MediaQuery from "react-responsive";
 import { COLOR } from "../../styles/index";
-import { TaskCard, TextForm, WelcomeContent } from "../lv2/_index";
+import { BottomTextForm, TaskCard, TextForm, WelcomeContent } from "../lv2/_index"; //prettier-ignore
 import { TaskAndColor, TaskAPI } from "../../types/_index";
 import { reducer } from "../../reducer/reducer";
 export const TasksEditActiveContext = React.createContext<any>(false);
@@ -66,7 +67,9 @@ const TodoContent: React.VFC<Props> = ({ userID }: Props) => {
             >
                 <_Wrapper>
                     <_TodoContent>
-                        <TextForm postTask={postTask} userID={userID} />
+                        <MediaQuery query="(min-width: 599px)">
+                            <TextForm postTask={postTask} userID={userID} />
+                        </MediaQuery>
                         {tasks.length === 0 && is_began === true ? (
                             <WelcomeContent />
                         ) : (
@@ -88,6 +91,12 @@ const TodoContent: React.VFC<Props> = ({ userID }: Props) => {
                                 )}
                             </_TaskCards>
                         )}
+                        <MediaQuery query="(max-width: 598px)">
+                            <BottomTextForm
+                                postTask={postTask}
+                                userID={userID}
+                            />
+                        </MediaQuery>
                     </_TodoContent>
                 </_Wrapper>
             </TasksEditActiveContext.Provider>
@@ -108,6 +117,7 @@ const _TodoContent = styled.div`
     ${customMedia.lessThan("mobile")`
     width: 99vw;
     max-width:500px;
+    padding-top:70px;
     `}
     ${customMedia.between("mobile", "tablet")`
     width: 84vw;

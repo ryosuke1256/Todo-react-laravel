@@ -3551,7 +3551,7 @@ var EditButton = function EditButton(_a) {
   };
 
   return react_1["default"].createElement(react_1["default"].Fragment, null, react_1["default"].createElement(react_responsive_1["default"], {
-    query: "(max-width: 599px)"
+    query: "(max-width: 598px)"
   }, react_1["default"].createElement(_index_1.EditIcon, {
     changeTaskTitle: changeTaskTitle
   })), react_1["default"].createElement(react_responsive_1["default"], {
@@ -3664,13 +3664,15 @@ var InputText = function InputText(_a) {
       handleChange = _a.handleChange,
       postTask = _a.postTask,
       setText = _a.setText,
-      userID = _a.userID;
+      userID = _a.userID,
+      inputElement = _a.inputElement;
   var data = {
     user_id: userID,
     title: text,
     is_done: false
   };
   return react_1["default"].createElement(_InputText, {
+    ref: inputElement,
     name: "task",
     type: "text",
     value: text,
@@ -4363,6 +4365,120 @@ Object.defineProperty(exports, "WelcomeImage", ({
     return __importDefault(WelcomeImage_1)["default"];
   }
 }));
+
+/***/ }),
+
+/***/ "./resources/ts/components/lv2/BottomTextForm.tsx":
+/*!********************************************************!*\
+  !*** ./resources/ts/components/lv2/BottomTextForm.tsx ***!
+  \********************************************************/
+/***/ (function(__unused_webpack_module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var __makeTemplateObject = this && this.__makeTemplateObject || function (cooked, raw) {
+  if (Object.defineProperty) {
+    Object.defineProperty(cooked, "raw", {
+      value: raw
+    });
+  } else {
+    cooked.raw = raw;
+  }
+
+  return cooked;
+};
+
+var __createBinding = this && this.__createBinding || (Object.create ? function (o, m, k, k2) {
+  if (k2 === undefined) k2 = k;
+  Object.defineProperty(o, k2, {
+    enumerable: true,
+    get: function get() {
+      return m[k];
+    }
+  });
+} : function (o, m, k, k2) {
+  if (k2 === undefined) k2 = k;
+  o[k2] = m[k];
+});
+
+var __setModuleDefault = this && this.__setModuleDefault || (Object.create ? function (o, v) {
+  Object.defineProperty(o, "default", {
+    enumerable: true,
+    value: v
+  });
+} : function (o, v) {
+  o["default"] = v;
+});
+
+var __importStar = this && this.__importStar || function (mod) {
+  if (mod && mod.__esModule) return mod;
+  var result = {};
+  if (mod != null) for (var k in mod) {
+    if (k !== "default" && Object.prototype.hasOwnProperty.call(mod, k)) __createBinding(result, mod, k);
+  }
+
+  __setModuleDefault(result, mod);
+
+  return result;
+};
+
+var __importDefault = this && this.__importDefault || function (mod) {
+  return mod && mod.__esModule ? mod : {
+    "default": mod
+  };
+};
+
+Object.defineProperty(exports, "__esModule", ({
+  value: true
+}));
+
+var react_1 = __importStar(__webpack_require__(/*! react */ "./node_modules/react/index.js"));
+
+var styled_components_1 = __importDefault(__webpack_require__(/*! styled-components */ "./node_modules/styled-components/dist/styled-components.browser.esm.js"));
+
+var index_1 = __webpack_require__(/*! ../../styles/index */ "./resources/ts/styles/index.tsx");
+
+var TextForm_1 = __importDefault(__webpack_require__(/*! ../../components/lv2/TextForm */ "./resources/ts/components/lv2/TextForm.tsx"));
+
+var BottomTextForm = function BottomTextForm(_a) {
+  var postTask = _a.postTask,
+      userID = _a.userID;
+
+  var _b = react_1.useState(false),
+      is_showTextForm = _b[0],
+      setIs_showTextForm = _b[1];
+
+  return react_1["default"].createElement(react_1["default"].Fragment, null, is_showTextForm && react_1["default"].createElement(_BottomTextForm, null, react_1["default"].createElement(TextForm_1["default"], {
+    postTask: postTask,
+    userID: userID,
+    is_bottom: true
+  }), react_1["default"].createElement(_Wrapper, null, react_1["default"].createElement(_CloseButton, {
+    onClick: function onClick() {
+      return setIs_showTextForm(false);
+    }
+  }, "\u9589\u3058\u308B"))), !is_showTextForm && react_1["default"].createElement(_Circle, {
+    onClick: function onClick() {
+      return setIs_showTextForm(true);
+    }
+  }, react_1["default"].createElement(_Plus, {
+    className: "fas fa-plus fa-2x"
+  })));
+};
+
+exports.default = BottomTextForm;
+
+var _BottomTextForm = styled_components_1["default"].div(templateObject_1 || (templateObject_1 = __makeTemplateObject(["\n    position: fixed;\n    bottom: 0;\n    width: 100vw;\n    z-index: 1000;\n    width: 100vw;\n    height: 20vh;\n    padding-top: 20px;\n    text-align: text-center;\n    background-color: white;\n    border-top: 1px solid #c7d1d6;\n    border-radius: 7px;\n"], ["\n    position: fixed;\n    bottom: 0;\n    width: 100vw;\n    z-index: 1000;\n    width: 100vw;\n    height: 20vh;\n    padding-top: 20px;\n    text-align: text-center;\n    background-color: white;\n    border-top: 1px solid #c7d1d6;\n    border-radius: 7px;\n"])));
+
+var _Wrapper = styled_components_1["default"].div(templateObject_2 || (templateObject_2 = __makeTemplateObject(["\n    height: 100%;\n    display: flex;\n    justify-content: flex-end;\n    align-items: flex-end;\n"], ["\n    height: 100%;\n    display: flex;\n    justify-content: flex-end;\n    align-items: flex-end;\n"])));
+
+var _CloseButton = styled_components_1["default"].button(templateObject_3 || (templateObject_3 = __makeTemplateObject(["\n    color: white;\n    background-color: ", ";\n    padding: 10px;\n    border-radius: 10px;\n    margin-right: 30px;\n    margin-bottom: 60px;\n"], ["\n    color: white;\n    background-color: ", ";\n    padding: 10px;\n    border-radius: 10px;\n    margin-right: 30px;\n    margin-bottom: 60px;\n"])), index_1.COLOR.MAIN);
+
+var _Plus = styled_components_1["default"].div(templateObject_4 || (templateObject_4 = __makeTemplateObject(["\n    position: absolute;\n    top: 15px;\n    left: 15px;\n    color: #f9fcff;\n"], ["\n    position: absolute;\n    top: 15px;\n    left: 15px;\n    color: #f9fcff;\n"])));
+
+var _Circle = styled_components_1["default"].div(templateObject_5 || (templateObject_5 = __makeTemplateObject(["\n    position: fixed;\n    bottom: 25px;\n    right: 25%;\n    width: 60px;\n    height: 60px;\n    background-color: ", ";\n    border-radius: 50%;\n"], ["\n    position: fixed;\n    bottom: 25px;\n    right: 25%;\n    width: 60px;\n    height: 60px;\n    background-color: ", ";\n    border-radius: 50%;\n"])), index_1.COLOR.MAIN);
+
+var templateObject_1, templateObject_2, templateObject_3, templateObject_4, templateObject_5;
 
 /***/ }),
 
@@ -5923,11 +6039,19 @@ var _index_1 = __webpack_require__(/*! ../lv1/_index */ "./resources/ts/componen
 
 var TextForm = react_1["default"].memo(function (_a) {
   var postTask = _a.postTask,
-      userID = _a.userID;
+      userID = _a.userID,
+      is_bottom = _a.is_bottom;
 
   var _b = react_1.useState(""),
       text = _b[0],
       setText = _b[1];
+
+  var inputElement = react_1.useRef(null);
+  react_1.useEffect(function () {
+    var _a;
+
+    is_bottom && ((_a = inputElement.current) === null || _a === void 0 ? void 0 : _a.focus()); // console.log(inputElement.current);
+  }, []);
 
   var handleChange = function handleChange(e) {
     setText(function () {
@@ -5940,7 +6064,8 @@ var TextForm = react_1["default"].memo(function (_a) {
     handleChange: handleChange,
     postTask: postTask,
     setText: setText,
-    userID: userID
+    userID: userID,
+    inputElement: inputElement
   }), react_1["default"].createElement(_index_1.SubmitButton, {
     text: text,
     postTask: postTask,
@@ -6027,7 +6152,16 @@ var __importDefault = this && this.__importDefault || function (mod) {
 Object.defineProperty(exports, "__esModule", ({
   value: true
 }));
-exports.WelcomeContent = exports.TextForm = exports.TaskCard = exports.RegisterPassword = exports.Modal = exports.LoginPassweord = exports.Header = exports.ColoredTags = void 0;
+exports.WelcomeContent = exports.TextForm = exports.TaskCard = exports.RegisterPassword = exports.Modal = exports.LoginPassweord = exports.Header = exports.ColoredTags = exports.BottomTextForm = void 0;
+
+var BottomTextForm_1 = __webpack_require__(/*! ./BottomTextForm */ "./resources/ts/components/lv2/BottomTextForm.tsx");
+
+Object.defineProperty(exports, "BottomTextForm", ({
+  enumerable: true,
+  get: function get() {
+    return __importDefault(BottomTextForm_1)["default"];
+  }
+}));
 
 var ColoredTags_1 = __webpack_require__(/*! ./ColoredTags */ "./resources/ts/components/lv2/ColoredTags.tsx");
 
@@ -7106,9 +7240,12 @@ var styled_components_1 = __importDefault(__webpack_require__(/*! styled-compone
 
 var customMedia_1 = __importDefault(__webpack_require__(/*! ../../styles/customMedia */ "./resources/ts/styles/customMedia.tsx"));
 
+var react_responsive_1 = __importDefault(__webpack_require__(/*! react-responsive */ "./node_modules/react-responsive/dist/react-responsive.js"));
+
 var index_1 = __webpack_require__(/*! ../../styles/index */ "./resources/ts/styles/index.tsx");
 
-var _index_1 = __webpack_require__(/*! ../lv2/_index */ "./resources/ts/components/lv2/_index.tsx");
+var _index_1 = __webpack_require__(/*! ../lv2/_index */ "./resources/ts/components/lv2/_index.tsx"); //prettier-ignore
+
 
 var reducer_1 = __webpack_require__(/*! ../../reducer/reducer */ "./resources/ts/reducer/reducer.tsx");
 
@@ -7225,10 +7362,12 @@ var TodoContent = function TodoContent(_a) {
       tasksEditState: tasksEditActive,
       tasksEditDispatch: dispatch
     }
-  }, react_1["default"].createElement(_Wrapper, null, react_1["default"].createElement(_TodoContent, null, react_1["default"].createElement(_index_1.TextForm, {
+  }, react_1["default"].createElement(_Wrapper, null, react_1["default"].createElement(_TodoContent, null, react_1["default"].createElement(react_responsive_1["default"], {
+    query: "(min-width: 599px)"
+  }, react_1["default"].createElement(_index_1.TextForm, {
     postTask: postTask,
     userID: userID
-  }), tasks.length === 0 && is_began === true ? react_1["default"].createElement(_index_1.WelcomeContent, null) : react_1["default"].createElement(_TaskCards, null, tasks.map(function (task, key) {
+  })), tasks.length === 0 && is_began === true ? react_1["default"].createElement(_index_1.WelcomeContent, null) : react_1["default"].createElement(_TaskCards, null, tasks.map(function (task, key) {
     i++;
     return react_1["default"].createElement(_index_1.TaskCard, {
       task: task,
@@ -7238,6 +7377,11 @@ var TodoContent = function TodoContent(_a) {
       i: i,
       key: key
     });
+  })), react_1["default"].createElement(react_responsive_1["default"], {
+    query: "(max-width: 598px)"
+  }, react_1["default"].createElement(_index_1.BottomTextForm, {
+    postTask: postTask,
+    userID: userID
   }))))));
 };
 
@@ -7245,7 +7389,7 @@ exports.default = TodoContent;
 
 var _TaskCards = styled_components_1["default"].div(templateObject_1 || (templateObject_1 = __makeTemplateObject(["\n    padding-top: 20px;\n"], ["\n    padding-top: 20px;\n"])));
 
-var _TodoContent = styled_components_1["default"].div(templateObject_5 || (templateObject_5 = __makeTemplateObject(["\n    max-width: 820px;\n    margin: 0 auto;\n    padding-top: 105px;\n    ", "\n    ", " \n    ", "\n"], ["\n    max-width: 820px;\n    margin: 0 auto;\n    padding-top: 105px;\n    ", "\n    ", " \n    ", "\n"])), customMedia_1["default"].lessThan("mobile")(templateObject_2 || (templateObject_2 = __makeTemplateObject(["\n    width: 99vw;\n    max-width:500px;\n    "], ["\n    width: 99vw;\n    max-width:500px;\n    "]))), customMedia_1["default"].between("mobile", "tablet")(templateObject_3 || (templateObject_3 = __makeTemplateObject(["\n    width: 84vw;\n    max-width: 710px;\n    "], ["\n    width: 84vw;\n    max-width: 710px;\n    "]))), customMedia_1["default"].greaterThan("tablet")(templateObject_4 || (templateObject_4 = __makeTemplateObject(["\n    width: 70vw;\n    "], ["\n    width: 70vw;\n    "]))));
+var _TodoContent = styled_components_1["default"].div(templateObject_5 || (templateObject_5 = __makeTemplateObject(["\n    max-width: 820px;\n    margin: 0 auto;\n    padding-top: 105px;\n    ", "\n    ", " \n    ", "\n"], ["\n    max-width: 820px;\n    margin: 0 auto;\n    padding-top: 105px;\n    ", "\n    ", " \n    ", "\n"])), customMedia_1["default"].lessThan("mobile")(templateObject_2 || (templateObject_2 = __makeTemplateObject(["\n    width: 99vw;\n    max-width:500px;\n    padding-top:70px;\n    "], ["\n    width: 99vw;\n    max-width:500px;\n    padding-top:70px;\n    "]))), customMedia_1["default"].between("mobile", "tablet")(templateObject_3 || (templateObject_3 = __makeTemplateObject(["\n    width: 84vw;\n    max-width: 710px;\n    "], ["\n    width: 84vw;\n    max-width: 710px;\n    "]))), customMedia_1["default"].greaterThan("tablet")(templateObject_4 || (templateObject_4 = __makeTemplateObject(["\n    width: 70vw;\n    "], ["\n    width: 70vw;\n    "]))));
 
 var _Wrapper = styled_components_1["default"].div(templateObject_6 || (templateObject_6 = __makeTemplateObject(["\n    min-height: 100vh;\n    height: 100%;\n    width: 100vw;\n    background-color: ", ";\n    padding-bottom: 7rem;\n"], ["\n    min-height: 100vh;\n    height: 100%;\n    width: 100vw;\n    background-color: ", ";\n    padding-bottom: 7rem;\n"])), index_1.COLOR.BASE);
 

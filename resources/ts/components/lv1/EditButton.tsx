@@ -40,7 +40,7 @@ const EditButton: React.VFC<Props> = ({
 
     return (
         <>
-            <MediaQuery query="(max-width: 599px)">
+            <MediaQuery query="(max-width: 598px)">
                 <EditIcon changeTaskTitle={changeTaskTitle} />
             </MediaQuery>
             <MediaQuery query="(min-width: 599px)">
