@@ -4,6 +4,7 @@ export const COLOR = {
     MAINBORDER: "rgb(110, 170, 238)",
     ACCENT: "#da6161",
     ACCENTBORDER: "#d65a5a",
+    HEADERFONTCOLOR: "#666d77",
 };
 
 export const FONT = {
