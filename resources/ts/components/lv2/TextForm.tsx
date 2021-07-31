@@ -1,7 +1,9 @@
 import React, { useState, useEffect, useRef } from "react";
 import styled from "styled-components";
 import customMedia from "../../styles/customMedia";
-import { InputText, SubmitButton } from "../lv1/_index";
+import { InputText } from "../lv1/_index";
+import { Button } from "../../styles/styledcomponents/BaseButtons";
+import { COLOR } from "../../styles";
 import { TaskAPI } from "../../types/_index";
 
 type Props = {
@@ -24,6 +26,12 @@ const TextForm: React.VFC<Props> = React.memo(
             setText(() => e.target.value);
         };
 
+        const data: TaskAPI = {
+            user_id: userID,
+            title: text,
+            is_done: false,
+        };
+
         return (
             <_TextForm>
                 <InputText
@@ -34,12 +42,16 @@ const TextForm: React.VFC<Props> = React.memo(
                     userID={userID}
                     inputElement={inputElement}
                 />
-                <SubmitButton
-                    text={text}
-                    postTask={postTask}
-                    setText={setText}
-                    userID={userID}
-                />
+                <_SubmitButton
+                    onClick={() => {
+                        postTask(data);
+                        setText("");
+                    }}
+                    backgroundColor={COLOR.MAIN}
+                    border={COLOR.MAINBORDER}
+                >
+                    追加
+                </_SubmitButton>
             </_TextForm>
         );
     }
@@ -56,4 +68,11 @@ const _TextForm = styled.div`
     ${customMedia.greaterThan("tablet")`
 
     `}
+`;
+
+const _SubmitButton = styled(Button)<{
+    backgroundColor: string;
+    border: string;
+}>`
+    margin-left: 7px;
 `;

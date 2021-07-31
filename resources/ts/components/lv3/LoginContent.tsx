@@ -58,14 +58,14 @@ const LoginContent: React.VFC<Props> = ({
                     onSubmit={handleSubmit(initCSRF)}
                     className="bg-white shadow w-full rounded-xl divide-y divide-gray-200 px-6 md:px-12 py-8"
                 >
-                    <title className="block font-bold text-center text-2xl sm:text-3xl pb-3">
+                    <h1 className="block font-bold text-center text-2xl sm:text-3xl pb-3">
                         ログイン
-                    </title>
+                    </h1>
                     <main className="py-5 sm:py-7">
                         <div className="pb-5">
-                            <h1 className="font-semibold text-gray-600 pb-1 block">
+                            <h2 className="font-semibold text-gray-600 pb-1 block">
                                 メールアドレス
-                            </h1>
+                            </h2>
                             <input
                                 {...register("email", {
                                     required: true,
@@ -90,9 +90,9 @@ const LoginContent: React.VFC<Props> = ({
                                 )}
                         </div>
                         <div className="pb-5">
-                            <h1 className="font-semibold text-gray-600 pb-1 block">
+                            <h2 className="font-semibold text-gray-600 pb-1 block">
                                 パスワード
-                            </h1>
+                            </h2>
                             <div className="w-full">
                                 <PasswordInputField register={register} />
                                 {errors.password && (

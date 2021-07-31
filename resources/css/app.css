@@ -29,9 +29,3 @@ body {
 .textShadow {
     text-shadow: 1px 1px 2px rgb(44, 130, 230);
 }
-
-.hover:hover {
-    color: white;
-    text-decoration: none;
-    opacity: 0.65;
-}
