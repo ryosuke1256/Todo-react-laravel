@@ -1,5 +1,12 @@
 import React from "react";
-import { LinkButton as Button } from "../lv1/LinkButton";
+import { LinkButton } from "../../styles/styledcomponents/BaseButtons";
+import styled from "styled-components";
+import { COLOR } from "../../styles/index";
+
+const Button = styled(LinkButton)`
+    margin-left: 30px;
+    font-weight: 600;
+`;
 
 const TopPageContent: React.VFC = () => {
     return (
@@ -13,23 +20,31 @@ const TopPageContent: React.VFC = () => {
                 </aside>
                 <div className="bg-white absolute top-0 left-0 w-full h-full">
                     <main className="w-full max-w-5xl inline-block pt-28 lg:pt-32">
-                        <title className="w-11/12 sm:w-9/12 xl:w-full inline-block text-2xl md:text-3xl xl:text-4xl text-gray-700 font-semibold block">
+                        <h1 className="w-11/12 sm:w-9/12 xl:w-full inline-block text-2xl md:text-3xl xl:text-4xl text-gray-700 font-semibold block">
                             <span className="pt-3 underLine">
                                 「はぴたす」はシンプルで使いやすくを意識して
                             </span>
                             <span className="xl:inline-block sm:pt-3 underLine">
                                 作成した「タスク管理ツール」です
                             </span>
-                        </title>
+                        </h1>
                         <article className="flex flex-col w-full md:flex-row pt-20 sm:pt-24 md:pt-40">
                             <section className="flex-nowrap w-full bg-opacity-10">
-                                <h1 className="text-yellow-800 text-xl sm:text-2xl md:text-3xl pb-5 font-medium">
+                                <p className="text-yellow-800 text-xl sm:text-2xl md:text-3xl pb-5 font-medium">
                                     タスク管理して生産性を上げよう!
-                                </h1>
-                                <Button to="/login" className="button hover">
+                                </p>
+                                <Button
+                                    to="/login"
+                                    backgroundColor={COLOR.ACCENT}
+                                    boxShadow={COLOR.ACCENTBORDER}
+                                >
                                     ログイン
                                 </Button>
-                                <Button to="/register" className="button hover">
+                                <Button
+                                    to="/register"
+                                    backgroundColor={COLOR.ACCENT}
+                                    boxShadow={COLOR.ACCENTBORDER}
+                                >
                                     新規登録
                                 </Button>
                             </section>
@@ -37,9 +52,9 @@ const TopPageContent: React.VFC = () => {
                     </main>
                     <article className="absolute top-520 md:top-650 left-0 w-full pb-12 bg-opacity-20">
                         <div className="w-11/12 2xl:w-10/12  inline-block">
-                            <title className="inline-block text-3xl text-blue-400 textShadow">
+                            <div className="inline-block text-3xl text-blue-400 textShadow">
                                 ABOUT.
-                            </title>
+                            </div>
                             <div className="flex flex-col lg:flex-row sm:px-12 md:px-20 lg:px-0">
                                 <img
                                     className="w-full lg:w-1/2 hidden sm:inline-block pt-12"

@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import axios from "axios";
 import styled from "styled-components";
 import customMedia from "../../styles/customMedia";
-import { COLOR, FONT } from "../../styles/index";
+import { COLOR, FONT } from "../../styles";
 import { Link } from "react-router-dom";
 import { User } from "../../types/User";
 

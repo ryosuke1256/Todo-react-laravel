@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import styled from "styled-components";
-import { COLOR } from "../../styles/index";
+import { COLOR } from "../../styles";
 import TextForm from "../../components/lv2/TextForm";
 import { TaskAPI } from "../../types/TaskAPI";
 

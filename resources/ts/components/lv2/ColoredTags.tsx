@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import { COLOR } from "../../styles/index";
+import { COLOR } from "../../styles";
 import { ColoredTag } from "../lv1/_index";
 import { Color } from "../../types/Color";
 

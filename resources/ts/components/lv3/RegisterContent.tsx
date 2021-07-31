@@ -4,6 +4,7 @@ import { Link, useHistory } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import RegisterPassword from "../lv2/RegisterPassword";
 import { RegisterData, LoginData } from "../../types/_index";
+import { FormErrorMessage as error } from "../../styles/tailwindcss/constant";
 
 type Props = {
     setIs_authenticated: (param: boolean) => void;
@@ -72,13 +73,13 @@ const RegisterContent: React.VFC<Props> = ({
                     onSubmit={handleSubmit(onSubmit)}
                     className="bg-white shadow w-full rounded-xl divide-y divide-gray-200 px-4 sm:px-12 md:px-16 py-3 sm:py-9 md:py-12"
                 >
-                    <title className="block font-bold text-center text-xl sm:text-3xl pb-2 ">
+                    <h2 className="block font-bold text-center text-xl sm:text-3xl pb-2 ">
                         新規登録
-                    </title>
+                    </h2>
                     <main className="py-2 sm:py-7">
-                        <h1 className="font-semibold text-sm text-gray-600 pb-1 block">
+                        <h2 className="font-semibold text-sm text-gray-600 pb-1 block">
                             名前
-                        </h1>
+                        </h2>
                         <input
                             {...register("name", {
                                 required: true,
@@ -92,18 +93,16 @@ const RegisterContent: React.VFC<Props> = ({
                             ✔︎ 1文字以上255字以下
                         </div>
                         {errors.name && errors.name.type === "required" && (
-                            <p className="pt-1 text-red-400 text-xs opacity-90">
-                                名前は必須です
-                            </p>
+                            <p className={error}>名前は必須です</p>
                         )}
                         {errors.name && errors.name.type === "maxLength" && (
-                            <p className="pt-1 text-red-400 text-xs opacity-90">
+                            <p className={error}>
                                 名前は255文字以下にしてください
                             </p>
                         )}
-                        <h1 className="font-semibold text-sm text-gray-600 pt-1 sm:pt-3 pb-1 block">
+                        <h2 className="font-semibold text-sm text-gray-600 pt-1 sm:pt-3 pb-1 block">
                             メールアドレス
-                        </h1>
+                        </h2>
                         <input
                             {...register("email", {
                                 required: true,
@@ -115,24 +114,22 @@ const RegisterContent: React.VFC<Props> = ({
                             className="border rounded-lg border-grey-light px-3 py-2 w-full block "
                         />
                         {errors.email && errors.email.type === "required" && (
-                            <p className="pt-1 text-red-400 text-xs opacity-90">
-                                メールアドレスは必須です
-                            </p>
+                            <p className={error}>メールアドレスは必須です</p>
                         )}
                         {errors.email && errors.email.type === "maxLength" && (
-                            <p className="pt-1 text-red-400 text-xs opacity-90">
+                            <p className={error}>
                                 メールアドレスは255文字以下にしてください
                             </p>
                         )}
                         {errors.email && errors.email.type === "pattern" && (
-                            <p className="pt-1 text-red-400 text-xs opacity-90">
+                            <p className={error}>
                                 メールアドレスの形式が不正です
                             </p>
                         )}
                         <div className="w-full">
-                            <h1 className="font-semibold text-sm text-gray-600 pt-1 sm:pt-3 pb-1 block">
+                            <h2 className="font-semibold text-sm text-gray-600 pt-1 sm:pt-3 pb-1 block">
                                 パスワード
-                            </h1>
+                            </h2>
                             <RegisterPassword
                                 register={register}
                                 category={"password"}
@@ -142,21 +139,21 @@ const RegisterContent: React.VFC<Props> = ({
                             </div>
                             {errors.password &&
                                 errors.password.type === "required" && (
-                                    <p className="pt-1 text-red-400 text-xs opacity-90">
+                                    <p className={error}>
                                         パスワードは必須です
                                     </p>
                                 )}
                             {errors.password &&
                                 errors.password.type === "minLength" && (
-                                    <p className="pt-1 text-red-400 text-xs opacity-90">
+                                    <p className={error}>
                                         パスワードは8文字以上にしてください
                                     </p>
                                 )}
                         </div>
                         <div className="w-full">
-                            <h1 className="font-semibold text-sm text-gray-600 pt-1 sm:pt-3 pb-1 block">
+                            <h2 className="font-semibold text-sm text-gray-600 pt-1 sm:pt-3 pb-1 block">
                                 確認パスワード
-                            </h1>
+                            </h2>
                             <RegisterPassword
                                 register={register}
                                 category={"password_confirmation"}
@@ -164,14 +161,14 @@ const RegisterContent: React.VFC<Props> = ({
                             {errors.password_confirmation &&
                                 errors.password_confirmation.type ===
                                     "required" && (
-                                    <p className="pt-1 text-red-400 text-xs opacity-90">
+                                    <p className={error}>
                                         確認のパスワードは必須です
                                     </p>
                                 )}
                             {errors.password_confirmation &&
                                 errors.password_confirmation.type ===
                                     "minLength" && (
-                                    <p className="pt-1 text-red-400 text-xs opacity-90">
+                                    <p className={error}>
                                         パスワードは8文字以上にしてください
                                     </p>
                                 )}

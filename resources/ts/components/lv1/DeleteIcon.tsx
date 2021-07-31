@@ -1,5 +1,5 @@
 import React from "react";
-import { COLOR } from "../../styles/index";
+import { COLOR } from "../../styles";
 
 type Props = {
     deleteTask: () => Promise<void>;

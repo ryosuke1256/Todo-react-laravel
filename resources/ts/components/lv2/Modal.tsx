@@ -5,6 +5,8 @@ import customMedia from "../../styles/customMedia";
 import { ColoredTag_Modal } from "../lv1/_index";
 import { TagAPI, Color, TaskAndColor } from "../../types/_index";
 import { changeUndefinedToFalse as chgFalse } from "../../utils/index";
+import { COLOR } from "../../styles/index";
+import { Button } from "../../styles/styledcomponents/BaseButtons";
 
 type Props = {
     hasModalOpened: boolean;
@@ -96,6 +98,7 @@ const Modal: React.VFC<Props> = ({hasModalOpened,selected_color,setHasModalOpene
                             checked_green:selected_color.green
                         })
                     }}
+                    backgroundColor={COLOR.MAIN}
                 >
                     閉じる
                 </_CloseButton>
@@ -151,10 +154,7 @@ const _TagColors = styled.div`
     justify-content: space-between;
 `;
 
-const _CloseButton = styled.div`
-    display: inline-block;
+const _CloseButton = styled(Button)`
     margin-top: 40px;
     padding: 10px;
-    border-radius: 10px;
-    background-color: #d6d6d6;
 `;
