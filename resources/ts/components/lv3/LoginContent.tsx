@@ -4,6 +4,7 @@ import { Link, useHistory } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import { LoginData } from "../../types/LoginData";
 import PasswordInputField from "../lv2/LoginPassword";
+import { FormErrorMessage as error } from "../../styles/tailwindcss/constant";
 require("../../../js/bootstrap");
 
 type Props = {
@@ -78,13 +79,13 @@ const LoginContent: React.VFC<Props> = ({
                             />
                             {errors.email &&
                                 errors.email.type === "required" && (
-                                    <p className="pt-1 text-red-400 text-sm opacity-90">
+                                    <p className={error}>
                                         メールアドレスは必須です
                                     </p>
                                 )}
                             {errors.email &&
                                 errors.email.type === "pattern" && (
-                                    <p className="pt-1 text-red-400 text-sm opacity-90">
+                                    <p className={error}>
                                         メールアドレスの形式が不正です
                                     </p>
                                 )}
@@ -96,7 +97,7 @@ const LoginContent: React.VFC<Props> = ({
                             <div className="w-full">
                                 <PasswordInputField register={register} />
                                 {errors.password && (
-                                    <p className="pt-1 text-red-400 text-sm opacity-90">
+                                    <p className={error}>
                                         パスワードは必須です
                                     </p>
                                 )}
