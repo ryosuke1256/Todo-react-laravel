@@ -4,6 +4,7 @@ import { Link, useHistory } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import { LoginData } from "../../types/LoginData";
 import PasswordInputField from "../lv2/LoginPassword";
+import { FormErrorMessage as error } from "../../styles/tailwindcss/constant";
 require("../../../js/bootstrap");
 
 type Props = {
@@ -58,14 +59,14 @@ const LoginContent: React.VFC<Props> = ({
                     onSubmit={handleSubmit(initCSRF)}
                     className="bg-white shadow w-full rounded-xl divide-y divide-gray-200 px-6 md:px-12 py-8"
                 >
-                    <title className="block font-bold text-center text-2xl sm:text-3xl pb-3">
+                    <h1 className="block font-bold text-center text-2xl sm:text-3xl pb-3">
                         ログイン
-                    </title>
+                    </h1>
                     <main className="py-5 sm:py-7">
                         <div className="pb-5">
-                            <h1 className="font-semibold text-gray-600 pb-1 block">
+                            <h2 className="font-semibold text-gray-600 pb-1 block">
                                 メールアドレス
-                            </h1>
+                            </h2>
                             <input
                                 {...register("email", {
                                     required: true,
@@ -78,25 +79,25 @@ const LoginContent: React.VFC<Props> = ({
                             />
                             {errors.email &&
                                 errors.email.type === "required" && (
-                                    <p className="pt-1 text-red-400 text-sm opacity-90">
+                                    <p className={error}>
                                         メールアドレスは必須です
                                     </p>
                                 )}
                             {errors.email &&
                                 errors.email.type === "pattern" && (
-                                    <p className="pt-1 text-red-400 text-sm opacity-90">
+                                    <p className={error}>
                                         メールアドレスの形式が不正です
                                     </p>
                                 )}
                         </div>
                         <div className="pb-5">
-                            <h1 className="font-semibold text-gray-600 pb-1 block">
+                            <h2 className="font-semibold text-gray-600 pb-1 block">
                                 パスワード
-                            </h1>
+                            </h2>
                             <div className="w-full">
                                 <PasswordInputField register={register} />
                                 {errors.password && (
-                                    <p className="pt-1 text-red-400 text-sm opacity-90">
+                                    <p className={error}>
                                         パスワードは必須です
                                     </p>
                                 )}

@@ -48,7 +48,8 @@ const ColoredTag_Modal: React.VFC<Props> = ({
     return (
         <>
             <_TagColor
-                onClick={() => {
+                onClick={(e) => {
+                    e.stopPropagation();
                     setIs_Selected((prevState) => !prevState);
                     changeColor();
                 }}
@@ -73,4 +74,8 @@ const _TagColor = styled.div<{
     margin-right: 20px;
     background-color: ${(props) => props.backgroundColor};
     border-radius: 30px;
+    cursor: pointer;
+    &:hover {
+        opacity: 0.6;
+    }
 `;

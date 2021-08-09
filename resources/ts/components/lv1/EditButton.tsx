@@ -1,8 +1,9 @@
 import React, { useContext } from "react";
 import { TasksEditActiveContext } from "../lv3/TodoContent";
-import { EditIcon, Button } from "./_index";
+import { EditIcon } from "./_index";
+import { TaskButton as _EditButton } from "../../styles/styledcomponents/TaskButton";
 import MediaQuery from "react-responsive";
-import { COLOR } from "../../styles/index";
+import { COLOR } from "../../styles";
 
 type Props = {
     editTask: (title: string) => Promise<void>;
@@ -44,12 +45,15 @@ const EditButton: React.VFC<Props> = ({
                 <EditIcon changeTaskTitle={changeTaskTitle} />
             </MediaQuery>
             <MediaQuery query="(min-width: 599px)">
-                <Button
-                    onClick={() => changeTaskTitle()}
+                <_EditButton
+                    onClick={(e) => {
+                        e.stopPropagation();
+                        changeTaskTitle();
+                    }}
                     backgroundColor={COLOR.MAIN}
                 >
                     {editButtonTitle}
-                </Button>
+                </_EditButton>
             </MediaQuery>
         </>
     );

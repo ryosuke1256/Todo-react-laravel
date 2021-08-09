@@ -7,16 +7,23 @@ type Props = {
     i: 0 | 1 | 2 | 3;
 };
 
-//prettier-ignore
 const ColoredTag: React.VFC<Props> = ({ selected_color, i }: Props) => {
     if (i === 0) {
-        return selected_color.red ? <_TagColor red={selected_color.red} /> : null;
+        return selected_color.red ? (
+            <_TagColor red={selected_color.red} />
+        ) : null;
     } else if (i === 1) {
-        return selected_color.blue ? <_TagColor blue={selected_color.blue} /> : null;
+        return selected_color.blue ? (
+            <_TagColor blue={selected_color.blue} />
+        ) : null;
     } else if (i === 2) {
-        return selected_color.yellow ? <_TagColor yellow={selected_color.yellow} /> : null;
+        return selected_color.yellow ? (
+            <_TagColor yellow={selected_color.yellow} />
+        ) : null;
     } else if (i === 3) {
-        return selected_color.green ? <_TagColor green={selected_color.green} /> : null;
+        return selected_color.green ? (
+            <_TagColor green={selected_color.green} />
+        ) : null;
     } else {
         return null;
     }

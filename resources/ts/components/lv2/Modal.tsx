@@ -5,6 +5,8 @@ import customMedia from "../../styles/customMedia";
 import { ColoredTag_Modal } from "../lv1/_index";
 import { TagAPI, Color, TaskAndColor } from "../../types/_index";
 import { changeUndefinedToFalse as chgFalse } from "../../utils/index";
+import { COLOR, FONT } from "../../styles/index";
+import { Button } from "../../styles/styledcomponents/BaseButtons";
 
 type Props = {
     hasModalOpened: boolean;
@@ -50,56 +52,65 @@ const Modal: React.VFC<Props> = ({hasModalOpened,selected_color,setHasModalOpene
         }
     }
 
+    const SubmitSelectedTag = () => {
+        setHasModalOpened(false);
+        tasks[i].hasDonePostTag? changeTag(selected_color): 
+        postTag({
+            task_id:taskID,
+            checked_red:selected_color.red,
+            checked_blue:selected_color.blue,
+            checked_yellow:selected_color.yellow,
+            checked_green:selected_color.green
+        })
+    }
+
     return (
-        <_BlackBackground>
-            <_Modal>
-                <div style={{ fontSize: "1.3rem",display:"inline-block" }}>タグの色を選択する</div>
-                <_TagColors>
-                    <ColoredTag_Modal
-                        backgroundColor={"rgba(255, 65, 51)"}
-                        selected_color={selected_color}
-                        setSelected_color={setSelected_color}
-                        initChecked={selected_color.red}
-                        i={0}
-                    />
-                    <ColoredTag_Modal
-                        backgroundColor={"rgba(51, 194, 255)"}
-                        selected_color={selected_color}
-                        setSelected_color={setSelected_color}
-                        initChecked={selected_color.blue}
-                        i={1}
-                    />
-                    <ColoredTag_Modal
-                        backgroundColor={"rgba(250, 250, 0)"}
-                        selected_color={selected_color}
-                        setSelected_color={setSelected_color}
-                        initChecked={selected_color.yellow}
-                        i={2}
-                    />
-                    <ColoredTag_Modal
-                        backgroundColor={"rgba(48, 255, 69)"}
-                        selected_color={selected_color}
-                        setSelected_color={setSelected_color}
-                        initChecked={selected_color.green}
-                        i={3}
-                    />
-                </_TagColors>
+        <_BlackBackground onClick={() => SubmitSelectedTag()}>
+            <_Center>
+                <_Modal onClick={(e)=>{e.stopPropagation()}}>
+                    <_Title>タグの色を選択する</_Title>
+                    <_TagColors>
+                        <ColoredTag_Modal
+                            backgroundColor={"rgba(255, 65, 51)"}
+                            selected_color={selected_color}
+                            setSelected_color={setSelected_color}
+                            initChecked={selected_color.red}
+                            i={0}
+                        />
+                        <ColoredTag_Modal
+                            backgroundColor={"rgba(51, 194, 255)"}
+                            selected_color={selected_color}
+                            setSelected_color={setSelected_color}
+                            initChecked={selected_color.blue}
+                            i={1}
+                        />
+                        <ColoredTag_Modal
+                            backgroundColor={"rgba(250, 250, 0)"}
+                            selected_color={selected_color}
+                            setSelected_color={setSelected_color}
+                            initChecked={selected_color.yellow}
+                            i={2}
+                        />
+                        <ColoredTag_Modal
+                            backgroundColor={"rgba(48, 255, 69)"}
+                            selected_color={selected_color}
+                            setSelected_color={setSelected_color}
+                            initChecked={selected_color.green}
+                            i={3}
+                        />
+                    </_TagColors>
                 <_CloseButton
-                    onClick={() => {
-                        setHasModalOpened(false);
-                        tasks[i].hasDonePostTag? changeTag(selected_color): 
-                        postTag({
-                            task_id:taskID,
-                            checked_red:selected_color.red,
-                            checked_blue:selected_color.blue,
-                            checked_yellow:selected_color.yellow,
-                            checked_green:selected_color.green
-                        })
+                    onClick={(e) => {
+                        e.stopPropagation();
+                        SubmitSelectedTag();
                     }}
+                    backgroundColor={'white'}
+                    border={'none'}
                 >
-                    閉じる
+                    ×
                 </_CloseButton>
-            </_Modal>
+                </_Modal>
+            </_Center>
         </_BlackBackground>
     );
 };
@@ -117,20 +128,26 @@ const _BlackBackground = styled.div`
     cursor: pointer;
 `;
 
-const _Modal = styled.div`
-    position: fixed;
+const _Center = styled.div`
+    position: absolute;
     left: 50%;
-    top: 50%;
-    transform: translate(-50%, -50%);
-    height: 500px;
-    width: 500px;
-    max-height: 500px;
-    max-width: 500px;
+    top: 50vh;
+    transform: translateY(-50%) translateX(-50%);
+    z-index: 600;
+`;
+
+const _Modal = styled.div`
+    position: relative;
+    height: 400px;
+    width: 400px;
+    max-height: 400px;
+    max-width: 400px;
     padding: 50px;
     background-color: #fff;
-    z-index: 1000;
     border-radius: 30px;
     text-align: center;
+    z-index: 500;
+    cursor: default;
     ${customMedia.lessThan("mobile")`
         height:70vh;
         width:95vw;
@@ -145,16 +162,29 @@ const _Modal = styled.div`
     `}
 `;
 
+const _Title = styled.div`
+    display: inline-block;
+    font-size: ${FONT.LARGE}px;
+`;
+
 const _TagColors = styled.div`
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
 `;
 
-const _CloseButton = styled.div`
-    display: inline-block;
-    margin-top: 40px;
-    padding: 10px;
-    border-radius: 10px;
-    background-color: #d6d6d6;
+const _CloseButton = styled(Button)`
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    height: 55px;
+    width: 55px;
+    text-align: center;
+    line-height: 49px;
+    color: ${COLOR.BASEFONTCOLOR};
+    font-size: 30px;
+    cursor: pointer;
+    &:hover {
+        opacity: 0.6;
+    }
 `;

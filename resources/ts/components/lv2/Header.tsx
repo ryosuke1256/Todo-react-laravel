@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import axios from "axios";
 import styled from "styled-components";
 import customMedia from "../../styles/customMedia";
-import { COLOR, FONT } from "../../styles/index";
+import { COLOR, FONT } from "../../styles";
 import { Link } from "react-router-dom";
 import { User } from "../../types/User";
 
@@ -36,7 +36,13 @@ const Header: React.VFC<Props> = ({
 
     return (
         <_Header>
-            <Link to="/" style={{ textDecoration: "none", flexGrow: 1 }}>
+            <Link
+                to="/"
+                onClick={() =>
+                    scrollTo({ top: 0, left: 0, behavior: "smooth" })
+                }
+                style={{ textDecoration: "none", flexGrow: 1 }}
+            >
                 <_TapableRange>
                     <img
                         src="./images/whale.png"
@@ -60,9 +66,17 @@ const Header: React.VFC<Props> = ({
                 >
                     {userName}▼
                     {is_show ? (
-                        <_List onClick={logout}>
-                            <_Logout>ログアウト</_Logout>
-                        </_List>
+                        <_Background
+                            onClick={(e) => {
+                                e.stopPropagation();
+                                e.preventDefault();
+                                setIs_show((prevState) => !prevState);
+                            }}
+                        >
+                            <_List onClick={logout}>
+                                <_Logout>ログアウト</_Logout>
+                            </_List>
+                        </_Background>
                     ) : null}
                 </_userName>
             ) : null}
@@ -71,6 +85,15 @@ const Header: React.VFC<Props> = ({
 };
 
 export default Header;
+
+const _Background = styled.div`
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    cursor: pointer;
+`;
 
 const _Header = styled.div`
     display: flex;
