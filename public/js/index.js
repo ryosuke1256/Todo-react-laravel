@@ -5762,7 +5762,7 @@ var TaskCard = react_1["default"].memo(function (_a) {
     query: "(min-width: 599px)"
   }, react_1["default"].createElement(TaskButton_1.TaskButton, {
     onClick: function onClick(e) {
-      e.stopPropagation;
+      e.stopPropagation();
       deleteTask();
       setIs_done(false);
     },

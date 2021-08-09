@@ -140,7 +140,7 @@ const TaskCard: React.VFC<Props> = React.memo(
                         <MediaQuery query="(min-width: 599px)">
                             <DeleteButton
                                 onClick={(e) => {
-                                    e.stopPropagation;
+                                    e.stopPropagation();
                                     deleteTask();
                                     setIs_done(false);
                                 }}
