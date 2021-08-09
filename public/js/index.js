@@ -3700,6 +3700,9 @@ var TaskTitle = function TaskTitle(_a) {
       onChange: function onChange(e) {
         return handleChange(e);
       },
+      onClick: function onClick(e) {
+        return e.stopPropagation();
+      },
       style: {
         flexGrow: 1,
         outline: "1px solid rgba(179, 179, 179,0.7)"
