@@ -109,7 +109,7 @@ const TaskCard: React.VFC<Props> = React.memo(
 
         return (
             <>
-                <_TaskCard>
+                <_TaskCard onClick={() => setHasModalOpened(true)}>
                     <_Wrapper>
                         <CheckBox is_done={is_done} checkTask={checkTask} />
                         <TaskTitle
@@ -139,7 +139,8 @@ const TaskCard: React.VFC<Props> = React.memo(
                         </MediaQuery>
                         <MediaQuery query="(min-width: 599px)">
                             <DeleteButton
-                                onClick={() => {
+                                onClick={(e) => {
+                                    e.stopPropagation;
                                     deleteTask();
                                     setIs_done(false);
                                 }}
@@ -179,6 +180,10 @@ const _TaskCard = styled.div`
     border-bottom: 0px;
     border-radius: 6px;
     background-color: rgb(254, 254, 254);
+    cursor: pointer;
+    &:hover {
+        background-color: #fafbfc;
+    }
     ${customMedia.lessThan("mobile")`
         padding:13px;
         border-top: 1px solid #deeaf1;

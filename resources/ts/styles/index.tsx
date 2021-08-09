@@ -5,6 +5,7 @@ export const COLOR = {
     ACCENT: "#da6161",
     ACCENTBORDER: "#d65a5a",
     HEADERFONTCOLOR: "#666d77",
+    BASEFONTCOLOR: "#212529",
 };
 
 export const FONT = {

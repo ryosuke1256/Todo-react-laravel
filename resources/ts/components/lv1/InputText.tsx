@@ -47,6 +47,7 @@ export default InputText;
 
 const _InputText = styled.input`
     font-size: 16px;
-    padding: 5px;
+    padding: 8px;
     border: 1px solid rgba(186, 186, 186, 0.7);
+    border-radius: 8px;
 `;
