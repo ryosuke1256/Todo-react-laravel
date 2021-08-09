@@ -2894,6 +2894,10 @@ var _index_1 = __webpack_require__(/*! ./components/lv2/_index */ "./resources/t
 var _index_2 = __webpack_require__(/*! ./components/lv3/_index */ "./resources/ts/components/lv3/_index.tsx"); //prettier-ignore
 
 
+var styled_components_1 = __webpack_require__(/*! styled-components */ "./node_modules/styled-components/dist/styled-components.browser.esm.js");
+
+var GlobalStyle_1 = __webpack_require__(/*! ../ts/styles/styledcomponents/GlobalStyle */ "./resources/ts/styles/styledcomponents/GlobalStyle.tsx");
+
 var App = function App() {
   var _a = react_1.useState(false),
       is_authenticated = _a[0],
@@ -2960,7 +2964,9 @@ var App = function App() {
     }
   };
 
-  return react_1["default"].createElement(react_1["default"].Fragment, null, react_1["default"].createElement(react_router_dom_1.BrowserRouter, null, react_1["default"].createElement(_index_1.Header, {
+  return react_1["default"].createElement(styled_components_1.ThemeProvider, {
+    theme: {}
+  }, react_1["default"].createElement(react_router_dom_1.BrowserRouter, null, react_1["default"].createElement(GlobalStyle_1.GlobalStyle, null), react_1["default"].createElement(_index_1.Header, {
     setIs_authenticated: setIs_authenticated,
     is_authenticated: is_authenticated,
     setUserData: setUserData,
@@ -3025,21 +3031,22 @@ var CheckBox = function CheckBox(_a) {
 
   var handleChange = function handleChange(e) {};
 
-  return react_1["default"].createElement(_CheckBox, null, react_1["default"].createElement("input", {
+  return react_1["default"].createElement(_CheckBox, {
     type: "checkbox",
-    onClick: function onClick() {
+    onClick: function onClick(e) {
+      e.stopPropagation();
       checkTask(is_done);
     },
     onChange: function onChange(e) {
       return handleChange(e);
     },
     checked: is_done
-  }));
+  });
 };
 
 exports.default = CheckBox;
 
-var _CheckBox = styled_components_1["default"].div(templateObject_1 || (templateObject_1 = __makeTemplateObject(["\n    padding-right: 5px;\n    transform: scale(1.5);\n"], ["\n    padding-right: 5px;\n    transform: scale(1.5);\n"])));
+var _CheckBox = styled_components_1["default"].input(templateObject_1 || (templateObject_1 = __makeTemplateObject(["\n    padding-right: 5px;\n    transform: scale(1.5);\n    cursor: pointer;\n"], ["\n    padding-right: 5px;\n    transform: scale(1.5);\n    cursor: pointer;\n"])));
 
 var templateObject_1;
 
@@ -3280,7 +3287,8 @@ var ColoredTag_Modal = function ColoredTag_Modal(_a) {
   };
 
   return react_1["default"].createElement(react_1["default"].Fragment, null, react_1["default"].createElement(_TagColor, {
-    onClick: function onClick() {
+    onClick: function onClick(e) {
+      e.stopPropagation();
       setIs_Selected(function (prevState) {
         return !prevState;
       });
@@ -3293,7 +3301,7 @@ var ColoredTag_Modal = function ColoredTag_Modal(_a) {
 
 exports.default = ColoredTag_Modal;
 
-var _TagColor = styled_components_1["default"].div(templateObject_1 || (templateObject_1 = __makeTemplateObject(["\n    height: 20px;\n    width: 80px;\n    margin-top: 30px;\n    margin-right: 20px;\n    background-color: ", ";\n    border-radius: 30px;\n"], ["\n    height: 20px;\n    width: 80px;\n    margin-top: 30px;\n    margin-right: 20px;\n    background-color: ", ";\n    border-radius: 30px;\n"])), function (props) {
+var _TagColor = styled_components_1["default"].div(templateObject_1 || (templateObject_1 = __makeTemplateObject(["\n    height: 20px;\n    width: 80px;\n    margin-top: 30px;\n    margin-right: 20px;\n    background-color: ", ";\n    border-radius: 30px;\n    cursor: pointer;\n    &:hover {\n        opacity: 0.6;\n    }\n"], ["\n    height: 20px;\n    width: 80px;\n    margin-top: 30px;\n    margin-right: 20px;\n    background-color: ", ";\n    border-radius: 30px;\n    cursor: pointer;\n    &:hover {\n        opacity: 0.6;\n    }\n"])), function (props) {
   return props.backgroundColor;
 });
 
@@ -3456,8 +3464,9 @@ var EditButton = function EditButton(_a) {
   })), react_1["default"].createElement(react_responsive_1["default"], {
     query: "(min-width: 599px)"
   }, react_1["default"].createElement(TaskButton_1.TaskButton, {
-    onClick: function onClick() {
-      return changeTaskTitle();
+    onClick: function onClick(e) {
+      e.stopPropagation();
+      changeTaskTitle();
     },
     backgroundColor: styles_1.COLOR.MAIN
   }, editButtonTitle)));
@@ -3591,7 +3600,7 @@ var InputText = function InputText(_a) {
 
 exports.default = InputText;
 
-var _InputText = styled_components_1["default"].input(templateObject_1 || (templateObject_1 = __makeTemplateObject(["\n    font-size: 16px;\n    padding: 5px;\n    border: 1px solid rgba(186, 186, 186, 0.7);\n"], ["\n    font-size: 16px;\n    padding: 5px;\n    border: 1px solid rgba(186, 186, 186, 0.7);\n"])));
+var _InputText = styled_components_1["default"].input(templateObject_1 || (templateObject_1 = __makeTemplateObject(["\n    font-size: 16px;\n    padding: 8px;\n    border: 1px solid rgba(186, 186, 186, 0.7);\n    border-radius: 8px;\n"], ["\n    font-size: 16px;\n    padding: 8px;\n    border: 1px solid rgba(186, 186, 186, 0.7);\n    border-radius: 8px;\n"])));
 
 var templateObject_1;
 
@@ -4283,8 +4292,6 @@ var react_1 = __importDefault(__webpack_require__(/*! react */ "./node_modules/r
 
 var styled_components_1 = __importDefault(__webpack_require__(/*! styled-components */ "./node_modules/styled-components/dist/styled-components.browser.esm.js"));
 
-var styles_1 = __webpack_require__(/*! ../../styles */ "./resources/ts/styles/index.tsx");
-
 var _index_1 = __webpack_require__(/*! ../lv1/_index */ "./resources/ts/components/lv1/_index.tsx");
 
 var ColoredTags = react_1["default"].memo(function (_a) {
@@ -4295,8 +4302,10 @@ var ColoredTags = react_1["default"].memo(function (_a) {
       green = selected_color.green;
 
   if (red === false && blue === false && yellow === false && green === false || red === undefined && blue === undefined && yellow === undefined && green === undefined) {
-    return react_1["default"].createElement(_PlusIcon, {
-      className: "fas fa-plus-circle fa-lg"
+    return react_1["default"].createElement("div", {
+      style: {
+        height: "10px"
+      }
     });
   } else {
     return react_1["default"].createElement(_ColoredTags, null, react_1["default"].createElement(_index_1.ColoredTag, {
@@ -4316,11 +4325,9 @@ var ColoredTags = react_1["default"].memo(function (_a) {
 });
 exports.default = ColoredTags;
 
-var _PlusIcon = styled_components_1["default"].i(templateObject_1 || (templateObject_1 = __makeTemplateObject(["\n    color: ", ";\n    opacity: 0.4;\n    cursor: pointer;\n"], ["\n    color: ", ";\n    opacity: 0.4;\n    cursor: pointer;\n"])), styles_1.COLOR.MAIN);
+var _ColoredTags = styled_components_1["default"].div(templateObject_1 || (templateObject_1 = __makeTemplateObject(["\n    display: flex;\n    flex-wrap: wrap;\n    height: 10px;\n"], ["\n    display: flex;\n    flex-wrap: wrap;\n    height: 10px;\n"])));
 
-var _ColoredTags = styled_components_1["default"].div(templateObject_2 || (templateObject_2 = __makeTemplateObject(["\n    display: flex;\n    flex-wrap: wrap;\n    height: 10px;\n    cursor: pointer;\n"], ["\n    display: flex;\n    flex-wrap: wrap;\n    height: 10px;\n    cursor: pointer;\n"])));
-
-var templateObject_1, templateObject_2;
+var templateObject_1;
 
 /***/ }),
 
@@ -4585,6 +4592,13 @@ var Header = function Header(_a) {
 
   return react_1["default"].createElement(_Header, null, react_1["default"].createElement(react_router_dom_1.Link, {
     to: "/",
+    onClick: function onClick() {
+      return scrollTo({
+        top: 0,
+        left: 0,
+        behavior: "smooth"
+      });
+    },
     style: {
       textDecoration: "none",
       flexGrow: 1
@@ -4605,26 +4619,36 @@ var Header = function Header(_a) {
         return !prevState;
       });
     }
-  }, userName, "\u25BC", is_show ? react_1["default"].createElement(_List, {
+  }, userName, "\u25BC", is_show ? react_1["default"].createElement(_Background, {
+    onClick: function onClick(e) {
+      e.stopPropagation();
+      e.preventDefault();
+      setIs_show(function (prevState) {
+        return !prevState;
+      });
+    }
+  }, react_1["default"].createElement(_List, {
     onClick: logout
-  }, react_1["default"].createElement(_Logout, null, "\u30ED\u30B0\u30A2\u30A6\u30C8")) : null) : null);
+  }, react_1["default"].createElement(_Logout, null, "\u30ED\u30B0\u30A2\u30A6\u30C8"))) : null) : null);
 };
 
 exports.default = Header;
 
-var _Header = styled_components_1["default"].div(templateObject_4 || (templateObject_4 = __makeTemplateObject(["\n    display: flex;\n    position: fixed;\n    z-index: 1000;\n    height: 60px;\n    width: 100vw;\n    padding: 8px 120px;\n    background-color: white;\n    opacity: 0.96;\n    box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075);\n    ", "\n    ", "\n    ", "\n"], ["\n    display: flex;\n    position: fixed;\n    z-index: 1000;\n    height: 60px;\n    width: 100vw;\n    padding: 8px 120px;\n    background-color: white;\n    opacity: 0.96;\n    box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075);\n    ", "\n    ", "\n    ", "\n"])), customMedia_1["default"].lessThan("mobile")(templateObject_1 || (templateObject_1 = __makeTemplateObject(["\n        padding: 8px 40px;\n    "], ["\n        padding: 8px 40px;\n    "]))), customMedia_1["default"].between("mobile", "tablet")(templateObject_2 || (templateObject_2 = __makeTemplateObject(["\n        padding: 8px 80px;\n    "], ["\n        padding: 8px 80px;\n    "]))), customMedia_1["default"].greaterThan("tablet")(templateObject_3 || (templateObject_3 = __makeTemplateObject(["\n    "], ["\n    "]))));
+var _Background = styled_components_1["default"].div(templateObject_1 || (templateObject_1 = __makeTemplateObject(["\n    position: fixed;\n    left: 0;\n    top: 0;\n    width: 100%;\n    height: 100%;\n    cursor: pointer;\n"], ["\n    position: fixed;\n    left: 0;\n    top: 0;\n    width: 100%;\n    height: 100%;\n    cursor: pointer;\n"])));
 
-var _TapableRange = styled_components_1["default"].div(templateObject_5 || (templateObject_5 = __makeTemplateObject([""], [""])));
+var _Header = styled_components_1["default"].div(templateObject_5 || (templateObject_5 = __makeTemplateObject(["\n    display: flex;\n    position: fixed;\n    z-index: 1000;\n    height: 60px;\n    width: 100vw;\n    padding: 8px 120px;\n    background-color: white;\n    opacity: 0.96;\n    box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075);\n    ", "\n    ", "\n    ", "\n"], ["\n    display: flex;\n    position: fixed;\n    z-index: 1000;\n    height: 60px;\n    width: 100vw;\n    padding: 8px 120px;\n    background-color: white;\n    opacity: 0.96;\n    box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075);\n    ", "\n    ", "\n    ", "\n"])), customMedia_1["default"].lessThan("mobile")(templateObject_2 || (templateObject_2 = __makeTemplateObject(["\n        padding: 8px 40px;\n    "], ["\n        padding: 8px 40px;\n    "]))), customMedia_1["default"].between("mobile", "tablet")(templateObject_3 || (templateObject_3 = __makeTemplateObject(["\n        padding: 8px 80px;\n    "], ["\n        padding: 8px 80px;\n    "]))), customMedia_1["default"].greaterThan("tablet")(templateObject_4 || (templateObject_4 = __makeTemplateObject(["\n    "], ["\n    "]))));
 
-var _Title = styled_components_1["default"].div(templateObject_6 || (templateObject_6 = __makeTemplateObject(["\n    display: inline-block;\n    color: ", ";\n    padding: 0.45rem 1rem;\n    font-size: ", "px;\n    font-family: \"arial unicode ms\";\n"], ["\n    display: inline-block;\n    color: ", ";\n    padding: 0.45rem 1rem;\n    font-size: ", "px;\n    font-family: \"arial unicode ms\";\n"])), styles_1.COLOR.HEADERFONTCOLOR, styles_1.FONT.LARGE);
+var _TapableRange = styled_components_1["default"].div(templateObject_6 || (templateObject_6 = __makeTemplateObject([""], [""])));
 
-var _userName = styled_components_1["default"].div(templateObject_7 || (templateObject_7 = __makeTemplateObject(["\n    line-height: 44px;\n    color: ", ";\n    cursor: pointer;\n"], ["\n    line-height: 44px;\n    color: ", ";\n    cursor: pointer;\n"])), styles_1.COLOR.HEADERFONTCOLOR);
+var _Title = styled_components_1["default"].div(templateObject_7 || (templateObject_7 = __makeTemplateObject(["\n    display: inline-block;\n    color: ", ";\n    padding: 0.45rem 1rem;\n    font-size: ", "px;\n    font-family: \"arial unicode ms\";\n"], ["\n    display: inline-block;\n    color: ", ";\n    padding: 0.45rem 1rem;\n    font-size: ", "px;\n    font-family: \"arial unicode ms\";\n"])), styles_1.COLOR.HEADERFONTCOLOR, styles_1.FONT.LARGE);
 
-var _List = styled_components_1["default"].div(templateObject_11 || (templateObject_11 = __makeTemplateObject(["\n    display: table;\n    text-align: center;\n    position: absolute;\n    top: 50px;\n    right: 100px;\n    height: 50px;\n    width: 150px;\n    background-color: white;\n    border: 1px solid #bbbbbb;\n    border-radius: 4px;\n    color: #5c5c5c;\n    cursor: pointer;\n    ", "\n    ", "\n    ", "\n"], ["\n    display: table;\n    text-align: center;\n    position: absolute;\n    top: 50px;\n    right: 100px;\n    height: 50px;\n    width: 150px;\n    background-color: white;\n    border: 1px solid #bbbbbb;\n    border-radius: 4px;\n    color: #5c5c5c;\n    cursor: pointer;\n    ", "\n    ", "\n    ", "\n"])), customMedia_1["default"].lessThan("mobile")(templateObject_8 || (templateObject_8 = __makeTemplateObject(["\n        right:30px;\n    "], ["\n        right:30px;\n    "]))), customMedia_1["default"].between("mobile", "tablet")(templateObject_9 || (templateObject_9 = __makeTemplateObject(["\n\n    "], ["\n\n    "]))), customMedia_1["default"].greaterThan("tablet")(templateObject_10 || (templateObject_10 = __makeTemplateObject(["\n    \n    "], ["\n    \n    "]))));
+var _userName = styled_components_1["default"].div(templateObject_8 || (templateObject_8 = __makeTemplateObject(["\n    line-height: 44px;\n    color: ", ";\n    cursor: pointer;\n"], ["\n    line-height: 44px;\n    color: ", ";\n    cursor: pointer;\n"])), styles_1.COLOR.HEADERFONTCOLOR);
 
-var _Logout = styled_components_1["default"].div(templateObject_12 || (templateObject_12 = __makeTemplateObject(["\n    display: table-cell;\n    vertical-align: middle;\n    &:hover {\n        opacity: 0.6;\n    }\n"], ["\n    display: table-cell;\n    vertical-align: middle;\n    &:hover {\n        opacity: 0.6;\n    }\n"])));
+var _List = styled_components_1["default"].div(templateObject_12 || (templateObject_12 = __makeTemplateObject(["\n    display: table;\n    text-align: center;\n    position: absolute;\n    top: 50px;\n    right: 100px;\n    height: 50px;\n    width: 150px;\n    background-color: white;\n    border: 1px solid #bbbbbb;\n    border-radius: 4px;\n    color: #5c5c5c;\n    cursor: pointer;\n    ", "\n    ", "\n    ", "\n"], ["\n    display: table;\n    text-align: center;\n    position: absolute;\n    top: 50px;\n    right: 100px;\n    height: 50px;\n    width: 150px;\n    background-color: white;\n    border: 1px solid #bbbbbb;\n    border-radius: 4px;\n    color: #5c5c5c;\n    cursor: pointer;\n    ", "\n    ", "\n    ", "\n"])), customMedia_1["default"].lessThan("mobile")(templateObject_9 || (templateObject_9 = __makeTemplateObject(["\n        right:30px;\n    "], ["\n        right:30px;\n    "]))), customMedia_1["default"].between("mobile", "tablet")(templateObject_10 || (templateObject_10 = __makeTemplateObject(["\n\n    "], ["\n\n    "]))), customMedia_1["default"].greaterThan("tablet")(templateObject_11 || (templateObject_11 = __makeTemplateObject(["\n    \n    "], ["\n    \n    "]))));
 
-var templateObject_1, templateObject_2, templateObject_3, templateObject_4, templateObject_5, templateObject_6, templateObject_7, templateObject_8, templateObject_9, templateObject_10, templateObject_11, templateObject_12;
+var _Logout = styled_components_1["default"].div(templateObject_13 || (templateObject_13 = __makeTemplateObject(["\n    display: table-cell;\n    vertical-align: middle;\n    &:hover {\n        opacity: 0.6;\n    }\n"], ["\n    display: table-cell;\n    vertical-align: middle;\n    &:hover {\n        opacity: 0.6;\n    }\n"])));
+
+var templateObject_1, templateObject_2, templateObject_3, templateObject_4, templateObject_5, templateObject_6, templateObject_7, templateObject_8, templateObject_9, templateObject_10, templateObject_11, templateObject_12, templateObject_13;
 
 /***/ }),
 
@@ -5042,12 +5066,26 @@ var Modal = function Modal(_a) {
     });
   };
 
-  return react_1["default"].createElement(_BlackBackground, null, react_1["default"].createElement(_Modal, null, react_1["default"].createElement("div", {
-    style: {
-      fontSize: "1.3rem",
-      display: "inline-block"
+  var SubmitSelectedTag = function SubmitSelectedTag() {
+    setHasModalOpened(false);
+    tasks[i].hasDonePostTag ? changeTag(selected_color) : postTag({
+      task_id: taskID,
+      checked_red: selected_color.red,
+      checked_blue: selected_color.blue,
+      checked_yellow: selected_color.yellow,
+      checked_green: selected_color.green
+    });
+  };
+
+  return react_1["default"].createElement(_BlackBackground, {
+    onClick: function onClick() {
+      return SubmitSelectedTag();
     }
-  }, "\u30BF\u30B0\u306E\u8272\u3092\u9078\u629E\u3059\u308B"), react_1["default"].createElement(_TagColors, null, react_1["default"].createElement(_index_1.ColoredTag_Modal, {
+  }, react_1["default"].createElement(_Center, null, react_1["default"].createElement(_Modal, {
+    onClick: function onClick(e) {
+      e.stopPropagation();
+    }
+  }, react_1["default"].createElement(_Title, null, "\u30BF\u30B0\u306E\u8272\u3092\u9078\u629E\u3059\u308B"), react_1["default"].createElement(_TagColors, null, react_1["default"].createElement(_index_1.ColoredTag_Modal, {
     backgroundColor: "rgba(255, 65, 51)",
     selected_color: selected_color,
     setSelected_color: setSelected_color,
@@ -5072,31 +5110,30 @@ var Modal = function Modal(_a) {
     initChecked: selected_color.green,
     i: 3
   })), react_1["default"].createElement(_CloseButton, {
-    onClick: function onClick() {
-      setHasModalOpened(false);
-      tasks[i].hasDonePostTag ? changeTag(selected_color) : postTag({
-        task_id: taskID,
-        checked_red: selected_color.red,
-        checked_blue: selected_color.blue,
-        checked_yellow: selected_color.yellow,
-        checked_green: selected_color.green
-      });
+    onClick: function onClick(e) {
+      e.stopPropagation();
+      SubmitSelectedTag();
     },
-    backgroundColor: index_2.COLOR.MAIN
-  }, "\u9589\u3058\u308B")));
+    backgroundColor: 'white',
+    border: 'none'
+  }, "\xD7"))));
 };
 
 exports.default = Modal;
 
 var _BlackBackground = styled_components_1["default"].div(templateObject_1 || (templateObject_1 = __makeTemplateObject(["\n    position: fixed;\n    left: 0;\n    top: 0;\n    width: 100%;\n    height: 100%;\n    background-color: rgba(116, 116, 116, 0.74);\n    z-index: 500;\n    cursor: pointer;\n"], ["\n    position: fixed;\n    left: 0;\n    top: 0;\n    width: 100%;\n    height: 100%;\n    background-color: rgba(116, 116, 116, 0.74);\n    z-index: 500;\n    cursor: pointer;\n"])));
 
-var _Modal = styled_components_1["default"].div(templateObject_5 || (templateObject_5 = __makeTemplateObject(["\n    position: fixed;\n    left: 50%;\n    top: 50%;\n    transform: translate(-50%, -50%);\n    height: 500px;\n    width: 500px;\n    max-height: 500px;\n    max-width: 500px;\n    padding: 50px;\n    background-color: #fff;\n    z-index: 1000;\n    border-radius: 30px;\n    text-align: center;\n    ", "\n    ", "\n    ", "\n"], ["\n    position: fixed;\n    left: 50%;\n    top: 50%;\n    transform: translate(-50%, -50%);\n    height: 500px;\n    width: 500px;\n    max-height: 500px;\n    max-width: 500px;\n    padding: 50px;\n    background-color: #fff;\n    z-index: 1000;\n    border-radius: 30px;\n    text-align: center;\n    ", "\n    ", "\n    ", "\n"])), customMedia_1["default"].lessThan("mobile")(templateObject_2 || (templateObject_2 = __makeTemplateObject(["\n        height:70vh;\n        width:95vw;\n        padding: 40px;\n    "], ["\n        height:70vh;\n        width:95vw;\n        padding: 40px;\n    "]))), customMedia_1["default"].between("mobile", "tablet")(templateObject_3 || (templateObject_3 = __makeTemplateObject(["\n        height:70vh;\n        width:83vw;\n    "], ["\n        height:70vh;\n        width:83vw;\n    "]))), customMedia_1["default"].greaterThan("tablet")(templateObject_4 || (templateObject_4 = __makeTemplateObject(["\n    \n    "], ["\n    \n    "]))));
+var _Center = styled_components_1["default"].div(templateObject_2 || (templateObject_2 = __makeTemplateObject(["\n    position: absolute;\n    left: 50%;\n    top: 50vh;\n    transform: translateY(-50%) translateX(-50%);\n    z-index: 600;\n"], ["\n    position: absolute;\n    left: 50%;\n    top: 50vh;\n    transform: translateY(-50%) translateX(-50%);\n    z-index: 600;\n"])));
 
-var _TagColors = styled_components_1["default"].div(templateObject_6 || (templateObject_6 = __makeTemplateObject(["\n    display: flex;\n    flex-wrap: wrap;\n    justify-content: space-between;\n"], ["\n    display: flex;\n    flex-wrap: wrap;\n    justify-content: space-between;\n"])));
+var _Modal = styled_components_1["default"].div(templateObject_6 || (templateObject_6 = __makeTemplateObject(["\n    position: relative;\n    height: 400px;\n    width: 400px;\n    max-height: 400px;\n    max-width: 400px;\n    padding: 50px;\n    background-color: #fff;\n    border-radius: 30px;\n    text-align: center;\n    z-index: 500;\n    cursor: default;\n    ", "\n    ", "\n    ", "\n"], ["\n    position: relative;\n    height: 400px;\n    width: 400px;\n    max-height: 400px;\n    max-width: 400px;\n    padding: 50px;\n    background-color: #fff;\n    border-radius: 30px;\n    text-align: center;\n    z-index: 500;\n    cursor: default;\n    ", "\n    ", "\n    ", "\n"])), customMedia_1["default"].lessThan("mobile")(templateObject_3 || (templateObject_3 = __makeTemplateObject(["\n        height:70vh;\n        width:95vw;\n        padding: 40px;\n    "], ["\n        height:70vh;\n        width:95vw;\n        padding: 40px;\n    "]))), customMedia_1["default"].between("mobile", "tablet")(templateObject_4 || (templateObject_4 = __makeTemplateObject(["\n        height:70vh;\n        width:83vw;\n    "], ["\n        height:70vh;\n        width:83vw;\n    "]))), customMedia_1["default"].greaterThan("tablet")(templateObject_5 || (templateObject_5 = __makeTemplateObject(["\n    \n    "], ["\n    \n    "]))));
 
-var _CloseButton = styled_components_1["default"](BaseButtons_1.Button)(templateObject_7 || (templateObject_7 = __makeTemplateObject(["\n    margin-top: 40px;\n    padding: 10px;\n"], ["\n    margin-top: 40px;\n    padding: 10px;\n"])));
+var _Title = styled_components_1["default"].div(templateObject_7 || (templateObject_7 = __makeTemplateObject(["\n    display: inline-block;\n    font-size: ", "px;\n"], ["\n    display: inline-block;\n    font-size: ", "px;\n"])), index_2.FONT.LARGE);
 
-var templateObject_1, templateObject_2, templateObject_3, templateObject_4, templateObject_5, templateObject_6, templateObject_7;
+var _TagColors = styled_components_1["default"].div(templateObject_8 || (templateObject_8 = __makeTemplateObject(["\n    display: flex;\n    flex-wrap: wrap;\n    justify-content: space-between;\n"], ["\n    display: flex;\n    flex-wrap: wrap;\n    justify-content: space-between;\n"])));
+
+var _CloseButton = styled_components_1["default"](BaseButtons_1.Button)(templateObject_9 || (templateObject_9 = __makeTemplateObject(["\n    position: absolute;\n    top: 10px;\n    right: 10px;\n    height: 55px;\n    width: 55px;\n    text-align: center;\n    line-height: 49px;\n    color: ", ";\n    font-size: 30px;\n    cursor: pointer;\n    &:hover {\n        opacity: 0.6;\n    }\n"], ["\n    position: absolute;\n    top: 10px;\n    right: 10px;\n    height: 55px;\n    width: 55px;\n    text-align: center;\n    line-height: 49px;\n    color: ", ";\n    font-size: 30px;\n    cursor: pointer;\n    &:hover {\n        opacity: 0.6;\n    }\n"])), index_2.COLOR.BASEFONTCOLOR);
+
+var templateObject_1, templateObject_2, templateObject_3, templateObject_4, templateObject_5, templateObject_6, templateObject_7, templateObject_8, templateObject_9;
 
 /***/ }),
 
@@ -5690,7 +5727,11 @@ var TaskCard = react_1["default"].memo(function (_a) {
     });
   };
 
-  return react_1["default"].createElement(react_1["default"].Fragment, null, react_1["default"].createElement(_TaskCard, null, react_1["default"].createElement(_Wrapper, null, react_1["default"].createElement(_index_2.CheckBox, {
+  return react_1["default"].createElement(react_1["default"].Fragment, null, react_1["default"].createElement(_TaskCard, {
+    onClick: function onClick() {
+      return setHasModalOpened(true);
+    }
+  }, react_1["default"].createElement(_Wrapper, null, react_1["default"].createElement(_index_2.CheckBox, {
     is_done: is_done,
     checkTask: checkTask
   }), react_1["default"].createElement(_index_2.TaskTitle, {
@@ -5720,7 +5761,8 @@ var TaskCard = react_1["default"].memo(function (_a) {
   }))), react_1["default"].createElement(react_responsive_1["default"], {
     query: "(min-width: 599px)"
   }, react_1["default"].createElement(TaskButton_1.TaskButton, {
-    onClick: function onClick() {
+    onClick: function onClick(e) {
+      e.stopPropagation;
       deleteTask();
       setIs_done(false);
     },
@@ -5747,7 +5789,7 @@ var TaskCard = react_1["default"].memo(function (_a) {
 });
 exports.default = TaskCard;
 
-var _TaskCard = styled_components_1["default"].div(templateObject_4 || (templateObject_4 = __makeTemplateObject(["\n    border: 1px solid #d4e0e7;\n    padding: 10px 10px 8px 10px;\n    border-bottom: 0px;\n    border-radius: 6px;\n    background-color: rgb(254, 254, 254);\n    ", "\n    ", "\n    ", "\n"], ["\n    border: 1px solid #d4e0e7;\n    padding: 10px 10px 8px 10px;\n    border-bottom: 0px;\n    border-radius: 6px;\n    background-color: rgb(254, 254, 254);\n    ", "\n    ", "\n    ", "\n"])), customMedia_1["default"].lessThan("mobile")(templateObject_1 || (templateObject_1 = __makeTemplateObject(["\n        padding:13px;\n        border-top: 1px solid #deeaf1;\n        border-bottom: 1px solid #deeaf1;\n        border-right: 0px;\n        border-left: 0px;\n    "], ["\n        padding:13px;\n        border-top: 1px solid #deeaf1;\n        border-bottom: 1px solid #deeaf1;\n        border-right: 0px;\n        border-left: 0px;\n    "]))), customMedia_1["default"].between("mobile", "tablet")(templateObject_2 || (templateObject_2 = __makeTemplateObject(["\n\n    "], ["\n\n    "]))), customMedia_1["default"].greaterThan("tablet")(templateObject_3 || (templateObject_3 = __makeTemplateObject(["\n    \n    "], ["\n    \n    "]))));
+var _TaskCard = styled_components_1["default"].div(templateObject_4 || (templateObject_4 = __makeTemplateObject(["\n    border: 1px solid #d4e0e7;\n    padding: 10px 10px 8px 10px;\n    border-bottom: 0px;\n    border-radius: 6px;\n    background-color: rgb(254, 254, 254);\n    cursor: pointer;\n    &:hover {\n        background-color: #fafbfc;\n    }\n    ", "\n    ", "\n    ", "\n"], ["\n    border: 1px solid #d4e0e7;\n    padding: 10px 10px 8px 10px;\n    border-bottom: 0px;\n    border-radius: 6px;\n    background-color: rgb(254, 254, 254);\n    cursor: pointer;\n    &:hover {\n        background-color: #fafbfc;\n    }\n    ", "\n    ", "\n    ", "\n"])), customMedia_1["default"].lessThan("mobile")(templateObject_1 || (templateObject_1 = __makeTemplateObject(["\n        padding:13px;\n        border-top: 1px solid #deeaf1;\n        border-bottom: 1px solid #deeaf1;\n        border-right: 0px;\n        border-left: 0px;\n    "], ["\n        padding:13px;\n        border-top: 1px solid #deeaf1;\n        border-bottom: 1px solid #deeaf1;\n        border-right: 0px;\n        border-left: 0px;\n    "]))), customMedia_1["default"].between("mobile", "tablet")(templateObject_2 || (templateObject_2 = __makeTemplateObject(["\n\n    "], ["\n\n    "]))), customMedia_1["default"].greaterThan("tablet")(templateObject_3 || (templateObject_3 = __makeTemplateObject(["\n    \n    "], ["\n    \n    "]))));
 
 var _Wrapper = styled_components_1["default"].div(templateObject_5 || (templateObject_5 = __makeTemplateObject(["\n    display: flex;\n    align-items: center;\n"], ["\n    display: flex;\n    align-items: center;\n"])));
 
@@ -7465,7 +7507,8 @@ exports.COLOR = {
   MAINBORDER: "rgb(110, 170, 238)",
   ACCENT: "#da6161",
   ACCENTBORDER: "#d65a5a",
-  HEADERFONTCOLOR: "#666d77"
+  HEADERFONTCOLOR: "#666d77",
+  BASEFONTCOLOR: "#212529"
 };
 exports.FONT = {
   LARGE: 20
@@ -7520,6 +7563,41 @@ exports.LinkButton = styled_components_1["default"](react_router_dom_1.Link)(tem
   return props.boxShadow;
 });
 var templateObject_1, templateObject_2;
+
+/***/ }),
+
+/***/ "./resources/ts/styles/styledcomponents/GlobalStyle.tsx":
+/*!**************************************************************!*\
+  !*** ./resources/ts/styles/styledcomponents/GlobalStyle.tsx ***!
+  \**************************************************************/
+/***/ (function(__unused_webpack_module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var __makeTemplateObject = this && this.__makeTemplateObject || function (cooked, raw) {
+  if (Object.defineProperty) {
+    Object.defineProperty(cooked, "raw", {
+      value: raw
+    });
+  } else {
+    cooked.raw = raw;
+  }
+
+  return cooked;
+};
+
+Object.defineProperty(exports, "__esModule", ({
+  value: true
+}));
+exports.GlobalStyle = void 0;
+
+var styled_components_1 = __webpack_require__(/*! styled-components */ "./node_modules/styled-components/dist/styled-components.browser.esm.js");
+
+var index_1 = __webpack_require__(/*! ../index */ "./resources/ts/styles/index.tsx");
+
+exports.GlobalStyle = styled_components_1.createGlobalStyle(templateObject_1 || (templateObject_1 = __makeTemplateObject(["\n    body {\n        color: ", ";\n        font-family: \"Nunito\", sans-serif;\n        height: 100%;\n        width: 100%;\n        margin: 0;\n        font-weight: 400;\n        line-height: 1.6;\n        text-align: left;\n    }\n    ul {\n        list-style: none;\n        padding: 0;\n    }\n    a {\n        text-decoration: none;\n        color: ", ";\n    }\n    .underLine {\n        background: linear-gradient(transparent 70%, rgba(255, 192, 56, 0.3) 0%);\n    }\n\n    .underLineBlue {\n        background: linear-gradient(transparent 70%, rgba(29, 170, 252, 0.3) 0%);\n    }   \n\n    .underLineYellow {\n        background: linear-gradient(transparent 70%, rgba(255, 238, 0, 0.3) 0%);\n    }\n\n    .textShadow {\n        text-shadow: 1px 1px 2px rgb(44, 130, 230);\n    }\n"], ["\n    body {\n        color: ", ";\n        font-family: \"Nunito\", sans-serif;\n        height: 100%;\n        width: 100%;\n        margin: 0;\n        font-weight: 400;\n        line-height: 1.6;\n        text-align: left;\n    }\n    ul {\n        list-style: none;\n        padding: 0;\n    }\n    a {\n        text-decoration: none;\n        color: ", ";\n    }\n    .underLine {\n        background: linear-gradient(transparent 70%, rgba(255, 192, 56, 0.3) 0%);\n    }\n\n    .underLineBlue {\n        background: linear-gradient(transparent 70%, rgba(29, 170, 252, 0.3) 0%);\n    }   \n\n    .underLineYellow {\n        background: linear-gradient(transparent 70%, rgba(255, 238, 0, 0.3) 0%);\n    }\n\n    .textShadow {\n        text-shadow: 1px 1px 2px rgb(44, 130, 230);\n    }\n"])), index_1.COLOR.BASEFONTCOLOR, index_1.COLOR.BASEFONTCOLOR);
+var templateObject_1;
 
 /***/ }),
 

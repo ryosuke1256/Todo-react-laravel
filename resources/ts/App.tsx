@@ -3,6 +3,8 @@ import axios from "axios";
 import { BrowserRouter as Router, Switch, Route, Redirect } from "react-router-dom"; //prettier-ignore
 import { Header } from "./components/lv2/_index";
 import { LoginContent,RegisterContent,TodoContent,TopPageContent } from "./components/lv3/_index"; //prettier-ignore
+import { ThemeProvider } from "styled-components";
+import { GlobalStyle } from "../ts/styles/styledcomponents/GlobalStyle";
 
 type User = {
     userID: number | null;
@@ -54,8 +56,9 @@ const App: React.VFC = () => {
     };
 
     return (
-        <>
+        <ThemeProvider theme={{}}>
             <Router>
+                <GlobalStyle />
                 <Header
                     setIs_authenticated={setIs_authenticated}
                     is_authenticated={is_authenticated}
@@ -80,7 +83,7 @@ const App: React.VFC = () => {
                     </Route>
                 </Switch>
             </Router>
-        </>
+        </ThemeProvider>
     );
 };
 

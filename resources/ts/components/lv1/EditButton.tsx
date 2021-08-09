@@ -46,7 +46,10 @@ const EditButton: React.VFC<Props> = ({
             </MediaQuery>
             <MediaQuery query="(min-width: 599px)">
                 <_EditButton
-                    onClick={() => changeTaskTitle()}
+                    onClick={(e) => {
+                        e.stopPropagation();
+                        changeTaskTitle();
+                    }}
                     backgroundColor={COLOR.MAIN}
                 >
                     {editButtonTitle}
