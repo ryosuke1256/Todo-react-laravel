@@ -10,7 +10,8 @@ const DeleteIcon = ({ deleteTask, setIs_done }: Props) => {
     return (
         <div style={{ paddingTop: "7px" }}>
             <svg
-                onClick={() => {
+                onClick={(e) => {
+                    e.stopPropagation();
                     deleteTask();
                     setIs_done(false);
                 }}

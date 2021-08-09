@@ -3340,7 +3340,8 @@ var DeleteIcon = function DeleteIcon(_a) {
       paddingTop: "7px"
     }
   }, react_1["default"].createElement("svg", {
-    onClick: function onClick() {
+    onClick: function onClick(e) {
+      e.stopPropagation();
       deleteTask();
       setIs_done(false);
     },
@@ -3506,8 +3507,9 @@ var EditIcon = function EditIcon(_a) {
       paddingTop: "7px"
     }
   }, react_1["default"].createElement("svg", {
-    onClick: function onClick() {
-      return changeTaskTitle();
+    onClick: function onClick(e) {
+      e.stopPropagation();
+      changeTaskTitle();
     },
     "aria-hidden": "true",
     focusable: "false",

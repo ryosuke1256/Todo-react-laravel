@@ -9,7 +9,10 @@ const EditIcon = ({ changeTaskTitle }: Props) => {
     return (
         <div style={{ paddingTop: "7px" }}>
             <svg
-                onClick={() => changeTaskTitle()}
+                onClick={(e) => {
+                    e.stopPropagation();
+                    changeTaskTitle();
+                }}
                 aria-hidden="true"
                 focusable="false"
                 data-prefix="fas"
