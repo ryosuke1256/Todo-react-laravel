@@ -40,6 +40,8 @@
 
 OS 　 : Amazon Linux
 
+**注) サーバー費用が高いのでインフラ環境をAmazon Lightsailに変更しました🙇‍♂️ 2023/03/01~**
+
 ## 設計
 
 -   [Docs](https://github.com/ryosuke1256/Todo-react-laravel/tree/develop/docs)
